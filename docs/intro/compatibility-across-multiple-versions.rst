@@ -12,7 +12,7 @@ For even more precise version checking, a plug-in can run a script using `AEGP_E
   app.version - e.g. 11.0.1x12
   app.buildNumber - e.g. 12.
 
----
+----
 
 API Versions
 ================================================================================

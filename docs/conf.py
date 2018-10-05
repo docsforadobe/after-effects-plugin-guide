@@ -26,7 +26,7 @@ release = u'1.0.0'
 
 pygments_style = 'sphinx'
 
-highlight_language = "javascript"
+highlight_language = "c++"
 
 # -- Options for HTML output ----------------------------------------------
 

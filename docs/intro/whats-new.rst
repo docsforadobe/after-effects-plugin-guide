@@ -5,7 +5,7 @@ What's New
 
 If this is your first time developing an After Effects plug-in, you can skip the What’s New section and go directly to `How to Start Creating Plug-ins <#how-to-start-creating-plug-ins>`__.
 
----
+----
 
 What's New In 15.0?
 ================================================================================
@@ -26,14 +26,14 @@ The new AEGP Math Suite provides helpful calls for matrix multiplication.
 
 The application font is now Adobe Clean. Previously, the fonts used in After Effects’ UI were Tahoma on Windows and Lucida Grande on macOS X. This is a proprietary font, and we can not make it available for use in your UI.
 
----
+----
 
 What's New In CC 2019 (16.0)?
 ================================================================================
 
 We’ve made some changes to how GPU effects are handled. See “GPU Effects Changes” for details.
 
----
+----
 
 What's New In CC 2017.1 (14.2)?
 ================================================================================
@@ -62,28 +62,28 @@ PF_AdvTimeSuite is now at version 3, providing a revised `PF_GetTimeDisplayPref 
 
 Comp Suite is now at version 11, with a new call, `AEGP_ReorderCompSelection <#_bookmark583>`__\ (), to move a selection to a certain layer index. It should be used along with AEGP_SetSelection().
 
----
+----
 
 What's New In CC 2017 (14.1)?
 ================================================================================
 
 Unicode support for `AEGP Item Suite <#_bookmark569>`__ and `AEGP Render Queue Item Suite <#_bookmark707>`__.
 
----
+----
 
 What's New In CC 2017 (14.0)?
 ================================================================================
 
 The GLator sample is back! It has been updated to demonstrate proper OpenGL context management in an effect plug-in.
 
----
+----
 
 What's New In CC 2015.3 (13.8)?
 ================================================================================
 
 PF_OutFlag_I_AM_OBSOLETE is now supported in Premiere Pro. Also, effect custom UI in Premiere Pro now supports high DPI displays, such as Retina Displays.
 
----
+----
 
 What's New In CC 2015 (13.6)?
 ================================================================================
@@ -92,7 +92,7 @@ New AEGP Item View Suite. This provides a way to get playback time for item view
 
 AEGP_RenderNewItemSoundData() has been reworked and provides functionality similar to 13.2.
 
----
+----
 
 What's New In CC 2015 (13.5.1)?
 ================================================================================
@@ -101,7 +101,7 @@ This release fixes some audio APIs that broke in 13.5 due to threading changes. 
 
 To avoid a deadlock, in PF_Cmd_UPDATE_PARAMS_UI only, AEGP_RenderNewItemSoundData() will now return silence. This will no longer function as before in this context, but it will continue to work properly elsewhere.
 
----
+----
 
 What's New In CC 2015 (13.5)?
 ================================================================================
@@ -267,7 +267,7 @@ AEGP_RenderAndCheckoutLayerFrame_Async() AEGP_CancelAsyncRequest()
 
 This APIs are in progress, and should not be used yet.
 
----
+----
 
 What's New In CC 2014.1 (13.1)?
 ================================================================================
@@ -276,7 +276,7 @@ PF_CreateNewAppProgressDialog()
 
 It won't open the dialog unless it detects a slow render. (2 seconds timeout).
 
----
+----
 
 What's New In CC 2014 (13.0)?
 ================================================================================
@@ -291,7 +291,7 @@ layer with effects applied at non-render time. This is useful for an operation t
 
 `Mercury Transmit <#_bookmark18>`__ plug-ins and `HTML5 Panels <#_bookmark15>`__ are now supported.
 
----
+----
 
 What's New In CC (12.0)?
 ================================================================================
@@ -314,14 +314,14 @@ The behavior for `AEGP_NewPlaceholderFootageWithPath <#_bookmark588>`__ has been
 
 `AEGP_IOInSuite <#_bookmark813>`__ is now at version 5, adding new functions to get/set/clear the native start time, and to get/set the drop-frame setting of footage.
 
----
+----
 
 What's New In CS6.0.1 (11.0.1)?
 ================================================================================
 
 New in 11.0.1, the AE effect API version has been incremented to 13.3. This allows effects to distinguish between 11.0 and 11.0.1. There is a bug in 11.0 with the Global Performance Cache, when a SmartFX effect uses both `PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT <#_bookmark183>`__ & `PF_OutFlag_NON_PARAM_VARY <#_bookmark152>`__. Calling `checkout_layer <#_bookmark410>`__ during PF_Cmd_SMART_PRE_RENDER returns empty rects in PF_CheckoutResult. The workaround is to simply make the call again. This workaround is no longer needed in 11.0.1.
 
----
+----
 
 What's New In CS6 (11.0)?
 ================================================================================
@@ -358,7 +358,7 @@ Finally, we have added two new read-only `Dynamic Stream <#_bookmark641>`__ flag
 
 For effects running in Premiere Pro CS6, we have added the ability to get 32-bit float and YUV frames from `PF_CHECKOUT_PARAM <#_bookmark840>`__.
 
----
+----
 
 ...and what was new before CS6?
 ================================================================================

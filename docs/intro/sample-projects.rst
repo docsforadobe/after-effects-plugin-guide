@@ -9,7 +9,7 @@ In the sample projects, we’ve kept the code as simple as possible. A showy imp
 
 After the break, we explain how to build the sample projects, so keep reading below!
 
----
+----
 
 Sample Project Descriptions
 ================================================================================
@@ -98,30 +98,40 @@ Sample Project Descriptions
 | EMP                    | External Monitor Preview. Use this as a starting point for adding support to output video from the composition panel to video hardware.                                                                                                                                                                                                                                                                                                                                                                |
 +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
----
+----
 
 Building The Sample Projects
 ================================================================================
 
 We’ve combined the sample projects into a single master project, stored in the Examples folder of the SDK. For macOS, it is Buildall.xcodeproj; for Windows, it is BuildAll.sln.
 
-In your IDE, you’ll need to change the output folder of your project to build into After Effects’ plug-in folder. For development, we recommend using the following path for macOS:
+In your IDE, you’ll need to change the output folder of your project to build into After Effects’ plug-in folder.
 
-/Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/
+For development, we recommend using the following path for macOS::
+
+  /Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/
 
 Version is locked at 7.0 for all CC versions, or CSx for earlier versions.
 
-for example: /Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/
+for example::
 
-or: /Library/Application Support/Adobe/Common/Plug-ins/CS6/MediaCore/
+  /Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/
 
-and the following path for Windows:
+or::
 
-[Program Files]\Adobe\Common\Plug-ins\[version]\MediaCore\\
+  /Library/Application Support/Adobe/Common/Plug-ins/CS6/MediaCore/
 
-for example: C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\\
+and the following path for Windows::
 
-or: C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\\
+  [Program Files]\Adobe\Common\Plug-ins\[version]\MediaCore\\
+
+for example::
+
+  C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\\
+
+or::
+
+  C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\\
 
 Note that this Windows path is only recommended for development purposes. Windows installers should follow the guidelines `here <#where-installers-should-put-plug-ins>`__.
 

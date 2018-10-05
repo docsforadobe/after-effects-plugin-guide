@@ -26,8 +26,6 @@ Welcome to the Adobe After Effects CC SDK Guide!
   intro/exceptions
   intro/where-installers-should-put-plug-ins
   intro/localization
-
-
   intro/next-steps
 
 .. toctree::

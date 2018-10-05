@@ -9,7 +9,7 @@ This SDK guide assumes you understand After Effects from a user’s perspective,
 
 topics such as alpha channels, pixel aspect ratio, interlacing, color spaces, and more for After Effects.
 
----
+----
 
 Development Requirements
 ================================================================================

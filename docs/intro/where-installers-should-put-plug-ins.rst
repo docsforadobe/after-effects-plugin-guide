@@ -1,6 +1,6 @@
 .. _intro/where-installers-should-put-plug-ins:
 
-WHERE INSTALLERS SHOULD PUT PLUG-INS
+Where Installers Should Put Plug-ins
 ################################################################################
 
 Installing your plug-ins in the common location will allow them to be loaded by Premiere Pro, if installed.
@@ -19,7 +19,7 @@ Version is locked at 7.0 for all CC versions, or CSx for earlier versions. For e
 
 Do not use macOS aliases or Windows shortcuts, as these are not traversed by Premiere Pro.
 
----
+----
 
 Do I Have To Install The Plug-ins To The Common Folder?
 ================================================================================

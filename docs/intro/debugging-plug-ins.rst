@@ -22,7 +22,7 @@ On macOS:
 3) Under Run, in the Info tab, for Executable, choose the host application the plug-ins will be running in (this may be After Effects or Premiere Pro)
 4) From there you can either hit the Play button to build and run the current scheme, or you can launch the application and later at any point choose Debug > Attach to Process.
 
----
+----
 
 Deleting Preferences
 ================================================================================

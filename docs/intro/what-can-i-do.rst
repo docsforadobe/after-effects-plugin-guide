@@ -5,7 +5,7 @@ What Can I Do With This SDK?
 
 This SDK describes the Application Programming Interface (API) that developers use to build plug-ins. These plug-ins can extend the capabilities of After Effects and other applications that support the After Effects API. Plug-ins may also be used to bridge the gap between After Effects and another application.
 
----
+----
 
 What Plug-Ins Can I Build With This SDK?
 ================================================================================
@@ -24,7 +24,7 @@ See a quickstart video on building an effect (on macOS): `adobe.ly/2sjMDwM <http
 
 Didn’t see the type of integration you need described above? After Effects is very flexible, and there are several `other ways to integrate with After Effects <#other-integration-possibilities>`__.
 
----
+----
 
 Where Do Plug-ins Appear In After Effects?
 ================================================================================
@@ -41,7 +41,7 @@ It can registered to be called by After Effects to update the menu with ``AEGP_R
 
 Artisans appear in the *Rendering Plug-in* drop-down in the *Advanced* tab of the *Composition Settings* dialog.
 
----
+----
 
 How Does After Effects Interact With Plug-ins?
 ================================================================================
@@ -56,7 +56,7 @@ After Effects General Plug-ins (AEGPs) have their entry point function called du
 
 For BlitHook plug-ins, frames are pushed as they're displayed in the Composition panel. Users can initiate a RAM preview on an area of the timeline so that it is rendered to RAM, and then it all gets played out at full speed.
 
----
+----
 
 SDK Contents
 ================================================================================
