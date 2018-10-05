@@ -3,14 +3,32 @@ Welcome to the Adobe After Effects CC SDK Guide!
 
 .. toctree::
   :maxdepth: 1
+  :caption: About
+
+  about
+  history
+
+.. toctree::
+  :maxdepth: 1
   :caption: Introduction
 
-  introduction/whatIsScripting
-  introduction/changelog
-  introduction/scriptingLanguageSupport
-  introduction/viewingSampleScripts
-  introduction/viewingTheObjectModel
-  introduction/executingScripts
+  intro/intro
+  intro/what-can-i-do
+  intro/other-integration-possibilities
+  intro/sdk-audience
+  intro/whats-new
+  intro/how-to-start-creating-plug-ins
+  intro/sample-projects
+  intro/debugging-plug-ins
+  intro/compatibility-across-multiple-versions
+  intro/third-party-plug-in-hosts
+  intro/pipl-resources
+  intro/exceptions
+  intro/where-installers-should-put-plug-ins
+  intro/localization
+
+
+  intro/next-steps
 
 .. toctree::
   :maxdepth: 1
