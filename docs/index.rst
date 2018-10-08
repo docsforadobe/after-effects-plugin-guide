@@ -30,70 +30,14 @@ Welcome to the Adobe After Effects CC SDK Guide!
 
 .. toctree::
   :maxdepth: 1
-  :caption: Illustrator Scripting Object Model
+  :caption: Effect Basics
 
-  objectmodel/objectModel
-  objectmodel/objectNamingConventions
-  objectmodel/topLevelObjects
-  objectmodel/theArtworkTree
-  objectmodel/textObjects
-  objectmodel/dynamic
-  objectmodel/symbols
-  objectmodel/transformations
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Scripting Illustrator
-
-  scripting/launching
-  scripting/workingWithObjects
-  scripting/measurementUnits
-  scripting/positioning
-  scripting/pathsShapes
-  scripting/userInteractionLevels
-  scripting/printingDocuments
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Scripting with AppleScript
-
-  scriptingApplescript/forMoreInfo
-  scriptingApplescript/yourFirstScript
-  scriptingApplescript/objectReferences
-  scriptingApplescript/workingWithTextFrames
-  scriptingApplescript/creatingPathsShapes
-  scriptingApplescript/perspectiveGrid
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Scripting with JavaScript
-
-  scriptingJavascript/forMoreInfo
-  scriptingJavascript/yourFirstScript
-  scriptingJavascript/workingWithMethods
-  scriptingJavascript/objectReferences
-  scriptingJavascript/workingWithTextFrames
-  scriptingJavascript/creatingPathsShapes
-  scriptingJavascript/perspectiveGrid
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Scripting with VBScript
-
-  scriptingVBScript/forMoreInfo
-  scriptingVBScript/yourFirstScript
-  scriptingVBScript/objectReferences
-  scriptingVBScript/workingWithTextFrames
-  scriptingVBScript/creatingPathsShapes
-  scriptingVBScript/enumerationValues
-  scriptingVBScript/perspectiveGrid
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Javascript Object Reference
-
-  jsobjref/scripting-constants
-  jsobjref/javascript-object-reference
-
-  jsobjref/Application
-  jsobjref/Words
+  effect-basics/effect-basics
+  effect-basics/entry-point
+  effect-basics/command-selectors
+  effect-basics/PF_InData
+  effect-basics/PF_OutData
+  effect-basics/parameters
+  effect-basics/PF_ParamDef
+  effect-basics/PF_EffectWorld
+  effect-basics/errors
