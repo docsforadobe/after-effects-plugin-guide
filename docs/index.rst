@@ -41,3 +41,41 @@ Welcome to the Adobe After Effects CC SDK Guide!
   effect-basics/PF_ParamDef
   effect-basics/PF_EffectWorld
   effect-basics/errors
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Effect Details
+
+  effect-details/effect-details
+  effect-details/accessing-function-suites
+  effect-details/memory-allocation
+  effect-details/image-buffer-management-functions
+  effect-details/iteration-suites
+  effect-details/graphics-utility-suites
+
+  effect-details/interaction-callback-functions
+  effect-details/pixel-aspect-ratio
+  effect-details/parameters-floating-point-values
+  effect-details/parameter-supervision
+  effect-details/global-sequence-frame-data
+  effect-details/arbitrary-data-parameters
+  effect-details/useful-utility-functions
+  effect-details/motion-blur
+  effect-details/working-with-paths
+  effect-details/accessing-camera-light-information
+  effect-details/color-space-conversion
+  effect-details/changing-parameter-orders
+  effect-details/tips-tricks
+
+
+
+.. todo::
+
+  - initial conversion
+  - links & anchors
+  - all table styling
+    - tables bold
+    - code bits in ``x``
+    - all example code bits in tables preformatted
+  - line breaks where appropriate
+  - remove any 'page X' or 'chapter X' in favour of links
