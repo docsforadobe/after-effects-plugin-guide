@@ -64,7 +64,7 @@ During PF_Cmd_SMART_RENDER_GPU, PF_LayerDef will be filled out the same as it is
 Rowbytes In PF_EffectWorlds
 ================================================================================
 
-Don't assume that you can get to the next scanline of a `PF_EffectWorld <#_bookmark231>`__ using (width \* sizeof(current_pixel_type)) + 4, or whatever; use the PF_EffectWorld’s `rowbytes <#_bookmark235>`__ instead. Never write outside the indicated region of a PF_EffectWorld; this can corrupt cached image buffers that don't belong to you.
+Don't assume that you can get to the next scanline of a `PF_EffectWorld <#_bookmark231>`__ using ``(width * sizeof(current_pixel_type)) + 4``, or whatever; use the PF_EffectWorld’s `rowbytes <#_bookmark235>`__ instead. Never write outside the indicated region of a PF_EffectWorld; this can corrupt cached image buffers that don't belong to you.
 
 To test whether your effects are honoring the PF_EffectWorld>\ `rowbytes <#_bookmark235>`__, apply the Grow Bounds effect *after* your effect. The output buffer will have larger rowbytes than the input (though it will still have the same logical size).
 
@@ -97,28 +97,28 @@ PF_PixelPtr Accessor Macros
 |                     | ::                                                                                                                                                                                                                                                                                                                        |
 |                     |                                                                                                                                                                                                                                                                                                                           |
 |                     |   PF_GET_PIXEL_DATA16 (                                                                                                                                                                                                                                                                                                   |
-|                     |     PF_EffectWorld \*wP,                                                                                                                                                                                                                                                                                                  |
+|                     |     PF_EffectWorld wP,                                                                                                                                                                                                                                                                                                    |
 |                     |     PF_PixelPtr    pP0,                                                                                                                                                                                                                                                                                                   |
-|                     |     PF_Pixel16     \**outPP);                                                                                                                                                                                                                                                                                             |
+|                     |     PF_Pixel16     *outPP);                                                                                                                                                                                                                                                                                               |
 +---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | PF_GET_PIXEL_DATA8  | Obtain a pointer to a 8-bpc pixel within the specified world. The returned pixel pointer will be NULL if the world is not 8- bpc. The second parameter is optional; if it is not NULL, the returned pixel will be an interpretation of the values in the passed-in pixel, as if it were in the specified PF_EffectWorld.  |
 |                     |                                                                                                                                                                                                                                                                                                                           |
 |                     | ::                                                                                                                                                                                                                                                                                                                        |
 |                     |                                                                                                                                                                                                                                                                                                                           |
 |                     |   PF_GET_PIXEL_DATA8 (                                                                                                                                                                                                                                                                                                    |
-|                     |     PF_EffectWorld \*wP,                                                                                                                                                                                                                                                                                                  |
+|                     |     PF_EffectWorld wP,                                                                                                                                                                                                                                                                                                    |
 |                     |     PF_PixelPtr    pP0,                                                                                                                                                                                                                                                                                                   |
-|                     |     PF_Pixel8      \**outPP);                                                                                                                                                                                                                                                                                             |
+|                     |     PF_Pixel8      *outPP);                                                                                                                                                                                                                                                                                               |
 +---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 `Think of <#_bookmark243>`__ PF_GET_PIXEL_DATA16 and `PF_GET_PIXEL_DATA8 <#_bookmark244>`__ as safe (ahem) casting routines.
 
-The code required is actually very simple to get a PF_Pixel16\* out of the PF_EffectWorld output::
+The code required is actually very simple to get a ``PF_Pixel16*`` out of the PF_EffectWorld output::
 
   {
-  PF_Pixel16 \*deep_pixelP = NULL;
-  PF_Err     err = PF_Err_NONE;
-  err = PF_GET_PIXEL_DATA16(output, NULL, &deep_pixelP);
+    PF_Pixel16 *deep_pixelP = NULL;
+    PF_Err     err = PF_Err_NONE;
+    err = PF_GET_PIXEL_DATA16(output, NULL, &deep_pixelP);
   }
 
 This returns deep_pixelP as NULL if the world does not have deep pixels.

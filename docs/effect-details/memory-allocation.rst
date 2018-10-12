@@ -57,5 +57,5 @@ PF_HandleSuite1
 |                          | ::                                                                                                                 |
 |                          |                                                                                                                    |
 |                          |   PF_Err (*host_resize_handle)(                                                                                    |
-|                          |     A_HandleSize new_sizeL, PF_Handle \*handlePH);                                                                 |
+|                          |     A_HandleSize new_sizeL, PF_Handle *handlePH);                                                                  |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------+
