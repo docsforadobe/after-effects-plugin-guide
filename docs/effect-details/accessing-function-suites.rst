@@ -18,7 +18,7 @@ Behind the scenes, these both of these methods acquire PICA function suites usin
 ----
 
 Suite Versions
-################################################################################
+================================================================================
 
 WhizBangSuite1 may provide a Foobar() function which takes two arguments, and WhizBangSuite2>Foobar() may take three. Though each new version of a suite supercedes the old one, feel free to acquire multiple versions of the same suite; we never remove or alter previously shipped suites.
 
@@ -27,6 +27,6 @@ When unsure of the capabilities of the plug-in host (no third party host besides
 ----
 
 Threading
-################################################################################
+================================================================================
 
 Unless documented otherwise, assume that any function provided by our suites is not thread-safe. For example, only your plug-in’s main thread should do anything that modifies the user interface.

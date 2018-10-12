@@ -52,7 +52,6 @@ Welcome to the Adobe After Effects CC SDK Guide!
   effect-details/image-buffer-management-functions
   effect-details/iteration-suites
   effect-details/graphics-utility-suites
-
   effect-details/interaction-callback-functions
   effect-details/pixel-aspect-ratio
   effect-details/parameters-floating-point-values
@@ -66,16 +65,3 @@ Welcome to the Adobe After Effects CC SDK Guide!
   effect-details/color-space-conversion
   effect-details/changing-parameter-orders
   effect-details/tips-tricks
-
-
-
-.. todo::
-
-  - initial conversion
-  - links & anchors
-  - all table styling
-    - tables bold
-    - code bits in ``x``
-    - all example code bits in tables preformatted
-  - line breaks where appropriate
-  - remove any 'page X' or 'chapter X' in favour of links
