@@ -65,3 +65,9 @@ Welcome to the Adobe After Effects CC SDK Guide!
   effect-details/color-space-conversion
   effect-details/changing-parameter-orders
   effect-details/tips-tricks
+
+.. toctree::
+  :maxdepth: 1
+  :caption: SmartFX
+
+  smartfx/smartfx
