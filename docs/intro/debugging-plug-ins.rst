@@ -31,10 +31,6 @@ During the course of developing a plug-in, your plug-in may pass settings inform
 
 You may delete the preferences and restart After Effects with a clean slate by holding down Ctrl-Alt-Shift / Cmd-Opt-Shift during launch.
 
-On Windows, the preferences are stored here::
+On Windows, the preferences are stored here: ``[user folder]\AppData\Roaming\Adobe\After Effects\[version]\Adobe After Effects [version]-x64 Prefs.txt``
 
-  [user folder]\AppData\Roaming\Adobe\After Effects\[version]\Adobe After Effects [version]-x64 Prefs.txt
-
-On macOS, they are stored here::
-
-  ~/Library/Preferences/Adobe/After Effects/[version]/Adobe After Effects [version]-x64 Prefs
+On macOS, they are stored here: ``~/Library/Preferences/Adobe/After Effects/[version]/Adobe After Effects [version]-x64 Prefs``

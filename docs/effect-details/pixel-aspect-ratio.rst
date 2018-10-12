@@ -29,7 +29,9 @@ Suggested Approach
 
 The simplest way to get all of this right is to work entirely in full resolution square coordinates, then scale by downsample factor and pixel aspect ratio as a final output transformation. Since point parameters are always reported in input buffer coordinates, convert them to full-resolution square coordinates before use. With this approach you don't need to worry about sliders which define a size in pixels; just interpret them as defining size in full-resolution vertical pixels.
 
-1) When getting your point parameters, go immediately to floating point and a full resolution square pixel system, like this::
+1) When getting your point parameters, go immediately to floating point and a full resolution square pixel system, like this.
+
+::
 
   x *= in_data>pixel_aspect_ratio.num / (float)in_data>pixel_aspect_ratio.den;
   x *= in_data>downsample_x.den / (float)in_data>downsample_x.num;

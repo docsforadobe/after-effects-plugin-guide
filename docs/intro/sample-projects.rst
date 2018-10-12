@@ -107,31 +107,19 @@ We’ve combined the sample projects into a single master project, stored in the
 
 In your IDE, you’ll need to change the output folder of your project to build into After Effects’ plug-in folder.
 
-For development, we recommend using the following path for macOS::
-
-  /Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/
+For development, we recommend using the following path for macOS: ``/Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/``
 
 Version is locked at 7.0 for all CC versions, or CSx for earlier versions.
 
-for example::
+for example: ``/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/``
 
-  /Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/
+or: ``/Library/Application Support/Adobe/Common/Plug-ins/CS6/MediaCore/``
 
-or::
+and the following path for Windows: ``[Program Files]\Adobe\Common\Plug-ins\[version]\MediaCore\``
 
-  /Library/Application Support/Adobe/Common/Plug-ins/CS6/MediaCore/
+for example: ``C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\``
 
-and the following path for Windows::
-
-  [Program Files]\Adobe\Common\Plug-ins\[version]\MediaCore\\
-
-for example::
-
-  C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\\
-
-or::
-
-  C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\\
+or: ``C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\``
 
 Note that this Windows path is only recommended for development purposes. Windows installers should follow the guidelines `here <#where-installers-should-put-plug-ins>`__.
 
