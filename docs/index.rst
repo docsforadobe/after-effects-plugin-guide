@@ -82,3 +82,14 @@ Welcome to the Adobe After Effects CC SDK Guide!
   effect-ui-events/custom-ui-and-drawbot
   effect-ui-events/ui-callbacks
   effect-ui-events/tips-and-tricks
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Audio
+
+  audio/audio
+  audio/global-outflags
+  audio/audio-data-structures
+  audio/audio-specific-float-slider-variables
+  audio/accessing-audio-data
+  audio/audio-considerations
