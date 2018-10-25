@@ -80,6 +80,5 @@ Welcome to the Adobe After Effects CC SDK Guide!
   effect-ui-events/PF_EventExtra
   effect-ui-events/PF_EventUnion
   effect-ui-events/custom-ui-and-drawbot
-
   effect-ui-events/ui-callbacks
   effect-ui-events/tips-and-tricks
