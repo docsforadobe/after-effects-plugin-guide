@@ -93,3 +93,17 @@ Welcome to the Adobe After Effects CC SDK Guide!
   audio/audio-specific-float-slider-variables
   audio/accessing-audio-data
   audio/audio-considerations
+
+.. toctree::
+  :maxdepth: 1
+  :caption: AEGPs
+
+  aegps/aegps
+  aegps/whats-new
+  aegps/overview
+  aegps/data-types
+  aegps/implementation
+
+  aegps/aegp-suites
+  aegps/cheating-effect-usage-of-aegp-suites
+  aegps/aegp-details
