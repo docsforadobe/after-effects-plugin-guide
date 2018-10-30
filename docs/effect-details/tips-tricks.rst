@@ -8,7 +8,7 @@ Best Practices
 
 If your prototypes are anything like ours, the first version of your plug-in that runs without crashing differs radically from the version that actually ships.
 
-How your plug-in responds to things like downsampling, errors and exceptions, pixel aspect ratio, out-of-memory situations, and being interrupted while processing determines how usable it is (and how many support requests you’ll have to handle).
+How your plug-in responds to things like downsampling, errors and exceptions, pixel aspect ratio, out-of-memory situations, and being interrupted while processing determines how usable it is (and how many support requests you'll have to handle).
 
 ----
 
@@ -17,25 +17,25 @@ Responsiveness
 
 Make your plug-ins as responsive as possible using `PF_ABORT() <#_bookmark284>`__ and `PF_PROGRESS() <#_bookmark286>`__.
 
-We actually test all our effects for interruptability; you’d be surprised how cranky users can get waiting for your pokey effect to finish processing a film resolution sequence!
+We actually test all our effects for interruptability; you'd be surprised how cranky users can get waiting for your pokey effect to finish processing a film resolution sequence!
 
-After Effects’ iteration functions inherently provide this functionality; you don’t need to worry about calling the above functions from within your pixel processing functions.
+After Effects' iteration functions inherently provide this functionality; you don't need to worry about calling the above functions from within your pixel processing functions.
 
 ----
 
 Make Your Effect Easy To Find
 ================================================================================
 
-It’s possible to have your effect show up in the "Effects & Presets" palette when users search for something other than the plug-in’s name. Apply your effect (leaving the settings at default, unless you’re very certain the user will want something different when they search for the given term), and select "Save selection as animation preset" from the effect controls palette.
+It's possible to have your effect show up in the "Effects & Presets" palette when users search for something other than the plug-in's name. Apply your effect (leaving the settings at default, unless you're very certain the user will want something different when they search for the given term), and select "Save selection as animation preset" from the effect controls palette.
 
-Save it to the name by which you want users to find the plug-in. Have your plug-in’s installer put the resultant .ffx file into the \\Presets directory, next to the After Effects executable. Your preset will show up when users search for the name to which it was saved.
+Save it to the name by which you want users to find the plug-in. Have your plug-in's installer put the resultant .ffx file into the \\Presets directory, next to the After Effects executable. Your preset will show up when users search for the name to which it was saved.
 
 ----
 
 Sampling Pixels At (x,y)
 ================================================================================
 
-Sometimes, instead of just processing every pixel, you’ll want to get to a specific offset within the input frame. Below is one way to sample the pixel at a given (x,y) location; similar code could be used to write to the given location.
+Sometimes, instead of just processing every pixel, you'll want to get to a specific offset within the input frame. Below is one way to sample the pixel at a given (x,y) location; similar code could be used to write to the given location.
 
 ::
 
@@ -81,7 +81,7 @@ Look at where the default anchor point location is. The transform is not at the 
 Clean Slate
 ================================================================================
 
-You don’t necessarily begin effect processing with a clean output slate. Our Gaussian blur filter, in an effort to do so, performs the following before rendering:
+You don't necessarily begin effect processing with a clean output slate. Our Gaussian blur filter, in an effort to do so, performs the following before rendering:
 
 ::
 
@@ -105,14 +105,14 @@ After Effects provides numerous ways to specify caching behavior. `PF_OutFlag_NO
 
 Supporting `dynamic outflags <#_bookmark172>`__ can greatly improve performance, preventing After Effects from invalidating your effect's cache as aggressively as it otherwise would.
 
-Confirm that your plug-in performs well with different After Effects cache settings. Does your plug-in get called to update as often as expected, or does After Effects think it has valid pixels when you think it doesn’t?
+Confirm that your plug-in performs well with different After Effects cache settings. Does your plug-in get called to update as often as expected, or does After Effects think it has valid pixels when you think it doesn't?
 
 ----
 
 Global Performance Cache Consideratons
 ================================================================================
 
-With the new caching in CS6, you may need to clear cached frames after changing your effect’s rendering, so that frames rendered and stored in the cache prior to the change will not be reused. To do so manually during development:
+With the new caching in CS6, you may need to clear cached frames after changing your effect's rendering, so that frames rendered and stored in the cache prior to the change will not be reused. To do so manually during development:
 
 1) In Preferences > Media & Disk Cache, disable the Disk Cache
 2) Click "Empty Disk Cache" just to be sure (disabling the Disk Cache in step 1 only disables the *writing* of disk cache, not necessarily the usage)
@@ -120,7 +120,7 @@ With the new caching in CS6, you may need to clear cached frames after changing 
 
 If you ever encounter a glitch, it likely a legitimate bug in your effect, such as improper rectangle handling in SmartFX.
 
-On the other hand, if you fix a rendering bug in your plug-in and ship an update, you can’t expect all users will empty their disk caches. A user may have a disk cache of the buggy frame and it needs to be invalidated. What to do? Update your plug-in's effect version. This value (and the AE build number) is part of the cache key, so if you update it any frames cached containing content from your plug-in will no longer match.
+On the other hand, if you fix a rendering bug in your plug-in and ship an update, you can't expect all users will empty their disk caches. A user may have a disk cache of the buggy frame and it needs to be invalidated. What to do? Update your plug-in's effect version. This value (and the AE build number) is part of the cache key, so if you update it any frames cached containing content from your plug-in will no longer match.
 
 ----
 

@@ -3,7 +3,7 @@
 Basic Host Differences
 ################################################################################
 
-We’ve tried to provide robust compatibility for After Effects effect plug-ins in Premiere Pro.
+We've tried to provide robust compatibility for After Effects effect plug-ins in Premiere Pro.
 
 There are underlying differences in the render pipeline that lead to differences, and we realize the API implementation may not be perfect.
 
@@ -62,7 +62,7 @@ PF_InData
 
 Premiere Pro handles field rendering differently than After Effects. While field rendering, PF_InData>field gives the current field being rendered, ignoring whether or not PF_OutFlag_PIX_INDEPENDENT flag was set.
 
-In Premiere Pro, effects receive the quality setting of the monitor window in `PF_InData>quality <#_bookmark119>`__. This differs from After Effects, where the source layer’s quality setting is provided here.
+In Premiere Pro, effects receive the quality setting of the monitor window in `PF_InData>quality <#_bookmark119>`__. This differs from After Effects, where the source layer's quality setting is provided here.
 
 ----
 

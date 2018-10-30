@@ -5,9 +5,9 @@ About this Document
 
 This document has changed much over the years. Part encyclopedia, part how-to guide, with multiple sedimentary layers of accreted information from more than two decades of API development and refinement.
 
-Yes, there does need to be one source of information about every last niggling detail of the After Effects APIs. However, since no human in their right mind would ever want to *read* such a document, we’ve tried to keep it involving and interesting.
+Yes, there does need to be one source of information about every last niggling detail of the After Effects APIs. However, since no human in their right mind would ever want to *read* such a document, we've tried to keep it involving and interesting.
 
-As opportunity allows, we’ll try to include more diagrams, illustrations, and purdy pickshurs explaining API intricacies.
+As opportunity allows, we'll try to include more diagrams, illustrations, and purdy pickshurs explaining API intricacies.
 
 As always, your input is valued and appreciated.
 
@@ -18,7 +18,7 @@ Organization
 
 The `Introduction <#_bookmark6>`__ provides an overview of the integration possibilities with After Effects. It explains what plug-ins are, and how they work with After Effects. It describes the sample projects, and how to modify them. It explains where to install plug-ins, and what resources they use.
 
-The basics of effect plug-ins are discussed in `chapter 2 <#_bookmark67>`__. This overview provides information on the function parameters passed to and from an effect plug-in’s entry point. It describes capability flags, effect parameters, and image buffers.
+The basics of effect plug-ins are discussed in `chapter 2 <#_bookmark67>`__. This overview provides information on the function parameters passed to and from an effect plug-in's entry point. It describes capability flags, effect parameters, and image buffers.
 
 `Chapter 3 <#_bookmark250>`__ dives into the details of developing a complete effect plug-in using the many provided callback functions. It also provides many testing ideas to ensure the plug-in is stabile.
 
@@ -53,7 +53,7 @@ Command selectors are italicized; *PF_Cmd_RENDER*.
 A Note About Coding Style
 ================================================================================
 
-Because we use the public APIs for our own plug-ins, our coding guidelines are apparent throughout the SDK. Here’s a description of the pseudo-neo-post-Hungarian notation we use. Of course, you’re welcome to code however you like. If you feel strongly that we should change our internal coding standards, please post your requests at comp.sys.programmer.better.things.to.do.with.your.time, and we’ll carefully consider them before not making any changes.
+Because we use the public APIs for our own plug-ins, our coding guidelines are apparent throughout the SDK. Here's a description of the pseudo-neo-post-Hungarian notation we use. Of course, you're welcome to code however you like. If you feel strongly that we should change our internal coding standards, please post your requests at comp.sys.programmer.better.things.to.do.with.your.time, and we'll carefully consider them before not making any changes.
 
 Coding Conventions
 ********************************************************************************

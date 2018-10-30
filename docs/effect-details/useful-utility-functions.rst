@@ -27,7 +27,7 @@ Although not strictly concerned with parameters, this suite can change the name 
 PF_AppSuite
 ================================================================================
 
-Roughly 437 years ago, when we released After Effects 5.0, we published some useful utility callbacks in PF_AppSuite. They’re as useful today as they were then. After Effects has user- controllable UI brightness. In addition to the `PF_EffectCustomUIOverlayThemeSuite <#_bookmark498>`__ for custom UI in effects, use these calls to integrate seamlessly into the After Effects UI.
+Roughly 437 years ago, when we released After Effects 5.0, we published some useful utility callbacks in PF_AppSuite. They're as useful today as they were then. After Effects has user- controllable UI brightness. In addition to the `PF_EffectCustomUIOverlayThemeSuite <#_bookmark498>`__ for custom UI in effects, use these calls to integrate seamlessly into the After Effects UI.
 
 What better way to shame someone into purchasing a copy of your plug-in than by putting their personal information into a watermark, eh? Or set the cursor to add mask vertices, just to confuse people? Heh heh heh. But that would be wrong.
 
@@ -42,7 +42,7 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 |                             |     PF_App_Color  bg_colorP);                                                                                                                                                     |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_AppGetColor``          | Retrieves the color for the specified UI element. See AE_EffectSuites.h for a complete enumeration of available ``PF_App_Color`` values;                                          |
-|                             | basically any color in After Effects’ UI can be retrieved.                                                                                                                        |
+|                             | basically any color in After Effects' UI can be retrieved.                                                                                                                        |
 |                             |                                                                                                                                                                                   |
 |                             | CC adds several new ``PF_App_ColorType`` enum values for new elements that can be queried.                                                                                        |
 |                             | Note that in CS6, the color definitions are off from ``FILL_LIGHT`` downward.                                                                                                     |
@@ -77,7 +77,7 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 |                             |   PF_AppGetLanguage(                                                                                                                                                              |
 |                             |     A_char  lang_tagZ);                                                                                                                                                           |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_GetPersonalInfo``      | Retrieves the user’s registration information.                                                                                                                                    |
+| ``PF_GetPersonalInfo``      | Retrieves the user's registration information.                                                                                                                                    |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
 |                             |                                                                                                                                                                                   |
@@ -90,9 +90,9 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 |                             |     A_char  serial_str[PF_APP_MAX_PERS_LEN+1];                                                                                                                                    |
 |                             |   } PF_AppPersonalTextInfo;                                                                                                                                                       |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_GetFontStyleSheet``    | Retrieves font style sheet information for the fonts used in After Effects’ UI.                                                                                                   |
+| ``PF_GetFontStyleSheet``    | Retrieves font style sheet information for the fonts used in After Effects' UI.                                                                                                   |
 |                             |                                                                                                                                                                                   |
-|                             | Trivia: The font used in After Effects’ UI starting in 15.0 is Adobe Clean.                                                                                                       |
+|                             | Trivia: The font used in After Effects' UI starting in 15.0 is Adobe Clean.                                                                                                       |
 |                             | Before that, it was Tahoma on Windows and Lucida Grande on macOS X.                                                                                                               |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
@@ -104,10 +104,10 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 |                             |     A_short            *sizePS0,                                                                                                                                                  |
 |                             |     A_short            *stylePS0);                                                                                                                                                |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_SetCursor``            | Sets the cursor to any of After Effects’ cursors. See AE_EffectUI.h for a complete enumeration.                                                                                   |
+| ``PF_SetCursor``            | Sets the cursor to any of After Effects' cursors. See AE_EffectUI.h for a complete enumeration.                                                                                   |
 |                             |                                                                                                                                                                                   |
 |                             | Set to ``PF_Cursor_NONE`` to allow After Effects to set the cursor.                                                                                                               |
-|                             | Set to ``PF_Cursor_CUSTOM`` if you’ve used OS-specific calls to change the cursor (After Effects will honor your changes).                                                        |
+|                             | Set to ``PF_Cursor_CUSTOM`` if you've used OS-specific calls to change the cursor (After Effects will honor your changes).                                                        |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
 |                             |                                                                                                                                                                                   |
@@ -123,8 +123,8 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 |                             |                                                                                                                                                                                   |
 |                             | As of AE6.5, this function returns TRUE if the installation is the render engine, or if the After Effects is being run with no UI, or if After Effects is in watched folder mode. |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_AppColorPickerDialog`` | Displays the After Effects color picker dialog (which may be the system color picker, depending on the user’s preferences).                                                       |
-|                             | Will return PF_Interrupt_CANCEL if user cancels dialog. Returned color is in the project’s working color space.                                                                   |
+| ``PF_AppColorPickerDialog`` | Displays the After Effects color picker dialog (which may be the system color picker, depending on the user's preferences).                                                       |
+|                             | Will return PF_Interrupt_CANCEL if user cancels dialog. Returned color is in the project's working color space.                                                                   |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
 |                             |                                                                                                                                                                                   |
@@ -186,7 +186,7 @@ PF_AdvAppSuite2
 |                               |                                                                                                                                                    |
 |                               |   PF_SaveProject(void);                                                                                                                            |
 +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_SaveBackgroundState``    | Stores the background state (After Effects’ position in the stacking order of open applications and windows).                                      |
+| ``PF_SaveBackgroundState``    | Stores the background state (After Effects' position in the stacking order of open applications and windows).                                      |
 |                               |                                                                                                                                                    |
 |                               | ::                                                                                                                                                 |
 |                               |                                                                                                                                                    |
@@ -303,7 +303,7 @@ PF_AdvTimeSuite4
 |                             |     PF_Boolean      durationB,                                                                                                     |
 |                             |     A_char          *time_buf);                                                                                                    |
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_GetTimeDisplayPref``   | Returns the starting frame number (specified by the user in composition settings), and the composition’s time display preferences. |
+| ``PF_GetTimeDisplayPref``   | Returns the starting frame number (specified by the user in composition settings), and the composition's time display preferences. |
 |                             | Updated in 14.2 to support higher frame rates.                                                                                     |
 |                             |                                                                                                                                    |
 |                             | ::                                                                                                                                 |
@@ -339,9 +339,9 @@ Affecting The Timeline
 
 Long ago, we helped a developer integrate their stand-alone tracker with After Effects by exposing a set of functions to give them some way to notify us of, and be notified of, changes to the timeline.
 
-With the numerous AEGP API calls available, these aren’t used much, but they’re still available.
+With the numerous AEGP API calls available, these aren't used much, but they're still available.
 
-Don’t confuse this suite with `AEGP_ItemSuite <#_bookmark569>`__.
+Don't confuse this suite with `AEGP_ItemSuite <#_bookmark569>`__.
 
 ----
 
@@ -384,7 +384,7 @@ PF_AdvItemSuite1
 |                                |     PF_EffectWorld  *world);                                                             |
 +--------------------------------+------------------------------------------------------------------------------------------+
 | ``PF_EffectIsActiveOrEnabled`` | Returns whether the effect which owns the ``PF_ContextH`` is currently active or enabled |
-|                                | (if it isn’t, After Effects won’t be listening for function calls from it).              |
+|                                | (if it isn't, After Effects won't be listening for function calls from it).              |
 |                                |                                                                                          |
 |                                | ::                                                                                       |
 |                                |                                                                                          |

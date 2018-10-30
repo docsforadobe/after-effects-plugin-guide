@@ -7,7 +7,7 @@ After Effects provides callbacks for transposing between coordinate systems, and
 
 It is possible to build a functioning plug-in which utilizes a custom UI without implementing the coordinate system transposition callbacks. However, the moment a user zooms into the layer panel or rotates a layer, your plug-in will behave badly. We added these macros and callbacks so that custom user interfaces could be easily integrated into the After Effects UI, without inflicting user interface overhead on developers. Again, please use them!
 
-These macros default the refcon and context handle for simplicity. The refcon assumes you have a local variable named "extra". The default context is the current context. These default parameters are defined in the PF_EventCallbacks structure (in AE_EffectUI.h). You can override the defaults by accessing the callbacks through the PF_EventExtra structure. We don’t recommend (or support) modification of the macros in the header file. Don’t do it!
+These macros default the refcon and context handle for simplicity. The refcon assumes you have a local variable named "extra". The default context is the current context. These default parameters are defined in the PF_EventCallbacks structure (in AE_EffectUI.h). You can override the defaults by accessing the callbacks through the PF_EventExtra structure. We don't recommend (or support) modification of the macros in the header file. Don't do it!
 
 +--------------------------+-----------------------------------------------------------------------------------------------------------+
 |       **Function**       |                                                **Purpose**                                                |

@@ -10,14 +10,14 @@ After Effects exposes its internal transform and graphic utility routines throug
 Transform Worlds
 ================================================================================
 
-These functions combine ``PF_EffectWorlds`` in interesting ways. When you use these, you’re using the same code After Effects does internally.
+These functions combine ``PF_EffectWorlds`` in interesting ways. When you use these, you're using the same code After Effects does internally.
 
 **PF_WorldTransformSuite1**
 
 +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |    **Function**     |                                                                                                                                                                       **Purpose**                                                       |
 +=====================+=========================================================================================================================================================================================================================================+
-| ``composite_rect``  | Composite a rectangle from one ``PF_EffectWorld`` into another, using one of After Effects’ transfer modes.                                                                                                                             |
+| ``composite_rect``  | Composite a rectangle from one ``PF_EffectWorld`` into another, using one of After Effects' transfer modes.                                                                                                                             |
 |                     |                                                                                                                                                                                                                                         |
 |                     | ::                                                                                                                                                                                                                                      |
 |                     |                                                                                                                                                                                                                                         |
@@ -289,7 +289,7 @@ Note: areas outside the bounds of the image being sampled are treated as zero al
 |                      |     PF_ModeFlags  mf,                                                                                                  |
 |                      |     PF_SampPB     *params);                                                                                            |
 +----------------------+------------------------------------------------------------------------------------------------------------------------+
-| ``end_sampling``     | Tells After Effects you’re done sampling.                                                                              |
+| ``end_sampling``     | Tells After Effects you're done sampling.                                                                              |
 |                      |                                                                                                                        |
 |                      | ::                                                                                                                     |
 |                      |                                                                                                                        |
@@ -299,7 +299,7 @@ Note: areas outside the bounds of the image being sampled are treated as zero al
 |                      |     PF_ModeFlags  mf,                                                                                                  |
 |                      |     PF_SampPB     *params);                                                                                            |
 +----------------------+------------------------------------------------------------------------------------------------------------------------+
-| ``get_batch_func``   | Obtains a pointer to After Effects’ batch sampling function (highly optimized).                                        |
+| ``get_batch_func``   | Obtains a pointer to After Effects' batch sampling function (highly optimized).                                        |
 |                      |                                                                                                                        |
 |                      | ::                                                                                                                     |
 |                      |                                                                                                                        |
@@ -310,7 +310,7 @@ Note: areas outside the bounds of the image being sampled are treated as zero al
 |                      |     const PF_SampPB     *params,                                                                                       |
 |                      |     PF_BatchSampleFunc  *batch);                                                                                       |
 +----------------------+------------------------------------------------------------------------------------------------------------------------+
-| ``get_batch_func16`` | Obtains a pointer to After Effects’ 16-bpc batch sampling function (also highly optimized).                            |
+| ``get_batch_func16`` | Obtains a pointer to After Effects' 16-bpc batch sampling function (also highly optimized).                            |
 |                      |                                                                                                                        |
 |                      | ::                                                                                                                     |
 |                      |                                                                                                                        |

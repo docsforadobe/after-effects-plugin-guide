@@ -6,7 +6,7 @@ Working With Paths
 Accessing Path Data
 ================================================================================
 
-Paths differ from other parameter types, in that their values are not directly accessible. In addition to checking them out and in (like layer parameters), you must use our path data function suites to obtain the details of the path at a given time. See `PF_PathQuerySuite <#_bookmark372>`__ and `PF_PathDataSuite <#_bookmark369>`__. Never use the values present in a path parameter when it’s passed to you, without first checking it out; while deleted paths will not be available, further updating is done "lazily" (later); your effect won’t see these changes unless it checks out the path.
+Paths differ from other parameter types, in that their values are not directly accessible. In addition to checking them out and in (like layer parameters), you must use our path data function suites to obtain the details of the path at a given time. See `PF_PathQuerySuite <#_bookmark372>`__ and `PF_PathDataSuite <#_bookmark369>`__. Never use the values present in a path parameter when it's passed to you, without first checking it out; while deleted paths will not be available, further updating is done "lazily" (later); your effect won't see these changes unless it checks out the path.
 
 ----
 
@@ -20,7 +20,7 @@ You can also use the `AEGP_MaskOutlineSuite <#_bookmark663>`__ to manipulate pat
 Vertices
 ================================================================================
 
-Path vertices are more complex than simple points. All member variables are PF_FpLongs (doubles), and are in the layer’s coordinate space.
+Path vertices are more complex than simple points. All member variables are PF_FpLongs (doubles), and are in the layer's coordinate space.
 
 ----
 
@@ -83,9 +83,9 @@ This suite provides information about paths (sequences of vertices).
 |                                |     A_long             which_pointL,                                                                                         |
 |                                |     PF_PathVertex      *vertexP);                                                                                            |
 +--------------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_PathPrepareSegLength``    | This fairly counter-intuitive function informs After Effects that you’re going to ask for the length of a segment            |
-|                                | (using PF_PathGetSegLength below), and it’d better get ready.                                                                |
-|                                | frequencyL indicates how many times you’d like us to sample the length; our internal effects use 100.                        |
+| ``PF_PathPrepareSegLength``    | This fairly counter-intuitive function informs After Effects that you're going to ask for the length of a segment            |
+|                                | (using PF_PathGetSegLength below), and it'd better get ready.                                                                |
+|                                | frequencyL indicates how many times you'd like us to sample the length; our internal effects use 100.                        |
 |                                |                                                                                                                              |
 |                                | ::                                                                                                                           |
 |                                |                                                                                                                              |
@@ -121,7 +121,7 @@ This suite provides information about paths (sequences of vertices).
 |                                |     PF_FpLong          *y);                                                                                                  |
 +--------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_PathEvalSegLengthDeriv1`` | Retrieves the location, and the first derivative, of a point lengthF along the given path segment.                           |
-|                                | If you’re not sure why you’d ever need this, don’t use it. Math is hard.                                                     |
+|                                | If you're not sure why you'd ever need this, don't use it. Math is hard.                                                     |
 |                                |                                                                                                                              |
 |                                | ::                                                                                                                           |
 |                                |                                                                                                                              |
@@ -136,7 +136,7 @@ This suite provides information about paths (sequences of vertices).
 |                                |     PF_FpLong          *deriv1x,                                                                                             |
 |                                |     PF_FpLong          *deriv1y);                                                                                            |
 +--------------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_PathCleanupSegLength``    | Call this when you’re finished evaluating that segment length, so After Effects can properly clean up the PF_PathSegPrepPtr. |
+| ``PF_PathCleanupSegLength``    | Call this when you're finished evaluating that segment length, so After Effects can properly clean up the PF_PathSegPrepPtr. |
 |                                |                                                                                                                              |
 |                                | ::                                                                                                                           |
 |                                |                                                                                                                              |
@@ -191,12 +191,12 @@ PF_PathQuerySuite1
 
 ================================================================================
 
-This suite is used to identify and access the paths associated with the effect’s source layer.
+This suite is used to identify and access the paths associated with the effect's source layer.
 
 +---------------------+----------------------------------------------------------------------------------------------------------+
 |    **Function**     |                                               **Purpose**                                                |
 +=====================+==========================================================================================================+
-| ``PF_NumPaths``     | Retrieves the number of paths associated with the effect’s source layer.                                 |
+| ``PF_NumPaths``     | Retrieves the number of paths associated with the effect's source layer.                                 |
 |                     |                                                                                                          |
 |                     | ::                                                                                                       |
 |                     |                                                                                                          |

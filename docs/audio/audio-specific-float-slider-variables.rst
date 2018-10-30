@@ -28,7 +28,7 @@ This is where the requested phase value is stored.
 Curve Tolerance
 ================================================================================
 
-Curve tolerance is used by After Effects to subdivide the audio effects’ time-variant parameters. Set this to zero for default behavior (or for non-audio ``FLOAT_SLIDER`` parameters).
+Curve tolerance is used by After Effects to subdivide the audio effects' time-variant parameters. Set this to zero for default behavior (or for non-audio ``FLOAT_SLIDER`` parameters).
 
 ----
 

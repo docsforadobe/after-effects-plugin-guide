@@ -5,7 +5,7 @@ SmartFX
 
 The SmartFX API provides bidirectional communication between effects and After Effects, enabling many performance optimizations and providing previously unavailable dependency information. This extension of the effect API is the way to implement 32-bit per channel support in After Effects.
 
-Normal effect plug-ins are given a full-sized input buffer, and asked to render a full-sized output buffer. While output `extent_hint <#_bookmark124>`__ specifies the portion of the output buffer that must actually be filled, this scheme is still very inefficient if the effect does not need its entire input. Also, many effects don’t use extent hints.
+Normal effect plug-ins are given a full-sized input buffer, and asked to render a full-sized output buffer. While output `extent_hint <#_bookmark124>`__ specifies the portion of the output buffer that must actually be filled, this scheme is still very inefficient if the effect does not need its entire input. Also, many effects don't use extent hints.
 
 ----
 
@@ -50,7 +50,7 @@ Effects which set `PF_OutFlag2_SUPPORTS_SMART_RENDER <#_bookmark182>`__ will rec
 PF_Cmd_SMART_PRE_RENDER
 ================================================================================
 
-After Effects requests output from the effect. The effect tells After Effects what input it needs to generate that output, through the use of callback functions, and by manipulating the structures in the extra parameter. An effect cannot access the pixels of any layer inputs it has not checked out during *PF_Cmd_SMART_PRE_RENDER*. So all layer inputs that an effect might possibly need must be checked out in advance using checkout_layer. If an effect might need certain layer inputs, they must be checked out now, even if later during rendering the effect may decide that the layer isn’t needed. Also, since no parameter array is passed to SmartFX during *PF_Cmd_SMART_PRE_RENDER* or `PF_Cmd_SMART_RENDER <#pf_cmd_smart_render>`__, any non-layer parameters needed must be retrieved using `PF_CHECKOUT_PARAM <#_bookmark287>`__
+After Effects requests output from the effect. The effect tells After Effects what input it needs to generate that output, through the use of callback functions, and by manipulating the structures in the extra parameter. An effect cannot access the pixels of any layer inputs it has not checked out during *PF_Cmd_SMART_PRE_RENDER*. So all layer inputs that an effect might possibly need must be checked out in advance using checkout_layer. If an effect might need certain layer inputs, they must be checked out now, even if later during rendering the effect may decide that the layer isn't needed. Also, since no parameter array is passed to SmartFX during *PF_Cmd_SMART_PRE_RENDER* or `PF_Cmd_SMART_RENDER <#pf_cmd_smart_render>`__, any non-layer parameters needed must be retrieved using `PF_CHECKOUT_PARAM <#_bookmark287>`__
 
 ----
 
@@ -76,7 +76,7 @@ PF_PreRenderExtra
 |                                 | ``rect`` is in layer coordinates. field is also relative to the layer origin;                                                                                                                                        |
 |                                 | whether the active field falls on even or odd scanlines of the output buffer depends on the origin of the output buffer.                                                                                             |
 |                                 |                                                                                                                                                                                                                      |
-|                                 | ``channel_mask`` specifies for which channels the effect should provide output. Data written to other channels will not be honored. It will be one or more of the following, or’d together:                          |
+|                                 | ``channel_mask`` specifies for which channels the effect should provide output. Data written to other channels will not be honored. It will be one or more of the following, or'd together:                          |
 |                                 |                                                                                                                                                                                                                      |
 |                                 | - ``PF_ChannelMask_ALPHA``                                                                                                                                                                                           |
 |                                 | - ``PF_ChannelMask_RED``                                                                                                                                                                                             |
@@ -180,7 +180,7 @@ Both result_rect and ``max_result_rect`` may vary depending on the effect's para
 
 However, ``max_result_rect`` *cannot* depend on the specific render request. It must be the same no matter what portion of the output is requested by After Effects.
 
-It is legal to return an empty result_rect if the request_rect doesn’t intersect the effect's output pixels; no rendering need be done. After Effects may also call the effect with an empty request_rect, meaning the effect is only being asked to compute the ``max_result_rect``.
+It is legal to return an empty result_rect if the request_rect doesn't intersect the effect's output pixels; no rendering need be done. After Effects may also call the effect with an empty request_rect, meaning the effect is only being asked to compute the ``max_result_rect``.
 
 ``preserve_rgb_of_zero_alpha`` can influence the bounds computation process (both result_rect and ``max_result_rect``) and must be respected if the effect behaves differently depending on this setting.
 
@@ -247,7 +247,7 @@ PF_SmartRenderExtra
 |                             |     PF_ProgPtr  effect_ref,                                                                                                                                                                  |
 |                             |     A_long      checkout_idL);                                                                                                                                                               |
 |                             |                                                                                                                                                                                              |
-|                             | It isn’t necessary to call (After Effects cleans up all such checkouts when the effect returns from *PF_Cmd_SMART_RENDER*), but useful to free up memory.                                    |
+|                             | It isn't necessary to call (After Effects cleans up all such checkouts when the effect returns from *PF_Cmd_SMART_RENDER*), but useful to free up memory.                                    |
 |                             |                                                                                                                                                                                              |
 |                             | ::                                                                                                                                                                                           |
 |                             |                                                                                                                                                                                              |

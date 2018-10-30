@@ -87,9 +87,9 @@ AEGP API Data Types
 Nasty, Brutish, and Short
 ================================================================================
 
-Information about layers, streams, and many other items doesn’t survive long; it’s often invalidated by user activity.
+Information about layers, streams, and many other items doesn't survive long; it's often invalidated by user activity.
 
-Anything that modifies the quantity (not quality) of items will invalidate references to those items; adding a keyframe to a stream invalidates references to that stream, but forcing a layer to be rendered doesn’t invalidate references to it. Do not cache layer pixels.
+Anything that modifies the quantity (not quality) of items will invalidate references to those items; adding a keyframe to a stream invalidates references to that stream, but forcing a layer to be rendered doesn't invalidate references to it. Do not cache layer pixels.
 
 Caching references between calls to a specific hook function within your plug-in is not recommended; acquire information when you need it, and forget (release) it as soon as possible.
 
@@ -98,7 +98,7 @@ Caching references between calls to a specific hook function within your plug-in
 Were You Just Going To Leave That Data Lying Around?
 ================================================================================
 
-When you ask After Effects to populate and return handles to data structures, it’s important that you clean up after yourself. For the following data types, you must call the appropriate disposal routines.
+When you ask After Effects to populate and return handles to data structures, it's important that you clean up after yourself. For the following data types, you must call the appropriate disposal routines.
 
 ----
 

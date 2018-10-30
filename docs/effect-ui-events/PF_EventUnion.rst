@@ -10,7 +10,7 @@ The PF_EventUnion in PF_EventExtra is a union of the four following structures.
 Click
 ================================================================================
 
-A mouse click or drag occurred within the custom UI’s area.
+A mouse click or drag occurred within the custom UI's area.
 
 PF_DoClickEventInfo
 ********************************************************************************
@@ -49,7 +49,7 @@ PF_DrawEventInfo
 +-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |   **Member**    |                                                                                        **Purpose**                                                                                        |
 +=================+===========================================================================================================================================================================================+
-| ``update_rect`` | The rectangle in which to draw, in the context window’s coordinate system. These coordinates can be converted to different coordinate systems using the `UI Callbacks <#_bookmark500>`__. |
+| ``update_rect`` | The rectangle in which to draw, in the context window's coordinate system. These coordinates can be converted to different coordinate systems using the `UI Callbacks <#_bookmark500>`__. |
 |                 | See the CCU sample project for an example.                                                                                                                                                |
 +-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``depth``       | Pixel depth of the drawing context.                                                                                                                                                       |
@@ -60,7 +60,7 @@ PF_DrawEventInfo
 Keydown
 ================================================================================
 
-The user pressed a key, and the effect’s UI is active. Use the macros in AE_EffectUI.h to access and manipulate the key codes received.
+The user pressed a key, and the effect's UI is active. Use the macros in AE_EffectUI.h to access and manipulate the key codes received.
 
 PF_KeyDownEvent
 ********************************************************************************
@@ -127,7 +127,7 @@ PF_KeyDownEvent
 AdjustCursor
 ================================================================================
 
-The cursor has moved onto (but not off of) the effect’s custom UI, to allow the effect to change the cursor.
+The cursor has moved onto (but not off of) the effect's custom UI, to allow the effect to change the cursor.
 
 PF_AdjustCursorEventInfo
 ********************************************************************************
@@ -149,7 +149,7 @@ PF_AdjustCursorEventInfo
 Arbitrary Parameters Event
 ================================================================================
 
-After Effects needs your plug-in to manage it’s arbitrary data parameter(s).
+After Effects needs your plug-in to manage it's arbitrary data parameter(s).
 
 Though arbitrary data types are not required for custom UI support, ``PF_ArbParamsExtra`` follows the EventInfo model.
 

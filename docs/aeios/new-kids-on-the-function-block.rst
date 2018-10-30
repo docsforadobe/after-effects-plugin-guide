@@ -81,7 +81,7 @@ AEIO_FunctionBlock4
 |                                 |     A_Boolean       *changed0);                                                                                                           |             |                                                       |
 +---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------+
 | ``AEIO_GetActiveExtent``        | ``AEIO_Err_USE_DFLT_CALLBACK`` allowed.                                                                                                   | Input       | Yes                                                   |
-|                                 | Populate the provided ``A_LRect`` with the active extent of the file’s pixels at the given time.                                          |             |                                                       |
+|                                 | Populate the provided ``A_LRect`` with the active extent of the file's pixels at the given time.                                          |             |                                                       |
 |                                 |                                                                                                                                           |             |                                                       |
 |                                 | ::                                                                                                                                        |             |                                                       |
 |                                 |                                                                                                                                           |             |                                                       |
@@ -107,10 +107,10 @@ AEIO_FunctionBlock4
 |                                 | if we find one, we use the information from within it. If not, we do nothing.                                                             |             |                                                       |
 |                                 |                                                                                                                                           |             |                                                       |
 |                                 | This is important; if your AEIO handles still images, this function *will* get called for the folder containing the stills.               |             |                                                       |
-|                                 | Hopefully, there won’t be an optionsH associated with it (unless you’re writing a truly bizarre AEIO).                                    |             |                                                       |
+|                                 | Hopefully, there won't be an optionsH associated with it (unless you're writing a truly bizarre AEIO).                                    |             |                                                       |
 +---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------+
 | ``AEIO_DrawSparseFrame``        | Draw a frame from the ``AEIO_InSpecH``.                                                                                                   | Input       | Yes                                                   |
-|                                 | The ``PF_EffectWorld*`` contains the width and height to use, but make sure you take the required_region0 into account, if it’s not NULL. |             |                                                       |
+|                                 | The ``PF_EffectWorld*`` contains the width and height to use, but make sure you take the required_region0 into account, if it's not NULL. |             |                                                       |
 |                                 |                                                                                                                                           |             |                                                       |
 |                                 | ::                                                                                                                                        |             |                                                       |
 |                                 |                                                                                                                                           |             |                                                       |
@@ -189,7 +189,7 @@ AEIO_FunctionBlock4
 |                                 | - ``AEIO_SndQuality_HI``                                                                                                                  |             |                                                       |
 +---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------+
 | ``AEIO_InqNextFrameTime``       | ``AEIO_Err_USE_DFLT_CALLBACK`` allowed.                                                                                                   | Input       | Yes                                                   |
-|                                 | Provide the time of the next frame (in the source footage’s timebase) within the ``AEIO_InSpecH``.                                        |             |                                                       |
+|                                 | Provide the time of the next frame (in the source footage's timebase) within the ``AEIO_InSpecH``.                                        |             |                                                       |
 |                                 |                                                                                                                                           |             |                                                       |
 |                                 | ::                                                                                                                                        |             |                                                       |
 |                                 |                                                                                                                                           |             |                                                       |
@@ -262,7 +262,7 @@ AEIO_FunctionBlock4
 |                                 |     AEIO_OutSpecH   outH);                                                                                                                |             |                                                       |
 +---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------+
 | ``AEIO_SetOutputFile``          | ``AEIO_Err_USE_DFLT_CALLBACK`` allowed. Set the file path for output of an ``AEIO_OutSpecH``.                                             | Output      | Yes                                                   |
-|                                 | Return ``AEIO_Err_USE_DEFAULT_CALLBACK`` unless you’ve changed the path.                                                                  |             |                                                       |
+|                                 | Return ``AEIO_Err_USE_DEFAULT_CALLBACK`` unless you've changed the path.                                                                  |             |                                                       |
 |                                 |                                                                                                                                           |             |                                                       |
 |                                 | The file path is a NULL-terminated UTF-16 string with platform separators.                                                                |             |                                                       |
 |                                 |                                                                                                                                           |             |                                                       |
@@ -513,7 +513,7 @@ AEIO_FunctionBlock4
 |                                 |     AEIO_InterruptFuncs  *inter0);                                                                                                        |             |                                                       |
 +---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------+
 | ``AEIO_VerifyFileImportable``   | Indicate (by setting importablePB) whether or not the plug-in can import the file.                                                        | Input       | No                                                    |
-|                                 | Note that After Effects has already done basic extension checking; you may wish to open the file and determine whether or not it’s valid. |             |                                                       |
+|                                 | Note that After Effects has already done basic extension checking; you may wish to open the file and determine whether or not it's valid. |             |                                                       |
 |                                 | This can be a time-consuming process; most AEIOs that ship with After Effects simply return TRUE,                                         |             |                                                       |
 |                                 | and deal with bad files during `AEIO_InitInSpecFromFile <#_bookmark791>`__.                                                               |             |                                                       |
 |                                 |                                                                                                                                           |             |                                                       |
@@ -564,7 +564,7 @@ AEIO_FunctionBlock4
 What Goes In
 ================================================================================
 
-These functions manage an input specification, After Effects’ internal representation of data gathered from any source.
+These functions manage an input specification, After Effects' internal representation of data gathered from any source.
 
 Any image or audio data in After Effects (except solids) is obtained from an input specification handle, or ``AEIO_InSpecH``.
 
@@ -692,7 +692,7 @@ AEGP_IOInSuite5
 | ``AEGP_SetInSpecDuration``               | Sets the duration of the ``AEIO_InSpecH``.                                                                                                                        |
 |                                          |                                                                                                                                                                   |
 |                                          | NOTE: As of 5.5, this must be called, even for frame-based file formats.                                                                                          |
-|                                          | If you don’t set the ``A_Time.scale`` to something other than zero, your file(s) will not import.                                                                 |
+|                                          | If you don't set the ``A_Time.scale`` to something other than zero, your file(s) will not import.                                                                 |
 |                                          |                                                                                                                                                                   |
 |                                          | This will be fixed in future versions.                                                                                                                            |
 |                                          |                                                                                                                                                                   |
@@ -812,7 +812,7 @@ AEGP_IOInSuite5
 |                                          |     AEIO_SndChannels  num_channels);                                                                                                                              |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_AddAuxExtMap``                    | If your file format has auxiliary files which you want to prevent users from opening directly,                                                                    |
-|                                          | pass it’s extension, file type and creator to this function to keep it from appearing in input dialogs.                                                           |
+|                                          | pass it's extension, file type and creator to this function to keep it from appearing in input dialogs.                                                           |
 |                                          |                                                                                                                                                                   |
 |                                          | ::                                                                                                                                                                |
 |                                          |                                                                                                                                                                   |
@@ -897,7 +897,7 @@ AEGP_IOInSuite5
 What Goes Out
 ================================================================================
 
-These functions manage all interactions with an output specification in After Effects’ render queue.
+These functions manage all interactions with an output specification in After Effects' render queue.
 
 AEGPIOOutSuite4
 ********************************************************************************
@@ -1112,7 +1112,7 @@ AEGPIOOutSuite4
 |                                          |     AEIO_OutSpecH  outH,                                                                                             |
 |                                          |     A_Boolean      *is_stillPB);                                                                                     |
 +------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetOutSpecPosterTime``            | Obtains the time of the ``AEIO_OutSpecH’s`` poster frame.                                                            |
+| ``AEGP_GetOutSpecPosterTime``            | Obtains the time of the ``AEIO_OutSpecH's`` poster frame.                                                            |
 |                                          |                                                                                                                      |
 |                                          | ::                                                                                                                   |
 |                                          |                                                                                                                      |
@@ -1152,7 +1152,7 @@ AEGPIOOutSuite4
 |                                          |     AEIO_OutSpecH  outH,                                                                                             |
 |                                          |     A_Boolean      *embedPB);                                                                                        |
 +------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetNewOutSpecColorProfile``       | Returns an (opaque) ICC color profile for embedding in the AEIO’s output.                                            |
+| ``AEGP_GetNewOutSpecColorProfile``       | Returns an (opaque) ICC color profile for embedding in the AEIO's output.                                            |
 |                                          | Must be disposed with ``AEGP_DisposeColorProfile``.                                                                  |
 |                                          |                                                                                                                      |
 |                                          | ::                                                                                                                   |
@@ -1164,7 +1164,7 @@ AEGPIOOutSuite4
 +------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetOutSpecOutputModule``          | Returns the ``AEGP_RQItemRefH`` and ``AEGP_OutputModuleRefH`` associated with the given ``AEIO_OutSpecH``.           |
 |                                          | Fails if the render queue item is not found, or if ``AEIO_OutSpecH`` is not a confirmed outH and is a copy,          |
-|                                          | i.e. if the Output Module settings dialog is open and the user hasn’t hit OK.                                        |
+|                                          | i.e. if the Output Module settings dialog is open and the user hasn't hit OK.                                        |
 |                                          |                                                                                                                      |
 |                                          | ::                                                                                                                   |
 |                                          |                                                                                                                      |

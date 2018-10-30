@@ -3,7 +3,7 @@
 What's New?
 ################################################################################
 
-For what’s new in CC releases, see `the heading in the Intro chapter <#_bookmark22>`__.
+For what's new in CC releases, see `the heading in the Intro chapter <#_bookmark22>`__.
 
 ----
 

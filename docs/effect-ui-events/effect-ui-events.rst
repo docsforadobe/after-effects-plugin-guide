@@ -24,14 +24,14 @@ Events
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | *PF_Event_ACTIVATE*      | The user activated a new context (probably by bringing a window into the foreground). `PF_EventUnion <#_bookmark456>`__ is empty.                                        |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| *PF_Event_DO_CLICK*      | The user clicked within the effect’s UI. `PF_EventUnion <#_bookmark456>`__ contains a ``PF_DoClickEventInfo``.                                                           |
+| *PF_Event_DO_CLICK*      | The user clicked within the effect's UI. `PF_EventUnion <#_bookmark456>`__ contains a ``PF_DoClickEventInfo``.                                                           |
 |                          | Handle the mouse click and respond, passing along drag info; see sample code), within a context.                                                                         |
 |                          | NOTE: As of 7.0, do *not* block until mouse-up; instead, rely on *PF_Event_DRAG*.                                                                                        |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | *PF_Event_DRAG*          | Also a Click Event, `PF_EventUnion <#_bookmark456>`__ contains a ``PF_DoClickEventInfo``.                                                                                |
 |                          | Request this by returning ``send_drag == TRUE`` from *PF_Event_DO_CLICK*.                                                                                                |
 |                          |                                                                                                                                                                          |
-|                          | Do this so After Effects can see new data from the user’s changes.                                                                                                       |
+|                          | Do this so After Effects can see new data from the user's changes.                                                                                                       |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | *PF_Event_DRAW*          | Draw! `PF_EventUnion <#_bookmark456>`__ contains a ``PF_DrawEventInfo``.                                                                                                 |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -41,8 +41,8 @@ Events
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | *PF_Event_IDLE*          | A context is open but nothing is happening. ``PF_EventUnion`` is empty.                                                                                                  |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| *PF_Event_ADJUST_CURSOR* | The mouse is over the plug-in’s UI. Set the cursor by changing the ``PF_CursorType`` in the ``PF_AdjustCursorEventInfo``.                                                |
-|                          | Use OS-specific calls to implement a custom cursor; tell After Effects you’ve done so by setting ``PF_CursorType`` to ``PF_Cursor_CUSTOM``.                              |
+| *PF_Event_ADJUST_CURSOR* | The mouse is over the plug-in's UI. Set the cursor by changing the ``PF_CursorType`` in the ``PF_AdjustCursorEventInfo``.                                                |
+|                          | Use OS-specific calls to implement a custom cursor; tell After Effects you've done so by setting ``PF_CursorType`` to ``PF_Cursor_CUSTOM``.                              |
 |                          | Use an After Effects cursor whenever possible to preserve interface continuity.                                                                                          |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | *PF_Event_KEYDOWN*       | Keystroke. `PF_EventUnion <#_bookmark456>`__ contains a ``PF_KeyDownEvent``.                                                                                             |

@@ -3,7 +3,7 @@
 Iteration Suites
 ################################################################################
 
-Effects often iterate over all pixels in an image, filtering each one. By taking advantage of After Effects’ iteration suites, you make it possible for After Effects to sub-allocate your task to as many processors are present, taking advantage of hardware-specific acceleration.
+Effects often iterate over all pixels in an image, filtering each one. By taking advantage of After Effects' iteration suites, you make it possible for After Effects to sub-allocate your task to as many processors are present, taking advantage of hardware-specific acceleration.
 
 After Effects will also manage progress reporting and user cancellation automatically.
 
@@ -19,13 +19,13 @@ PF_Iterate8Suite1, PF_Iterate16Suite1, PF_IterateFloatSuite1
 +=================================+=======================================================================================================================================================================================+
 | ``iterate``                     | Iterates across pixels from a source image, alters them, and populates a destination image.                                                                                           |
 |                                 |                                                                                                                                                                                       |
-|                                 | You may specify a rectangular region of pixels across which to iterate; if you don’t, After Effects will iterate over every overlapping pixel.                                        |
+|                                 | You may specify a rectangular region of pixels across which to iterate; if you don't, After Effects will iterate over every overlapping pixel.                                        |
 |                                 | You give a refcon, and the function is invoked with that refcon, plus the x and y coordinates of the current pixel, plus pointers to that pixel in the source and destination images. |
 |                                 | If you pass a NULL source, it will iterate over the dst. This function is quality independent.                                                                                        |
 |                                 |                                                                                                                                                                                       |
-|                                 | Don’t depend upon the pixels being traversed in any particular order.                                                                                                                 |
+|                                 | Don't depend upon the pixels being traversed in any particular order.                                                                                                                 |
 |                                 | The image may be subset to different CPUs, so consider all the parameters (except dst) to be read-only while After Effects is processing.                                             |
-|                                 | This callback automatically includes progress and abort checking, so don’t do so in your pixel function.                                                                              |
+|                                 | This callback automatically includes progress and abort checking, so don't do so in your pixel function.                                                                              |
 |                                 |                                                                                                                                                                                       |
 |                                 | ::                                                                                                                                                                                    |
 |                                 |                                                                                                                                                                                       |

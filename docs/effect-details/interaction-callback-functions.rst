@@ -3,7 +3,7 @@
 Interaction Callback Functions
 ################################################################################
 
-While the un-macro’d function pointers are provided in `PF_InData <#_bookmark116>`__, use the provided macros to access them. See how stringent we are about deprecating macro usage? Let’s let this be our little secret.
+While the un-macro'd function pointers are provided in `PF_InData <#_bookmark116>`__, use the provided macros to access them. See how stringent we are about deprecating macro usage? Let's let this be our little secret.
 
 ----
 
@@ -13,7 +13,7 @@ Interaction Callbacks
 +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |        **Function**         |                                                                                                                    **Purpose**                                                                                                                    |
 +=============================+===================================================================================================================================================================================================================================================+
-| ``PF_ADD_PARAM``            | Enumerate your plug-in’s parameters to After Effects during                                                                                                                                                                                       |
+| ``PF_ADD_PARAM``            | Enumerate your plug-in's parameters to After Effects during                                                                                                                                                                                       |
 |                             |                                                                                                                                                                                                                                                   |
 |                             | `PF_Cmd_PARAM_SETUP <#_bookmark84>`__, using multiple calls to this function.                                                                                                                                                                     |
 |                             |                                                                                                                                                                                                                                                   |
@@ -71,7 +71,7 @@ Interaction Callbacks
 | ``PF_CHECKOUT_PARAM``       | Obtains parameter values, or the source video layer, at a specified time. After Effects makes caching decisions based on the checkout state of parameters.                                                                                        |
 |                             |                                                                                                                                                                                                                                                   |
 |                             | Allocate a new `PF_ParamDef <#_bookmark212>`__ to hold the result; those passed to the plug- in are read-only.                                                                                                                                    |
-|                             | If you check out a layer parameter that’s set to <none>, the layer returned will be filled with zeros.                                                                                                                                            |
+|                             | If you check out a layer parameter that's set to <none>, the layer returned will be filled with zeros.                                                                                                                                            |
 |                             | Masks are not included with checked- out layers.                                                                                                                                                                                                  |
 |                             |                                                                                                                                                                                                                                                   |
 |                             | Do not check out layer parameters during UI event handling.                                                                                                                                                                                       |
@@ -138,7 +138,7 @@ Interaction Callbacks
 +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_GET_AUDIO_DATA``       | Returns information about the PF_LayerAudio.                                                                                                                                                                                                      |
 |                             |                                                                                                                                                                                                                                                   |
-|                             | All the parameters after audio are optional; pass 0 for any value in which you aren’t interested. rate0 is unsigned, and fmt_signed0 should be non-zero for signed, zero for unsigned.                                                            |
+|                             | All the parameters after audio are optional; pass 0 for any value in which you aren't interested. rate0 is unsigned, and fmt_signed0 should be non-zero for signed, zero for unsigned.                                                            |
 |                             | This callback is for visual effects that read audio information. To *alter* audio, write an audio filter.                                                                                                                                         |
 |                             |                                                                                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                                                                                |
@@ -168,7 +168,7 @@ Parameter Checkout Behavior
 
 Regardless of whether the layer in and out point have been trimmed, you will get valid frames from the start of the source footage to the end, and then transparent before and after that.
 
-Layer params with a lower frame rate than the composition in which they’re checked out are only refreshed as often as necessitated by the lower frame rate. A 10fps layer checked out in a 30fps composition will only need to be refreshed every third frame. if your effect wants to change it’s output every frame despite the static input layer, you’d need to set `PF_Outflag_NON_PARAM_VARY <#_bookmark152>`__.
+Layer params with a lower frame rate than the composition in which they're checked out are only refreshed as often as necessitated by the lower frame rate. A 10fps layer checked out in a 30fps composition will only need to be refreshed every third frame. if your effect wants to change it's output every frame despite the static input layer, you'd need to set `PF_Outflag_NON_PARAM_VARY <#_bookmark152>`__.
 
 When an effect checks out a continuously-rasterized Adobe Illustrator layer, After Effects renders the Illustrator layer with geometrics applied, in a composition-sized buffer.
 
@@ -181,22 +181,22 @@ Plug-ins that check out layers at different times can generate re-entrant behavi
 
 Presto, recursion!
 
-If you’re going to check out parameters, your effects must handle re-entrant render requests appropriately. Don’t use globals, or read or write static variables...but you weren’t going to anyway, right?
+If you're going to check out parameters, your effects must handle re-entrant render requests appropriately. Don't use globals, or read or write static variables...but you weren't going to anyway, right?
 
 ----
 
 Progress During Iteration
 ================================================================================
 
-After Effects strives to be as responsive as possible to user interaction, even while rendering. Do the same through appropriate use of PF_ITERATE(). For example, perhaps you’re using a PF_ITERATE’d function three times during your response to `P <#_bookmark95>`__\ *\ \ F_Cmd_RENDER*.
+After Effects strives to be as responsive as possible to user interaction, even while rendering. Do the same through appropriate use of PF_ITERATE(). For example, perhaps you're using a PF_ITERATE'd function three times during your response to `P <#_bookmark95>`__\ *\ \ F_Cmd_RENDER*.
 
-In this case, you’d start off with::
+In this case, you'd start off with::
 
   lines_per_iterateL = in_data>extent_hint.top - in_data>extent_hint.bottom;
   total_linesL = 3 * lines_per_iterateL;
   lines_so_farL = 0;
 
-After each iteration, you’d add the already-completed lines to the current position::
+After each iteration, you'd add the already-completed lines to the current position::
 
   suites.iterate8suite()>iterate( lines_so_farL,
                                   total_linesL,

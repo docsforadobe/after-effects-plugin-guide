@@ -480,7 +480,7 @@ Drawbot_PathSuite1
 PF_EffectCustomUIOverlayThemeSuite
 ================================================================================
 
-This suite should be used for stroking and filling paths and vertices on the Composition and Layer Windows. After Effects is using this suite internally, and we have made it available to make custom UI look consistent across effects. The foreground/shadow colors are computed based on the app brightness level so that custom UI is always visible regardless of the application’s Brightness setting in the Preferences.
+This suite should be used for stroking and filling paths and vertices on the Composition and Layer Windows. After Effects is using this suite internally, and we have made it available to make custom UI look consistent across effects. The foreground/shadow colors are computed based on the app brightness level so that custom UI is always visible regardless of the application's Brightness setting in the Preferences.
 
 PF_EffectCustomUIOverlayThemeSuite1
 ********************************************************************************

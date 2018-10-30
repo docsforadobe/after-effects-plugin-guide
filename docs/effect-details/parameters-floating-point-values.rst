@@ -3,9 +3,9 @@
 Parameters & Floating Point Values
 ################################################################################
 
-We have something to admit to you; for years, even though we’ve given you 8 bit color values, we’ve internally used floating point representations behind your back. That’s right, even with over-bright colors, we’d only ever tell you ‘255, 255, 255’. Yeah, right. Well, we can’t live the lie any longer! Given a color parameter (passed to you by After Effects in your
+We have something to admit to you; for years, even though we've given you 8 bit color values, we've internally used floating point representations behind your back. That's right, even with over-bright colors, we'd only ever tell you ‘255, 255, 255'. Yeah, right. Well, we can't live the lie any longer! Given a color parameter (passed to you by After Effects in your
 
-effect’s parameter array), this function returns a floating point representation, including any high dynamic range component.
+effect's parameter array), this function returns a floating point representation, including any high dynamic range component.
 
 ----
 

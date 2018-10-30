@@ -3,7 +3,7 @@
 What's New
 ################################################################################
 
-If this is your first time developing an After Effects plug-in, you can skip the What’s New section and go directly to `How to Start Creating Plug-ins <#how-to-start-creating-plug-ins>`__.
+If this is your first time developing an After Effects plug-in, you can skip the What's New section and go directly to `How to Start Creating Plug-ins <#how-to-start-creating-plug-ins>`__.
 
 ----
 
@@ -24,14 +24,14 @@ PF_AdvTimeSuite is now at version 4, with a new call `PF_TimeCountFrames() <#_bo
 
 The new AEGP Math Suite provides helpful calls for matrix multiplication.
 
-The application font is now Adobe Clean. Previously, the fonts used in After Effects’ UI were Tahoma on Windows and Lucida Grande on macOS X. This is a proprietary font, and we can not make it available for use in your UI.
+The application font is now Adobe Clean. Previously, the fonts used in After Effects' UI were Tahoma on Windows and Lucida Grande on macOS X. This is a proprietary font, and we can not make it available for use in your UI.
 
 ----
 
 What's New In CC 2019 (16.0)?
 ================================================================================
 
-We’ve made some changes to how GPU effects are handled. See “GPU Effects Changes” for details.
+We've made some changes to how GPU effects are handled. See “GPU Effects Changes” for details.
 
 ----
 
@@ -50,7 +50,7 @@ Where an effect includes a layer parameter, a new menu to the right of the layer
 
 This control is similar to the View menu at the bottom of the Layer viewer panel, which allows you to render the layer from different positions in the rendering order: from its source, from its masks, or from its individual effects.
 
-As this is a user-facing option, the design is intended to be transparent to the effect. From the effect’s perspective, the input simply just includes the upstream effects and masks without any change to the effect. For any effect that uses layer params, here are some testing recommendations:
+As this is a user-facing option, the design is intended to be transparent to the effect. From the effect's perspective, the input simply just includes the upstream effects and masks without any change to the effect. For any effect that uses layer params, here are some testing recommendations:
 
 - Effect continues to work as expected.
 - Using new control in the layer param for Source/Mask/Effects works with effect.
@@ -153,7 +153,7 @@ FORCE_RERENDER is still needed for situations where sequence_data needs to be co
 
 FORCE_RERENDER is the trigger for this whether the render request uses the cache or not. Once we have the full set of APIs in place needed to manage render state, we will be able to deprecate FORCE_RERENDER.
 
-FORCE_RERENDER doesn’t work in every situation it did before, because it needs to synchronize the UI copy of sequence_data with the render thread copy.
+FORCE_RERENDER doesn't work in every situation it did before, because it needs to synchronize the UI copy of sequence_data with the render thread copy.
 
 FORCE_RERENDER works when set during PF_Cmd_USER_CHANGED_PARAM. It also works in CLICK and DRAG events, but only if PF_Cmd_GET_FLATTENED_SEQUENCE_DATA is implemented. This is required to prevent flattening and loss of UI state in the middle of mouse operations. Without GET_FLATTENED, the new FORCE_RERENDER behavior will NOT be turned on.
 
@@ -326,13 +326,13 @@ New in 11.0.1, the AE effect API version has been incremented to 13.3. This allo
 What's New In CS6 (11.0)?
 ================================================================================
 
-We’ve made several refinements for better parameter UI handling. `PF_PUI_INVISIBLE <#_bookmark220>`__ parameter UI flag is now supported in After Effects, which is useful if your plug-in needs hidden parameters that affect rendering. Now when a plug-in disables a parameter using `PF_UpdateParamUI <#_bookmark319>`__, we now save that state in the UI flags so that the plug-in can check the flag in the future to see if it is disabled. A new flag, `PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN <#_bookmark229>`__, allows a parameter to be unhidden without twirling open any parents and without scrolling the parameter into view in the Effect Controls panel and the Timeline panel.
+We've made several refinements for better parameter UI handling. `PF_PUI_INVISIBLE <#_bookmark220>`__ parameter UI flag is now supported in After Effects, which is useful if your plug-in needs hidden parameters that affect rendering. Now when a plug-in disables a parameter using `PF_UpdateParamUI <#_bookmark319>`__, we now save that state in the UI flags so that the plug-in can check the flag in the future to see if it is disabled. A new flag, `PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN <#_bookmark229>`__, allows a parameter to be unhidden without twirling open any parents and without scrolling the parameter into view in the Effect Controls panel and the Timeline panel.
 
 Effects that render a watermark over the output when the plug-in is in trial mode can now tell After Effects whether watermark rendering mode is on or off, using the new `PF_OutFlag2_OUTPUT_IS_WATERMARKED <#_bookmark187>`__.
 
-The new Global Performance Cache means you must tell After Effects to discard old cached frames `when changing your effect’s rendering <#_bookmark396>`__.
+The new Global Performance Cache means you must tell After Effects to discard old cached frames `when changing your effect's rendering <#_bookmark396>`__.
 
-We’ve removed PF_HasParamChanged and PF_HaveInputsChangedOverTimeSpan, providing `PF_AreStatesIdentical <#_bookmark323>`__ instead.
+We've removed PF_HasParamChanged and PF_HaveInputsChangedOverTimeSpan, providing `PF_AreStatesIdentical <#_bookmark323>`__ instead.
 
 Effects that provide custom UI can now receive `PF_Event_MOUSE_EXITED <#_bookmark434>`__, to gain notification that the mouse exited the layer or comp panel. `PF_ParamUtilsSuite <#_bookmark317>`__ is now at version 3.
 
@@ -363,4 +363,4 @@ For effects running in Premiere Pro CS6, we have added the ability to get 32-bit
 ...and what was new before CS6?
 ================================================================================
 
-For history this far back, see obsolete copies of the SDK (which we don’t provide; if someone wants you do develop for antique software, they’d best provide the SDK).
+For history this far back, see obsolete copies of the SDK (which we don't provide; if someone wants you do develop for antique software, they'd best provide the SDK).

@@ -3,16 +3,16 @@
 Calling Sequence
 ################################################################################
 
-As with all AEGPs, the entry point function exported in the plug-in’s PiPL is called during launch. During this function, the AEIO must provide function pointers to required functions and describe their capabilities, then pass the appropriate structures to `AEGP_RegisterIO() <#_bookmark563>`__.
+As with all AEGPs, the entry point function exported in the plug-in's PiPL is called during launch. During this function, the AEIO must provide function pointers to required functions and describe their capabilities, then pass the appropriate structures to `AEGP_RegisterIO() <#_bookmark563>`__.
 
 ----
 
 Import
 ================================================================================
 
-When users select a file in the file import dialog which is of a type handled by your AEIO, its `AEIO_VerifyFileImportable() <#_bookmark811>`__ function will be called; it’s called again for each such file the user imports. `AEIO_InitInSpecFromFile() <#_bookmark791>`__ will be called for each file; parse the file, and use the various set functions to describe it to After Effects. Also, construct any options data associated with the file, and save that data using `AEGP_SetInSpecOptionsHandle() <#_bookmark816>`__.
+When users select a file in the file import dialog which is of a type handled by your AEIO, its `AEIO_VerifyFileImportable() <#_bookmark811>`__ function will be called; it's called again for each such file the user imports. `AEIO_InitInSpecFromFile() <#_bookmark791>`__ will be called for each file; parse the file, and use the various set functions to describe it to After Effects. Also, construct any options data associated with the file, and save that data using `AEGP_SetInSpecOptionsHandle() <#_bookmark816>`__.
 
-After Effects then calls the plug-in’s `AEIO_GetInSpecInfo() <#_bookmark793>`__ function, to get descriptive text about the file for display in the project window. As noted in the description of this function, it may be called for folders as well; we recommend that, if there is no valid options data for the file, you do nothing and return no error (that’s what our AEIOs do).
+After Effects then calls the plug-in's `AEIO_GetInSpecInfo() <#_bookmark793>`__ function, to get descriptive text about the file for display in the project window. As noted in the description of this function, it may be called for folders as well; we recommend that, if there is no valid options data for the file, you do nothing and return no error (that's what our AEIOs do).
 
 `AEIO_CountUserData() <#_bookmark809>`__ is then sent; if the AEIO indicates that there is user data present, `AEIO_GetUserData() <#_bookmark810>`__ will follow. After Effects will then request that the plug-in draw a frame of video (for the project window thumbnail) by sending `AEIO_DrawSparseFrame() <#_bookmark794>`__.
 
@@ -25,7 +25,7 @@ When the project is saved, and if there is options data associated with the AEIO
 Export
 ================================================================================
 
-If the user adds an item to the render queue and chooses the AEIO’s supported output format, `AEIO_InitOutputSpec() <#_bookmark796>`__ will be sent. Use the various get functions to obtain information about the output settings, and store any pertinent information using `AEGP_SetOutSpecOptionsHandle() <#_bookmark819>`__ , followed by `AEIO_GetFlatOutputOptions() <#_bookmark797>`__. `AEIO_GetDepths() <#_bookmark808>`__ is sent so After Effects can determine what output pixel bit depths the AEIO supports. `AEIO_GetOutputInfo() <#_bookmark799>`__ is sent so that file name, type and subtype information can be displayed in the output module details.
+If the user adds an item to the render queue and chooses the AEIO's supported output format, `AEIO_InitOutputSpec() <#_bookmark796>`__ will be sent. Use the various get functions to obtain information about the output settings, and store any pertinent information using `AEGP_SetOutSpecOptionsHandle() <#_bookmark819>`__ , followed by `AEIO_GetFlatOutputOptions() <#_bookmark797>`__. `AEIO_GetDepths() <#_bookmark808>`__ is sent so After Effects can determine what output pixel bit depths the AEIO supports. `AEIO_GetOutputInfo() <#_bookmark799>`__ is sent so that file name, type and subtype information can be displayed in the output module details.
 
 When the user clicks on the Format Options button, in the render queue, `AEIO_UserOptionsDialog() <#_bookmark798>`__ is called.
 

@@ -5,9 +5,9 @@ Premiere Pro & Other Hosts
 
 Adobe Premiere Pro and Adobe Premiere Elements both support the After Effects effect API as described in chapters 2, 3, and 5.
 
-They offer a thorough host implementation, some the key omissions being 3D-related calls (auxiliary channel information, cameras and lights), 16-bit and SmartFX support, and other utility functions provided by After Effects’ AEGP API.
+They offer a thorough host implementation, some the key omissions being 3D-related calls (auxiliary channel information, cameras and lights), 16-bit and SmartFX support, and other utility functions provided by After Effects' AEGP API.
 
-Both Premiere Pro and Premiere Elements set ``PF_InData>appl_id`` to 'PrMr’.
+Both Premiere Pro and Premiere Elements set ``PF_InData>appl_id`` to 'PrMr'.
 
 In this chapter, we will describe the AE API support in Premiere Pro, but generally the same support exists in corresponding versions of Premiere Elements.
 

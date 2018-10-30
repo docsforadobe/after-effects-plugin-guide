@@ -3,18 +3,18 @@
 AEGP Suites
 ################################################################################
 
-As mentioned earlier, AEGPs do everything through suites. The following suites are used by all types of AEGPs, and may be called from within any hook function (except for the RegisterSuite, which must be used from within the AEGP’s entry point). Following is a description of each function in every suite, and, where appropriate details on using those functions.
+As mentioned earlier, AEGPs do everything through suites. The following suites are used by all types of AEGPs, and may be called from within any hook function (except for the RegisterSuite, which must be used from within the AEGP's entry point). Following is a description of each function in every suite, and, where appropriate details on using those functions.
 
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 |                   **Suite**                   |                                                              **Description**                                                               |
 +===============================================+============================================================================================================================================+
 | `Memory Suite <#_bookmark550>`__              | Manage memory resources. Use this suite! Whenever memory-related errors are encountered, After Effects can report errors for you.          |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `Command Suite <#_bookmark553>`__             | Manage your AEGP’s menu items. Used in conjunction with the Register Suite.                                                                |
+| `Command Suite <#_bookmark553>`__             | Manage your AEGP's menu items. Used in conjunction with the Register Suite.                                                                |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Register Suite <#_bookmark559>`__            | Used in conjunction with the `Command Suite <#_bookmark553>`__ to add functions to menu commands.                                          |
-|                                               | AEIOs and Artisans must use this suite’s functions to indicate to After Effects that they want to receive the appropriate message streams. |
-|                                               | You can replace some After Effects’ commands using this suite.                                                                             |
+|                                               | AEIOs and Artisans must use this suite's functions to indicate to After Effects that they want to receive the appropriate message streams. |
+|                                               | You can replace some After Effects' commands using this suite.                                                                             |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Project Suite <#_bookmark564>`__             | Reads and modifies project data.                                                                                                           |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -22,7 +22,7 @@ As mentioned earlier, AEGPs do everything through suites. The following suites a
 |                                               | Folders, Compositions, Solids, and Footage are all items.                                                                                  |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Collection Suite <#_bookmark572>`__          | Query which items are currently selected, and create your own selection sets.                                                              |
-|                                               | It’s often a good UI move to select all the items your AEGP has modified, just to give the user some idea what you’ve done.                |
+|                                               | It's often a good UI move to select all the items your AEGP has modified, just to give the user some idea what you've done.                |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Composition Suite <#_bookmark577>`__         | Manages (and creates) compositions in a project, and composition-specific items like solids.                                               |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -35,7 +35,7 @@ As mentioned earlier, AEGPs do everything through suites. The following suites a
 |                                               | Use Stream suites to obtain effect keyframe information.                                                                                   |
 |                                               | Use `AEGP_EffectCallGeneric() <#_bookmark612>`__ to communicate with effects that you setup ahead of time to respond to your AEGP.         |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `Stream Suite <#_bookmark625>`__              | Used to access the values of a layer’s keyframe properties.                                                                                |
+| `Stream Suite <#_bookmark625>`__              | Used to access the values of a layer's keyframe properties.                                                                                |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Dynamic Stream Suite <#_bookmark638>`__      | Used to access the characteristics of dynamic streams associated with a layer.                                                             |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -43,27 +43,27 @@ As mentioned earlier, AEGPs do everything through suites. The following suites a
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Marker Suite <#_bookmark655>`__              | Used to manipulate markers. Use `AEGP_GetCompMarkerStream() <#_bookmark582>`__ to get the composition marker stream.                       |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `Mask Suite <#_bookmark656>`__                | Provides access to retrieve information about a layer’s masks.                                                                             |
+| `Mask Suite <#_bookmark656>`__                | Provides access to retrieve information about a layer's masks.                                                                             |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `Mask Outline Suite <#_bookmark664>`__        | Used in conjunction with Stream Suite, this suite provides detailed information about the path rendered to make a layer’s mask.            |
+| `Mask Outline Suite <#_bookmark664>`__        | Used in conjunction with Stream Suite, this suite provides detailed information about the path rendered to make a layer's mask.            |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Text Document Suite <#_bookmark667>`__       | Used to access the actual text on a text layer.                                                                                            |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Text Layer Suite <#_bookmark669>`__          | Used to access the paths that make up the outlines of a text layer.                                                                        |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `Utility Suite <#_bookmark670>`__             | Supplies error message handling, AEGP version checking and access to After Effects’ undo stack.                                            |
+| `Utility Suite <#_bookmark670>`__             | Supplies error message handling, AEGP version checking and access to After Effects' undo stack.                                            |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Persistent Data Suite <#_bookmark677>`__     | Query and manage all persistent data (i.e., the preferences file).                                                                         |
 |                                               | AEGPs can also add their own data to the prefs.                                                                                            |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `Color Settings Suite <#_bookmark680>`__      | Obtain information on After Effects’ current color management settings.                                                                    |
+| `Color Settings Suite <#_bookmark680>`__      | Obtain information on After Effects' current color management settings.                                                                    |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | Render Suite                                  | Get rendered frames (and audio samples) from within an AEGP.                                                                               |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `World Suite <#_bookmark694>`__               | Allocate, dispose of, and query AEGP_Worlds.                                                                                               |
 |                                               | Also provides a way to convert a ``PF_EffectWorld`` into an ``AEGP_World``, for working with effect plug-ins.                              |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| Composite Suite                               | Exposes After Effects’ compositing functionality, including transfer modes, track matting, and good old fashioned bit copying.             |
+| Composite Suite                               | Exposes After Effects' compositing functionality, including transfer modes, track matting, and good old fashioned bit copying.             |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Sound Data Suite <#_bookmark700>`__          | Functions for managing and accessing sound data.                                                                                           |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -71,7 +71,7 @@ As mentioned earlier, AEGPs do everything through suites. The following suites a
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Render Queue Item Suite <#_bookmark706>`__   | Query and modify items in the render queue.                                                                                                |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `Render Options Suite <#_bookmark686>`__      | Query and manage all items exposed in a render queue item’s options dialog.                                                                |
+| `Render Options Suite <#_bookmark686>`__      | Query and manage all items exposed in a render queue item's options dialog.                                                                |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `Output Module Suite <#_bookmark712>`__       | Query and modify the output modules attached to items in the render queue.                                                                 |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -79,7 +79,7 @@ As mentioned earlier, AEGPs do everything through suites. The following suites a
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | `AEGP Iterate Suite <#_bookmark720>`__        | Gives AEGPs a way to have a function (which has the required signature) to be run on any or all available processors.                      |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `File Import Manager Suite <#_bookmark722>`__ | Registers AEGP file and project importers as part of After Effects’ file handling.                                                         |
+| `File Import Manager Suite <#_bookmark722>`__ | Registers AEGP file and project importers as part of After Effects' file handling.                                                         |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
@@ -87,7 +87,7 @@ As mentioned earlier, AEGPs do everything through suites. The following suites a
 Fail Gracefully
 ================================================================================
 
-If a suite isn’t present, make every attempt to fail gracefully. Show the user a message indicating the nature of the problem. Attempt to acquire and use an earlier version of the same suite.
+If a suite isn't present, make every attempt to fail gracefully. Show the user a message indicating the nature of the problem. Attempt to acquire and use an earlier version of the same suite.
 
 Since AEGPs are so deeply integrated with After Effects, make sure that users know who or what is encountering a given problem. Identify yourself! Provide support and/or help information to the user whenever possible.
 
@@ -211,7 +211,7 @@ AEGP_CommandSuite1
 |                               |     AEGP_Command  *unique_commandP);                                                                                                   |
 |                               |                                                                                                                                        |
 |                               | Note: On occasion After Effects will send command 0 (zero),                                                                            |
-|                               | so don’t use that as part of your command handling logic.                                                                              |
+|                               | so don't use that as part of your command handling logic.                                                                              |
 +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_InsertMenuCommand``    | Add a new menu command. Using nameZ = "-" will insert a separator. menu_ID can be:                                                     |
 |                               |                                                                                                                                        |
@@ -239,7 +239,7 @@ AEGP_CommandSuite1
 |                               | - ``AEGP_MENU_INSERT_AT_BOTTOM``                                                                                                       |
 |                               | - ``AEGP_MENU_INSERT_AT_TOP``                                                                                                          |
 |                               |                                                                                                                                        |
-|                               | For ``AEGP_Menu_WINDOW``, the BOTTOM and TOP options haven’t been supported since CS4 and will return an error.                        |
+|                               | For ``AEGP_Menu_WINDOW``, the BOTTOM and TOP options haven't been supported since CS4 and will return an error.                        |
 |                               | We recommend ``SORTED``.                                                                                                               |
 |                               |                                                                                                                                        |
 |                               | ::                                                                                                                                     |
@@ -323,7 +323,7 @@ AEGP_CommandSuite1
 Registering with After Effects
 ================================================================================
 
-Register functions for After Effects’ use.
+Register functions for After Effects' use.
 
 AEGP_RegisterSuites5
 *********************************************************************************
@@ -402,7 +402,7 @@ AEGP_RegisterSuites5
 |                                           |     const AEIO_FunctionBlock4  *aeio_fcn_blockP);                                                                                      |
 +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_RegisterIdleHook``                 | Register your IdleHook function. After Effects will call the function sporadically,                                                    |
-|                                           | while the user makes difficult artistic decisions (or while they’re getting more coffee).                                              |
+|                                           | while the user makes difficult artistic decisions (or while they're getting more coffee).                                              |
 |                                           |                                                                                                                                        |
 |                                           | ::                                                                                                                                     |
 |                                           |                                                                                                                                        |
@@ -444,7 +444,7 @@ Manage Projects
 These functions access and modify project data. Support for multiple projects is included to prepare for future expansion;
 After Effects currently adheres to the single project model.
 
-To save project-specific data in After Effects’ preferences (and thus, outside the projects themselves), use the `Persistent Data Suite <#_bookmark677>`__.
+To save project-specific data in After Effects' preferences (and thus, outside the projects themselves), use the `Persistent Data Suite <#_bookmark677>`__.
 
 Use caution: the functions for opening and creating projects do not save changes to the project currently open when they are called!
 
@@ -477,7 +477,7 @@ AEGP_ProjSuite6
 |                                |     AEGP_ProjectH  projH,                                                                                       |
 |                                |     A_char         *nameZ);                                                                                     |
 +--------------------------------+-----------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetProjectPath``        | Get the path of the project (empty string the project hasn’t been saved yet).                                   |
+| ``AEGP_GetProjectPath``        | Get the path of the project (empty string the project hasn't been saved yet).                                   |
 |                                | The path is a handle to a NULL-terminated A_UTF16Char string, and must be disposed with ``AEGP_FreeMemHandle``. |
 |                                |                                                                                                                 |
 |                                | ::                                                                                                              |
@@ -629,7 +629,7 @@ AEGP_TimeDisplay2
 +------------------------------------+-------------------------------------------------------------------------------------------------------------+
 | ``A_char timebaseC;``              | 0 - 100. Only used for ``AEGP_TimeDisplayType_TIMECODE``.                                                   |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------+
-| ``A_Boolean non_drop_30B;``        | When the timebase is 30 and the item’s framerate is 29.97, determines whether to display as non-drop frame. |
+| ``A_Boolean non_drop_30B;``        | When the timebase is 30 and the item's framerate is 29.97, determines whether to display as non-drop frame. |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------+
 | ``A_char frames_per_footC;``       | Only used for ``AEGP_TimeDisplayType_FEET_AND_FRAMES``.                                                     |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------+
@@ -647,7 +647,7 @@ Accesses and modifies items within a project or composition.
 
 Anything in the project bin is an AEGP_Item. Note that cameras have no source, and thus have no ``AEGP_ItemH``.
 
-Unless more specificity is required for the function(s) you’re using, remain as abstract as possible; AEGP_Comps are passed into and returned from most functions as AEGP_Items.
+Unless more specificity is required for the function(s) you're using, remain as abstract as possible; AEGP_Comps are passed into and returned from most functions as AEGP_Items.
 
 AEGP_ItemSuite9
 ********************************************************************************
@@ -703,7 +703,7 @@ AEGP_ItemSuite9
 |                                  |     A_Boolean   selectB,                                                                                                  |
 |                                  |     A_Boolean   deselect_othersB);                                                                                        |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetItemType``             | Gets type of an item. Note: solids don’t appear in the project, but can be the source to a layer.                         |
+| ``AEGP_GetItemType``             | Gets type of an item. Note: solids don't appear in the project, but can be the source to a layer.                         |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -747,7 +747,7 @@ AEGP_ItemSuite9
 |                                  |     AEGP_ItemH         itemH,                                                                                             |
 |                                  |     const A_UTF16Char  *nameZ);                                                                                           |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetItemID``               | Returns the item’s unique ID, which persists across saves and loads of the project.                                       |
+| ``AEGP_GetItemID``               | Returns the item's unique ID, which persists across saves and loads of the project.                                       |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -763,7 +763,7 @@ AEGP_ItemSuite9
 |                                  |     AEGP_ItemH      itemH,                                                                                                |
 |                                  |     AEGP_ItemFlags  *item_flagsP);                                                                                        |
 |                                  |                                                                                                                           |
-|                                  | Flag values (may be OR’d together):                                                                                       |
+|                                  | Flag values (may be OR'd together):                                                                                       |
 |                                  |                                                                                                                           |
 |                                  | - ``AEGP_ItemFlag_MISSING``                                                                                               |
 |                                  | - ``AEGP_ItemFlag_HAS_PROXY``                                                                                             |
@@ -776,7 +776,7 @@ AEGP_ItemSuite9
 |                                  |                                                                                                                           |
 |                                  | Unlike the ``HAS_AUDIO`` flag, this bit flag will set only if the comp has at least one layer where audio is actually on. |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetItemUseProxy``         | Toggle item’s proxy usage. Undoable.                                                                                      |
+| ``AEGP_SetItemUseProxy``         | Toggle item's proxy usage. Undoable.                                                                                      |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -792,7 +792,7 @@ AEGP_ItemSuite9
 |                                  |     AEGP_ItemH  itemH,                                                                                                    |
 |                                  |     AEGP_ItemH  *parent_itemPH);                                                                                          |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetItemParentFolder``     | Sets an item’s parent folder. Undoable.                                                                                   |
+| ``AEGP_SetItemParentFolder``     | Sets an item's parent folder. Undoable.                                                                                   |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -874,7 +874,7 @@ AEGP_ItemSuite9
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_CreateNewFolder``         | Creates a new folder in the project. The newly created folder is allocated and owned by After Effects.                    |
 |                                  |                                                                                                                           |
-|                                  | Passing ``NULL`` for ``parent_folderH0`` creates the folder at the project’s root.                                        |
+|                                  | Passing ``NULL`` for ``parent_folderH0`` creates the folder at the project's root.                                        |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -892,7 +892,7 @@ AEGP_ItemSuite9
 |                                  |    AEGP_ItemH    itemH,                                                                                                   |
 |                                  |    const A_Time  *new_timePT);                                                                                            |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetItemCommentLength``    | Removed in ``ItemSuite9``. Retrieves the length (in characters) of the ``itemH’s`` comment.                               |
+| ``AEGP_GetItemCommentLength``    | Removed in ``ItemSuite9``. Retrieves the length (in characters) of the ``itemH's`` comment.                               |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -900,7 +900,7 @@ AEGP_ItemSuite9
 |                                  |     AEGP_ItemH  itemH,                                                                                                    |
 |                                  |     A_u_long    *buf_sizePLu);                                                                                            |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetItemComment``          | Updated to support Unicode in ``ItemSuite9``, available in 14.1. Retrieves the ``itemH’s`` comment.                       |
+| ``AEGP_GetItemComment``          | Updated to support Unicode in ``ItemSuite9``, available in 14.1. Retrieves the ``itemH's`` comment.                       |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -908,7 +908,7 @@ AEGP_ItemSuite9
 |                                  |     AEGP_ItemH      itemH,                                                                                                |
 |                                  |     AEGP_MemHandle  *unicode_namePH);                                                                                     |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetItemComment``          | Updated to support Unicode in ``ItemSuite9``, available in 14.1. Sets the ``itemH’s`` comment.                            |
+| ``AEGP_SetItemComment``          | Updated to support Unicode in ``ItemSuite9``, available in 14.1. Sets the ``itemH's`` comment.                            |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -916,7 +916,7 @@ AEGP_ItemSuite9
 |                                  |     AEGP_ItemH         itemH,                                                                                             |
 |                                  |     const A_UTF16Char  *commentZ);                                                                                        |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetItemLabel``            | Retrieves an item’s label.                                                                                                |
+| ``AEGP_GetItemLabel``            | Retrieves an item's label.                                                                                                |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -924,7 +924,7 @@ AEGP_ItemSuite9
 |                                  |     AEGP_ItemH    itemH,                                                                                                  |
 |                                  |     AEGP_LabelID  *labelP);                                                                                               |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetItemLabel``            | Sets an item’s label.                                                                                                     |
+| ``AEGP_SetItemLabel``            | Sets an item's label.                                                                                                     |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -932,7 +932,7 @@ AEGP_ItemSuite9
 |                                  |     AEGP_ItemH    itemH,                                                                                                  |
 |                                  |     AEGP_LabelID  label);                                                                                                 |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetItemMRUView``          | Gets an item’s most recently used view.                                                                                   |
+| ``AEGP_GetItemMRUView``          | Gets an item's most recently used view.                                                                                   |
 |                                  | The view can be used with two calls in the ``AEGP_ColorSettingsSuite``,                                                   |
 |                                  | to perform a color transform on a pixel buffer from working to view color space.                                          |
 |                                  |                                                                                                                           |
@@ -958,7 +958,7 @@ Many types of items may be simultaneously selected in After Effects; ``AEGP_Coll
 
 First acquire the current collection, then iterate across its members to ensure that whatever your AEGP does is applicable to each.
 
-We’ve added ``AEGP_Collection2H`` and ``AEGP_CollectionItemV2`` so that selected dynamic streams can be handled with the ``AEGP_CollectionSuite``.
+We've added ``AEGP_Collection2H`` and ``AEGP_CollectionItemV2`` so that selected dynamic streams can be handled with the ``AEGP_CollectionSuite``.
 
 AEGP_CollectionSuite2
 ********************************************************************************
@@ -967,7 +967,7 @@ AEGP_CollectionSuite2
 |           **Function**            |                                                  **Purpose**                                                   |
 +===================================+================================================================================================================+
 | ``AEGP_NewCollection``            | Creates and returns a new, empty collection.                                                                   |
-|                                   | To obtain the current composition’s selection as a collection, use ``AEGP_GetNewCollectionFromCompSelection``. |
+|                                   | To obtain the current composition's selection as a collection, use ``AEGP_GetNewCollectionFromCompSelection``. |
 |                                   |                                                                                                                |
 |                                   | ::                                                                                                             |
 |                                   |                                                                                                                |
@@ -990,7 +990,7 @@ AEGP_CollectionSuite2
 |                                   |     AEGP_Collection2H  collectionH,                                                                            |
 |                                   |     A_u_long           *num_itemsPL);                                                                          |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetCollectionItemByIndex`` | Retrieves (creates and populates) the index’d collection item.                                                 |
+| ``AEGP_GetCollectionItemByIndex`` | Retrieves (creates and populates) the index'd collection item.                                                 |
 |                                   |                                                                                                                |
 |                                   | ::                                                                                                             |
 |                                   |                                                                                                                |
@@ -1007,7 +1007,7 @@ AEGP_CollectionSuite2
 |                                   |     AEGP_Collection2H            collectionH,                                                                  |
 |                                   |     const AEGP_CollectionItemV2  *itemP);                                                                      |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------+
-| ``AEGP_CollectionErase``          | Removes an index’d item (or items) from a given collection. NOTE: this range is exclusive,                     |
+| ``AEGP_CollectionErase``          | Removes an index'd item (or items) from a given collection. NOTE: this range is exclusive,                     |
 |                                   | like STL iterators. To erase the first item, you would pass 0 and 1, respectively.                             |
 |                                   |                                                                                                                |
 |                                   | ::                                                                                                             |
@@ -1064,7 +1064,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_CompH             compH,                                                                                     |
 |                                               |     AEGP_DownsampleFactor  *dsfP);                                                                                    |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetCompDownsampleFactor``              | Sets the composition’s downsample factor.                                                                             |
+| ``AEGP_SetCompDownsampleFactor``              | Sets the composition's downsample factor.                                                                             |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1080,7 +1080,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_CompH     compH,                                                                                             |
 |                                               |     AEGP_ColorVal  *bg_colorP);                                                                                       |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetCompBGColor``                       | Sets a composition’s background color.                                                                                |
+| ``AEGP_SetCompBGColor``                       | Sets a composition's background color.                                                                                |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1088,7 +1088,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_CompH           compH,                                                                                       |
 |                                               |     const AEGP_ColorVal  *bg_colorP);                                                                                 |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetCompFlags``                         | Returns composition flags, or’d together.                                                                             |
+| ``AEGP_GetCompFlags``                         | Returns composition flags, or'd together.                                                                             |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1105,7 +1105,7 @@ AEGP_CompSuite11
 |                                               | - ``AEGP_CompFlag_DRAFT_3D``                                                                                          |
 |                                               | - ``AEGP_CompFlag_SHOW_GRAPH``                                                                                        |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetShowLayerNameOrSourceName``         | New in CC. Passes back true if the Comp’s timeline shows layer names, false if source names.                          |
+| ``AEGP_GetShowLayerNameOrSourceName``         | New in CC. Passes back true if the Comp's timeline shows layer names, false if source names.                          |
 |                                               | This will open the comp as a side effect.                                                                             |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
@@ -1114,7 +1114,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_CompH  compH,                                                                                                |
 |                                               |     A_Boolean   *layer_names_shownPB);                                                                                |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetShowLayerNameOrSourceName``         | New in CC. Pass in true to have the Comp’s timeline show layer names, false for source names.                         |
+| ``AEGP_SetShowLayerNameOrSourceName``         | New in CC. Pass in true to have the Comp's timeline show layer names, false for source names.                         |
 |                                               | This will open the comp as a side effect.                                                                             |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
@@ -1123,7 +1123,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_CompH  compH,                                                                                                |
 |                                               |     A_Boolean   *layer_names_shownPB);                                                                                |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetShowBlendModes``                    | New in CC. Passes back true if the Comp’s timeline shows blend modes column, false if hidden.                         |
+| ``AEGP_GetShowBlendModes``                    | New in CC. Passes back true if the Comp's timeline shows blend modes column, false if hidden.                         |
 |                                               | This will open the comp as a side effect.                                                                             |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
@@ -1132,7 +1132,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_CompH  compH,                                                                                                |
 |                                               |     A_Boolean   *blend_modes_shownPB);                                                                                |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetShowBlendModes``                    | New in CC. Pass in true to have the Comp’s timeline show the blend modes column, false to hide it.                    |
+| ``AEGP_SetShowBlendModes``                    | New in CC. Pass in true to have the Comp's timeline show the blend modes column, false to hide it.                    |
 |                                               | This will open the comp as a side effect.                                                                             |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
@@ -1141,7 +1141,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_CompH  compH,                                                                                                |
 |                                               |     A_Boolean   show_blend_modesB);                                                                                   |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetCompFramerate``                     | Returns the composition’s frames per second.                                                                          |
+| ``AEGP_GetCompFramerate``                     | Returns the composition's frames per second.                                                                          |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1149,7 +1149,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_CompH  compH,                                                                                                |
 |                                               |     A_FpLong    *fpsPF);                                                                                              |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetCompFramerate``                     | Sets the composition’s frames per second.                                                                             |
+| ``AEGP_SetCompFramerate``                     | Sets the composition's frames per second.                                                                             |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1219,7 +1219,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_CompH  compH,                                                                                                |
 |                                               |     A_Time      *startPT);                                                                                            |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetCompWorkAreaDuration``              | Get the duration of a composition’s current work area, in seconds.                                                    |
+| ``AEGP_GetCompWorkAreaDuration``              | Get the duration of a composition's current work area, in seconds.                                                    |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1228,8 +1228,8 @@ AEGP_CompSuite11
 |                                               |     A_Time      *durationPT);                                                                                         |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetCompWorkAreaStartAndDuration``      | Set the work area start and duration, in seconds. Undo-able.                                                          |
-|                                               | One call to this function is sufficient to set the layer’s in point and duration;                                     |
-|                                               | it’s not necessary to call it twice, once for each timespace.                                                         |
+|                                               | One call to this function is sufficient to set the layer's in point and duration;                                     |
+|                                               | it's not necessary to call it twice, once for each timespace.                                                         |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1255,7 +1255,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_LayerH        *new_solidPH);                                                                                 |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_CreateCameraInComp``                   | Creates and adds a camera to the specified composition.                                                               |
-|                                               | Once created, you can manipulate the camera’s parameter streams using the `AEGP_StreamSuite <#_bookmark625>`__.       |
+|                                               | Once created, you can manipulate the camera's parameter streams using the `AEGP_StreamSuite <#_bookmark625>`__.       |
 |                                               |                                                                                                                       |
 |                                               | To specify a two-node camera, use `AEGP_SetLayerFlag <#_bookmark599>`__ to set ``AEGP_LayerFlag_LOOK_AT_POI``.        |
 |                                               |                                                                                                                       |
@@ -1268,7 +1268,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_LayerH        *new_cameraPH);                                                                                |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_CreateLightInComp``                    | Creates and adds a light to the specified composition.                                                                |
-|                                               | Once created, you can manipulate the light’s parameter streams using the `AEGP_StreamSuite <#_bookmark625>`__.        |
+|                                               | Once created, you can manipulate the light's parameter streams using the `AEGP_StreamSuite <#_bookmark625>`__.        |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1279,7 +1279,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_LayerH        *new_lightPH);                                                                                 |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_CreateComp``                           | Creates a new composition for the project.                                                                            |
-|                                               | If you don’t provide a parent folder, the composition will be at the root level of the project. Undo-able.            |
+|                                               | If you don't provide a parent folder, the composition will be at the root level of the project. Undo-able.            |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1305,7 +1305,7 @@ AEGP_CompSuite11
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetSelection``                         | Sets the selection within the given composition to the given ``AEGP_Collection2H``.                                   |
 |                                               | Will return an error if members of the ``AEGP_Collection2H`` are not available.                                       |
-|                                               | Don’t assume that a composition hasn’t changed between operations; always use a fresh ``AEGP_Collection2H``.          |
+|                                               | Don't assume that a composition hasn't changed between operations; always use a fresh ``AEGP_Collection2H``.          |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1417,7 +1417,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_CompH   parent_compH,                                                                                        |
 |                                               |     AEGP_LayerH  *new_vec_layerPH);                                                                                   |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetNewCompMarkerStream``               | Returns an AEGP_StreamRefH to the composition’s marker stream.                                                        |
+| ``AEGP_GetNewCompMarkerStream``               | Returns an AEGP_StreamRefH to the composition's marker stream.                                                        |
 |                                               | Must be disposed by caller.                                                                                           |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
@@ -1457,13 +1457,13 @@ AEGP_CompSuite11
 Work with Footage
 ================================================================================
 
-Provides information about footage, or items in a project or composition. When getting and setting footage’s interpretation, it is possible to specify incompatible options.
+Provides information about footage, or items in a project or composition. When getting and setting footage's interpretation, it is possible to specify incompatible options.
 
-If you encounter warnings and errors during development, be sure to make all related changes atomically, and reassess the logic of the operation you’re performing.
+If you encounter warnings and errors during development, be sure to make all related changes atomically, and reassess the logic of the operation you're performing.
 
-For example, changing the pull-down interpretation of footage won’t work unless there’s a difference between it’s native and conformed frame rate.
+For example, changing the pull-down interpretation of footage won't work unless there's a difference between it's native and conformed frame rate.
 
-Depending on what you’re trying to accomplish, it may make sense to abort all of your operations at that point, inform the user of the problem encountered.
+Depending on what you're trying to accomplish, it may make sense to abort all of your operations at that point, inform the user of the problem encountered.
 
 AEGP_FootageSuite5
 ********************************************************************************
@@ -1471,7 +1471,7 @@ AEGP_FootageSuite5
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |               **Function**               |                                                                               **Purpose**                                                                               |
 +==========================================+=========================================================================================================================================================================+
-| ``AEGP_GetMainFootageFromItem``          | Returns an error if item isn’t a footage item.                                                                                                                          |
+| ``AEGP_GetMainFootageFromItem``          | Returns an error if item isn't a footage item.                                                                                                                          |
 |                                          | Used to convert an item handle to a footage handle.                                                                                                                     |
 |                                          |                                                                                                                                                                         |
 |                                          | ::                                                                                                                                                                      |
@@ -1563,7 +1563,7 @@ AEGP_FootageSuite5
 |                                          | - ``AEGP_InterpretationStyle_NO_DIALOG_NO_GUESS`` Used for replace footage implementation.                                                                              |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_AddFootageToProject``             | Adds a footage item to a project. Footage will be adopted by the project, and may be added only once.                                                                   |
-|                                          | This is Undo-able; do not dispose of the returned added item if it’s undone.                                                                                            |
+|                                          | This is Undo-able; do not dispose of the returned added item if it's undone.                                                                                            |
 |                                          |                                                                                                                                                                         |
 |                                          | ::                                                                                                                                                                      |
 |                                          |                                                                                                                                                                         |
@@ -1573,7 +1573,7 @@ AEGP_FootageSuite5
 |                                          |     AEGP_ItemH     *add_itemPH0);                                                                                                                                       |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetItemProxyFootage``             | Sets footage as the proxy for an item. Will be adopted by the project.                                                                                                  |
-|                                          | This is Undo-able; do not dispose of the returned added item if it’s undone.                                                                                            |
+|                                          | This is Undo-able; do not dispose of the returned added item if it's undone.                                                                                            |
 |                                          |                                                                                                                                                                         |
 |                                          | ::                                                                                                                                                                      |
 |                                          |                                                                                                                                                                         |
@@ -1582,7 +1582,7 @@ AEGP_FootageSuite5
 |                                          |     AEGP_ItemH     itemH);                                                                                                                                              |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_ReplaceItemMainFootage``          | Replaces footage for an item. The item will replace the main footage for this item.                                                                                     |
-|                                          | This is Undo-able; do not dispose of the returned added item if it’s undone.                                                                                            |
+|                                          | This is Undo-able; do not dispose of the returned added item if it's undone.                                                                                            |
 |                                          |                                                                                                                                                                         |
 |                                          | ::                                                                                                                                                                      |
 |                                          |                                                                                                                                                                         |
@@ -1607,7 +1607,7 @@ AEGP_FootageSuite5
 |                                          |     A_Boolean           proxyB,                                                                                                                                         |
 |                                          |     AEGP_FootageInterp  *interpP);                                                                                                                                      |
 |                                          |                                                                                                                                                                         |
-|                                          | If proxyB is ``TRUE``, the proxy footage’s settings are retrieved.                                                                                                      |
+|                                          | If proxyB is ``TRUE``, the proxy footage's settings are retrieved.                                                                                                      |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetFootageInterpretation``        | Apply the settings in the ``AEGP_FootageInterp`` to the ``AEGP_FootageH``. Undo-able.                                                                                   |
 |                                          |                                                                                                                                                                         |
@@ -1618,7 +1618,7 @@ AEGP_FootageSuite5
 |                                          |     A_Boolean                 proxyB,                                                                                                                                   |
 |                                          |     const AEGP_FootageInterp  *interpP);                                                                                                                                |
 |                                          |                                                                                                                                                                         |
-|                                          | If ``proxyB`` is ``TRUE``, the proxy footage’s settings are modified.                                                                                                   |
+|                                          | If ``proxyB`` is ``TRUE``, the proxy footage's settings are modified.                                                                                                   |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetFootageLayerKey``              | Populates an ``AEGP_FootageLayerKey`` describing the footage.                                                                                                           |
 |                                          |                                                                                                                                                                         |
@@ -1629,7 +1629,7 @@ AEGP_FootageSuite5
 |                                          |     AEGP_FootageLayerKey*  layerKeyP);                                                                                                                                  |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_NewPlaceholderFootage``           | Deprecated. Adds a new placeholder footage item to the project.                                                                                                         |
-|                                          | Using this function for missing footage will cause the user to search for each individual missing file, regardless of whether or not they’re all in the same directory. |
+|                                          | Using this function for missing footage will cause the user to search for each individual missing file, regardless of whether or not they're all in the same directory. |
 |                                          | Undo-able.                                                                                                                                                              |
 |                                          |                                                                                                                                                                         |
 |                                          | ::                                                                                                                                                                      |
@@ -1642,7 +1642,7 @@ AEGP_FootageSuite5
 |                                          |     const A_Time   *durationPT,                                                                                                                                         |
 |                                          |     AEGP_FootageH  *footagePH);                                                                                                                                         |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_NewPlaceholderFootageWithPath``   | This is the hip new way to add references to footage that can’t be found right this moment.                                                                             |
+| ``AEGP_NewPlaceholderFootageWithPath``   | This is the hip new way to add references to footage that can't be found right this moment.                                                                             |
 |                                          | The file path is a NULL-terminated UTF-16 string with platform separators.                                                                                              |
 |                                          |                                                                                                                                                                         |
 |                                          | In CS6 and earlier, file_type was ignored and we previously recommendedsetting it to ``AEIO_FileType_NONE``.                                                            |
@@ -1665,7 +1665,7 @@ AEGP_FootageSuite5
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_NewSolidFootage``                 | This is the way to add a solid.                                                                                                                                         |
 |                                          | Until the footage is added to the project, the caller owns the ``AEGP_FootageH``                                                                                        |
-|                                          | (and must dispose of it if, and only if, it isn’t added to the project).                                                                                                |
+|                                          | (and must dispose of it if, and only if, it isn't added to the project).                                                                                                |
 |                                          |                                                                                                                                                                         |
 |                                          | ::                                                                                                                                                                      |
 |                                          |                                                                                                                                                                         |
@@ -1685,7 +1685,7 @@ AEGP_FootageSuite5
 |                                          |     A_Boolean      proxyB,                                                                                                                                              |
 |                                          |     AEGP_ColorVal  *colorP);                                                                                                                                            |
 |                                          |                                                                                                                                                                         |
-|                                          | If ``proxyB`` is ``TRUE``, the proxy solid’s color is retrieved.                                                                                                        |
+|                                          | If ``proxyB`` is ``TRUE``, the proxy solid's color is retrieved.                                                                                                        |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetSolidFootageColor``            | Sets the color of a solid. Undo-able.                                                                                                                                   |
 |                                          |                                                                                                                                                                         |
@@ -1696,7 +1696,7 @@ AEGP_FootageSuite5
 |                                          |     A_Boolean      proxyB,                                                                                                                                              |
 |                                          |     AEGP_ColorVal  *colorP);                                                                                                                                            |
 |                                          |                                                                                                                                                                         |
-|                                          | If ``proxyB`` is ``TRUE``, the proxy solid’s color is set.                                                                                                              |
+|                                          | If ``proxyB`` is ``TRUE``, the proxy solid's color is set.                                                                                                              |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetSolidFootageDimensions``       | Sets the dimensions of a solid. Undo-able.                                                                                                                              |
 |                                          |                                                                                                                                                                         |
@@ -1708,7 +1708,7 @@ AEGP_FootageSuite5
 |                                          |     A_long      widthL,                                                                                                                                                 |
 |                                          |     A_long      heightL);                                                                                                                                               |
 |                                          |                                                                                                                                                                         |
-|                                          | If ``proxyB`` is ``TRUE``, the proxy solid’s dimensions are modified. Returns an error if the item isn’t a solid.                                                       |
+|                                          | If ``proxyB`` is ``TRUE``, the proxy solid's dimensions are modified. Returns an error if the item isn't a solid.                                                       |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetFootageSoundDataFormat``       | Retrieves information about the audio data in the footage item (by populating the ``AEGP_SoundDataFormat`` you passed in).                                              |
 |                                          |                                                                                                                                                                         |
@@ -1737,7 +1737,7 @@ AEGP_FootageInterp Structure
 |                               |                                                                                        |
 |                               | ::                                                                                     |
 |                               |                                                                                        |
-|                               |   A_u_long signature; // 'FIEL’                                                        |
+|                               |   A_u_long signature; // 'FIEL'                                                        |
 |                               |   A_short version;                                                                     |
 |                               |   FIEL_Type type;                                                                      |
 |                               |   FIEL_Order order;                                                                    |
@@ -1762,7 +1762,7 @@ AEGP_FootageInterp Structure
 |                               |   A_u_char greenCu;                                                                    |
 |                               |   A_u_char blueCu;                                                                     |
 |                               |                                                                                        |
-|                               | ``AEGP_AlphaFlags`` is one or more of the following, OR’d together:                    |
+|                               | ``AEGP_AlphaFlags`` is one or more of the following, OR'd together:                    |
 |                               |                                                                                        |
 |                               | - ``AEGP_AlphaPremul``                                                                 |
 |                               | - ``AEGP_AlphaInverted``                                                               |
@@ -1866,7 +1866,7 @@ AEGP_LayerSuite8
 |                                       |     AEGP_LayerH  layerH,                                                                                                                             |
 |                                       |     A_long       *layer_indexPL);                                                                                                                    |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetLayerSourceItem``           | Get the AEGP_ItemH of the layer’s source item.                                                                                                       |
+| ``AEGP_GetLayerSourceItem``           | Get the AEGP_ItemH of the layer's source item.                                                                                                       |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -1875,7 +1875,7 @@ AEGP_LayerSuite8
 |                                       |     AEGP_ItemH   *source_itemPH);                                                                                                                    |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetLayerSourceItemID``         | Retrieves the ID of the given ``AEGP_LayerH``.                                                                                                       |
-|                                       | This is useful when hunting for a specific layer’s ID in an ``AEGP_StreamVal``.                                                                      |
+|                                       | This is useful when hunting for a specific layer's ID in an ``AEGP_StreamVal``.                                                                      |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -1968,8 +1968,8 @@ AEGP_LayerSuite8
 |                                       |     AEGP_LayerFlags  single_flag,                                                                                                                    |
 |                                       |     A_Boolean        valueB);                                                                                                                        |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_IsLayerVideoReallyOn``         | Determines whether the layer’s video is visible.                                                                                                     |
-|                                       | This is necessary to account for 'solo’ status of other layers in the composition; non-solo’d layers are still on.                                   |
+| ``AEGP_IsLayerVideoReallyOn``         | Determines whether the layer's video is visible.                                                                                                     |
+|                                       | This is necessary to account for 'solo' status of other layers in the composition; non-solo'd layers are still on.                                   |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2076,7 +2076,7 @@ AEGP_LayerSuite8
 |                                       | As of 6.5, when you make a layer a track matte, the layer in front of it will be disabled,                                                           |
 |                                       | as when you do this via the interface.                                                                                                               |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_IsAddLayerValid``              | Tests whether it’s currently valid to add a given item to a composition.                                                                             |
+| ``AEGP_IsAddLayerValid``              | Tests whether it's currently valid to add a given item to a composition.                                                                             |
 |                                       | A composition cannot be added to itself, or to any compositions which it contains; other conditions can preclude successful adding too.              |
 |                                       | Adding a layer without first using this function will produce undefined results.                                                                     |
 |                                       |                                                                                                                                                      |
@@ -2088,7 +2088,7 @@ AEGP_LayerSuite8
 |                                       |     A_Boolean   *validPB);                                                                                                                           |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_AddLayer``                     | Add an item to the composition, above all other layers. Undo-able.                                                                                   |
-|                                       | Use `AEGP_IsAddLayerValid() <#_bookmark603>`__ first, to confirm that it’s possible.                                                                 |
+|                                       | Use `AEGP_IsAddLayerValid() <#_bookmark603>`__ first, to confirm that it's possible.                                                                 |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2107,7 +2107,7 @@ AEGP_LayerSuite8
 |                                       |                                                                                                                                                      |
 |                                       | To add a layer to the end of the composition, to use ``layer_indexL = AEGP_REORDER_LAYER_TO_END``                                                    |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetLayerMaskedBounds``         | Given a layer’s handle and a time, returns the bounds of area visible with masks applied.                                                            |
+| ``AEGP_GetLayerMaskedBounds``         | Given a layer's handle and a time, returns the bounds of area visible with masks applied.                                                            |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2116,7 +2116,7 @@ AEGP_LayerSuite8
 |                                       |     const A_Time  *comp_timePT,                                                                                                                      |
 |                                       |     A_FloatRect   *boundsPR);                                                                                                                        |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetLayerObjectType``           | Returns a layer’s object type.                                                                                                                       |
+| ``AEGP_GetLayerObjectType``           | Returns a layer's object type.                                                                                                                       |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2200,7 +2200,7 @@ AEGP_LayerSuite8
 |                                       |     const A_Time  *comp_timePT,                                                                                                                      |
 |                                       |     A_long        *rand_valuePL);                                                                                                                    |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetLayerID``                   | Supplies the layer’s unique ID. This ID never changes during the lifetime of the project.                                                            |
+| ``AEGP_GetLayerID``                   | Supplies the layer's unique ID. This ID never changes during the lifetime of the project.                                                            |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2218,7 +2218,7 @@ AEGP_LayerSuite8
 |                                       |     A_Matrix4     *transform);                                                                                                                       |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetLayerToWorldXformFromView`` | Given a layer handle, the current (composition) time, and the requested view time,                                                                   |
-|                                       | returns the translation between the user’s view and the layer, corrected for the composition’s current aspect ratio.                                 |
+|                                       | returns the translation between the user's view and the layer, corrected for the composition's current aspect ratio.                                 |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2236,7 +2236,7 @@ AEGP_LayerSuite8
 |                                       |     AEGP_LayerH        aegp_layerH,                                                                                                                  |
 |                                       |     const A_UTF16Char  *new_nameZ);                                                                                                                  |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetLayerParent``               | Retrieves the handle to a layer’s parent (none if not parented).                                                                                     |
+| ``AEGP_GetLayerParent``               | Retrieves the handle to a layer's parent (none if not parented).                                                                                     |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2244,7 +2244,7 @@ AEGP_LayerSuite8
 |                                       |     AEGP_LayerH  layerH,                                                                                                                             |
 |                                       |     AEGP_LayerH  *parent_layerPH);                                                                                                                   |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetLayerParent``               | Sets a layer’s parent layer.                                                                                                                         |
+| ``AEGP_SetLayerParent``               | Sets a layer's parent layer.                                                                                                                         |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2267,7 +2267,7 @@ AEGP_LayerSuite8
 |                                       |     AEGP_LayerH  orig_layerH,                                                                                                                        |
 |                                       |     AEGP_LayerH  *dupe_layerPH);                                                                                                                     |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetLayerFromLayerID``          | Retrieves the ``AEGP_LayerH`` associated with a given ``AEGP_LayerIDVal`` (which is what you get when accessing an effect’s layer parameter stream). |
+| ``AEGP_GetLayerFromLayerID``          | Retrieves the ``AEGP_LayerH`` associated with a given ``AEGP_LayerIDVal`` (which is what you get when accessing an effect's layer parameter stream). |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2276,7 +2276,7 @@ AEGP_LayerSuite8
 |                                       |     AEGP_LayerIDVal  id,                                                                                                                             |
 |                                       |     AEGP_LayerH      *layerPH);                                                                                                                      |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetLayerLabel``                | Gets a layer’s ``AEGP_LabelID``.                                                                                                                     |
+| ``AEGP_GetLayerLabel``                | Gets a layer's ``AEGP_LabelID``.                                                                                                                     |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2284,7 +2284,7 @@ AEGP_LayerSuite8
 |                                       |     AEGP_LayerH   layerH,                                                                                                                            |
 |                                       |     AEGP_LabelID  *labelP);                                                                                                                          |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetLayerLabel``                | Sets a layer’s ``AEGP_LabelID``. Undoable.                                                                                                           |
+| ``AEGP_SetLayerLabel``                | Sets a layer's ``AEGP_LabelID``. Undoable.                                                                                                           |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
 |                                       |                                                                                                                                                      |
@@ -2323,7 +2323,7 @@ AEGP_LayerSuite8
 Layer Creation Notes
 ================================================================================
 
-All layers created using AEGP calls will start at composition time 0, and have the duration of the composition. Use `AEGP_SetLayerOffset <#_bookmark601>`__\ () and `AEGP_SetLayerInPointAndDuration <#_bookmark600>`__\ () to properly set the layer’s time information.
+All layers created using AEGP calls will start at composition time 0, and have the duration of the composition. Use `AEGP_SetLayerOffset <#_bookmark601>`__\ () and `AEGP_SetLayerInPointAndDuration <#_bookmark600>`__\ () to properly set the layer's time information.
 
 When the layer stretch factor (obtained using `AEGP_GetLayerStretch <#_bookmark602>`__, naturally) is not 100%, the following computation will be needed to yield the correct layer offset:
 
@@ -2340,7 +2340,7 @@ Access the effects applied to a layer. This suite provides access to all paramet
 
 An ``AEGP_Effect_RefH`` is a reference to an applied effect. An ``AEGP_InstalledEffectKey`` is a reference to an installed effect, which may or may not be currently applied to anything.
 
-If Foobarocity is applied to a layer twice, there will be two distinct ``AEGP_Effect_RefHs``, but they’ll both return the same ``AEGP_InstalledEffectKey``.
+If Foobarocity is applied to a layer twice, there will be two distinct ``AEGP_Effect_RefHs``, but they'll both return the same ``AEGP_InstalledEffectKey``.
 
 AEGP_EffectSuite4
 ********************************************************************************
@@ -2376,7 +2376,7 @@ AEGP_EffectSuite4
 +-----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetEffectParamUnionByIndex``     | Returns description of effect parameter.                                                                                                                  |
 |                                         | Do not use the value(s) in the ParamDef returned by this function (Use `AEGP_GetNewStreamValue() <#_bookmark632>`__ instead);                             |
-|                                         | it’s provided so AEGPs can access parameter defaults, checkbox names, and pop-up strings.                                                                 |
+|                                         | it's provided so AEGPs can access parameter defaults, checkbox names, and pop-up strings.                                                                 |
 |                                         |                                                                                                                                                           |
 |                                         | Use `AEGP_GetEffectNumParamStreams() <#_bookmark628>`__ from the StreamSuite to get the stream count, useful for determining the maximum ``param_index``. |
 |                                         | The last parameter is optional;                                                                                                                           |
@@ -2570,24 +2570,24 @@ AEGP_EffectSuite4
 Exploiting Effect UI Behavior To Look Cool
 ================================================================================
 
-Even if you manipulate a layer’s effects, its effect controls won’t necessarily become visible.
+Even if you manipulate a layer's effects, its effect controls won't necessarily become visible.
 
-However, if you `apply <#_bookmark614>`__ then immediately `remove <#_bookmark615>`__ an effect, the layer’s effect controls will be made visible. Tricky, eh?
+However, if you `apply <#_bookmark614>`__ then immediately `remove <#_bookmark615>`__ an effect, the layer's effect controls will be made visible. Tricky, eh?
 
 ----
 
 StreamRefs And EffectRefs
 ================================================================================
 
-How do you get an AEGP_StreamRef for an effect? Start by getting the effect’s ``AEGP_EffectRef``, by calling ``AEGP_GetNewEffectForEffect()``.
+How do you get an AEGP_StreamRef for an effect? Start by getting the effect's ``AEGP_EffectRef``, by calling ``AEGP_GetNewEffectForEffect()``.
 
 Then call ``AEGP_GetNewEffectStreamByIndex()``, say for param index 1, which passes back a parameter stream.
 
 Then call ``AEGP_GetNewParentStreamRef()`` - voila, your ``AEGP_StreamRef`` sir!
 
-If you acquire references to an effect’s streams, do not dispose of the ``AEGP_EffectRefH`` until you’re done with the streams, or you’ll unbalance After Effects’ checkout mechanism. Also remember that AEGP_StreamRefHs are opaque; ``AEGP_StreamValue2s`` are not (entirely).
+If you acquire references to an effect's streams, do not dispose of the ``AEGP_EffectRefH`` until you're done with the streams, or you'll unbalance After Effects' checkout mechanism. Also remember that AEGP_StreamRefHs are opaque; ``AEGP_StreamValue2s`` are not (entirely).
 
-To get an effect’s instance name (as renamed by the user), get the AEGP_StreamRef for the effect itself and call `AEGP_GetStreamName <#_bookmark631>`__.
+To get an effect's instance name (as renamed by the user), get the AEGP_StreamRef for the effect itself and call `AEGP_GetStreamName <#_bookmark631>`__.
 
 ----
 
@@ -2596,13 +2596,13 @@ Diving Into Streams!
 
 Just about everything in After Effects is a stream. Effect parameters, layers, masks, and shapes are all internally represented by streams. The AEGP API can access nearly every aspect of every stream.
 
-The After Effects timeline can contain numerous object types; each object supports a set of parameters called streams. All streams, regardless of which type of object to which they’re attached, are conceptually similar (and handled similarly by After Effects. But the way you access each type of stream varies because of their containment.
+The After Effects timeline can contain numerous object types; each object supports a set of parameters called streams. All streams, regardless of which type of object to which they're attached, are conceptually similar (and handled similarly by After Effects. But the way you access each type of stream varies because of their containment.
 
 A stream, once acquired, represents a value which may change over time. Not all streams *can*
 
 vary over time, and a particular stream may not be time-variant at the time of access.
 
-There are two ways to access the value of a stream. If the stream has keyframes, you can use the `keyframe suite <#_bookmark646>`__. The values provided won’t reflect the influence of expressions. Note: In any expression, the current keyframed value is always available as the variable value.
+There are two ways to access the value of a stream. If the stream has keyframes, you can use the `keyframe suite <#_bookmark646>`__. The values provided won't reflect the influence of expressions. Note: In any expression, the current keyframed value is always available as the variable value.
 
 You can also use `AEGP_GetNewStreamValue <#_bookmark632>`__, which samples the value of the stream at a particular time. For streams without expressions or keyframes, the time parameter is meaningless, and the function returns what essentially is the constant value of the stream. Use `AEGP_SetStreamValue <#_bookmark633>`__ (which doesn't take a time as a parameter) to set these streams.
 
@@ -2645,7 +2645,7 @@ Masks
 
 Since a layer can have multiple masks, access the masks using `AEGP_GetLayerMaskByIndex <#_bookmark660>`__.
 
-Masks don’t have streams like layers do; they get their own enumeration. Access their streams using `AEGP_GetNewMaskStream <#_bookmark630>`__.
+Masks don't have streams like layers do; they get their own enumeration. Access their streams using `AEGP_GetNewMaskStream <#_bookmark630>`__.
 
 ----
 
@@ -2661,7 +2661,7 @@ Therefore we cannot offer an enum for selecting them, and instead you must get t
 Stream Suite
 ================================================================================
 
-Access and manipulate the values of a layer’s streams. For paint and text streams, use `AEGP_DynamicStreamSuite <#_bookmark638>`__ instead.
+Access and manipulate the values of a layer's streams. For paint and text streams, use `AEGP_DynamicStreamSuite <#_bookmark638>`__ instead.
 
 AEGP_StreamSuite5
 ********************************************************************************
@@ -2703,7 +2703,7 @@ AEGP_StreamSuite5
 |                                    | - ``AEGP_KeyInterpMask_CUSTOM``                                                                                                                       |
 |                                    | - ``AEGP_KeyInterpMask_ANY``                                                                                                                          |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetNewLayerStream``         | Get a layer’s data stream. Plug-in must dispose of ``streamPH``. Note that this will not provide keyframe access;                                     |
+| ``AEGP_GetNewLayerStream``         | Get a layer's data stream. Plug-in must dispose of ``streamPH``. Note that this will not provide keyframe access;                                     |
 |                                    | Use the `AEGP_KeyframeSuite <#_bookmark646>`__ instead.                                                                                               |
 |                                    |                                                                                                                                                       |
 |                                    | ::                                                                                                                                                    |
@@ -2807,7 +2807,7 @@ AEGP_StreamSuite5
 |                                    |     AEGP_EffectRefH  effect_refH,                                                                                                                     |
 |                                    |     A_long           *num_parmsPL);                                                                                                                   |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetNewEffectStreamByIndex`` | Get an effect’s parameter stream. Plug-in must dispose of ``streamPH``.                                                                               |
+| ``AEGP_GetNewEffectStreamByIndex`` | Get an effect's parameter stream. Plug-in must dispose of ``streamPH``.                                                                               |
 |                                    |                                                                                                                                                       |
 |                                    | ::                                                                                                                                                    |
 |                                    |                                                                                                                                                       |
@@ -2817,7 +2817,7 @@ AEGP_StreamSuite5
 |                                    |     PF_ParamIndex    param_index,                                                                                                                     |
 |                                    |     AEGP_StreamRefH  *streamPH);                                                                                                                      |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetNewMaskStream``          | Get a mask’s stream. The stream must be disposed.                                                                                                     |
+| ``AEGP_GetNewMaskStream``          | Get a mask's stream. The stream must be disposed.                                                                                                     |
 |                                    | Also see the `AEGP_MaskSuite <#_bookmark656>`__ and `AEGP_MaskOutlineSuite <#_bookmark662>`__ for additional Mask functions.                          |
 |                                    |                                                                                                                                                       |
 |                                    | - ``AEGP_MaskStream_OUTLINE``,                                                                                                                        |
@@ -2845,7 +2845,7 @@ AEGP_StreamSuite5
 |                                    |   AEGP_DisposeStream(                                                                                                                                 |
 |                                    |     AEGP_StreamRefH  streamH);                                                                                                                        |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetNewMaskOpacity``         | Get the mask’s opacity stream. The stream must be disposed.                                                                                           |
+| ``AEGP_GetNewMaskOpacity``         | Get the mask's opacity stream. The stream must be disposed.                                                                                           |
 |                                    |                                                                                                                                                       |
 |                                    | ::                                                                                                                                                    |
 |                                    |                                                                                                                                                       |
@@ -2877,7 +2877,7 @@ AEGP_StreamSuite5
 |                                    |     A_Boolean        force_englishB,                                                                                                                  |
 |                                    |     A_char           *unitsZ);                                                                                                                        |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetStreamProperties``       | Get stream’s flags, as well as minimum and maximum values (as floats), if the stream *has* mins and maxes.                                            |
+| ``AEGP_GetStreamProperties``       | Get stream's flags, as well as minimum and maximum values (as floats), if the stream *has* mins and maxes.                                            |
 |                                    |                                                                                                                                                       |
 |                                    | StreamFlags values:                                                                                                                                   |
 |                                    |                                                                                                                                                       |
@@ -2987,7 +2987,7 @@ AEGP_StreamSuite5
 |                                    |     AEGP_StreamRefH  streamH,                                                                                                                         |
 |                                    |     A_Boolean        enabledB);                                                                                                                       |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetExpression``             | Obtains the expression’s text. Starting in suite version 5 (available in 15.0 and later), this now supports Unicode.                                  |
+| ``AEGP_GetExpression``             | Obtains the expression's text. Starting in suite version 5 (available in 15.0 and later), this now supports Unicode.                                  |
 |                                    |                                                                                                                                                       |
 |                                    | ::                                                                                                                                                    |
 |                                    |                                                                                                                                                       |
@@ -2996,7 +2996,7 @@ AEGP_StreamSuite5
 |                                    |     AEGP_StreamRefH  streamH,                                                                                                                         |
 |                                    |     AEGP_MemHandle   *unicodeHZ);                                                                                                                     |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetExpression``             | Sets the expression’s text. Starting in suite version 5 (available in 15.0 and later), this now supports Unicode.                                     |
+| ``AEGP_SetExpression``             | Sets the expression's text. Starting in suite version 5 (available in 15.0 and later), this now supports Unicode.                                     |
 |                                    |                                                                                                                                                       |
 |                                    | ::                                                                                                                                                    |
 |                                    |                                                                                                                                                       |
@@ -3032,7 +3032,7 @@ AEGP_DynamicStreamSuite4
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |            **Function**             |                                                                                                 **Purpose**                                                             |
 +=====================================+=========================================================================================================================================================================+
-| ``AEGP_GetNewStreamRefForLayer``    | Retrieves the AEGP_StreamRefH corresponding to the layer. This function is used to initiate a recursive walk of the layer’s streams.                                    |
+| ``AEGP_GetNewStreamRefForLayer``    | Retrieves the AEGP_StreamRefH corresponding to the layer. This function is used to initiate a recursive walk of the layer's streams.                                    |
 |                                     |                                                                                                                                                                         |
 |                                     | ::                                                                                                                                                                      |
 |                                     |                                                                                                                                                                         |
@@ -3157,7 +3157,7 @@ AEGP_DynamicStreamSuite4
 |                                     | - ``AEGP_StreamGroupName_CAMERA_OPTIONS``                                                                                                                               |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_DeleteStream``               | Deletes the specified stream from a stream grouping.                                                                                                                    |
-|                                     | Note that the caller must still dispose of any ``AEGP_StreamRefH`` it’s already acquired (allocated) via the API. Undoable.                                             |
+|                                     | Note that the caller must still dispose of any ``AEGP_StreamRefH`` it's already acquired (allocated) via the API. Undoable.                                             |
 |                                     | Only valid for children of type `AEGP_StreamGroupingType_INDEXED_GROUP <#_bookmark640>`__.                                                                              |
 |                                     |                                                                                                                                                                         |
 |                                     | ::                                                                                                                                                                      |
@@ -3199,7 +3199,7 @@ AEGP_DynamicStreamSuite4
 |                                     |     AEGP_StreamRefH    streamH,                                                                                                                                         |
 |                                     |     const A_UTF16Char  *nameZ);                                                                                                                                         |
 |                                     |                                                                                                                                                                         |
-|                                     | Note: Use this on an effect stream’s group to change the display name of an effect.                                                                                     |
+|                                     | Note: Use this on an effect stream's group to change the display name of an effect.                                                                                     |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_CanAddStream``               | Returns whether or not it is currently possible to add a stream through the API.                                                                                        |
 |                                     |                                                                                                                                                                         |
@@ -3259,7 +3259,7 @@ AEGP_DynamicStreamSuite4
 |                                     |     AEGP_StreamRefH  streamH,                                                                                                                                           |
 |                                     |     A_long           *indexPL);                                                                                                                                         |
 |                                     |                                                                                                                                                                         |
-|                                     | NOTE: As mentioned *elsewhere*, ``AEGP_StreamRefHs`` don’t persist across function calls.                                                                               |
+|                                     | NOTE: As mentioned *elsewhere*, ``AEGP_StreamRefHs`` don't persist across function calls.                                                                               |
 |                                     | If streams are re-ordered, added or removed, all ``AEGP_StreamRefHs`` previously retrieved may be invalidated.                                                          |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_IsSeparationLeader``         | Valid on leaf streams only. Returns true if this stream is a multidimensional stream that can have its dimensions separated,                                            |
@@ -3337,7 +3337,7 @@ AEGP_DynamicStreamSuite4
 Working With Keyframes
 ================================================================================
 
-Keyframes make After Effects what it is. AEGPs (and...ssshh, don’t tell anyone...effects) can use this suite to add, manipulate and remove keyframes from any keyframe-able stream.
+Keyframes make After Effects what it is. AEGPs (and...ssshh, don't tell anyone...effects) can use this suite to add, manipulate and remove keyframes from any keyframe-able stream.
 
 AEGP_KeyframeSuite3
 ********************************************************************************
@@ -3347,7 +3347,7 @@ AEGP_KeyframeSuite3
 +==========================================+========================================================================================================================================================+
 | ``AEGP_GetStreamNumKFs``                 | Retrieves the number of keyframes on the given stream.                                                                                                 |
 |                                          | Returns ``AEGP_NumKF_NO_DATA`` if the stream is not keyframe-able.                                                                                     |
-|                                          | Also, note that a stream without keyframes isn’t necessarily constant; it can be altered by expressions.                                               |
+|                                          | Also, note that a stream without keyframes isn't necessarily constant; it can be altered by expressions.                                               |
 |                                          |                                                                                                                                                        |
 |                                          | ::                                                                                                                                                     |
 |                                          |                                                                                                                                                        |
@@ -3366,7 +3366,7 @@ AEGP_KeyframeSuite3
 |                                          |     A_Time              *timePT);                                                                                                                      |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_InsertKeyframe``                  | Adds a keyframe to the specified stream (at the specified composition or layer time).                                                                  |
-|                                          | Returns the new keyframe’s index.                                                                                                                      |
+|                                          | Returns the new keyframe's index.                                                                                                                      |
 |                                          | All indexes greater than the new index are now invalid (but you knew that).                                                                            |
 |                                          | If there is already a keyframe at that time, the values will be updated.                                                                               |
 |                                          |                                                                                                                                                        |
@@ -3386,7 +3386,7 @@ AEGP_KeyframeSuite3
 |                                          |     AEGP_StreamRefH     streamH,                                                                                                                       |
 |                                          |     AEGP_KeyframeIndex  key_index);                                                                                                                    |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetNewKeyframeValue``             | Creates and populates an ``AEGP_StreamValue2`` for the stream’s value at the time of the keyframe.                                                     |
+| ``AEGP_GetNewKeyframeValue``             | Creates and populates an ``AEGP_StreamValue2`` for the stream's value at the time of the keyframe.                                                     |
 |                                          | The returned ``AEGP_StreamValue2`` must be disposed of using ``AEGP_DisposeStreamValue``.                                                              |
 |                                          |                                                                                                                                                        |
 |                                          | ::                                                                                                                                                     |
@@ -3397,7 +3397,7 @@ AEGP_KeyframeSuite3
 |                                          |     AEGP_KeyframeIndex  key_index,                                                                                                                     |
 |                                          |     AEGP_StreamValue2   *valueP);                                                                                                                      |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetKeyframeValue``                | Sets the stream’s value at the time of the keyframe.                                                                                                   |
+| ``AEGP_SetKeyframeValue``                | Sets the stream's value at the time of the keyframe.                                                                                                   |
 |                                          |                                                                                                                                                        |
 |                                          | ::                                                                                                                                                     |
 |                                          |                                                                                                                                                        |
@@ -3406,7 +3406,7 @@ AEGP_KeyframeSuite3
 |                                          |     AEGP_KeyframeIndex       index,                                                                                                                    |
 |                                          |     const AEGP_StreamValue2  *valP);                                                                                                                   |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetStreamValueDimensionality``    | Retrieves the dimensionality of the stream’s value.                                                                                                    |
+| ``AEGP_GetStreamValueDimensionality``    | Retrieves the dimensionality of the stream's value.                                                                                                    |
 |                                          |                                                                                                                                                        |
 |                                          | ::                                                                                                                                                     |
 |                                          |                                                                                                                                                        |
@@ -3422,7 +3422,7 @@ AEGP_KeyframeSuite3
 |                                          |     AEGP_StreamRefH  streamH,                                                                                                                          |
 |                                          |     A_short          *t_dimPS);                                                                                                                        |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetNewKeyframeSpatialTangents``   | Returns the ``AEGP_StreamValue2s`` representing the stream’s tangential values at the time of the keyframe.                                            |
+| ``AEGP_GetNewKeyframeSpatialTangents``   | Returns the ``AEGP_StreamValue2s`` representing the stream's tangential values at the time of the keyframe.                                            |
 |                                          |                                                                                                                                                        |
 |                                          | The returned ``AEGP_StreamValue2s`` must be disposed of using ``AEGP_DisposeStreamValue``.                                                             |
 |                                          |                                                                                                                                                        |
@@ -3435,7 +3435,7 @@ AEGP_KeyframeSuite3
 |                                          |     AEGP_StreamValue2   *in_tanP0,                                                                                                                     |
 |                                          |     AEGP_StreamValue2   *out_tanP0);                                                                                                                   |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetKeyframeSpatialTangents``      | Specifies the tangential ``AEGP_StreamValue2s`` to be used for the stream’s value at the time of the keyframe.                                         |
+| ``AEGP_SetKeyframeSpatialTangents``      | Specifies the tangential ``AEGP_StreamValue2s`` to be used for the stream's value at the time of the keyframe.                                         |
 |                                          | The ``AEGP_StreamValue2s`` passed for in and out tangents are not adopted by After Effects, and must be disposed of using ``AEGP_DisposeStreamValue``. |
 |                                          |                                                                                                                                                        |
 |                                          | ::                                                                                                                                                     |
@@ -3450,7 +3450,7 @@ AEGP_KeyframeSuite3
 |                                          | were wrong when called on an effect point control stream or anchor point.                                                                              |
 |                                          | They were not multiplied by the layer size. Now they are.                                                                                              |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetKeyframeTemporalEase``         | Retrieves the ``AEGP_KeyframeEases`` associated with the specified dimension of the stream’s value at the time of the keyframe.                        |
+| ``AEGP_GetKeyframeTemporalEase``         | Retrieves the ``AEGP_KeyframeEases`` associated with the specified dimension of the stream's value at the time of the keyframe.                        |
 |                                          | ``dimensionL`` ranges from ``0`` to ``(temporal_dimensionality -1)``.                                                                                  |
 |                                          |                                                                                                                                                        |
 |                                          | ::                                                                                                                                                     |
@@ -3464,7 +3464,7 @@ AEGP_KeyframeSuite3
 |                                          |                                                                                                                                                        |
 |                                          | NOTE: the returned ease values must be multiplied by layer height to match the values displayed in the After Effects UI.                               |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetKeyframeTemporalEase``         | Specifies the ``AEGP_KeyframeEases`` to be used for the stream’s value at the time of the keyframe.                                                    |
+| ``AEGP_SetKeyframeTemporalEase``         | Specifies the ``AEGP_KeyframeEases`` to be used for the stream's value at the time of the keyframe.                                                    |
 |                                          | ``dimensionL`` ranges from ``0`` to ``(temporal_dimensionality -1)``.                                                                                  |
 |                                          | The ``AEGP_KeyframeEases`` passed are not adopted by After Effects.                                                                                    |
 |                                          |                                                                                                                                                        |
@@ -3532,7 +3532,7 @@ AEGP_KeyframeSuite3
 |                                          |     AEGP_KeyframeInterpolationType  in_interp,                                                                                                         |
 |                                          |     AEGP_KeyframeInterpolationType  out_interp);                                                                                                       |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_StartAddKeyframes``               | Informs After Effects that you’re going to be adding several keyframes to the specified stream.                                                        |
+| ``AEGP_StartAddKeyframes``               | Informs After Effects that you're going to be adding several keyframes to the specified stream.                                                        |
 |                                          | After Effects will return an allocated opaque ``AEGP_AddKeyframesInfoH``, for use with the calls below.                                                |
 |                                          |                                                                                                                                                        |
 |                                          | ::                                                                                                                                                     |
@@ -3543,7 +3543,7 @@ AEGP_KeyframeSuite3
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_AddKeyframes``                    | Adds a keyframe to the specified stream at the specified (layer or composition) time.                                                                  |
 |                                          |                                                                                                                                                        |
-|                                          | Note: this doesn’t actually do anything to the stream’s value.                                                                                         |
+|                                          | Note: this doesn't actually do anything to the stream's value.                                                                                         |
 |                                          |                                                                                                                                                        |
 |                                          | ::                                                                                                                                                     |
 |                                          |                                                                                                                                                        |
@@ -3562,7 +3562,7 @@ AEGP_KeyframeSuite3
 |                                          |     A_long                   indexL,                                                                                                                   |
 |                                          |     const AEGP_StreamValue2  *valueP);                                                                                                                 |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_EndAddKeyframes``                 | Tells After Effects you’re done adding keyframes.                                                                                                      |
+| ``AEGP_EndAddKeyframes``                 | Tells After Effects you're done adding keyframes.                                                                                                      |
 |                                          |                                                                                                                                                        |
 |                                          | ::                                                                                                                                                     |
 |                                          |                                                                                                                                                        |
@@ -3578,13 +3578,13 @@ Adding Multiple Keyframes
 
 Each time you call `AEGP_InsertKeyframe() <#_bookmark647>`__, the entire stream is added to the undo stack.
 
-If you’re adding one or two keyframes, this isn’t a problem. However, if you’re writing a keyframer, you’ll want to do things the *right* way.
+If you're adding one or two keyframes, this isn't a problem. However, if you're writing a keyframer, you'll want to do things the *right* way.
 
 Before you begin adding keyframes, call the (very-appropriately-named) `AEGP_StartAddKeyframes <#_bookmark649>`__, passing it an opaque ``AEGP_AddKeyframesInfoH``.
 
-For each keyframe to add, call `AEGP_AddKeyframes <#_bookmark650>`__ to set the time to be used (and get the newly- added keyframe’s index), then `AEGP_SetAddKeyframe <#_bookmark651>`__ to specify the value to be used.
+For each keyframe to add, call `AEGP_AddKeyframes <#_bookmark650>`__ to set the time to be used (and get the newly- added keyframe's index), then `AEGP_SetAddKeyframe <#_bookmark651>`__ to specify the value to be used.
 
-Once you’re finished, call `AEGP_EndAddKeyframes <#_bookmark652>`__ to let know After Effects know it’s time to add the changed parameter stream to the undo stack.
+Once you're finished, call `AEGP_EndAddKeyframes <#_bookmark652>`__ to let know After Effects know it's time to add the changed parameter stream to the undo stack.
 
 ----
 
@@ -3613,7 +3613,7 @@ AEGP_MarkerSuite2
 |                                  |   AEGP_DisposeMarker(                                                                                                   |
 |                                  |     AEGP_MarkerValP  markerP);                                                                                          |
 +----------------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_DuplicateMarker``         | Duplicates a marker (didn’t see *that* one coming, eh?).                                                                |
+| ``AEGP_DuplicateMarker``         | Duplicates a marker (didn't see *that* one coming, eh?).                                                                |
 |                                  |                                                                                                                         |
 |                                  | ::                                                                                                                      |
 |                                  |                                                                                                                         |
@@ -3621,7 +3621,7 @@ AEGP_MarkerSuite2
 |                                  |     AEGP_MarkerValP  markerP,                                                                                           |
 |                                  |     AEGP_MarkerValP  *new_markerP);                                                                                     |
 +----------------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetMarkerFlag``           | Sets a marker flag’s value.                                                                                             |
+| ``AEGP_SetMarkerFlag``           | Sets a marker flag's value.                                                                                             |
 |                                  |                                                                                                                         |
 |                                  | ::                                                                                                                      |
 |                                  |                                                                                                                         |
@@ -3734,7 +3734,7 @@ AEGP_MarkerSuite2
 Mask Management
 ================================================================================
 
-Access, manipulate, and delete a layer’s masks.
+Access, manipulate, and delete a layer's masks.
 
 AEGP_MaskSuite6
 ********************************************************************************
@@ -3860,7 +3860,7 @@ AEGP_MaskSuite6
 |                                 |     AEGP_MaskRefH   mask_refH,                                                                                                             |
 |                                 |     AEGP_MaskIDVal  *id_valP);                                                                                                             |
 +---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_CreateNewMask``          | Creates a new mask on the referenced ``AEGP_LayerH``, with zero nodes. The new mask’s index is returned.                                   |
+| ``AEGP_CreateNewMask``          | Creates a new mask on the referenced ``AEGP_LayerH``, with zero nodes. The new mask's index is returned.                                   |
 |                                 |                                                                                                                                            |
 |                                 | ::                                                                                                                                         |
 |                                 |                                                                                                                                            |
@@ -3940,7 +3940,7 @@ Mask Outlines
 
 The Mask Suite above tells plug-ins about the masks on a layer, but not about the details of those masks.
 
-This is because processing is required on After Effects’ part to access the information; the information isn’t just lying around.
+This is because processing is required on After Effects' part to access the information; the information isn't just lying around.
 
 Plug-ins access that information using this Mask Outline Suite.
 
@@ -4142,7 +4142,7 @@ AEGP_TextLayerSuite1
 |          **Function**          |                                                                **Purpose**                                                                 |
 +================================+============================================================================================================================================+
 | ``AEGP_GetNewTextOutlines``    | Allocates and returns a handle to the ``AEGP_TextOutlinesHs`` associated with the specified layer.                                         |
-|                                | ``outlinesPH`` will be NULL if there are no ``AEGP_TextOutlinesHs`` associated with ``layerH`` (in other words, if it’s not a text layer). |
+|                                | ``outlinesPH`` will be NULL if there are no ``AEGP_TextOutlinesHs`` associated with ``layerH`` (in other words, if it's not a text layer). |
 |                                |                                                                                                                                            |
 |                                | ::                                                                                                                                         |
 |                                |                                                                                                                                            |
@@ -4248,7 +4248,7 @@ AEGP_UtilitySuite6
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_RegisterWithAEGP``              | Returns an AEGP_PluginID, which effect plug-ins can then use in calls to many functions throughout the AEGP API.                   |
 |                                        | Effects should only call this function once, during ``PF_Cmd_GLOBAL_SETUP``, and save the ``AEGP_PluginID`` for later use.         |
-|                                        | The first parameter can be any value, and the second parameter should be the plug-in’s match name.                                 |
+|                                        | The first parameter can be any value, and the second parameter should be the plug-in's match name.                                 |
 |                                        |                                                                                                                                    |
 |                                        | ::                                                                                                                                 |
 |                                        |                                                                                                                                    |
@@ -4257,8 +4257,8 @@ AEGP_UtilitySuite6
 |                                        |     const A_char       *plugin_nameZ,                                                                                              |
 |                                        |     AEGP_PluginID      *plugin_id);                                                                                                |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetMainHWND``                   | Retrieves After Effects’ HWND; useful when displaying your own dialog on Windows.                                                  |
-|                                        | If you don’t use After Effects’ HWND, your modal dialog will not prevent interaction with the windows behind, and pain will ensue. |
+| ``AEGP_GetMainHWND``                   | Retrieves After Effects' HWND; useful when displaying your own dialog on Windows.                                                  |
+|                                        | If you don't use After Effects' HWND, your modal dialog will not prevent interaction with the windows behind, and pain will ensue. |
 |                                        |                                                                                                                                    |
 |                                        | ::                                                                                                                                 |
 |                                        |                                                                                                                                    |
@@ -4332,7 +4332,7 @@ AEGP_UtilitySuite6
 |                                        |   AEGP_CharPalSetStrokeColor(                                                                                                      |
 |                                        |     const AEGP_ColorVal  *stroke_colorP);                                                                                          |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_CharPalIsFillColorUIFrontmost`` | Returns whether or not the fill color is frontmost. If it isn’t, the stroke color is frontmost.                                    |
+| ``AEGP_CharPalIsFillColorUIFrontmost`` | Returns whether or not the fill color is frontmost. If it isn't, the stroke color is frontmost.                                    |
 |                                        |                                                                                                                                    |
 |                                        | ::                                                                                                                                 |
 |                                        |                                                                                                                                    |
@@ -4460,15 +4460,15 @@ AEGP_UtilitySuite6
 Persistent Data Suite
 ================================================================================
 
-Plug-ins have read and write access to persistent data in After Effects’ preferences. AEGPs may add and manage their own persistent data using the following suite. The data entries are accessed by (section key, value key) pairs. It is recommended that plug-ins use their matchname as their section key, or as a prefix if using multiple section keys.
+Plug-ins have read and write access to persistent data in After Effects' preferences. AEGPs may add and manage their own persistent data using the following suite. The data entries are accessed by (section key, value key) pairs. It is recommended that plug-ins use their matchname as their section key, or as a prefix if using multiple section keys.
 
 The available data types are ``A_long``, ``A_FpLong``, strings, and ``void*``. ``A_FpLongs`` are stored with 6 decimal places of precision. There is no provision for specifying a different precision. String data supports the full 8-bit space. Only 0x00 is reserved for string ending. This makes them ideal for storing UTF-8 encoded strings, ISO 8859-1, and plain ASCII. Both section keys and value keys are of this type. For data types not represented by the simple data types provided, use data handles containing your custom data. void* unstructured data allows you to store any kind of data. You must pass in a size in bytes along with the data.
 
 When calling any of the functions to retrieve the value of a key, if a given key is not found, the default value is both written to the blob and returned as the value; if no default is provided, a blank value will be written and returned.
 
-Note that this data is stored in the application’s preferences, not in the project. As of 6.5, there is no way to store opaque AEGP-generated data in an After Effects project.
+Note that this data is stored in the application's preferences, not in the project. As of 6.5, there is no way to store opaque AEGP-generated data in an After Effects project.
 
-After Effects can handle plug-ins which change the preferences during their application; it checks the in-RAM copy of the prefs before acting upon pref-able settings, rather than relying on the saved prefs. It’s like we *planned* this, or something!
+After Effects can handle plug-ins which change the preferences during their application; it checks the in-RAM copy of the prefs before acting upon pref-able settings, rather than relying on the saved prefs. It's like we *planned* this, or something!
 
 AEGP_PersistentDateSuite4
 ********************************************************************************
@@ -4551,7 +4551,7 @@ AEGP_PersistentDateSuite4
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
 |        **Function**        |                                                       **Purpose**                                                       |
 +============================+=========================================================================================================================+
-| ``AEGP_GetDataHandle``     | Obtains the value associated with the given section’s key. If using in-memory data structures, watch for endian issues. |
+| ``AEGP_GetDataHandle``     | Obtains the value associated with the given section's key. If using in-memory data structures, watch for endian issues. |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4563,7 +4563,7 @@ AEGP_PersistentDateSuite4
 |                            |     AEGP_MemHandle        defaultH0,                                                                                    |
 |                            |     AEGP_MemHandle        *valuePH);                                                                                    |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetData``           | Obtains the data located at a given section’s value.                                                                    |
+| ``AEGP_GetData``           | Obtains the data located at a given section's value.                                                                    |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4575,7 +4575,7 @@ AEGP_PersistentDateSuite4
 |                            |     const void            *defaultPV0,                                                                                  |
 |                            |     void                  *bufPV);                                                                                      |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetString``         | Obtains the string for a given section key’s value (and indicates its length in ``actual_szLu0``).                      |
+| ``AEGP_GetString``         | Obtains the string for a given section key's value (and indicates its length in ``actual_szLu0``).                      |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4588,7 +4588,7 @@ AEGP_PersistentDateSuite4
 |                            |     char                  *bufZ,                                                                                        |
 |                            |     A_u_long              *actual_szLu0);                                                                               |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetLong``           | Obtains the ``A_long`` associated with a given section key’s value.                                                     |
+| ``AEGP_GetLong``           | Obtains the ``A_long`` associated with a given section key's value.                                                     |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4599,7 +4599,7 @@ AEGP_PersistentDateSuite4
 |                            |     A_long                defaultL,                                                                                     |
 |                            |     A_long                *valuePL);                                                                                    |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetFpLong``         | Obtains the ``A_FpLong`` associated with a given section key’s value.                                                   |
+| ``AEGP_GetFpLong``         | Obtains the ``A_FpLong`` associated with a given section key's value.                                                   |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4610,7 +4610,7 @@ AEGP_PersistentDateSuite4
 |                            |     A_FpLong              defaultF,                                                                                     |
 |                            |     A_FpLong              *valuePF);                                                                                    |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetTime``           | New in CC. Obtains the ``A_Time`` associated with a given section key’s value.                                          |
+| ``AEGP_GetTime``           | New in CC. Obtains the ``A_Time`` associated with a given section key's value.                                          |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4621,7 +4621,7 @@ AEGP_PersistentDateSuite4
 |                            |     const A_Time          *defaultPT0,                                                                                  |
 |                            |     A_Time                *valuePT);                                                                                    |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetARGB``           | New in CC. Obtains the ``PF_PixelFloat`` associated with a given section key’s value.                                   |
+| ``AEGP_GetARGB``           | New in CC. Obtains the ``PF_PixelFloat`` associated with a given section key's value.                                   |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4632,7 +4632,7 @@ AEGP_PersistentDateSuite4
 |                            |     const PF_PixelFloat   *defaultP0,                                                                                   |
 |                            |     PF_PixelFloat         *valueP);                                                                                     |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetDataHandle``     | Sets the given section key’s value to the handle passed in.                                                             |
+| ``AEGP_SetDataHandle``     | Sets the given section key's value to the handle passed in.                                                             |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4642,7 +4642,7 @@ AEGP_PersistentDateSuite4
 |                            |     const A_char          *value_keyZ,                                                                                  |
 |                            |     const AEGP_MemHandle  valueH);                                                                                      |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetData``           | Sets the given section key’s value to the data contained in ``dataPV``.                                                 |
+| ``AEGP_SetData``           | Sets the given section key's value to the data contained in ``dataPV``.                                                 |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4653,7 +4653,7 @@ AEGP_PersistentDateSuite4
 |                            |     A_u_long              data_sizeLu,                                                                                  |
 |                            |     const void            *dataPV);                                                                                     |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetString``         | Sets the given section key’s string to ``strZ``.                                                                        |
+| ``AEGP_SetString``         | Sets the given section key's string to ``strZ``.                                                                        |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4663,7 +4663,7 @@ AEGP_PersistentDateSuite4
 |                            |     const A_char          *value_keyZ,                                                                                  |
 |                            |     const A_char          *strZ);                                                                                       |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetLong``           | Sets the given section key’s value to ``valueL``.                                                                       |
+| ``AEGP_SetLong``           | Sets the given section key's value to ``valueL``.                                                                       |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4673,7 +4673,7 @@ AEGP_PersistentDateSuite4
 |                            |     const A_char          *value_keyZ,                                                                                  |
 |                            |     A_long                valueL);                                                                                      |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetFpLong``         | Sets the given section key’s value to ``valueF``.                                                                       |
+| ``AEGP_SetFpLong``         | Sets the given section key's value to ``valueF``.                                                                       |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4683,7 +4683,7 @@ AEGP_PersistentDateSuite4
 |                            |     const A_char          *value_keyZ,                                                                                  |
 |                            |     A_FpLong              valueF);                                                                                      |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetTime``           | New in CC. Sets the given section key’s value to ``valuePT``.                                                           |
+| ``AEGP_SetTime``           | New in CC. Sets the given section key's value to ``valuePT``.                                                           |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4693,7 +4693,7 @@ AEGP_PersistentDateSuite4
 |                            |     const A_char          *value_keyZ,                                                                                  |
 |                            |     A_Time                *valuePT);                                                                                    |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetARGB``           | New in CC. Sets the given section key’s value to ``valueP``.                                                            |
+| ``AEGP_SetARGB``           | New in CC. Sets the given section key's value to ``valueP``.                                                            |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4703,7 +4703,7 @@ AEGP_PersistentDateSuite4
 |                            |     const A_char          *value_keyZ,                                                                                  |
 |                            |     PF_PixelFloat         *valueP);                                                                                     |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_DeleteEntry``       | Removes the given section’s value from the blob.                                                                        |
+| ``AEGP_DeleteEntry``       | Removes the given section's value from the blob.                                                                        |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -4712,7 +4712,7 @@ AEGP_PersistentDateSuite4
 |                            |     const A_char          *section_keyZ,                                                                                |
 |                            |     const A_char          *value_keyZ);                                                                                 |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetPrefsDirectory`` | Get the path to the folder containing After Effects’ preference file.                                                   |
+| ``AEGP_GetPrefsDirectory`` | Get the path to the folder containing After Effects' preference file.                                                   |
 |                            | The path is a handle to a NULL- terminated A_UTF16Char string, and must be disposed with ``AEGP_FreeMemHandle``.        |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
@@ -4726,7 +4726,7 @@ AEGP_PersistentDateSuite4
 Color Management
 ================================================================================
 
-We’ve provided a function so AEGPs can obtain information on After Effects’ current color management settings.
+We've provided a function so AEGPs can obtain information on After Effects' current color management settings.
 
 AEGP_ColorSettingsSuite2
 ********************************************************************************
@@ -4761,7 +4761,7 @@ AEGP_ColorSettingsSuite2
 |                                           |     AEGP_WorldH     dstH);                                                                                                      |
 +-------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetNewWorkingSpaceColorProfile``   | Retrieves the opaque current working space ICC profile. Must be disposed.                                                       |
-|                                           | The "New" in the name does not indicate that you’re making up a new profile; rather, it’s part of our function naming standard; |
+|                                           | The "New" in the name does not indicate that you're making up a new profile; rather, it's part of our function naming standard; |
 |                                           | nything with "New" in the name allocates something which the caller must dispose.                                               |
 |                                           |                                                                                                                                 |
 |                                           | ::                                                                                                                              |
@@ -4830,7 +4830,7 @@ AEGP_ColorSettingsSuite2
 Render Suites
 ================================================================================
 
-Since we introduced the AEGP API, we’ve been asked to provide functions for retrieving rendered frames.
+Since we introduced the AEGP API, we've been asked to provide functions for retrieving rendered frames.
 
 These function suites allows you to do just that.
 
@@ -5233,7 +5233,7 @@ AEGP_RenderSuite4
 |                                       |     AEGP_FrameReceiptH              *receiptPH);                                                                                                                         |
 +---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_CheckinFrame``                 | Call this function as soon as your AEGP is done accessing the frame.                                                                                                     |
-|                                       | After Effects makes caching decisions based on which frames are checked out, so don’t hog them!                                                                          |
+|                                       | After Effects makes caching decisions based on which frames are checked out, so don't hog them!                                                                          |
 |                                       |                                                                                                                                                                          |
 |                                       | ::                                                                                                                                                                       |
 |                                       |                                                                                                                                                                          |
@@ -5249,8 +5249,8 @@ AEGP_RenderSuite4
 |                                       |     AEGP_WorldH         *worldPH);                                                                                                                                       |
 +---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetRenderedRegion``            | Retrieves an ``A_LRect`` containing the region of the ``AEGP_FrameReceiptH's`` ``AEGP_WorldH`` that has already been rendered.                                           |
-|                                       | Remember that it’s possible for only those portions of an image that have been changed to be rendered,                                                                   |
-|                                       | so it’s important to be able to check whether or not that includes the portion you need.                                                                                 |
+|                                       | Remember that it's possible for only those portions of an image that have been changed to be rendered,                                                                   |
+|                                       | so it's important to be able to check whether or not that includes the portion you need.                                                                                 |
 |                                       |                                                                                                                                                                          |
 |                                       | ::                                                                                                                                                                       |
 |                                       |                                                                                                                                                                          |
@@ -5267,7 +5267,7 @@ AEGP_RenderSuite4
 |                                       |     AEGP_RenderOptionsH  proposed_optionsH,                                                                                                                              |
 |                                       |     A_Boolean            *is_sufficientPB);                                                                                                                              |
 +---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_RenderNewItemSoundData``       | Obtains an ``AEGP_ItemH’s`` audio at the given time, of the given duration, in the given format.                                                                         |
+| ``AEGP_RenderNewItemSoundData``       | Obtains an ``AEGP_ItemH's`` audio at the given time, of the given duration, in the given format.                                                                         |
 |                                       | The plug-in must dispose of the returned ``AEGP_SoundDataH`` (which may be NULL if no audio is available).                                                               |
 |                                       |                                                                                                                                                                          |
 |                                       | ::                                                                                                                                                                       |
@@ -5466,7 +5466,7 @@ AEGP_WorldSuite3
 +----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_NewReferenceFromPlatformWorld`` | Retrieves an AEGP_WorldH referring to the given ``AEGP_PlatformWorldH``.                                                              |
 |                                        |                                                                                                                                       |
-|                                        | NOTE: This doesn’t allocate a new world, it simply provides a reference to an existing one.                                           |
+|                                        | NOTE: This doesn't allocate a new world, it simply provides a reference to an existing one.                                           |
 |                                        |                                                                                                                                       |
 |                                        | ::                                                                                                                                    |
 |                                        |                                                                                                                                       |
@@ -5499,7 +5499,7 @@ AEGP_CompositeSuite2
 +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_PrepTrackMatte``       | Mattes the pixels in a ``PF_EffectWorld`` with the ``PF_Pixel`` described in src_masks, putting the output into an array of pixels dst_mask. |
 |                               |                                                                                                                                              |
-|                               | NOTE: Unlike most of the other pixel mangling functions provided by After Effects, this one doesn’t take ``PF_EffectWorld`` arguments;       |
+|                               | NOTE: Unlike most of the other pixel mangling functions provided by After Effects, this one doesn't take ``PF_EffectWorld`` arguments;       |
 |                               | rather, you can simply pass the data pointer from within the ``PF_EffectWorld``.                                                             |
 |                               | This can be confusing, but as a bonus, the function pads output appropriately so that ``num_pix`` pixels are always output.                  |
 |                               |                                                                                                                                              |
@@ -5710,7 +5710,7 @@ AEGP_RQItemSuite4
 |                                       |   AEGP_GetNumRQItems(                                                                                                                     |
 |                                       |     A_long  *num_itemsPL);                                                                                                                |
 +---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetRQItemByIndex``             | Returns an ``AEGP_RQItemRefH`` referencing the index’d item.                                                                              |
+| ``AEGP_GetRQItemByIndex``             | Returns an ``AEGP_RQItemRefH`` referencing the index'd item.                                                                              |
 |                                       |                                                                                                                                           |
 |                                       | ::                                                                                                                                        |
 |                                       |                                                                                                                                           |
@@ -5748,9 +5748,9 @@ AEGP_RQItemSuite4
 |                                       |                                                                                                                                           |
 |                                       | This function will return:                                                                                                                |
 |                                       |                                                                                                                                           |
-|                                       | - ``Err_PARAMETER`` if you try to call while ``AEGP_RenderQueueState`` isn’t ``AEGP_RenderQueueState_STOPPED``,                           |
+|                                       | - ``Err_PARAMETER`` if you try to call while ``AEGP_RenderQueueState`` isn't ``AEGP_RenderQueueState_STOPPED``,                           |
 |                                       | - ``Err_RANGE`` if you pass a status that is illegal in any case, and                                                                     |
-|                                       | - ``Err_PARAMETER`` if you try to pass a status that doesn't make sense (like trying to queue something for which there’s no output path) |
+|                                       | - ``Err_PARAMETER`` if you try to pass a status that doesn't make sense (like trying to queue something for which there's no output path) |
 |                                       |                                                                                                                                           |
 |                                       | ::                                                                                                                                        |
 |                                       |                                                                                                                                           |
@@ -5854,7 +5854,7 @@ AEGP_RenderQueueMonitorSuite1
 +==============================================+===================================================================================================================================================+
 | ``AEGP_RegisterListener``                    | Register a set of plug-in-defined functions to be called by the render queue.                                                                     |
 |                                              | Use the refcon to pass in data that you want to use later on when your plug-in-defined functions in ``AEGP_RQM_FunctionBlock1`` are called later. |
-|                                              | It may be set it to NULL if you don’t need it.                                                                                                    |
+|                                              | It may be set it to NULL if you don't need it.                                                                                                    |
 |                                              |                                                                                                                                                   |
 |                                              | ::                                                                                                                                                |
 |                                              |                                                                                                                                                   |
@@ -6117,7 +6117,7 @@ AEGP_OutputModuleSuite4
 +===================================+=======================================================================================================================================================+
 | ``AEGP_GetOutputModuleByIndex``   | Retrieves the indexed output module.                                                                                                                  |
 |                                   |                                                                                                                                                       |
-|                                   | NOTE: ``AEGP_OutputModuleRefH`` is an opaque data type, and can’t be manipulated directly; you must use our accessor functions to modify it.          |
+|                                   | NOTE: ``AEGP_OutputModuleRefH`` is an opaque data type, and can't be manipulated directly; you must use our accessor functions to modify it.          |
 |                                   |                                                                                                                                                       |
 |                                   | ::                                                                                                                                                    |
 |                                   |                                                                                                                                                       |
@@ -6224,7 +6224,7 @@ AEGP_OutputModuleSuite4
 |                                   |     AEGP_VideoChannels     outchannels);                                                                                                              |
 +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetStretchInfo``           | Retrieves the stretch information enabled for the referenced ``AEGP_OutputModuleRefH``;                                                               |
-|                                   | whether or not stretching is enabled, whether or not the frame aspect ratio is locked to the composition’s, and what quality setting is specified.    |
+|                                   | whether or not stretching is enabled, whether or not the frame aspect ratio is locked to the composition's, and what quality setting is specified.    |
 |                                   |                                                                                                                                                       |
 |                                   | ::                                                                                                                                                    |
 |                                   |                                                                                                                                                       |
@@ -6311,7 +6311,7 @@ AEGP_OutputModuleSuite4
 |                                   |     const A_UTF16Char      *pathZ);                                                                                                                   |
 +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_AddDefaultOutputModule``   | Adds the default output module to the specified ``AEGP_RQItemRefH``,                                                                                  |
-|                                   | and returns the added output module’s ``AEGP_OutputModuleRefH`` (you wouldn’t add it if you didn’t plan to mess around with it, would you?).          |
+|                                   | and returns the added output module's ``AEGP_OutputModuleRefH`` (you wouldn't add it if you didn't plan to mess around with it, would you?).          |
 |                                   |                                                                                                                                                       |
 |                                   | ::                                                                                                                                                    |
 |                                   |                                                                                                                                                       |
@@ -6370,7 +6370,7 @@ AEGP_PFInterfaceSuite1
 |                                  |     PF_ProgPtr       effect_ref,                                                                               |
 |                                  |     AEGP_EffectRefH  *effectPH);                                                                               |
 +----------------------------------+----------------------------------------------------------------------------------------------------------------+
-| ``AEGP_ConvertEffectToCompTime`` | Retreive the composition time corresponding to the effect’s layer time.                                        |
+| ``AEGP_ConvertEffectToCompTime`` | Retreive the composition time corresponding to the effect's layer time.                                        |
 |                                  |                                                                                                                |
 |                                  | ::                                                                                                             |
 |                                  |                                                                                                                |
@@ -6380,7 +6380,7 @@ AEGP_PFInterfaceSuite1
 |                                  |     unsigned long  time_scaleLu,                                                                               |
 |                                  |     A_Time         *comp_timePT);                                                                              |
 +----------------------------------+----------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetEffectCamera``         | Obtain the camera (if any) being used by After Effects to view the effect’s layer.                             |
+| ``AEGP_GetEffectCamera``         | Obtain the camera (if any) being used by After Effects to view the effect's layer.                             |
 |                                  |                                                                                                                |
 |                                  | ::                                                                                                             |
 |                                  |                                                                                                                |
@@ -6389,7 +6389,7 @@ AEGP_PFInterfaceSuite1
 |                                  |     const A_Time  *comp_timePT,                                                                                |
 |                                  |     AEGP_LayerH   camera_layerPH);                                                                             |
 +----------------------------------+----------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetEffectCameraMatrix``   | Obtain the transform used to move between the layer’s coordinate space and that of the containing composition. |
+| ``AEGP_GetEffectCameraMatrix``   | Obtain the transform used to move between the layer's coordinate space and that of the containing composition. |
 |                                  |                                                                                                                |
 |                                  | ::                                                                                                             |
 |                                  |                                                                                                                |
@@ -6401,7 +6401,7 @@ AEGP_PFInterfaceSuite1
 |                                  |     A_short       *plane_widthPL,                                                                              |
 |                                  |     A_short       *plane_heightPL);                                                                            |
 |                                  |                                                                                                                |
-|                                  | NOTE: In cases where the effect’s input layer has square pixels, but is in a non-square pixel composition,     |
+|                                  | NOTE: In cases where the effect's input layer has square pixels, but is in a non-square pixel composition,     |
 |                                  | you must correct for the pixel aspect ratio by premultiplying the matrix by ``(1/parF, 1, 1)``.                |
 +----------------------------------+----------------------------------------------------------------------------------------------------------------+
 
@@ -6412,7 +6412,7 @@ AEGP_GetEffectCameraMatrix Notes
 
 The model view for the camera matrix is inverse of the matrix obtained from `AEGP_GetEffectCameraMatrix()`__.
 
-Also note that our matrix is row-based; OpenGL’s is column-based.
+Also note that our matrix is row-based; OpenGL's is column-based.
 
 Do This Many Times
 ********************************************************************************

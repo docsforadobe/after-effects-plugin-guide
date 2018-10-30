@@ -32,7 +32,7 @@ Data Types Used In The Artisan API
 Horz? Vert?
 ================================================================================
 
-After Effects’ matrix is row based; OpenGL’s is column based. This means more work for you. Yay, billable hours!
+After Effects' matrix is row based; OpenGL's is column based. This means more work for you. Yay, billable hours!
 
 ----
 
@@ -117,7 +117,7 @@ Artisan Entry Points
 |                              |     PR_GlobalDataH       global_dataH,                                                                                               |
 |                              |     PR_InstanceDataH     instance_dataH);                                                                                            |
 +------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``flatten_instance_func0``   | Flatten your data in preparation to being written to disk. (making sure it’s OS independent, if your Artisan is).                    |
+| ``flatten_instance_func0``   | Flatten your data in preparation to being written to disk. (making sure it's OS independent, if your Artisan is).                    |
 |                              |                                                                                                                                      |
 |                              | ::                                                                                                                                   |
 |                              |                                                                                                                                      |
@@ -320,7 +320,7 @@ AEGP_CanvasSuite8
 |                                              |     A_LegacyRect       *roiPR);                                                                                               |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_RenderTexture``                       | Given the render context and layer, returns the layer texture.                                                                |
-|                                              | All parameters with a trailing '0’ are optional; the returned ``PF_EffectWorld`` can be NULL.                                 |
+|                                              | All parameters with a trailing '0' are optional; the returned ``PF_EffectWorld`` can be NULL.                                 |
 |                                              |                                                                                                                               |
 |                                              | ::                                                                                                                            |
 |                                              |                                                                                                                               |
@@ -498,7 +498,7 @@ AEGP_CanvasSuite8
 |                                              |   AEGP_DisposeRenderReceipt(                                                                                                  |
 |                                              |     AEGP_RenderReceiptH  receiptH);                                                                                           |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_CheckRenderReceipt``                  | Checks with After Effects’ internal caching to determine whether a given ``AEGP_RenderReceiptH`` is still valid.              |
+| ``AEGP_CheckRenderReceipt``                  | Checks with After Effects' internal caching to determine whether a given ``AEGP_RenderReceiptH`` is still valid.              |
 |                                              |                                                                                                                               |
 |                                              | ::                                                                                                                            |
 |                                              |                                                                                                                               |
@@ -843,7 +843,7 @@ AEGP_CameraSuite2
 Notes Regarding Camera Behavior
 ================================================================================
 
-Camera orientation is in composition coordinates, and the rotations are in layer (the camera’s layer) coordinates.
+Camera orientation is in composition coordinates, and the rotations are in layer (the camera's layer) coordinates.
 
 If the camera layer has a parent, the position is in a coordinate space relative to the parent.
 
@@ -872,7 +872,7 @@ Remember, focal length affects field of view; focal distance only affects depth 
 Film Size
 ================================================================================
 
-In the real world, film size is measured in millimeters. In After Effects, it’s measured in pixels. Multiply by 72 and divide by 25.4 to move from millimeters to pixels.
+In the real world, film size is measured in millimeters. In After Effects, it's measured in pixels. Multiply by 72 and divide by 25.4 to move from millimeters to pixels.
 
 Field of view is more complex;
 
@@ -922,7 +922,7 @@ AEGP_LightSuite2
 Notes On Light Behavior
 *********************************************************************************
 
-The formula for parallel lights is found in Foley and Van Dam’s "Introduction to Computer Graphics" (ISBN 0-201-60921-5) as is the formula for point lights.
+The formula for parallel lights is found in Foley and Van Dam's "Introduction to Computer Graphics" (ISBN 0-201-60921-5) as is the formula for point lights.
 
 We use the half angle variant proposed by Jim Blinn instead.
 
@@ -939,7 +939,7 @@ The amount of specular reflected light is S * power(H Dot N, shine), where S is 
 How Should I Draw That?
 ================================================================================
 
-After Effects relies upon Artisans to draw 3D layer handles. If your Artisan chooses not to respond to this call, the default Artisan will draw 3D layer handles for you. Querying transforms is important for optimization of After Effects’ caching.
+After Effects relies upon Artisans to draw 3D layer handles. If your Artisan chooses not to respond to this call, the default Artisan will draw 3D layer handles for you. Querying transforms is important for optimization of After Effects' caching.
 
 The coordinate system is positive x to right, positive y down, positive z into the screen. The origin is the upper left corner. Rotations are x then y then z. For matrices the translate is the bottom row, orientations are quaternions (which are applied first), then any x-y-z rotation after that. As a general rule, use orientation or rotation but not both. Also use rotations if you need control over angular velocity.
 
@@ -948,9 +948,9 @@ The coordinate system is positive x to right, positive y down, positive z into t
 Query Transform Functions
 ================================================================================
 
-These functions give artisans information about the transforms they’ll need in order to correctly place layers within a composition and respond appropriately to the various queries After Effects will send to their `PR_QueryFunc <#_bookmark744>`__ entry point function.
+These functions give artisans information about the transforms they'll need in order to correctly place layers within a composition and respond appropriately to the various queries After Effects will send to their `PR_QueryFunc <#_bookmark744>`__ entry point function.
 
-As that entry point is optional, so is your artisan’s response to the queries; however, if you don’t, your users may be disappointed that (while doing interactive preview drawing) all the camera and light indicators vanish, until they stop moving! Artisans are complex beasts; contact us if you have any questions.
+As that entry point is optional, so is your artisan's response to the queries; however, if you don't, your users may be disappointed that (while doing interactive preview drawing) all the camera and light indicators vanish, until they stop moving! Artisans are complex beasts; contact us if you have any questions.
 
 AEGP_QueryXFormSuite2
 ********************************************************************************
@@ -1071,7 +1071,7 @@ AEGP_QueryXFormSuite2
 |                                       |     AEGP_PlatformWindowRef  *window_refP,                                                                                                         |
 |                                       |     AEGP_WorldH             *dest_bufferp);                                                                                                       |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_QueryDrawProcs``               | Sets the interactive drawing functions After Effects will call while drawing camera and lighting handles into the artisan’s provided context.     |
+| ``AEGP_QueryDrawProcs``               | Sets the interactive drawing functions After Effects will call while drawing camera and lighting handles into the artisan's provided context.     |
 |                                       |                                                                                                                                                   |
 |                                       | ::                                                                                                                                                |
 |                                       |                                                                                                                                                   |
@@ -1104,7 +1104,7 @@ AEGP_QueryXFormSuite2
 Interactive Drawing Functions
 ================================================================================
 
-We’ve added the ability for artisans to provide functions After Effects can use to do basic drawing functions for updating the comp window display during preview, including camera, light, and wireframe preview modeling.
+We've added the ability for artisans to provide functions After Effects can use to do basic drawing functions for updating the comp window display during preview, including camera, light, and wireframe preview modeling.
 
 PR_InteractiveDrawProcs
 ********************************************************************************

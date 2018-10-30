@@ -7,7 +7,7 @@ After Effects allows plug-ins to store data at three scopes; global, sequence, a
 
 Use global data for information common to all instances of the effect: static variables and data, bitmaps, pointers to other DLLs or external applications.
 
-Store anything specific to this instance of your plug-in (UI settings, text strings, and any custom data not stored in parameters) in sequence data, Use After Effects’ memory allocation functions.
+Store anything specific to this instance of your plug-in (UI settings, text strings, and any custom data not stored in parameters) in sequence data, Use After Effects' memory allocation functions.
 
 Frame data is used for information specific to rendering a given frame. This has fallen into disuse, as most machines are capable of loading an entire frame into memory at a time. Of course, your IMAX-generating users will still appreciate any optimizations you can make.
 
@@ -29,7 +29,7 @@ When asked to render frame N, assuming you have your cached data calculated up t
 
 This is done efficiently, as the change tracking is done with timestamps.
 
-If the inputs have not changed, you can safely use your cache, AND the internal caching system will assume that you have a temporal dependency on the passed range. So if something changes upstream, the host’s caches will be properly invalidated automatically.
+If the inputs have not changed, you can safely use your cache, AND the internal caching system will assume that you have a temporal dependency on the passed range. So if something changes upstream, the host's caches will be properly invalidated automatically.
 
 To test that it is working, apply your effect with one parameter keyframed on every frame. RAM Preview to fill the cache, then change one of the keyframes. The related frame and all dependent frames (e.g. later frames, in the case of a simulation) should lose their cache marks and require re-rendering. Similarly, upstream changes to sources of layer parameters should cause time-selective invalidation of the cache.
 
@@ -47,7 +47,7 @@ Remember, your users (the ones who bought two copies of your plug-in, anyway) ma
 
 After Effects sends `PF_Cmd_SEQUENCE_RESETUP <#_bookmark88>`__ when the data is reloaded, for either flat or unflat data.
 
-Use a flag at a common offset within both structures to indicate the data’s state.
+Use a flag at a common offset within both structures to indicate the data's state.
 
 ::
 

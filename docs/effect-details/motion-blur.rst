@@ -11,5 +11,5 @@ They must `check out <#_bookmark288>`__ their own parameters at other times to e
 
 If the plug-in checks out parameters outside this interval, set `PF_OutFlag_WIDE_TIME_INPUT <#_bookmark151>`__.
 
-Doing so allows After Effects to compare the parameters within the sampling interval, and determine if they’ve changed.
+Doing so allows After Effects to compare the parameters within the sampling interval, and determine if they've changed.
 
