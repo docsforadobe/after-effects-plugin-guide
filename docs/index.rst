@@ -104,6 +104,5 @@ Welcome to the Adobe After Effects CC SDK Guide!
   aegps/data-types
   aegps/implementation
   aegps/aegp-suites
-
   aegps/cheating-effect-usage-of-aegp-suites
   aegps/aegp-details
