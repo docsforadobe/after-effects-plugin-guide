@@ -123,3 +123,17 @@ Welcome to the Adobe After Effects CC SDK Guide!
   aeios/AEIO_ModuleInfo
   aeios/new-kids-on-the-function-block
   aeios/implementation-details
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Premiere Pro
+
+  ppro/ppro
+  ppro/plug-in-installation
+  ppro/basic-host-differences
+  ppro/multithreading
+  ppro/bigger-differences
+  ppro/plug-ins-reloaded
+  ppro/premiere-elements
+  ppro/unsupported-features
+  ppro/other-hosts
