@@ -13,9 +13,9 @@ Custom UI uses a composited drawing model using Drawbot. The Drawbot suites can 
 
 Drawing may only occur during ``PF_Event_DRAW`` (and not during ``PF_Event_DRAG`` or ``PF_Event_DO_CLICK``).
 
-To use Drawbot, first get the drawing reference by passing in PF_Context to a new suite call `PF_GetDrawingReference <#_bookmark486>`__.
+To use Drawbot, first get the drawing reference by passing in PF_Context to a new suite call :ref:`PF_GetDrawingReference <effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUISuite>`.
 
-If a non-NULL drawing reference is returned, use it to get the supplier and surface references from `DRAWBOT_DrawbotSuite <#_bookmark487>`__.
+If a non-NULL drawing reference is returned, use it to get the supplier and surface references from :ref:`DRAWBOT_DrawbotSuite <effect-ui-events/custom-ui-and-drawbot.Drawbot_DrawbotSuite>`.
 
 The Drawbot suites include ``DRAWBOT_DrawbotSuite``, ``DRAWBOT_SupplierSuite``, ``DRAWBOT_SurfaceSuite``, ``DRAWBOT_PathSuite``.
 
@@ -24,7 +24,7 @@ The Drawbot suites include ``DRAWBOT_DrawbotSuite``, ``DRAWBOT_SupplierSuite``, 
 Make Your Custom UI Look Not So "Custom"
 ================================================================================
 
-Use the new `PF_EffectCustomUIOverlayThemeSuite <#_bookmark497>`__ to match the host application UI. Your users will thank you.
+Use the new :ref:`PF_EffectCustomUIOverlayThemeSuite <effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUIOverlayThemeSuite>` to match the host application UI. Your users will thank you.
 
 ----
 
@@ -35,19 +35,21 @@ Redrawing
 
 In order to redraw a specific area of a pane, we recommend the following:
 
-1) Call `PF_InvalidateRect <#_bookmark351>`__ from the effect. This will cause a lazy display redraw, and will update at the next available idle moment. This rect is in coordinates related to the associated pane. Using a NULL rect will update the entire pane.
-2) Set the `event outflag <#_bookmark442>`__ to PF_EO_UPDATE_NOW, which will cause an immediate draw event for the specified pane when the current event returns.
+1) Call ``PF_InvalidateRect`` (from :ref:`effect-details/useful-utility-functions.PF_AppSuite`) from the effect. This will cause a lazy display redraw, and will update at the next available idle moment. This rect is in coordinates related to the associated pane. Using a NULL rect will update the entire pane.
+2) Set the :ref:`event outflag <effect-ui-events/PF_EventExtra>` to ``PF_EO_UPDATE_NOW``, which will cause an immediate draw event for the specified pane when the current event returns.
 
-If an effect needs to update more than one window at a time, it should set `PF_OutFlag_REFRESH_UI <#_bookmark162>`__, which will cause a redraw of the entire ECW, comp, and layer windows.
+If an effect needs to update more than one window at a time, it should set ``PF_OutFlag_REFRESH_UI`` (from :ref:`effect-basics/PF_OutData.PF_OutFlags`), which will cause a redraw of the entire ECW, comp, and layer windows.
 
 ----
 
 HiDPI and Retina Display Support
 ================================================================================
 
-To support HiDPI and Retina Displays, you can use offscreen images that are twice the size, and then use the `Transform <#_bookmark494>`__ function to scale the image down in half before drawing it.
+To support HiDPI and Retina Displays, you can use offscreen images that are twice the size, and then use the ``Transform`` function from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SurfaceSuite` to scale the image down in half before drawing it.
 
 ----
+
+.. _effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUISuite:
 
 PF_EffectCustomUISuite
 ================================================================================
@@ -71,6 +73,8 @@ PF_EffectCustomUISuite1
 
 ----
 
+.. _effect-ui-events/custom-ui-and-drawbot.Drawbot_DrawbotSuite:
+
 Drawbot_DrawbotSuite
 ================================================================================
 
@@ -79,27 +83,33 @@ Using the Drawbot reference, get the supplier and surface references.
 Drawbot_DrawbotSuite1
 ********************************************************************************
 
-+-----------------+--------------------------------------------------------------------------------------+
-|  **Function**   |                                     **Purpose**                                      |
-+=================+======================================================================================+
-| ``GetSupplier`` | Get the supplier reference. Needed to use `DRAWBOT_SupplierSuite <#_bookmark489>`__. |
-|                 |                                                                                      |
-|                 | ::                                                                                   |
-|                 |                                                                                      |
-|                 |   GetSupplier(                                                                       |
-|                 |     DRAWBOT_DrawRef      in_drawbot_ref,                                             |
-|                 |     DRAWBOT_SupplierRef  *out_supplierP);                                            |
-+-----------------+--------------------------------------------------------------------------------------+
-| ``GetSurface``  | Get the surface reference. Needed to use `DRAWBOT_SurfaceSuite <#_bookmark492>`__.   |
-|                 |                                                                                      |
-|                 | ::                                                                                   |
-|                 |                                                                                      |
-|                 |   GetSurface(                                                                        |
-|                 |     DRAWBOT_DrawRef     in_drawbot_ref,                                              |
-|                 |     DRAWBOT_SurfaceRef  *out_surfaceP);                                              |
-+-----------------+--------------------------------------------------------------------------------------+
++-----------------+------------------------------------------------------------------------------------+
+|  **Function**   |                                    **Purpose**                                     |
++=================+====================================================================================+
+| ``GetSupplier`` | Get the supplier reference.                                                        |
+|                 |                                                                                    |
+|                 | Needed to use :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`. |
+|                 |                                                                                    |
+|                 | ::                                                                                 |
+|                 |                                                                                    |
+|                 |   GetSupplier(                                                                     |
+|                 |     DRAWBOT_DrawRef      in_drawbot_ref,                                           |
+|                 |     DRAWBOT_SupplierRef  *out_supplierP);                                          |
++-----------------+------------------------------------------------------------------------------------+
+| ``GetSurface``  | Get the surface reference.                                                         |
+|                 |                                                                                    |
+|                 | Needed to use :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SurfaceSuite`.  |
+|                 |                                                                                    |
+|                 | ::                                                                                 |
+|                 |                                                                                    |
+|                 |   GetSurface(                                                                      |
+|                 |     DRAWBOT_DrawRef     in_drawbot_ref,                                            |
+|                 |     DRAWBOT_SurfaceRef  *out_surfaceP);                                            |
++-----------------+------------------------------------------------------------------------------------+
 
 ----
+
+.. _effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite:
 
 Drawbot_SupplierSuite
 ================================================================================
@@ -112,7 +122,7 @@ Drawbot_SupplierSuite1
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |        **Function**         |                                                                                 **Purpose**                                                                                 |
 +=============================+=============================================================================================================================================================================+
-| ``NewPen``                  | Create a new pen. Release this using `ReleaseObject <#_bookmark491>`__.                                                                                                     |
+| ``NewPen``                  | Create a new pen. Release this using ``ReleaseObject`` from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`.                                            |
 |                             |                                                                                                                                                                             |
 |                             | ::                                                                                                                                                                          |
 |                             |                                                                                                                                                                             |
@@ -122,7 +132,7 @@ Drawbot_SupplierSuite1
 |                             |     float                    in_size,                                                                                                                                       |
 |                             |     DRAWBOT_PenRef           *out_penP);                                                                                                                                    |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``NewBrush``                | Create a new brush. Release this using `ReleaseObject <#_bookmark491>`__.                                                                                                   |
+| ``NewBrush``                | Create a new brush. Release this using ``ReleaseObject`` from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`.                                          |
 |                             |                                                                                                                                                                             |
 |                             | ::                                                                                                                                                                          |
 |                             |                                                                                                                                                                             |
@@ -147,7 +157,11 @@ Drawbot_SupplierSuite1
 |                             |     DRAWBOT_SupplierRef  in_supplier_ref,                                                                                                                                   |
 |                             |     float                *out_font_sizeF);                                                                                                                                  |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``NewDefaultFont``          | Create a new font with default settings. You can pass the default font size from ``GetDefaultFontSize``. Release this using `ReleaseObject <#_bookmark491>`__.              |
+| ``NewDefaultFont``          | Create a new font with default settings.                                                                                                                                    |
+|                             |                                                                                                                                                                             |
+|                             | You can pass the default font size from ``GetDefaultFontSize``.                                                                                                             |
+|                             |                                                                                                                                                                             |
+|                             | Release this using ``ReleaseObject`` from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`.                                                              |
 |                             |                                                                                                                                                                             |
 |                             | ::                                                                                                                                                                          |
 |                             |                                                                                                                                                                             |
@@ -156,7 +170,9 @@ Drawbot_SupplierSuite1
 |                             |     float                in_font_sizeF,                                                                                                                                     |
 |                             |     DRAWBOT_FontRef      *out_fontP);                                                                                                                                       |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``NewImageFromBuffer``      | Create a new image from buffer passed to in_dataP. Release this using `ReleaseObject <#_bookmark491>`__.                                                                    |
+| ``NewImageFromBuffer``      | Create a new image from buffer passed to in_dataP.                                                                                                                          |
+|                             |                                                                                                                                                                             |
+|                             | Release this using ``ReleaseObject`` from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`.                                                              |
 |                             |                                                                                                                                                                             |
 |                             | ::                                                                                                                                                                          |
 |                             |                                                                                                                                                                             |
@@ -182,7 +198,7 @@ Drawbot_SupplierSuite1
 |                             |   - ``kDRAWBOT_PixelLayout_32BGRA_Straight``,                                                                                                                               |
 |                             |   - ``kDRAWBOT_PixelLayout_32BGRA_Premul``                                                                                                                                  |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``NewPath``                 | Create a new path. Release this using `ReleaseObject <#_bookmark491>`__.                                                                                                    |
+| ``NewPath``                 | Create a new path. Release this using ``ReleaseObject`` from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`.                                           |
 |                             |                                                                                                                                                                             |
 |                             | ::                                                                                                                                                                          |
 |                             |                                                                                                                                                                             |
@@ -234,6 +250,8 @@ Drawbot_SupplierSuite1
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _effect-ui-events/custom-ui-and-drawbot.Drawbot_SurfaceSuite:
 
 Drawbot_SurfaceSuite
 ================================================================================

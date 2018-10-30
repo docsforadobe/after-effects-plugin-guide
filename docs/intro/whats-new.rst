@@ -3,35 +3,35 @@
 What's New
 ################################################################################
 
-If this is your first time developing an After Effects plug-in, you can skip the What's New section and go directly to `How to Start Creating Plug-ins <#how-to-start-creating-plug-ins>`__.
-
-----
-
-What's New In 15.0?
-================================================================================
-
-After Effects now supports the *GPU effect rendering* previously supported in Premiere Pro. Note that unknown effects with a match name that includes “ADBE “ will be excluded from GPU rendering, so make sure any of your GPU effects have your own custom match name. Effects that support GPU rendering will receive the GPU badge in the Effect panel.
-
-The GPU effect sample projects in the Premiere Pro SDK have been updated to register as GPU effects in AE, although the render output still needs work.
-
-A new entry point has been defined, to allow effects to register basic information with the host at runtime, without relying on legacy PiPL resources. An effect can register multiple entry points in a single binary this way. Premiere Pro is the first host to support this entry point, and After Effects will support this in a future release. The effect sample projects have been updated to use this approach, while maintaining the PiPL for backwards compatibility.
-
-AEGP_StreamSuite is now at version 5, where `AEGP_GetExpression() <#_bookmark635>`__ and
-
-`AEGP_SetExpression() <#_bookmark636>`__ have been upgraded to support Unicode.
-
-PF_AdvTimeSuite is now at version 4, with a new call `PF_TimeCountFrames() <#_bookmark357>`__, that returns the index of the frame in the current comp.
-
-The new AEGP Math Suite provides helpful calls for matrix multiplication.
-
-The application font is now Adobe Clean. Previously, the fonts used in After Effects' UI were Tahoma on Windows and Lucida Grande on macOS X. This is a proprietary font, and we can not make it available for use in your UI.
+If this is your first time developing an After Effects plug-in, you can skip the What's New section and go directly to :ref:`intro/how-to-start-creating-plug-ins`.
 
 ----
 
 What's New In CC 2019 (16.0)?
 ================================================================================
 
-We've made some changes to how GPU effects are handled. See “GPU Effects Changes” for details.
+We've made some changes to how GPU effects are handled. See "GPU Effects Changes" for details.
+
+----
+
+What's New In 15.0?
+================================================================================
+
+After Effects now supports the *GPU effect rendering* previously supported in Premiere Pro. Note that unknown effects with a match name that includes "ADBE " will be excluded from GPU rendering, so make sure any of your GPU effects have your own custom match name. Effects that support GPU rendering will receive the GPU badge in the Effect panel.
+
+The GPU effect sample projects in the Premiere Pro SDK have been updated to register as GPU effects in AE, although the render output still needs work.
+
+A new entry point has been defined, to allow effects to register basic information with the host at runtime, without relying on legacy PiPL resources. An effect can register multiple entry points in a single binary this way. Premiere Pro is the first host to support this entry point, and After Effects will support this in a future release.
+
+The effect sample projects have been updated to use this approach, while maintaining the PiPL for backwards compatibility.
+
+``AEGP_StreamSuite`` is now at version 5, where :ref:`AEGP_GetExpression() <aegps/aegp-suites.AEGP_StreamSuite>` and :ref:`AEGP_SetExpression() <aegps/aegp-suites.AEGP_StreamSuite>` have been upgraded to support Unicode.
+
+``PF_AdvTimeSuite`` is now at version 4, with a new call :ref:`PF_TimeCountFrames() <effect-details/useful-utility-functions.PF_AdvTimeSuite>`, that returns the index of the frame in the current comp.
+
+The new AEGP Math Suite provides helpful calls for matrix multiplication.
+
+The application font is now Adobe Clean. Previously, the fonts used in After Effects' UI were Tahoma on Windows and Lucida Grande on macOS X. This is a proprietary font, and we can not make it available for use in your UI.
 
 ----
 
@@ -58,16 +58,18 @@ As this is a user-facing option, the design is intended to be transparent to the
 - Confirm that effect cannot self-reference; meaning cannot use the effects on the layer as input for the same layer.
 - Suite Enhancements
 
-PF_AdvTimeSuite is now at version 3, providing a revised `PF_GetTimeDisplayPref <#_bookmark356>`__\ () call that uses a revised PF_TimeDisplayPrefVersion parameter, that supports higher frame rates. The previous version 2 of the call can now return an error if there is a problem with the values exceeding the range supported by the structure.
+PF_AdvTimeSuite is now at version 3, providing a revised :ref:`PF_GetTimeDisplayPref() <effect-details/useful-utility-functions.PF_AdvTimeSuite>` call that uses a revised ``PF_TimeDisplayPrefVersion`` parameter, that supports higher frame rates.
+The previous version 2 of the call can now return an error if there is a problem with the values exceeding the range supported by the structure.
 
-Comp Suite is now at version 11, with a new call, `AEGP_ReorderCompSelection <#_bookmark583>`__\ (), to move a selection to a certain layer index. It should be used along with AEGP_SetSelection().
+Comp Suite is now at version 11, with a new call, :ref:`AEGP_ReorderCompSelection() <aegps/aegp-suites.AEGP_CompSuite>`, to move a selection to a certain layer index.
+It should be used along with ``AEGP_SetSelection()``.
 
 ----
 
 What's New In CC 2017 (14.1)?
 ================================================================================
 
-Unicode support for `AEGP Item Suite <#_bookmark569>`__ and `AEGP Render Queue Item Suite <#_bookmark707>`__.
+Unicode support for :ref:`AEGP Item Suite <aegps/aegp-suites.item-suite>` and :ref:`AEGP Render Queue Item Suite <aegps/aegp-suites.render-queue-item-suite>`.
 
 ----
 
@@ -175,7 +177,7 @@ PF_GetContextAsyncManager() AEGP_CheckoutOrRender_ItemFrame_AsyncManager() AEGP_
 
 For cases where such renders formerly were triggered by side-effect or cancelled implicity
 
-(such as custom UI histogram drawing), and lifetime is less clear from inside the plug-in, use the new “Async Manager” which can handle multiple simultaneous async requests for effect Custom UI and will automatically support interactions with other AE UI behavior.
+(such as custom UI histogram drawing), and lifetime is less clear from inside the plug-in, use the new "Async Manager" which can handle multiple simultaneous async requests for effect Custom UI and will automatically support interactions with other AE UI behavior.
 
 Note: Async retrieval of frames is preferred for handling passive drawing situations, but not when a user action will update the project state. If you are (1) responding to a specific user click, AND 2) you need to update the project as a result, the synchronous AEGP_RenderAndCheckoutLayerFrame() is recommended.
 
@@ -215,7 +217,7 @@ AEGP_RenderAndCheckoutFrame() (on the UI Thread). This call should generally not
 
 Use in the render thread is fine. The one case where this may still be useful on the UI thread is a case like a UI button that requires a frame to calculate a parameter which then updates the AE project.
 
-For example, an “Auto Color” button that takes a frame and then adjusts effect params as a result.
+For example, an "Auto Color" button that takes a frame and then adjusts effect params as a result.
 
 A beta of a progress dialog for this blocking operation if it is slow has been implemented, but using this call on the UI thread should be limited to this special cases. The dialog design is not final.
 
@@ -237,7 +239,7 @@ Since many older plug-ins were made unloadable in AE with the shift to 64-bit, i
 
 However, building with an older SDK and using an 8 or higher version will result in the plug-in reporting an incorrect version to AE, which will then cause mismatch with the PiPL version check for the effect which will have the higher bits set. This is not supported.
 
-If built with an older SDK, you will need to keep the effect version at 7 or below. Increase in version max has been accomplished by adding 4 new higher significant bits to the version that only AE 13.5 and above “sees”. These new high version bits are not contiguous with the original, preexisting MAJOR version bits -- just ignore the intermediate bits. The new version layout looks like this in hexadecimal or binary.
+If built with an older SDK, you will need to keep the effect version at 7 or below. Increase in version max has been accomplished by adding 4 new higher significant bits to the version that only AE 13.5 and above "sees". These new high version bits are not contiguous with the original, preexisting MAJOR version bits -- just ignore the intermediate bits. The new version layout looks like this in hexadecimal or binary.
 
 0x 3C38 0000
 
@@ -283,13 +285,17 @@ What's New In CC 2014 (13.0)?
 
 Starting in CC 2014, After Effects will now honor a change to a custom UI height made using :ref:`PF_UpdateParamUI <effect-detals/parameter-supervision.PF_ParamUtilSuite>`.
 
-`AEGP Effect Suite <#_bookmark610>`__ is now at version 4, adding new functions to work with effect masks. AEGP_RenderSuite is now at version 4, adding a new function
+:ref:`AEGP Effect Suite <aegps/aegp-suites.effect-suite>` is now at version 4, adding new functions to work with effect masks. :ref:`AEGP_RenderSuite <aegps/aegp-suites.AEGP_RenderSuite>` is now at version 4, adding a new function ``AEGP_RenderAndCheckoutLayerFrame``, which allows frame checkout of the current
 
-`AEGP_RenderAndCheckoutLayerFrame <#_bookmark691>`__, which allows frame checkout of the current
+layer with effects applied at non-render time. This is useful for an operation that requires the frame, for example, when a button is clicked and it is acceptable to wait for a moment while it is rendering.
 
-layer with effects applied at non-render time. This is useful for an operation that requires the frame, for example, when a button is clicked and it is acceptable to wait for a moment while it is rendering. Note: Since it is not asynchronous, it will not solve the general problem where custom UI needs to draw based on the frame. The layer render options are specified using the new `AEGP_LayerRenderOptionsSuite <#_bookmark688>`__.
+.. note::
 
-`Mercury Transmit <#_bookmark18>`__ plug-ins and :ref:`intro/other-integration-possibilities.html5` are now supported.
+  Since it is not asynchronous, it will not solve the general problem where custom UI needs to draw based on the frame.
+
+The layer render options are specified using the new :ref:`AEGP_LayerRenderOptionsSuite <aegps/aegp-suites.AEGP_LayerRenderOptionsSuite>`.
+
+:ref:`intro/other-integration-possibilities.mercury-transmit` plug-ins and :ref:`intro/other-integration-possibilities.html5` are now supported.
 
 ----
 
@@ -298,65 +304,73 @@ What's New In CC (12.0)?
 
 Effect names can now be up to 47 characters long, up from 31 characters previously.
 
-We added the `PF_AngleParamSuite <#_bookmark310>`__, providing a way to get floating point values for angle parameters. `PF App Suite <#_bookmark348>`__ version 5 adds `PF_AppGetLanguage <#_bookmark350>`__ to query the current language so that a plug-in can use the correct language string, as well as several new PF_App_ColorType enum values for new elements whose colors can be queried.
+We added the :ref:`PF_AngleParamSuite <effect-details/parameters-floating-point-values.PF_AngleParamSuite>`, providing a way to get floating point values for angle parameters. :ref:`PF App Suite <effect-details/useful-utility-functions>` version 5 adds ``PF_AppGetLanguage`` to query the current language so that a plug-in can use the correct language string, as well as several new PF_App_ColorType enum values for new elements whose colors can be queried.
 
-`AEGP Persistent Data Suite <#_bookmark678>`__ is now at version 4, adding a new parameter to AEGP_GetApplicationBlob to choose between retrieving several different application blobs. There are also new functions to get/set time and ARGB values.
+:ref:`AEGP Persistent Data Suite <aegps/aegp-suites.persistent-data-suite>` is now at version 4, adding a new parameter to AEGP_GetApplicationBlob to choose between retrieving several different application blobs. There are also new functions to get/set time and ARGB values.
 
-`AEGP_CompSuite <#_bookmark578>`__ is now at version 10, adding new functions to check/modify whether layer names or source names are shown, and whether the blend modes column is shown or not. Also added are new functions to get and set the Motion Blur Adaptive Sample Limit.
+:ref:`AEGP Composition Suite <aegps/aegp-suites.composition-suite>` is now at version 10, adding new functions to check/modify whether layer names or source names are shown, and whether the blend modes column is shown or not. Also added are new functions to get and set the Motion Blur Adaptive Sample Limit.
 
-`AEGP_LayerSuite <#_bookmark594>`__ is now at version 8, adding new functions to set/get the layer sampling quality. AEGP_CanvasSuite is also now at version 8. The new function `AEGP_MapCompToLayerTime <#_bookmark752>`__ handles time remapping with collapsed or nested comps, unlike AEGP_ConvertCompToLayerTime.
+:ref:`AEGP Layer Suite <aegps/aegp-suites.layer-suite>` is now at version 8, adding new functions to set/get the layer sampling quality. :ref:`AEGP_CanvasSuite <artisans/artisan-data-types.AEGP_CanvasSuite>` is also now at version 8. The new function ``AEGP_MapCompToLayerTime`` handles time remapping with collapsed or nested comps, unlike AEGP_ConvertCompToLayerTime.
 
-AEGP_UtilitySuite is now at version 6, adding a new Unicode-aware function: `AEGP_ReportInfoUnicode <#_bookmark672>`__. Another new function, `AEGP_GetPluginPaths <#_bookmark676>`__, provides some useful paths related to the plug-in and the After Effects executable itself.
+:ref:`AEGP_UtilitySuite <aegps/aegp-suites.AEGP_UtilitySuite>` is now at version 6, adding a new Unicode-aware function: ``AEGP_ReportInfoUnicode``. Another new function, ``AEGP_GetPluginPaths``, provides some useful paths related to the plug-in and the After Effects executable itself.
 
-The behavior for `AEGP_NewPlaceholderFootageWithPath <#_bookmark588>`__ has been updated, so that the file_type should now be properly set, otherwise a warning will appear.
+The behavior for ``AEGP_NewPlaceholderFootageWithPath`` has been updated, so that the file_type should now be properly set, otherwise a warning will appear.
 
-`AEGP_InsertMenuCommand <#_bookmark556>`__ can now insert menu items in the File>New submenu.
+``AEGP_InsertMenuCommand`` can now insert menu items in the File>New submenu.
 
-`AEGP_IOInSuite <#_bookmark813>`__ is now at version 5, adding new functions to get/set/clear the native start time, and to get/set the drop-frame setting of footage.
+:ref:`AEGP_IOInSuite <aeios/new-kids-on-the-function-block.AEGP_IOInSuite>` is now at version 5, adding new functions to get/set/clear the native start time, and to get/set the drop-frame setting of footage.
 
 ----
 
 What's New In CS6.0.1 (11.0.1)?
 ================================================================================
 
-New in 11.0.1, the AE effect API version has been incremented to 13.3. This allows effects to distinguish between 11.0 and 11.0.1. There is a bug in 11.0 with the Global Performance Cache, when a SmartFX effect uses both `PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT <#_bookmark183>`__ & `PF_OutFlag_NON_PARAM_VARY <#_bookmark152>`__. Calling `checkout_layer <#_bookmark410>`__ during PF_Cmd_SMART_PRE_RENDER returns empty rects in PF_CheckoutResult. The workaround is to simply make the call again. This workaround is no longer needed in 11.0.1.
+New in 11.0.1, the AE effect API version has been incremented to 13.3.
+
+This allows effects to distinguish between 11.0 and 11.0.1.
+
+There is a bug in 11.0 with the Global Performance Cache, when a SmartFX effect uses both ``PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT`` & ``PF_OutFlag_NON_PARAM_VARY``.
+
+Calling ``checkout_layer`` during ``PF_Cmd_SMART_PRE_RENDER`` returns empty rects in ``PF_CheckoutResult``.
+
+The workaround is to simply make the call again. This workaround is no longer needed in 11.0.1.
 
 ----
 
 What's New In CS6 (11.0)?
 ================================================================================
 
-We've made several refinements for better parameter UI handling. `PF_PUI_INVISIBLE <#_bookmark220>`__ parameter UI flag is now supported in After Effects, which is useful if your plug-in needs hidden parameters that affect rendering. Now when a plug-in disables a parameter using :ref:`PF_UpdateParamUI <effect-detals/parameter-supervision.PF_ParamUtilSuite>`, we now save that state in the UI flags so that the plug-in can check the flag in the future to see if it is disabled. A new flag, `PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN <#_bookmark229>`__, allows a parameter to be unhidden without twirling open any parents and without scrolling the parameter into view in the Effect Controls panel and the Timeline panel.
+We've made several refinements for better parameter UI handling. ``PF_PUI_INVISIBLE`` parameter UI flag is now supported in After Effects, which is useful if your plug-in needs hidden parameters that affect rendering. Now when a plug-in disables a parameter using :ref:`PF_UpdateParamUI <effect-detals/parameter-supervision.PF_ParamUtilSuite>`, we now save that state in the UI flags so that the plug-in can check the flag in the future to see if it is disabled. A new flag, ``PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN``, allows a parameter to be unhidden without twirling open any parents and without scrolling the parameter into view in the Effect Controls panel and the Timeline panel.
 
-Effects that render a watermark over the output when the plug-in is in trial mode can now tell After Effects whether watermark rendering mode is on or off, using the new `PF_OutFlag2_OUTPUT_IS_WATERMARKED <#_bookmark187>`__.
+Effects that render a watermark over the output when the plug-in is in trial mode can now tell After Effects whether watermark rendering mode is on or off, using the new ``PF_OutFlag2_OUTPUT_IS_WATERMARKED``.
 
-The new Global Performance Cache means you must tell After Effects to discard old cached frames `when changing your effect's rendering <#_bookmark396>`__.
+The new Global Performance Cache means you must tell After Effects to discard old cached frames :ref:`when changing your effect's rendering <effect-details/tips-tricks.caching-behavior>`.
 
-We've removed PF_HasParamChanged and PF_HaveInputsChangedOverTimeSpan, providing :ref:`PF_AreStatesIdentical <effect-detals/parameter-supervision.PF_ParamUtilSuite>` instead.
+We've removed ``PF_HasParamChanged`` and ``PF_HaveInputsChangedOverTimeSpan``, providing :ref:`PF_AreStatesIdentical <effect-detals/parameter-supervision.PF_ParamUtilSuite>` instead.
 
-Effects that provide custom UI can now receive `PF_Event_MOUSE_EXITED <#_bookmark434>`__, to gain notification that the mouse exited the layer or comp panel. `PF_ParamUtilsSuite <#_bookmark317>`__ is now at version 3.
+Effects that provide custom UI can now receive ``PF_Event_MOUSE_EXITED``, to gain notification that the mouse exited the layer or comp panel. ``PF_ParamUtilsSuite`` is now at version 3.
 
-`PF_GET_PLATFORM_DATA <#_bookmark502>`__ now has new selectors for getting the wide character path of the executable and resource file: PF_PlatData_EXE_FILE_PATH_W and PF_PlatData_RES_FILE_PATH_W. The previous non-wide selectors are now deprecated.
+``PF_GET_PLATFORM_DATA`` now has new selectors for getting the wide character path of the executable and resource file: ``PF_PlatData_EXE_FILE_PATH_W`` and ``PF_PlatData_RES_FILE_PATH_W``. The previous non-wide selectors are now deprecated.
 
-3D is a major theme of AE CS6. A new AEGP_LayerFlag_ENVIRONMENT_LAYER has been added. Many new `layer streams <#_bookmark626>`__ were added. Additionally, AEGP_LayerStream_SPECULAR_COEFF was renamed to AEGP_LayerStream_SPECULAR_INTENSITY, AEGP_LayerStream_SHININESS_COEFF was renamed to AEGP_LayerStream_SPECULAR_SHININESS, and AEGP_LayerStream_METAL_COEFF was renamed to just AEGP_LayerStream_METAL.
+3D is a major theme of AE CS6. A new ``AEGP_LayerFlag_ENVIRONMENT_LAYER`` has been added. Many new :ref:`layer streams <aegps/aegp-suites.stream-suite>` were added.
 
-A new suite, `AEGP_RenderQueueMonitorSuite <#_bookmark710>`__, provides all the info a render queue manager needs to figure out what is happening at any point in a render.
+Additionally, ``AEGP_LayerStream_SPECULAR_COEFF`` was renamed to ``AEGP_LayerStream_SPECULAR_INTENSITY``, ``AEGP_LayerStream_SHININESS_COEFF`` was renamed to ``AEGP_LayerStream_SPECULAR_SHININESS``, and ``AEGP_LayerStream_METAL_COEFF`` was renamed to just ``AEGP_LayerStream_METAL``.
 
-`AEGP Mask Suite <#_bookmark657>`__ is now at version 6, and provides functions to get and set the mask feather falloff type. `AEGP Mask Outline Suite <#_bookmark663>`__ is now at version 3, and provides access to get and set mask outline feather information.
+A new suite, :ref:`AEGP_RenderQueueMonitorSuite <aegps/aegp-suites.render-queue-monitor-suite>`, provides all the info a render queue manager needs to figure out what is happening at any point in a render.
 
-Effects that depend on masks now have a new flag available,
+:ref:`AEGP Mask Suite <aegps/aegp-suites.mask-suite>` is now at version 6, and provides functions to get and set the mask feather falloff type. :ref:`AEGP Mask Outline Suite <aegps/aegp-suites.mask-outline-suite>` is now at version 3, and provides access to get and set mask outline feather information.
 
-`PF_OutFlag2_DEPENDS_ON_UNREFERENCED_MASKS <#_bookmark185>`__.
+Effects that depend on masks now have a new flag available, ``PF_OutFlag2_DEPENDS_ON_UNREFERENCED_MASKS``.
 
-`AEGP Comp Suite <#_bookmark578>`__ is now at version 9. AEGP_CreateTextLayerInComp and
+:ref:`AEGP Composition Suite <aegps/aegp-suites.composition-suite>` is now at version 9. AEGP_CreateTextLayerInComp and
 
 AEGP_CreateBoxTextLayerInComp now have a new parameter, select_new_layerB.
 
-`AEGP Render Suite <#_bookmark690>`__ is now at version 3, adding a new function to get the GUID for a render receipt.
+:ref:`AEGP Render Suite <aegps/aegp-suites.render-suite>` is now at version 3, adding a new function to get the GUID for a render receipt.
 
-Finally, we have added two new read-only `Dynamic Stream <#_bookmark641>`__ flags: AEGP_DynStreamFlag_SHOWN_WHEN_EMPTY and AEGP_DynStreamFlag_SKIP_REVEAL_WHEN_UNHIDDEN.
+Finally, we have added two new read-only :ref:`Dynamic Stream <aegps/aegp-suites.dynamic-stream-suite>` flags: ``AEGP_DynStreamFlag_SHOWN_WHEN_EMPTY`` and ``AEGP_DynStreamFlag_SKIP_REVEAL_WHEN_UNHIDDEN``.
 
-For effects running in Premiere Pro CS6, we have added the ability to get 32-bit float and YUV frames from `PF_CHECKOUT_PARAM <#_bookmark840>`__.
+For effects running in Premiere Pro CS6, we have added the ability to get 32-bit float and YUV frames from ``PF_CHECKOUT_PARAM``.
 
 ----
 

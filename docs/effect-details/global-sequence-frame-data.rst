@@ -20,6 +20,8 @@ After Effects saves sequence data in the project file, but not global or frame d
 
 ----
 
+.. _effect-details/global-sequence-frame-data.validating-sequence-data:
+
 Validating Sequence Data
 ================================================================================
 

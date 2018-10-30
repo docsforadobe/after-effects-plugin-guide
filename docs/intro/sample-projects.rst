@@ -52,11 +52,11 @@ Sample Project Descriptions
 |                        | Whenever you're wondering how to get or set some characteristic of a project element, look here first.                                                                                        |
 |                        | Note: There are some hardcoded paths in Projector.h. If you don't set these to refer to actual media on disk, you WILL get errors while running this plug-in. Don't blame us; change them!    |
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| QueueBert              | Pronounced “Cue-BARE!”, QueueBert manipulates all aspects of render queue items and the output modules associated with them.                                                                  |
+| QueueBert              | Pronounced "Cue-BARE!", QueueBert manipulates all aspects of render queue items and the output modules associated with them.                                                                  |
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Streamie               | Manipulates streams, both dynamic and fixed.                                                                                                                                                  |
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Sweetie                | Sweetie uses the PICA (or “Suite Pea”) API to provide a function Suite, for use by other plug-ins.                                                                                            |
+| Sweetie                | Sweetie uses the PICA (or "Suite Pea") API to provide a function Suite, for use by other plug-ins.                                                                                            |
 |                        | If you're writing multiple plug-ins that rely on the same image processing library, you could provide the library functionality using such a suite.                                           |
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Text Twiddler          | Manipulates text layers and their contents.                                                                                                                                                   |
@@ -150,4 +150,4 @@ Alternatively, you can set output path for each project individually in Visual S
 
 When compiling the plug-ins, if you see a link error such as:
 
-“Cannot open file “[MediaCore plug-ins path]\plugin.prm”, make sure to launch Visual Studio in administrator mode. In your Visual Studio installation, right-click devenv.exe, Properties > Compatibility > Privilege Level, click “Run this program as an administrator”.
+"Cannot open file "[MediaCore plug-ins path]\plugin.prm", make sure to launch Visual Studio in administrator mode. In your Visual Studio installation, right-click devenv.exe, Properties > Compatibility > Privilege Level, click "Run this program as an administrator".

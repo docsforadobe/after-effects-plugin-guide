@@ -6540,7 +6540,7 @@ AEGP_PFInterfaceSuite1
 AEGP_GetEffectCameraMatrix Notes
 ********************************************************************************
 
-The model view for the camera matrix is inverse of the matrix obtained from `AEGP_GetEffectCameraMatrix()`__.
+The model view for the camera matrix is inverse of the matrix obtained from ``AEGP_GetEffectCameraMatrix()``.
 
 Also note that our matrix is row-based; OpenGL's is column-based.
 

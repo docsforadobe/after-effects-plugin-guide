@@ -3,9 +3,11 @@
 Parameters & Floating Point Values
 ################################################################################
 
-We have something to admit to you; for years, even though we've given you 8 bit color values, we've internally used floating point representations behind your back. That's right, even with over-bright colors, we'd only ever tell you ‘255, 255, 255'. Yeah, right. Well, we can't live the lie any longer! Given a color parameter (passed to you by After Effects in your
+We have something to admit to you; for years, even though we've given you 8 bit color values, we've internally used floating point representations behind your back.
 
-effect's parameter array), this function returns a floating point representation, including any high dynamic range component.
+That's right, even with over-bright colors, we'd only ever tell you '255, 255, 255'. Yeah, right.
+
+Well, we can't live the lie any longer! Given a color parameter (passed to you by After Effects in your effect's parameter array), this function returns a floating point representation, including any high dynamic range component.
 
 ----
 
@@ -47,10 +49,12 @@ We also provide a way to get floating point values for point parameters.
 
 ----
 
-New in CS6.0.2, we now provide a way to get floating point values for angle parameters.
+.. _effect-details/parameters-floating-point-values.PF_AngleParamSuite:
 
 PF_AngleParamSuite1
 ================================================================================
+
+New in CS6.0.2, we now provide a way to get floating point values for angle parameters.
 
 +-------------------------+------------------------------------------------+
 |      **Function**       |                 **Purpose**                    |

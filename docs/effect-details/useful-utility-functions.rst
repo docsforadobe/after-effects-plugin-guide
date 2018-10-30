@@ -1,4 +1,4 @@
-.. _effect-defailts/useful-utility-functions:
+.. _effect-details/useful-utility-functions:
 
 Useful Utility Functions
 ################################################################################
@@ -25,6 +25,8 @@ Although not strictly concerned with parameters, this suite can change the name 
 +-----------------------------+----------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _effect-details/useful-utility-functions.PF_AppSuite:
 
 PF_AppSuite
 ================================================================================
@@ -269,6 +271,8 @@ PF_AdvAppSuite2
 +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _effect-details/useful-utility-functions.PF_AdvTimeSuite:
 
 Formatting Time
 ================================================================================

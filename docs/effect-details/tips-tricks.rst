@@ -15,7 +15,7 @@ How your plug-in responds to things like downsampling, errors and exceptions, pi
 Responsiveness
 ================================================================================
 
-Make your plug-ins as responsive as possible using `PF_ABORT() <#_bookmark284>`__ and `PF_PROGRESS() <#_bookmark286>`__.
+Make your plug-ins as responsive as possible using ``PF_ABORT()`` and ``PF_PROGRESS()`` from :ref:`effect-details/interaction-callback-functions.interaction-callbacks`.
 
 We actually test all our effects for interruptability; you'd be surprised how cranky users can get waiting for your pokey effect to finish processing a film resolution sequence!
 
@@ -26,9 +26,15 @@ After Effects' iteration functions inherently provide this functionality; you do
 Make Your Effect Easy To Find
 ================================================================================
 
-It's possible to have your effect show up in the "Effects & Presets" palette when users search for something other than the plug-in's name. Apply your effect (leaving the settings at default, unless you're very certain the user will want something different when they search for the given term), and select "Save selection as animation preset" from the effect controls palette.
+It's possible to have your effect show up in the "Effects & Presets" palette when users search for something other than the plug-in's name.
 
-Save it to the name by which you want users to find the plug-in. Have your plug-in's installer put the resultant .ffx file into the \\Presets directory, next to the After Effects executable. Your preset will show up when users search for the name to which it was saved.
+Apply your effect (leaving the settings at default, unless you're very certain the user will want something different when they search for the given term), and select "Save selection as animation preset" from the effect controls palette.
+
+Save it to the name by which you want users to find the plug-in.
+
+Have your plug-in's installer put the resultant .ffx file into the \\Presets directory, next to the After Effects executable.
+
+Your preset will show up when users search for the name to which it was saved.
 
 ----
 
@@ -61,7 +67,9 @@ Where's The Center Of A Pixel?
 
 Deeeeeep, man. After Effects rotates around the upper left corner of the upper left pixel when the anchor point (see User Documentation) is (0,0).
 
-However, the subpixel sample and area sample callbacks actually treat (.0, .0) as a direct hit. To compensate for this, subtract 0.5 from x and y values before calling those functions. The matrix functions (`transform_world <#_bookmark267>`__) don't have this problem.
+However, the subpixel sample and area sample callbacks actually treat (.0, .0) as a direct hit. To compensate for this, subtract 0.5 from x and y values before calling those functions.
+
+The matrix functions (``transform_world`` from :ref:`effect-details/graphics-utility-suites.PF_WorldTransformSuite`) don't have this problem.
 
 When translating an image by a subpixel amount, make the output layer one pixel wider than its input, and leave the origin at (0,0).
 
@@ -98,12 +106,14 @@ You don't necessarily begin effect processing with a clean output slate. Our Gau
 
 ----
 
+.. _effect-details/tips-tricks.caching-behavior:
+
 Caching Behavior
 ================================================================================
 
-After Effects provides numerous ways to specify caching behavior. `PF_OutFlag_NON_PARAM_VARY <#_bookmark152>`__, `PF_OutFlag_WIDE_TIME_INPUT <#_bookmark151>`__, `PF_OutFlag_I_USE_SHUTTER_ANGLE <#_bookmark164>`__, `PF_OutFlag_I_SYNTHESIZE_AUDIO <#_bookmark168>`__, `PF_OutFlag2_I_USE_3D_CAMERA <#_bookmark174>`__, and `PF_OutFlag2_I_USE_3D_LIGHTS <#_bookmark177>`__ all influence caching decisions.
+After Effects provides numerous ways to specify caching behavior. ``PF_OutFlag_NON_PARAM_VARY``, ``PF_OutFlag_WIDE_TIME_INPUT``, ``PF_OutFlag_I_USE_SHUTTER_ANGLE``, ``PF_OutFlag_I_SYNTHESIZE_AUDIO``, ``PF_OutFlag2_I_USE_3D_CAMERA``, and ``PF_OutFlag2_I_USE_3D_LIGHTS`` (all from :ref:`effect-basics/PF_OutData.PF_OutFlags`) all influence caching decisions.
 
-Supporting `dynamic outflags <#_bookmark172>`__ can greatly improve performance, preventing After Effects from invalidating your effect's cache as aggressively as it otherwise would.
+Supporting :ref:`dynamic outflags <effect-basics/PF_OutData.PF_OutFlags>` can greatly improve performance, preventing After Effects from invalidating your effect's cache as aggressively as it otherwise would.
 
 Confirm that your plug-in performs well with different After Effects cache settings. Does your plug-in get called to update as often as expected, or does After Effects think it has valid pixels when you think it doesn't?
 
@@ -186,6 +196,8 @@ If you check out parameter values at other times, or use layer parameters at all
 Testing
 ================================================================================
 
-Try using your plug-in in RAM previews to ensure you handle out-of-memory conditions gracefully. Does your plug-in handle running out of memory gracefully? If you receive `PF_Err_OUT_OF_MEMORY <#_bookmark247>`__ when requesting memory, do you pass it back to After Effects?
+Try using your plug-in in RAM previews to ensure you handle out-of-memory conditions gracefully. Does your plug-in handle running out of memory gracefully?
+
+If you receive ``PF_Err_OUT_OF_MEMORY`` (from :ref:`effect-basics/errors.error-codes`) when requesting memory, do you pass it back to After Effects?
 
 What happens when your video effect is applied to an audio-only layer? Test with projects created using older versions of your plug-in.
