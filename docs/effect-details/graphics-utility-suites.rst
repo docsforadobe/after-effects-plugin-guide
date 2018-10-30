@@ -12,117 +12,122 @@ Transform Worlds
 
 These functions combine ``PF_EffectWorlds`` in interesting ways. When you use these, you're using the same code After Effects does internally.
 
-**PF_WorldTransformSuite1**
+PF_WorldTransformSuite1
+********************************************************************************
 
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|    **Function**     |                                                                                                                                                                       **Purpose**                                                       |
-+=====================+=========================================================================================================================================================================================================================================+
-| ``composite_rect``  | Composite a rectangle from one ``PF_EffectWorld`` into another, using one of After Effects' transfer modes.                                                                                                                             |
-|                     |                                                                                                                                                                                                                                         |
-|                     | ::                                                                                                                                                                                                                                      |
-|                     |                                                                                                                                                                                                                                         |
-|                     |   PF_Err composite_rect (                                                                                                                                                                                                               |
-|                     |     PF_ProgPtr      effect_ref,                                                                                                                                                                                                         |
-|                     |     PF_Rect         *src_rect,                                                                                                                                                                                                          |
-|                     |     A_long          src_opacity,                                                                                                                                                                                                        |
-|                     |     PF_EffectWorld  *src_world,                                                                                                                                                                                                         |
-|                     |     A_long          dst_x,                                                                                                                                                                                                              |
-|                     |     A_long          dst_y,                                                                                                                                                                                                              |
-|                     |     PF_Field        field_rdr,                                                                                                                                                                                                          |
-|                     |     PF_XferMode     xfer_mode,                                                                                                                                                                                                          |
-|                     |     PF_EffectWorld  *dst);                                                                                                                                                                                                              |
-|                     |                                                                                                                                                                                                                                         |
-|                     | ``field_rdr`` can be upper, lower or both.                                                                                                                                                                                              |
-|                     |                                                                                                                                                                                                                                         |
-|                     | ``xfer_mode`` is one of the following:                                                                                                                                                                                                  |
-|                     |                                                                                                                                                                                                                                         |
-|                     | - ``PF_Xfer_COPY``                                                                                                                                                                                                                      |
-|                     | - ``PF_Xfer_BEHIND``                                                                                                                                                                                                                    |
-|                     | - ``PF_Xfer_IN_FRONT``                                                                                                                                                                                                                  |
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``blend``           | Blends two images, alpha-weighted. Does not deal with different-sized sources, though the destination may be either PF_EffectWorld.                                                                                                     |
-|                     |                                                                                                                                                                                                                                         |
-|                     | ::                                                                                                                                                                                                                                      |
-|                     |                                                                                                                                                                                                                                         |
-|                     |   PF_Err blend (                                                                                                                                                                                                                        |
-|                     |     PF_ProgPtr            effect_ref,                                                                                                                                                                                                   |
-|                     |     const PF_EffectWorld  *src1,                                                                                                                                                                                                        |
-|                     |     const PF_EffectWorld  *src2,                                                                                                                                                                                                        |
-|                     |     PF_Fixed              ratio,                                                                                                                                                                                                        |
-|                     |     PF_EffectWorld        *dst);                                                                                                                                                                                                        |
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``convolve``        | Convolve an image with an arbitrary size kernel on each of the a, r, g, and b channels separately. You can specify a rectangle to convolve (for instance, the `extent_hint <#_bookmark124>`__), or pass 0 to convolve the entire image. |
-|                     | Do not use if the source *is* the destination. Describe the convolution using `kernel flags <#_bookmark268>`__.                                                                                                                         |
-|                     |                                                                                                                                                                                                                                         |
-|                     | ::                                                                                                                                                                                                                                      |
-|                     |                                                                                                                                                                                                                                         |
-|                     |   PF_Err convolve(                                                                                                                                                                                                                      |
-|                     |     PF_EffectWorld  *src,                                                                                                                                                                                                               |
-|                     |     const PF_Rect   *area,                                                                                                                                                                                                              |
-|                     |     PF_KernelFlags  flags,                                                                                                                                                                                                              |
-|                     |     A_long          kernel_size,                                                                                                                                                                                                        |
-|                     |     void            *a_kernel,                                                                                                                                                                                                          |
-|                     |     void            *r_kernel,                                                                                                                                                                                                          |
-|                     |     void            *g_kernel,                                                                                                                                                                                                          |
-|                     |     void            *b_kernel,                                                                                                                                                                                                          |
-|                     |     PF_EffectWorld  *dst);                                                                                                                                                                                                              |
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``copy``            | Copies a region from one PF_EffectWorld to another, preserving alpha (unlike the macOS CopyBits).                                                                                                                                       |
-|                     |                                                                                                                                                                                                                                         |
-|                     | ::                                                                                                                                                                                                                                      |
-|                     |                                                                                                                                                                                                                                         |
-|                     |   PF_Err copy (                                                                                                                                                                                                                         |
-|                     |     PF_EffectWorld  *src,                                                                                                                                                                                                               |
-|                     |     PF_EffectWorld  *dst,                                                                                                                                                                                                               |
-|                     |     PF_Rect         *src_r,                                                                                                                                                                                                             |
-|                     |     PF_Rect         *dst_r);                                                                                                                                                                                                            |
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``copy_hq``         | A higher fidelity version of the above (using the same parameters).                                                                                                                                                                     |
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``transfer_rect``   | Blends using a transfer mode, with an optional mask.                                                                                                                                                                                    |
-|                     |                                                                                                                                                                                                                                         |
-|                     | ::                                                                                                                                                                                                                                      |
-|                     |                                                                                                                                                                                                                                         |
-|                     |   PF_Err transfer_rect (                                                                                                                                                                                                                |
-|                     |     PF_ProgPtr              effect_ref,                                                                                                                                                                                                 |
-|                     |     PF_Quality              quality,                                                                                                                                                                                                    |
-|                     |     PF_ModeFlags            m_flags,                                                                                                                                                                                                    |
-|                     |     PF_Field                field,                                                                                                                                                                                                      |
-|                     |     const PF_Rect           *src_rec,                                                                                                                                                                                                   |
-|                     |     const PF_EffectWorld    *src_world,                                                                                                                                                                                                 |
-|                     |     const PF_CompositeMode  *comp_mode,                                                                                                                                                                                                 |
-|                     |     const PF_MaskWorld      *mask_world0,                                                                                                                                                                                               |
-|                     |     A_long                  dest_x,                                                                                                                                                                                                     |
-|                     |     A_long                  dest_y,                                                                                                                                                                                                     |
-|                     |     PF_EffectWorld          *dst_world);                                                                                                                                                                                                |
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``transform_world`` | Given a PF_EffectWorld and a matrix (or array of matrices), transforms and blends using an After Effects transfer mode, with an optional mask. The matrices pointer points to a matrix array used for motion-blur.                      |
-|                     |                                                                                                                                                                                                                                         |
-|                     | When is a transform not a transform? A Z-scale transform is not a transform, unless the transformed layer is a parent of other layers that do not all lie in the z=0 plane.                                                             |
-|                     |                                                                                                                                                                                                                                         |
-|                     | ::                                                                                                                                                                                                                                      |
-|                     |                                                                                                                                                                                                                                         |
-|                     |   PF_Err transform_world (                                                                                                                                                                                                              |
-|                     |     PF_InData               *in_data,                                                                                                                                                                                                   |
-|                     |     PF_Quality              quality,                                                                                                                                                                                                    |
-|                     |     PF_ModeFlags            m_flags,                                                                                                                                                                                                    |
-|                     |     PF_Field                field,                                                                                                                                                                                                      |
-|                     |     const PF_EffectWorld    *src_world,                                                                                                                                                                                                 |
-|                     |     const PF_CompositeMode  *comp_mode,                                                                                                                                                                                                 |
-|                     |     const PF_MaskWorld      *mask_world0,                                                                                                                                                                                               |
-|                     |     const PF_FloatMatrix    *matrices,                                                                                                                                                                                                  |
-|                     |     A_long                  num_matrices,                                                                                                                                                                                               |
-|                     |     Boolean                 src2dst_matrix,                                                                                                                                                                                             |
-|                     |     const PF_Rect           *dest_rect,                                                                                                                                                                                                 |
-|                     |     PF_EffectWorld          *dst_world);                                                                                                                                                                                                |
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|    **Function**     |                                                                                 **Purpose**                                                                                 |
++=====================+=============================================================================================================================================================================+
+| ``composite_rect``  | Composite a rectangle from one ``PF_EffectWorld`` into another, using one of After Effects' transfer modes.                                                                 |
+|                     |                                                                                                                                                                             |
+|                     | ::                                                                                                                                                                          |
+|                     |                                                                                                                                                                             |
+|                     |   PF_Err composite_rect (                                                                                                                                                   |
+|                     |     PF_ProgPtr      effect_ref,                                                                                                                                             |
+|                     |     PF_Rect         *src_rect,                                                                                                                                              |
+|                     |     A_long          src_opacity,                                                                                                                                            |
+|                     |     PF_EffectWorld  *src_world,                                                                                                                                             |
+|                     |     A_long          dst_x,                                                                                                                                                  |
+|                     |     A_long          dst_y,                                                                                                                                                  |
+|                     |     PF_Field        field_rdr,                                                                                                                                              |
+|                     |     PF_XferMode     xfer_mode,                                                                                                                                              |
+|                     |     PF_EffectWorld  *dst);                                                                                                                                                  |
+|                     |                                                                                                                                                                             |
+|                     | ``field_rdr`` can be upper, lower or both.                                                                                                                                  |
+|                     |                                                                                                                                                                             |
+|                     | ``xfer_mode`` is one of the following:                                                                                                                                      |
+|                     |                                                                                                                                                                             |
+|                     | - ``PF_Xfer_COPY``                                                                                                                                                          |
+|                     | - ``PF_Xfer_BEHIND``                                                                                                                                                        |
+|                     | - ``PF_Xfer_IN_FRONT``                                                                                                                                                      |
++---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``blend``           | Blends two images, alpha-weighted. Does not deal with different-sized sources, though the destination may be either PF_EffectWorld.                                         |
+|                     |                                                                                                                                                                             |
+|                     | ::                                                                                                                                                                          |
+|                     |                                                                                                                                                                             |
+|                     |   PF_Err blend (                                                                                                                                                            |
+|                     |     PF_ProgPtr            effect_ref,                                                                                                                                       |
+|                     |     const PF_EffectWorld  *src1,                                                                                                                                            |
+|                     |     const PF_EffectWorld  *src2,                                                                                                                                            |
+|                     |     PF_Fixed              ratio,                                                                                                                                            |
+|                     |     PF_EffectWorld        *dst);                                                                                                                                            |
++---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``convolve``        | Convolve an image with an arbitrary size kernel on each of the a, r, g, and b channels separately.                                                                          |
+|                     | You can specify a rectangle to convolve (for instance, the ``extent_hint`` from :ref:`effect-basics/PF_EffectWorld.structure`), or pass 0 to convolve the entire image.     |
+|                     | Do not use if the source *is* the destination. Describe the convolution using :ref:`effect-details/graphics-utility-suites.kernel-flags`.                                   |
+|                     |                                                                                                                                                                             |
+|                     | ::                                                                                                                                                                          |
+|                     |                                                                                                                                                                             |
+|                     |   PF_Err convolve(                                                                                                                                                          |
+|                     |     PF_EffectWorld  *src,                                                                                                                                                   |
+|                     |     const PF_Rect   *area,                                                                                                                                                  |
+|                     |     PF_KernelFlags  flags,                                                                                                                                                  |
+|                     |     A_long          kernel_size,                                                                                                                                            |
+|                     |     void            *a_kernel,                                                                                                                                              |
+|                     |     void            *r_kernel,                                                                                                                                              |
+|                     |     void            *g_kernel,                                                                                                                                              |
+|                     |     void            *b_kernel,                                                                                                                                              |
+|                     |     PF_EffectWorld  *dst);                                                                                                                                                  |
++---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``copy``            | Copies a region from one PF_EffectWorld to another, preserving alpha (unlike the macOS CopyBits).                                                                           |
+|                     |                                                                                                                                                                             |
+|                     | ::                                                                                                                                                                          |
+|                     |                                                                                                                                                                             |
+|                     |   PF_Err copy (                                                                                                                                                             |
+|                     |     PF_EffectWorld  *src,                                                                                                                                                   |
+|                     |     PF_EffectWorld  *dst,                                                                                                                                                   |
+|                     |     PF_Rect         *src_r,                                                                                                                                                 |
+|                     |     PF_Rect         *dst_r);                                                                                                                                                |
++---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``copy_hq``         | A higher fidelity version of the above (using the same parameters).                                                                                                         |
++---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``transfer_rect``   | Blends using a transfer mode, with an optional mask.                                                                                                                        |
+|                     |                                                                                                                                                                             |
+|                     | ::                                                                                                                                                                          |
+|                     |                                                                                                                                                                             |
+|                     |   PF_Err transfer_rect (                                                                                                                                                    |
+|                     |     PF_ProgPtr              effect_ref,                                                                                                                                     |
+|                     |     PF_Quality              quality,                                                                                                                                        |
+|                     |     PF_ModeFlags            m_flags,                                                                                                                                        |
+|                     |     PF_Field                field,                                                                                                                                          |
+|                     |     const PF_Rect           *src_rec,                                                                                                                                       |
+|                     |     const PF_EffectWorld    *src_world,                                                                                                                                     |
+|                     |     const PF_CompositeMode  *comp_mode,                                                                                                                                     |
+|                     |     const PF_MaskWorld      *mask_world0,                                                                                                                                   |
+|                     |     A_long                  dest_x,                                                                                                                                         |
+|                     |     A_long                  dest_y,                                                                                                                                         |
+|                     |     PF_EffectWorld          *dst_world);                                                                                                                                    |
++---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``transform_world`` | Given a PF_EffectWorld and a matrix (or array of matrices), transforms and blends using an After Effects transfer mode, with an optional mask.                              |
+|                     | The matrices pointer points to a matrix array used for motion-blur.                                                                                                         |
+|                     |                                                                                                                                                                             |
+|                     | When is a transform not a transform? A Z-scale transform is not a transform, unless the transformed layer is a parent of other layers that do not all lie in the z=0 plane. |
+|                     |                                                                                                                                                                             |
+|                     | ::                                                                                                                                                                          |
+|                     |                                                                                                                                                                             |
+|                     |   PF_Err transform_world (                                                                                                                                                  |
+|                     |     PF_InData               *in_data,                                                                                                                                       |
+|                     |     PF_Quality              quality,                                                                                                                                        |
+|                     |     PF_ModeFlags            m_flags,                                                                                                                                        |
+|                     |     PF_Field                field,                                                                                                                                          |
+|                     |     const PF_EffectWorld    *src_world,                                                                                                                                     |
+|                     |     const PF_CompositeMode  *comp_mode,                                                                                                                                     |
+|                     |     const PF_MaskWorld      *mask_world0,                                                                                                                                   |
+|                     |     const PF_FloatMatrix    *matrices,                                                                                                                                      |
+|                     |     A_long                  num_matrices,                                                                                                                                   |
+|                     |     Boolean                 src2dst_matrix,                                                                                                                                 |
+|                     |     const PF_Rect           *dest_rect,                                                                                                                                     |
+|                     |     PF_EffectWorld          *dst_world);                                                                                                                                    |
++---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _effect-details/graphics-utility-suites.kernel-flags:
 
 Kernel Flags
 ================================================================================
 
-Functions such as `convolve <#_bookmark266>`__ or gaussian kernel work with kernels, or matrices of filter weight values. These matrices can be in any format. The kernel flags describe how the matrices should be created and used. OR together any flags you need.
+Functions such as ``convolve`` or gaussian kernel work with kernels, or matrices of filter weight values. These matrices can be in any format. The kernel flags describe how the matrices should be created and used. OR together any flags you need.
 
 The flags relevant to given routines are documented along with the routine prototype.The first entry in the left column is always the default and has value 0.
 
@@ -162,7 +167,8 @@ Fill 'Em Up!
 
 The FillMatteSuite can be used to fill a ``PF_EffectWorld``, either with a specific color or premultiplied with an alpha value.
 
-**PF_FillMatteSuite2**
+PF_FillMatteSuite2
+********************************************************************************
 
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
 |        **Function**         |                                                                  **Purpose**                                                                   |
@@ -215,8 +221,8 @@ Sampling Images
 
 Note: areas outside the bounds of the image being sampled are treated as zero alpha. For convenience, the functions from PF_Sampling8Suite1, PF_Sampling16Suite1, and PF_SamplingFloatSuite1 are all listed in this table.
 
-**PF_SamplingSuite Functions (Multiple Suites)**
-
+PF_SamplingSuite Functions (Multiple Suites)
+********************************************************************************
 
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |       **Function**        |                                                                                                         **Purpose**                                                                                                         |
@@ -274,110 +280,113 @@ Note: areas outside the bounds of the image being sampled are treated as zero al
 | ``area_sample16``         | Same as above, but takes a ``PF_Pixel16*`` ``dst_pixel``.                                                                                                                                                                   |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-**PF_BatchSamplingSuite1 Functions**
+PF_BatchSamplingSuite1 Functions
+********************************************************************************
 
-+----------------------+------------------------------------------------------------------------------------------------------------------------+
-|     **Function**     |                                                      **Purpose**                                                       |
-+======================+========================================================================================================================+
-| ``begin_sampling``   | Your effect is going to perform some batch sampling; After Effects will perform setup tasks to optimize your sampling. |
-|                      |                                                                                                                        |
-|                      | ::                                                                                                                     |
-|                      |                                                                                                                        |
-|                      |   PF_Err (*begin_sampling)(                                                                                            |
-|                      |     PF_ProgPtr    effect_ref,                                                                                          |
-|                      |     PF_Quality    qual,                                                                                                |
-|                      |     PF_ModeFlags  mf,                                                                                                  |
-|                      |     PF_SampPB     *params);                                                                                            |
-+----------------------+------------------------------------------------------------------------------------------------------------------------+
-| ``end_sampling``     | Tells After Effects you're done sampling.                                                                              |
-|                      |                                                                                                                        |
-|                      | ::                                                                                                                     |
-|                      |                                                                                                                        |
-|                      |   PF_Err (*end_sampling)(                                                                                              |
-|                      |     PF_ProgPtr    effect_ref,                                                                                          |
-|                      |     PF_Quality    qual,                                                                                                |
-|                      |     PF_ModeFlags  mf,                                                                                                  |
-|                      |     PF_SampPB     *params);                                                                                            |
-+----------------------+------------------------------------------------------------------------------------------------------------------------+
-| ``get_batch_func``   | Obtains a pointer to After Effects' batch sampling function (highly optimized).                                        |
-|                      |                                                                                                                        |
-|                      | ::                                                                                                                     |
-|                      |                                                                                                                        |
-|                      |   PF_Err (*get_batch_func)(                                                                                            |
-|                      |     PF_ProgPtr          effect_ref,                                                                                    |
-|                      |     PF_Quality          quality,                                                                                       |
-|                      |     PF_ModeFlags        mode_flags,                                                                                    |
-|                      |     const PF_SampPB     *params,                                                                                       |
-|                      |     PF_BatchSampleFunc  *batch);                                                                                       |
-+----------------------+------------------------------------------------------------------------------------------------------------------------+
-| ``get_batch_func16`` | Obtains a pointer to After Effects' 16-bpc batch sampling function (also highly optimized).                            |
-|                      |                                                                                                                        |
-|                      | ::                                                                                                                     |
-|                      |                                                                                                                        |
-|                      |   PF_Err (*get_batch_func16)(                                                                                          |
-|                      |     PF_ProgPtr            effect_ref,                                                                                  |
-|                      |     PF_Quality            quality,                                                                                     |
-|                      |     PF_ModeFlags          mode_flags,                                                                                  |
-|                      |     const PF_SampPB       *params,                                                                                     |
-|                      |     PF_BatchSample16Func  *batch);                                                                                     |
-+----------------------+------------------------------------------------------------------------------------------------------------------------+
++----------------------+---------------------------------------------------------------------------------------------+
+|     **Function**     |                                         **Purpose**                                         |
++======================+=============================================================================================+
+| ``begin_sampling``   | Your effect is going to perform some batch sampling;                                        |
+|                      | After Effects will perform setup tasks to optimize your sampling.                           |
+|                      |                                                                                             |
+|                      | ::                                                                                          |
+|                      |                                                                                             |
+|                      |   PF_Err (*begin_sampling)(                                                                 |
+|                      |     PF_ProgPtr    effect_ref,                                                               |
+|                      |     PF_Quality    qual,                                                                     |
+|                      |     PF_ModeFlags  mf,                                                                       |
+|                      |     PF_SampPB     *params);                                                                 |
++----------------------+---------------------------------------------------------------------------------------------+
+| ``end_sampling``     | Tells After Effects you're done sampling.                                                   |
+|                      |                                                                                             |
+|                      | ::                                                                                          |
+|                      |                                                                                             |
+|                      |   PF_Err (*end_sampling)(                                                                   |
+|                      |     PF_ProgPtr    effect_ref,                                                               |
+|                      |     PF_Quality    qual,                                                                     |
+|                      |     PF_ModeFlags  mf,                                                                       |
+|                      |     PF_SampPB     *params);                                                                 |
++----------------------+---------------------------------------------------------------------------------------------+
+| ``get_batch_func``   | Obtains a pointer to After Effects' batch sampling function (highly optimized).             |
+|                      |                                                                                             |
+|                      | ::                                                                                          |
+|                      |                                                                                             |
+|                      |   PF_Err (*get_batch_func)(                                                                 |
+|                      |     PF_ProgPtr          effect_ref,                                                         |
+|                      |     PF_Quality          quality,                                                            |
+|                      |     PF_ModeFlags        mode_flags,                                                         |
+|                      |     const PF_SampPB     *params,                                                            |
+|                      |     PF_BatchSampleFunc  *batch);                                                            |
++----------------------+---------------------------------------------------------------------------------------------+
+| ``get_batch_func16`` | Obtains a pointer to After Effects' 16-bpc batch sampling function (also highly optimized). |
+|                      |                                                                                             |
+|                      | ::                                                                                          |
+|                      |                                                                                             |
+|                      |   PF_Err (*get_batch_func16)(                                                               |
+|                      |     PF_ProgPtr            effect_ref,                                                       |
+|                      |     PF_Quality            quality,                                                          |
+|                      |     PF_ModeFlags          mode_flags,                                                       |
+|                      |     const PF_SampPB       *params,                                                          |
+|                      |     PF_BatchSample16Func  *batch);                                                          |
++----------------------+---------------------------------------------------------------------------------------------+
 
 ----
 
 Do The Math For Me
 ================================================================================
 
-Along with the variety of graphics utilities, we also provide a block of ANSI standard routines so that plug-ins will not need to include other libraries to use standard functions. We give function pointers to a large number of math functions (trig functions, square root, logs, etc.).
+Along with the variety of graphics utilities, we also provide a block of ANSI standard routines so that plug-ins will not need to include other libraries to use standard functions.
+
+We give function pointers to a large number of math functions (trig functions, square root, logs, etc.).
 
 Using our suite functions provides for some (application level) error handling, and prevents problems with including different versions of multiple "standard" libraries.
 
-All functions return a double. All angles are expressed in radians, use ``PF_RAD_PER_DEGREE``.
+All functions return a double. All angles are expressed in radians, use ``PF_RAD_PER_DEGREE`` (a constant from AE_EffectCB.h) to convert from degrees to radians if necessary.
 
-(a constant from AE_EffectCB.h) to convert from degrees to radians if necessary.
-
-**PF_ANSICallbackSuite1**
+PF_ANSICallbackSuite1
+********************************************************************************
 
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
 |                              **Function**                               |                         **Purpose**                          |  **Replaces**  |
 +=========================================================================+==============================================================+================+
-| acos                                                                    | Returns the arc cosine of x.                                 | ``PF_ACOS``    |
+| ``acos``                                                                | Returns the arc cosine of x.                                 | ``PF_ACOS``    |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| asin                                                                    | Returns the arc sine of x.                                   | ``PF_ASIN``    |
+| ``asin``                                                                | Returns the arc sine of x.                                   | ``PF_ASIN``    |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| atan                                                                    | Returns the arc tangent of x.                                | ``PF_ATAN``    |
+| ``atan``                                                                | Returns the arc tangent of x.                                | ``PF_ATAN``    |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| atan2                                                                   | Returns atan(y/x).                                           | ``PF_ATAN2``   |
+| ``atan2``                                                               | Returns atan(y/x).                                           | ``PF_ATAN2``   |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| ceil                                                                    | Returns the next integer above x.                            | ``PF_CEIL``    |
+| ``ceil``                                                                | Returns the next integer above x.                            | ``PF_CEIL``    |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| cos                                                                     | Returns the cosine of x.                                     | ``PF_COS``     |
+| ``cos``                                                                 | Returns the cosine of x.                                     | ``PF_COS``     |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| exp                                                                     | Returns e to the power of x.                                 | ``PF_EXP``     |
+| ``exp``                                                                 | Returns e to the power of x.                                 | ``PF_EXP``     |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| fabs                                                                    | Returns the absolute value of x.                             | ``PF_FABS``    |
+| ``fabs``                                                                | Returns the absolute value of x.                             | ``PF_FABS``    |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| floor                                                                   | Returns the closest integer below x.                         | ``PF_FLOOR``   |
+| ``floor``                                                               | Returns the closest integer below x.                         | ``PF_FLOOR``   |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| fmod                                                                    | Returns x modulus y.                                         | ``PF_FMOD``    |
+| ``fmod``                                                                | Returns x modulus y.                                         | ``PF_FMOD``    |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| hypot                                                                   | Returns the hypotenuse of x and y, which is sqrt(x*x + y*y). | ``PF_HYPOT``   |
+| ``hypot``                                                               | Returns the hypotenuse of x and y, which is sqrt(x*x + y*y). | ``PF_HYPOT``   |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| log                                                                     | Returns the natural log (ln) of x.                           | ``PF_LOG``     |
+| ``log``                                                                 | Returns the natural log (ln) of x.                           | ``PF_LOG``     |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| log10                                                                   | Returns the log (base 10) of x.                              | ``PF_LOG10``   |
+| ``log10``                                                               | Returns the log (base 10) of x.                              | ``PF_LOG10``   |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| pow                                                                     | Returns x to the power of y.                                 | ``PF_POW``     |
+| ``pow``                                                                 | Returns x to the power of y.                                 | ``PF_POW``     |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| sin                                                                     | Returns the sine of x.                                       | ``PF_SIN``     |
+| ``sin``                                                                 | Returns the sine of x.                                       | ``PF_SIN``     |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| sqrt                                                                    | Returns the square root of x.                                | ``PF_SQRT``    |
+| ``sqrt``                                                                | Returns the square root of x.                                | ``PF_SQRT``    |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| tan                                                                     | Returns the tangent of x.                                    | ``PF_TAN``     |
+| ``tan``                                                                 | Returns the tangent of x.                                    | ``PF_TAN``     |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
 | *(while not strictly math functions, these emulate ANSI functionality)*                                                                                 |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| sprintf                                                                 | Emulates the C sprintf function.                             | ``PF_SPRINTF`` |
+| ``sprintf``                                                             | Emulates the C sprintf function.                             | ``PF_SPRINTF`` |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
-| strcpy                                                                  | Emulates the C strcpy function.                              | ``PF_STRCPY``  |
+| ``strcpy``                                                              | Emulates the C strcpy function.                              | ``PF_STRCPY``  |
 +-------------------------------------------------------------------------+--------------------------------------------------------------+----------------+
 

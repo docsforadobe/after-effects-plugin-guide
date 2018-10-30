@@ -568,6 +568,8 @@ These functions manage an input specification, After Effects' internal represent
 
 Any image or audio data in After Effects (except solids) is obtained from an input specification handle, or ``AEIO_InSpecH``.
 
+.. _aeios/new-kids-on-the-function-block.AEGP_IOInSuite5:
+
 AEGP_IOInSuite5
 ********************************************************************************
 
@@ -898,6 +900,8 @@ What Goes Out
 ================================================================================
 
 These functions manage all interactions with an output specification in After Effects' render queue.
+
+.. _aeios/new-kids-on-the-function-block.AEGPIOOutSuite4:
 
 AEGPIOOutSuite4
 ********************************************************************************

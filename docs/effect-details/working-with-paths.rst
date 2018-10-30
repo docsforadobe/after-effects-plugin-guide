@@ -45,6 +45,8 @@ PF_PathVertex
 
 ----
 
+.. _effect-details/working-with-paths.PF_PathDataSuite:
+
 PF_PathDataSuite
 ================================================================================
 
@@ -187,8 +189,9 @@ This suite provides information about paths (sequences of vertices).
 
 ----
 
-PF_PathQuerySuite1
+.. _effect-details/working-with-paths.PF_PathQuerySuite:
 
+PF_PathQuerySuite1
 ================================================================================
 
 This suite is used to identify and access the paths associated with the effect's source layer.

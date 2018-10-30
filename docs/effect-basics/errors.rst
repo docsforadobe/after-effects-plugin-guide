@@ -47,7 +47,7 @@ After Effects has a consistent policy for error handling; follow it.
 
 If you encounter an error in your plug-in's code, report it to the user immediately, before returning from your plug-in to After Effects. After Effects considers errors from the operating system, encountered during your plug-in's execution, to be yours. If you get an error code back from one of our callback functions, pass it back to After Effects; we've already reported it. Out-of-memory errors are never reported by After Effects. Error reporting is always suppressed during RAM preview, and when After Effects is running in - noui mode.
 
-To report an error from within a plug-in, set PF_OutFlag_DISPLAY_ERROR_MESSAGE, and describe the error in `PF_OutData>return_msg <#_bookmark145>`__. Doing so will enter your error into the render log, and prevent system hangs in renders driven by a render engine or scripting.
+To report an error from within a plug-in, set PF_OutFlag_DISPLAY_ERROR_MESSAGE, and describe the error in :ref:`PF_OutData>return_msg <effect-basics/PF_OutData>`. Doing so will enter your error into the render log, and prevent system hangs in renders driven by a render engine or scripting.
 
 ----
 

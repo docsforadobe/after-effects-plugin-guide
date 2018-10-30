@@ -9,4 +9,4 @@ The icons are 60x45 PNG files, and are placed here:
 
 [Program Files]\Adobe\Adobe Premiere Elements [version]\Plug- in\Common\EffectPreviews\
 
-The filename should be the match name of the effect, which you specify in the `PiPL <#_bookmark55>`__, prefixed with "AE." So if the match name was "MatchName", then the filename should be "AE.MatchName.png"
+The filename should be the match name of the effect, which you specify in the :ref:`intro/pipl-resources`, prefixed with "AE." So if the match name was "MatchName", then the filename should be "AE.MatchName.png"

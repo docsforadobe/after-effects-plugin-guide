@@ -12,7 +12,7 @@ Pixel Formats
 
 Premiere Pro provides function suites for declaring support for pixel formats other than the 8-bit RGB format used by After Effects - ARGB_8u. These pixel formats include the Premiere Pro native 8-bit RGB format - BGRA_8u, as well as YUV, 32-bit formats, and more. For a more detailed discussion of the various pixel formats, see the `Premiere Pro SDK <http://www.adobe.com/devnet/premiere.html>`__ Guide, chapter 3, in the section "Pixel Formats and Colorspaces".
 
-Use the PF Pixel Format Suite (defined in PrAESDKSupport.h) to register for `PF_EffectWorlds <#_bookmark233>`__ in other pixel formats. Use the Premiere Pixel Format Suite (defined in the aptly-named PrSDKPixelFormatSuite.h) to get black and white values in those pixel formats.
+Use the PF Pixel Format Suite (defined in PrAESDKSupport.h) to register for :ref:`effect-basics/PF_EffectWorld` in other pixel formats. Use the Premiere Pixel Format Suite (defined in the aptly-named PrSDKPixelFormatSuite.h) to get black and white values in those pixel formats.
 
 After Effects functions such as PF_BLEND() have not been enhanced to work with pixel formats beyond 8-bit RGB.
 

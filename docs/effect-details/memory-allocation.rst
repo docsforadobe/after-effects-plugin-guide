@@ -11,6 +11,8 @@ Handles passed to you by After Effects are locked for you before you're called, 
 
 ----
 
+.. _effect-details/memory-allocation.PF_HandleSuite1:
+
 PF_HandleSuite1
 ================================================================================
 

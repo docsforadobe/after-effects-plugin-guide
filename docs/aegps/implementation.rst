@@ -29,13 +29,13 @@ Entry Point
     AEGP_PluginID        aegp_plugin_id,
     AEGP_GlobalRefcon    *global_refconP)
 
-The plug-in's entry point, exported in the `PiPL resource <#_bookmark55>`__, is called just once during launch; all other calls to the AEGP go to the functions it's registered.
+The plug-in's entry point, exported in the :ref:`intro/pipl-resources`, is called just once during launch; all other calls to the AEGP go to the functions it's registered.
 
 This is very different from the effect plug-in model, where all communication comes through the same entry point.
 
 Because plug-in load order may vary, it's never a good idea to acquire suites not provided by After Effects during your entry point function. Rather, wait until the appropriate hook function(s).
 
-The AEGP API `version numbers <#_bookmark51>`__ can help distinguish between different versions of After Effects, in case the AEGP needs to behave differently or handle different behavior.
+The AEGP :ref:`intro/compatibility-across-multiple-versions.api-versions` can help distinguish between different versions of After Effects, in case the AEGP needs to behave differently or handle different behavior.
 
 Those other functions are registered as callback hooks. An AEGP that adds menu items must register an UpdateMenuHook function (with a function signature as described in AE_GeneralPlug.h) which After Effects can call to determine whether or not to enable those items. Similarly, plug-ins which process commands register a CommandHook (one for all commands).
 
@@ -50,16 +50,20 @@ Like everything else in the AEGP API, this is done through a function suite; in 
 
 ----
 
+.. _aegps/implementation.adding-a-menu-item:
+
 Example: Adding A Menu Item
 ================================================================================
 
-During your entry point function, use `CommandSuite> <#_bookmark553>`__\ `AEGP_GetUniqueCommand() <#_bookmark555>`__ to obtain a command ID from After Effects, for use with `AEGP_InsertMenuCommand() <#_bookmark557>`__. Use a different ID for each menu item you add.
+During your entry point function, use ``AEGP_GetUniqueCommand()`` from :ref:`Command Suite <aegps/aegp-suites.command-suite>` to obtain a command ID from After Effects, for use with ``AEGP_InsertMenuCommand``. Use a different ID for each menu item you add.
 
-Using AEGP_RegisterSuite's `AEGP_RegisterCommandHook() <#_bookmark560>`__, tell After Effects which function to call when your menu item(s) are selected. The function you register using `AEGP_RegisterUpdateMenuHook() <#_bookmark561>`__ enables and disabling your menu item(s). Your menu item(s) will be permanently disabled unless you register a menu updating function.
+Using AEGP_RegisterSuite's ``AEGP_RegisterCommandHook()``, tell After Effects which function to call when your menu item(s) are selected. The function you register using ``AEGP_RegisterUpdateMenuHook()`` enables and disabling your menu item(s). Your menu item(s) will be permanently disabled unless you register a menu updating function.
 
 No matter how many menu items you add, you register only one CommandHook. When called, determine which menu item was chosen (based on the command ID), use AEGP PICA suite functions to determine the current state of the project, and act accordingly. For example, keyframing plug-ins may want to disable their menu items unless a (keyframe-able) parameter stream is part of the current selection.
 
 ----
+
+.. _aegps/implementation.private-data:
 
 Private Data
 ================================================================================
@@ -81,6 +85,6 @@ Threading
 
 AEGP supports no threading at all. Everything must be done from the main thread, either in response to a callback, or from the idle hook.
 
-There is one call that is thread safe: `AEGP_CauseIdleRoutinesToBeCalled <#_bookmark674>`__\ ().
+There is one call that is thread safe: ``AEGP_CauseIdleRoutinesToBeCalled()``.
 
 But since ``SPBasicSuite`` itself is not thread safe, you'll need to stash off the function pointer in the main thread.

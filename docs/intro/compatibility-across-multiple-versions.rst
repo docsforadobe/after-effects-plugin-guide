@@ -14,6 +14,8 @@ For even more precise version checking, a plug-in can run a script using ``AEGP_
 
 ----
 
+.. _intro/compatibility-across-multiple-versions.api-versions:
+
 API Versions
 ================================================================================
 

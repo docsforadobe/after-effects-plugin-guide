@@ -7,6 +7,8 @@ While the un-macro'd function pointers are provided in :ref:`effect-basics/PF_In
 
 ----
 
+.. _effect-details/interaction-callback-functions.interaction-callbacks:
+
 Interaction Callbacks
 ================================================================================
 

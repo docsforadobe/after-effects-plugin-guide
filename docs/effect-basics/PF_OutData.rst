@@ -49,6 +49,8 @@ PF_OutData Members
 
 ----
 
+.. _effect-basics/PF_OutData.PF_OutFlags:
+
 PF_OutFlags
 ================================================================================
 

@@ -6,9 +6,9 @@ Implementation Details
 Export Bit-Depth
 ================================================================================
 
-In the Output Module Settings, the user can choose a Depth based on the options the AEIO declares support for in `AEIO_GetDepths() <#_bookmark808>`__.
+In the Output Module Settings, the user can choose a Depth based on the options the AEIO declares support for in ``AEIO_GetDepths()`` from :ref:`aeios/new-kids-on-the-function-block.AEIO_FunctionBlock4`.
 
-If a plug-in supports higher bit-depth exports, it should be able to handle these higher bit-depth PF_EffectWorlds passed in `AEIO_AddFrame() <#_bookmark802>`__ or `AEIO_OutputFrame() <#_bookmark804>`__, even when the export setting is not set to the same depth.
+If a plug-in supports higher bit-depth exports, it should be able to handle these higher bit-depth PF_EffectWorlds passed in ``AEIO_AddFrame()`` or ``AEIO_OutputFrame()``, even when the export setting is not set to the same depth.
 
 The frame delivered to the AEIO, and the final output will not necessarily be the same depth.
 

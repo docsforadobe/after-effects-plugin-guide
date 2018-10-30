@@ -219,7 +219,7 @@ Artisan Entry Points
 The World Is Your Canvas
 ================================================================================
 
-`AEGP_RenderTexture() <#_bookmark749>`__ supplies the raw pixels of a layer, untransformed, into an arbitrarily-sized buffer.
+``AEGP_RenderTexture()`` supplies the raw pixels of a layer, untransformed, into an arbitrarily-sized buffer.
 
 ``AEGP_RenderLayer()`` invokes the entire After Effects render pipeline, including transforms, masking, et cetera, providing the layer as it appears in its composition, in a composition-sized buffer.
 
@@ -232,6 +232,8 @@ Before rendering, the Artisans that ship with After Effects apply an inverse tra
 For example, if the pixel aspect ratio is 10/11 (DV NTSC), we multiply by 11/10 to get square pixels. We process and composite 3D layers, then re-divide to get back to the original pixel aspect ratio.
 
 The following suite supplies the layers, compositions, texture and destination buffers. This is a vital suite for all artisans.
+
+.. _artisans/artisan-data-types.AEGP_CanvasSuite8:
 
 AEGP_CanvasSuite8
 ********************************************************************************
