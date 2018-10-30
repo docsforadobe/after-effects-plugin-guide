@@ -10,11 +10,11 @@ For what's new in CC releases, see :ref:`intro/whats-new`.
 What's New In CS6?
 ================================================================================
 
-3D is a major theme of AE CS6. A new ``AEGP_LayerFlag_ENVIRONMENT_LAYER`` has been added. Many new :ref:`layer streams <aegps/aegp-suites.AEGP_StreamSuite5>` were added.
+3D is a major theme of AE CS6. A new ``AEGP_LayerFlag_ENVIRONMENT_LAYER`` has been added. Many new :ref:`layer streams <aegps/aegp-suites.AEGP_StreamSuite>` were added.
 
 Additionally, ``AEGP_LayerStream_SPECULAR_COEFF`` was renamed to ``AEGP_LayerStream_SPECULAR_INTENSITY``, ``AEGP_LayerStream_SHININESS_COEFF`` was renamed to ``AEGP_LayerStream_SPECULAR_SHININESS``, and ``AEGP_LayerStream_METAL_COEFF`` was renamed to just ``AEGP_LayerStream_METAL``.
 
-A new suite, :ref:`aegps/aegp-suites.AEGP_RenderQueueMonitorSuite1`, provides all the info a render queue manager needs to figure out what is happening at any point in a render.
+A new suite, :ref:`aegps/aegp-suites.AEGP_RenderQueueMonitorSuite`, provides all the info a render queue manager needs to figure out what is happening at any point in a render.
 
 :ref:`Mask Suite <aegps/aegp-suites.mask-suite>` is now at version 6, and provides functions to get and set the mask feather falloff type. :ref:`Mask Outline Suite <aegps/aegp-suites.mask-outline-suite>` is now at version 3, and provides access to get and set mask outline feather information.
 

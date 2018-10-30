@@ -7,82 +7,82 @@ As mentioned earlier, AEGPs do everything through suites. The following suites a
 
 
 
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                   **Suite**                                    |                                                                          **Description**                                                                           |
-+================================================================================+====================================================================================================================================================================+
-| :ref:`Memory Suite <aegps/aegp-suites.memory-suite>`                           | Manage memory resources. Use this suite! Whenever memory-related errors are encountered, After Effects can report errors for you.                                  |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Command Suite <aegps/aegp-suites.command-suite>`                         | Manage your AEGP's menu items. Used in conjunction with the Register Suite.                                                                                        |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Register Suite <aegps/aegp-suites.register-suite>`                       | Used in conjunction with the :ref:`Command Suite <aegps/aegp-suites.command-suite>` to add functions to menu commands.                                             |
-|                                                                                | AEIOs and Artisans must use this suite's functions to indicate to After Effects that they want to receive the appropriate message streams.                         |
-|                                                                                | You can replace some After Effects' commands using this suite.                                                                                                     |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Project Suite <aegps/aegp-suites.project-suite>`                         | Reads and modifies project data.                                                                                                                                   |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Item Suite <aegps/aegp-suites.item-suite>`                               | Manages items within a project or composition.                                                                                                                     |
-|                                                                                | Folders, Compositions, Solids, and Footage are all items.                                                                                                          |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Collection Suite <aegps/aegp-suites.collection-suite>`                   | Query which items are currently selected, and create your own selection sets.                                                                                      |
-|                                                                                | It's often a good UI move to select all the items your AEGP has modified, just to give the user some idea what you've done.                                        |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Composition Suite <aegps/aegp-suites.composition-suite>`                 | Manages (and creates) compositions in a project, and composition-specific items like solids.                                                                       |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Footage Suite <aegps/aegp-suites.footage-suite>`                         | Manages footage.                                                                                                                                                   |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Layer Suite <aegps/aegp-suites.layer-suite>`                             | Provides information about the layers within a composition, and the relationship(s) between the source and layer times.                                            |
-|                                                                                | Solids, text, paint, cameras, lights, images, and image sequences can all become layers.                                                                           |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Effect Suite <aegps/aegp-suites.effect-suite>`                           | Provides access to the effects applied to a layer.                                                                                                                 |
-|                                                                                | Use Stream suites to obtain effect keyframe information.                                                                                                           |
-|                                                                                | Use ``AEGP_EffectCallGeneric()`` (in :ref:`aegps/aegp-suites.AEGP_EffectSuite4`) to communicate with effects that you setup ahead of time to respond to your AEGP. |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Stream Suite <aegps/aegp-suites.stream-suite>`                           | Used to access the values of a layer's keyframe properties.                                                                                                        |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Dynamic Stream Suite <aegps/aegp-suites.dynamic-stream-suite>`           | Used to access the characteristics of dynamic streams associated with a layer.                                                                                     |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Keyframe Suite <aegps/aegp-suites.keyframe-suite>`                       | Used to access and manipulate all keyframe data.                                                                                                                   |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Marker Suite <aegps/aegp-suites.marker-suite>`                           | Used to manipulate markers. Use ``AEGP_GetNewCompMarkerStream()`` (in :ref:`aegps/aegp-suites.AEGP_GetNewCompMarkerStream`) to get the composition marker stream.  |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Mask Suite <aegps/aegp-suites.mask-suite>`                               | Provides access to retrieve information about a layer's masks.                                                                                                     |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Mask Outline Suite <aegps/aegp-suites.mask-outline-suite>`               | Used in conjunction with Stream Suite, this suite provides detailed information about the path rendered to make a layer's mask.                                    |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Text Document Suite <aegps/aegp-suites.text-document-suite>`             | Used to access the actual text on a text layer.                                                                                                                    |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Text Layer Suite <aegps/aegp-suites.text-layer-suite>`                   | Used to access the paths that make up the outlines of a text layer.                                                                                                |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Utility Suite <aegps/aegp-suites.utility-suite>`                         | Supplies error message handling, AEGP version checking and access to After Effects' undo stack.                                                                    |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Persistent Data Suite <aegps/aegp-suites.persistent-data-suite>`         | Query and manage all persistent data (i.e., the preferences file).                                                                                                 |
-|                                                                                | AEGPs can also add their own data to the prefs.                                                                                                                    |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Color Settings Suite <aegps/aegp-suites.color-settings-suite>`           | Obtain information on After Effects' current color management settings.                                                                                            |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Render Suite <aegps/aegp-suites.render-suite>`                           | Get rendered frames (and audio samples) from within an AEGP.                                                                                                       |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`World Suite <aegps/aegp-suites.world-suite>`                             | Allocate, dispose of, and query AEGP_Worlds.                                                                                                                       |
-|                                                                                | Also provides a way to convert a ``PF_EffectWorld`` into an ``AEGP_World``, for working with effect plug-ins.                                                      |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Composite Suite <aegps/aegp-suites.composite-suite>`                     | Exposes After Effects' compositing functionality, including transfer modes, track matting, and good old fashioned bit copying.                                     |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Sound Data Suite <aegps/aegp-suites.sound-data-suite>`                   | Functions for managing and accessing sound data.                                                                                                                   |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Render Queue Suite <aegps/aegp-suites.render-queue-suite>`               | Add and remove items from the render queue.                                                                                                                        |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Render Queue Item Suite <aegps/aegp-suites.render-queue-iteme-suite>`    | Query and modify items in the render queue.                                                                                                                        |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Render Options Suite <aegps/aegp-suites.render-options-suite>`           | Query and manage all items exposed in a render queue item's options dialog.                                                                                        |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Output Module Suite <aegps/aegp-suites.output-module-suite>`             | Query and modify the output modules attached to items in the render queue.                                                                                         |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`PF Interface Suite <aegps/aegp-suites.pf-interface-suite>`               | The functions in this suite, while technically part of the AEGP API, are for use by effects.                                                                       |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`AEGP Iterate Suite <aegps/aegp-suites.aegp-iterate-suite>`               | Gives AEGPs a way to have a function (which has the required signature) to be run on any or all available processors.                                              |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`File Import Manager Suite <aegps/aegp-suites.file-import-manager-suite>` | Registers AEGP file and project importers as part of After Effects' file handling.                                                                                 |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                   **Suite**                                    |                                                                          **Description**                                                                          |
++================================================================================+===================================================================================================================================================================+
+| :ref:`Memory Suite <aegps/aegp-suites.memory-suite>`                           | Manage memory resources. Use this suite! Whenever memory-related errors are encountered, After Effects can report errors for you.                                 |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Command Suite <aegps/aegp-suites.command-suite>`                         | Manage your AEGP's menu items. Used in conjunction with the Register Suite.                                                                                       |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Register Suite <aegps/aegp-suites.register-suite>`                       | Used in conjunction with the :ref:`Command Suite <aegps/aegp-suites.command-suite>` to add functions to menu commands.                                            |
+|                                                                                | AEIOs and Artisans must use this suite's functions to indicate to After Effects that they want to receive the appropriate message streams.                        |
+|                                                                                | You can replace some After Effects' commands using this suite.                                                                                                    |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Project Suite <aegps/aegp-suites.project-suite>`                         | Reads and modifies project data.                                                                                                                                  |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Item Suite <aegps/aegp-suites.item-suite>`                               | Manages items within a project or composition.                                                                                                                    |
+|                                                                                | Folders, Compositions, Solids, and Footage are all items.                                                                                                         |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Collection Suite <aegps/aegp-suites.collection-suite>`                   | Query which items are currently selected, and create your own selection sets.                                                                                     |
+|                                                                                | It's often a good UI move to select all the items your AEGP has modified, just to give the user some idea what you've done.                                       |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Composition Suite <aegps/aegp-suites.composition-suite>`                 | Manages (and creates) compositions in a project, and composition-specific items like solids.                                                                      |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Footage Suite <aegps/aegp-suites.footage-suite>`                         | Manages footage.                                                                                                                                                  |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Layer Suite <aegps/aegp-suites.layer-suite>`                             | Provides information about the layers within a composition, and the relationship(s) between the source and layer times.                                           |
+|                                                                                | Solids, text, paint, cameras, lights, images, and image sequences can all become layers.                                                                          |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Effect Suite <aegps/aegp-suites.effect-suite>`                           | Provides access to the effects applied to a layer.                                                                                                                |
+|                                                                                | Use Stream suites to obtain effect keyframe information.                                                                                                          |
+|                                                                                | Use ``AEGP_EffectCallGeneric()`` (in :ref:`aegps/aegp-suites.AEGP_EffectSuite`) to communicate with effects that you setup ahead of time to respond to your AEGP. |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Stream Suite <aegps/aegp-suites.stream-suite>`                           | Used to access the values of a layer's keyframe properties.                                                                                                       |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Dynamic Stream Suite <aegps/aegp-suites.dynamic-stream-suite>`           | Used to access the characteristics of dynamic streams associated with a layer.                                                                                    |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Keyframe Suite <aegps/aegp-suites.keyframe-suite>`                       | Used to access and manipulate all keyframe data.                                                                                                                  |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Marker Suite <aegps/aegp-suites.marker-suite>`                           | Used to manipulate markers. Use ``AEGP_GetNewCompMarkerStream()`` (in :ref:`aegps/aegp-suites.AEGP_CompSuite`) to get the composition marker stream.              |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Mask Suite <aegps/aegp-suites.mask-suite>`                               | Provides access to retrieve information about a layer's masks.                                                                                                    |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Mask Outline Suite <aegps/aegp-suites.mask-outline-suite>`               | Used in conjunction with Stream Suite, this suite provides detailed information about the path rendered to make a layer's mask.                                   |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Text Document Suite <aegps/aegp-suites.text-document-suite>`             | Used to access the actual text on a text layer.                                                                                                                   |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Text Layer Suite <aegps/aegp-suites.text-layer-suite>`                   | Used to access the paths that make up the outlines of a text layer.                                                                                               |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Utility Suite <aegps/aegp-suites.utility-suite>`                         | Supplies error message handling, AEGP version checking and access to After Effects' undo stack.                                                                   |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Persistent Data Suite <aegps/aegp-suites.persistent-data-suite>`         | Query and manage all persistent data (i.e., the preferences file).                                                                                                |
+|                                                                                | AEGPs can also add their own data to the prefs.                                                                                                                   |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Color Settings Suite <aegps/aegp-suites.color-settings-suite>`           | Obtain information on After Effects' current color management settings.                                                                                           |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Render Suite <aegps/aegp-suites.render-suite>`                           | Get rendered frames (and audio samples) from within an AEGP.                                                                                                      |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`World Suite <aegps/aegp-suites.world-suite>`                             | Allocate, dispose of, and query AEGP_Worlds.                                                                                                                      |
+|                                                                                | Also provides a way to convert a ``PF_EffectWorld`` into an ``AEGP_World``, for working with effect plug-ins.                                                     |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Composite Suite <aegps/aegp-suites.composite-suite>`                     | Exposes After Effects' compositing functionality, including transfer modes, track matting, and good old fashioned bit copying.                                    |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Sound Data Suite <aegps/aegp-suites.sound-data-suite>`                   | Functions for managing and accessing sound data.                                                                                                                  |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Render Queue Suite <aegps/aegp-suites.render-queue-suite>`               | Add and remove items from the render queue.                                                                                                                       |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Render Queue Item Suite <aegps/aegp-suites.render-queue-item-suite>`     | Query and modify items in the render queue.                                                                                                                       |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Render Options Suite <aegps/aegp-suites.render-options-suite>`           | Query and manage all items exposed in a render queue item's options dialog.                                                                                       |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Output Module Suite <aegps/aegp-suites.output-module-suite>`             | Query and modify the output modules attached to items in the render queue.                                                                                        |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PF Interface Suite <aegps/aegp-suites.pf-interface-suite>`               | The functions in this suite, while technically part of the AEGP API, are for use by effects.                                                                      |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`AEGP Iterate Suite <aegps/aegp-suites.aegp-iterate-suite>`               | Gives AEGPs a way to have a function (which has the required signature) to be run on any or all available processors.                                             |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`File Import Manager Suite <aegps/aegp-suites.file-import-manager-suite>` | Registers AEGP file and project importers as part of After Effects' file handling.                                                                                |
++--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -118,7 +118,7 @@ AEGP_MemorySuite1
 |                            | This memory is guaranteed to be 16-byte aligned.                                                         |
 |                            | ``plugin_id`` is the ID passed in through the main :ref:`aegps/implementation.entry-point`,              |
 |                            | or alternatively what you obtained from ``AEGP_RegisterWithAEGP()``                                      |
-|                            | (from :ref:`aegps/aegp-suites.AEGP_UtilitySuite6`).                                                      |
+|                            | (from :ref:`aegps/aegp-suites.AEGP_UtilitySuite`).                                                       |
 |                            |                                                                                                          |
 |                            | Use ``whatZ`` to identify the memory you are asking for.                                                 |
 |                            | After Effects uses the string to display any related error messages.                                     |
@@ -175,7 +175,7 @@ AEGP_MemorySuite1
 |                            | Make use of this during development!                                                                     |
 |                            |                                                                                                          |
 |                            | Only memory allocated and then leaked using this suite is reported using this call,                      |
-|                            | so for example memory allocated using :ref:`effect-details/memory-allocation.PF_HandleSuite1`            |
+|                            | so for example memory allocated using :ref:`effect-details/memory-allocation.PF_HandleSuite`             |
 |                            | will not be reported.                                                                                    |
 |                            |                                                                                                          |
 |                            | ::                                                                                                       |
@@ -186,7 +186,7 @@ AEGP_MemorySuite1
 | ``AEGP_GetMemStats``       | Obtain information about the number of currently allocated handles and their total size.                 |
 |                            |                                                                                                          |
 |                            | Only memory allocated using this suite is tracked and reported using this call,                          |
-|                            | so for example memory allocated using :ref:`effect-details/memory-allocation.PF_HandleSuite1`            |
+|                            | so for example memory allocated using :ref:`effect-details/memory-allocation.PF_HandleSuite`             |
 |                            | will not be reported here.                                                                               |
 |                            |                                                                                                          |
 |                            | ::                                                                                                       |
@@ -208,7 +208,7 @@ Command Suites allow you to create and handle any menu events.
 
 To add your own menu commands, you must also use :ref:`Register Suite <aegps/aegp-suites.register-suite>` to assign handlers to menu events.
 
-.. _aegps/aegp-suites.AEGP_CommandSuite1:
+.. _aegps/aegp-suites.AEGP_CommandSuite:
 
 AEGP_CommandSuite1
 ********************************************************************************
@@ -340,7 +340,7 @@ Registering with After Effects
 
 Register functions for After Effects' use.
 
-.. _aegps/aegp-suites.AEGP_RegisterSuites5:
+.. _aegps/aegp-suites.AEGP_RegisterSuites:
 
 AEGP_RegisterSuites5
 *********************************************************************************
@@ -355,7 +355,7 @@ AEGP_RegisterSuites5
 |                                           | - ``AEGP_HP_AfterAE``                                                                                                                  |
 |                                           |                                                                                                                                        |
 |                                           | For each menu item you add, obtain your own ``AEGP_Command`` using ``AEGP_GetUniqueCommand()``                                         |
-|                                           | (from :ref:`aegps/aegp-suites.AEGP_CommandSuite1:`) prior registering a single ``command_hook_func``.                                  |
+|                                           | (from :ref:`aegps/aegp-suites.AEGP_CommandSuite`) prior registering a single ``command_hook_func``.                                    |
 |                                           |                                                                                                                                        |
 |                                           | Determine which command was sent within this hook function, and act accordingly.                                                       |
 |                                           |                                                                                                                                        |
@@ -671,7 +671,7 @@ Anything in the project bin is an ``AEGP_Item``. Note that cameras have no sourc
 
 Unless more specificity is required for the function(s) you're using, remain as abstract as possible; AEGP_Comps are passed into and returned from most functions as AEGP_Items.
 
-.. _aegps/aegp-suites.AEGP_ItemSuite9:
+.. _aegps/aegp-suites.AEGP_ItemSuite:
 
 AEGP_ItemSuite9
 ********************************************************************************
@@ -718,7 +718,7 @@ AEGP_ItemSuite9
 | ``AEGP_SelectItem``              | Toggles the selection state of the item, and (depending on ``deselect_othersB``) can deselect other items.                |
 |                                  | This call selects items in the Project panel.                                                                             |
 |                                  |                                                                                                                           |
-|                                  | To make selections in the Composition panel, use ``AEGP_SetSelection`` from :ref:`aegps/aegp-suites.AEGP_CompSuite11`.    |
+|                                  | To make selections in the Composition panel, use ``AEGP_SetSelection`` from :ref:`aegps/aegp-suites.AEGP_CompSuite`.      |
 |                                  |                                                                                                                           |
 |                                  | ::                                                                                                                        |
 |                                  |                                                                                                                           |
@@ -865,7 +865,7 @@ AEGP_ItemSuite9
 |                                  |   AEGP_DeleteItem(                                                                                                        |
 |                                  |     AEGP_ItemH  itemH);                                                                                                   |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetItemSolidColor``       | Removed in ``AEGP_ItemSuite4``. See ``AEGP_GetSolidFootageColor`` from :ref:`aegps/aegp-suites.AEGP_FootageSuite5`        |
+| ``AEGP_GetItemSolidColor``       | Removed in ``AEGP_ItemSuite4``. See ``AEGP_GetSolidFootageColor`` from :ref:`aegps/aegp-suites.AEGP_FootageSuite`         |
 |                                  |                                                                                                                           |
 |                                  | Given a solid item, return its color.                                                                                     |
 |                                  |                                                                                                                           |
@@ -875,7 +875,7 @@ AEGP_ItemSuite9
 |                                  |     AEGP_ItemH  itemH,                                                                                                    |
 |                                  |     PF_Pixel    *PF_Pixel);                                                                                               |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetSolidColor``           | Removed in ``AEGP_ItemSuite4``. See ``AEGP_SetSolidFootageColor`` from :ref:`aegps/aegp-suites.AEGP_FootageSuite5`.       |
+| ``AEGP_SetSolidColor``           | Removed in ``AEGP_ItemSuite4``. See ``AEGP_SetSolidFootageColor`` from :ref:`aegps/aegp-suites.AEGP_FootageSuite`.        |
 |                                  |                                                                                                                           |
 |                                  | Sets the color of an existing solid (error if ``itemH`` is not a solid).                                                  |
 |                                  |                                                                                                                           |
@@ -885,7 +885,7 @@ AEGP_ItemSuite9
 |                                  |     AEGP_ItemH     itemH,                                                                                                 |
 |                                  |     AEGP_ColorVal  color);                                                                                                |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_SetSolidDimensions``      | Removed in ``AEGP_ItemSuite4``. See ``AEGP_SetSolidFootageDimensions`` from :ref:`aegps/aegp-suites.AEGP_FootageSuite5`.  |
+| ``AEGP_SetSolidDimensions``      | Removed in ``AEGP_ItemSuite4``. See ``AEGP_SetSolidFootageDimensions`` from :ref:`aegps/aegp-suites.AEGP_FootageSuite`.   |
 |                                  |                                                                                                                           |
 |                                  | Sets the dimensions of an existing solid (error if ``itemH`` is not a solid).                                             |
 |                                  |                                                                                                                           |
@@ -969,7 +969,7 @@ AEGP_ItemSuite9
 
 .. note::
 
-  ``AEGP_RenderNewItemSoundData()`` used to be here, but is now part of :ref:`aegps/aegp-suites.AEGP_RenderSuite4`.
+  ``AEGP_RenderNewItemSoundData()`` used to be here, but is now part of :ref:`aegps/aegp-suites.AEGP_RenderSuite`.
 
 ----
 
@@ -986,7 +986,7 @@ First acquire the current collection, then iterate across its members to ensure 
 
 We've added ``AEGP_Collection2H`` and ``AEGP_CollectionItemV2`` so that selected dynamic streams can be handled with the ``AEGP_CollectionSuite``.
 
-.. _aegps/aegp-suites.AEGP_CollectionSuite2:
+.. _aegps/aegp-suites.AEGP_CollectionSuite:
 
 AEGP_CollectionSuite2
 ********************************************************************************
@@ -1062,7 +1062,7 @@ Manipulate Compositions
 
 Provide information about the compositions in a project, and create cameras, lights, and solids.
 
-.. _aegps/aegp-suites.AEGP_CompSuite11:
+.. _aegps/aegp-suites.AEGP_CompSuite:
 
 AEGP_CompSuite11
 ********************************************************************************
@@ -1287,10 +1287,10 @@ AEGP_CompSuite11
 |                                               |     AEGP_LayerH        *new_solidPH);                                                                                 |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_CreateCameraInComp``                   | Creates and adds a camera to the specified composition.                                                               |
-|                                               | Once created, you can manipulate the camera's parameter streams using the AEGP :ref:`aegps/aegp-suites.steam-suite`.  |
+|                                               | Once created, you can manipulate the camera's parameter streams using the AEGP :ref:`aegps/aegp-suites.stream-suite`. |
 |                                               |                                                                                                                       |
 |                                               | To specify a two-node camera, use ``AEGP_SetLayerFlag``                                                               |
-|                                               | from :ref:`aegps/aegp-suites.AEGP_LayerSuite8` to set ``AEGP_LayerFlag_LOOK_AT_POI``.                                 |
+|                                               | from :ref:`aegps/aegp-suites.AEGP_LayerSuite` to set ``AEGP_LayerFlag_LOOK_AT_POI``.                                  |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1301,7 +1301,7 @@ AEGP_CompSuite11
 |                                               |     AEGP_LayerH        *new_cameraPH);                                                                                |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_CreateLightInComp``                    | Creates and adds a light to the specified composition.                                                                |
-|                                               | Once created, you can manipulate the light's parameter streams using the AEGP :ref:`aegps/aegp-suites.steam-suite`.   |
+|                                               | Once created, you can manipulate the light's parameter streams using the AEGP :ref:`aegps/aegp-suites.stream-suite`.  |
 |                                               |                                                                                                                       |
 |                                               | ::                                                                                                                    |
 |                                               |                                                                                                                       |
@@ -1500,7 +1500,7 @@ For example, changing the pull-down interpretation of footage won't work unless 
 
 Depending on what you're trying to accomplish, it may make sense to abort all of your operations at that point, inform the user of the problem encountered.
 
-.. _aegps/aegp-suites.AEGP_FootageSuite5:
+.. _aegps/aegp-suites.AEGP_FootageSuite:
 
 AEGP_FootageSuite5
 ********************************************************************************
@@ -1538,7 +1538,7 @@ AEGP_FootageSuite5
 | ``AEGP_GetFootagePath``                  | Get fully realized path to footage source file.                                                                                                                         |
 |                                          |                                                                                                                                                                         |
 |                                          | Retrieves the footage path for a piece of footage (or for the specified frame of a footage sequence).                                                                   |
-|                                          | ``frame_numL`` ranges from ``0 to num_main_files``, as obtained using ``AEGP_GetFootageNumFiles`` from :ref:`aegps/aegp-suites.AEGP_FootageSuite5`.                     |
+|                                          | ``frame_numL`` ranges from ``0 to num_main_files``, as obtained using ``AEGP_GetFootageNumFiles`` from :ref:`aegps/aegp-suites.AEGP_FootageSuite`.                      |
 |                                          |                                                                                                                                                                         |
 |                                          | ``AEGP_FOOTAGE_MAIN_FILE_INDEX`` is the main file.                                                                                                                      |
 |                                          | The path is a handle to a NULL-terminated ``A_UTF16Char`` string, and must be disposed with `AEGP_FreeMemHandle`.                                                       |
@@ -1868,7 +1868,7 @@ Manage Layers
 
 As most After Effects usage boils down to layer manipulation, this is among the largest function suites in our API.
 
-.. _aegps/aegp-suites.AEGP_LayerSuite8:
+.. _aegps/aegp-suites.AEGP_LayerSuite:
 
 AEGP_LayerSuite8
 ********************************************************************************
@@ -2368,9 +2368,9 @@ Layer Creation Notes
 
 All layers created using AEGP calls will start at composition time 0, and have the duration of the composition.
 
-Use ``AEGP_SetLayerOffset()`` and ``AEGP_SetLayerInPointAndDuration()`` from :ref:`aegps/aegp-suites.AEGP_LayerSuite8` to properly set the layer's time information.
+Use ``AEGP_SetLayerOffset()`` and ``AEGP_SetLayerInPointAndDuration()`` from :ref:`aegps/aegp-suites.AEGP_LayerSuite` to properly set the layer's time information.
 
-When the layer stretch factor (obtained using ``AEGP_GetLayerStretch`` in :ref:`aegps/aegp-suites.AEGP_LayerSuite8`, naturally) is not 100%, the following computation will be needed to yield the correct layer offset:
+When the layer stretch factor (obtained using ``AEGP_GetLayerStretch`` in :ref:`aegps/aegp-suites.AEGP_LayerSuite`, naturally) is not 100%, the following computation will be needed to yield the correct layer offset:
 
 ::
 
@@ -2385,13 +2385,13 @@ Communication With A Layer's Effects
 
 Access the effects applied to a layer. This suite provides access to all parameter data streams.
 
-Use the :ref:`aegps/aegp-suites.steam-suite` to work with those streams.
+Use the :ref:`aegps/aegp-suites.stream-suite` to work with those streams.
 
 An ``AEGP_Effect_RefH`` is a reference to an applied effect. An ``AEGP_InstalledEffectKey`` is a reference to an installed effect, which may or may not be currently applied to anything.
 
 If Foobarocity is applied to a layer twice, there will be two distinct ``AEGP_Effect_RefHs``, but they'll both return the same ``AEGP_InstalledEffectKey``.
 
-.. _aegps/aegp-suites.AEGP_EffectSuite4:
+.. _aegps/aegp-suites.AEGP_EffectSuite:
 
 AEGP_EffectSuite4
 ********************************************************************************
@@ -2429,7 +2429,7 @@ AEGP_EffectSuite4
 |                                         | Do not use the value(s) in the ParamDef returned by this function (Use ``AEGP_GetNewStreamValue()`` instead);                                             |
 |                                         | it's provided so AEGPs can access parameter defaults, checkbox names, and pop-up strings.                                                                 |
 |                                         |                                                                                                                                                           |
-|                                         | Use ``AEGP_GetEffectNumParamStreams()`` from :ref:`aegps/aegp-suites.AEGP_StreamSuite5` to get the stream count,                                          |
+|                                         | Use ``AEGP_GetEffectNumParamStreams()`` from :ref:`aegps/aegp-suites.AEGP_StreamSuite` to get the stream count,                                           |
 |                                         | useful for determining the maximum ``param_index``.                                                                                                       |
 |                                         | The last parameter is optional;                                                                                                                           |
 |                                         |                                                                                                                                                           |
@@ -2658,7 +2658,7 @@ A stream, once acquired, represents a value which may change over time. Not all 
 
 There are two ways to access the value of a stream. If the stream has keyframes, you can use the :ref:`aegps/aegp-suites.keyframe-suite`. The values provided won't reflect the influence of expressions. Note: In any expression, the current keyframed value is always available as the variable value.
 
-You can also use ``AEGP_GetNewStreamValue`` from :ref:`aegps/aegp-suites.AEGP_StreamSuite5`, which samples the value of the stream at a particular time. For streams without expressions or keyframes, the time parameter is meaningless, and the function returns what essentially is the constant value of the stream. Use ``AEGP_SetStreamValue`` (which doesn't take a time as a parameter) to set these streams.
+You can also use ``AEGP_GetNewStreamValue`` from :ref:`aegps/aegp-suites.AEGP_StreamSuite`, which samples the value of the stream at a particular time. For streams without expressions or keyframes, the time parameter is meaningless, and the function returns what essentially is the constant value of the stream. Use ``AEGP_SetStreamValue`` (which doesn't take a time as a parameter) to set these streams.
 
 Many StreamSuite functions populate a StreamH, which your AEGP must dispose. when done. After Effects allocates and passes you a copy of the values, not a direct handle to the original value. ``AEGP_GetNewLayerStream()`` is restricted to streams for which no memory allocation is required to access their values.
 
@@ -2699,9 +2699,9 @@ Use ``IsStreamLegal`` to allow you to determine if that stream type is offered o
 Masks
 ================================================================================
 
-Since a layer can have multiple masks, access the masks using ``AEGP_GetLayerMaskByIndex`` from :ref:`aegps/aegp-suites.AEGP_MaskSuite6`.
+Since a layer can have multiple masks, access the masks using ``AEGP_GetLayerMaskByIndex`` from :ref:`aegps/aegp-suites.AEGP_MaskSuite`.
 
-Masks don't have streams like layers do; they get their own enumeration. Access their streams using ``AEGP_GetNewMaskStream`` from :ref:`aegps/aegp-suites.AEGP_StreamSuite5`.
+Masks don't have streams like layers do; they get their own enumeration. Access their streams using ``AEGP_GetNewMaskStream`` from :ref:`aegps/aegp-suites.AEGP_StreamSuite`.
 
 ----
 
@@ -2710,18 +2710,18 @@ Effects
 
 They can have a variable number of streams/parameters, and the order and definition of them is not known when the AEGP is written.
 
-Therefore we cannot offer an enum for selecting them, and instead you must get them by index, hence ``GetNewEffectStreamByIndex`` from :ref:`aegps/aegp-suites.AEGP_StreamSuite5`.
+Therefore we cannot offer an enum for selecting them, and instead you must get them by index, hence ``GetNewEffectStreamByIndex`` from :ref:`aegps/aegp-suites.AEGP_StreamSuite`.
 
 ----
 
-.. _aegps/aegp-suites.steam-suite:
+.. _aegps/aegp-suites.stream-suite:
 
 Stream Suite
 ================================================================================
 
-Access and manipulate the values of a layer's streams. For paint and text streams, use :ref:`aegps/aegp-suites.dynamic-steam-suite` instead.
+Access and manipulate the values of a layer's streams. For paint and text streams, use :ref:`aegps/aegp-suites.dynamic-stream-suite` instead.
 
-.. _aegps/aegp-suites.AEGP_StreamSuite5:
+.. _aegps/aegp-suites.AEGP_StreamSuite:
 
 AEGP_StreamSuite5
 ********************************************************************************
@@ -3078,7 +3078,7 @@ AEGP_StreamSuite5
 
 ----
 
-.. _aegps/aegp-suites.dynamic-steam-suite:
+.. _aegps/aegp-suites.dynamic-stream-suite:
 
 Dynamic Streams
 ================================================================================
@@ -3222,7 +3222,7 @@ AEGP_DynamicStreamSuite4
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_DeleteStream``               | Deletes the specified stream from a stream grouping.                                                                                                                    |
 |                                     | Note that the caller must still dispose of any ``AEGP_StreamRefH`` it's already acquired (allocated) via the API. Undoable.                                             |
-|                                     | Only valid for children of type ``AEGP_StreamGroupingType_INDEXED_GROUP`.                                                                                               |
+|                                     | Only valid for children of type ``AEGP_StreamGroupingType_INDEXED_GROUP``.                                                                                              |
 |                                     |                                                                                                                                                                         |
 |                                     | ::                                                                                                                                                                      |
 |                                     |                                                                                                                                                                         |
@@ -3286,7 +3286,7 @@ AEGP_DynamicStreamSuite4
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetMatchName``               | Retrieves the match name for the specified ``AEGP_StreamRefH``.                                                                                                         |
 |                                     |                                                                                                                                                                         |
-|                                     | Note that this may differ from the display name, which can be retrieves using ``AEGP_GetStreamName``, in :ref:`aegps/aegp-suites.AEGP_StreamSuite5`.                    |
+|                                     | Note that this may differ from the display name, which can be retrieves using ``AEGP_GetStreamName``, in :ref:`aegps/aegp-suites.AEGP_StreamSuite`.                     |
 |                                     | ``nameZ`` can be up to ``AEGP_MAX_STREAM_MATCH_NAME_SIZE`` in length.                                                                                                   |
 |                                     |                                                                                                                                                                         |
 |                                     | ::                                                                                                                                                                      |
@@ -3405,7 +3405,7 @@ Working With Keyframes
 
 Keyframes make After Effects what it is. AEGPs (and...ssshh, don't tell anyone...effects) can use this suite to add, manipulate and remove keyframes from any keyframe-able stream.
 
-.. _aegps/aegp-suites.AEGP_KeyframeSuite3:
+.. _aegps/aegp-suites.AEGP_KeyframeSuite:
 
 AEGP_KeyframeSuite3
 ********************************************************************************
@@ -3808,7 +3808,7 @@ Mask Management
 
 Access, manipulate, and delete a layer's masks.
 
-.. _aegps/aegp-suites.AEGP_MaskSuite6:
+.. _aegps/aegp-suites.AEGP_MaskSuite:
 
 AEGP_MaskSuite6
 ********************************************************************************
@@ -4019,6 +4019,8 @@ The Mask Suite above tells plug-ins about the masks on a layer, but not about th
 This is because processing is required on After Effects' part to access the information; the information isn't just lying around.
 
 Plug-ins access that information using this Mask Outline Suite.
+
+.. _aegps/aegp-suites.AEGP_MaskOutlineSuite:
 
 AEGP_MaskOutlineSuite3
 ********************************************************************************
@@ -4269,7 +4271,7 @@ Everything you need to keep After Effects and your plug-in tidy.
 
 ----
 
-.. _aegps/aegp-suites.AEGP_UtilitySuite6:
+.. _aegps/aegp-suites.AEGP_UtilitySuite:
 
 AEGP_UtilitySuite6
 ********************************************************************************
@@ -4926,7 +4928,7 @@ These function suites allows you to do just that.
 
 First, specify what you want rendered in the :ref:`aegps/aegp-suites.render-options-suite` or :ref:`aegps/aegp-suites.AEGP_LayerRenderOptionsSuite`.
 
-Then do the rendering with :ref:`aegps/aegp-suites.AEGP_RenderSuite4`.
+Then do the rendering with :ref:`aegps/aegp-suites.AEGP_RenderSuite`.
 
 .. _aegps/aegp-suites.render-options-suite:
 
@@ -5282,7 +5284,7 @@ AEGP_LayerRenderOptionsSuite1
 |                                  |     AEGP_MatteMode            *modeP);                                                                                          |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
-.. _aegps/aegp-suites.AEGP_RenderSuite4:
+.. _aegps/aegp-suites.AEGP_RenderSuite:
 
 AEGP_RenderSuite4
 ********************************************************************************
@@ -5445,7 +5447,7 @@ The AEGP_World As We Know It
 
 ``AEGP_Worlds`` are the common format used throughout the AEGP APIs to describe frames of pixels.
 
-.. _aegps/aegp-suites.AEGP_WorldSuite3:
+.. _aegps/aegp-suites.AEGP_WorldSuite:
 
 AEGP_WorldSuite3
 ********************************************************************************
@@ -5766,7 +5768,7 @@ Render Queue Suite
 
 This suite allows AEGPs to add items the to render queue (using default options), and control the basic state of the render queue.
 
-.. _aegps/aegp-suites.AEGP_RenderQueueSuite1:
+.. _aegps/aegp-suites.AEGP_RenderQueueSuite:
 
 AEGP_RenderQueueSuite1
 ********************************************************************************
@@ -5955,14 +5957,14 @@ AEGP_RQItemSuite4
 
 ----
 
-.. _aegps/aegp-suites.render-options-suite:
+.. _aegps/aegp-suites.render-queue-monitor-suite:
 
 Render Queue Monitor Suite
 ================================================================================
 
 New in CS6. This suite provides all the info a render queue manager needs to figure out what is happening at any point in a render.
 
-.. _aegps/aegp-suites.AEGP_RenderQueueMonitorSuite1:
+.. _aegps/aegp-suites.AEGP_RenderQueueMonitorSuite:
 
 AEGP_RenderQueueMonitorSuite1
 ********************************************************************************
@@ -6469,7 +6471,7 @@ These functions provide a way for effects (and AEGPs) to obtain information abou
 
   There is no way for After Effects to know that you depend on this external information; consequently, you will not be notified if it changes out from under you.
 
-.. _aegps/aegp-suites.AEGP_PFInterfaceSuite1:
+.. _aegps/aegp-suites.AEGP_PFInterfaceSuite:
 
 AEGP_PFInterfaceSuite1
 ********************************************************************************

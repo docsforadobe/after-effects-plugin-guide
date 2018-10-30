@@ -6,7 +6,7 @@ Tips & Tricks
 UI Performance
 ================================================================================
 
-Experiment with `PF_EO_ALWAYS_UPDATE <#_bookmark444>`__ and `PF_EO_NEVER_UPDATE <#_bookmark445>`__, to find a happy medium between responsiveness and accuracy.
+Experiment with ``PF_EO_ALWAYS_UPDATE`` and ``PF_EO_NEVER_UPDATE`` from :ref:`effect-ui-events/PF_EventExtra`, to find a happy medium between responsiveness and accuracy.
 
 On macOS, the foreground and background colors are not set to white and black when custom UI draw events are sent.
 
@@ -47,7 +47,7 @@ During the click event, the plug-in converts the coordinates of the click into l
 
 The plug-in stores the color value in sequence data, and cancels the render, requesting a redraw of the affected parameter(s).
 
-Finally, during the draw, the plug-in adds appropriate keyframes to its color parameter stream using the `KeyframeSuite <#_bookmark645>`__.
+Finally, during the draw, the plug-in adds appropriate keyframes to its color parameter stream using the :ref:`AEGP_KeyframeSuite <aegps/aegp-suites.keyframe-suite>`.
 
-Yes, this means the effect needs to `cheat <#_bookmark724>`__ and use the AEGP API.
+Yes, this means the effect needs to :ref:`aegps/cheating-effect-usage-of-aegp-suites` and use the AEGP API.
 

@@ -8,19 +8,21 @@ PF_EffectUISuite
 
 Although not strictly concerned with parameters, this suite can change the name of the options button.
 
-+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-|        **Function**         |                                                                  **Purpose**                                                                   |
-+=============================+================================================================================================================================================+
-| ``PF_SetOptionsButtonName`` | Changes the text on the options button in the effect controls palette. NOTE: This must be called during `PF_Cmd_PARAM_SETUP <#_bookmark84>`__. |
-|                             |                                                                                                                                                |
-|                             | ::                                                                                                                                             |
-|                             |                                                                                                                                                |
-|                             |   PF_SetOptionsButtonName(                                                                                                                     |
-|                             |     PF_ProgPtr    effect_ref,                                                                                                                  |
-|                             |     const A_char  *nameZ);                                                                                                                     |
-|                             |                                                                                                                                                |
-|                             | ``nameZ`` may be up to ``A_char[31]`` in length.                                                                                               |
-+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------+----------------------------------------------------------------------------------------------------------------+
+|        **Function**         |                                                  **Purpose**                                                   |
++=============================+================================================================================================================+
+| ``PF_SetOptionsButtonName`` | Changes the text on the options button in the effect controls palette.                                         |
+|                             |                                                                                                                |
+|                             | NOTE: This must be called during :ref:`PF_Cmd_PARAM_SETUP <effect-basics/command-selectors.global-selectors>`. |
+|                             |                                                                                                                |
+|                             | ::                                                                                                             |
+|                             |                                                                                                                |
+|                             |   PF_SetOptionsButtonName(                                                                                     |
+|                             |     PF_ProgPtr    effect_ref,                                                                                  |
+|                             |     const A_char  *nameZ);                                                                                     |
+|                             |                                                                                                                |
+|                             | ``nameZ`` may be up to ``A_char[31]`` in length.                                                               |
++-----------------------------+----------------------------------------------------------------------------------------------------------------+
 
 ----
 

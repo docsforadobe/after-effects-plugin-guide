@@ -55,9 +55,9 @@ After Effects is *not* a 3D modeling application. Users work in a responsive mod
 Registering An Artisan
 ================================================================================
 
-An Artisan is an AEGP, and has a single entry point. Artisans must also register their own function entry points and have a special callback for this purpose. See `AEGP_RegisterArtisan() <#_bookmark562>`__.
+An Artisan is an AEGP, and has a single entry point. Artisans must also register their own function entry points and have a special callback for this purpose. See ``AEGP_RegisterArtisan()`` from :ref:`aegps/aegp-suites.AEGP_RegisterSuites`.
 
-This tables shows the functions that Artisans can support as defined by ``PR_ArtisanEntryPoints``: only `render_func <#_bookmark743>`__ is required.
+This tables shows the functions that Artisans can support as defined by ``PR_ArtisanEntryPoints``: only ``render_func`` is required.
 
 Artisan Entry Points
 ********************************************************************************
@@ -233,7 +233,7 @@ For example, if the pixel aspect ratio is 10/11 (DV NTSC), we multiply by 11/10 
 
 The following suite supplies the layers, compositions, texture and destination buffers. This is a vital suite for all artisans.
 
-.. _artisans/artisan-data-types.AEGP_CanvasSuite8:
+.. _artisans/artisan-data-types.AEGP_CanvasSuite:
 
 AEGP_CanvasSuite8
 ********************************************************************************
@@ -457,7 +457,7 @@ AEGP_CanvasSuite8
 |                                              |     AEGP_RenderLayerContextH  *mattePH);                                                                                      |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_RenderTextureWithReceipt``            | Renders a texture into an ``AEGP_WorldH``, and provides an ``AEGP_RenderReceiptH`` for the operation.                         |
-|                                              | The returned receiptPH must be disposed of with `AEGP_DisposeRenderReceipt <#_bookmark751>`__.                                |
+|                                              | The returned receiptPH must be disposed of with ``AEGP_DisposeRenderReceipt``.                                                |
 |                                              |                                                                                                                               |
 |                                              | ::                                                                                                                            |
 |                                              |                                                                                                                               |
@@ -704,7 +704,8 @@ AEGP_CanvasSuite8
 |                                           |     A_Time             *shutter_time,                                                                                              |
 |                                           |     A_Time             *shutter_dur);                                                                                              |
 +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_MapCompToLayerTime``               | New in CC. Unlike `AEGP_ConvertCompToLayerTime <#_bookmark604>`__, this handles time remapping with collapsed or nested comps.     |
+| ``AEGP_MapCompToLayerTime``               | New in CC. Unlike :ref:`AEGP_ConvertCompToLayerTime <aegps/aegp-suites.AEGP_LayerSuite>`,                                          |
+|                                           | this handles time remapping with collapsed or nested comps.                                                                        |
 |                                           |                                                                                                                                    |
 |                                           | ::                                                                                                                                 |
 |                                           |                                                                                                                                    |
@@ -950,7 +951,7 @@ The coordinate system is positive x to right, positive y down, positive z into t
 Query Transform Functions
 ================================================================================
 
-These functions give artisans information about the transforms they'll need in order to correctly place layers within a composition and respond appropriately to the various queries After Effects will send to their `PR_QueryFunc <#_bookmark744>`__ entry point function.
+These functions give artisans information about the transforms they'll need in order to correctly place layers within a composition and respond appropriately to the various queries After Effects will send to their ``PR_QueryFunc`` entry point function.
 
 As that entry point is optional, so is your artisan's response to the queries; however, if you don't, your users may be disappointed that (while doing interactive preview drawing) all the camera and light indicators vanish, until they stop moving! Artisans are complex beasts; contact us if you have any questions.
 
@@ -1149,7 +1150,7 @@ Notes On Query Time Functions
 
 ``AEGP_QueryXformGetTransformTime()`` and ``AEGP_QueryXformGetViewTime()`` are both necessary for an artisan to build a representation of the scene to render.
 
-``AEGP_QueryXformGetTransformTime()`` gets the time of the transform, which is then passed to `AEGP_GetCompShutterFrameRange() <#_bookmark580>`__.
+``AEGP_QueryXformGetTransformTime()`` gets the time of the transform, which is then passed to ``AEGP_GetCompShutterFrameRange()`` from :ref:`aegps/aegp-suites.AEGP_CompSuite`.
 
-``AEGP_QueryXformGetViewTime()`` gets the time of the view, which is used in calling `AEGP_GetLayerToWorldXformFromView() <#_bookmark605>`__.
+``AEGP_QueryXformGetViewTime()`` gets the time of the view, which is used in calling ``AEGP_GetLayerToWorldXformFromView()`` from :ref:`aegps/aegp-suites.AEGP_LayerSuite`.
 

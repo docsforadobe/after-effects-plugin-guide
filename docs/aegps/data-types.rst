@@ -43,7 +43,7 @@ AEGP API Data Types
 |                              | and returns an altered version of the layer for rendering.                                                                                      |                                                                                         |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | ``AEGP_StreamRefH``          | Any :ref:`parameter stream <aegps/aegp-suites.diving-into-streams>` attached to a layer, in a composition.                                      | :ref:`AEGP Stream Suite <aegps/aegp-suites.stream-suite>`,                              |
-|                              | See the description of ``AEGP_GetNewLayerStream`` from :ref:`aegps/aegp-suites.AEGP_StreamSuite5` for a full list of stream types.              | :ref:`AEGP Dynamic Stream Suite <aegps/aegp-suites.dynamic-stream-suite>`               |
+|                              | See the description of ``AEGP_GetNewLayerStream`` from :ref:`aegps/aegp-suites.AEGP_StreamSuite` for a full list of stream types.               | :ref:`AEGP Dynamic Stream Suite <aegps/aegp-suites.dynamic-stream-suite>`               |
 |                              |                                                                                                                                                 | :ref:`AEGP Keyframe Suite <aegps/aegp-suites.keyframe-suite>`                           |
 |                              |                                                                                                                                                 |                                                                                         |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
@@ -68,15 +68,15 @@ AEGP API Data Types
 | ``AEGP_FrameReceiptH``       | A reference to a rendered frame.                                                                                                                | :ref:`AEGP Render Suite <aegps/aegp-suites.render-suite>`                               |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | ``AEGP_RQItemRefH``          | An item in the render queue.                                                                                                                    | :ref:`AEGP Render Queue Suite <aegps/aegp-suites.render-queue-suite>`                   |
-|                              |                                                                                                                                                 | :ref:`AEGP Render Queue Item Suite <aegps/aegp-suites.render-queue-iteme-suite>`        |
+|                              |                                                                                                                                                 | :ref:`AEGP Render Queue Item Suite <aegps/aegp-suites.render-queue-item-suite>`         |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | ``AEGP_OutputModuleRefH``    | An output module, attached to a specific AEGP_RQItemRef in the render queue.                                                                    | :ref:`AEGP Output Module Suite <aegps/aegp-suites.output-module-suite>`                 |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | ``AEGP_SoundDataH``          | The :ref:`audio settings <aegps/aegp-suites.sound-data-suite>` used for a given layer.                                                          | :ref:`AEGP Sound Data Suite <aegps/aegp-suites.sound-data-suite>`                       |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-| ``AEGP_RenderLayerContextH`` | State information at the time of a render request, sent to an Artisan by After Effects.                                                         | :ref:`AEGP Canvas Suite <artisans/artisan-data-types.AEGP_CanvasSuite8>`                |
+| ``AEGP_RenderLayerContextH`` | State information at the time of a render request, sent to an Artisan by After Effects.                                                         | :ref:`AEGP Canvas Suite <artisans/artisan-data-types.AEGP_CanvasSuite>`                 |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-| ``AEGP_RenderReceiptH``      | Used by Artisans when rendering.                                                                                                                | :ref:`AEGP Canvas Suite <artisans/artisan-data-types.AEGP_CanvasSuite8>`                |
+| ``AEGP_RenderReceiptH``      | Used by Artisans when rendering.                                                                                                                | :ref:`AEGP Canvas Suite <artisans/artisan-data-types.AEGP_CanvasSuite>`                 |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
 ----
@@ -102,25 +102,25 @@ When you ask After Effects to populate and return handles to data structures, it
 Data Types Requiring Disposal
 ================================================================================
 
-+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-|        **Data Type**         |                                                             **Disposal function**                                                             |
-+==============================+===============================================================================================================================================+
-| ``AEGP_Collection2H``        | ``AEGP_DisposeCollection``, from :ref:`aegps/aegp-suites.AEGP_CollectionSuite2`                                                               |
-+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_FootageH``            | ``AEGP_DisposeFootage``, from :ref:`aegps/aegp-suites.AEGP_FootageSuite5`                                                                     |
-+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_WorldH``              | ``AEGP_Dispose``, from :ref:`aegps/aegp-suites.AEGP_WorldSuite3`                                                                              |
-|                              |                                                                                                                                               |
-|                              | Or ``AEGP_DisposeTexture``, from :ref:`artisans/artisan-data-types.AEGP_CanvasSuite8`, if layer texture created using ``AEGP_RenderTexture``) |
-+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_EffectRefH``          | ``AEGP_DisposeEffect``, from :ref:`aegps/aegp-suites.AEGP_EffectSuite4`                                                                       |
-+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_MaskRefH``            | ``AEGP_DisposeMask``, from :ref:`aegps/aegp-suites.AEGP_MaskSuite6`                                                                           |
-+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_RenderOptionsH``      | ``AEGP_Dispose``, from :ref:`aegps/aegp-suites.AEGP_RenderQueueMonitorSuite1`                                                                 |
-+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_LayerRenderOptionsH`` | ``AEGP_Dispose``, from :ref:`aegps/aegp-suites.AEGP_LayerRenderOptionsSuite`                                                                  |
-+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_RenderReceiptH``      | ``AEGP_DisposeRenderReceipt``, from :ref:`artisans/artisan-data-types.AEGP_CanvasSuite8`                                                      |
-+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+|        **Data Type**         |                                                            **Disposal function**                                                             |
++==============================+==============================================================================================================================================+
+| ``AEGP_Collection2H``        | ``AEGP_DisposeCollection``, from :ref:`aegps/aegp-suites.AEGP_CollectionSuite`                                                               |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_FootageH``            | ``AEGP_DisposeFootage``, from :ref:`aegps/aegp-suites.AEGP_FootageSuite`                                                                     |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_WorldH``              | ``AEGP_Dispose``, from :ref:`aegps/aegp-suites.AEGP_WorldSuite`                                                                              |
+|                              |                                                                                                                                              |
+|                              | Or ``AEGP_DisposeTexture``, from :ref:`artisans/artisan-data-types.AEGP_CanvasSuite`, if layer texture created using ``AEGP_RenderTexture``) |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_EffectRefH``          | ``AEGP_DisposeEffect``, from :ref:`aegps/aegp-suites.AEGP_EffectSuite`                                                                       |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_MaskRefH``            | ``AEGP_DisposeMask``, from :ref:`aegps/aegp-suites.AEGP_MaskSuite`                                                                           |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_RenderOptionsH``      | ``AEGP_Dispose``, from :ref:`aegps/aegp-suites.AEGP_RenderQueueMonitorSuite`                                                                 |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_LayerRenderOptionsH`` | ``AEGP_Dispose``, from :ref:`aegps/aegp-suites.AEGP_LayerRenderOptionsSuite`                                                                 |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_RenderReceiptH``      | ``AEGP_DisposeRenderReceipt``, from :ref:`artisans/artisan-data-types.AEGP_CanvasSuite`                                                      |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 

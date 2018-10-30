@@ -3,13 +3,13 @@
 Motion Blur
 ################################################################################
 
-Effects handle their own motion blur, using PF_InData>\ `shutter_angle <#_bookmark122>`__ along with PF_InData>\ `shutter_phase <#_bookmark128>`__.
+Effects handle their own motion blur, using :ref:`PF_InData>shutter_angle <effect-basics/PF_InData.PF_InData-Members>` along with :ref:`PF_InData>shutter_phase <effect-basics/PF_InData.PF_InData-Members>`.
 
-The plug-in must set `PF_OutFlag_I_USE_SHUTTER_ANGLE <#_bookmark164>`__ so After Effects knows it needs this information.
+The plug-in must set :ref:`PF_OutFlag_I_USE_SHUTTER_ANGLE <effect-basics/PF_OutData.PF_OutFlags>` so After Effects knows it needs this information.
 
-They must `check out <#_bookmark288>`__ their own parameters at other times to examine their change over the shutter interval.
+They must :ref:`check out <effect-details/interaction-callback-functions.interaction-callbacks>` their own parameters at other times to examine their change over the shutter interval.
 
-If the plug-in checks out parameters outside this interval, set `PF_OutFlag_WIDE_TIME_INPUT <#_bookmark151>`__.
+If the plug-in checks out parameters outside this interval, set :ref:`PF_OutFlag_WIDE_TIME_INPUT <effect-basics/PF_OutData.PF_OutFlags>`.
 
 Doing so allows After Effects to compare the parameters within the sampling interval, and determine if they've changed.
 

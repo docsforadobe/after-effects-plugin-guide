@@ -3,7 +3,7 @@
 Image Buffer Management Functions
 ################################################################################
 
-Use these functions to create and destroy :ref:`effect-basics/PF_EffectWorld`s, and to find out their bit- depth.
+Use these functions to create and destroy :ref:`effect-basics/PF_EffectWorld`, and to find out their bit-depth.
 
 ----
 

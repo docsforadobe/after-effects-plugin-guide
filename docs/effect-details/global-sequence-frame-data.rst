@@ -25,7 +25,7 @@ Validating Sequence Data
 
 Careful sequence data validation is important for effects that do simulation across time, where frame N is dependent on frame N-1, and you use a cache of calculated data in your sequence data. If a parameter is changed, certain calculated data may no longer be valid, but it would also be wasteful to blindly recalculate everything after every change.
 
-When asked to render frame N, assuming you have your cached data calculated up to frame N-1, call `PF_GetCurrentState() <#_bookmark322>`__ / `PF_AreStatesIdentical() <#_bookmark324>`__ to see if the cache of calculated data is still valid given the current parameter settings. The state of all parameters (except those with `PF_ParamFlag_EXCLUDE_FROM_HAVE_INPUTS_CHANGED <#_bookmark228>`__ set), including layer parameters (including `param[0] <#_bookmark214>`__) are checked over the passed time span.
+When asked to render frame N, assuming you have your cached data calculated up to frame N-1, call ``PF_GetCurrentState()`` / ``PF_AreStatesIdentical()`` from :ref:`effect-detals/parameter-supervision.PF_ParamUtilSuite` to see if the cache of calculated data is still valid given the current parameter settings. The state of all parameters (except those with `PF_ParamFlag_EXCLUDE_FROM_HAVE_INPUTS_CHANGED <#_bookmark228>`__ set), including layer parameters (including `param[0] <#_bookmark214>`__) are checked over the passed time span.
 
 This is done efficiently, as the change tracking is done with timestamps.
 
@@ -40,12 +40,14 @@ Flattened And Unflattened Sequence Data
 
 If your sequence data references external memory (in pointers or handles), you must flatten and unflatten your data for disk-safe storage. This is analogous to creating your own miniature file format.
 
-Upon receiving `PF_Cmd_SEQUENCE_FLATTEN <#_bookmark90>`__\ *,* put data referenced by pointers into one contiguous block from which you can later recover the old structure. If your sequence data contains a pointer to a long, allocate 4 bytes in which to store the flattened data. You must handle platform-specific byte ordering.
+Upon receiving :ref:`PF_Cmd_SEQUENCE_FLATTEN <effect-basics/command-selectors.sequence-selectors>`, put data referenced by pointers into one contiguous block from which you can later recover the old structure.
+
+If your sequence data contains a pointer to a long, allocate 4 bytes in which to store the flattened data. You must handle platform-specific byte ordering.
 
 
 Remember, your users (the ones who bought two copies of your plug-in, anyway) may want the same project to work on macOS and Windows.
 
-After Effects sends `PF_Cmd_SEQUENCE_RESETUP <#_bookmark88>`__ when the data is reloaded, for either flat or unflat data.
+After Effects sends :ref:`PF_Cmd_SEQUENCE_RESETUP <effect-basics/command-selectors.sequence-selectors>` when the data is reloaded, for either flat or unflat data.
 
 Use a flag at a common offset within both structures to indicate the data's state.
 
@@ -68,7 +70,7 @@ Use a flag at a common offset within both structures to indicate the data's stat
 Resizing Sequence Data
 ================================================================================
 
-During `PF_Cmd_SEQUENCE_SETUP <#_bookmark86>`__, allocate a handle for data specific to this instance of your effect.
+During :ref:`PF_Cmd_SEQUENCE_SETUP <effect-basics/command-selectors.sequence-selectors>`, allocate a handle for data specific to this instance of your effect.
 
 You may modify the contents, but not the size, of the sequence data during any selector.
 

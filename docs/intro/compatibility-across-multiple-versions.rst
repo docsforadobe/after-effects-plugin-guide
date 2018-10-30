@@ -7,7 +7,7 @@ Generally, you should compile your plug-ins with the latest After Effects SDK he
 
 You should test your plug-in thoroughly in each version of After Effects supported by your plug-in. If you need to add a conditional block of code to be run only in specific versions of After Effects, you can always check the API version in :ref:`effect-basics/PF_InData`.version for effects, or in the major and minor_versionL passed into your AEGP in the :ref:`aegps/implementation.entry-point`.
 
-For even more precise version checking, a plug-in can run a script using ``AEGP_ExecuteScript`` (:ref:`aegps/aegp-suites.AEGP_UtilitySuite6`), querying one of the following attributes::
+For even more precise version checking, a plug-in can run a script using ``AEGP_ExecuteScript`` (:ref:`aegps/aegp-suites.AEGP_UtilitySuite`), querying one of the following attributes::
 
   app.version - e.g. 11.0.1x12
   app.buildNumber - e.g. 12.

@@ -125,7 +125,7 @@ extent_hint Usage
 
 *(Note: hint rectangles are much more effective...and complicated...for*\ `SmartFX <#_bookmark401>`__\ *.)*
 
-Use extent_hint to process only those pixels for which output is required; this is one of the simplest optimizations you can make. Tell After Effects you use in_data>\ `extent_hint <#_bookmark123>`__ by setting `PF_OutFlag_USE_OUTPUT_EXTENT <#_bookmark155>`__ in `PF_OutData <#_bookmark132>`__ during `PF_Cmd_GLOBAL_SETUP <#_bookmark81>`__ (and in your PiPL).
+Use extent_hint to process only those pixels for which output is required; this is one of the simplest optimizations you can make. Tell After Effects you use in_data>\ `extent_hint <#_bookmark123>`__ by setting `PF_OutFlag_USE_OUTPUT_EXTENT <#_bookmark155>`__ in :ref:`effect-basics/PF_OutData` during `PF_Cmd_GLOBAL_SETUP <#_bookmark81>`__ (and in your PiPL).
 
 Disable caching from the preferences menu before testing extent_hint code, so After Effects renders your effect whenever anything in your composition changes. Otherwise, the caching mechanism would obscure your plug-in's (possibly incorrect) output.
 

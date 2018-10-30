@@ -22,7 +22,7 @@ The basics of effect plug-ins are discussed in :ref:`effect-basics/effect-basics
 
 :ref:`effect-details/effect-details` dives into the details of developing a complete effect plug-in using the many provided callback functions. It also provides many testing ideas to ensure the plug-in is stabile.
 
-:ref:`smart-fx/smart-fx` is the extension to the effect plug-in API to support 32-bit floating point images, and is covered in chapter 4.
+:ref:`smartfx/smartfx` is the extension to the effect plug-in API to support 32-bit floating point images, and is covered in chapter 4.
 
 :ref:`effect-ui-events/effect-ui-events` covers events sent to effect plug-ins, how to incorporate custom user interface elements, parameter supervision, and the reliance of custom data parameter types on Custom UI messaging.
 

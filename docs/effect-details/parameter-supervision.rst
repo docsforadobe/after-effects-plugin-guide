@@ -3,29 +3,37 @@
 Parameter Supervision
 ################################################################################
 
-Supervision means dynamically changing the values of some parameters based on the values of others. To supervise a parameter, set `PF_ParamFlag_SUPERVISE <#_bookmark224>`__ before adding it during *PF_Cmd_PARAMS_SETUP*. Whenever it is changed, you will receive `PF_Cmd_USER_CHANGED_PARAM <#_bookmark107>`__. The index (into the plug-in's parameter array) of the changed parameter is sent in the PF_UserChangedParamExtra (extra) param. During *PF_Cmd_USER_CHANGED_PARAM*, you may change the values *and* appearance of any of your parameters.
+Supervision means dynamically changing the values of some parameters based on the values of others. To supervise a parameter, set :ref:`PF_ParamFlag_SUPERVISE <effect-basics/PF_ParamDef.parameter-flags>` before adding it during *PF_Cmd_PARAMS_SETUP*. Whenever it is changed, you will receive :ref:`PF_Cmd_USER_CHANGED_PARAM <effect-basics/command-selectors.messaging>`. The index (into the plug-in's parameter array) of the changed parameter is sent in the PF_UserChangedParamExtra (extra) param. During *PF_Cmd_USER_CHANGED_PARAM*, you may change the values *and* appearance of any of your parameters.
 
 ----
 
 Updating Parameter UI
 ================================================================================
 
-If you set PF_ParamFlag_SUPERVISE on any parameter, After Effects will send you *PF_Cmd_UPDATE_PARAMS_UI*, just as if you had set PF_OutFlag_SEND_UPDATE_PARAMS_UI.
+If you set ``PF_ParamFlag_SUPERVISE`` on any parameter, After Effects will send you *PF_Cmd_UPDATE_PARAMS_UI*, just as if you had set PF_OutFlag_SEND_UPDATE_PARAMS_UI.
 
-During *PF_Cmd_UPDATE_PARAMS_UI*, you may only change the appearance and enable state of parameters. Use `PF_UpdateParamUI <#_bookmark320>`__\ () from `PF_ParamUtilsSuite <#_bookmark318>`__ to update the UI, passing it a *copy* of the parameter you wish to modify. Do *not* attempt to modify the original. It is not necessary to set PF_OutFlag_REFRESH_UI; PF_UpdateParamUI() handles that for you. Note also that this is the only way to update the UI of PF_PUI_STD_CONTROL_ONLY parameters.
+During *PF_Cmd_UPDATE_PARAMS_UI*, you may only change the appearance and enable state of parameters. Use ``PF_UpdateParamUI()`` from :ref:`effect-detals/parameter-supervision.PF_ParamUtilSuite` to update the UI, passing it a *copy* of the parameter you wish to modify. Do *not* attempt to modify the original. It is not necessary to set ``PF_OutFlag_REFRESH_UI``; ``PF_UpdateParamUI()`` handles that for you.
+
+.. note::
+
+  This is the only way to update the UI of ``PF_PUI_STD_CONTROL_ONLY`` parameters.
 
 ----
 
 Updating Parameter Values
 ================================================================================
 
-A parameter's value (not just UI) can be modified during `PF_Cmd_USER_CHANGED_PARAM <#_bookmark107>`__ and during `PF_Cmd_EVENT <#_bookmark106>`__ (*PF_Event_DO_CLICK*, *PF_Event_DRAG*, & *PF_Event_KEYDOWN*). After Effects will not honor changes made at other times.
+A parameter's value (not just UI) can be modified during :ref:`PF_Cmd_USER_CHANGED_PARAM <effect-basics/command-selectors.messaging>` and during :ref:`PF_Cmd_EVENT <effect-basics/command-selectors.messaging>` (*PF_Event_DO_CLICK*, *PF_Event_DRAG*, & *PF_Event_KEYDOWN*). After Effects will not honor changes made at other times.
 
-When changing parameter *values* (and not just the UI), modify the original parameter, and set PF_Paramdef.uu.change_flags to PF_ChangeFlag_CHANGED_VALUE. This change will be also update the UI, and will be undoable by the user. Note that PF_ChangeFlag_CHANGED_VALUE isn't supported for layer parameters.
+When changing parameter *values* (and not just the UI), modify the original parameter, and set ``PF_Paramdef.uu.change_flags`` to ``PF_ChangeFlag_CHANGED_VALUE``.
+
+This change will be also update the UI, and will be undoable by the user. Note that ``PF_ChangeFlag_CHANGED_VALUE`` isn't supported for layer parameters.
 
 This suite is provided to give effect plug-ins some access to their parameter streams, without requiring AEGP suite usage. At least some of these functions are provided by several third- party hosts. These functions are especially handy for effects with supervised parameters.
 
 ----
+
+.. _effect-detals/parameter-supervision.PF_ParamUtilSuite:
 
 PF_ParamUtilSuite3
 ================================================================================

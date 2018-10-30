@@ -11,7 +11,7 @@ The ``PF_EventUnion`` (sent in the ``PF_EventExtra``) varies with the event type
 |    **Member**     |                                                                                       **Purpose**                                                                                        |
 +===================+==========================================================================================================================================================================================+
 | ``contextH``      | Handle to the `PF_Context <#_bookmark446>`__. This drawing context is used with the `Drawbot suites <#_bookmark479>`__ for drawing,                                                      |
-|                   | and also for the `UI callbacks <#_bookmark500>`__.                                                                                                                                       |
+|                   | and also for the :ref:`effect-ui-events/ui-callbacks`.                                                                                                                                   |
 +-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``e_type``        | Which `event <#_bookmark424>`__ is occurring.                                                                                                                                            |
 +-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -23,7 +23,7 @@ The ``PF_EventUnion`` (sent in the ``PF_EventExtra``) varies with the event type
 |                   | This struct contains both a ``PF_EffectWindowInfo`` and an ``PF_ItemWindowInfo``, which (for now) is simply the port rectangle for the item window.                                      |
 |                   | Replacement only occurs if ``PF_USE_NEW_WINDOW_UNION`` was defined during compilation; otherwise, it will continue to be just a ``PF_EffectWindowInfo``.                                 |
 +-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cbs``           | Pointer to `UI callbacks <#_bookmark500>`__, which are needed to translate points between layer, composition, and screen coordinate systems.                                             |
+| ``cbs``           | Pointer to :ref:`effect-ui-events/ui-callbacks`, which are needed to translate points between layer, composition, and screen coordinate systems.                                         |
 +-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``evt_in_flags``  | Event Input Flags. This currently contains only one value, ``PF_EI_DONT_DRAW``, which you should check before drawing!                                                                   |
 +-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

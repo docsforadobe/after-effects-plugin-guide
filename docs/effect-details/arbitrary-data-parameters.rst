@@ -33,7 +33,7 @@ Arbitrary Data Selectors
 |                                  |                                                                                                                                                                                                                                                                                                                                 |
 |                                  | Allocate an instance and fill it with interpolated data. Then put the interpolated instance into the handle you've been passed. The velocity curves have already been accounted for when the normalized time value was calculated.                                                                                              |
 |                                  |                                                                                                                                                                                                                                                                                                                                 |
-|                                  | NOTE: Never check out parameters if the `in_data>effect_ref <#_bookmark118>`__ is NULL.                                                                                                                                                                                                                                         |
+|                                  | NOTE: Never check out parameters if the :ref:`in_data>effect_ref <effect-basics/PF_InData.PF_InData-Members>` is NULL.                                                                                                                                                                                                          |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_Arbitrary_COMPARE_FUNC``    | You are passed two instances of your arbitrary data, and a pointer to a comparison result. Populate the result with one of the values for PF_ArbCompareResult (see AE_Effect.h) to indicate whether the first was equal to, less than, more than, or simply not equal to the second.                                            |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -48,6 +48,8 @@ Arbitrary Data Selectors
 
 ----
 
+.. _effect-details/arbitrary-data-parameters.implementing-arbitrary-data:
+
 Implementing Arbitrary Data
 ================================================================================
 
@@ -55,13 +57,15 @@ In addition to the normal command and event selector, arb data requires another 
 
 Instantiate your arb data (using After Effects' memory allocation functions, of course) and point ParamDef.u.arb_d.dephault at it. Populate it with appropriate default values. No value variable is required to set up the parameter; zero it out for safety's sake.
 
-In your plug-in's entry function, include a case for handling `PF_Cmd_ARBITRARY_CALLBACK <#_bookmark111>`__. Invoke a secondary event handler, HandleArbitrary. It receives a PF_ArbParamsExtra in extra, which in turn contains a PF_FunctionSelector identifying the command sent.
+In your plug-in's entry function, include a case for handling :ref:`PF_Cmd_ARBITRARY_CALLBACK <effect-basics/command-selectors.messaging>`.
 
-Perhaps After Effects has sent PF_Cmd_ARBITRARY_CALLBACK and the PF_FunctionSelector is `PF_Arbitrary_COPY_FUNC <#_bookmark336>`__. Pointers to a source and destination Arb are provided in PF_ArbParamsExtra.copy_func_params. Allocate a new Arb, and point dest_arbPH at it. If src_arbH is NULL, create a default Arb for dest_arbPH.
+Invoke a secondary event handler, ``HandleArbitrary``. It receives a ``PF_ArbParamsExtra`` in extra, which in turn contains a ``PF_FunctionSelector`` identifying the command sent.
 
-The user may select the arb's keyframe data in the Timeline panel, copy it, then switch to another application. You will be sent a PF_Arbitrary_PRINT_SIZE_FUNC; set the size of your output buffer by setting print_sizePLu in the PF_ArbParamsExtra. You'll then receive PF_Arbitrary_PRINT_FUNC; populate the print_bufferPC output buffer with a textual representation of the Arb(s) in question.
+Perhaps After Effects has sent ``PF_Cmd_ARBITRARY_CALLBACK`` and the ``PF_FunctionSelector`` is ``PF_Arbitrary_COPY_FUNC``. Pointers to a source and destination Arb are provided in ``PF_ArbParamsExtra.copy_func_params``. Allocate a new Arb, and point ``dest_arbPH`` at it. If ``src_arbH`` is NULL, create a default Arb for ``dest_arbPH``.
 
-Users may paste keyframe data into your Arb's timeline. You will receive PF_Arbitrary_SCAN_FUNC. Create an Arb based on the contents of the character buffer handed to you (its size is indicated in print_sizeLu).
+The user may select the arb's keyframe data in the Timeline panel, copy it, then switch to another application. You will be sent a ``PF_Arbitrary_PRINT_SIZE_FUNC``; set the size of your output buffer by setting ``print_sizePLu`` in the ``PF_ArbParamsExtra``. You'll then receive ``PF_Arbitrary_PRINT_FUNC``; populate the ``print_bufferPC`` output buffer with a textual representation of the Arb(s) in question.
+
+Users may paste keyframe data into your Arb's timeline. You will receive ``PF_Arbitrary_SCAN_FUNC``. Create an Arb based on the contents of the character buffer handed to you (its size is indicated in ``print_sizeLu``).
 
 ----
 
@@ -82,8 +86,8 @@ If ``in_data>effect_ref`` is ``NULL``, do not check out arbitrary parameters.
 Changes During Dialogs
 ================================================================================
 
-After Effects ignores any changes made to arbitrary data parameters during *PF_Cmd_DO_DIALOG*.
+After Effects ignores any changes made to arbitrary data parameters during ``PF_Cmd_DO_DIALOG``.
 
 This is by design; changes made during the display of the options dialog affect the entire effect stream, not just the arbitrary parameter at a given time.
 
-If you must alter your arb's behavior based on these changes, save that information in sequence data and apply it later, often during *PF_Cmd_USER_CHANGED_PARAM*.
+If you must alter your arb's behavior based on these changes, save that information in sequence data and apply it later, often during ``PF_Cmd_USER_CHANGED_PARAM``.

@@ -16,9 +16,11 @@ For all effect plug-ins, the entry point function must have the following signat
     PF_LayerDef  *output,
     void         *extra)
 
-The name of the entry point function above is "main", but it can be whatever is specified in `<#_bookmark55>`__ `the <#_bookmark55>`__ PiPL resource.
+The name of the entry point function above is "main", but it can be whatever is specified in :ref:`intro/pipl-resources`.
 
-Before each call to the entry point function, After Effects updates `PF_InData <#_bookmark115>`__ and the plug- in's parameter array PF_ParamDef[] (except as noted). After the plug-in returns from its call, After Effects checks `PF_OutData <#_bookmark132>`__ for changes and, when appropriate, uses the PF_LayerDef the effect has rendered.
+Before each call to the entry point function, After Effects updates :ref:`effect-basics/PF_InData` and the plug- in's parameter array PF_ParamDef[] (except as noted).
+
+After the plug-in returns from its call, After Effects checks :ref:`effect-basics/PF_OutData` for changes and, when appropriate, uses the PF_LayerDef the effect has rendered.
 
 ----
 
