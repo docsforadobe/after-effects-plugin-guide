@@ -289,7 +289,7 @@ Starting in CC 2014, After Effects will now honor a change to a custom UI height
 
 layer with effects applied at non-render time. This is useful for an operation that requires the frame, for example, when a button is clicked and it is acceptable to wait for a moment while it is rendering. Note: Since it is not asynchronous, it will not solve the general problem where custom UI needs to draw based on the frame. The layer render options are specified using the new `AEGP_LayerRenderOptionsSuite <#_bookmark688>`__.
 
-`Mercury Transmit <#_bookmark18>`__ plug-ins and `HTML5 Panels <#_bookmark15>`__ are now supported.
+`Mercury Transmit <#_bookmark18>`__ plug-ins and :ref:`intro/other-integration-possibilities.html5` are now supported.
 
 ----
 

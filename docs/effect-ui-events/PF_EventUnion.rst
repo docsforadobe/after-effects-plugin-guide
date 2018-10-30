@@ -41,7 +41,7 @@ Draw
 
 After Effects needs your custom UI to refresh.
 
-Note: when handling draw requests, use the image dimensions provided in `PF_InData <#_bookmark116>`__ (rather that the dimensions of your input layer, as you would during `PF_Cmd_RENDER <#_bookmark95>`__).
+Note: when handling draw requests, use the image dimensions provided in :ref:`effect-basics/PF_InData` (rather that the dimensions of your input layer, as you would during `PF_Cmd_RENDER <#_bookmark95>`__).
 
 PF_DrawEventInfo
 ********************************************************************************

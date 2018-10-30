@@ -6,7 +6,7 @@ How To Start Creating Plug-ins
 Play!
 ================================================================================
 
-Before you write a line of code, Spend some significant time playing with After Effects, and with the `sample projects <#sample-projects>`__. `Build the plug-ins <#_bookmark46>`__ into the right folder. Set lots of breakpoints, read the amusing and informative comments.
+Before you write a line of code, Spend some significant time playing with After Effects, and with the :ref:`intro/sample-projects`. Build the plug-ins into the right folder. Set lots of breakpoints, read the amusing and informative comments.
 
 See a quickstart video on building an effect (on macOS): `adobe.ly/2sjMDwM <https://adobe.ly/2sjMDwM>`__
 

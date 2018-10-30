@@ -15,6 +15,8 @@ AEGPs may also use any effect API suite function which doesn't require a PF_Prog
 
 ----
 
+.. _aegps/implementation.entry-point:
+
 Entry Point
 ================================================================================
 

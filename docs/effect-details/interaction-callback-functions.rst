@@ -3,7 +3,7 @@
 Interaction Callback Functions
 ################################################################################
 
-While the un-macro'd function pointers are provided in `PF_InData <#_bookmark116>`__, use the provided macros to access them. See how stringent we are about deprecating macro usage? Let's let this be our little secret.
+While the un-macro'd function pointers are provided in :ref:`effect-basics/PF_InData`, use the provided macros to access them. See how stringent we are about deprecating macro usage? Let's let this be our little secret.
 
 ----
 

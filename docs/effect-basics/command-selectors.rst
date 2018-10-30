@@ -5,7 +5,7 @@ Command Selectors
 
 Commands are, simply, what After Effects wants your effect to do. Responses to some selectors are required; most are optional, though recall that we did add them for a *reason*...
 
-With each command selector sent, effects receive information from After Effects in `PF_InData <#_bookmark115>`__, input and parameter values in PF_ParamDef[] (an array of parameter descriptions including the input layer), and access to callbacks and function suites. They send information back to After Effects in `PF_OutData <#_bookmark132>`__, and (when appropriate) render output to a PF_LayerDef, also called a `PF_EffectWorld <#_bookmark231>`__. During events, they receive event-specific information in `extra <#_bookmark437>`__.
+With each command selector sent, effects receive information from After Effects in :ref:`effect-basics/PF_InData`, input and parameter values in PF_ParamDef[] (an array of parameter descriptions including the input layer), and access to callbacks and function suites. They send information back to After Effects in `PF_OutData <#_bookmark132>`__, and (when appropriate) render output to a PF_LayerDef, also called a `PF_EffectWorld <#_bookmark231>`__. During events, they receive event-specific information in `extra <#_bookmark437>`__.
 
 ----
 
@@ -14,7 +14,7 @@ Calling Sequence
 
 Only the first few command selectors are predictable; the rest of the calling sequence is dictated by user action.
 
-When first applied, a plug-in receives `PF_Cmd_GLOBAL_SETUP <#_bookmark81>`__, then `PF_Cmd_PARAM_SETUP <#_bookmark83>`__. Each time the user adds the effect to a layer, `PF_Cmd_SEQUENCE_SETUP <#_bookmark85>`__ is sent.
+When first applied, a plug-in receives ``PF_Cmd_GLOBAL_SETUP``, then ``PF_Cmd_PARAM_SETUP``. Each time the user adds the effect to a layer, `PF_Cmd_SEQUENCE_SETUP <#_bookmark85>`__ is sent.
 
 For each frame rendered by a basic non-SmartFX effect, After Effects sends `PF_Cmd_FRAME_SETUP <#_bookmark92>`__, then `PF_Cmd_RENDER <#_bookmark94>`__, then `PF_Cmd_FRAME_SETDOWN <#_bookmark96>`__. All effect plug-ins must respond to `PF_Cmd_RENDER <#_bookmark94>`__\ *.*
 
@@ -30,6 +30,8 @@ For SmartFX, `PF_Cmd_SMART_PRE_RENDER <#_bookmark101>`__ may be sent any number 
 
 Command Selectors Table
 ================================================================================
+
+.. _effect-basics/command-selectors.global-selectors:
 
 Global Selectors
 ********************************************************************************
@@ -156,7 +158,7 @@ The communication channel between After Effects and your plug-in.
 |                                      |                                                                                                                                                                                                                                                                       |
 |                                      | Only cosmetic changes may be made in response to this command. Don't change parameter values while responding to ``PF_Cmd_UPDATE_PARAMS_UI``; do so during ``PF_Cmd_USER_CHANGED_PARAM`` instead.                                                                     |
 |                                      |                                                                                                                                                                                                                                                                       |
-|                                      | This command will only be sent regularly if `PF_OutFlag_SEND_UPDATE_PARAMS_UI <#_bookmark167>`__ was set in the PiPL, and during `PF_Cmd_GLOBAL_SETUP <#_bookmark81>`__.                                                                                              |
+|                                      | This command will only be sent regularly if `PF_OutFlag_SEND_UPDATE_PARAMS_UI <#_bookmark167>`__ was set in the PiPL, and during ``PF_Cmd_GLOBAL_SETUP``.                                                                                              |
 |                                      |                                                                                                                                                                                                                                                                       |
 |                                      | NOTE: Never check out parameters during this selector. Recursive badness is almost guaranteed to result.                                                                                                                                                              |
 +--------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -168,7 +170,7 @@ The communication channel between After Effects and your plug-in.
 | ``PF_Cmd_ARBITRARY_CALLBACK``        | Manage your arbitrary data type. You'll only receive this if you've registered a custom data type parameter.                                                                                                                                                          |
 |                                      | The extra parameter indicates which handler function is being called. Custom data types are discussed further in `Implementation <#arbitrary-data-parameters>`__.                                                                                                     |
 +--------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_Cmd_GET_EXTERNAL_DEPENDENCIES`` | Only sent if `PF_OutFlag_I_HAVE_EXTERNAL_DEPENDENC <#_bookmark166>`__ `IES <#_bookmark166>`__ was set during `PF_Cmd_GLOBAL_SETUP <#_bookmark81>`__.                                                                                                                  |
+| ``PF_Cmd_GET_EXTERNAL_DEPENDENCIES`` | Only sent if `PF_OutFlag_I_HAVE_EXTERNAL_DEPENDENC <#_bookmark166>`__ `IES <#_bookmark166>`__ was set during ``PF_Cmd_GLOBAL_SETUP``.                                                                                                                  |
 |                                      | Populate a string handle (in the PF_ExtDependenciesExtra pointed to by extra) with a description of your plug-in's dependencies, making sure to allocate space for the terminating NULL character.                                                                    |
 |                                      |                                                                                                                                                                                                                                                                       |
 |                                      | Return just a ``NULL`` pointer for the string handle if there are no dependencies to report.                                                                                                                                                                          |
@@ -178,7 +180,7 @@ The communication channel between After Effects and your plug-in.
 +--------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_Cmd_COMPLETELY_GENERAL``        | Respond to an AEGP. The extra parameter points to whatever parameter the AEGP sent. AEGPs can only communicate with effects which respond to this selector.                                                                                                           |
 +--------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_Cmd_QUERY_DYNAMIC_FLAGS``       | Sent only to plug-ins which have specified ``PF_OutFlag2_SUPPORTS_QUERY_DYNAMIC_FLAGS`` in ``PF_OutFlags2``, in their PiPL and during PF_Cmd_GLOBAL_SETUP.                                                                                                            |
+| ``PF_Cmd_QUERY_DYNAMIC_FLAGS``       | Sent only to plug-ins which have specified ``PF_OutFlag2_SUPPORTS_QUERY_DYNAMIC_FLAGS`` in ``PF_OutFlags2``, in their PiPL and during ``PF_Cmd_GLOBAL_SETUP``.                                                                                                            |
 |                                      | With all of the dynamic flags, if you will ever change them during this command, you must have set the flag on during ``PF_Cmd_GLOBAL_SETUP``.                                                                                                                        |
 |                                      |                                                                                                                                                                                                                                                                       |
 |                                      | This selector will be sent at arbitrary times.                                                                                                                                                                                                                        |
@@ -263,7 +265,7 @@ There is a subtle difference between `PF_Cmd_USER_CHANGED_PARAM <#_bookmark108>`
 
 Only the first few command selectors are predictable; the rest of the calling sequence is dictated by user action.
 
-When first applied, a plug-in receives `PF_Cmd_GLOBAL_SETUP <#_bookmark81>`__, then `PF_Cmd_PARAM_SETUP <#_bookmark83>`__. Each time the user adds the effect to a layer, `PF_Cmd_SEQUENCE_SETUP <#_bookmark85>`__ is sent.
+When first applied, a plug-in receives ``PF_Cmd_GLOBAL_SETUP``, then `PF_Cmd_PARAM_SETUP <#_bookmark83>`__. Each time the user adds the effect to a layer, `PF_Cmd_SEQUENCE_SETUP <#_bookmark85>`__ is sent.
 
 For each frame rendered by a basic non-SmartFX effect, After Effects sends `PF_Cmd_FRAME_SETUP <#_bookmark92>`__, then `PF_Cmd_RENDER <#_bookmark94>`__, then `PF_Cmd_FRAME_SETDOWN <#_bookmark96>`__. All effect plug-ins must respond to `PF_Cmd_RENDER <#_bookmark94>`__\ *.*
 

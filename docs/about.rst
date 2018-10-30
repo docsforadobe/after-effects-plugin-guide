@@ -16,25 +16,25 @@ As always, your input is valued and appreciated.
 Organization
 =================================================================================
 
-The `Introduction <#_bookmark6>`__ provides an overview of the integration possibilities with After Effects. It explains what plug-ins are, and how they work with After Effects. It describes the sample projects, and how to modify them. It explains where to install plug-ins, and what resources they use.
+The :ref:`intro/intro` provides an overview of the integration possibilities with After Effects. It explains what plug-ins are, and how they work with After Effects. It describes the sample projects, and how to modify them. It explains where to install plug-ins, and what resources they use.
 
-The basics of effect plug-ins are discussed in `chapter 2 <#_bookmark67>`__. This overview provides information on the function parameters passed to and from an effect plug-in's entry point. It describes capability flags, effect parameters, and image buffers.
+The basics of effect plug-ins are discussed in :ref:`effect-basics/effect-basics`. This overview provides information on the function parameters passed to and from an effect plug-in's entry point. It describes capability flags, effect parameters, and image buffers.
 
-`Chapter 3 <#_bookmark250>`__ dives into the details of developing a complete effect plug-in using the many provided callback functions. It also provides many testing ideas to ensure the plug-in is stabile.
+:ref:`effect-details/effect-details` dives into the details of developing a complete effect plug-in using the many provided callback functions. It also provides many testing ideas to ensure the plug-in is stabile.
 
-`SmartFX <#_bookmark401>`__ is the extension to the effect plug-in API to support 32-bit floating point images, and is covered in chapter 4.
+:ref:`smart-fx/smart-fx` is the extension to the effect plug-in API to support 32-bit floating point images, and is covered in chapter 4.
 
-Chapter 5 covers `events <#_bookmark421>`__ sent to effect plug-ins, how to incorporate custom user interface elements, parameter supervision, and the reliance of custom data parameter types on Custom UI messaging.
+:ref:`effect-ui-events/effect-ui-events` covers events sent to effect plug-ins, how to incorporate custom user interface elements, parameter supervision, and the reliance of custom data parameter types on Custom UI messaging.
 
-`Audio <#_bookmark512>`__ effects are covered in Chapter 6.
+:ref:`audio/audio` effects are covered in Chapter 6.
 
-Chapter 7 details the After Effects General Plug-in (`AEGP <#aegps>`__) API. Provided callback functions, hooking into internal messaging, manipulating the current contents of open projects and handling menu commands are all covered at length.
+:ref:`aegps/aegps` details the After Effects General Plug-in (AEGP) API. Provided callback functions, hooking into internal messaging, manipulating the current contents of open projects and handling menu commands are all covered at length.
 
-`Artisans <#_bookmark733>`__, specialized plug-in 3D renderer AEGPs, are covered in chapter 8.
+:ref:`artisans/artisans`, specialized plug-in 3D renderer AEGPs, are covered in chapter 8.
 
-Chapter 9 documents `AEIOs <#aeios>`__, specialized AEGPs which handle file input and output.
+:ref:`aeios/aeios`, specialized AEGPs which handle file input and output.
 
-Chapter 10 discusses issues related to compatibility with Premiere Pro and other applications that support a subset of After Effects plug-ins.
+:ref:`ppro/ppro` discusses issues related to compatibility with Premiere Pro and other applications that support a subset of After Effects plug-ins.
 
 
 ----

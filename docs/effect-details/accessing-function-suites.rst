@@ -13,7 +13,7 @@ After that, you may make calls to any function in any suite, like so::
 
 If you must use C code, then acquire and release the suites manually using the ``PF_Suite_Helper`` utility files, as demonstrated in the Checkout sample project.
 
-Behind the scenes, these both of these methods acquire PICA function suites using ``AcquireSuite``, a member function of the SPBasicSuite pointed to in `PF_InData <#_bookmark116>`__.
+Behind the scenes, these both of these methods acquire PICA function suites using ``AcquireSuite``, a member function of the SPBasicSuite pointed to in :ref:`effect-basics/PF_InData`.
 
 ----
 

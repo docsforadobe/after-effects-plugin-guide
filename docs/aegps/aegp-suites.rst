@@ -4187,6 +4187,8 @@ Everything you need to keep After Effects and your plug-in tidy.
 
 ----
 
+.. _aegps/aegp-suites.AEGP_UtilitySuite6:
+
 AEGP_UtilitySuite6
 ********************************************************************************
 

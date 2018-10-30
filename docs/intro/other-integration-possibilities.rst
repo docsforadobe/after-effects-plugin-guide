@@ -10,7 +10,7 @@ Although this SDK describes the majority of integration possibilities with After
 Scripting
 ================================================================================
 
-Scripting is a relatively nimble and lightweight means to perform automated tasks with After Effects. ScriptUI is one way you can provide UI integration with custom dialogs and panels (see `HTML5 panels <#_bookmark15>`__ too). And scripting may be used in tandem with plug-in development, in the cases where a certain function is made available via scripting and not via the C APIs described in this document.
+Scripting is a relatively nimble and lightweight means to perform automated tasks with After Effects. ScriptUI is one way you can provide UI integration with custom dialogs and panels (see :ref:`intro/other-integration-possibilities.html5` too). And scripting may be used in tandem with plug-in development, in the cases where a certain function is made available via scripting and not via the C APIs described in this document.
 
 Scripting in After Effects is done using ExtendScript, based on JavaScript. After Effects includes the ExtendScript ToolKit, a convenient interface for creating and testing your own scripts. Scripts may be compiled into .jsxbin binary files, to protect intellectual property.
 
@@ -28,6 +28,8 @@ On Windows, AfterFX.com is the way to get feedback to the console, because After
 
 ----
 
+.. _intro/other-integration-possibilities.html5:
+
 HTML5 Panels
 ================================================================================
 
@@ -42,6 +44,8 @@ Closely coupled with scripting is the command line interface offered by aerender
 
 ----
 
+.. _intro/other-integration-possibilities.premiere-pro-importers:
+
 Premiere Pro Importers
 ================================================================================
 
@@ -50,6 +54,8 @@ Premiere Pro importers provide support for importing media into applications acr
 One advantage of MediaCore importer plug-ins over AEIOs is its priority system: The highest priority importer gets first crack at importing a file, and if the particular imported file isn't supported, the next-highest priority importer will then have the opportunity to try importing it, and so on.
 
 ----
+
+.. _intro/other-integration-possibilities.mercury-transmit:
 
 Mercury Transmit
 ================================================================================

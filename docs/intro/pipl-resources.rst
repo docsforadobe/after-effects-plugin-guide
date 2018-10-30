@@ -3,7 +3,7 @@
 PiPL Resources
 ################################################################################
 
-Originating in Adobe Photoshop over two decades ago, Plug-In Property Lists, or PiPLs, are resources which provide basic information about a plug-in's behavior, without executing the plug-in. PiPLs have been largely supplanted within After Effects by `PF_Cmd_GLOBAL_SETUP <#_bookmark80>`__ and dynamic outflags. However, for archaeological reasons, the behaviors indicated during PF_Cmd_GLOBAL_SETUP must agree with those in the PiPL.
+Originating in Adobe Photoshop over two decades ago, Plug-In Property Lists, or PiPLs, are resources which provide basic information about a plug-in's behavior, without executing the plug-in. PiPLs have been largely supplanted within After Effects by ``PF_Cmd_GLOBAL_SETUP`` (see :ref:`effect-basics/command-selectors.global-selectors`) and dynamic outflags. However, for archaeological reasons, the behaviors indicated during ``PF_Cmd_GLOBAL_SETUP`` must agree with those in the PiPL.
 
 A PiPL specifies the entry point of a plug-in, the display name, as well as the plug-in's match name. The match name is a unique, constant identifier, unlike a plug-in's display name, which may be changed dynamically. Starting in CC, display names can be up to 47 characters long. Previously, they were limited to 31 characters.
 
