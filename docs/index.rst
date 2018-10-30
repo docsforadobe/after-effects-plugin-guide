@@ -113,3 +113,13 @@ Welcome to the Adobe After Effects CC SDK Guide!
 
   artisans/artisans
   artisans/artisan-data-types
+
+.. toctree::
+  :maxdepth: 1
+  :caption: AEIOs
+
+  aeios/aeios
+  aeios/calling-sequence
+  aeios/AEIO_ModuleInfo
+  aeios/new-kids-on-the-function-block
+  aeios/implementation-details
