@@ -41,7 +41,7 @@ Draw
 
 After Effects needs your custom UI to refresh.
 
-Note: when handling draw requests, use the image dimensions provided in :ref:`effect-basics/PF_InData` (rather that the dimensions of your input layer, as you would during `PF_Cmd_RENDER <#_bookmark95>`__).
+Note: when handling draw requests, use the image dimensions provided in :ref:`effect-basics/PF_InData` (rather that the dimensions of your input layer, as you would during :ref:`PF_Cmd_RENDER <effect-basics/command-selectors.frame-selectors>`).
 
 PF_DrawEventInfo
 ********************************************************************************
@@ -60,7 +60,9 @@ PF_DrawEventInfo
 Keydown
 ================================================================================
 
-The user pressed a key, and the effect's UI is active. Use the macros in AE_EffectUI.h to access and manipulate the key codes received.
+The user pressed a key, and the effect's UI is active.
+
+Use the macros in AE_EffectUI.h to access and manipulate the key codes received.
 
 PF_KeyDownEvent
 ********************************************************************************
@@ -76,50 +78,50 @@ PF_KeyDownEvent
 +------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 | ``key_code``     | Either a character code (for printable characters, we use the unshifted upper case version; A not a, 7 not &), or a control code: |
 |                  |                                                                                                                                   |
-|                  | - ``PF_ControlCode_Unknown``                                                                                                      |
-|                  | - ``PF_ControlCode_Space``                                                                                                        |
-|                  | - ``PF_ControlCode_Backspace``                                                                                                    |
-|                  | - ``PF_ControlCode_Tab``                                                                                                          |
-|                  | - ``PF_ControlCode_Return``                                                                                                       |
-|                  | - ``PF_ControlCode_Enter``                                                                                                        |
-|                  | - ``PF_ControlCode_Escape``                                                                                                       |
-|                  | - ``PF_ControlCode_F1``                                                                                                           |
+|                  |   - ``PF_ControlCode_Unknown``                                                                                                    |
+|                  |   - ``PF_ControlCode_Space``                                                                                                      |
+|                  |   - ``PF_ControlCode_Backspace``                                                                                                  |
+|                  |   - ``PF_ControlCode_Tab``                                                                                                        |
+|                  |   - ``PF_ControlCode_Return``                                                                                                     |
+|                  |   - ``PF_ControlCode_Enter``                                                                                                      |
+|                  |   - ``PF_ControlCode_Escape``                                                                                                     |
+|                  |   - ``PF_ControlCode_F1``                                                                                                         |
 |                  |                                                                                                                                   |
 |                  | ...                                                                                                                               |
 |                  |                                                                                                                                   |
-|                  | - ``PF_ControlCode_F24``                                                                                                          |
-|                  | - ``PF_ControlCode_PrintScreen``                                                                                                  |
-|                  | - ``PF_ControlCode_ScrollLock``                                                                                                   |
-|                  | - ``PF_ControlCode_Pause``                                                                                                        |
-|                  | - ``PF_ControlCode_Insert``                                                                                                       |
-|                  | - ``PF_ControlCode_Delete``                                                                                                       |
-|                  | - ``PF_ControlCode_Home``                                                                                                         |
-|                  | - ``PF_ControlCode_End``                                                                                                          |
-|                  | - ``PF_ControlCode_PageUp``                                                                                                       |
-|                  | - ``PF_ControlCode_PageDown``                                                                                                     |
-|                  | - ``PF_ControlCode_Help``                                                                                                         |
-|                  | - ``PF_ControlCode_Clear``                                                                                                        |
-|                  | - ``PF_ControlCode_Left``                                                                                                         |
-|                  | - ``PF_ControlCode_Right``                                                                                                        |
-|                  | - ``PF_ControlCode_Up``                                                                                                           |
-|                  | - ``PF_ControlCode_Down``                                                                                                         |
-|                  | - ``PF_ControlCode_NumLock``                                                                                                      |
-|                  | - ``PF_ControlCode_Command``                                                                                                      |
-|                  | - ``PF_ControlCode_Option``                                                                                                       |
-|                  | - ``PF_ControlCode_Alt`` = ``PF_ControlCode_Option``                                                                              |
-|                  | - ``PF_ControlCode_Control``                                                                                                      |
-|                  | - ``PF_ControlCode_Shift``                                                                                                        |
-|                  | - ``PF_ControlCode_CapsLock``                                                                                                     |
-|                  | - ``PF_ControlCode_ContextMenu``                                                                                                  |
+|                  |   - ``PF_ControlCode_F24``                                                                                                        |
+|                  |   - ``PF_ControlCode_PrintScreen``                                                                                                |
+|                  |   - ``PF_ControlCode_ScrollLock``                                                                                                 |
+|                  |   - ``PF_ControlCode_Pause``                                                                                                      |
+|                  |   - ``PF_ControlCode_Insert``                                                                                                     |
+|                  |   - ``PF_ControlCode_Delete``                                                                                                     |
+|                  |   - ``PF_ControlCode_Home``                                                                                                       |
+|                  |   - ``PF_ControlCode_End``                                                                                                        |
+|                  |   - ``PF_ControlCode_PageUp``                                                                                                     |
+|                  |   - ``PF_ControlCode_PageDown``                                                                                                   |
+|                  |   - ``PF_ControlCode_Help``                                                                                                       |
+|                  |   - ``PF_ControlCode_Clear``                                                                                                      |
+|                  |   - ``PF_ControlCode_Left``                                                                                                       |
+|                  |   - ``PF_ControlCode_Right``                                                                                                      |
+|                  |   - ``PF_ControlCode_Up``                                                                                                         |
+|                  |   - ``PF_ControlCode_Down``                                                                                                       |
+|                  |   - ``PF_ControlCode_NumLock``                                                                                                    |
+|                  |   - ``PF_ControlCode_Command``                                                                                                    |
+|                  |   - ``PF_ControlCode_Option``                                                                                                     |
+|                  |   - ``PF_ControlCode_Alt`` = ``PF_ControlCode_Option``                                                                            |
+|                  |   - ``PF_ControlCode_Control``                                                                                                    |
+|                  |   - ``PF_ControlCode_Shift``                                                                                                      |
+|                  |   - ``PF_ControlCode_CapsLock``                                                                                                   |
+|                  |   - ``PF_ControlCode_ContextMenu``                                                                                                |
 +------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 | ``modifiers``    | Which (if any) modifier keys were down during the key press.                                                                      |
 |                  |                                                                                                                                   |
-|                  | - ``PF_Mod_NONE``                                                                                                                 |
-|                  | - ``PF_Mod_CMD_CTRL_KEY`` (cmd on Mac, ctrl on Windows)                                                                           |
-|                  | - ``PF_Mod_SHIFT_KEY``                                                                                                            |
-|                  | - ``PF_Mod_CAPS_LOCK_KEY``                                                                                                        |
-|                  | - ``PF_Mod_OPT_ALT_KEY`` (option on Mac, alt on Windows)                                                                          |
-|                  | - ``PF_Mod_MAC_CONTROL_KEY``                                                                                                      |
+|                  |   - ``PF_Mod_NONE``                                                                                                               |
+|                  |   - ``PF_Mod_CMD_CTRL_KEY`` (cmd on Mac, ctrl on Windows)                                                                         |
+|                  |   - ``PF_Mod_SHIFT_KEY``                                                                                                          |
+|                  |   - ``PF_Mod_CAPS_LOCK_KEY``                                                                                                      |
+|                  |   - ``PF_Mod_OPT_ALT_KEY`` (option on Mac, alt on Windows)                                                                        |
+|                  |   - ``PF_Mod_MAC_CONTROL_KEY``                                                                                                    |
 +------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
 ----

@@ -28,6 +28,8 @@ Use the new `PF_EffectCustomUIOverlayThemeSuite <#_bookmark497>`__ to match the 
 
 ----
 
+.. _effect-ui-events/custom-ui-and-drawbot.redrawing:
+
 Redrawing
 ================================================================================
 
@@ -168,16 +170,17 @@ Drawbot_SupplierSuite1
 |                             |     DRAWBOT_ImageRef     *out_imageP);                                                                                                                                      |
 |                             |                                                                                                                                                                             |
 |                             | ``DRAWBOT_PixelLayout`` can be one of the following:                                                                                                                        |
-|                             | - ``kDRAWBOT_PixelLayout_24RGB``,                                                                                                                                           |
-|                             | - ``kDRAWBOT_PixelLayout_24BGR``,                                                                                                                                           |
-|                             | - ``kDRAWBOT_PixelLayout_32RGB``,                                                                                                                                           |
-|                             | - ``ARGB`` (A is ignored),                                                                                                                                                  |
-|                             | - ``kDRAWBOT_PixelLayout_32BGR``,                                                                                                                                           |
-|                             | - ``BGRA`` (A is ignored),                                                                                                                                                  |
-|                             | - ``kDRAWBOT_PixelLayout_32ARGB_Straight``,                                                                                                                                 |
-|                             | - ``kDRAWBOT_PixelLayout_32ARGB_Premul``,                                                                                                                                   |
-|                             | - ``kDRAWBOT_PixelLayout_32BGRA_Straight``,                                                                                                                                 |
-|                             | - ``kDRAWBOT_PixelLayout_32BGRA_Premul``                                                                                                                                    |
+|                             |                                                                                                                                                                             |
+|                             |   - ``kDRAWBOT_PixelLayout_24RGB``,                                                                                                                                         |
+|                             |   - ``kDRAWBOT_PixelLayout_24BGR``,                                                                                                                                         |
+|                             |   - ``kDRAWBOT_PixelLayout_32RGB``,                                                                                                                                         |
+|                             |   - ``ARGB`` (A is ignored),                                                                                                                                                |
+|                             |   - ``kDRAWBOT_PixelLayout_32BGR``,                                                                                                                                         |
+|                             |   - ``BGRA`` (A is ignored),                                                                                                                                                |
+|                             |   - ``kDRAWBOT_PixelLayout_32ARGB_Straight``,                                                                                                                               |
+|                             |   - ``kDRAWBOT_PixelLayout_32ARGB_Premul``,                                                                                                                                 |
+|                             |   - ``kDRAWBOT_PixelLayout_32BGRA_Straight``,                                                                                                                               |
+|                             |   - ``kDRAWBOT_PixelLayout_32BGRA_Premul``                                                                                                                                  |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``NewPath``                 | Create a new path. Release this using `ReleaseObject <#_bookmark491>`__.                                                                                                    |
 |                             |                                                                                                                                                                             |
@@ -279,8 +282,8 @@ Drawbot_SurfaceSuite1
 |                            |                                                                                                                                      |
 |                            | ``DRAWBOT_FillType`` is one of the following:                                                                                        |
 |                            |                                                                                                                                      |
-|                            | - ``kDRAWBOT_FillType_EvenOdd``,                                                                                                     |
-|                            | - ``kDRAWBOT_FillType_Winding``                                                                                                      |
+|                            |   - ``kDRAWBOT_FillType_EvenOdd``,                                                                                                   |
+|                            |   - ``kDRAWBOT_FillType_Winding``                                                                                                    |
 +----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 | ``StrokePath``             | Stroke a path using a pen.                                                                                                           |
 |                            |                                                                                                                                      |
@@ -341,16 +344,16 @@ Drawbot_SurfaceSuite1
 |                            |                                                                                                                                      |
 |                            | ``DRAWBOT_TextAlignment`` is one of the following:                                                                                   |
 |                            |                                                                                                                                      |
-|                            | - ``kDRAWBOT_TextAlignment_Left``,                                                                                                   |
-|                            | - ``kDRAWBOT_TextAlignment_Center``,                                                                                                 |
-|                            | - ``kDRAWBOT_TextAlignment_Right``                                                                                                   |
+|                            |   - ``kDRAWBOT_TextAlignment_Left``,                                                                                                 |
+|                            |   - ``kDRAWBOT_TextAlignment_Center``,                                                                                               |
+|                            |   - ``kDRAWBOT_TextAlignment_Right``                                                                                                 |
 |                            |                                                                                                                                      |
 |                            | ``DRAWBOT_TextTruncation`` is one of the following:                                                                                  |
 |                            |                                                                                                                                      |
-|                            | - ``kDRAWBOT_TextTruncation_None``,                                                                                                  |
-|                            | - ``kDRAWBOT_TextTruncation_End``,                                                                                                   |
-|                            | - ``kDRAWBOT_TextTruncation_EndEllipsis``,                                                                                           |
-|                            | - ``kDRAWBOT_TextTruncation_PathEllipsis``                                                                                           |
+|                            |   - ``kDRAWBOT_TextTruncation_None``,                                                                                                |
+|                            |   - ``kDRAWBOT_TextTruncation_End``,                                                                                                 |
+|                            |   - ``kDRAWBOT_TextTruncation_EndEllipsis``,                                                                                         |
+|                            |   - ``kDRAWBOT_TextTruncation_PathEllipsis``                                                                                         |
 +----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 | ``DrawImage``              | Draw an image created using ``NewImageFromBuffer()`` on the surface. Alpha = [0.0f, 1.0f ].                                          |
 |                            |                                                                                                                                      |
@@ -370,9 +373,9 @@ Drawbot_SurfaceSuite1
 |                            |                                                                                                                                      |
 |                            | ``DRAWBOT_InterpolationPolicy`` is one of the following:                                                                             |
 |                            |                                                                                                                                      |
-|                            | - ``kDRAWBOT_InterpolationPolicy_None``,                                                                                             |
-|                            | - ``kDRAWBOT_InterpolationPolicy_Med``,                                                                                              |
-|                            | - ``kDRAWBOT_InterpolationPolicy_High``                                                                                              |
+|                            |   - ``kDRAWBOT_InterpolationPolicy_None``,                                                                                           |
+|                            |   - ``kDRAWBOT_InterpolationPolicy_Med``,                                                                                            |
+|                            |   - ``kDRAWBOT_InterpolationPolicy_High``                                                                                            |
 +----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 | ``GetInterpolationPolicy`` | ::                                                                                                                                   |
 |                            |                                                                                                                                      |
@@ -388,9 +391,9 @@ Drawbot_SurfaceSuite1
 |                            |                                                                                                                                      |
 |                            | ``DRAWBOT_AntiAliasPolicy`` is one of the following:                                                                                 |
 |                            |                                                                                                                                      |
-|                            | - ``kDRAWBOT_AntiAliasPolicy_None``,                                                                                                 |
-|                            | - ``kDRAWBOT_AntiAliasPolicy_Med``,                                                                                                  |
-|                            | - ``kDRAWBOT_AntiAliasPolicy_High``                                                                                                  |
+|                            |   - ``kDRAWBOT_AntiAliasPolicy_None``,                                                                                               |
+|                            |   - ``kDRAWBOT_AntiAliasPolicy_Med``,                                                                                                |
+|                            |   - ``kDRAWBOT_AntiAliasPolicy_High``                                                                                                |
 +----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 | ``GetAntiAliasPolicy``     | ::                                                                                                                                   |
 |                            |                                                                                                                                      |
@@ -476,6 +479,8 @@ Drawbot_PathSuite1
 +--------------+---------------------------------------------------------+
 
 ----
+
+.. _effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUIOverlayThemeSuite:
 
 PF_EffectCustomUIOverlayThemeSuite
 ================================================================================

@@ -171,14 +171,14 @@ This suite provides information about paths (sequences of vertices).
 |                                |                                                                                                                   |
 |                                | Mask mode is one of the following:                                                                                |
 |                                |                                                                                                                   |
-|                                | - ``PF_MaskMode_NONE``                                                                                            |
-|                                | - ``PF_MaskMode_ADD``                                                                                             |
-|                                | - ``PF_MaskMode_SUBTRACT``                                                                                        |
-|                                | - ``PF_MaskMode_INTERSECT``                                                                                       |
-|                                | - ``PF_MaskMode_LIGHTEN``                                                                                         |
-|                                | - ``PF_MaskMode_DARKEN``                                                                                          |
-|                                | - ``PF_MaskMode_DIFFERENCE``                                                                                      |
-|                                | - ``PF_MaskMode_ACCUM``                                                                                           |
+|                                |   - ``PF_MaskMode_NONE``                                                                                          |
+|                                |   - ``PF_MaskMode_ADD``                                                                                           |
+|                                |   - ``PF_MaskMode_SUBTRACT``                                                                                      |
+|                                |   - ``PF_MaskMode_INTERSECT``                                                                                     |
+|                                |   - ``PF_MaskMode_LIGHTEN``                                                                                       |
+|                                |   - ``PF_MaskMode_DARKEN``                                                                                        |
+|                                |   - ``PF_MaskMode_DIFFERENCE``                                                                                    |
+|                                |   - ``PF_MaskMode_ACCUM``                                                                                         |
 +--------------------------------+-------------------------------------------------------------------------------------------------------------------+
 | ``PF_PathGetName``             | Retrieves the name of the path (up to ``PF_MAX_PATH_NAME_LEN`` long).                                             |
 |                                |                                                                                                                   |

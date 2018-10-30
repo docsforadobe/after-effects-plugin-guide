@@ -145,5 +145,5 @@ Gotta have dem flags...
 | ``AEIO_MFlag2_SEND_ADDMARKER_BEFORE_STARTADDING`` | The AEIO wants to process markers before video during export.                                                  | Output      |
 +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------+
 | ``AEIO_MFlag2_USES_QUICKTIME``                    | On MacOS, prior to the host calling ``AEIO_AddFrame`` or ``AEIO_OutputFrame``                                  | Output      |
-|                                                   | from :ref:`aeios/new-kids-on-the-function-block.AEIO_FunctionBlock4`, it will lock the global QuickTime mutex. |             |
+|                                                   | from :ref:`aeios/new-kids-on-the-function-block.AEIO_FunctionBlock`, it will lock the global QuickTime mutex.  |             |
 +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------+

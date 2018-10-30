@@ -17,8 +17,8 @@ PF_EffectWorld Structure
 +======================+=======================================================================================================================================================+
 | ``world_flags``      | Currently, the only flags are:                                                                                                                        |
 |                      |                                                                                                                                                       |
-|                      | - ``PF_WorldFlag_DEEP`` - set if the world is 16-bpc                                                                                                  |
-|                      | - ``PF_WorldFlag_WRITEABLE`` - indicates that you are allowed to alter the image data of the world.                                                   |
+|                      |   - ``PF_WorldFlag_DEEP`` - set if the world is 16-bpc                                                                                                |
+|                      |   - ``PF_WorldFlag_WRITEABLE`` - indicates that you are allowed to alter the image data of the world.                                                 |
 |                      |                                                                                                                                                       |
 |                      | Normally effects cannot alter input image data; only output.                                                                                          |
 +----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+

@@ -29,7 +29,9 @@ Although not strictly concerned with parameters, this suite can change the name 
 PF_AppSuite
 ================================================================================
 
-Roughly 437 years ago, when we released After Effects 5.0, we published some useful utility callbacks in PF_AppSuite. They're as useful today as they were then. After Effects has user- controllable UI brightness. In addition to the `PF_EffectCustomUIOverlayThemeSuite <#_bookmark498>`__ for custom UI in effects, use these calls to integrate seamlessly into the After Effects UI.
+Roughly 437 years ago, when we released After Effects 5.0, we published some useful utility callbacks in PF_AppSuite. They're as useful today as they were then. After Effects has user- controllable UI brightness.
+
+In addition to the :ref:`effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUIOverlayThemeSuite` for custom UI in effects, use these calls to integrate seamlessly into the After Effects UI.
 
 What better way to shame someone into purchasing a copy of your plug-in than by putting their personal information into a watermark, eh? Or set the cursor to add mask vertices, just to confuse people? Heh heh heh. But that would be wrong.
 
@@ -47,7 +49,9 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 |                             | basically any color in After Effects' UI can be retrieved.                                                                                                                        |
 |                             |                                                                                                                                                                                   |
 |                             | CC adds several new ``PF_App_ColorType`` enum values for new elements that can be queried.                                                                                        |
+|                             |                                                                                                                                                                                   |
 |                             | Note that in CS6, the color definitions are off from ``FILL_LIGHT`` downward.                                                                                                     |
+|                             |                                                                                                                                                                                   |
 |                             | Use following psuedocode for CS6 only:                                                                                                                                            |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
@@ -65,14 +69,14 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_AppGetLanguage``       | New in CC. Retrieves the active displayed language of AE UI so plug- in can match. Here are the possible language codes as of CC:                                                 |
 |                             |                                                                                                                                                                                   |
-|                             | - Chinese - zh_CN                                                                                                                                                                 |
-|                             | - English - en_US                                                                                                                                                                 |
-|                             | - French - fr_FR                                                                                                                                                                  |
-|                             | - German - de_DE                                                                                                                                                                  |
-|                             | - Italian - it_IT                                                                                                                                                                 |
-|                             | - Japanese - ja_JP                                                                                                                                                                |
-|                             | - Korean - ko_KR                                                                                                                                                                  |
-|                             | - Spanish - es_ES                                                                                                                                                                 |
+|                             |   - Chinese - ``zh_CN``                                                                                                                                                           |
+|                             |   - English - ``en_US``                                                                                                                                                           |
+|                             |   - French - ``fr_FR``                                                                                                                                                            |
+|                             |   - German - ``de_DE``                                                                                                                                                            |
+|                             |   - Italian - ``it_IT``                                                                                                                                                           |
+|                             |   - Japanese - ``ja_JP``                                                                                                                                                          |
+|                             |   - Korean - ``ko_KR``                                                                                                                                                            |
+|                             |   - Spanish - ``es_ES``                                                                                                                                                           |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
 |                             |                                                                                                                                                                                   |
@@ -108,8 +112,10 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_SetCursor``            | Sets the cursor to any of After Effects' cursors. See AE_EffectUI.h for a complete enumeration.                                                                                   |
 |                             |                                                                                                                                                                                   |
-|                             | Set to ``PF_Cursor_NONE`` to allow After Effects to set the cursor.                                                                                                               |
-|                             | Set to ``PF_Cursor_CUSTOM`` if you've used OS-specific calls to change the cursor (After Effects will honor your changes).                                                        |
+|                             | Set to:                                                                                                                                                                           |
+|                             |                                                                                                                                                                                   |
+|                             |   - ``PF_Cursor_NONE`` to allow After Effects to set the cursor.                                                                                                                  |
+|                             |   - ``PF_Cursor_CUSTOM`` if you've used OS-specific calls to change the cursor (After Effects will honor your changes).                                                           |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
 |                             |                                                                                                                                                                                   |
@@ -123,10 +129,12 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 |                             |   PF_IsRenderEngine(                                                                                                                                                              |
 |                             |     PF_Boolean  *render_enginePB);                                                                                                                                                |
 |                             |                                                                                                                                                                                   |
-|                             | As of AE6.5, this function returns TRUE if the installation is the render engine, or if the After Effects is being run with no UI, or if After Effects is in watched folder mode. |
+|                             | As of AE6.5, this function returns ``TRUE`` if the installation is the render engine,                                                                                             |
+|                             | or if the After Effects is being run with no UI, or if After Effects is in watched folder mode.                                                                                   |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_AppColorPickerDialog`` | Displays the After Effects color picker dialog (which may be the system color picker, depending on the user's preferences).                                                       |
-|                             | Will return PF_Interrupt_CANCEL if user cancels dialog. Returned color is in the project's working color space.                                                                   |
+|                             |                                                                                                                                                                                   |
+|                             | Will return ``PF_Interrupt_CANCEL`` if user cancels dialog. Returned color is in the project's working color space.                                                               |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
 |                             |                                                                                                                                                                                   |
@@ -142,8 +150,12 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 |                             |   PF_GetMouse(                                                                                                                                                                    |
 |                             |     PF_Point  *pointP);                                                                                                                                                           |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_InvalidateRect``       | Queue up a `redraw <#_bookmark482>`__ of a specific area of the custom UI for an effect. Only valid while handling a non-drawing event in the effect.                             |
+| ``PF_InvalidateRect``       | Queue up a :ref:`redraw <effect-ui-events/custom-ui-and-drawbot.redrawing>` of a specific area of the custom UI for an effect.                                                    |
+|                             |                                                                                                                                                                                   |
+|                             | Only valid while handling a non-drawing event in the effect.                                                                                                                      |
+|                             |                                                                                                                                                                                   |
 |                             | Specify ``rectP0`` as ``NULL`` to invalidate the entire window. The redraw will happen at the next available idle moment after returning from the event.                          |
+|                             |                                                                                                                                                                                   |
 |                             | Set the ``PF_EO_UPDATE_NOW`` event outflag to update the window immediately after the event returns.                                                                              |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
@@ -182,7 +194,7 @@ PF_AdvAppSuite2
 |                               |                                                                                                                                                    |
 |                               |   PF_SetProjectDirty(void);                                                                                                                        |
 +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_SaveProject``            | Saves the project to the current path. To save the project elsewhere, use `AEGP_SaveProjectToPath() <#_bookmark566>`__.                            |
+| ``PF_SaveProject``            | Saves the project to the current path. To save the project elsewhere, use :ref:`AEGP_SaveProjectToPath() <aegps/aegp-suites.AEGP_ProjSuite>`.      |
 |                               |                                                                                                                                                    |
 |                               | ::                                                                                                                                                 |
 |                               |                                                                                                                                                    |
@@ -343,7 +355,7 @@ Long ago, we helped a developer integrate their stand-alone tracker with After E
 
 With the numerous AEGP API calls available, these aren't used much, but they're still available.
 
-Don't confuse this suite with `AEGP_ItemSuite <#_bookmark569>`__.
+Don't confuse this suite with :ref:`AEGP_ItemSuite <aegps/aegp-suites.AEGP_ItemSuite>`.
 
 ----
 
@@ -400,7 +412,7 @@ PF_AdvItemSuite1
 Accessing Auxiliary Channel Data
 ================================================================================
 
-Some file types contain more than just pixel data; use `PF_ChannelSuite <#_bookmark361>`__ to determine whether such information is present, and the macros in AE_ChannelSuites.h to retrieve it in the format you need.
+Some file types contain more than just pixel data; use ``PF_ChannelSuite`` to determine whether such information is present, and the macros in AE_ChannelSuites.h to retrieve it in the format you need.
 
 ----
 
@@ -446,30 +458,30 @@ PF_ChannelSuite1
 |                                         |                                                                                                       |
 |                                         | PF_DataType will be one of the following:                                                             |
 |                                         |                                                                                                       |
-|                                         | - ``PF_DataType_FLOAT`` - 34 bytes                                                                    |
-|                                         | - ``PF_DataType_DOUBLE`` - 38 bytes                                                                   |
-|                                         | - ``PF_DataType_LONG`` - 34 bytes                                                                     |
-|                                         | - ``PF_DataType_SHORT`` - 32 bytes                                                                    |
-|                                         | - ``PF_DataType_FIXED_16_16`` - 34 bytes                                                              |
-|                                         | - ``PF_DataType_CHAR`` - 31 byte                                                                      |
-|                                         | - ``PF_DataType_U_BYTE`` - 31 byte                                                                    |
-|                                         | - ``PF_DataType_U_SHORT`` - 32 bytes                                                                  |
-|                                         | - ``PF_DataType_U_FIXED_16_16`` - 34 bytes                                                            |
-|                                         | - ``PF_DataType_RGB`` - 3 bytes                                                                       |
+|                                         |   - ``PF_DataType_FLOAT`` - 34 bytes                                                                  |
+|                                         |   - ``PF_DataType_DOUBLE`` - 38 bytes                                                                 |
+|                                         |   - ``PF_DataType_LONG`` - 34 bytes                                                                   |
+|                                         |   - ``PF_DataType_SHORT`` - 32 bytes                                                                  |
+|                                         |   - ``PF_DataType_FIXED_16_16`` - 34 bytes                                                            |
+|                                         |   - ``PF_DataType_CHAR`` - 31 byte                                                                    |
+|                                         |   - ``PF_DataType_U_BYTE`` - 31 byte                                                                  |
+|                                         |   - ``PF_DataType_U_SHORT`` - 32 bytes                                                                |
+|                                         |   - ``PF_DataType_U_FIXED_16_16`` - 34 bytes                                                          |
+|                                         |   - ``PF_DataType_RGB`` - 3 bytes                                                                     |
 |                                         |                                                                                                       |
 |                                         | PF_ChannelType will be one of the following:                                                          |
 |                                         |                                                                                                       |
-|                                         | - ``PF_ChannelType_DEPTH``                                                                            |
-|                                         | - ``PF_ChannelType_NORMALS``                                                                          |
-|                                         | - ``PF_ChannelType_OBJECTID``                                                                         |
-|                                         | - ``PF_ChannelType_MOTIONVECTOR``                                                                     |
-|                                         | - ``PF_ChannelType_BK_COLOR``                                                                         |
-|                                         | - ``PF_ChannelType_TEXTURE``                                                                          |
-|                                         | - ``PF_ChannelType_COVERAGE``                                                                         |
-|                                         | - ``PF_ChannelType_NODE``                                                                             |
-|                                         | - ``PF_ChannelType_MATERIAL``                                                                         |
-|                                         | - ``PF_ChannelType_UNCLAMPED``                                                                        |
-|                                         | - ``PF_ChannelType_UNKNOWN``                                                                          |
+|                                         |   - ``PF_ChannelType_DEPTH``                                                                          |
+|                                         |   - ``PF_ChannelType_NORMALS``                                                                        |
+|                                         |   - ``PF_ChannelType_OBJECTID``                                                                       |
+|                                         |   - ``PF_ChannelType_MOTIONVECTOR``                                                                   |
+|                                         |   - ``PF_ChannelType_BK_COLOR``                                                                       |
+|                                         |   - ``PF_ChannelType_TEXTURE``                                                                        |
+|                                         |   - ``PF_ChannelType_COVERAGE``                                                                       |
+|                                         |   - ``PF_ChannelType_NODE``                                                                           |
+|                                         |   - ``PF_ChannelType_MATERIAL``                                                                       |
+|                                         |   - ``PF_ChannelType_UNCLAMPED``                                                                      |
+|                                         |   - ``PF_ChannelType_UNKNOWN``                                                                        |
 +-----------------------------------------+-------------------------------------------------------------------------------------------------------+
 | ``PF_CheckoutLayerChannel``             | Retrieves the ``PF_ChannelChunk`` containing the data associated with the given ``PF_ChannelRefPtr``. |
 |                                         |                                                                                                       |

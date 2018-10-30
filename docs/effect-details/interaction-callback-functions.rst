@@ -70,7 +70,7 @@ Interaction Callbacks
 +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_CHECKOUT_PARAM``       | Obtains parameter values, or the source video layer, at a specified time. After Effects makes caching decisions based on the checkout state of parameters.                                                                                        |
 |                             |                                                                                                                                                                                                                                                   |
-|                             | Allocate a new `PF_ParamDef <#_bookmark212>`__ to hold the result; those passed to the plug- in are read-only.                                                                                                                                    |
+|                             | Allocate a new :ref:`effect-basics/PF_ParamDef` to hold the result; those passed to the plug- in are read-only.                                                                                                                                   |
 |                             | If you check out a layer parameter that's set to <none>, the layer returned will be filled with zeros.                                                                                                                                            |
 |                             | Masks are not included with checked- out layers.                                                                                                                                                                                                  |
 |                             |                                                                                                                                                                                                                                                   |
@@ -95,7 +95,9 @@ Interaction Callbacks
 |                             | For footage, AE returns a full image that corresponds to the time asked, which is the nearest-to-left frame.                                                                                                                                      |
 |                             | If the user has frame-blending on that layer, an interpolated frame is generated.                                                                                                                                                                 |
 +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_CHECKIN_PARAM``        | Balance every PF_CHECKOUT_PARAM, with a PF_CHECKIN_PARAM. Not doing so causes dismal performance and leaks memory. Once checked in, the fields in the `PF_ParamDef <#_bookmark212>`__ will no longer be valid.                                    |
+| ``PF_CHECKIN_PARAM``        | Balance every ``PF_CHECKOUT_PARAM``, with a ``PF_CHECKIN_PARAM``.                                                                                                                                                                                 |
+|                             |                                                                                                                                                                                                                                                   |
+|                             | Not doing so causes dismal performance and leaks memory. Once checked in, the fields in the :ref:`effect-basics/PF_ParamDef` will no longer be valid.                                                                                             |
 |                             |                                                                                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                                                                                |
 |                             |                                                                                                                                                                                                                                                   |
@@ -103,7 +105,7 @@ Interaction Callbacks
 |                             |     PF_InData    *in_data,                                                                                                                                                                                                                        |
 |                             |     PF_ParamDef  *param );                                                                                                                                                                                                                        |
 +-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_REGISTER_UI``          | Register a custom user interface element. See `Events <#_bookmark421>`__.                                                                                                                                                                         |
+| ``PF_REGISTER_UI``          | Register a custom user interface element. See :ref:`effect-ui-events/effect-ui-events`.                                                                                                                                                           |
 |                             |                                                                                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                                                                                |
 |                             |                                                                                                                                                                                                                                                   |
@@ -159,7 +161,13 @@ Interaction Callbacks
 Parameter Checkout vs. Param Zero
 ================================================================================
 
-Effects are applied to an image in order from 0 to n within the Effect Control (and Composition) panel. The output from effect[n-1] is the input (`param[0] <#_bookmark214>`__) of effect[n]. On the other hand, when a normal effect checks out a layer using `PF_CHECKOUT_PARAM <#_bookmark288>`__, it receives the raw (un-effected) source layer, regardless of its order. However, when a `SmartFX <#_bookmark401>`__ effect checks out its input parameter (params[0]), previous effects *are* applied.
+Effects are applied to an image in order from 0 to n within the Effect Control (and Composition) panel.
+
+The output from effect[n-1] is the input (:ref:`param[0] <effect-basics/PF_ParamDef.param-zero>`) of effect[n].
+
+On the other hand, when a normal effect checks out a layer using ``PF_CHECKOUT_PARAM``, it receives the raw (un-effected) source layer, regardless of its order.
+
+However, when a :ref:`smartfx/smartfx` effect checks out its input parameter (params[0]), previous effects *are* applied.
 
 ----
 
@@ -168,7 +176,9 @@ Parameter Checkout Behavior
 
 Regardless of whether the layer in and out point have been trimmed, you will get valid frames from the start of the source footage to the end, and then transparent before and after that.
 
-Layer params with a lower frame rate than the composition in which they're checked out are only refreshed as often as necessitated by the lower frame rate. A 10fps layer checked out in a 30fps composition will only need to be refreshed every third frame. if your effect wants to change it's output every frame despite the static input layer, you'd need to set `PF_Outflag_NON_PARAM_VARY <#_bookmark152>`__.
+Layer params with a lower frame rate than the composition in which they're checked out are only refreshed as often as necessitated by the lower frame rate.
+
+A 10fps layer checked out in a 30fps composition will only need to be refreshed every third frame. if your effect wants to change it's output every frame despite the static input layer, you'd need to set :ref:`PF_Outflag_NON_PARAM_VARY <effect-basics/PF_OutData.PF_OutFlags>`.
 
 When an effect checks out a continuously-rasterized Adobe Illustrator layer, After Effects renders the Illustrator layer with geometrics applied, in a composition-sized buffer.
 
@@ -177,18 +187,24 @@ When an effect checks out a continuously-rasterized Adobe Illustrator layer, Aft
 Parameter Checkout And Re-Entrancy
 ================================================================================
 
-Plug-ins that check out layers at different times can generate re-entrant behavior. Consider an instance where the Checkout sample plug-in is applied to a layer in composition B, and B is pre-composed into composition A where Checkout is applied to it as well. When composition A is rendered, Checkout[A] will be sent *PF_Cmd_RENDER*, during which it checks out a layer (composition B) from a time other than the current time. In order to provide that checked-out layer, After Effects sends *PF_Cmd_RENDER* to Checkout[B].
+Plug-ins that check out layers at different times can generate re-entrant behavior. Consider an instance where the Checkout sample plug-in is applied to a layer in composition B, and B is pre-composed into composition A where Checkout is applied to it as well.
+
+When composition A is rendered, Checkout[A] will be sent *PF_Cmd_RENDER*, during which it checks out a layer (composition B) from a time other than the current time.
+
+In order to provide that checked-out layer, After Effects sends *PF_Cmd_RENDER* to ``Checkout[B]``.
 
 Presto, recursion!
 
-If you're going to check out parameters, your effects must handle re-entrant render requests appropriately. Don't use globals, or read or write static variables...but you weren't going to anyway, right?
+If you're going to check out parameters, your effects must handle re-entrant render requests appropriately.
+
+Don't use globals, or read or write static variables...but you weren't going to anyway, right?
 
 ----
 
 Progress During Iteration
 ================================================================================
 
-After Effects strives to be as responsive as possible to user interaction, even while rendering. Do the same through appropriate use of PF_ITERATE(). For example, perhaps you're using a PF_ITERATE'd function three times during your response to `P <#_bookmark95>`__\ *\ \ F_Cmd_RENDER*.
+After Effects strives to be as responsive as possible to user interaction, even while rendering. Do the same through appropriate use of PF_ITERATE(). For example, perhaps you're using a PF_ITERATE'd function three times during your response to ``PF_Cmd_RENDER``.
 
 In this case, you'd start off with::
 

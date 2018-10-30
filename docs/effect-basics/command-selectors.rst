@@ -15,6 +15,8 @@ During events, they receive event-specific information in :ref:`effect-ui-events
 
 ----
 
+.. _effect-basics/calling-sequence:
+
 Calling Sequence
 ================================================================================
 
@@ -22,7 +24,9 @@ Only the first few command selectors are predictable; the rest of the calling se
 
 When first applied, a plug-in receives ``PF_Cmd_GLOBAL_SETUP``, then ``PF_Cmd_PARAM_SETUP``. Each time the user adds the effect to a layer, ``PF_Cmd_SEQUENCE_SETUP`` is sent.
 
-For each frame rendered by a basic non-SmartFX effect, After Effects sends ``PF_Cmd_FRAME_SETUP``, then ``PF_Cmd_RENDER``, then ``PF_Cmd_FRAME_SETDOWN``. All effect plug-ins must respond to ``PF_Cmd_RENDER``\ *.*
+For each frame rendered by a basic non-SmartFX effect, After Effects sends ``PF_Cmd_FRAME_SETUP``, then ``PF_Cmd_RENDER``, then ``PF_Cmd_FRAME_SETDOWN``.
+
+All effect plug-ins must respond to ``PF_Cmd_RENDER``
 
 For SmartFX, ``PF_Cmd_SMART_PRE_RENDER`` may be sent any number of times, before a single ``PF_Cmd_SMART_RENDER`` is sent.
 
@@ -218,16 +222,16 @@ The communication channel between After Effects and your plug-in.
 |                                      | In response, the effect should access its (non-layer) parameters using ``PF_CHECKOUT_PARAM``, and                                                                              |
 |                                      | decide whether any of the flags that support ``PF_Cmd_QUERY_DYNAMIC_FLAGS`` should be set, such as:                                                                            |
 |                                      |                                                                                                                                                                                |
-|                                      | - ``PF_OutFlag_WIDE_TIME_INPUT``                                                                                                                                               |
-|                                      | - ``PF_OutFlag_NON_PARAM_VARY``                                                                                                                                                |
-|                                      | - ``PF_OutFlag_PIX_INDEPENDENT``                                                                                                                                               |
-|                                      | - ``PF_OutFlag_I_USE_SHUTTER_ANGLE``                                                                                                                                           |
-|                                      | - ``PF_OutFlag2_I_USE_3D_CAMERA``                                                                                                                                              |
-|                                      | - ``PF_OutFlag2_I_USE_3D_LIGHTS``                                                                                                                                              |
-|                                      | - ``PF_OutFlag2_DOESNT_NEED_EMPTY_PIXELS``                                                                                                                                     |
-|                                      | - ``PF_OutFlag2_REVEALS_ZERO_ALPHA``                                                                                                                                           |
-|                                      | - ``PF_OutFlag2_DEPENDS_ON_UNREFERENCED_MASKS``                                                                                                                                |
-|                                      | - ``PF_OutFlag2_OUTPUT_IS_WATERMARKED``                                                                                                                                        |
+|                                      |   - ``PF_OutFlag_WIDE_TIME_INPUT``                                                                                                                                             |
+|                                      |   - ``PF_OutFlag_NON_PARAM_VARY``                                                                                                                                              |
+|                                      |   - ``PF_OutFlag_PIX_INDEPENDENT``                                                                                                                                             |
+|                                      |   - ``PF_OutFlag_I_USE_SHUTTER_ANGLE``                                                                                                                                         |
+|                                      |   - ``PF_OutFlag2_I_USE_3D_CAMERA``                                                                                                                                            |
+|                                      |   - ``PF_OutFlag2_I_USE_3D_LIGHTS``                                                                                                                                            |
+|                                      |   - ``PF_OutFlag2_DOESNT_NEED_EMPTY_PIXELS``                                                                                                                                   |
+|                                      |   - ``PF_OutFlag2_REVEALS_ZERO_ALPHA``                                                                                                                                         |
+|                                      |   - ``PF_OutFlag2_DEPENDS_ON_UNREFERENCED_MASKS``                                                                                                                              |
+|                                      |   - ``PF_OutFlag2_OUTPUT_IS_WATERMARKED``                                                                                                                                      |
 |                                      |                                                                                                                                                                                |
 |                                      | After Effects uses this information for caching and optimization purposes, so try to respond as quickly as possible.                                                           |
 +--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

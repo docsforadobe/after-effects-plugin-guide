@@ -281,7 +281,7 @@ It won't open the dialog unless it detects a slow render. (2 seconds timeout).
 What's New In CC 2014 (13.0)?
 ================================================================================
 
-Starting in CC 2014, After Effects will now honor a change to a custom UI height made using `PF_UpdateParamUI <#_bookmark319>`__.
+Starting in CC 2014, After Effects will now honor a change to a custom UI height made using :ref:`PF_UpdateParamUI <effect-detals/parameter-supervision.PF_ParamUtilSuite>`.
 
 `AEGP Effect Suite <#_bookmark610>`__ is now at version 4, adding new functions to work with effect masks. AEGP_RenderSuite is now at version 4, adding a new function
 
@@ -326,13 +326,13 @@ New in 11.0.1, the AE effect API version has been incremented to 13.3. This allo
 What's New In CS6 (11.0)?
 ================================================================================
 
-We've made several refinements for better parameter UI handling. `PF_PUI_INVISIBLE <#_bookmark220>`__ parameter UI flag is now supported in After Effects, which is useful if your plug-in needs hidden parameters that affect rendering. Now when a plug-in disables a parameter using `PF_UpdateParamUI <#_bookmark319>`__, we now save that state in the UI flags so that the plug-in can check the flag in the future to see if it is disabled. A new flag, `PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN <#_bookmark229>`__, allows a parameter to be unhidden without twirling open any parents and without scrolling the parameter into view in the Effect Controls panel and the Timeline panel.
+We've made several refinements for better parameter UI handling. `PF_PUI_INVISIBLE <#_bookmark220>`__ parameter UI flag is now supported in After Effects, which is useful if your plug-in needs hidden parameters that affect rendering. Now when a plug-in disables a parameter using :ref:`PF_UpdateParamUI <effect-detals/parameter-supervision.PF_ParamUtilSuite>`, we now save that state in the UI flags so that the plug-in can check the flag in the future to see if it is disabled. A new flag, `PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN <#_bookmark229>`__, allows a parameter to be unhidden without twirling open any parents and without scrolling the parameter into view in the Effect Controls panel and the Timeline panel.
 
 Effects that render a watermark over the output when the plug-in is in trial mode can now tell After Effects whether watermark rendering mode is on or off, using the new `PF_OutFlag2_OUTPUT_IS_WATERMARKED <#_bookmark187>`__.
 
 The new Global Performance Cache means you must tell After Effects to discard old cached frames `when changing your effect's rendering <#_bookmark396>`__.
 
-We've removed PF_HasParamChanged and PF_HaveInputsChangedOverTimeSpan, providing `PF_AreStatesIdentical <#_bookmark323>`__ instead.
+We've removed PF_HasParamChanged and PF_HaveInputsChangedOverTimeSpan, providing :ref:`PF_AreStatesIdentical <effect-detals/parameter-supervision.PF_ParamUtilSuite>` instead.
 
 Effects that provide custom UI can now receive `PF_Event_MOUSE_EXITED <#_bookmark434>`__, to gain notification that the mouse exited the layer or comp panel. `PF_ParamUtilsSuite <#_bookmark317>`__ is now at version 3.
 

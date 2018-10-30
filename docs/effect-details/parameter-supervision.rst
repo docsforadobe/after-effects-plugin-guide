@@ -3,7 +3,7 @@
 Parameter Supervision
 ################################################################################
 
-Supervision means dynamically changing the values of some parameters based on the values of others. To supervise a parameter, set :ref:`PF_ParamFlag_SUPERVISE <effect-basics/PF_ParamDef.parameter-flags>` before adding it during *PF_Cmd_PARAMS_SETUP*. Whenever it is changed, you will receive :ref:`PF_Cmd_USER_CHANGED_PARAM <effect-basics/command-selectors.messaging>`. The index (into the plug-in's parameter array) of the changed parameter is sent in the PF_UserChangedParamExtra (extra) param. During *PF_Cmd_USER_CHANGED_PARAM*, you may change the values *and* appearance of any of your parameters.
+Supervision means dynamically changing the values of some parameters based on the values of others. To supervise a parameter, set :ref:`PF_ParamFlag_SUPERVISE <effect-basics/PF_ParamDef.parameter-flags>` before adding it during *PF_Cmd_PARAM_SETUP*. Whenever it is changed, you will receive :ref:`PF_Cmd_USER_CHANGED_PARAM <effect-basics/command-selectors.messaging>`. The index (into the plug-in's parameter array) of the changed parameter is sent in the PF_UserChangedParamExtra (extra) param. During *PF_Cmd_USER_CHANGED_PARAM*, you may change the values *and* appearance of any of your parameters.
 
 ----
 

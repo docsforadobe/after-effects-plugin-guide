@@ -9,6 +9,8 @@ effect's parameter array), this function returns a floating point representation
 
 ----
 
+.. _effect-details/parameters-floating-point-values.PF_ColorParamSuite:
+
 PF_ColorParamSuite1
 ================================================================================
 
@@ -25,10 +27,12 @@ PF_ColorParamSuite1
 
 ----
 
-We also provide a way to get floating point values for point parameters.
+.. _effect-details/parameters-floating-point-values.PF_PointParamSuite:
 
 PF_PointParamSuite1
 ================================================================================
+
+We also provide a way to get floating point values for point parameters.
 
 +-------------------------+------------------------------------------------+
 |      **Function**       |                 **Purpose**                    |

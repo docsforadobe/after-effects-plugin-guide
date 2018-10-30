@@ -3,7 +3,7 @@
 PF_OutData
 ################################################################################
 
-Communicate changes made by your plug-in to After Effects using PF_OutData. Valid times for altering these fields are noted.
+Communicate changes made by your plug-in to After Effects using ``PF_OutData``. Valid times for altering these fields are noted.
 
 ----
 
@@ -56,7 +56,11 @@ PF_OutData Members
 PF_OutFlags
 ================================================================================
 
-These flags communicate capability and status information to After Effects. In previous versions they were also used to send rudimentary messages, e.g. refresh the UI, send an error message. These capabilities have been supplanted by function suites, and all new messaging functions will come in that format. However, capability flags are still contained in the `PiPL <#_bookmark55>`__. Update both the PiPL and your source code when you make a change. Many of these flags can be changed during an After Effects session.
+These flags communicate capability and status information to After Effects. In previous versions they were also used to send rudimentary messages, e.g. refresh the UI, send an error message.
+
+These capabilities have been supplanted by function suites, and all new messaging functions will come in that format. However, capability flags are still contained in the :ref:`PiPL <intro/pipl-resources>`.
+
+Update both the PiPL and your source code when you make a change. Many of these flags can be changed during an After Effects session.
 
 +------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |                    **Flag**                    |                                                                         **Indicates**                                                                          |
@@ -189,7 +193,7 @@ These flags communicate capability and status information to After Effects. In p
 +------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_OutFlag_DEEP_COLOR_AWARE``                | The effect handles 16-bpc color.                                                                                                                               |
 +------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_OutFlag_SEND_UPDATE_PARAMS_UI``           | Set this flag during `PF_Cmd_GLOBAL_SETUP <#_bookmark81>`__ to receive `PF_Cmd_UPDATE_PARAMS_UI <#_bookmark109>`__.                                            |
+| ``PF_OutFlag_SEND_UPDATE_PARAMS_UI``           | Set this flag during `PF_Cmd_GLOBAL_SETUP <#_bookmark81>`__ to receive :ref:`PF_Cmd_UPDATE_PARAMS_UI <effect-basics/command-selectors.messaging>`.             |
 +------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_OutFlag_AUDIO_FLOAT_ONLY``                | Effect requires audio data in PF_SIGNED_FLOAT format.                                                                                                          |
 |                                                | After Effects will perform any required format conversion.                                                                                                     |
@@ -224,7 +228,11 @@ These flags communicate capability and status information to After Effects. In p
 PF_OutFlags2
 ================================================================================
 
-We added a second set of outflags in After Effects 5.0; partly for room to expand in the future, and partly to break ourselves of the bad habit of repurposing existing flags. As with PF_OutFlags, many of these flags can be changed during an After Effects session. And don't forget to update both the `PiPL <#_bookmark55>`__ and your source code when you make a change.
+We added a second set of outflags in After Effects 5.0; partly for room to expand in the future, and partly to break ourselves of the bad habit of repurposing existing flags.
+
+As with ``PF_OutFlags``, many of these flags can be changed during an After Effects session.
+
+And don't forget to update both the :ref:`PiPL <intro/pipl-resources>` and your source code when you make a change.
 
 +------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |                          **Flag**                          |                                                                                                                              **Indicates**                                                                                                                              |
@@ -291,7 +299,7 @@ We added a second set of outflags in After Effects 5.0; partly for room to expan
 |                                                            | With this flag set, if a given frame 17 has checked out things from times 0-17, AE will know that any changes at frames 18+ will not affect that cached frame.                                                                                                          |
 |                                                            |                                                                                                                                                                                                                                                                         |
 |                                                            | Note that if you use this new flag, you must not cache any time-dependent data in your sequence data (or anywhere else),                                                                                                                                                |
-|                                                            | unless you also `validate that cache <#_bookmark330>`__ using `PF_GetCurrentState() <#_bookmark321>`__ / `PF_AreStatesIdentical() <#_bookmark323>`__ before using the time- dependent data.                                                                             |
+|                                                            | unless you also `validate that cache <#_bookmark330>`__ using ``PF_GetCurrentState()`` / ``PF_AreStatesIdentical()`` from :ref:`effect-detals/parameter-supervision.PF_ParamUtilSuite` before using the time- dependent data.                                           |
 |                                                            |                                                                                                                                                                                                                                                                         |
 |                                                            | This only works for SmartFX (those that set ``PF_OutFlag2_SUPPORTS_SMART_RENDER``).                                                                                                                                                                                     |
 |                                                            |                                                                                                                                                                                                                                                                         |

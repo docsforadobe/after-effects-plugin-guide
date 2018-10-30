@@ -24,6 +24,8 @@ On macOS:
 
 ----
 
+.. _intro/debugging-plug-ins.deleting-preferences:
+
 Deleting Preferences
 ================================================================================
 

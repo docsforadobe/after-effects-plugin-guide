@@ -25,7 +25,9 @@ Validating Sequence Data
 
 Careful sequence data validation is important for effects that do simulation across time, where frame N is dependent on frame N-1, and you use a cache of calculated data in your sequence data. If a parameter is changed, certain calculated data may no longer be valid, but it would also be wasteful to blindly recalculate everything after every change.
 
-When asked to render frame N, assuming you have your cached data calculated up to frame N-1, call ``PF_GetCurrentState()`` / ``PF_AreStatesIdentical()`` from :ref:`effect-detals/parameter-supervision.PF_ParamUtilSuite` to see if the cache of calculated data is still valid given the current parameter settings. The state of all parameters (except those with `PF_ParamFlag_EXCLUDE_FROM_HAVE_INPUTS_CHANGED <#_bookmark228>`__ set), including layer parameters (including `param[0] <#_bookmark214>`__) are checked over the passed time span.
+When asked to render frame N, assuming you have your cached data calculated up to frame N-1, call ``PF_GetCurrentState()`` / ``PF_AreStatesIdentical()`` from :ref:`effect-detals/parameter-supervision.PF_ParamUtilSuite` to see if the cache of calculated data is still valid given the current parameter settings.
+
+The state of all parameters (except those with :ref:`PF_ParamFlag_EXCLUDE_FROM_HAVE_INPUTS_CHANGED <effect-basics/PF_ParamDef.parameter-flags>` set), including layer parameters (including :ref:`param[0] <effect-basics/PF_ParamDef.param-zero>`) are checked over the passed time span.
 
 This is done efficiently, as the change tracking is done with timestamps.
 

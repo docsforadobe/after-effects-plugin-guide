@@ -199,17 +199,18 @@ Artisan Entry Points
 |                              |     PR_InstanceDataH     instance_dataH);                                                                                            |
 |                              |                                                                                                                                      |
 |                              | ``PR_QueryType`` can be one of the following:                                                                                        |
-|                              | - ``PR_QueryType_NONE = 0``,                                                                                                         |
-|                              | - ``PR_QueryType_TRANSFORM``,                                                                                                        |
-|                              | - ``PR_QueryType_INTERACTIVE_WINDOW_DISPOSE``,                                                                                       |
-|                              | - ``PR_QueryType_INTERACTIVE_WINDOW_CLEAR``,                                                                                         |
-|                              | - ``PR_QueryType_INTERACTIVE_WINDOW_FROZEN_PROXY``,                                                                                  |
-|                              | - ``PR_QueryType_INTERACTIVE_SWAP_BUFFER``,                                                                                          |
-|                              | - ``PR_QueryType_INTERACTIVE_DRAW_PROCS``,                                                                                           |
-|                              | - ``PR_QueryType_PREPARE_FOR_LINE_DRAWING``,                                                                                         |
-|                              | - ``PR_QueryType_UNPREPARE_FOR_LINE_DRAWING``,                                                                                       |
-|                              | - ``PR_QueryType_GET_CURRENT_CONTEXT_SAFE_FOR_LINE_DRAWING``,                                                                        |
-|                              | - ``PR_QueryType_GET_ARTISAN_QUALITY``                                                                                               |
+|                              |                                                                                                                                      |
+|                              |   - ``PR_QueryType_NONE = 0``,                                                                                                       |
+|                              |   - ``PR_QueryType_TRANSFORM``,                                                                                                      |
+|                              |   - ``PR_QueryType_INTERACTIVE_WINDOW_DISPOSE``,                                                                                     |
+|                              |   - ``PR_QueryType_INTERACTIVE_WINDOW_CLEAR``,                                                                                       |
+|                              |   - ``PR_QueryType_INTERACTIVE_WINDOW_FROZEN_PROXY``,                                                                                |
+|                              |   - ``PR_QueryType_INTERACTIVE_SWAP_BUFFER``,                                                                                        |
+|                              |   - ``PR_QueryType_INTERACTIVE_DRAW_PROCS``,                                                                                         |
+|                              |   - ``PR_QueryType_PREPARE_FOR_LINE_DRAWING``,                                                                                       |
+|                              |   - ``PR_QueryType_UNPREPARE_FOR_LINE_DRAWING``,                                                                                     |
+|                              |   - ``PR_QueryType_GET_CURRENT_CONTEXT_SAFE_FOR_LINE_DRAWING``,                                                                      |
+|                              |   - ``PR_QueryType_GET_ARTISAN_QUALITY``                                                                                             |
 |                              |                                                                                                                                      |
 |                              | New in CS6.                                                                                                                          |
 +------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
@@ -337,9 +338,9 @@ AEGP_CanvasSuite8
 |                                              |                                                                                                                               |
 |                                              | ``AEGP_RenderHints`` contains one or more of the following:                                                                   |
 |                                              |                                                                                                                               |
-|                                              | - ``AEGP_RenderHints_NONE``                                                                                                   |
-|                                              | - ``AEGP_RenderHints_IGNORE_EXTENTS``                                                                                         |
-|                                              | - ``AEGP_RenderHints_NO_TRANSFER_MODE``                                                                                       |
+|                                              |   - ``AEGP_RenderHints_NONE``                                                                                                 |
+|                                              |   - ``AEGP_RenderHints_IGNORE_EXTENTS``                                                                                       |
+|                                              |   - ``AEGP_RenderHints_NO_TRANSFER_MODE``                                                                                     |
 |                                              |                                                                                                                               |
 |                                              | ``AEGP_RenderHints_NO_TRANSFER_MODE`` prevents application of opacity & transfer mode; for use with ``RenderLayer`` calls.    |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
@@ -548,9 +549,9 @@ AEGP_CanvasSuite8
 |                                              |                                                                                                                               |
 |                                              | ``AEGP_BinType`` will be one of the following:                                                                                |
 |                                              |                                                                                                                               |
-|                                              | - ``AEGP_BinType_NONE``                                                                                                       |
-|                                              | - ``AEGP_BinType_2D``                                                                                                         |
-|                                              | - ``AEGP_BinType_3D``                                                                                                         |
+|                                              |   - ``AEGP_BinType_NONE``                                                                                                     |
+|                                              |   - ``AEGP_BinType_2D``                                                                                                       |
+|                                              |   - ``AEGP_BinType_3D``                                                                                                       |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetRenderLayerToWorldXform2D3D``      | Retrieves the transform to correctly orient the layer being rendered with the output world.                                   |
 |                                              | Pass ``TRUE`` for ``only_2dB`` to constrain the transform to two dimensions.                                                  |
@@ -667,15 +668,15 @@ AEGP_CanvasSuite8
 |                                           |                                                                                                                                    |
 |                                           | ``AEGP_DisplayChannelType`` will be one of the following:                                                                          |
 |                                           |                                                                                                                                    |
-|                                           | - ``AEGP_DisplayChannel_NONE``                                                                                                     |
-|                                           | - ``AEGP_DisplayChannel_RED``                                                                                                      |
-|                                           | - ``AEGP_DisplayChannel_GREEN``                                                                                                    |
-|                                           | - ``AEGP_DisplayChannel_BLUE``                                                                                                     |
-|                                           | - ``AEGP_DisplayChannel_ALPHA``                                                                                                    |
-|                                           | - ``AEGP_DisplayChannel_RED_ALT``                                                                                                  |
-|                                           | - ``AEGP_DisplayChannel_GREEN_ALT``                                                                                                |
-|                                           | - ``AEGP_DisplayChannel_BLUE_ALT``                                                                                                 |
-|                                           | - ``AEGP_DisplayChannel_ALPHA_ALT``                                                                                                |
+|                                           |   - ``AEGP_DisplayChannel_NONE``                                                                                                   |
+|                                           |   - ``AEGP_DisplayChannel_RED``                                                                                                    |
+|                                           |   - ``AEGP_DisplayChannel_GREEN``                                                                                                  |
+|                                           |   - ``AEGP_DisplayChannel_BLUE``                                                                                                   |
+|                                           |   - ``AEGP_DisplayChannel_ALPHA``                                                                                                  |
+|                                           |   - ``AEGP_DisplayChannel_RED_ALT``                                                                                                |
+|                                           |   - ``AEGP_DisplayChannel_GREEN_ALT``                                                                                              |
+|                                           |   - ``AEGP_DisplayChannel_BLUE_ALT``                                                                                               |
+|                                           |   - ``AEGP_DisplayChannel_ALPHA_ALT``                                                                                              |
 +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetInteractiveExposure``           | Returns the exposure for the given ``PR_RenderContextH``, expressed as a floating point number.                                    |
 |                                           |                                                                                                                                    |
@@ -810,9 +811,9 @@ AEGP_CameraSuite2
 |                                               |                                                                                                     |
 |                                               | The camera type can be the following:                                                               |
 |                                               |                                                                                                     |
-|                                               | - ``AEGP_CameraType_NONE = -1``                                                                     |
-|                                               | - ``AEGP_CameraType_PERSPECTIVE``                                                                   |
-|                                               | - ``AEGP_CameraType_ORTHOGRAPHIC``                                                                  |
+|                                               |   - ``AEGP_CameraType_NONE = -1``                                                                   |
+|                                               |   - ``AEGP_CameraType_PERSPECTIVE``                                                                 |
+|                                               |   - ``AEGP_CameraType_ORTHOGRAPHIC``                                                                |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------+
 | ``AEGP_GetDefaultCameraDistanceToImagePlane`` | Given a composition handle, returns the camera distance to the image plane.                         |
 |                                               |                                                                                                     |
@@ -908,10 +909,10 @@ AEGP_LightSuite2
 |                       |                                                                 |
 |                       | ``AEGP_LightType`` will be one of the following:                |
 |                       |                                                                 |
-|                       | - ``AEGP_LightType_PARALLEL``                                   |
-|                       | - ``AEGP_LightType_SPOT``                                       |
-|                       | - ``AEGP_LightType_POINT``                                      |
-|                       | - ``AEGP_LightType_AMBIENT``                                    |
+|                       |   - ``AEGP_LightType_PARALLEL``                                 |
+|                       |   - ``AEGP_LightType_SPOT``                                     |
+|                       |   - ``AEGP_LightType_POINT``                                    |
+|                       |   - ``AEGP_LightType_AMBIENT``                                  |
 +-----------------------+-----------------------------------------------------------------+
 | ``AEGP_SetLightType`` | Sets the ``AEGP_LightType`` for the specified camera layer.     |
 |                       |                                                                 |
@@ -971,10 +972,10 @@ AEGP_QueryXFormSuite2
 |                                       |                                                                                                                                                   |
 |                                       | The query context will be one of the following:                                                                                                   |
 |                                       |                                                                                                                                                   |
-|                                       | - ``AEGP_Query_Xform_LAYER``,                                                                                                                     |
-|                                       | - ``AEGP_Query_Xform_WORLD``,                                                                                                                     |
-|                                       | - ``AEGP_Query_Xform_VIEW``,                                                                                                                      |
-|                                       | - ``AEGP_Query_Xform_SCREEN``                                                                                                                     |
+|                                       |   - ``AEGP_Query_Xform_LAYER``,                                                                                                                   |
+|                                       |   - ``AEGP_Query_Xform_WORLD``,                                                                                                                   |
+|                                       |   - ``AEGP_Query_Xform_VIEW``,                                                                                                                    |
+|                                       |   - ``AEGP_Query_Xform_SCREEN``                                                                                                                   |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_QueryXformGetDstType``         | Given a query context, returns the currently requested transform destination.                                                                     |
 |                                       |                                                                                                                                                   |

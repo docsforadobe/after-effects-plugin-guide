@@ -228,29 +228,29 @@ AEGP_CommandSuite1
 +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_InsertMenuCommand``    | Add a new menu command. Using nameZ = "-" will insert a separator. menu_ID can be:                                                     |
 |                               |                                                                                                                                        |
-|                               | - ``AEGP_Menu_NONE``                                                                                                                   |
-|                               | - ``AEGP_Menu_APPLE``                                                                                                                  |
-|                               | - ``AEGP_Menu_FILE``                                                                                                                   |
-|                               | - ``AEGP_Menu_EDIT``                                                                                                                   |
-|                               | - ``AEGP_Menu_COMPOSITION``                                                                                                            |
-|                               | - ``AEGP_Menu_LAYER``                                                                                                                  |
-|                               | - ``AEGP_Menu_EFFECT``                                                                                                                 |
-|                               | - ``AEGP_Menu_WINDOW``                                                                                                                 |
-|                               | - ``AEGP_Menu_FLOATERS``                                                                                                               |
-|                               | - ``AEGP_Menu_KF_ASSIST``                                                                                                              |
-|                               | - ``AEGP_Menu_IMPORT``                                                                                                                 |
-|                               | - ``AEGP_Menu_SAVE_FRAME_AS``                                                                                                          |
-|                               | - ``AEGP_Menu_PREFS``                                                                                                                  |
-|                               | - ``AEGP_Menu_EXPORT``                                                                                                                 |
-|                               | - ``AEGP_Menu_ANIMATION``                                                                                                              |
-|                               | - ``AEGP_Menu_PURGE``                                                                                                                  |
-|                               | - ``AEGP_Menu_NEW`` - Supported in CC and later                                                                                        |
+|                               |   - ``AEGP_Menu_NONE``                                                                                                                 |
+|                               |   - ``AEGP_Menu_APPLE``                                                                                                                |
+|                               |   - ``AEGP_Menu_FILE``                                                                                                                 |
+|                               |   - ``AEGP_Menu_EDIT``                                                                                                                 |
+|                               |   - ``AEGP_Menu_COMPOSITION``                                                                                                          |
+|                               |   - ``AEGP_Menu_LAYER``                                                                                                                |
+|                               |   - ``AEGP_Menu_EFFECT``                                                                                                               |
+|                               |   - ``AEGP_Menu_WINDOW``                                                                                                               |
+|                               |   - ``AEGP_Menu_FLOATERS``                                                                                                             |
+|                               |   - ``AEGP_Menu_KF_ASSIST``                                                                                                            |
+|                               |   - ``AEGP_Menu_IMPORT``                                                                                                               |
+|                               |   - ``AEGP_Menu_SAVE_FRAME_AS``                                                                                                        |
+|                               |   - ``AEGP_Menu_PREFS``                                                                                                                |
+|                               |   - ``AEGP_Menu_EXPORT``                                                                                                               |
+|                               |   - ``AEGP_Menu_ANIMATION``                                                                                                            |
+|                               |   - ``AEGP_Menu_PURGE``                                                                                                                |
+|                               |   - ``AEGP_Menu_NEW`` - Supported in CC and later                                                                                      |
 |                               |                                                                                                                                        |
 |                               | Locations can be set to a specific location in the menu or can be one assigned by After Effects:                                       |
 |                               |                                                                                                                                        |
-|                               | - ``AEGP_MENU_INSERT_SORTED``                                                                                                          |
-|                               | - ``AEGP_MENU_INSERT_AT_BOTTOM``                                                                                                       |
-|                               | - ``AEGP_MENU_INSERT_AT_TOP``                                                                                                          |
+|                               |   - ``AEGP_MENU_INSERT_SORTED``                                                                                                        |
+|                               |   - ``AEGP_MENU_INSERT_AT_BOTTOM``                                                                                                     |
+|                               |   - ``AEGP_MENU_INSERT_AT_TOP``                                                                                                        |
 |                               |                                                                                                                                        |
 |                               | For ``AEGP_Menu_WINDOW``, the BOTTOM and TOP options haven't been supported since CS4 and will return an error.                        |
 |                               | We recommend ``SORTED``.                                                                                                               |
@@ -310,12 +310,12 @@ AEGP_CommandSuite1
 |                               |                                                                                                                                        |
 |                               | Having given the disclaimer above, here are a few command numbers that have been supplied to other developers, and may be of interest: |
 |                               |                                                                                                                                        |
-|                               | - 3061 - Open selection, ignoring any modifier keys.                                                                                   |
-|                               | - 10314 - Play/Stop (valid in 13.5 and later)                                                                                          |
-|                               | - 2285 - RAM Preview (valid prior to 13.5)                                                                                             |
-|                               | - 2415 - Play (spacebar) (valid prior to 13.5)                                                                                         |
-|                               | - 2997 - Crop composition to region of interest.                                                                                       |
-|                               | - 2372 - Edit > Purge > Image Caches                                                                                                   |
+|                               |   - 3061 - Open selection, ignoring any modifier keys.                                                                                 |
+|                               |   - 10314 - Play/Stop (valid in 13.5 and later)                                                                                        |
+|                               |   - 2285 - RAM Preview (valid prior to 13.5)                                                                                           |
+|                               |   - 2415 - Play (spacebar) (valid prior to 13.5)                                                                                       |
+|                               |   - 2997 - Crop composition to region of interest.                                                                                     |
+|                               |   - 2372 - Edit > Purge > Image Caches                                                                                                 |
 |                               |                                                                                                                                        |
 |                               | If your AEGP needs to call some other After Effects menu item,                                                                         |
 |                               | there's a fairly easy way to find out most commands you want, using scripting:                                                         |
@@ -468,6 +468,8 @@ To save project-specific data in After Effects' preferences (and thus, outside t
 
 Use caution: the functions for opening and creating projects do not save changes to the project currently open when they are called!
 
+.. _aegps/aegp-suites.AEGP_ProjSuite:
+
 AEGP_ProjSuite6
 ********************************************************************************
 
@@ -618,9 +620,9 @@ AEGP_ProjSuite6
 |                                |                                                                                                                 |
 |                                | AEGP_ProjBitDepth will be one of the following:                                                                 |
 |                                |                                                                                                                 |
-|                                | - ``AEGP_ProjBitDepth_8``                                                                                       |
-|                                | - ``AEGP_ProjBitDepth_16``                                                                                      |
-|                                | - ``AEGP_ProjBitDepth_32``                                                                                      |
+|                                |   - ``AEGP_ProjBitDepth_8``                                                                                     |
+|                                |   - ``AEGP_ProjBitDepth_16``                                                                                    |
+|                                |   - ``AEGP_ProjBitDepth_32``                                                                                    |
 +--------------------------------+-----------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetProjectBitDepth``    | Sets the project bit depth. Undoable.                                                                           |
 |                                |                                                                                                                 |
@@ -643,9 +645,9 @@ AEGP_TimeDisplay2
 +====================================+=============================================================================================================+
 | ``AEGP_TimeDisplayType type;``     | One of the following:                                                                                       |
 |                                    |                                                                                                             |
-|                                    | - ``AEGP_TimeDisplayType_TIMECODE``                                                                         |
-|                                    | - ``AEGP_TimeDisplayType_FRAMES``                                                                           |
-|                                    | - ``AEGP_TimeDisplayType_FEET_AND_FRAMES``                                                                  |
+|                                    |   - ``AEGP_TimeDisplayType_TIMECODE``                                                                       |
+|                                    |   - ``AEGP_TimeDisplayType_FRAMES``                                                                         |
+|                                    |   - ``AEGP_TimeDisplayType_FEET_AND_FRAMES``                                                                |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------+
 | ``A_char timebaseC;``              | 0 - 100. Only used for ``AEGP_TimeDisplayType_TIMECODE``.                                                   |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------+
@@ -737,11 +739,11 @@ AEGP_ItemSuite9
 |                                  |                                                                                                                           |
 |                                  | Items are one of the following types:                                                                                     |
 |                                  |                                                                                                                           |
-|                                  | - ``AEGP_ItemType_NONE``                                                                                                  |
-|                                  | - ``AEGP_ItemType_FOLDER``                                                                                                |
-|                                  | - ``AEGP_ItemType_COMP``                                                                                                  |
-|                                  | - ``AEGP_ItemType_SOLID``                                                                                                 |
-|                                  | - ``AEGP_ItemType_FOOTAGE``                                                                                               |
+|                                  |   - ``AEGP_ItemType_NONE``                                                                                                |
+|                                  |   - ``AEGP_ItemType_FOLDER``                                                                                              |
+|                                  |   - ``AEGP_ItemType_COMP``                                                                                                |
+|                                  |   - ``AEGP_ItemType_SOLID``                                                                                               |
+|                                  |   - ``AEGP_ItemType_FOOTAGE``                                                                                             |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetTypeName``             | Get name of type. (name length up to ``AEGP_MAX_TYPE_NAME_LEN + 1``).                                                     |
 |                                  |                                                                                                                           |
@@ -789,14 +791,14 @@ AEGP_ItemSuite9
 |                                  |                                                                                                                           |
 |                                  | Flag values (may be OR'd together):                                                                                       |
 |                                  |                                                                                                                           |
-|                                  | - ``AEGP_ItemFlag_MISSING``                                                                                               |
-|                                  | - ``AEGP_ItemFlag_HAS_PROXY``                                                                                             |
-|                                  | - ``AEGP_ItemFlag_USING_PROXY``                                                                                           |
-|                                  | - ``AEGP_ItemFlag_MISSING_PROXY``                                                                                         |
-|                                  | - ``AEGP_ItemFlag_HAS_VIDEO``                                                                                             |
-|                                  | - ``AEGP_ItemFlag_HAS_AUDIO``                                                                                             |
-|                                  | - ``AEGP_ItemFlag_STILL``                                                                                                 |
-|                                  | - ``AEGP_ItemFlag_HAS_ACTIVE_AUDIO``                                                                                      |
+|                                  |   - ``AEGP_ItemFlag_MISSING``                                                                                             |
+|                                  |   - ``AEGP_ItemFlag_HAS_PROXY``                                                                                           |
+|                                  |   - ``AEGP_ItemFlag_USING_PROXY``                                                                                         |
+|                                  |   - ``AEGP_ItemFlag_MISSING_PROXY``                                                                                       |
+|                                  |   - ``AEGP_ItemFlag_HAS_VIDEO``                                                                                           |
+|                                  |   - ``AEGP_ItemFlag_HAS_AUDIO``                                                                                           |
+|                                  |   - ``AEGP_ItemFlag_STILL``                                                                                               |
+|                                  |   - ``AEGP_ItemFlag_HAS_ACTIVE_AUDIO``                                                                                    |
 |                                  |                                                                                                                           |
 |                                  | Unlike the ``HAS_AUDIO`` flag, this bit flag will set only if the comp has at least one layer where audio is actually on. |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
@@ -1561,9 +1563,9 @@ AEGP_FootageSuite5
 |                                          |                                                                                                                                                                         |
 |                                          | The signature will be one of the following:                                                                                                                             |
 |                                          |                                                                                                                                                                         |
-|                                          | - ``AEGP_FootageSignature_NONE``                                                                                                                                        |
-|                                          | - ``AEGP_FootageSignature_MISSING``                                                                                                                                     |
-|                                          | - ``AEGP_FootageSignature_SOLID``                                                                                                                                       |
+|                                          |   - ``AEGP_FootageSignature_NONE``                                                                                                                                      |
+|                                          |   - ``AEGP_FootageSignature_MISSING``                                                                                                                                   |
+|                                          |   - ``AEGP_FootageSignature_SOLID``                                                                                                                                     |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_NewFootage``                      | Creates a new footage item. The file path is a NULL- terminated UTF-16 string with platform separators.                                                                 |
 |                                          | Note that footage filenames with colons are not allowed, since colons are used as path separators in the HFS+ file system.                                              |
@@ -1592,14 +1594,14 @@ AEGP_FootageSuite5
 |                                          |                                                                                                                                                                         |
 |                                          | ``AEGP_LayerDrawStyle`` can be:                                                                                                                                         |
 |                                          |                                                                                                                                                                         |
-|                                          | - ``AEGP_LayerDrawStyle_LAYER_BOUNDS``                                                                                                                                  |
-|                                          | - ``AEGP_LayerDrawStyle_DOCUMENT_BOUNDS``                                                                                                                               |
+|                                          |   - ``AEGP_LayerDrawStyle_LAYER_BOUNDS``                                                                                                                                |
+|                                          |   - ``AEGP_LayerDrawStyle_DOCUMENT_BOUNDS``                                                                                                                             |
 |                                          |                                                                                                                                                                         |
 |                                          | ``AEGP_InterpretationStyle`` can be:                                                                                                                                    |
 |                                          |                                                                                                                                                                         |
-|                                          | - ``AEGP_InterpretationStyle_NO_DIALOG_GUESS`` Will guess alpha interpretation even if file contains unknown alpha interpretation and user pref says to ask user.       |
-|                                          | - ``AEGP_InterpretationStyle_DIALOG_OK`` Optionally can show a dialog.                                                                                                  |
-|                                          | - ``AEGP_InterpretationStyle_NO_DIALOG_NO_GUESS`` Used for replace footage implementation.                                                                              |
+|                                          |   - ``AEGP_InterpretationStyle_NO_DIALOG_GUESS`` Will guess alpha interpretation even if file contains unknown alpha interpretation and user pref says to ask user.     |
+|                                          |   - ``AEGP_InterpretationStyle_DIALOG_OK`` Optionally can show a dialog.                                                                                                |
+|                                          |   - ``AEGP_InterpretationStyle_NO_DIALOG_NO_GUESS`` Used for replace footage implementation.                                                                            |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_AddFootageToProject``             | Adds a footage item to a project. Footage will be adopted by the project, and may be added only once.                                                                   |
 |                                          | This is Undo-able; do not dispose of the returned added item if it's undone.                                                                                            |
@@ -1784,10 +1786,10 @@ AEGP_FootageInterp Structure
 |                               |                                                                                        |
 |                               | FIEL_Type is one of the following:                                                     |
 |                               |                                                                                        |
-|                               | - ``FIEL_Type_FRAME_RENDERED``                                                         |
-|                               | - ``FIEL_Type_INTERLACED``                                                             |
-|                               | - ``FIEL_Type_HALF_HEIGHT``                                                            |
-|                               | - ``FIEL_Type_FIELD_DOUBLED``                                                          |
+|                               |   - ``FIEL_Type_FRAME_RENDERED``                                                       |
+|                               |   - ``FIEL_Type_INTERLACED``                                                           |
+|                               |   - ``FIEL_Type_HALF_HEIGHT``                                                          |
+|                               |   - ``FIEL_Type_FIELD_DOUBLED``                                                        |
 |                               |                                                                                        |
 |                               | ``FIEL_Type_FIELD_DOUBLED`` means 60 full-sized field doubled frames per second.       |
 |                               |                                                                                        |
@@ -1803,26 +1805,26 @@ AEGP_FootageInterp Structure
 |                               |                                                                                        |
 |                               | ``AEGP_AlphaFlags`` is one or more of the following, OR'd together:                    |
 |                               |                                                                                        |
-|                               | - ``AEGP_AlphaPremul``                                                                 |
-|                               | - ``AEGP_AlphaInverted``                                                               |
-|                               | - ``AEGP_AlphaIgnore``                                                                 |
+|                               |   - ``AEGP_AlphaPremul``                                                               |
+|                               |   - ``AEGP_AlphaInverted``                                                             |
+|                               |   - ``AEGP_AlphaIgnore``                                                               |
 |                               |                                                                                        |
 |                               | If ``AEGP_AlphaPremul`` is not set, straight alpha is assumed.                         |
 |                               | ``AEGP_AlphaInverted`` indicates that higher values are transparent, instead of lower. |
 +-------------------------------+----------------------------------------------------------------------------------------+
 | ``AEGP_PulldownPhase pd;``    | Indicates the phase for use in 3:2 pulldown. One of the following:                     |
 |                               |                                                                                        |
-|                               | - ``AEGP_PulldownPhase_NO_PULLDOWN``,                                                  |
-|                               | - ``AEGP_PulldownPhase_WSSWW``,                                                        |
-|                               | - ``AEGP_PulldownPhase_SSWWW``,                                                        |
-|                               | - ``AEGP_PulldownPhase_SWWWS``,                                                        |
-|                               | - ``AEGP_PulldownPhase_WWWSS``,                                                        |
-|                               | - ``AEGP_PulldownPhase_WWSSW``,                                                        |
-|                               | - ``AEGP_PulldownPhase_WWWSW``,                                                        |
-|                               | - ``AEGP_PulldownPhase_WWSWW``,                                                        |
-|                               | - ``AEGP_PulldownPhase_WSWWW``,                                                        |
-|                               | - ``AEGP_PulldownPhase_SWWWW``,                                                        |
-|                               | - ``AEGP_PulldownPhase_WWWWS``                                                         |
+|                               |   - ``AEGP_PulldownPhase_NO_PULLDOWN``,                                                |
+|                               |   - ``AEGP_PulldownPhase_WSSWW``,                                                      |
+|                               |   - ``AEGP_PulldownPhase_SSWWW``,                                                      |
+|                               |   - ``AEGP_PulldownPhase_SWWWS``,                                                      |
+|                               |   - ``AEGP_PulldownPhase_WWWSS``,                                                      |
+|                               |   - ``AEGP_PulldownPhase_WWSSW``,                                                      |
+|                               |   - ``AEGP_PulldownPhase_WWWSW``,                                                      |
+|                               |   - ``AEGP_PulldownPhase_WWSWW``,                                                      |
+|                               |   - ``AEGP_PulldownPhase_WSWWW``,                                                      |
+|                               |   - ``AEGP_PulldownPhase_SWWWW``,                                                      |
+|                               |   - ``AEGP_PulldownPhase_WWWWS``                                                       |
 +-------------------------------+----------------------------------------------------------------------------------------+
 | ``AEGP_LoopBehavior loop;``   | Indicates the number of times the footage should loop.                                 |
 |                               |                                                                                        |
@@ -1839,20 +1841,20 @@ AEGP_FootageInterp Structure
 +-------------------------------+----------------------------------------------------------------------------------------+
 | ``A_long depthL;``            | The pixel depth of the footage. One of the following:                                  |
 |                               |                                                                                        |
-|                               | - ``AEGP_Footage_Depth_1``                                                             |
-|                               | - ``AEGP_Footage_Depth_2``                                                             |
-|                               | - ``AEGP_Footage_Depth_4``                                                             |
-|                               | - ``AEGP_Footage_Depth_8``                                                             |
-|                               | - ``AEGP_Footage_Depth_16``                                                            |
-|                               | - ``AEGP_Footage_Depth_24``                                                            |
-|                               | - ``AEGP_Footage_Depth_30``                                                            |
-|                               | - ``AEGP_Footage_Depth_32``                                                            |
-|                               | - ``AEGP_Footage_Depth_GRAY_2``                                                        |
-|                               | - ``AEGP_Footage_Depth_GRAY_4``                                                        |
-|                               | - ``AEGP_Footage_Depth_GRAY_8``                                                        |
-|                               | - ``AEGP_Footage_Depth_48``                                                            |
-|                               | - ``AEGP_Footage_Depth_64``                                                            |
-|                               | - ``AEGP_Footage_Depth_GRAY_16``                                                       |
+|                               |   - ``AEGP_Footage_Depth_1``                                                           |
+|                               |   - ``AEGP_Footage_Depth_2``                                                           |
+|                               |   - ``AEGP_Footage_Depth_4``                                                           |
+|                               |   - ``AEGP_Footage_Depth_8``                                                           |
+|                               |   - ``AEGP_Footage_Depth_16``                                                          |
+|                               |   - ``AEGP_Footage_Depth_24``                                                          |
+|                               |   - ``AEGP_Footage_Depth_30``                                                          |
+|                               |   - ``AEGP_Footage_Depth_32``                                                          |
+|                               |   - ``AEGP_Footage_Depth_GRAY_2``                                                      |
+|                               |   - ``AEGP_Footage_Depth_GRAY_4``                                                      |
+|                               |   - ``AEGP_Footage_Depth_GRAY_8``                                                      |
+|                               |   - ``AEGP_Footage_Depth_48``                                                          |
+|                               |   - ``AEGP_Footage_Depth_64``                                                          |
+|                               |   - ``AEGP_Footage_Depth_GRAY_16``                                                     |
 +-------------------------------+----------------------------------------------------------------------------------------+
 | ``A_Boolean motion_dB;``      | Indicates whether motion de-interlacing is being applied to the footage item.          |
 +-------------------------------+----------------------------------------------------------------------------------------+
@@ -1956,10 +1958,10 @@ AEGP_LayerSuite8
 |                                       |                                                                                                                                                      |
 |                                       | Layer quality is one of the following flags:                                                                                                         |
 |                                       |                                                                                                                                                      |
-|                                       | - ``AEGP_LayerQual_NONE``                                                                                                                            |
-|                                       | - ``AEGP_LayerQual_WIREFRAME``                                                                                                                       |
-|                                       | - ``AEGP_LayerQual_DRAFT``                                                                                                                           |
-|                                       | - ``AEGP_LayerQual_BEST``                                                                                                                            |
+|                                       |   - ``AEGP_LayerQual_NONE``                                                                                                                          |
+|                                       |   - ``AEGP_LayerQual_WIREFRAME``                                                                                                                     |
+|                                       |   - ``AEGP_LayerQual_DRAFT``                                                                                                                         |
+|                                       |   - ``AEGP_LayerQual_BEST``                                                                                                                          |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetLayerQuality``              | Sets the quality of a layer (see flag values above). Undoable.                                                                                       |
 |                                       |                                                                                                                                                      |
@@ -2345,8 +2347,8 @@ AEGP_LayerSuite8
 |                                       |                                                                                                                                                      |
 |                                       | Layer sampling quality is one of the following flags:                                                                                                |
 |                                       |                                                                                                                                                      |
-|                                       | - ``AEGP_LayerSamplingQual_BILINEAR``                                                                                                                |
-|                                       | - ``AEGP_LayerSamplingQual_BICUBIC``                                                                                                                 |
+|                                       |   - ``AEGP_LayerSamplingQual_BILINEAR``                                                                                                              |
+|                                       |   - ``AEGP_LayerSamplingQual_BICUBIC``                                                                                                               |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetLayerSamplingQuality``      | New in CC. Sets the sampling quality of a layer (see flag values above).                                                                             |
 |                                       | Option is explicitly set on the layer independent of layer quality.                                                                                  |
@@ -2452,11 +2454,11 @@ AEGP_EffectSuite4
 |                                         |                                                                                                                                                           |
 |                                         | Flags will be a combination of the following:                                                                                                             |
 |                                         |                                                                                                                                                           |
-|                                         | - ``AEGP_EffectFlags_NONE``                                                                                                                               |
-|                                         | - ``AEGP_EffectFlags_ACTIVE``                                                                                                                             |
-|                                         | - ``AEGP_EffectFlags_AUDIO_ONLY``                                                                                                                         |
-|                                         | - ``AEGP_EffectFlags_AUDIO_TOO``                                                                                                                          |
-|                                         | - ``AEGP_EffectFlags_MISSING``                                                                                                                            |
+|                                         |   - ``AEGP_EffectFlags_NONE``                                                                                                                             |
+|                                         |   - ``AEGP_EffectFlags_ACTIVE``                                                                                                                           |
+|                                         |   - ``AEGP_EffectFlags_AUDIO_ONLY``                                                                                                                       |
+|                                         |   - ``AEGP_EffectFlags_AUDIO_TOO``                                                                                                                        |
+|                                         |   - ``AEGP_EffectFlags_MISSING``                                                                                                                          |
 +-----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetEffectFlags``                 | Sets the flags (enumerated above) for the given ``AEGP_EffectRefH``, masked by a different set of effect flags.                                           |
 |                                         |                                                                                                                                                           |
@@ -2756,12 +2758,12 @@ AEGP_StreamSuite5
 |                                    |                                                                                                                                                       |
 |                                    | ``AEGP_KeyInterpolationMask`` will be a combination of the following:                                                                                 |
 |                                    |                                                                                                                                                       |
-|                                    | - ``AEGP_KeyInterpMask_NONE``                                                                                                                         |
-|                                    | - ``AEGP_KeyInterpMask_LINEAR``                                                                                                                       |
-|                                    | - ``AEGP_KeyInterpMask_BEZIER``                                                                                                                       |
-|                                    | - ``AEGP_KeyInterpMask_HOLD``                                                                                                                         |
-|                                    | - ``AEGP_KeyInterpMask_CUSTOM``                                                                                                                       |
-|                                    | - ``AEGP_KeyInterpMask_ANY``                                                                                                                          |
+|                                    |   - ``AEGP_KeyInterpMask_NONE``                                                                                                                       |
+|                                    |   - ``AEGP_KeyInterpMask_LINEAR``                                                                                                                     |
+|                                    |   - ``AEGP_KeyInterpMask_BEZIER``                                                                                                                     |
+|                                    |   - ``AEGP_KeyInterpMask_HOLD``                                                                                                                       |
+|                                    |   - ``AEGP_KeyInterpMask_CUSTOM``                                                                                                                     |
+|                                    |   - ``AEGP_KeyInterpMask_ANY``                                                                                                                        |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetNewLayerStream``         | Get a layer's data stream. Plug-in must dispose of ``streamPH``. Note that this will not provide keyframe access;                                     |
 |                                    | Use the :ref:`AEGP_KeyframeSuite <aegps/aegp-suites.keyframe-suite>` instead.                                                                         |
@@ -2789,65 +2791,65 @@ AEGP_StreamSuite5
 |                                    |                                                                                                                                                       |
 |                                    | Only valid for ``AEGP_ObjectType_CAMERA``:                                                                                                            |
 |                                    |                                                                                                                                                       |
-|                                    | - ``AEGP_ObjectType_CAMERA``                                                                                                                          |
-|                                    | - ``AEGP_LayerStream_ZOOM``,                                                                                                                          |
-|                                    | - ``AEGP_LayerStream_DEPTH_OF_FIELD``,                                                                                                                |
-|                                    | - ``AEGP_LayerStream_FOCUS_DISTANCE``,                                                                                                                |
-|                                    | - ``AEGP_LayerStream_APERTURE``,                                                                                                                      |
-|                                    | - ``AEGP_LayerStream_BLUR_LEVEL``,                                                                                                                    |
-|                                    | - ``AEGP_LayerStream_IRIS_SHAPE``,                                                                                                                    |
-|                                    | - ``AEGP_LayerStream_IRIS_ROTATION``,                                                                                                                 |
-|                                    | - ``AEGP_LayerStream_IRIS_ROUNDNESS``,                                                                                                                |
-|                                    | - ``AEGP_LayerStream_IRIS_ASPECT_RATIO``,                                                                                                             |
-|                                    | - ``AEGP_LayerStream_IRIS_DIFFRACTION_FRINGE``,                                                                                                       |
-|                                    | - ``AEGP_LayerStream_IRIS_HIGHLIGHT_GAIN``,                                                                                                           |
-|                                    | - ``AEGP_LayerStream_IRIS_HIGHLIGHT_THRESHOLD``,                                                                                                      |
-|                                    | - ``AEGP_LayerStream_IRIS_HIGHLIGHT_SATURATION``,                                                                                                     |
+|                                    |   - ``AEGP_ObjectType_CAMERA``                                                                                                                        |
+|                                    |   - ``AEGP_LayerStream_ZOOM``,                                                                                                                        |
+|                                    |   - ``AEGP_LayerStream_DEPTH_OF_FIELD``,                                                                                                              |
+|                                    |   - ``AEGP_LayerStream_FOCUS_DISTANCE``,                                                                                                              |
+|                                    |   - ``AEGP_LayerStream_APERTURE``,                                                                                                                    |
+|                                    |   - ``AEGP_LayerStream_BLUR_LEVEL``,                                                                                                                  |
+|                                    |   - ``AEGP_LayerStream_IRIS_SHAPE``,                                                                                                                  |
+|                                    |   - ``AEGP_LayerStream_IRIS_ROTATION``,                                                                                                               |
+|                                    |   - ``AEGP_LayerStream_IRIS_ROUNDNESS``,                                                                                                              |
+|                                    |   - ``AEGP_LayerStream_IRIS_ASPECT_RATIO``,                                                                                                           |
+|                                    |   - ``AEGP_LayerStream_IRIS_DIFFRACTION_FRINGE``,                                                                                                     |
+|                                    |   - ``AEGP_LayerStream_IRIS_HIGHLIGHT_GAIN``,                                                                                                         |
+|                                    |   - ``AEGP_LayerStream_IRIS_HIGHLIGHT_THRESHOLD``,                                                                                                    |
+|                                    |   - ``AEGP_LayerStream_IRIS_HIGHLIGHT_SATURATION``,                                                                                                   |
 |                                    |                                                                                                                                                       |
 |                                    | Only valid for ``AEGP_ObjectType_LIGHT``:                                                                                                             |
 |                                    |                                                                                                                                                       |
-|                                    | - ``AEGP_LayerStream_INTENSITY``,                                                                                                                     |
-|                                    | - ``AEGP_LayerStream_COLOR``,                                                                                                                         |
-|                                    | - ``AEGP_LayerStream_CONE_ANGLE``,                                                                                                                    |
-|                                    | - ``AEGP_LayerStream_CONE_FEATHER``,                                                                                                                  |
-|                                    | - ``AEGP_LayerStream_SHADOW_DARKNESS``,                                                                                                               |
-|                                    | - ``AEGP_LayerStream_SHADOW_DIFFUSION``,                                                                                                              |
-|                                    | - ``AEGP_LayerStream_LIGHT_FALLOFF_TYPE``,                                                                                                            |
-|                                    | - ``AEGP_LayerStream_LIGHT_FALLOFF_START``,                                                                                                           |
-|                                    | - ``AEGP_LayerStream_LIGHT_FALLOFF_DISTANCE``,                                                                                                        |
+|                                    |   - ``AEGP_LayerStream_INTENSITY``,                                                                                                                   |
+|                                    |   - ``AEGP_LayerStream_COLOR``,                                                                                                                       |
+|                                    |   - ``AEGP_LayerStream_CONE_ANGLE``,                                                                                                                  |
+|                                    |   - ``AEGP_LayerStream_CONE_FEATHER``,                                                                                                                |
+|                                    |   - ``AEGP_LayerStream_SHADOW_DARKNESS``,                                                                                                             |
+|                                    |   - ``AEGP_LayerStream_SHADOW_DIFFUSION``,                                                                                                            |
+|                                    |   - ``AEGP_LayerStream_LIGHT_FALLOFF_TYPE``,                                                                                                          |
+|                                    |   - ``AEGP_LayerStream_LIGHT_FALLOFF_START``,                                                                                                         |
+|                                    |   - ``AEGP_LayerStream_LIGHT_FALLOFF_DISTANCE``,                                                                                                      |
 |                                    |                                                                                                                                                       |
 |                                    | Only valid for ``AEGP_ObjectType_AV``:                                                                                                                |
 |                                    |                                                                                                                                                       |
-|                                    | - ``AEGP_LayerStream_ACCEPTS_SHADOWS``,                                                                                                               |
-|                                    | - ``AEGP_LayerStream_ACCEPTS_LIGHTS``,                                                                                                                |
-|                                    | - ``AEGP_LayerStream_AMBIENT_COEFF``,                                                                                                                 |
-|                                    | - ``AEGP_LayerStream_DIFFUSE_COEFF``,                                                                                                                 |
-|                                    | - ``AEGP_LayerStream_SPECULAR_INTENSITY``,                                                                                                            |
-|                                    | - ``AEGP_LayerStream_SPECULAR_SHININESS``,                                                                                                            |
-|                                    | - ``AEGP_LayerStream_METAL``,                                                                                                                         |
-|                                    | - ``AEGP_LayerStream_LIGHT_TRANSMISSION``,                                                                                                            |
+|                                    |   - ``AEGP_LayerStream_ACCEPTS_SHADOWS``,                                                                                                             |
+|                                    |   - ``AEGP_LayerStream_ACCEPTS_LIGHTS``,                                                                                                              |
+|                                    |   - ``AEGP_LayerStream_AMBIENT_COEFF``,                                                                                                               |
+|                                    |   - ``AEGP_LayerStream_DIFFUSE_COEFF``,                                                                                                               |
+|                                    |   - ``AEGP_LayerStream_SPECULAR_INTENSITY``,                                                                                                          |
+|                                    |   - ``AEGP_LayerStream_SPECULAR_SHININESS``,                                                                                                          |
+|                                    |   - ``AEGP_LayerStream_METAL``,                                                                                                                       |
+|                                    |   - ``AEGP_LayerStream_LIGHT_TRANSMISSION``,                                                                                                          |
 |                                    |                                                                                                                                                       |
 |                                    | Only valid for ``AEGP_ObjectType_AV``, new in CS6:                                                                                                    |
-|                                    | - ``AEGP_LayerStream_REFLECTION_INTENSITY``,                                                                                                          |
-|                                    | - ``AEGP_LayerStream_REFLECTION_SHARPNESS``,                                                                                                          |
-|                                    | - ``AEGP_LayerStream_REFLECTION_ROLLOFF``,                                                                                                            |
-|                                    | - ``AEGP_LayerStream_TRANSPARENCY_COEFF``,                                                                                                            |
-|                                    | - ``AEGP_LayerStream_TRANSPARENCY_ROLLOFF``,                                                                                                          |
-|                                    | - ``AEGP_LayerStream_INDEX_OF_REFRACTION``,                                                                                                           |
-|                                    | - ``AEGP_LayerStream_EXTRUSION_BEVEL_STYLE``,                                                                                                         |
-|                                    | - ``AEGP_LayerStream_EXTRUSION_BEVEL_DIRECTION``,                                                                                                     |
-|                                    | - ``AEGP_LayerStream_EXTRUSION_BEVEL_DEPTH``,                                                                                                         |
-|                                    | - ``AEGP_LayerStream_EXTRUSION_HOLE_BEVEL_DEPTH``,                                                                                                    |
-|                                    | - ``AEGP_LayerStream_EXTRUSION_DEPTH``,                                                                                                               |
-|                                    | - ``AEGP_LayerStream_PLANE_CURVATURE``,                                                                                                               |
-|                                    | - ``AEGP_LayerStream_PLANE_SUBDIVISION``,                                                                                                             |
+|                                    |   - ``AEGP_LayerStream_REFLECTION_INTENSITY``,                                                                                                        |
+|                                    |   - ``AEGP_LayerStream_REFLECTION_SHARPNESS``,                                                                                                        |
+|                                    |   - ``AEGP_LayerStream_REFLECTION_ROLLOFF``,                                                                                                          |
+|                                    |   - ``AEGP_LayerStream_TRANSPARENCY_COEFF``,                                                                                                          |
+|                                    |   - ``AEGP_LayerStream_TRANSPARENCY_ROLLOFF``,                                                                                                        |
+|                                    |   - ``AEGP_LayerStream_INDEX_OF_REFRACTION``,                                                                                                         |
+|                                    |   - ``AEGP_LayerStream_EXTRUSION_BEVEL_STYLE``,                                                                                                       |
+|                                    |   - ``AEGP_LayerStream_EXTRUSION_BEVEL_DIRECTION``,                                                                                                   |
+|                                    |   - ``AEGP_LayerStream_EXTRUSION_BEVEL_DEPTH``,                                                                                                       |
+|                                    |   - ``AEGP_LayerStream_EXTRUSION_HOLE_BEVEL_DEPTH``,                                                                                                  |
+|                                    |   - ``AEGP_LayerStream_EXTRUSION_DEPTH``,                                                                                                             |
+|                                    |   - ``AEGP_LayerStream_PLANE_CURVATURE``,                                                                                                             |
+|                                    |   - ``AEGP_LayerStream_PLANE_SUBDIVISION``,                                                                                                           |
 |                                    |                                                                                                                                                       |
 |                                    | Only valid for ``LIGHT`` and ``AV`` only:                                                                                                             |
 |                                    |                                                                                                                                                       |
-|                                    | - ``AEGP_LayerStream_CASTS_SHADOWS``,                                                                                                                 |
-|                                    | - ``AEGP_LayerStream_SOURCE_TEXT``                                                                                                                    |
-|                                    | - ``AEGP_LayerStream_BEGIN`` = ``AEGP_LayerStream_ANCHORPOINT``,                                                                                      |
-|                                    | - ``AEGP_LayerStream_END`` = ``AEGP_LayerStream_LIGHT_FALLOFF_DISTANCE + 1``                                                                          |
+|                                    |   - ``AEGP_LayerStream_CASTS_SHADOWS``,                                                                                                               |
+|                                    |   - ``AEGP_LayerStream_SOURCE_TEXT``                                                                                                                  |
+|                                    |   - ``AEGP_LayerStream_BEGIN`` = ``AEGP_LayerStream_ANCHORPOINT``,                                                                                    |
+|                                    |   - ``AEGP_LayerStream_END`` = ``AEGP_LayerStream_LIGHT_FALLOFF_DISTANCE + 1``                                                                        |
 |                                    |                                                                                                                                                       |
 |                                    | ::                                                                                                                                                    |
 |                                    |                                                                                                                                                       |
@@ -2888,8 +2890,8 @@ AEGP_StreamSuite5
 |                                    |                                                                                                                                                       |
 |                                    | Useful for iteration:                                                                                                                                 |
 |                                    |                                                                                                                                                       |
-|                                    | - ``AEGP_MaskStream_BEGIN`` = ``AEGP_MaskStream_OUTLINE``,                                                                                            |
-|                                    | - ``AEGP_MaskStream_END`` = ``AEGP_MaskStream_EXPANSION + 1``                                                                                         |
+|                                    |   - ``AEGP_MaskStream_BEGIN`` = ``AEGP_MaskStream_OUTLINE``,                                                                                          |
+|                                    |   - ``AEGP_MaskStream_END`` = ``AEGP_MaskStream_EXPANSION + 1``                                                                                       |
 |                                    |                                                                                                                                                       |
 |                                    | ::                                                                                                                                                    |
 |                                    |                                                                                                                                                       |
@@ -2942,9 +2944,9 @@ AEGP_StreamSuite5
 |                                    |                                                                                                                                                       |
 |                                    | StreamFlags values:                                                                                                                                   |
 |                                    |                                                                                                                                                       |
-|                                    | - ``AEGP_StreamFlag_NONE``                                                                                                                            |
-|                                    | - ``AEGP_StreamFlag_HAS_MIN``                                                                                                                         |
-|                                    | - ``AEGP_StreamFlag_HAS_MAX``                                                                                                                         |
+|                                    |   - ``AEGP_StreamFlag_NONE``                                                                                                                          |
+|                                    |   - ``AEGP_StreamFlag_HAS_MIN``                                                                                                                       |
+|                                    |   - ``AEGP_StreamFlag_HAS_MAX``                                                                                                                       |
 |                                    |                                                                                                                                                       |
 |                                    | ::                                                                                                                                                    |
 |                                    |                                                                                                                                                       |
@@ -3132,10 +3134,10 @@ AEGP_DynamicStreamSuite4
 |                                     |                                                                                                                                                                         |
 |                                     | AEGP_StreamGroupingType will be one of the following:                                                                                                                   |
 |                                     |                                                                                                                                                                         |
-|                                     | - ``AEGP_StreamGroupingType_NONE``                                                                                                                                      |
-|                                     | - ``AEGP_StreamGroupingType_LEAF``                                                                                                                                      |
-|                                     | - ``AEGP_StreamGroupingType_NAMED_GROUP``                                                                                                                               |
-|                                     | - ``AEGP_StreamGroupingType_INDEXED_GROUP``                                                                                                                             |
+|                                     |   - ``AEGP_StreamGroupingType_NONE``                                                                                                                                    |
+|                                     |   - ``AEGP_StreamGroupingType_LEAF``                                                                                                                                    |
+|                                     |   - ``AEGP_StreamGroupingType_NAMED_GROUP``                                                                                                                             |
+|                                     |   - ``AEGP_StreamGroupingType_INDEXED_GROUP``                                                                                                                           |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetNumStreamsInGroup``       | Retrieves the number of streams associated with the given ``AEGP_StreamRefH``.                                                                                          |
 |                                     | This function will return an error if called with an ``AEGP_StreamRefH`` with type ``AEGP_StreamGroupingType_LEAF``.                                                    |
@@ -3203,22 +3205,22 @@ AEGP_DynamicStreamSuite4
 |                                     |                                                                                                                                                                         |
 |                                     | Here are some handy stream names, for which references may be retrieved:                                                                                                |
 |                                     |                                                                                                                                                                         |
-|                                     | - ``AEGP_StreamGroupName_MASK_PARADE``                                                                                                                                  |
-|                                     | - ``AEGP_StreamGroupName_MASK_ATOM``                                                                                                                                    |
-|                                     | - ``AEGP_StreamName_MASK_FEATHER``                                                                                                                                      |
-|                                     | - ``AEGP_StreamName_MASK_OPACITY``                                                                                                                                      |
-|                                     | - ``AEGP_StreamName_MASK_OFFSET``                                                                                                                                       |
-|                                     | - ``AEGP_StreamGroupName_EFFECT_PARADE``                                                                                                                                |
-|                                     | - ``AEGP_StreamGroupName_LAYER``                                                                                                                                        |
-|                                     | - ``AEGP_StreamGroupName_AV_LAYER``                                                                                                                                     |
-|                                     | - ``AEGP_StreamGroupName_TEXT_LAYER``                                                                                                                                   |
-|                                     | - ``AEGP_StreamGroupName_CAMERA_LAYER``                                                                                                                                 |
-|                                     | - ``AEGP_StreamGroupName_LIGHT_LAYER``                                                                                                                                  |
-|                                     | - ``AEGP_StreamGroupName_AUDIO``                                                                                                                                        |
-|                                     | - ``AEGP_StreamGroupName_MATERIAL_OPTIONS``                                                                                                                             |
-|                                     | - ``AEGP_StreamGroupName_TRANSFORM``                                                                                                                                    |
-|                                     | - ``AEGP_StreamGroupName_LIGHT_OPTIONS``                                                                                                                                |
-|                                     | - ``AEGP_StreamGroupName_CAMERA_OPTIONS``                                                                                                                               |
+|                                     |   - ``AEGP_StreamGroupName_MASK_PARADE``                                                                                                                                |
+|                                     |   - ``AEGP_StreamGroupName_MASK_ATOM``                                                                                                                                  |
+|                                     |   - ``AEGP_StreamName_MASK_FEATHER``                                                                                                                                    |
+|                                     |   - ``AEGP_StreamName_MASK_OPACITY``                                                                                                                                    |
+|                                     |   - ``AEGP_StreamName_MASK_OFFSET``                                                                                                                                     |
+|                                     |   - ``AEGP_StreamGroupName_EFFECT_PARADE``                                                                                                                              |
+|                                     |   - ``AEGP_StreamGroupName_LAYER``                                                                                                                                      |
+|                                     |   - ``AEGP_StreamGroupName_AV_LAYER``                                                                                                                                   |
+|                                     |   - ``AEGP_StreamGroupName_TEXT_LAYER``                                                                                                                                 |
+|                                     |   - ``AEGP_StreamGroupName_CAMERA_LAYER``                                                                                                                               |
+|                                     |   - ``AEGP_StreamGroupName_LIGHT_LAYER``                                                                                                                                |
+|                                     |   - ``AEGP_StreamGroupName_AUDIO``                                                                                                                                      |
+|                                     |   - ``AEGP_StreamGroupName_MATERIAL_OPTIONS``                                                                                                                           |
+|                                     |   - ``AEGP_StreamGroupName_TRANSFORM``                                                                                                                                  |
+|                                     |   - ``AEGP_StreamGroupName_LIGHT_OPTIONS``                                                                                                                              |
+|                                     |   - ``AEGP_StreamGroupName_CAMERA_OPTIONS``                                                                                                                             |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_DeleteStream``               | Deletes the specified stream from a stream grouping.                                                                                                                    |
 |                                     | Note that the caller must still dispose of any ``AEGP_StreamRefH`` it's already acquired (allocated) via the API. Undoable.                                             |
@@ -3556,12 +3558,12 @@ AEGP_KeyframeSuite3
 |                                          |                                                                                                                                                        |
 |                                          | ``*flagsP`` will be a combination of the following:                                                                                                    |
 |                                          |                                                                                                                                                        |
-|                                          | - ``AEGP_KeyframeFlag_NONE``                                                                                                                           |
-|                                          | - ``AEGP_KeyframeFlag_TEMPORAL_CONTINUOUS``                                                                                                            |
-|                                          | - ``AEGP_KeyframeFlag_TEMPORAL_AUTOBEZIER``                                                                                                            |
-|                                          | - ``AEGP_KeyframeFlag_SPATIAL_CONTINUOUS``                                                                                                             |
-|                                          | - ``AEGP_KeyframeFlag_SPATIAL_AUTOBEZIER``                                                                                                             |
-|                                          | - ``AEGP_KeyframeFlag_ROVING``                                                                                                                         |
+|                                          |   - ``AEGP_KeyframeFlag_NONE``                                                                                                                         |
+|                                          |   - ``AEGP_KeyframeFlag_TEMPORAL_CONTINUOUS``                                                                                                          |
+|                                          |   - ``AEGP_KeyframeFlag_TEMPORAL_AUTOBEZIER``                                                                                                          |
+|                                          |   - ``AEGP_KeyframeFlag_SPATIAL_CONTINUOUS``                                                                                                           |
+|                                          |   - ``AEGP_KeyframeFlag_SPATIAL_AUTOBEZIER``                                                                                                           |
+|                                          |   - ``AEGP_KeyframeFlag_ROVING``                                                                                                                       |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetKeyframeFlag``                 | Sets the specified flag for the keyframe. Flags must be set individually.                                                                              |
 |                                          |                                                                                                                                                        |
@@ -3585,10 +3587,10 @@ AEGP_KeyframeSuite3
 |                                          |                                                                                                                                                        |
 |                                          | ``AEGP_KeyframeInterpolationType`` is one of the following:                                                                                            |
 |                                          |                                                                                                                                                        |
-|                                          | - ``AEGP_KeyInterp_NONE``                                                                                                                              |
-|                                          | - ``AEGP_KeyInterp_LINEAR``                                                                                                                            |
-|                                          | - ``AEGP_KeyInterp_BEZIER``                                                                                                                            |
-|                                          | - ``AEGP_KeyInterp_HOLD``                                                                                                                              |
+|                                          |   - ``AEGP_KeyInterp_NONE``                                                                                                                            |
+|                                          |   - ``AEGP_KeyInterp_LINEAR``                                                                                                                          |
+|                                          |   - ``AEGP_KeyInterp_BEZIER``                                                                                                                          |
+|                                          |   - ``AEGP_KeyInterp_HOLD``                                                                                                                            |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetKeyframeInterpolation``        | Specifies the in and out ``AEGP_KeyframeInterpolationTypes`` to be used for the given keyframe.                                                        |
 |                                          |                                                                                                                                                        |
@@ -3702,8 +3704,8 @@ AEGP_MarkerSuite2
 |                                  |                                                                                                                         |
 |                                  | Currently, AEGP_MarkerFlagType is one of the following:                                                                 |
 |                                  |                                                                                                                         |
-|                                  | - ``AEGP_MarkerFlag_NONE``                                                                                              |
-|                                  | - ``AEGP_MarkerFlag_NAVIGATION``                                                                                        |
+|                                  |   - ``AEGP_MarkerFlag_NONE``                                                                                            |
+|                                  |   - ``AEGP_MarkerFlag_NAVIGATION``                                                                                      |
 +----------------------------------+-------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetMarkerFlag``           | Gets the value (see above) of a given ``AEGP_MarkerFlagType``.                                                          |
 |                                  |                                                                                                                         |
@@ -3858,6 +3860,7 @@ AEGP_MaskSuite6
 |                                 |     A_Boolean      invertB);                                                                                                               |
 +---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetMaskMode``            | Given a mask handle, returns the current mode of the mask.                                                                                 |
+|                                 |                                                                                                                                            |
 |                                 | ``PF_MaskMode_NONE`` does nothing,                                                                                                         |
 |                                 | ``PF_MaskMode_ADD`` is the default behavior.                                                                                               |
 |                                 |                                                                                                                                            |
@@ -3893,9 +3896,9 @@ AEGP_MaskSuite6
 |                                 |                                                                                                                                            |
 |                                 | ``AEGP_MaskMBlur`` will be one of the following:                                                                                           |
 |                                 |                                                                                                                                            |
-|                                 | - ``AEGP_MaskMBlur_SAME_AS_LAYER``                                                                                                         |
-|                                 | - ``AEGP_MaskMBlur_OFF``                                                                                                                   |
-|                                 | - ``AEGP_MaskMBlur_ON``                                                                                                                    |
+|                                 |   - ``AEGP_MaskMBlur_SAME_AS_LAYER``                                                                                                       |
+|                                 |   - ``AEGP_MaskMBlur_OFF``                                                                                                                 |
+|                                 |   - ``AEGP_MaskMBlur_ON``                                                                                                                  |
 +---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetMaskMotionBlurState`` | New in CS6. Sets the motion blur setting for the given mask.                                                                               |
 |                                 |                                                                                                                                            |
@@ -4528,10 +4531,10 @@ AEGP_UtilitySuite6
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetPluginPaths``                | New in CC. Returns a particular path associated with the plug-in:                                                                  |
 |                                        |                                                                                                                                    |
-|                                        | - ``AEGP_GetPathTypes_PLUGIN`` - (Not Implemented) The path to the location of the plug-in itself.                                 |
-|                                        | - ``AEGP_GetPathTypes_USER_PLUGIN`` -The suite specific location of user specific plug-ins.                                        |
-|                                        | - ``AEGP_GetPathTypes_ALLUSER_PLUGIN`` - The suite specific location of plug-ins shared by all users.                              |
-|                                        | - ``AEGP_GetPathTypes_APP`` - The After Effects .exe or .app location. Not plug-in specific.                                       |
+|                                        |   - ``AEGP_GetPathTypes_PLUGIN`` - (Not Implemented) The path to the location of the plug-in itself.                               |
+|                                        |   - ``AEGP_GetPathTypes_USER_PLUGIN`` -The suite specific location of user specific plug-ins.                                      |
+|                                        |   - ``AEGP_GetPathTypes_ALLUSER_PLUGIN`` - The suite specific location of plug-ins shared by all users.                            |
+|                                        |   - ``AEGP_GetPathTypes_APP`` - The After Effects .exe or .app location. Not plug-in specific.                                     |
 |                                        |                                                                                                                                    |
 |                                        | ::                                                                                                                                 |
 |                                        |                                                                                                                                    |
@@ -4568,13 +4571,13 @@ AEGP_PersistentDateSuite4
 |                               |                                                                                                    |
 |                               | The ``AEGP_PersistentType`` parameter is new in CC, and should be set to one of the following:     |
 |                               |                                                                                                    |
-|                               | - ``AEGP_PersistentType_MACHINE_SPECIFIC``,                                                        |
-|                               | - ``AEGP_PersistentType_MACHINE_INDEPENDENT``,                                                     |
-|                               | - ``AEGP_PersistentType_MACHINE_INDEPENDENT_RENDER``,                                              |
-|                               | - ``AEGP_PersistentType_MACHINE_INDEPENDENT_OUTPUT``,                                              |
-|                               | - ``AEGP_PersistentType_MACHINE_INDEPENDENT_COMPOSITION``                                          |
-|                               | - ``AEGP_PersistentType_MACHINE_SPECIFIC_TEXT``,                                                   |
-|                               | - ``AEGP_PersistentType_MACHINE_SPECIFIC_PAINT``                                                   |
+|                               |   - ``AEGP_PersistentType_MACHINE_SPECIFIC``,                                                      |
+|                               |   - ``AEGP_PersistentType_MACHINE_INDEPENDENT``,                                                   |
+|                               |   - ``AEGP_PersistentType_MACHINE_INDEPENDENT_RENDER``,                                            |
+|                               |   - ``AEGP_PersistentType_MACHINE_INDEPENDENT_OUTPUT``,                                            |
+|                               |   - ``AEGP_PersistentType_MACHINE_INDEPENDENT_COMPOSITION``                                        |
+|                               |   - ``AEGP_PersistentType_MACHINE_SPECIFIC_TEXT``,                                                 |
+|                               |   - ``AEGP_PersistentType_MACHINE_SPECIFIC_PAINT``                                                 |
 |                               |                                                                                                    |
 |                               | ::                                                                                                 |
 |                               |                                                                                                    |
@@ -4817,6 +4820,8 @@ Color Management
 ================================================================================
 
 We've provided a function so AEGPs can obtain information on After Effects' current color management settings.
+
+.. _aegps/aegp-suites.AEGP_ColorSettingsSuite:
 
 AEGP_ColorSettingsSuite2
 ********************************************************************************
@@ -5076,9 +5081,9 @@ AEGP_RenderOptionsSuite4
 |                               | ``AEGP_MatteMode`` will be one of the following:                                                                                                            |
 |                               |                                                                                                                                                             |
 |                               |                                                                                                                                                             |
-|                               | - ``AEGP_MatteMode_STRAIGHT``                                                                                                                               |
-|                               | - ``AEGP_MatteMode_PREMUL_BLACK``                                                                                                                           |
-|                               | - ``AEGP_MatteMode_PREMUL_BG_COLOR``                                                                                                                        |
+|                               |   - ``AEGP_MatteMode_STRAIGHT``                                                                                                                             |
+|                               |   - ``AEGP_MatteMode_PREMUL_BLACK``                                                                                                                         |
+|                               |   - ``AEGP_MatteMode_PREMUL_BG_COLOR``                                                                                                                      |
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetMatteMode``         | Retrieves the ``AEGP_MatteMode`` for the given ``AEGP_RenderOptionsH``.                                                                                     |
 |                               |                                                                                                                                                             |
@@ -5271,9 +5276,9 @@ AEGP_LayerRenderOptionsSuite1
 |                                  |                                                                                                                                 |
 |                                  | AEGP_MatteMode will be one of the following:                                                                                    |
 |                                  |                                                                                                                                 |
-|                                  | - ``AEGP_MatteMode_STRAIGHT``                                                                                                   |
-|                                  | - ``AEGP_MatteMode_PREMUL_BLACK``                                                                                               |
-|                                  | - ``AEGP_MatteMode_PREMUL_BG_COLOR``                                                                                            |
+|                                  |   - ``AEGP_MatteMode_STRAIGHT``                                                                                                 |
+|                                  |   - ``AEGP_MatteMode_PREMUL_BLACK``                                                                                             |
+|                                  |   - ``AEGP_MatteMode_PREMUL_BG_COLOR``                                                                                          |
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetMatteMode``            | Retrieves the AEGP_MatteMode for the given ``AEGP_LayerRenderOptionsH``.                                                        |
 |                                  |                                                                                                                                 |
@@ -5483,9 +5488,9 @@ AEGP_WorldSuite3
 |                                        |                                                                                                                                       |
 |                                        | AEGP_WorldType will be one of the following:                                                                                          |
 |                                        |                                                                                                                                       |
-|                                        | - ``AEGP_WorldType_8``,                                                                                                               |
-|                                        | - ``AEGP_WorldType_16``,                                                                                                              |
-|                                        | - ``AEGP_WorldType_32``                                                                                                               |
+|                                        |   - ``AEGP_WorldType_8``,                                                                                                             |
+|                                        |   - ``AEGP_WorldType_16``,                                                                                                            |
+|                                        |   - ``AEGP_WorldType_32``                                                                                                             |
 +----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetSize``                       | Returns the width and height of the given ``AEGP_WorldH``.                                                                            |
 |                                        |                                                                                                                                       |
@@ -5755,9 +5760,9 @@ Audio render settings are represented using the ``AEGP_SoundDataFormat``.
 
 ``AEGP_SoundEncoding`` is one of the following:
 
-- ``AEGP_SoundEncoding_UNSIGNED_PCM``
-- ``AEGP_SoundEncoding_SIGNED_PCM``
-- ``AEGP_SoundEncoding_FLOAT``
+  - ``AEGP_SoundEncoding_UNSIGNED_PCM``
+  - ``AEGP_SoundEncoding_SIGNED_PCM``
+  - ``AEGP_SoundEncoding_FLOAT``
 
 ----
 
@@ -5900,10 +5905,10 @@ AEGP_RQItemSuite4
 |                                       |                                                                                                                                           |
 |                                       | ``AEGP_LogtType`` will have one of the following values:                                                                                  |
 |                                       |                                                                                                                                           |
-|                                       | - ``AEGP_LogType_NONE``                                                                                                                   |
-|                                       | - ``AEGP_LogType_ERRORS_ONLY``                                                                                                            |
-|                                       | - ``AEGP_LogType_PLUS_SETTINGS``                                                                                                          |
-|                                       | - ``AEGP_LogType_PER_FRAME_INFO``                                                                                                         |
+|                                       |   - ``AEGP_LogType_NONE``                                                                                                                 |
+|                                       |   - ``AEGP_LogType_ERRORS_ONLY``                                                                                                          |
+|                                       |   - ``AEGP_LogType_PLUS_SETTINGS``                                                                                                        |
+|                                       |   - ``AEGP_LogType_PER_FRAME_INFO``                                                                                                       |
 +---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetLogType``                   | Specifies the log type to be used with the referenced ``AEGP_RQItemRefH``.                                                                |
 |                                       |                                                                                                                                           |
@@ -6023,10 +6028,10 @@ AEGP_RenderQueueMonitorSuite1
 |                                              |                                                                                                                                                   |
 |                                              | ``AEGP_RQM_FinishedStatus`` will be one of the following:                                                                                         |
 |                                              |                                                                                                                                                   |
-|                                              | - ``AEGP_RQM_FinishedStatus_UNKNOWN``,                                                                                                            |
-|                                              | - ``AEGP_RQM_FinishedStatus_SUCCEEDED``,                                                                                                          |
-|                                              | - ``AEGP_RQM_FinishedStatus_ABORTED``,                                                                                                            |
-|                                              | - ``AEGP_RQM_FinishedStatus_ERRED``                                                                                                               |
+|                                              |   - ``AEGP_RQM_FinishedStatus_UNKNOWN``,                                                                                                          |
+|                                              |   - ``AEGP_RQM_FinishedStatus_SUCCEEDED``,                                                                                                        |
+|                                              |   - ``AEGP_RQM_FinishedStatus_ABORTED``,                                                                                                          |
+|                                              |   - ``AEGP_RQM_FinishedStatus_ERRED``                                                                                                             |
 |                                              |                                                                                                                                                   |
 |                                              | The AEGP_RQM_BasicData is defined below.                                                                                                          |
 |                                              |                                                                                                                                                   |
@@ -6259,9 +6264,9 @@ AEGP_OutputModuleSuite4
 |                                   |                                                                                                                                                       |
 |                                   | ``AEGP_EmbeddingType`` will be one of the following:                                                                                                  |
 |                                   |                                                                                                                                                       |
-|                                   | - ``AEGP_Embedding_NOTHING``                                                                                                                          |
-|                                   | - ``AEGP_Embedding_LINK``                                                                                                                             |
-|                                   | - ``AEGP_Embedding_LINK_AND_COPY``                                                                                                                    |
+|                                   |   - ``AEGP_Embedding_NOTHING``                                                                                                                        |
+|                                   |   - ``AEGP_Embedding_LINK``                                                                                                                           |
+|                                   |   - ``AEGP_Embedding_LINK_AND_COPY``                                                                                                                  |
 +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetEmbedOptions``          | Specifies the embedding setting for the referenced ``AEGP_OutputModuleRefH``.                                                                         |
 |                                   |                                                                                                                                                       |
@@ -6283,9 +6288,9 @@ AEGP_OutputModuleSuite4
 |                                   |                                                                                                                                                       |
 |                                   | ``AEGP_PostRenderAction`` will be one of the following:                                                                                               |
 |                                   |                                                                                                                                                       |
-|                                   | - ``AEGP_PostRenderOptions_IMPORT``                                                                                                                   |
-|                                   | - ``AEGP_PostRenderOptions_IMPORT_AND_REPLACE_USAGE``                                                                                                 |
-|                                   | - ``AEGP_PostRenderOptions_SET_PROXY``                                                                                                                |
+|                                   |   - ``AEGP_PostRenderOptions_IMPORT``                                                                                                                 |
+|                                   |   - ``AEGP_PostRenderOptions_IMPORT_AND_REPLACE_USAGE``                                                                                               |
+|                                   |   - ``AEGP_PostRenderOptions_SET_PROXY``                                                                                                              |
 +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetPostRenderAction``      | Specifies the post-render action setting for the referenced ``AEGP_OutputModuleRefH``.                                                                |
 |                                   |                                                                                                                                                       |
@@ -6307,8 +6312,8 @@ AEGP_OutputModuleSuite4
 |                                   |                                                                                                                                                       |
 |                                   | ``AEGP_OutputTypes`` will contain one or both of the following values:                                                                                |
 |                                   |                                                                                                                                                       |
-|                                   | - ``AEGP_OutputType_VIDEO``                                                                                                                           |
-|                                   | - ``AEGP_OutputType_AUDIO``                                                                                                                           |
+|                                   |   - ``AEGP_OutputType_VIDEO``                                                                                                                         |
+|                                   |   - ``AEGP_OutputType_AUDIO``                                                                                                                         |
 |                                   |                                                                                                                                                       |
 |                                   | NOTE: These are flags, not an enumeration.                                                                                                            |
 +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -6332,9 +6337,9 @@ AEGP_OutputModuleSuite4
 |                                   |                                                                                                                                                       |
 |                                   | ``AEGP_VideoChannels`` will be one of the following:                                                                                                  |
 |                                   |                                                                                                                                                       |
-|                                   | - ``AEGP_VideoChannels_RGB``                                                                                                                          |
-|                                   | - ``AEGP_VideoChannels_RGBA``                                                                                                                         |
-|                                   | - ``AEGP_VideoChannels_ALPHA``                                                                                                                        |
+|                                   |   - ``AEGP_VideoChannels_RGB``                                                                                                                        |
+|                                   |   - ``AEGP_VideoChannels_RGBA``                                                                                                                       |
+|                                   |   - ``AEGP_VideoChannels_ALPHA``                                                                                                                      |
 +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetOutputChannels``        | Specifies which video channels are enabled for output in the referenced ``AEGP_OutputModuleRefH``.                                                    |
 |                                   |                                                                                                                                                       |
@@ -6359,8 +6364,8 @@ AEGP_OutputModuleSuite4
 |                                   |                                                                                                                                                       |
 |                                   | ``AEGP_StretchQuality`` will be one of the following:                                                                                                 |
 |                                   |                                                                                                                                                       |
-|                                   | - ``AEGP_StretchQual_LOW``                                                                                                                            |
-|                                   | - ``AEGP_StretchQual_HIGH``                                                                                                                           |
+|                                   |   - ``AEGP_StretchQual_LOW``                                                                                                                          |
+|                                   |   - ``AEGP_StretchQual_HIGH``                                                                                                                         |
 +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetStretchInfo``           | Retrieves the stretch information enabled for the referenced ``AEGP_OutputModuleRefH``.                                                               |
 |                                   |                                                                                                                                                       |

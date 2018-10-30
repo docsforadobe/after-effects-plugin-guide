@@ -37,9 +37,9 @@ PF_WorldTransformSuite1
 |                     |                                                                                                                                                                             |
 |                     | ``xfer_mode`` is one of the following:                                                                                                                                      |
 |                     |                                                                                                                                                                             |
-|                     | - ``PF_Xfer_COPY``                                                                                                                                                          |
-|                     | - ``PF_Xfer_BEHIND``                                                                                                                                                        |
-|                     | - ``PF_Xfer_IN_FRONT``                                                                                                                                                      |
+|                     |   - ``PF_Xfer_COPY``                                                                                                                                                        |
+|                     |   - ``PF_Xfer_BEHIND``                                                                                                                                                      |
+|                     |   - ``PF_Xfer_IN_FRONT``                                                                                                                                                    |
 +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``blend``           | Blends two images, alpha-weighted. Does not deal with different-sized sources, though the destination may be either PF_EffectWorld.                                         |
 |                     |                                                                                                                                                                             |
@@ -53,8 +53,12 @@ PF_WorldTransformSuite1
 |                     |     PF_EffectWorld        *dst);                                                                                                                                            |
 +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``convolve``        | Convolve an image with an arbitrary size kernel on each of the a, r, g, and b channels separately.                                                                          |
+|                     |                                                                                                                                                                             |
 |                     | You can specify a rectangle to convolve (for instance, the ``extent_hint`` from :ref:`effect-basics/PF_EffectWorld.structure`), or pass 0 to convolve the entire image.     |
-|                     | Do not use if the source *is* the destination. Describe the convolution using :ref:`effect-details/graphics-utility-suites.kernel-flags`.                                   |
+|                     |                                                                                                                                                                             |
+|                     | Do not use if the source *is* the destination.                                                                                                                              |
+|                     |                                                                                                                                                                             |
+|                     | Describe the convolution using :ref:`effect-details/graphics-utility-suites.kernel-flags`.                                                                                  |
 |                     |                                                                                                                                                                             |
 |                     | ::                                                                                                                                                                          |
 |                     |                                                                                                                                                                             |
@@ -99,6 +103,7 @@ PF_WorldTransformSuite1
 |                     |     PF_EffectWorld          *dst_world);                                                                                                                                    |
 +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``transform_world`` | Given a PF_EffectWorld and a matrix (or array of matrices), transforms and blends using an After Effects transfer mode, with an optional mask.                              |
+|                     |                                                                                                                                                                             |
 |                     | The matrices pointer points to a matrix array used for motion-blur.                                                                                                         |
 |                     |                                                                                                                                                                             |
 |                     | When is a transform not a transform? A Z-scale transform is not a transform, unless the transformed layer is a parent of other layers that do not all lie in the z=0 plane. |
@@ -135,29 +140,36 @@ The flags relevant to given routines are documented along with the routine proto
 |              Kernel Flags               |                                                                                               Indicates                                                                                               |
 +=========================================+=======================================================================================================================================================================================================+
 | ``PF_KernelFlag_2D``                    | Specifies a one or two dimensional kernel.                                                                                                                                                            |
+|                                         |                                                                                                                                                                                                       |
 | ``PF_KernelFlag_1D``                    |                                                                                                                                                                                                       |
 +-----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_KernelFlag_UNNORMALIZED``          | ``NORMALIZED`` equalizes the kernel;the volume under the kernel surface is the same as the volume under the covered area of pixels.                                                                   |
+| ``PF_KernelFlag_UNNORMALIZED``          | ``NORMALIZED`` equalizes the kernel; the volume under the kernel surface is the same as the volume under the covered area of pixels.                                                                  |
+|                                         |                                                                                                                                                                                                       |
 | ``PF_KernelFlag_NORMALIZED``            |                                                                                                                                                                                                       |
 +-----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_KernelFlag_CLAMP``                 | ``CLAMP`` restricts values to the valid range for their data type.                                                                                                                                    |
+|                                         |                                                                                                                                                                                                       |
 | ``PF_KernelFlag_NO_CLAMP``              |                                                                                                                                                                                                       |
 +-----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_KernelFlag_USE_LONG``              | ``USE_LONG`` defines the kernel as an array of longs valued from 0 to 255.                                                                                                                            |
+|                                         |                                                                                                                                                                                                       |
 | ``PF_KernelFlag_USE_CHAR``              | ``USE_CHAR`` defines the kernel as an array of unsigned chars from 0 to 255.                                                                                                                          |
+|                                         |                                                                                                                                                                                                       |
 | ``PF_KernelFlag_USE_FIXED``             | ``USE_FIXED`` defines the kernel as an array of fixeds from 0 to 1.                                                                                                                                   |
+|                                         |                                                                                                                                                                                                       |
 | ``PF_KernelFlag_USE_UNDEFINED``         | ``USE_LONG`` is the only implemented flag.                                                                                                                                                            |
 +-----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_KernelFlag_HORIZONTAL``            | Specifies the direction of the convolution.                                                                                                                                                           |
+|                                         |                                                                                                                                                                                                       |
 | ``PF_KernelFlag_VERTICAL``              |                                                                                                                                                                                                       |
 +-----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_KernelFlag_TRANSPARENT_BORDERS``   | Use ``REPLICATE_BORDERS`` to replicate border pixels when sampling off the edge, use ``TRANSPARENT_BORDERS`` to treat pixels off the edge as alpha zero (black).                                      |
-| ``PF_KernelFlag_REPLICATE_BORDERS``     |                                                                                                                                                                                                       |
-|                                         | ``REPLICATE_BORDERS`` is not implemented and will be ignored.                                                                                                                                         |
+|                                         |                                                                                                                                                                                                       |
+| ``PF_KernelFlag_REPLICATE_BORDERS``     | ``REPLICATE_BORDERS`` is not implemented and will be ignored.                                                                                                                                         |
 +-----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PF_KernelFlag_STRAIGHT_CONVOLVE``     | Use ``STRAIGHT_CONVOLVE`` to indicate straight convolution, use ``ALPHA_WEIGHT_CONVOLVE`` to tell the convolution code to alpha-weight the contributions of pixels to the resulting convolved output. |
-| ``PF_KernelFlag_ALPHA_WEIGHT_CONVOLVE`` |                                                                                                                                                                                                       |
-|                                         | ``ALPHA_WEIGHT_CONVOLVE`` is not implemented and will be ignored.                                                                                                                                     |
+|                                         |                                                                                                                                                                                                       |
+| ``PF_KernelFlag_ALPHA_WEIGHT_CONVOLVE`` | ``ALPHA_WEIGHT_CONVOLVE`` is not implemented and will be ignored.                                                                                                                                     |
 +-----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
@@ -173,7 +185,9 @@ PF_FillMatteSuite2
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
 |        **Function**         |                                                                  **Purpose**                                                                   |
 +=============================+================================================================================================================================================+
-| ``fill``                    | Fills a rect with a color (or, if the color pointer is null, fills with black and alpha zero). If the rect is null, it fills the entire image. |
+| ``fill``                    | Fills a rect with a color (or, if the color pointer is null, fills with black and alpha zero).                                                 |
+|                             |                                                                                                                                                |
+|                             | If the rect is null, it fills the entire image.                                                                                                |
 |                             |                                                                                                                                                |
 |                             | ::                                                                                                                                             |
 |                             |                                                                                                                                                |
@@ -187,10 +201,13 @@ PF_FillMatteSuite2
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``fill_float``              | Takes a pointer to a PF_PixelFloat color.                                                                                                      |
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``premultiply``             | Converts to (and from) r, g, and b color values pre-multiplied with black to represent the alpha channel. Quality independent.                 |
-|                             | ``forward`` is used as a boolean;                                                                                                              |
-|                             | ``true`` means convert non-premultiplied to pre-multiplied,                                                                                    |
-|                             | ``false`` mean un-pre-multiply.                                                                                                                |
+| ``premultiply``             | Converts to (and from) r, g, and b color values pre-multiplied with black to represent the alpha channel.                                      |
+|                             |                                                                                                                                                |
+|                             | Quality independent.                                                                                                                           |
+|                             |                                                                                                                                                |
+|                             | - ``forward`` is used as a boolean;                                                                                                            |
+|                             | - ``true`` means convert non-premultiplied to pre-multiplied,                                                                                  |
+|                             | - ``false`` mean un-pre-multiply.                                                                                                              |
 |                             |                                                                                                                                                |
 |                             | ::                                                                                                                                             |
 |                             |                                                                                                                                                |
@@ -243,7 +260,9 @@ PF_SamplingSuite Functions (Multiple Suites)
 | ``nn_sample_float``       | Takes a pointer to a ``PF_PixelFloat`` ``dst_pixel``.                                                                                                                                                                       |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``subpixel_sample``       | Queries the appropriate alpha-weighted interpolation of colors at a non-integral point in a source image, in high quality. Nearest neighbor sampling is used in low quality.                                                |
+|                           |                                                                                                                                                                                                                             |
 |                           | Because the sampling routine, if used, will typically be called many times, it is convenient to copy the function pointer out to the callbacks structure and into a register or onto the stack to speed up your inner loop. |
+|                           |                                                                                                                                                                                                                             |
 |                           | See the sample code for an example.                                                                                                                                                                                         |
 |                           |                                                                                                                                                                                                                             |
 |                           | NOTE: The sampling assumes that 0,0 is the center of the top left pixel.                                                                                                                                                    |
@@ -262,6 +281,7 @@ PF_SamplingSuite Functions (Multiple Suites)
 | ``subpixel_sample_float`` | Takes a pointer to a ``PF_PixelFloat*`` ``dst_pixel``.                                                                                                                                                                      |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``area_sample``           | Use this to calculate the appropriate alpha weighted average of an axis- aligned non-integral rectangle of color in a source image, in high quality.                                                                        |
+|                           |                                                                                                                                                                                                                             |
 |                           | Nearest neighbor sampling is used in low quality. Because of overflow issues, this can only average a maximum of a 256 x 256 pixel area (i.e. x and y radius < 128 pixels).                                                 |
 |                           |                                                                                                                                                                                                                             |
 |                           | NOTE: the sampling radius must be at least one in both x and y.                                                                                                                                                             |
@@ -287,6 +307,7 @@ PF_BatchSamplingSuite1 Functions
 |     **Function**     |                                         **Purpose**                                         |
 +======================+=============================================================================================+
 | ``begin_sampling``   | Your effect is going to perform some batch sampling;                                        |
+|                      |                                                                                             |
 |                      | After Effects will perform setup tasks to optimize your sampling.                           |
 |                      |                                                                                             |
 |                      | ::                                                                                          |
