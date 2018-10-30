@@ -349,6 +349,7 @@ AEGP_RegisterSuites5
 |               **Function**                |                                                              **Purpose**                                                               |
 +===========================================+========================================================================================================================================+
 | ``AEGP_RegisterCommandHook``              | Register a hook (command handler) function with After Effects.                                                                         |
+|                                           |                                                                                                                                        |
 |                                           | If you are replacing a function which After Effects also handles, ``AEGP_HookPriority`` determines whether your plug-in gets it first. |
 |                                           |                                                                                                                                        |
 |                                           | - ``AEGP_HP_BeforeAE``                                                                                                                 |
@@ -372,6 +373,7 @@ AEGP_RegisterSuites5
 +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_RegisterUpdateMenuHook``           | Register your menu update function (which determines whether or not items are active),                                                 |
 |                                           | called every time any menu is to be drawn.                                                                                             |
+|                                           |                                                                                                                                        |
 |                                           | This hook function handles updates for all menus.                                                                                      |
 |                                           |                                                                                                                                        |
 |                                           | ::                                                                                                                                     |
@@ -396,7 +398,7 @@ AEGP_RegisterSuites5
 +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_RegisterAboutHook``                | Currently not called.                                                                                                                  |
 +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_RegisterArtisan``                  | Register your Artisan. See the :ref:`artisans/artisans` chapter for more details.                                                      |
+| ``AEGP_RegisterArtisan``                  | Register your Artisan. See :ref:`artisans/artisans` for more details.                                                                  |
 |                                           |                                                                                                                                        |
 |                                           | ::                                                                                                                                     |
 |                                           |                                                                                                                                        |
@@ -409,7 +411,7 @@ AEGP_RegisterSuites5
 |                                           |     const A_char           *Artisan_nameZ,                                                                                             |
 |                                           |     PR_ArtisanEntryPoints  *entry_funcsP);                                                                                             |
 +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_RegisterIO``                       | Register your AEIO plug-in. See the :ref:`aeios/aeios` section for more details.                                                       |
+| ``AEGP_RegisterIO``                       | Register your AEIO plug-in. See :ref:`aeios/aeios` for more details.                                                                   |
 |                                           |                                                                                                                                        |
 |                                           | ::                                                                                                                                     |
 |                                           |                                                                                                                                        |
@@ -443,8 +445,10 @@ AEGP_RegisterSuites5
 |                                           |     PR_ArtisanEntryPoints  *entry_funcsP);                                                                                             |
 +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_RegisterPresetLocalizationString`` | Call this to register as many strings as you like for name- replacement when presets are loaded.                                       |
+|                                           |                                                                                                                                        |
 |                                           | Any time a Property name is found, or referred to in an expression,                                                                    |
 |                                           | and it starts with an ASCII tab character ('\t'), followed by one of the English names, it will be replaced with the localized name.   |
+|                                           |                                                                                                                                        |
 |                                           | (In English the tab character will simply be removed).                                                                                 |
 |                                           |                                                                                                                                        |
 |                                           | ::                                                                                                                                     |
@@ -500,6 +504,7 @@ AEGP_ProjSuite6
 |                                |     A_char         *nameZ);                                                                                     |
 +--------------------------------+-----------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetProjectPath``        | Get the path of the project (empty string the project hasn't been saved yet).                                   |
+|                                |                                                                                                                 |
 |                                | The path is a handle to a NULL-terminated A_UTF16Char string, and must be disposed with ``AEGP_FreeMemHandle``. |
 |                                |                                                                                                                 |
 |                                | ::                                                                                                              |
@@ -517,6 +522,7 @@ AEGP_ProjSuite6
 |                                |     AEGP_ItemH     *root_folderPH)                                                                              |
 +--------------------------------+-----------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SaveProjectToPath``     | Saves the entire project to the specified full path.                                                            |
+|                                |                                                                                                                 |
 |                                | The file path is a NULL-terminated UTF-16 string with platform separators.                                      |
 |                                |                                                                                                                 |
 |                                | ::                                                                                                              |
@@ -582,6 +588,7 @@ AEGP_ProjSuite6
 |                                |     A_Boolean      *is_dirtyPB);                                                                                |
 +--------------------------------+-----------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SaveProjectAs``         | Saves the project to the specified path.                                                                        |
+|                                |                                                                                                                 |
 |                                | The file path is a NULL- terminated UTF-16 string with platform separators.                                     |
 |                                |                                                                                                                 |
 |                                | NOTE: This will overwrite an existing file.                                                                     |
@@ -600,6 +607,7 @@ AEGP_ProjSuite6
 |                                |     AEGP_ProjectH  *new_projectPH);                                                                             |
 +--------------------------------+-----------------------------------------------------------------------------------------------------------------+
 | ``AEGP_OpenProjectFromPath``   | Opens a project from the supplied path, and returns its ``AEGP_ProjectH``.                                      |
+|                                |                                                                                                                 |
 |                                | The file path is a NULL-terminated UTF- 16 string with platform separators.                                     |
 |                                |                                                                                                                 |
 |                                | NOTE: Will close the current project without saving it first!                                                   |

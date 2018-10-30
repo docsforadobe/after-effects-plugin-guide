@@ -22,15 +22,15 @@ The basics of effect plug-ins are discussed in :ref:`effect-basics/effect-basics
 
 :ref:`effect-details/effect-details` dives into the details of developing a complete effect plug-in using the many provided callback functions. It also provides many testing ideas to ensure the plug-in is stabile.
 
-:ref:`smartfx/smartfx` is the extension to the effect plug-in API to support 32-bit floating point images, and is covered in chapter 4.
+:ref:`smartfx/smartfx` is the extension to the effect plug-in API to support 32-bit floating point images.
 
 :ref:`effect-ui-events/effect-ui-events` covers events sent to effect plug-ins, how to incorporate custom user interface elements, parameter supervision, and the reliance of custom data parameter types on Custom UI messaging.
 
-:ref:`audio/audio` effects are covered in Chapter 6.
+:ref:`audio/audio` effects are covered in... :ref:`audio/audio`.
 
 :ref:`aegps/aegps` details the After Effects General Plug-in (AEGP) API. Provided callback functions, hooking into internal messaging, manipulating the current contents of open projects and handling menu commands are all covered at length.
 
-:ref:`artisans/artisans`, specialized plug-in 3D renderer AEGPs, are covered in chapter 8.
+:ref:`artisans/artisans` covers specialized plug-in 3D renderer AEGPs.
 
 :ref:`aeios/aeios`, specialized AEGPs which handle file input and output.
 

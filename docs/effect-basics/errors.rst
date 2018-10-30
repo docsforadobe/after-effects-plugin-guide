@@ -78,4 +78,4 @@ To this end, After Effects exposes a tremendous amount of its internal functiona
 
 By relying on After Effects code for utility functions, you should be able to get your image processing algorithms implemented quickly.
 
-This will discussed in the next chapter.
+This will discussed in :ref:`effect-details/effect-details`.
