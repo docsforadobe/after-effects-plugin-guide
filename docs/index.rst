@@ -106,3 +106,10 @@ Welcome to the Adobe After Effects CC SDK Guide!
   aegps/aegp-suites
   aegps/cheating-effect-usage-of-aegp-suites
   aegps/aegp-details
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Artisans
+
+  artisans/artisans
+  artisans/artisan-data-types
