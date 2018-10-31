@@ -5,18 +5,6 @@ Repo hosting the After Effects CC SDK Guide RST docs, linked into a http://readt
 
 ----
 
-To-do
-################################################################################
-
-This project is still VERY wip! Still to do:
-
-SDK Reference:
-********************************************************************************
-
-- Initial conversion
-
-----
-
 Contribution
 ################################################################################
 
@@ -42,6 +30,10 @@ Then, to link to these items from other pages, we use::
 or::
 
   :ref:`jsobjref/Application.open`
+
+If you want different text than the title the anchor points to::
+
+  :ref:`Check this out! <jsobjref/Application.open>`
 
 ----
 
