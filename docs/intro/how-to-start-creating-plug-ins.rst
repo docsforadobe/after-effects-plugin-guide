@@ -40,7 +40,7 @@ AEGP developers will do well to start with Projector (for After Effects project 
 Test!
 ================================================================================
 
-If only for testing convenience, you should have a project saved with your effect applied, and all its parameters keyframed to strange values. Between these projects which stress your plug- in, and the tools provided by your development environment, you're well on your way to shipping some tested code.
+If only for testing convenience, you should have a project saved with your effect applied, and all its parameters keyframed to strange values. Between these projects which stress your plug-in, and the tools provided by your development environment, you're well on your way to shipping some tested code.
 
 ----
 

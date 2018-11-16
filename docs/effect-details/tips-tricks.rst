@@ -141,19 +141,19 @@ Stoney Ballard put together the following summary of how time works with effects
 
 There are five ``in_data`` parameters that describe time to a filter:
 
-  - ``current_time``
-  - ``time_step``
-  - ``local_time_step``
-  - ``total_time``
-  - ``time_scale``
+- ``current_time``
+- ``time_step``
+- ``local_time_step``
+- ``total_time``
+- ``time_scale``
 
 Their values are dependent on:
 
-  - The frame being rendered
-  - The duration of the layer and composition The frame rate of the comp
-  - Any Time Stretch Any Time Remapping
-  - The time behavior of an outer composition (one enclosing the composition with the layer being filtered)
-  - The setting of the "Preserve frame rate when nested or in render queue" (PFR) switch
+- The frame being rendered
+- The duration of the layer and composition The frame rate of the comp
+- Any Time Stretch Any Time Remapping
+- The time behavior of an outer composition (one enclosing the composition with the layer being filtered)
+- The setting of the "Preserve frame rate when nested or in render queue" (PFR) switch
 
 The frame being rendered affects current_time. It is expressed in the local (layer) time system. If the PFR switch is off, current_time may be any non-negative value. If on, it will be restricted to a multiple of time_step and local_time_step. Layer duration affects only total_time. Comp duration is a factor only when Time Remapping (TR) is on. In that case, total_time is the larger of layer duration and composition duration. Composition frame rate affects only the time_scale. Time Stretch affects only time_step and local_time_step. If the time stretch is negative, these values are negative. Even if the layer's duration (as seen in
 
@@ -189,7 +189,7 @@ Rate x Time == Pain!
 
 Be careful if one of your parameters is a speed or velocity parameter. Consider the ripple effect. It assumes a constant and uses the current time to determine how far along the ripple has gone (d = v * t). If the user interpolates the speed over time, you should integrate the velocity function from time zero to the current time. Ripple does *not* do this, but provides a "phase" parameter that the user can interpolate as they wish, providing correct results as long as the speed is set to zero. If you want to provide the correct behavior, you can sample (and integrate) the speed parameter from the beginning of time until the current time using PF_CHECKOUT_PARAM(), or you can provide a "phase" or "distance" parameter and warn the user about interpolating the speed. The cost of checking out many parameter values is negligible compared to rendering, and is the recommended approach.
 
-If you check out parameter values at other times, or use layer parameters at all, you *must* check in those parameters when finished, even if an error has occurred. Remember, checked- out parameters are read-only.
+If you check out parameter values at other times, or use layer parameters at all, you *must* check in those parameters when finished, even if an error has occurred. Remember, checked-out parameters are read-only.
 
 ----
 

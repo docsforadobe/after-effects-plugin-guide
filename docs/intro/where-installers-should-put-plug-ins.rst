@@ -18,7 +18,7 @@ Do not use macOS aliases or Windows shortcuts, as these are not traversed by Pre
 Do I Have To Install The Plug-ins To The Common Folder?
 ================================================================================
 
-You may have good reason to install your plug-in for only After Effects, for example, if your plug-in depends on suites and functionality not available in Premiere Pro. We strongly recommend that you use the common folder whenever possible, but for certain cases, the AE- specific plug-in folder is still available.
+You may have good reason to install your plug-in for only After Effects, for example, if your plug-in depends on suites and functionality not available in Premiere Pro. We strongly recommend that you use the common folder whenever possible, but for certain cases, the AE-specific plug-in folder is still available.
 
 On Windows, the app-specific plug-ins folder can be found (as an explicit path) in the following registry entry: ``\\HKEY_LOCAL_MACHINE\SOFTWARE\Adobe\After Effects\(version)\PluginInstallPath``
 

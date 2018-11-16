@@ -48,11 +48,11 @@ No other hosts (not even Premiere Pro) support multiple PiPLs pointing to multip
 Super Secret PiPL Bit
 ================================================================================
 
-For those of you who use C++ and simply *must* keep your plug-ins loaded all the time (to avoid having your v-tables trashed, among other hazards), set the PiPL's AE_Reserved_Info member to 8. Over the years we've been quite stringent, insisting that plug-ins be good memory citizens and respond gracefully to getting unloaded. We know there are cases in which being unloaded with no warning can really ruin a plug-in's day (and v- tables), and so have provided this work-around. Be nice, perform scrupulous memory management, and only use your powers for good.
+For those of you who use C++ and simply *must* keep your plug-ins loaded all the time (to avoid having your v-tables trashed, among other hazards), set the PiPL's AE_Reserved_Info member to 8. Over the years we've been quite stringent, insisting that plug-ins be good memory citizens and respond gracefully to getting unloaded. We know there are cases in which being unloaded with no warning can really ruin a plug-in's day (and v-tables), and so have provided this work-around. Be nice, perform scrupulous memory management, and only use your powers for good.
 
 ----
 
 Why Do I Need To Know All This?
 ================================================================================
 
-You don't; After Effects does. If you follow our advice and base your projects on the SDK samples, you can simply change the .r file containing your PiPL definition(s), and your plug- in's resources will be automagically updated the next time you build. Feel the love. Or, if you ever tinker with the custom build steps, feel the pain.
+You don't; After Effects does. If you follow our advice and base your projects on the SDK samples, you can simply change the .r file containing your PiPL definition(s), and your plug-in's resources will be automagically updated the next time you build. Feel the love. Or, if you ever tinker with the custom build steps, feel the pain.

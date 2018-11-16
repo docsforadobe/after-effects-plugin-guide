@@ -29,7 +29,7 @@ When changing parameter *values* (and not just the UI), modify the original para
 
 This change will be also update the UI, and will be undoable by the user. Note that ``PF_ChangeFlag_CHANGED_VALUE`` isn't supported for layer parameters.
 
-This suite is provided to give effect plug-ins some access to their parameter streams, without requiring AEGP suite usage. At least some of these functions are provided by several third- party hosts. These functions are especially handy for effects with supervised parameters.
+This suite is provided to give effect plug-ins some access to their parameter streams, without requiring AEGP suite usage. At least some of these functions are provided by several third-party hosts. These functions are especially handy for effects with supervised parameters.
 
 ----
 

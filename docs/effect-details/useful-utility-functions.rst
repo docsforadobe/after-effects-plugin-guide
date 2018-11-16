@@ -31,7 +31,7 @@ Although not strictly concerned with parameters, this suite can change the name 
 PF_AppSuite
 ================================================================================
 
-Roughly 437 years ago, when we released After Effects 5.0, we published some useful utility callbacks in PF_AppSuite. They're as useful today as they were then. After Effects has user- controllable UI brightness.
+Roughly 437 years ago, when we released After Effects 5.0, we published some useful utility callbacks in PF_AppSuite. They're as useful today as they were then. After Effects has user-controllable UI brightness.
 
 In addition to the :ref:`effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUIOverlayThemeSuite` for custom UI in effects, use these calls to integrate seamlessly into the After Effects UI.
 
@@ -69,16 +69,16 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 |                             |     PF_App_ColorType  color_type,                                                                                                                                                 |
 |                             |     PF_App_Color      *app_colorP);                                                                                                                                               |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PF_AppGetLanguage``       | New in CC. Retrieves the active displayed language of AE UI so plug- in can match. Here are the possible language codes as of CC:                                                 |
+| ``PF_AppGetLanguage``       | New in CC. Retrieves the active displayed language of AE UI so plug-in can match. Here are the possible language codes as of CC:                                                  |
 |                             |                                                                                                                                                                                   |
-|                             |   - Chinese - ``zh_CN``                                                                                                                                                           |
-|                             |   - English - ``en_US``                                                                                                                                                           |
-|                             |   - French - ``fr_FR``                                                                                                                                                            |
-|                             |   - German - ``de_DE``                                                                                                                                                            |
-|                             |   - Italian - ``it_IT``                                                                                                                                                           |
-|                             |   - Japanese - ``ja_JP``                                                                                                                                                          |
-|                             |   - Korean - ``ko_KR``                                                                                                                                                            |
-|                             |   - Spanish - ``es_ES``                                                                                                                                                           |
+|                             | - Chinese - ``zh_CN``                                                                                                                                                             |
+|                             | - English - ``en_US``                                                                                                                                                             |
+|                             | - French - ``fr_FR``                                                                                                                                                              |
+|                             | - German - ``de_DE``                                                                                                                                                              |
+|                             | - Italian - ``it_IT``                                                                                                                                                             |
+|                             | - Japanese - ``ja_JP``                                                                                                                                                            |
+|                             | - Korean - ``ko_KR``                                                                                                                                                              |
+|                             | - Spanish - ``es_ES``                                                                                                                                                             |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
 |                             |                                                                                                                                                                                   |
@@ -116,8 +116,8 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 |                             |                                                                                                                                                                                   |
 |                             | Set to:                                                                                                                                                                           |
 |                             |                                                                                                                                                                                   |
-|                             |   - ``PF_Cursor_NONE`` to allow After Effects to set the cursor.                                                                                                                  |
-|                             |   - ``PF_Cursor_CUSTOM`` if you've used OS-specific calls to change the cursor (After Effects will honor your changes).                                                           |
+|                             | - ``PF_Cursor_NONE`` to allow After Effects to set the cursor.                                                                                                                    |
+|                             | - ``PF_Cursor_CUSTOM`` if you've used OS-specific calls to change the cursor (After Effects will honor your changes).                                                             |
 |                             |                                                                                                                                                                                   |
 |                             | ::                                                                                                                                                                                |
 |                             |                                                                                                                                                                                   |

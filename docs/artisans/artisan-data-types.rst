@@ -286,7 +286,8 @@ AEGP_CanvasSuite8
 |                                              |     AEGP_LayerH               *layerPH,                                                                                       |
 |                                              |     AEGP_SubLayerIndex        *sublayerP);                                                                                    |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetTopLayerFromLayerContext``         | With collapsed geometrics "on" this gives the layer in the root com- position containing the layer context.                   |
+| ``AEGP_GetTopLayerFromLayerContext``         | With collapsed geometrics "on" this gives the layer in the root composition containing the layer context.                    |
+|                                              |                                                                                                                               |
 |                                              | With collapsed geometrics off this is the same as ``AEGP_GetLayerFromLayerContext``.                                          |
 |                                              |                                                                                                                               |
 |                                              | ::                                                                                                                            |
@@ -323,6 +324,7 @@ AEGP_CanvasSuite8
 |                                              |     A_LegacyRect       *roiPR);                                                                                               |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_RenderTexture``                       | Given the render context and layer, returns the layer texture.                                                                |
+|                                              |                                                                                                                               |
 |                                              | All parameters with a trailing '0' are optional; the returned ``PF_EffectWorld`` can be NULL.                                 |
 |                                              |                                                                                                                               |
 |                                              | ::                                                                                                                            |
@@ -362,6 +364,7 @@ AEGP_CanvasSuite8
 |                                              |     PF_Field           *field);                                                                                               |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_ReportArtisanProgress``               | Given the render context provided to the Artisan at render time, returns a handle to the composition.                         |
+|                                              |                                                                                                                               |
 |                                              | Note: this is NOT thread-safe on macOS; only use this function when the current thread ID is 0.                               |
 |                                              |                                                                                                                               |
 |                                              | ::                                                                                                                            |
@@ -428,6 +431,7 @@ AEGP_CanvasSuite8
 |                                              |     A_Boolean                 *activePB);                                                                                     |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SetArtisanLayerProgress``             | Sets the progress information for a rendering Artisan. countL is the number of layers completed,                              |
+|                                              |                                                                                                                               |
 |                                              | ``num_layersL`` is the total number of layers the Artisan is rendering.                                                       |
 |                                              |                                                                                                                               |
 |                                              | ::                                                                                                                            |
@@ -458,7 +462,8 @@ AEGP_CanvasSuite8
 |                                              |     AEGP_RenderLayerContextH  *mattePH);                                                                                      |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_RenderTextureWithReceipt``            | Renders a texture into an ``AEGP_WorldH``, and provides an ``AEGP_RenderReceiptH`` for the operation.                         |
-|                                              | The returned receiptPH must be disposed of with ``AEGP_DisposeRenderReceipt``.                                                |
+|                                              |                                                                                                                               |
+|                                              | The returned ``receiptPH`` must be disposed of with ``AEGP_DisposeRenderReceipt``.                                            |
 |                                              |                                                                                                                               |
 |                                              | ::                                                                                                                            |
 |                                              |                                                                                                                               |
@@ -554,6 +559,7 @@ AEGP_CanvasSuite8
 |                                              |   - ``AEGP_BinType_3D``                                                                                                       |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetRenderLayerToWorldXform2D3D``      | Retrieves the transform to correctly orient the layer being rendered with the output world.                                   |
+|                                              |                                                                                                                               |
 |                                              | Pass ``TRUE`` for ``only_2dB`` to constrain the transform to two dimensions.                                                  |
 |                                              |                                                                                                                               |
 |                                              | ::                                                                                                                            |

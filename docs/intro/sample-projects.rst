@@ -146,7 +146,7 @@ In Visual Studio, for convenience, we have specified the output path for all sam
 
 >and in the left sidebar choose *Advanced System Settings*. In the new dialog, hit the *Environment Variables* button. In the User variables area, create a New variable named AE_PLUGIN_BUILD_DIR, and with the path described above. Log out of Windows and log back in so that the variable will be set.
 
-Alternatively, you can set output path for each project individually in Visual Studio by right- clicking a project in the Solution Explorer, choosing Properties, and then in Configuration Properties > Linker > General, set the Output File.
+Alternatively, you can set output path for each project individually in Visual Studio by right-clicking a project in the Solution Explorer, choosing Properties, and then in Configuration Properties > Linker > General, set the Output File.
 
 When compiling the plug-ins, if you see a link error such as:
 

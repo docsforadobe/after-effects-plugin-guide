@@ -444,7 +444,7 @@ AEGP_RegisterSuites5
 |                                           |     const A_char           *artisan_nameZ,                                                                                             |
 |                                           |     PR_ArtisanEntryPoints  *entry_funcsP);                                                                                             |
 +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_RegisterPresetLocalizationString`` | Call this to register as many strings as you like for name- replacement when presets are loaded.                                       |
+| ``AEGP_RegisterPresetLocalizationString`` | Call this to register as many strings as you like for name-replacement when presets are loaded.                                        |
 |                                           |                                                                                                                                        |
 |                                           | Any time a Property name is found, or referred to in an expression,                                                                    |
 |                                           | and it starts with an ASCII tab character ('\t'), followed by one of the English names, it will be replaced with the localized name.   |
@@ -589,7 +589,7 @@ AEGP_ProjSuite6
 +--------------------------------+-----------------------------------------------------------------------------------------------------------------+
 | ``AEGP_SaveProjectAs``         | Saves the project to the specified path.                                                                        |
 |                                |                                                                                                                 |
-|                                | The file path is a NULL- terminated UTF-16 string with platform separators.                                     |
+|                                | The file path is a NULL-terminated UTF-16 string with platform separators.                                      |
 |                                |                                                                                                                 |
 |                                | NOTE: This will overwrite an existing file.                                                                     |
 |                                |                                                                                                                 |
@@ -608,7 +608,7 @@ AEGP_ProjSuite6
 +--------------------------------+-----------------------------------------------------------------------------------------------------------------+
 | ``AEGP_OpenProjectFromPath``   | Opens a project from the supplied path, and returns its ``AEGP_ProjectH``.                                      |
 |                                |                                                                                                                 |
-|                                | The file path is a NULL-terminated UTF- 16 string with platform separators.                                     |
+|                                | The file path is a NULL-terminated UTF-16 string with platform separators.                                      |
 |                                |                                                                                                                 |
 |                                | NOTE: Will close the current project without saving it first!                                                   |
 |                                |                                                                                                                 |
@@ -708,7 +708,7 @@ AEGP_ItemSuite9
 +----------------------------------+---------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetActiveItem``           | If the Project window is active, the active item is the selected item (if only one item is selected).                     |
 |                                  | If a Composition, Timeline, or Footage window is active,                                                                  |
-|                                  | returns the parent of the layer associated with the front- most tab in the window.                                        |
+|                                  | returns the parent of the layer associated with the front-most tab in the window.                                         |
 |                                  |                                                                                                                           |
 |                                  | Returns NULL if no item is active.                                                                                        |
 |                                  |                                                                                                                           |
@@ -1575,7 +1575,7 @@ AEGP_FootageSuite5
 |                                          |   - ``AEGP_FootageSignature_MISSING``                                                                                                                                   |
 |                                          |   - ``AEGP_FootageSignature_SOLID``                                                                                                                                     |
 +------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_NewFootage``                      | Creates a new footage item. The file path is a NULL- terminated UTF-16 string with platform separators.                                                                 |
+| ``AEGP_NewFootage``                      | Creates a new footage item. The file path is a NULL-terminated UTF-16 string with platform separators.                                                                  |
 |                                          | Note that footage filenames with colons are not allowed, since colons are used as path separators in the HFS+ file system.                                              |
 |                                          |                                                                                                                                                                         |
 |                                          | ::                                                                                                                                                                      |
@@ -1945,7 +1945,7 @@ AEGP_LayerSuite8
 |                                       |     AEGP_CompH   *compPH);                                                                                                                           |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetLayerName``                 | Get the name of a layer.                                                                                                                             |
-|                                       | Both ``utf_layer_namePH0`` and ``utf_source_namePH0`` point to null terminated UTF- 16 strings.                                                      |
+|                                       | Both ``utf_layer_namePH0`` and ``utf_source_namePH0`` point to null terminated UTF-16 strings.                                                       |
 |                                       | They must be disposed with ``AEGP_FreeMemHandle``.                                                                                                   |
 |                                       |                                                                                                                                                      |
 |                                       | ::                                                                                                                                                   |
@@ -2748,7 +2748,7 @@ AEGP_StreamSuite5
 |                                    |     AEGP_LayerStream  which_stream,                                                                                                                   |
 |                                    |     A_Boolean*        is_legalP);                                                                                                                     |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_CanVaryOverTime``           | Given a stream, returns whether or not a stream is time- variant (and can be keyframed).                                                              |
+| ``AEGP_CanVaryOverTime``           | Given a stream, returns whether or not a stream is time-variant (and can be keyframed).                                                               |
 |                                    |                                                                                                                                                       |
 |                                    | ::                                                                                                                                                    |
 |                                    |                                                                                                                                                       |
@@ -3660,7 +3660,7 @@ If you're adding one or two keyframes, this isn't a problem. However, if you're 
 
 Before you begin adding keyframes, call the (very-appropriately-named) ``AEGP_StartAddKeyframes``, passing it an opaque ``AEGP_AddKeyframesInfoH``.
 
-For each keyframe to add, call ``AEGP_AddKeyframes`` to set the time to be used (and get the newly- added keyframe's index), then ``AEGP_SetAddKeyframe`` to specify the value to be used.
+For each keyframe to add, call ``AEGP_AddKeyframes`` to set the time to be used (and get the newly-added keyframe's index), then ``AEGP_SetAddKeyframe`` to specify the value to be used.
 
 Once you're finished, call ``AEGP_EndAddKeyframes`` to let know After Effects know it's time to add the changed parameter stream to the undo stack.
 
@@ -4812,7 +4812,7 @@ AEGP_PersistentDateSuite4
 |                            |     const A_char          *value_keyZ);                                                                                 |
 +----------------------------+-------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetPrefsDirectory`` | Get the path to the folder containing After Effects' preference file.                                                   |
-|                            | The path is a handle to a NULL- terminated A_UTF16Char string, and must be disposed with ``AEGP_FreeMemHandle``.        |
+|                            | The path is a handle to a NULL-terminated A_UTF16Char string, and must be disposed with ``AEGP_FreeMemHandle``.         |
 |                            |                                                                                                                         |
 |                            | ::                                                                                                                      |
 |                            |                                                                                                                         |
@@ -6203,7 +6203,7 @@ AEGP_RenderQueueMonitorSuite1
 |                                              |     A_long              *num_propertiesPL);                                                                                                       |
 +----------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetJobItemOutputModuleProperty``      | Get a specific property off a job item output module.                                                                                             |
-|                                              | The property name and values are handle to NULL- terminated A_UTF16Char strings, and must be disposed with ``AEGP_FreeMemHandle``.                |
+|                                              | The property name and values are handle to NULL-terminated A_UTF16Char strings, and must be disposed with ``AEGP_FreeMemHandle``.                 |
 |                                              |                                                                                                                                                   |
 |                                              | ::                                                                                                                                                |
 |                                              |                                                                                                                                                   |
@@ -6426,7 +6426,7 @@ AEGP_OutputModuleSuite4
 |                                   |     A_Boolean              enabledB);                                                                                                                 |
 +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetOutputFilePath``        | Retrieves the path to which ``AEGP_OutputModuleRefH's`` output file will be written.                                                                  |
-|                                   | The path is a handle to a NULL- terminated A_UTF16Char string, and must be disposed with ``AEGP_FreeMemHandle``.                                      |
+|                                   | The path is a handle to a NULL-terminated A_UTF16Char string, and must be disposed with ``AEGP_FreeMemHandle``.                                       |
 |                                   |                                                                                                                                                       |
 |                                   | ::                                                                                                                                                    |
 |                                   |                                                                                                                                                       |
@@ -6456,7 +6456,7 @@ AEGP_OutputModuleSuite4
 +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetExtraOutputModuleInfo`` | Retrieves information about the output module.                                                                                                        |
 |                                   | ``format_uniPH`` and ``info_uniPH`` provide the textual description of, and information about, the output module, formatted as the user would see it. |
-|                                   | ``format_uniPH`` and ``info_uniPH`` will contain NULL- terminated UTF16 strings, of which the caller must dispose.                                    |
+|                                   | ``format_uniPH`` and ``info_uniPH`` will contain NULL-terminated UTF16 strings, of which the caller must dispose.                                     |
 |                                   |                                                                                                                                                       |
 |                                   | ::                                                                                                                                                    |
 |                                   |                                                                                                                                                       |

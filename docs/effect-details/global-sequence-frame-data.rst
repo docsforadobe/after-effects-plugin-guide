@@ -16,7 +16,7 @@ Frame data is used for information specific to rendering a given frame. This has
 Persistence
 ================================================================================
 
-After Effects saves sequence data in the project file, but not global or frame data. Pointers within sequence data which point to external data are, in all likelihood, invalid upon re- opening the project, and must be re-connected. We call this process "flattening" and "un- flattening" the sequence data.
+After Effects saves sequence data in the project file, but not global or frame data. Pointers within sequence data which point to external data are, in all likelihood, invalid upon reopening the project, and must be re-connected. We call this process "flattening" and "unflattening" the sequence data.
 
 ----
 
