@@ -1,7 +1,7 @@
 Description
 ################################################################################
 
-Repo hosting the After Effects CC SDK Guide RST docs, linked into a http://readthedocs.io system hosted at http://aesdk.aenhancers.com
+Repo hosting the After Effects CC SDK Guide RST docs, linked into a http://readthedocs.io system hosted at http://ae-plugin-sdk.aenhancers.com
 
 ----
 
