@@ -5,7 +5,7 @@ Unsupported Features
 
 Premiere Pro is currently known to not support the following features of the After Effects API:
 
-(If you would like a feature with a "-" bullet, please email `Premiere Pro API Engineering <mailto:zlam@adobe.com>`__ with the feature request. Numbers preceded by an 'F' are feature request numbers, and the others are bug numbers)
+(If you would like a feature with a "-" bullet, please email `Premiere Pro API Engineering <mailto:bbb@adobe.com>`__ with the feature request. Numbers preceded by an 'F' are feature request numbers, and the others are bug numbers)
 
 - F7233 - extent_hint support
 - F7835 - Multiple PiPLs in a single plug-in
