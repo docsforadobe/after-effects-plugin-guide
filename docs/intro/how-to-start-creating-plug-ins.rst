@@ -56,4 +56,4 @@ Developers Matter
 
 Third party developers drive API and SDK improvement and expansion. Your products enable After Effects to do things we'd never considered. Your efforts make After Effects better; keep it up!
 
-We work hard on the SDK, and welcome your comments and feedback. Almost every change we make to the API is suggested by developers like you. `Talk to us <mailto:zlam@adobe.com>`__.
+We work hard on the SDK, and welcome your comments and feedback. Almost every change we make to the API is suggested by developers like you. `Talk to us <mailto:bbbb@adobe.com>`__.
