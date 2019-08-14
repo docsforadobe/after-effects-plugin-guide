@@ -64,6 +64,7 @@ The user pressed a key, and the effect's UI is active.
 
 Use the macros in AE_EffectUI.h to access and manipulate the key codes received.
 
+In order to receive keydown events in Premiere Pro, plug-ins must set `PF_CustomEFlag_COMP` in `PF_CustomUIInfo.events` during .. _PF_Cmd_PARAM_SETUP.
 PF_KeyDownEvent
 ********************************************************************************
 

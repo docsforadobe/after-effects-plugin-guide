@@ -17,7 +17,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'After Effects CC SDK Guide'
+project = u'After Effects SDK Guide'
 copyright = u'1992–2017 Adobe Systems Incorporated'
 author = u'Adobe Systems Incorporated'
 

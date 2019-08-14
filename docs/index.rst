@@ -1,4 +1,4 @@
-Welcome to the Adobe After Effects CC SDK Guide!
+Welcome to the Adobe After Effects SDK Guide!
 ################################################
 
 .. toctree::
