@@ -17,7 +17,7 @@ Responsiveness
 
 Make your plug-ins as responsive as possible using ``PF_ABORT()`` and ``PF_PROGRESS()`` from :ref:`effect-details/interaction-callback-functions.interaction-callbacks`.
 
-We actually test all our effects for interruptability; you'd be surprised how cranky users can get waiting for your pokey effect to finish processing a film resolution sequence!
+We actually test all our effects for interrupt-ability; you'd be surprised how cranky users can get waiting for your pokey effect to finish processing a film resolution sequence!
 
 After Effects' iteration functions inherently provide this functionality; you don't need to worry about calling the above functions from within your pixel processing functions.
 
