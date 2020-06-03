@@ -46,6 +46,7 @@ Welcome to the Adobe After Effects SDK Guide!
   :maxdepth: 1
   :caption: Effect Details
 
+  effect-details/multi-frame-rendering-in-ae
   effect-details/effect-details
   effect-details/accessing-function-suites
   effect-details/memory-allocation
@@ -99,7 +100,6 @@ Welcome to the Adobe After Effects SDK Guide!
   :caption: AEGPs
 
   aegps/aegps
-  aegps/whats-new
   aegps/overview
   aegps/data-types
   aegps/implementation

@@ -286,7 +286,7 @@ AEGP_CanvasSuite8
 |                                              |     AEGP_LayerH               *layerPH,                                                                                       |
 |                                              |     AEGP_SubLayerIndex        *sublayerP);                                                                                    |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
-| ``AEGP_GetTopLayerFromLayerContext``         | With collapsed geometrics "on" this gives the layer in the root composition containing the layer context.                    |
+| ``AEGP_GetTopLayerFromLayerContext``         | With collapsed geometrics "on" this gives the layer in the root composition containing the layer context.                     |
 |                                              |                                                                                                                               |
 |                                              | With collapsed geometrics off this is the same as ``AEGP_GetLayerFromLayerContext``.                                          |
 |                                              |                                                                                                                               |

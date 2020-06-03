@@ -7,6 +7,13 @@ If this is your first time developing an After Effects plug-in, you can skip the
 
 ----
 
+What's New In After Effects Beta builds after June 2020
+================================================================================
+
+AE (currently only in Beta builds) now supports Multi-Frame rendering. See :ref:`effect-details/multi-frame-rendering-in-ae` for more details.
+
+----
+
 What's New In CC 2019 (16.0)?
 ================================================================================
 
