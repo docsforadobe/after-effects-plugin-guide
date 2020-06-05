@@ -138,29 +138,36 @@ If you develop on Windows:
 
         CheckThreadSafeSymbols.exe -source [absolute path to the source file you want analyzed] [absolute path to .pdb]
 
-    7. If you're unsure of what binaries your effect is outputting, the tool can also output a **(noisy)** list of binaries, along with the source files each pulls data from. Files you've changed are likely to be near the top. To see the list, run::
+    7. Global variables aren't limited to the scope of one file or binary in pdbs, so you'll have to check over the list of all project globals without filtering. Use the -g output to get a list of all of them::
+        
+        CheckThreadSafeSymbols.exe -g [absolute path to .pdb]
+
+    8. If you're unsure of what binaries your effect is outputting, the tool can also output a **(noisy)** list of binaries, along with the source files each pulls data from. Files you've changed are likely to be near the top. To see the list, run::
 
         CheckThreadSafeSymbols.exe -sf [absolute path to .pdb]
 
-    8. Output symbols will take the form::
+    9. Output symbols will take the form::
 
-        [symbol name], [section type of data location], [binary Address], [binary Address Offset], [dataType]
+        [Symbol name], [Symbol type], [Datakind], ([Section type of data location], [Binary Address][Binary Address Offset])
 
-    9. Here is an example of the output::
+    10. Here is an example of the output:
 
-        lookupTable, static, [0008F8C0], [0003:000018C0], Type: int[0x100] 
+        .. code-block:: c++
 
-      ``lookupTable`` is the actual variable name.
+          menuBuf, Type: char[0x1000], File Static, (static, [0008FCD0][0003:00001CD0])
 
-      ``static`` indicates that the variable is a static variable.
+      ``menuBuf`` is the actual variable name.
 
-      ``[0008F8C0]`` shows the location of the variable in memory.
+      ``Type: char[0x1000]`` shows what type of the variable it is. The data here is a ``char``.
 
-      ``[0003:000018C0]`` shows the binary Address Offset.
+      ``File Static`` shows what kind of that data it is. The data here is a **File-scoped static variable.** You can find all the data kinds and what they mean on this page https://docs.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/datakind?view=vs-2019
 
-      ``Type: int[0x100]`` shows what type of variable it is
+      ``static`` shows that the data is in the static section of the memory.
 
-    10. Search for each symbol in your code, fix it (see :ref:`here <fix-static>` on how) and repeat for every binary/source file in your solution
+      ``[0008FCD0][0003:00001CD0]`` shows the Binary Address and the Binary Address offset of the data.
+
+
+    11. Search for each symbol in your code, fix it (see :ref:`here <fix-static>` on how) and repeat for every binary/source file in your solution
 
 
 ----
@@ -230,7 +237,7 @@ Here are some standard approaches for treating statics or globals:
         DoComputation(state_with_initializer);
       }
 
-    **Make it ``const`` or replace it with a macro**
+    **Make it** ``const`` **or replace it with a macro**
 
     .. code-block:: c++
       
