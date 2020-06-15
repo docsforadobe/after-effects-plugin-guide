@@ -16,9 +16,9 @@ This flag indicates the effect supports rendering on multiple threads at the sam
 
 If an effect is not explicitly marked as thread-safe, each render thread will wait until it can safely execute the effect code, effectively forcing rendering back to a single frame at a time​.
 
-UI selectors are still sent on the main thread, however ``SequenceSetup``, ``SequenceResetup``, ``SequenceSetDown``, ``PreRender``, ``Render`` and ``SmartRender`` may be sent on multiple threads at the same time as the UI selectors are being handled so all of these selectors must be thread safe.
+UI selectors are still sent on the main thread, however ``PF_Cmd_SEQUENCE_SETUP``, ``PF_Cmd_SEQUENCE_RESETUP``, ``PF_Cmd_SEQUENCE_SETDOWN``, ``PF_Cmd_SMART_PRE_RENDER``, ``PF_Cmd_RENDER`` and ``PF_Cmd_SMART_RENDER`` may be sent on multiple threads at the same time as the UI selectors are being handled so all of these selectors must be thread safe.
 
-``GlobalSetup`` and ``GlobalSetdown`` selectors will only be sent on the main thread and will not be sent at the same time as any other selectors. 
+``PF_Cmd_GLOBAL_SETUP`` and ``PF_Cmd_GLOBAL_SETDOWN`` selectors will only be sent on the main thread and will not be sent at the same time as any other selectors.
 
 ----
 
