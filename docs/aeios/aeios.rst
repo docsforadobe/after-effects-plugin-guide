@@ -21,7 +21,7 @@ If you're writing an importer/exporter for a file format that represents timelin
 AEIO For Import, Or MediaCore Importer?
 ================================================================================
 
-After Effects supports MediaCore importer plug-ins. MediaCore is a set of shared libraries that grew out of Premiere Pro; thus the MediaCore APIs are described in the `Premiere Pro <http://www.adobe.com/devnet/premiere/>`__ `SDK <http://www.adobe.com/devnet/premiere/>`__.
+After Effects supports MediaCore importer plug-ins. MediaCore is a set of shared libraries that grew out of Premiere Pro; thus the MediaCore APIs are described in the `Premiere Pro SDK <http://ppro-plugin-sdk.aenhancers.com/>`_.
 
 Only MediaCore importer plug-ins support an importer priority system: The highest priority importer gets the first opportunity to import a file, and if the particular imported file isn't supported, the next-highest priority importer will then have the opportunity to try importing it, and so on. MediaCore importers cannot defer file import to an AEIO. So if your goal is to take over file handling for any file type for which After Effects already provides a plug-in, you need to develop a MediaCore importer plug-in.
 

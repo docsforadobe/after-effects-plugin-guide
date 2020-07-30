@@ -7,7 +7,7 @@ On it's first launch, Premiere Pro loads all the plug-ins, reads the PiPL, and s
 
 When debugging, you can always force a reload of all the plug-ins by holding down the Shift key when launching Premiere Pro.
 
-If your effect needs to be reloaded each time, there is a way to disable this caching. The plug-in can use the PF Cache On Load Suite in AE_CacheOnLoadSuite.h (from the `Premiere <http://www.adobe.com/devnet/premiere.html>`__ `Pro SDK <http://www.adobe.com/devnet/premiere.html>`__ headers) to call PF_SetNoCacheOnLoad() during PF_Cmd_GLOBAL_SETUP. For the second parameter of that function, pass a non-zero value if you want your effect to show up in the UI. Pass zero if loading failed, but you still want Premiere Pro to attempt to load it again on the next relaunch.
+If your effect needs to be reloaded each time, there is a way to disable this caching. The plug-in can use the PF Cache On Load Suite in AE_CacheOnLoadSuite.h (from the `Premiere Pro SDK <http://ppro-plugin-sdk.aenhancers.com/>`_ headers) to call PF_SetNoCacheOnLoad() during PF_Cmd_GLOBAL_SETUP. For the second parameter of that function, pass a non-zero value if you want your effect to show up in the UI. Pass zero if loading failed, but you still want Premiere Pro to attempt to load it again on the next relaunch.
 
 ----
 

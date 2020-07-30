@@ -11,7 +11,7 @@ Both Premiere Pro and Premiere Elements set ``PF_InData>appl_id`` to 'PrMr'.
 
 In this chapter, we will describe the AE API support in Premiere Pro, but generally the same support exists in corresponding versions of Premiere Elements.
 
-If you need to distinguish between Premiere Pro and Premiere Elements, you may use the Premiere-specific App Info Suite, available from the `Premiere Pro SDK <http://www.adobe.com/devnet/premiere.html>`__ headers.
+If you need to distinguish between Premiere Pro and Premiere Elements, you may use the Premiere-specific App Info Suite, available from the `Premiere Pro SDK <http://ppro-plugin-sdk.aenhancers.com>`_ headers.
 
 +----------------------------------------------+------------------------------+------------------------------+
 | **Application Versions**                     | **PF_InData> version.major** | **PF_InData> version.minor** |
