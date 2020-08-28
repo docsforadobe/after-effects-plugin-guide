@@ -470,46 +470,76 @@ Once you have completed the above preparation steps, test your effect thoroughly
 
 Thread-Safe First Party Effects
 ================================================================================
-**As of June 3rd the following effects are thread-safe and can be used for testing multi-frame rendering:**
+**As of August 28th the following effects are thread-safe and can be used for testing multi-frame rendering:**
 
-*	Advanced Lightning
-*	Backwards
-*	Bevel Edges
-*	Black Dissolve
-*	Blend
-*	Broadcast Colors
-*	Brush Strokes
-*	Calculations
-*	Cell Pattern
-*	Change to Color
-*	Channel Mixer
-*	Checkerboard
-*	Circle
-*	Color Balance
-*	Color Link
-*	Depth Matte
-*	Depth of Field
-*	Eyedropper Fill
-*	Flange & Chorus
-*	Fog 3D
-*	ID Matte
-*	Leave Color
-*	Magnify
-*	Matte Choker
-*	Mirror
-*	Modulator
-*	Mosaic
-*	Polar Coordinates
-*	Posterize Time
-*	Radial Shadow
-*	Ripple
-*	Scatter
-*	Solid Composite
-*	Stereo Mixer
-*	Strobe Light
-*	Stroke
-*	Texturize
-*	Tone
-*	Twirl
-*	Wave Warp
-*	Write-on
+* Advanced Lightning
+* Arithmetic
+* Backwards
+* Bevel Edges
+* Blend
+* Block Dissolve
+* Broadcast Colors
+* Brush Strokes
+* Calculations
+* Camera Lens Blur
+* Cell Pattern
+* Change to Color
+* Channel Combiner
+* Channel Mixer
+* Checkerboard
+* Circle
+* Color Balance
+* Color Key
+* Color Link
+* Compound Arithmetic
+* Compound Blur
+* Depth Matte
+* Depth of Field
+* Difference Matte
+* Drop Shadow
+* Echo
+* Equalize
+* Exposure
+* Eyedropper Fill
+* Fill
+* Flange & Chorus
+* Fog 3D
+* Fractal Noise
+* Gaussian Blur
+* Grow Bounds
+* Leave Color
+* Linear Wipe
+* Magnify
+* Match Grain
+* Matte Choker
+* Mirror
+* Modulator
+* Mosaic
+* Noise Alpha
+* Noise HLS Auto
+* Noise HLS
+* Paint Bucket
+* Photoshop Solid Fill
+* Polar Coordinates
+* Posterize Time
+* Posterize
+* Radial Shadow
+* Radial Wipe
+* Ripple
+* Roughen Edges
+* Scatter
+* Set Matte
+* Smart Blur
+* Solid Composite
+* Stereo Mixer
+* Strobe Light
+* Stroke
+* Texturize
+* Time Difference
+* Tint
+* Tone
+* Tritone
+* Twirl
+* Venetian Blinds
+* Wave Warp
+* Write-on
