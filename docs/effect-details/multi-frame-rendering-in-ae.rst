@@ -3,7 +3,7 @@
 Multi-Frame Rendering in AE
 ################################################################################
 
-In order to take advantage of modern hardware with more CPU cores and threads, AE (currently only in Beta builds) now supports Multi-Frame rendering. Multi-Frame rendering allows multiple frames to be rendered concurrently thereby speeding up rendering and export of AE compositions.
+In order to take advantage of modern hardware with more CPU cores and threads, AE (currently only in Beta builds) now supports Multi-Frame Rendering. Multi-Frame rendering (MFR) allows multiple frames to be rendered concurrently thereby speeding up rendering and export of AE compositions.
 
 Third-party effects can also take advantage of this feature through AE Plugin SDK by utilizing this PF_OutFlag::
 
@@ -24,24 +24,19 @@ UI selectors are still sent on the main thread, however ``PF_Cmd_SEQUENCE_SETUP`
 
 Some Temporary Implementation Details​
 ================================================================================
-1. **There is still thread unsafe code in AE so we have enabled mutexes to force all thread unsafe code to run in single-thread mode**
 
-  * The mutexes are to make sure rendering is safe and correct, however it has a large impact on performance. Multi-frame rendering is currently slower than single-frame rendering due to this​
-  * Mutexes will be removed as AE’s render code is reviewed and made thread-safe
+1. **Only Render Queue Export is enabled for Multi-Frame Rendering at this time**
 
-2. **The UI of AE does not yet know about the multi-frame rendering**
+  * Preview, Adobe Media Encoder, Motion Graphic Templates and AERender CLI will be fully supported around May 2021.
 
-  * You can use a debug monitor or the AE log file to monitor the state of previews and export at this time. Please See :ref:`monitor-mfr`
+2. **MFR will currently use a fixed number of render threads for the entire render**
 
-3. **On preview and export, a fixed number of render threads will be created for the entire render**
+  * The current implementation uses the number of logical CPU cores, available RAM and GPU VRAM to determine the concurrent frames to render.
+  * The final implementation will monitor system utilization and dynamically adjust the concurrent frames during render.
 
-  * The current implementation uses the number of logical CPU cores to determine the concurrent frames to render, ignoring comp complexity and system resource utilization​
-  * The final implementation will monitor system utilization and dynamically adjust based on the comp being rendered​
+3. **After Effects currently duplicates the sequence_data data structure for each render thread**
 
-4. **After Effects currently duplicates data structures for each render thread**
-
-  * This can be time consuming when creating render threads which impacts performance
-  * The shipping implementation will reduce this duplication overhead
+  * This can be time consuming and impact the performance of an effect when used with Multi-Frame Rendering. See the Sequence Data section below for upcoming changes. 
 
 ----
 
@@ -51,9 +46,9 @@ Sequence Data in Multi-Frame rendering
 ================================================================================
 Multi-Frame rendering requires that After Effects marshal ``sequence_data`` to the render threads. In order to make this efficient for effects with ``sequence_data`` that require flattening with the ``PF_OutFlag_SEQUENCE_DATA_NEEDS_FLATTENING`` flag, these effects must now also set the ``PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA flag``.
 
-In addition, as multiple render calls may now happen concurrently, writing to ``seqeunce_data`` at render time will no longer be allowed. Results will be undefined if ``sequence_data`` is written at render time. In a future update to After Effects, ``sequence_data`` will be declared const when accessed at render time for effects that support multi-frame rendering.
+In addition, as multiple render calls may now happen concurrently, writing to ``seqeunce_data`` at render time will no longer be allowed. Results will be undefined if ``sequence_data`` is written at render time. In a future update to After Effects (March 2021 SDK, AE Beta Builds starting in May 2021), ``sequence_data`` will be declared const when accessed at render time for effects that support multi-frame rendering.
 
-In the coming months, After Effects will introduce a new interface for caching data at render time that would have previously been handled with ``sequence_data``. The checkout call on these caches will be able to detect if another thread is already creating the same cache entry and thus wait for the entry to be complete rather than duplicating the computing effort.
+In the March 2021 SDK, After Effects will introduce a new interface for caching data at render time, called the 3-way checkout cache, that would have previously been handled with ``sequence_data``. The checkout call on these caches will be able to detect if another thread is already creating the same cache entry and thus wait for the entry to be complete rather than duplicating the computing effort. 
 
 
 ----
@@ -379,6 +374,7 @@ Setting an Effect as Thread-safe
 
 ----
 
+
 How to test whether an effect is Thread-Safe
 ================================================================================
 
@@ -386,74 +382,9 @@ Once you have completed the above steps to make your effect Thread-Safe, you sho
 
 Enable Multi-Frame Rendering in After Effects Beta
 --------------------------------------------------------------------------------
-.. note::
-  **Multi-frame rendering is currently only available in After Effects Beta builds which can be downloaded via the Creative Cloud Desktop application.**
+Multi-Frame Rendering is enabled by default in After Effects Beta builds, available via the Creative Cloud Desktop application. 
 
-  **At this time, access to multi-frame rendering is limited to and, recommended only for plugin developers to prepare their effects for multi-frame rendering support in After Effects.**
-
-1. Download **After Effects Beta** from Creative Cloud Desktop
-2. **Shift-Click** the **”What’s New”** beaker icon on the top right of the AE Window
-3. Enter Unlock Code. (Unlock code is distributed privately at this time)
-
-  .. figure::  images/Unlock.png
-    :width:   500
-
-4. Click Enable. After Effects will quit
-5. Restart After Effects​
-6. Multi-frame rendering will then be enabled
-
-
-Configuring Concurrent Frame Count
---------------------------------------------------------------------------------
-1. Create a simple comp, apply your effect and run preview once. This first run of Multi-Frame render will create some necessary preference entries
-2. Go to AE Text preferences file::
-
-    Location on Windows: %APPDATA%\Roaming\Adobe\After Effects (Beta)\17.1\Adobe After Effects 17.1 Prefs.txt​
-    Location on Mac: ~/Library/Preferences/Adobe/After Effects (Beta)/17.1/Adobe After Effects 17.1 Prefs.txt​
-
-3. Find this preference entry::
-
-    ["Concurrent Frame Rendering"]​
-    "Number of Concurrent Frame Renders" = "-1”​
-
-4. Replace the number in quotes with the number of render threads you want to have.
-
-  a. "-1" means use the default number render threads. By default, there will be 2-4 render threads created for a multi-frame render.
-  b. You can put in any integer in the range from 1 to 99.
-
-5. Restart AE after you change this preference for it to take effect
-
-.. note::
-  **This preference is temporary and will be removed when Multi-Frame Rendering is released to beta customers**
-
-
-.. _monitor-mfr:
-
-Monitoring Multi-Frame Renders​
---------------------------------------------------------------------------------
-At this time there are two ways to monitor multi-frame renders​.
-
-Real-time Debug Monitor through​ Keyboard Shortcut:
-  1. Delete your current keyboard shortcut file
-  2. You can find the files here::
-
-      Mac: ~/Library/Preferences/Adobe/After Effects (Beta)/17.1/aeks/After Effects Default.txt
-      Windows: %APPDATA%\Roaming\Adobe\After Effects (Beta)\17.1\aeks\After Effects Default.txt
-
-  3. Start AE and Press **Command+Shift+9** or **​Control+Shift+9**
-  4. Find the AE.MultithreadedRenderer section
-
-    .. figure::  images/debugmonitor.png
-      :width:   400
-
-AE Log File​:
-  1. Enable logging (Help Menu -> Enable Logging)​
-  2. Restart AE
-  3. Search for **Multithreaded render report** in the log
-
-    .. figure::  images/AE_Log.png
-      :width:   400
-
+To toggle MFR on and off, navigate to Preferences > Memory & Performance > Performance and use the Multi-Frame Rendering (Beta) checkbox.
 
 Test your effect
 --------------------------------------------------------------------------------
@@ -470,76 +401,5 @@ Once you have completed the above preparation steps, test your effect thoroughly
 
 Thread-Safe First Party Effects
 ================================================================================
-**As of August 28th the following effects are thread-safe and can be used for testing multi-frame rendering:**
 
-* Advanced Lightning
-* Arithmetic
-* Backwards
-* Bevel Edges
-* Blend
-* Block Dissolve
-* Broadcast Colors
-* Brush Strokes
-* Calculations
-* Camera Lens Blur
-* Cell Pattern
-* Change to Color
-* Channel Combiner
-* Channel Mixer
-* Checkerboard
-* Circle
-* Color Balance
-* Color Key
-* Color Link
-* Compound Arithmetic
-* Compound Blur
-* Depth Matte
-* Depth of Field
-* Difference Matte
-* Drop Shadow
-* Echo
-* Equalize
-* Exposure
-* Eyedropper Fill
-* Fill
-* Flange & Chorus
-* Fog 3D
-* Fractal Noise
-* Gaussian Blur
-* Grow Bounds
-* Leave Color
-* Linear Wipe
-* Magnify
-* Match Grain
-* Matte Choker
-* Mirror
-* Modulator
-* Mosaic
-* Noise Alpha
-* Noise HLS Auto
-* Noise HLS
-* Paint Bucket
-* Photoshop Solid Fill
-* Polar Coordinates
-* Posterize Time
-* Posterize
-* Radial Shadow
-* Radial Wipe
-* Ripple
-* Roughen Edges
-* Scatter
-* Set Matte
-* Smart Blur
-* Solid Composite
-* Stereo Mixer
-* Strobe Light
-* Stroke
-* Texturize
-* Time Difference
-* Tint
-* Tone
-* Tritone
-* Twirl
-* Venetian Blinds
-* Wave Warp
-* Write-on
+Visit https://helpx.adobe.com/after-effects/user-guide.html/after-effects/using/effect-list.ug.html for a full list of MFR supported effects. More are being added every week.
