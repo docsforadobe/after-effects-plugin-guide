@@ -16,10 +16,4 @@ Development Requirements
 
 The system requirements for After Effects are here: https://helpx.adobe.com/after-effects/system-requirements.html
 
-If you require support for obsolete versions of the application or API, use an old SDK (which we don't maintain or provide). Six months after the current version is released, we will no longer provide or support the previous version's SDK.
-
-The SDK samples are created for Xcode 7.3 on macOS 10.11, and Microsoft Visual Studio 2015 update 3 on Windows 7 64 or Windows 10. Yes, we're being pretty stringent about using the required IDE. No, it's never pleasant to move to a new compiler, but no, we're not going to continue to help with older build environments.
-
-In order to use Visual Studio, you may need to adjust some installation settings to install the components for compiling 64-bit plug-ins. Visual Studio Express may be used, but will also require an additional installation to compile 64-bit plug-ins, as described here: http://msdn.microsoft.com/en-us/library/9yb4317s.aspx
-
-To compile using newer versions of Xcode on newer versions of macOS, often all that is required is to update the Base SDK in the Build Settings.
+The SDK samples have been tested on Xcode 11.3.1 and Xcode 12.4 (for universal binary support with Apple Silicon) on macOS 10.15/11.0, and Microsoft Visual Studio 2019 on Windows 10. 
