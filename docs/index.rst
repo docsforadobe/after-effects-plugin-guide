@@ -26,8 +26,6 @@ Welcome to the Adobe After Effects SDK Guide!
   intro/exceptions
   intro/where-installers-should-put-plug-ins
   intro/localization
-  intro/apple-silicon-support
-  intro/symbol-export
   intro/next-steps
 
 .. toctree::
@@ -68,7 +66,6 @@ Welcome to the Adobe After Effects SDK Guide!
   effect-details/color-space-conversion
   effect-details/changing-parameter-orders
   effect-details/tips-tricks
-  effect-details/compute-cache-api
 
 .. toctree::
   :maxdepth: 1

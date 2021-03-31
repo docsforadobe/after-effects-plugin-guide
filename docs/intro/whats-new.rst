@@ -1,52 +1,9 @@
 .. _intro/whats-new:
 
-==========
 What's New
-==========
+################################################################################
 
 If this is your first time developing an After Effects plug-in, you can skip the What's New section and go directly to :ref:`intro/how-to-start-creating-plug-ins`.
-
-----
-
-What’s New in the After Effects SDK in March 2021
-=================================================
-
-Multi-Frame Rendering Changes
-******************************
-
-1.	The final behavior for the ``PF_OutFlag2_SUPPORTS_THREADED_RENDERING`` flag is now in place. Setting this flag to indicate support for Multi-Frame Rendering will also enforce the data stored in ``sequence_data`` to be const/read-only at Render time and access to ``sequence_data`` is now through a suite, ``PF_EffectSequenceDataSuite1``. 
-
-.. note::
-  This new behavior is not on in AE Beta builds by default just yet. You will need to unlock this by shift-clicking the What’s New beaker icon and entering ``AE.NewMultiFrameSequenceDataBehavior``. You will then be able to test your plugins and any code changes with this new behavior. 
-
-2.	A new flag, ``PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER`` is now available to set alongside ``PF_OutFlag2_SUPPORTS_THREADED_RENDERING`` if your plugin cannot be updated to work with the new sequence_data behavior. After Effects won’t be able to apply as much rendering concurrency and therefore performance improvements to effects that set this flag (hence the _SLOWER flag name).
-3.	A new suite, the Compute Cache (previously referred to as the 3-way checkout cache) is now available. This suite provides a thread-safe cache that plugins can use as a replacement or supplement to sequence_data to support multiple render threads computing and caching data needed to render frames. 
-
-Due to these changes, you must update to, and compile with, the March 2021 SDK to maintain Multi-Frame Rendering compatibility with AE Beta builds moving forward. Plugins compiled with the June 2020 SDK will cease to support Multi-Frame Rendering, even if ``PF_OutFlag2_SUPPORTS_THREADED_RENDERING`` is set, starting in May 2021. 
-
-Please see :ref:`effect-details/multi-frame-rendering-in-ae` for more information.
-
-
-Apple Silicon Support
-**********************
-
-* The AE SDK now supports building effects for Apple Silicon natively. While After Effects itself is not yet running on Apple Silicon, Adobe as a company is moving forward with native support across many of our products. Applications such as Premiere Pro now have native versions available, and your effects may be loaded in Premiere Pro by features such as Motion Graphic Templates. When running the native version of Premiere Pro only natively compiled effects will work so it’s important to update your effects with Apple Silicon support soon. Please see the :ref:`intro/apple-silicon-support` section for more information.
-
-
-Exporting Symbols from Effects
-*******************************
-
-* The SDK samples have been updated on not export symbols by default on MacOS. Please see :ref:`intro/symbol-export` for more information.
-
-Downloading the March 2021 SDK
-******************************
-The March 2021 SDK is currently available for download at https://shared-assets.adobe.com/link/586f58b4-f99e-4d89-4b43-c012f1dd1cfb. 
-
-It will be available at the Adobe Developer Console (https://www.adobe.io/after-effects/) around April 15 2021.
-
-After Effects Beta Builds
-*************************
-To gain access to the AE host-side changes for this SDK, you will need to download a new After Effects beta build from the Creative Cloud Desktop App. Builds 18.2x11 and above are supported with the March 2021 SDK.
 
 ----
 

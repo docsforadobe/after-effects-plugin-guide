@@ -18,11 +18,11 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'After Effects SDK Guide'
-copyright = u'1992–2021 Adobe'
-author = u'Adobe'
+copyright = u'1992–2020 Adobe Systems Incorporated'
+author = u'Adobe Systems Incorporated'
 
-version = u'18.2'
-release = u'18.2.0'
+version = u'17.1.2'
+release = u'1.0.0'
 
 pygments_style = 'sphinx'
 

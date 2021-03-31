@@ -3,31 +3,18 @@
 Accessing the After Effects Function Suites
 ################################################################################
 
-If you are writing C++ code, accessing the suites should be done using the AEFX_SuiteScoper which automatically acquires the suite when needed and disposes of it when done. 
+If you are writing C++ code, accessing functions in our PICA function suites is a breeze, using the AEGP_SuiteHandler, which automatically acquires the suite when needed, and disposes of it when done. Just instantiate the handler like so::
 
-Here is an example using AEFX_SuiteScope to access the PF_GPUDeviceSuite1 suite:
+  AEGP_SuiteHandler suites(in_data->pica_basicP);
 
-.. code-block:: c++ 
+After that, you may make calls to any function in any suite, like so::
 
-  AEFX_SuiteScoper<PF_GPUDeviceSuite1> gpu_suite = AEFX_SuiteScoper<PF_GPUDeviceSuite1>( 
-    in_dataP,                                                                                       
-    kPFGPUDeviceSuite,                                                                                
-    kPFGPUDeviceSuiteVersion1,                                                                        
-    out_dataP);
-
-.. note::
-  AEFX_SuiteScoper will throw an Exception, ``A_Err_MISSING_SUITE``, if the requested suite cannot be acquired and the optional second template argument, ``ALLOW_NO_SUITE``, is set to false. If you set ``ALLOW_NO_SUITE`` to false, please ensure you wrap the ``AEFX_SuiteScoper<>`` call with a try/catch wrapper. If ``ALLOW_NO_SUITE`` is set to true, then you should check the returned pointer is not NULL before using it.
-
-Once you have the suite you may make calls to any function in the suite list so:
-
-.. code-block:: c++ 
-  
-  gpu_suite->GetDeviceInfo(in_dataP->effect_ref, extraP->input->device_index, &device_info);
+  PF_Handle infoH = suites.HandleSuite1()->host_new_handle(sizeof(MyStruct));
 
 If you must use C code, then acquire and release the suites manually using the ``PF_Suite_Helper`` utility files, as demonstrated in the Checkout sample project.
 
-Behind the scenes, both of these methods acquire PICA function suites using ``AcquireSuite``, a member function of the ``SPBasicSuite`` pointed to in ``PF_InData``.
-  
+Behind the scenes, these both of these methods acquire PICA function suites using ``AcquireSuite``, a member function of the SPBasicSuite pointed to in :ref:`effect-basics/PF_InData`.
+
 ----
 
 Suite Versions
