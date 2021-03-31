@@ -5,7 +5,7 @@ Introduction
 
 Welcome to the Adobe® After Effects® Software Development Kit!
 
-This is a living document, and is constantly being updated and edited. The latest public version of the SDK is available at: https://www.adobe.io/apis/creativecloud/aftereffects.html
+This is a living document and is constantly being updated and edited. The latest public version of the SDK is available at: https://www.adobe.io/after-effects/
 
 While we've tried to organize this document in a logical order and provide plenty of cross references, your specific needs may vary. Searching through this document based on keywords will often lead you to your answer.
 

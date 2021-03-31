@@ -1,22 +1,26 @@
 .. _effect-details/global-sequence-frame-data:
 
+******************************
 Global, Sequence, & Frame Data
-################################################################################
+******************************
+After Effects allows plug-ins to store data at three scopes: global, sequence, and frame. Consider carefully where you store information; choosing poorly can impact performance, or make your plug-in confusing to the user.
 
-After Effects allows plug-ins to store data at three scopes; global, sequence, and frame. Consider carefully where you store information; choosing poorly can impact performance, or make your plug-in confusing to the user.
+Use global data for information common to all instances of the effect: static variables and data, bitmaps, pointers to other DLLs or external applications. If your effect supports Multi-Frame Rendering, any static or global variables must be free of race conditions (see :ref:`ts-effect` for more information).
 
-Use global data for information common to all instances of the effect: static variables and data, bitmaps, pointers to other DLLs or external applications.
-
-Store anything specific to this instance of your plug-in (UI settings, text strings, and any custom data not stored in parameters) in sequence data, Use After Effects' memory allocation functions.
+Store anything specific to this instance of your plug-in (UI settings, text strings, and any custom data not stored in parameters) in Sequence Data or in the new :ref:`compute-cache`. 
 
 Frame data is used for information specific to rendering a given frame. This has fallen into disuse, as most machines are capable of loading an entire frame into memory at a time. Of course, your IMAX-generating users will still appreciate any optimizations you can make.
+
 
 ----
 
 Persistence
 ================================================================================
 
-After Effects saves sequence data in the project file, but not global or frame data. Pointers within sequence data which point to external data are, in all likelihood, invalid upon reopening the project, and must be re-connected. We call this process "flattening" and "unflattening" the sequence data.
+After Effects saves sequence data in the project file, but not global or frame data. Pointers within sequence data which point to external data are, in all likelihood, invalid upon reopening the project, and must be re-connected. We call this process “flattening” and “unflattening” the sequence data.
+
+.. note::
+  The Compute Cache does not store its contents to the project file. The data stored in the cache must be recreated during render.
 
 ----
 
@@ -86,8 +90,62 @@ You may resize the sequence data handle only during the following selectors:
   - ``PF_Cmd_FRAME_SETDOWN``
   - ``PF_Cmd_AUDIO_RENDER``
   - ``PF_Cmd_RENDER``
-  - ``PF_Cmd_SEQUENCE_SETUP`` (duh)
+  - ``PF_Cmd_SEQUENCE_SETUP``
   - ``PF_Cmd_SEQUENCE_SETDOWN``
   - ``PF_Cmd_SEQUENCE_FLATTEN``
   - ``PF_Cmd_SEQUENCE_RESETUP``
   - ``PF_Cmd_DO_DIALOG``
+
+----
+
+.. _effect-details/sequence-data-mfr-suite:
+
+Accessing sequence_data at Render Time with Multi-Frame Rendering
+=================================================================
+When enabling Multi-Frame Rendering on an effect, the ``sequence_data`` object will be read-only/const during Render and accessible on each render thread via the ``PF_EffectSequenceDataSuite1`` suite. 
+
+PF_EffectSequenceDataSuite1
+---------------------------
+
++-----------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+| **Function**                | **Purpose**                                                                                                                    |
++=============================+================================================================================================================================+
+| ``PF_GetConstSequenceData`` | Retrieves the read-only const sequence_data object for a rendering thread when Multi-Frame Rendering is enabled for an effect. |
+|                             |                                                                                                                                |
+|                             | .. code-block:: c++                                                                                                            |
+|                             |                                                                                                                                |
+|                             |   PF_Err(*PF_GetConstSequenceData)(                                                                                            |
+|                             |     PF_ProgPtr effect_ref,                                                                                                     |
+|                             |     PF_ConstHandle *sequence_data);                                                                                            |
++-----------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+
+.. code-block:: c++
+
+   static PF_Err 
+   Render(	
+     PF_InData		*in_dataP,
+     PF_OutData		*out_dataP,
+     PF_ParamDef		*params[],
+     PF_LayerDef		*output )
+   {
+      PF_ConstHandle seq_handle;
+   
+      AEFX_SuiteScoper<PF_EffectSequenceDataSuite1> seqdata_suite = AEFX_SuiteScoper<
+   
+         PF_EffectSequenceDataSuite1>( in_dataP,                                                                                       
+         kPFEffectSequenceDataSuite,                                                                                
+         kPFEffectSequenceDataSuiteVersion1,                                                                        
+         out_dataP);
+   
+      if ( seqdata_suite != NULL )
+      {
+         seq_suite->PF_GetConstSequenceData(in_data->effect_ref, &seq_handle);
+      
+         // cast the seq_handle to your data object and then use it.
+      }
+     
+      // rest of render function code…
+      
+   }
+   
+   
