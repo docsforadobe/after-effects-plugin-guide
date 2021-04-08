@@ -121,28 +121,25 @@ PF_EffectSequenceDataSuite1
 
 .. code-block:: c++
 
-   static PF_Err 
-   Render(	
-     PF_InData		*in_dataP,
-     PF_OutData		*out_dataP,
-     PF_ParamDef		*params[],
-     PF_LayerDef		*output )
-   {
+  static PF_Err Render(	
+     PF_InData   *in_dataP,
+     PF_OutData  *out_dataP,
+     PF_ParamDef *params[],
+     PF_LayerDef *output )
+  {
       PF_ConstHandle seq_handle;
    
-      AEFX_SuiteScoper<PF_EffectSequenceDataSuite1> seqdata_suite = AEFX_SuiteScoper<
-         PF_EffectSequenceDataSuite1>( in_dataP,                                                                                       
-         kPFEffectSequenceDataSuite,                                                                                
-         kPFEffectSequenceDataSuiteVersion1,                                                                        
-         out_dataP);
-
-    	PF_ConstHandle const_seq;
-	    seqdata_suite->PF_GetConstSequenceData(in_data->effect_ref, &const_seq);
-
-	    // cast const_seq to the type used when storing to sequence_data
-      
-	    // rest of render function code...
-      
-   }
+      AEFX_SuiteScoper<PF_EffectSequenceDataSuite1> seqdata_suite = 
+        AEFX_SuiteScoper<PF_EffectSequenceDataSuite1>( 
+          in_dataP,                                                                                       
+          kPFEffectSequenceDataSuite,                                                                                
+          kPFEffectSequenceDataSuiteVersion1,                                                                        
+          out_dataP);
    
-   
+      PF_ConstHandle const_seq;
+      seqdata_suite->PF_GetConstSequenceData(in_data->effect_ref, &const_seq);
+   ​
+      // cast const_seq to the type used when storing to sequence_data
+         
+      // rest of render function code...
+  }
