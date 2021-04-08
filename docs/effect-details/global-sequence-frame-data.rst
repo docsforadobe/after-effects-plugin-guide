@@ -131,20 +131,17 @@ PF_EffectSequenceDataSuite1
       PF_ConstHandle seq_handle;
    
       AEFX_SuiteScoper<PF_EffectSequenceDataSuite1> seqdata_suite = AEFX_SuiteScoper<
-   
          PF_EffectSequenceDataSuite1>( in_dataP,                                                                                       
          kPFEffectSequenceDataSuite,                                                                                
          kPFEffectSequenceDataSuiteVersion1,                                                                        
          out_dataP);
-   
-      if ( seqdata_suite != NULL )
-      {
-         seq_suite->PF_GetConstSequenceData(in_data->effect_ref, &seq_handle);
+
+    	PF_ConstHandle const_seq;
+	    seqdata_suite->PF_GetConstSequenceData(in_data->effect_ref, &const_seq);
+
+	    // cast const_seq to the type used when storing to sequence_data
       
-         // cast the seq_handle to your data object and then use it.
-      }
-     
-      // rest of render function code…
+	    // rest of render function code...
       
    }
    
