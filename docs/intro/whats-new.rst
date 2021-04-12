@@ -38,11 +38,11 @@ Exporting Symbols from Effects
 
 * The SDK samples have been updated on not export symbols by default on MacOS. Please see :ref:`intro/symbol-export` for more information.
 
+
 Downloading the March 2021 SDK
 ******************************
-The March 2021 SDK is currently available for download at https://shared-assets.adobe.com/link/586f58b4-f99e-4d89-4b43-c012f1dd1cfb. 
+The SDK can be downloaded from the Adobe Developer Console at https://adobe.io/after-effects/ 
 
-It will be available at the Adobe Developer Console (https://www.adobe.io/after-effects/) around April 15 2021.
 
 After Effects Beta Builds
 *************************
