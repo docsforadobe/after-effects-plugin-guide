@@ -23,15 +23,16 @@ How to add Universal Binary Support for your Plugins
 2. Tell After Effects what the main entry point is for Apple Silicon builds. 
 
   * Find the .r resource file for your plugin.
-  * Add ``CodeMacIntel64 {"EffectMain"}`` next to your existing Intel Mac entry point definition.
+  * Add ``CodeMacARM64 {"EffectMain"}`` next to your existing Intel Mac entry point definition.
+
+    .. code-block:: c++
+
+      #if defined(AE_OS_MAC)
+        CodeMacARM64 {"EffectMain"},
+        CodeMacIntel64 {"EffectMain"},
+      #endif
+      
   * If for some reason you need different entry points on x64 and ARM just provide a different entry point name and string.
-
-  .. code-block:: c++
-
-    #if defined(AE_OS_MAC)
-      CodeMacARM64 {"EffectMain"},
-      CodeMacIntel64 {"EffectMain"},
-    #endif
 
 3. Compile the Universal binary by building for the Any Mac (Apple Silicon, Intel) Target, or by using Product -> Archive.
 

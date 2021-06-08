@@ -32,7 +32,7 @@ Each rendering thread will have its own instance of sequence_data that is not sh
 Multi-Frame Rendering Effect Updates Required with March 2021 SDK
 =================================================================
 
-The March 2021 SDK introduces new ``sequence_data`` behavior that will be enabled as part of the AE beta builds in May 2021, so if you have enabled your effects to support Multi-Frame Rendering using the June 2020 SDK, you will need to recompile the effects against the March 2021 SDK before May 2021 to ensure they continue to support MFR. 
+The March 2021 SDK introduces new ``sequence_data`` behavior that will be enabled as part of the AE beta builds in June 2021, so if you have enabled your effects to support Multi-Frame Rendering using the June 2020 SDK, you will need to recompile the effects against the March 2021 SDK before June 2021 to ensure they continue to support MFR. 
 
 .. note::
   To gain access and test against the new ``sequence_data`` behavior, you will need to enable a beta feature in After Effects. Shift-click the What’s New beaker icon in an After Effects 18.2 beta build and enter ``AE.NewMultiFrameSequenceDataBehavior``. Click Enable and then restart AE.
@@ -47,7 +47,7 @@ The table below outlines the changes an effect will need to make:
 +-----------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING but neither reads nor writes to sequence_data during Render | Recompile the plugin with the March 2021 SDK, no other code changes are required.                                                                                                                                                   |
 |                                                                                                                 |                                                                                                                                                                                                                                     |
-|                                                                                                                 | If the plugin is not compiled with the March 2021 SDK, the plugin will stop utilizing MFR starting in early May 2021.                                                                                                               |
+|                                                                                                                 | If the plugin is not compiled with the March 2021 SDK, the plugin will stop utilizing MFR starting in early June 2021.                                                                                                              |
 +-----------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING but only reads sequence_data during Render                  | Recompile the plugin with the March 2021 SDK, update reading sequence_data via ``PF_EffectSequenceDataSuite1`` for thread-safe access. See :ref:`effect-details/sequence-data-mfr-suite` for more information.                      |
 +-----------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -105,7 +105,7 @@ The ``sequence_data`` object and related Sequence Selectors have been used over 
 * The ``sequence_data`` object is now const when read at Render time and should be accessed through the ``PF_EffectSequenceDataSuite`` interface.
 * Writing to ``seqeunce_data`` at render time is disabled by default and results will be undefined if ``sequence_data`` is attempted to be written to at render time.
 * If an effect must write to sequence_data at render time, it must set the ``PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER`` flag which will tell After Effects to allow writes to ``sequence_data`` but it will be at the expense of performance. The ``sequence_data`` object will be duplicated to each render thread when the render begins, and each render thread will have its own independent copy of ``sequence_data`` to manage for the lifetime of the render. For performance reasons, it is preferred that the :ref:`compute-cache` is utilized for writing any data required by the effect.
-* This new behavior will be enabled by default in After Effects beta builds starting in May 2021. 
+* This new behavior will be enabled by default in After Effects beta builds starting in June 2021. 
 
 ----
 
