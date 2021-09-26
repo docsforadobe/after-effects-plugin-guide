@@ -144,7 +144,7 @@ To be more specific, the effect:
 
 How to locate the static and global variables in your effects
 ================================================================================
-To help you locate the static and global variables in your effect, we've developed a **Static Analyzer tool** for you use. 
+To help you locate the static and global variables in your effect, we've developed a **Static Analyzer tool** for you to use. 
 You can find the tool in this Git Repo: https://github.com/adobe/ae-plugin-thread-safety
 
 If you develop on Mac:
