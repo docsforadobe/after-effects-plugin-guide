@@ -8,6 +8,13 @@ If this is your first time developing an After Effects plug-in, you can skip the
 
 ----
 
+What's New In After Effects 2022
+================================================================================
+
+After Effects 2022 contains the first full public release with Multi-Frame Rendering support. The associated AE Effects SDK released in October 2021 includes one change for increasing the maximum number of PF_Iterate threads.
+
+----
+
 What’s New in the After Effects SDK in March 2021
 =================================================
 

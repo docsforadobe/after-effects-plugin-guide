@@ -5,7 +5,7 @@ Multi-Frame Rendering in AE
 ===========================
 
 
-In order to take advantage of modern hardware with more CPU cores and threads, After Effects (currently in Beta builds) now supports Multi-Frame Rendering. Multi-Frame rendering (MFR) allows multiple frames to be rendered concurrently thereby speeding up rendering and export of AE compositions.
+In order to take advantage of modern hardware with more CPU cores and threads, After Effects 2022 and above now supports Multi-Frame Rendering. Multi-Frame rendering (MFR) allows multiple frames to be rendered concurrently thereby speeding up rendering and export of AE compositions.
 
 Third-party effects can enable support of Multi-Frame Rendering through the AE Effects SDK by setting the following PF_OutFlag::
 
@@ -18,7 +18,7 @@ This flag indicates the effect supports rendering on multiple threads concurrent
 
 ----
 
-For effects that require writing to sequence_data during Render, a new flag is now available for backwards compatibility::
+For effects that require writing to sequence_data during Render, a flag is available for backwards compatibility::
 
   PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER
 
@@ -63,19 +63,6 @@ The table below outlines the changes an effect will need to make to support the 
 
 ----
 
-Some Temporary Implementation Details of Multi-Frame Rendering
-==============================================================
-
-1. **Only Render Queue Export is enabled for Multi-Frame Rendering**
-
-  * Preview, Adobe Media Encoder, Motion Graphic Templates and AERender CLI will be fully supported before the full release of MFR to all After Effects users later in 2021.
-
-2. **Multi-Frame Rendering uses a fixed number of render threads for the entire render**
-
-  * The current implementation uses the number of logical CPU cores, available RAM and GPU VRAM to determine the concurrent frames when the render begins. The final implementation of MFR will monitor system utilization and dynamically adjust the concurrent frames during render to optimize rendering for the composition complexity and available hardware resources.
-
-----
-
 Implications to Command Selectors with Multi-Frame Rendering
 ================================================================================
 
@@ -93,7 +80,10 @@ The ``sequence_data`` object and related Sequence Selectors have been used over 
 
 **Changes as of June 2020**
 
-* Multi-Frame rendering requires that After Effects marshal ``sequence_data`` to the render threads. In order to make this efficient for effects with ``sequence_data`` that require flattening with the ``PF_OutFlag_SEQUENCE_DATA_NEEDS_FLATTENING`` flag, these effects must now also set the ``PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA`` flag.
+* Multi-Frame rendering requires that After Effects marshal ``sequence_data`` to the render threads. In order to make this efficient for effects with ``sequence_data`` that require flattening with the ``PF_OutFlag_SEQUENCE_DATA_NEEDS_FLATTENING`` flag, these effects must now also set the ``PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA`` flag. 
+
+..note:: 
+  In a future version of After Effects, the requirement to set the ``PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA`` flag and handle the associated selector in the plugin will be enforced. A warning dialog will be added on load of any effect that does not meet this requirement.
 
 
 **Changes as of March 2021**
@@ -119,7 +109,7 @@ When would you use the Compute Cache?
 
 How do I enable the Compute Cache?
 *********************************************
-The Compute Cache API is available starting in the March 2021 SDK and the suite is enabled by default in After Effects beta builds. 
+The Compute Cache API is available starting in the March 2021 SDK and the suite is enabled by default in After Effects 2022 and above builds. 
 
 See the :ref:`effect-details/compute-cache-api` documentation for implementation details and sample code.
 
@@ -453,10 +443,10 @@ How to test whether an effect is Thread-Safe
 
 Once you have completed the above steps to make your effect Thread-Safe, you should now be ready to do some testing.
 
-Enable Multi-Frame Rendering in After Effects Beta
+Enable Multi-Frame Rendering
 ********************************************************
-* Multi-Frame Rendering is enabled by default in After Effects Beta builds, available via the Creative Cloud Desktop application. 
-* To toggle MFR on and off, navigate to Preferences > Memory & Performance > Performance and use the Multi-Frame Rendering (Beta) checkbox.
+* Multi-Frame Rendering is enabled by default in After Effects 2022.
+* To toggle MFR on and off, navigate to Preferences > Memory & Performance > Performance and toggle the Multi-Frame Rendering checkbox.
 
 Test your effect
 ****************

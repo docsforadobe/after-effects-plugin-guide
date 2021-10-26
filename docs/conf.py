@@ -25,8 +25,8 @@ project = u'After Effects SDK Guide'
 copyright = u'1992–2021 Adobe'
 author = u'Adobe'
 
-version = u'18.2'
-release = u'18.2.0'
+version = u'22.0'
+release = u'22.0.0'
 
 pygments_style = 'sphinx'
 
