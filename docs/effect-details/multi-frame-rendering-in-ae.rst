@@ -82,7 +82,7 @@ The ``sequence_data`` object and related Sequence Selectors have been used over 
 
 * Multi-Frame rendering requires that After Effects marshal ``sequence_data`` to the render threads. In order to make this efficient for effects with ``sequence_data`` that require flattening with the ``PF_OutFlag_SEQUENCE_DATA_NEEDS_FLATTENING`` flag, these effects must now also set the ``PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA`` flag. 
 
-..note:: 
+.. note:: 
   In a future version of After Effects, the requirement to set the ``PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA`` flag and handle the associated selector in the plugin will be enforced. A warning dialog will be added on load of any effect that does not meet this requirement.
 
 
