@@ -31,11 +31,14 @@ Although not strictly concerned with parameters, this suite can change the name 
 PF_AppSuite
 ================================================================================
 
-Roughly 437 years ago, when we released After Effects 5.0, we published some useful utility callbacks in PF_AppSuite. They're as useful today as they were then. After Effects has user-controllable UI brightness.
+2001, when we released After Effects 5.0, we published some useful utility callbacks in PF_AppSuite. They're as useful today as they were then. After Effects has user-controllable UI brightness.
 
 In addition to the :ref:`effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUIOverlayThemeSuite` for custom UI in effects, use these calls to integrate seamlessly into the After Effects UI.
 
 What better way to shame someone into purchasing a copy of your plug-in than by putting their personal information into a watermark, eh? Or set the cursor to add mask vertices, just to confuse people? Heh heh heh. But that would be wrong.
+
+PF_AppSuite5
+================================================================================
 
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |        **Function**         |                                                                                    **Purpose**                                                                                    |
