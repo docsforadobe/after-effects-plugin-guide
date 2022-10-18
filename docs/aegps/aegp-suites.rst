@@ -1880,7 +1880,7 @@ As most After Effects usage boils down to layer manipulation, this is among the 
 
 .. _aegps/aegp-suites.AEGP_LayerSuite:
 
-AEGP_LayerSuite8
+AEGP_LayerSuite9
 ********************************************************************************
 
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2126,7 +2126,7 @@ AEGP_LayerSuite8
 |                                       |     AEGP_LayerH             layerH,                                                                                                                  |
 |                                       |     AEGP_LayerTransferMode  *modeP);                                                                                                                 |
 |                                       |                                                                                                                                                      |
-|                                       | As of 6.5, when you make a layer a track matte, the layer in front of it will be disabled,                                                           |
+|                                       | As of 23.0, when you make a layer a track matte, the layer being matted will be disabled,                                                            |
 |                                       | as when you do this via the interface.                                                                                                               |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_IsAddLayerValid``              | Tests whether it's currently valid to add a given item to a composition.                                                                             |
@@ -2369,6 +2369,40 @@ AEGP_LayerSuite8
 |                                       |   AEGP_SetLayerSamplingQuality(                                                                                                                      |
 |                                       |     AEGP_LayerH                layerH,                                                                                                               |
 |                                       |     AEGP_LayerSamplingQuality  label);                                                                                                               |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_GetTrackMatteLayer``           | New in 23.0. Returns the track matte layer of ``layerH``. Returns ``NULL`` if there is no track matte layer.                                         |
+|                                       |                                                                                                                                                      |
+|                                       | ::                                                                                                                                                   |
+|                                       |                                                                                                                                                      |
+|                                       |   AEGP_GetTrackMatteLayer(                                                                                                                           |
+|                                       |     const AEGP_LayerH          layerH,                                                                                                               |
+|                                       |     AEGP_LayerH                *track_matte_layerPH);                                                                                                |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_SetTrackMatte``                | New in 23.0. Sets the track matte layer and track matte type of ``layerH``.                                                                          |
+|                                       |                                                                                                                                                      |
+|                                       | **Track Matte Types**:                                                                                                                               |
+|                                       |                                                                                                                                                      |
+|                                       |   - ``AEGP_TrackMatte_NO_TRACK_MATTE``                                                                                                               |
+|                                       |   - ``AEGP_TrackMatte_ALPHA``                                                                                                                        |
+|                                       |   - ``AEGP_TrackMatte_NOT_ALPHA``                                                                                                                    |
+|                                       |   - ``AEGP_TrackMatte_LUMA``                                                                                                                         |
+|                                       |   - ``AEGP_TrackMatte_NOT_LUMA``                                                                                                                     |
+|                                       |                                                                                                                                                      |
+|                                       | Setting the track matte type as ``AEGP_TrackMatte_NO_TRACK_MATTE`` removes track matte.                                                              |
+|                                       |                                                                                                                                                      |
+|                                       | ::                                                                                                                                                   |
+|                                       |                                                                                                                                                      |
+|                                       |   AEGP_SetTrackMatte(                                                                                                                                |
+|                                       |     AEGP_LayerH                layerH,                                                                                                               |
+|                                       |     const AEGP_LayerH          track_matte_layerH0,                                                                                                  |
+|                                       |     const AEGP_TrackMatte      track_matte_type);                                                                                                    |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_RemoveTrackMatte``             | New in 23.0. Removes the track matte layer of ``layerH``.                                                                                            |
+|                                       |                                                                                                                                                      |
+|                                       | ::                                                                                                                                                   |
+|                                       |                                                                                                                                                      |
+|                                       |   AEGP_RemoveTrackMatte(                                                                                                                             |
+|                                       |     AEGP_LayerH                layerH);                                                                                                              |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----

@@ -119,7 +119,7 @@ PF_EffectSequenceDataSuite1
 |                             |     PF_ConstHandle *sequence_data);                                                                                            |
 +-----------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 
-.. code-block:: c++
+.. code-block:: c++ 
 
   static PF_Err Render(	
      PF_InData   *in_dataP,
@@ -138,7 +138,7 @@ PF_EffectSequenceDataSuite1
    
       PF_ConstHandle const_seq;
       seqdata_suite->PF_GetConstSequenceData(in_data->effect_ref, &const_seq);
-   ​
+
       // cast const_seq to the type used when storing to sequence_data
          
       // rest of render function code...
