@@ -25,8 +25,6 @@ After Effects supports MediaCore importer plug-ins. MediaCore is a set of shared
 
 Only MediaCore importer plug-ins support an importer priority system: The highest priority importer gets the first opportunity to import a file, and if the particular imported file isn't supported, the next-highest priority importer will then have the opportunity to try importing it, and so on. MediaCore importers cannot defer file import to an AEIO. So if your goal is to take over file handling for any file type for which After Effects already provides a plug-in, you need to develop a MediaCore importer plug-in.
 
-On the other hand, only AEIOs can display a setup dialog in the Interpret Footage < Main > More Options dialog.
-
 If the above constraints haven't already answered whether you need to build an AEIO or MediaCore importer, then you'll likely want to build a MediaCore importer, which can be used across the video and audio applications including Premiere Pro, Media Encoder, Prelude, SpeedGrade, and Audition.
 
 ----
