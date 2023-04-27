@@ -4865,7 +4865,7 @@ We've provided a function so AEGPs can obtain information on After Effects' curr
 
 .. _aegps/aegp-suites.AEGP_ColorSettingsSuite:
 
-AEGP_ColorSettingsSuite2
+AEGP_ColorSettingsSuite5
 ********************************************************************************
 
 +-------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
@@ -4899,7 +4899,7 @@ AEGP_ColorSettingsSuite2
 +-------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_GetNewWorkingSpaceColorProfile``   | Retrieves the opaque current working space ICC profile. Must be disposed.                                                       |
 |                                           | The "New" in the name does not indicate that you're making up a new profile; rather, it's part of our function naming standard; |
-|                                           | nything with "New" in the name allocates something which the caller must dispose.                                               |
+|                                           | anything with "New" in the name allocates something which the caller must dispose.                                              |
 |                                           |                                                                                                                                 |
 |                                           | ::                                                                                                                              |
 |                                           |                                                                                                                                 |
@@ -4960,6 +4960,69 @@ AEGP_ColorSettingsSuite2
 |                                           |   AEGP_IsRGBColorProfile(                                                                                                       |
 |                                           |     AEGP_ConstColorProfileP  profileP,                                                                                          |
 |                                           |     A_Boolean                *is_rgbPB);                                                                                        |
++-------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_SetWorkingColorSpace``             | Sets the working space to the passed color profile.                                                                             |
+|                                           |                                                                                                                                 |
+|                                           | ::                                                                                                                              |
+|                                           |                                                                                                                                 |
+|                                           |   AEGP_SetWorkingColorSpace(                                                                                                    |
+|                                           |     AEGP_PluginID            aegp_plugin_id,                                                                                    |
+|                                           |     AEGP_CompH               compH,                                                                                             |
+|                                           |     AEGP_ConstColorProfileP  color_profileP);                                                                                   |
++-------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_IsOCIOColorManagementUsed``        | Check if the current project is using the OCIO color engine or not.                                                             |
+|                                           | Returns true if current project uses OCIO color managed mode.                                                                   |
+|                                           |                                                                                                                                 |
+|                                           | ::                                                                                                                              |
+|                                           |                                                                                                                                 |
+|                                           |   AEGP_IsOCIOColorManagementUsed(                                                                                               |
+|                                           |     AEGP_PluginID  aegp_plugin_id,                                                                                              |
+|                                           |     A_Boolean      *is_OCIOColorManagementUsedPB);                                                                              |
++-------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_GetOCIOConfigurationFile``         | Returns the OCIO configuration file used by the project.                                                                        |
+|                                           |                                                                                                                                 |
+|                                           | Returned config_filePH is a handle of ``A_UTF16Char`` containing a null terminated UTF16String                                  |
+|                                           | which holds the OCIO Configuration file. The returned string must be disposed by the caller.                                    |
+|                                           |                                                                                                                                 |
+|                                           | ::                                                                                                                              |
+|                                           |                                                                                                                                 |
+|                                           |   AEGP_GetOCIOConfigurationFile(                                                                                                |
+|                                           |     AEGP_PluginID   aegp_plugin_id,                                                                                             |
+|                                           |     AEGP_MemHandle  *congif_filePH);                                                                                            |
++-------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGP_GetOCIOConfigurationFilePath``     | Returns the absolute file path to the OCIO configuration used by the project                                                    |
+|                                           |                                                                                                                                 |
+|                                           | The returned config_filePH is a handle of ``A_UTF16Char`` containing a null terminated UTF16String which                        |
+|                                           | holds the absolute path to OCIO Configuration file. The returned string must be disposed by the caller.                         |
+|                                           |                                                                                                                                 |
+|                                           | ::                                                                                                                              |
+|                                           |                                                                                                                                 |
+|                                           |   AEGP_GetOCIOConfigurationFilePath(                                                                                            |
+|                                           |     AEGP_PluginID	  aegp_plugin_id,                                                                                             |
+|                                           |     AEGP_MemHandle  *congif_filePH);                                                                                            |
++-------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGPD_GetOCIOWorkingColorSpace``        | Returns the working color space of the project in OCIO mode.                                                                    |
+|                                           |                                                                                                                                 |
+|                                           | The returned ocio_working_colorspaceH is a handle of ``A_UTF16Char`` containing a null terminated                               |
+|                                           | UTF16String which holds the string specifying the working color space. The returned string must be disposed by the caller.      |
+|                                           |                                                                                                                                 |
+|                                           | ::                                                                                                                              |
+|                                           |                                                                                                                                 |
+|                                           |   AEGPD_GetOCIOWorkingColorSpace(                                                                                               |
+|                                           |     AEGP_PluginID	  aegp_plugin_id,                                                                                             |
+|                                           |     AEGP_MemHandle  *ocio_working_colorspaceH);                                                                                 |
++-------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| ``AEGPD_GetOCIODisplayColorSpace``        | Returns the Display and View transforms used by the project.                                                                    |
+|                                           |                                                                                                                                 |
+|                                           | The returned ocio_displayH and ocio_viewH are handles of ``A_UTF16Char`` containing a null terminated UTF16String specifying    |
+|                                           | the Display and View transforms used at project level. The returned strings must be disposed by the caller.                     |
+|                                           |                                                                                                                                 |
+|                                           | ::                                                                                                                              |
+|                                           |                                                                                                                                 |
+|                                           |   AEGPD_GetOCIODisplayColorSpace(                                                                                               |
+|                                           |     AEGP_PluginID	  aegp_plugin_id,                                                                                             |
+|                                           |     AEGP_MemHandle  *ocio_displayH,                                                                                             |
+|                                           |     AEGP_MemHandle  *ocio_viewH);                                                                                               |
 +-------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 ----
