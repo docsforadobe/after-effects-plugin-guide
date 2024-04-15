@@ -2181,6 +2181,7 @@ AEGP_LayerSuite9
 |                                       | - ``AEGP_ObjectType_LIGHT``,                                                                                                                         |
 |                                       | - ``AEGP_ObjectType_CAMERA``,                                                                                                                        |
 |                                       | - ``AEGP_ObjectType_TEXT``                                                                                                                           |
+|                                       | - ``AEGP_ObjectType_3D_MODEL``, New in 24.4.                                                                                                         |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``AEGP_IsLayer3D``                    | Is the footage item a 3D layer. All AV layers are either 2D or 3D.                                                                                   |
 |                                       |                                                                                                                                                      |
