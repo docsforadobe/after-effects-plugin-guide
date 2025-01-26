@@ -1,7 +1,6 @@
-.. _effect-ui-events/custom-ui-and-drawbot:
+<a id="effect-ui-events-custom-ui-and-drawbot"></a>
 
-Custom UI & Drawbot
-################################################################################
+# Custom UI & Drawbot
 
 Custom UI uses a composited drawing model using Drawbot. The Drawbot suites can be used for:
 
@@ -11,569 +10,157 @@ Custom UI uses a composited drawing model using Drawbot. The Drawbot suites can 
 4. Pushing/popping surface state
 5. Text drawing, if supplier supports it (clients should first check if text drawing is supported before actual drawing)
 
-Drawing may only occur during ``PF_Event_DRAW`` (and not during ``PF_Event_DRAG`` or ``PF_Event_DO_CLICK``).
+Drawing may only occur during `PF_Event_DRAW` (and not during `PF_Event_DRAG` or `PF_Event_DO_CLICK`).
 
-To use Drawbot, first get the drawing reference by passing in PF_Context to a new suite call :ref:`PF_GetDrawingReference <effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUISuite>`.
+To use Drawbot, first get the drawing reference by passing in PF_Context to a new suite call [PF_GetDrawingReference](#effect-ui-events-custom-ui-and-drawbot-pf-effectcustomuisuite).
 
-If a non-NULL drawing reference is returned, use it to get the supplier and surface references from :ref:`DRAWBOT_DrawbotSuite <effect-ui-events/custom-ui-and-drawbot.Drawbot_DrawbotSuite>`.
+If a non-NULL drawing reference is returned, use it to get the supplier and surface references from [DRAWBOT_DrawbotSuite](#effect-ui-events-custom-ui-and-drawbot-drawbot-drawbotsuite).
 
-The Drawbot suites include ``DRAWBOT_DrawbotSuite``, ``DRAWBOT_SupplierSuite``, ``DRAWBOT_SurfaceSuite``, ``DRAWBOT_PathSuite``.
+The Drawbot suites include `DRAWBOT_DrawbotSuite`, `DRAWBOT_SupplierSuite`, `DRAWBOT_SurfaceSuite`, `DRAWBOT_PathSuite`.
 
-----
+---
 
-Make Your Custom UI Look Not So "Custom"
-================================================================================
+## Make Your Custom UI Look Not So “Custom”
 
-Use the new :ref:`PF_EffectCustomUIOverlayThemeSuite <effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUIOverlayThemeSuite>` to match the host application UI. Your users will thank you.
+Use the new [PF_EffectCustomUIOverlayThemeSuite](#effect-ui-events-custom-ui-and-drawbot-pf-effectcustomuioverlaythemesuite) to match the host application UI. Your users will thank you.
 
-----
+---
 
-.. _effect-ui-events/custom-ui-and-drawbot.redrawing:
+<a id="effect-ui-events-custom-ui-and-drawbot-redrawing"></a>
 
-Redrawing
-================================================================================
+## Redrawing
 
 In order to redraw a specific area of a pane, we recommend the following:
 
-1) Call ``PF_InvalidateRect`` (from :ref:`effect-details/useful-utility-functions.PF_AppSuite`) from the effect. This will cause a lazy display redraw, and will update at the next available idle moment. This rect is in coordinates related to the associated pane. Using a NULL rect will update the entire pane.
-2) Set the :ref:`event outflag <effect-ui-events/PF_EventExtra>` to ``PF_EO_UPDATE_NOW``, which will cause an immediate draw event for the specified pane when the current event returns.
+1. Call `PF_InvalidateRect` (from [PF_AppSuite](../effect-details/useful-utility-functions.md#effect-details-useful-utility-functions-pf-appsuite)) from the effect. This will cause a lazy display redraw, and will update at the next available idle moment. This rect is in coordinates related to the associated pane. Using a NULL rect will update the entire pane.
+2. Set the [event outflag](PF_EventExtra.md#effect-ui-events-pf-eventextra) to `PF_EO_UPDATE_NOW`, which will cause an immediate draw event for the specified pane when the current event returns.
 
-If an effect needs to update more than one window at a time, it should set ``PF_OutFlag_REFRESH_UI`` (from :ref:`effect-basics/PF_OutData.PF_OutFlags`), which will cause a redraw of the entire ECW, comp, and layer windows.
+If an effect needs to update more than one window at a time, it should set `PF_OutFlag_REFRESH_UI` (from [PF_OutFlags](../effect-basics/PF_OutData.md#effect-basics-pf-outdata-pf-outflags)), which will cause a redraw of the entire ECW, comp, and layer windows.
 
-----
+---
 
-HiDPI and Retina Display Support
-================================================================================
+## HiDPI and Retina Display Support
 
-To support HiDPI and Retina Displays, you can use offscreen images that are twice the size, and then use the ``Transform`` function from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SurfaceSuite` to scale the image down in half before drawing it.
+To support HiDPI and Retina Displays, you can use offscreen images that are twice the size, and then use the `Transform` function from [Drawbot_SurfaceSuite](#effect-ui-events-custom-ui-and-drawbot-drawbot-surfacesuite) to scale the image down in half before drawing it.
 
-----
+---
 
-.. _effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUISuite:
+<a id="effect-ui-events-custom-ui-and-drawbot-pf-effectcustomuisuite"></a>
 
-PF_EffectCustomUISuite
-================================================================================
+## PF_EffectCustomUISuite
 
 Enables an effect to get the drawing reference. This is the first call needed to use Drawbot.
 
-PF_EffectCustomUISuite1
-********************************************************************************
+### PF_EffectCustomUISuite1
 
-+----------------------------+-----------------------------------------+
-|        **Function**        |             **Purpose**                 |
-+============================+=========================================+
-| ``PF_GetDrawingReference`` | Get the drawing reference.              |
-|                            |                                         |
-|                            | ::                                      |
-|                            |                                         |
-|                            |   PF_GetDrawingReference(               |
-|                            |     const PF_ContextH  effect_contextH, |
-|                            |     DRAWBOT_DrawRef    *referenceP0);   |
-+----------------------------+-----------------------------------------+
+| **Function**             | **Purpose**                                                                                                                                                          |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `PF_GetDrawingReference` | Get the drawing reference.<br/><br/>```default<br/>PF_GetDrawingReference(<br/>  const PF_ContextH  effect_contextH,<br/>  DRAWBOT_DrawRef    *referenceP0);<br/>``` |
 
-----
+---
 
-.. _effect-ui-events/custom-ui-and-drawbot.Drawbot_DrawbotSuite:
+<a id="effect-ui-events-custom-ui-and-drawbot-drawbot-drawbotsuite"></a>
 
-Drawbot_DrawbotSuite
-================================================================================
+## Drawbot_DrawbotSuite
 
 Using the Drawbot reference, get the supplier and surface references.
 
-Drawbot_DrawbotSuite1
-********************************************************************************
+### Drawbot_DrawbotSuite1
 
-+-----------------+------------------------------------------------------------------------------------+
-|  **Function**   |                                    **Purpose**                                     |
-+=================+====================================================================================+
-| ``GetSupplier`` | Get the supplier reference.                                                        |
-|                 |                                                                                    |
-|                 | Needed to use :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`. |
-|                 |                                                                                    |
-|                 | ::                                                                                 |
-|                 |                                                                                    |
-|                 |   GetSupplier(                                                                     |
-|                 |     DRAWBOT_DrawRef      in_drawbot_ref,                                           |
-|                 |     DRAWBOT_SupplierRef  *out_supplierP);                                          |
-+-----------------+------------------------------------------------------------------------------------+
-| ``GetSurface``  | Get the surface reference.                                                         |
-|                 |                                                                                    |
-|                 | Needed to use :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SurfaceSuite`.  |
-|                 |                                                                                    |
-|                 | ::                                                                                 |
-|                 |                                                                                    |
-|                 |   GetSurface(                                                                      |
-|                 |     DRAWBOT_DrawRef     in_drawbot_ref,                                            |
-|                 |     DRAWBOT_SurfaceRef  *out_surfaceP);                                            |
-+-----------------+------------------------------------------------------------------------------------+
+| **Function**   | **Purpose**                                                                                                                                                                                                                                                                    |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `GetSupplier`  | Get the supplier reference.<br/><br/>Needed to use [Drawbot_SupplierSuite](#effect-ui-events-custom-ui-and-drawbot-drawbot-suppliersuite).<br/><br/>```default<br/>GetSupplier(<br/>  DRAWBOT_DrawRef      in_drawbot_ref,<br/>  DRAWBOT_SupplierRef  *out_supplierP);<br/>``` |
+| `GetSurface`   | Get the surface reference.<br/><br/>Needed to use [Drawbot_SurfaceSuite](#effect-ui-events-custom-ui-and-drawbot-drawbot-surfacesuite).<br/><br/>```default<br/>GetSurface(<br/>  DRAWBOT_DrawRef     in_drawbot_ref,<br/>  DRAWBOT_SurfaceRef  *out_surfaceP);<br/>```        |
 
-----
+---
 
-.. _effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite:
+<a id="effect-ui-events-custom-ui-and-drawbot-drawbot-suppliersuite"></a>
 
-Drawbot_SupplierSuite
-================================================================================
+## Drawbot_SupplierSuite
 
 Calls to create and release drawing tools, get default settings, and query drawing capabilities.
 
-Drawbot_SupplierSuite1
-********************************************************************************
+### Drawbot_SupplierSuite1
 
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|        **Function**         |                                                                                 **Purpose**                                                                                 |
-+=============================+=============================================================================================================================================================================+
-| ``NewPen``                  | Create a new pen. Release this using ``ReleaseObject`` from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`.                                            |
-|                             |                                                                                                                                                                             |
-|                             | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   NewPen(                                                                                                                                                                   |
-|                             |     DRAWBOT_SupplierRef      in_supplier_ref,                                                                                                                               |
-|                             |     const DRAWBOT_ColorRGBA  *in_colorP,                                                                                                                                    |
-|                             |     float                    in_size,                                                                                                                                       |
-|                             |     DRAWBOT_PenRef           *out_penP);                                                                                                                                    |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``NewBrush``                | Create a new brush. Release this using ``ReleaseObject`` from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`.                                          |
-|                             |                                                                                                                                                                             |
-|                             | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   NewBrush(                                                                                                                                                                 |
-|                             |     DRAWBOT_SupplierRef      in_supplier_ref,                                                                                                                               |
-|                             |     const DRAWBOT_ColorRGBA  *in_colorP,                                                                                                                                    |
-|                             |     DRAWBOT_BrushRef         *out_brushP);                                                                                                                                  |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``SupportsText``            | Check if current supplier supports text.                                                                                                                                    |
-|                             |                                                                                                                                                                             |
-|                             | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   SupportsText(                                                                                                                                                             |
-|                             |     DRAWBOT_SupplierRef  in_supplier_ref,                                                                                                                                   |
-|                             |     DRAWBOT_Boolean      *out_supports_textB);                                                                                                                              |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``GetDefaultFontSize``      | Get the default font size.                                                                                                                                                  |
-|                             |                                                                                                                                                                             |
-|                             | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   GetDefaultFontSize(                                                                                                                                                       |
-|                             |     DRAWBOT_SupplierRef  in_supplier_ref,                                                                                                                                   |
-|                             |     float                *out_font_sizeF);                                                                                                                                  |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``NewDefaultFont``          | Create a new font with default settings.                                                                                                                                    |
-|                             |                                                                                                                                                                             |
-|                             | You can pass the default font size from ``GetDefaultFontSize``.                                                                                                             |
-|                             |                                                                                                                                                                             |
-|                             | Release this using ``ReleaseObject`` from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`.                                                              |
-|                             |                                                                                                                                                                             |
-|                             | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   NewDefaultFont(                                                                                                                                                           |
-|                             |     DRAWBOT_SupplierRef  in_supplier_ref,                                                                                                                                   |
-|                             |     float                in_font_sizeF,                                                                                                                                     |
-|                             |     DRAWBOT_FontRef      *out_fontP);                                                                                                                                       |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``NewImageFromBuffer``      | Create a new image from buffer passed to in_dataP.                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             | Release this using ``ReleaseObject`` from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`.                                                              |
-|                             |                                                                                                                                                                             |
-|                             | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   NewImageFromBuffer(                                                                                                                                                       |
-|                             |     DRAWBOT_SupplierRef  in_supplier_ref,                                                                                                                                   |
-|                             |     int                  in_width,                                                                                                                                          |
-|                             |     int                  in_height,                                                                                                                                         |
-|                             |     int                  in_row_bytes,                                                                                                                                      |
-|                             |     DRAWBOT_PixelLayout  in_pl,                                                                                                                                             |
-|                             |     const void           *in_dataP,                                                                                                                                         |
-|                             |     DRAWBOT_ImageRef     *out_imageP);                                                                                                                                      |
-|                             |                                                                                                                                                                             |
-|                             | ``DRAWBOT_PixelLayout`` can be one of the following:                                                                                                                        |
-|                             |                                                                                                                                                                             |
-|                             |   - ``kDRAWBOT_PixelLayout_24RGB``,                                                                                                                                         |
-|                             |   - ``kDRAWBOT_PixelLayout_24BGR``,                                                                                                                                         |
-|                             |   - ``kDRAWBOT_PixelLayout_32RGB``,                                                                                                                                         |
-|                             |   - ``ARGB`` (A is ignored),                                                                                                                                                |
-|                             |   - ``kDRAWBOT_PixelLayout_32BGR``,                                                                                                                                         |
-|                             |   - ``BGRA`` (A is ignored),                                                                                                                                                |
-|                             |   - ``kDRAWBOT_PixelLayout_32ARGB_Straight``,                                                                                                                               |
-|                             |   - ``kDRAWBOT_PixelLayout_32ARGB_Premul``,                                                                                                                                 |
-|                             |   - ``kDRAWBOT_PixelLayout_32BGRA_Straight``,                                                                                                                               |
-|                             |   - ``kDRAWBOT_PixelLayout_32BGRA_Premul``                                                                                                                                  |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``NewPath``                 | Create a new path. Release this using ``ReleaseObject`` from :ref:`effect-ui-events/custom-ui-and-drawbot.Drawbot_SupplierSuite`.                                           |
-|                             |                                                                                                                                                                             |
-|                             | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   NewPath(                                                                                                                                                                  |
-|                             |     DRAWBOT_SupplierRef  in_supplier_ref,                                                                                                                                   |
-|                             |     DRAWBOT_PathRef      *out_pathP);                                                                                                                                       |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``SupportsPixelLayoutBGRA`` | A given Drawbot implementation can support multiple channel orders, but will likely prefer one over the other.                                                              |
-|                             | Use the following four callbacks to get the preferred channel order for any API that takes a ``DRAWBOT_PixelLayout`` (e.g. ``NewImageFromBuffer``).                         |
-|                             |                                                                                                                                                                             |
-|                             | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   SupportsPixelLayoutBGRA(                                                                                                                                                  |
-|                             |     DRAWBOT_SupplierRef  in_supplier_ref,                                                                                                                                   |
-|                             |     DRAWBOT_Boolean      *out_supports_bgraPB);                                                                                                                             |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PrefersPixelLayoutBGRA``  | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   PrefersPixelLayoutBGRA(                                                                                                                                                   |
-|                             |     DRAWBOT_SupplierRef  in_supplier_ref,                                                                                                                                   |
-|                             |     DRAWBOT_Boolean      *out_prefers_bgraPB);                                                                                                                              |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``SupportsPixelLayoutARGB`` | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   SupportsPixelLayoutARGB(                                                                                                                                                  |
-|                             |     DRAWBOT_SupplierRef  in_supplier_ref,                                                                                                                                   |
-|                             |     DRAWBOT_Boolean      *out_supports_argbPB);                                                                                                                             |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``PrefersPixelLayoutARGB``  | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   PrefersPixelLayoutARGB(                                                                                                                                                   |
-|                             |     DRAWBOT_SupplierRef  in_supplier_ref,                                                                                                                                   |
-|                             |     DRAWBOT_Boolean      *out_prefers_argbPB);                                                                                                                              |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``RetainObject``            | Retain (increase reference count on) any object (pen, brush, path, etc). For example, it should be used when any object is copied and the copied object should be retained. |
-|                             |                                                                                                                                                                             |
-|                             | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   RetainObject(                                                                                                                                                             |
-|                             |     DRAWBOT_ObjectRef  in_obj_ref);                                                                                                                                         |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``ReleaseObject``           | Release (decrease reference count on) any object (pen, brush, path, etc). This function MUST be called for any object created using ``NewXYZ()`` from this suite.           |
-|                             | Do not call this function on a ``DRAWBOT_SupplierRef`` and ``DRAWBOT_SupplierRef``, since these are not created by the plug-in.                                             |
-|                             |                                                                                                                                                                             |
-|                             | ::                                                                                                                                                                          |
-|                             |                                                                                                                                                                             |
-|                             |   ReleaseObject(                                                                                                                                                            |
-|                             |     DRAWBOT_ObjectRef  in_obj_ref);                                                                                                                                         |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Function**              | **Purpose**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `NewPen`                  | Create a new pen. Release this using `ReleaseObject` from [Drawbot_SupplierSuite](#effect-ui-events-custom-ui-and-drawbot-drawbot-suppliersuite).<br/><br/>```default<br/>NewPen(<br/>  DRAWBOT_SupplierRef      in_supplier_ref,<br/>  const DRAWBOT_ColorRGBA  *in_colorP,<br/>  float                    in_size,<br/>  DRAWBOT_PenRef           *out_penP);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `NewBrush`                | Create a new brush. Release this using `ReleaseObject` from [Drawbot_SupplierSuite](#effect-ui-events-custom-ui-and-drawbot-drawbot-suppliersuite).<br/><br/>```default<br/>NewBrush(<br/>  DRAWBOT_SupplierRef      in_supplier_ref,<br/>  const DRAWBOT_ColorRGBA  *in_colorP,<br/>  DRAWBOT_BrushRef         *out_brushP);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `SupportsText`            | Check if current supplier supports text.<br/><br/>```default<br/>SupportsText(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_Boolean      *out_supports_textB);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `GetDefaultFontSize`      | Get the default font size.<br/><br/>```default<br/>GetDefaultFontSize(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  float                *out_font_sizeF);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `NewDefaultFont`          | Create a new font with default settings.<br/><br/>You can pass the default font size from `GetDefaultFontSize`.<br/><br/>Release this using `ReleaseObject` from [Drawbot_SupplierSuite](#effect-ui-events-custom-ui-and-drawbot-drawbot-suppliersuite).<br/><br/>```default<br/>NewDefaultFont(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  float                in_font_sizeF,<br/>  DRAWBOT_FontRef      *out_fontP);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `NewImageFromBuffer`      | Create a new image from buffer passed to in_dataP.<br/><br/>Release this using `ReleaseObject` from [Drawbot_SupplierSuite](#effect-ui-events-custom-ui-and-drawbot-drawbot-suppliersuite).<br/><br/>```default<br/>NewImageFromBuffer(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  int                  in_width,<br/>  int                  in_height,<br/>  int                  in_row_bytes,<br/>  DRAWBOT_PixelLayout  in_pl,<br/>  const void           *in_dataP,<br/>  DRAWBOT_ImageRef     *out_imageP);<br/>```<br/><br/>`DRAWBOT_PixelLayout` can be one of the following:<br/><br/>> - `kDRAWBOT_PixelLayout_24RGB`,<br/>> - `kDRAWBOT_PixelLayout_24BGR`,<br/>> - `kDRAWBOT_PixelLayout_32RGB`,<br/>> - `ARGB` (A is ignored),<br/>> - `kDRAWBOT_PixelLayout_32BGR`,<br/>> - `BGRA` (A is ignored),<br/>> - `kDRAWBOT_PixelLayout_32ARGB_Straight`,<br/>> - `kDRAWBOT_PixelLayout_32ARGB_Premul`,<br/>> - `kDRAWBOT_PixelLayout_32BGRA_Straight`,<br/>> - `kDRAWBOT_PixelLayout_32BGRA_Premul` |
+| `NewPath`                 | Create a new path. Release this using `ReleaseObject` from [Drawbot_SupplierSuite](#effect-ui-events-custom-ui-and-drawbot-drawbot-suppliersuite).<br/><br/>```default<br/>NewPath(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_PathRef      *out_pathP);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `SupportsPixelLayoutBGRA` | A given Drawbot implementation can support multiple channel orders, but will likely prefer one over the other.<br/>Use the following four callbacks to get the preferred channel order for any API that takes a `DRAWBOT_PixelLayout` (e.g. `NewImageFromBuffer`).<br/><br/>```default<br/>SupportsPixelLayoutBGRA(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_Boolean      *out_supports_bgraPB);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `PrefersPixelLayoutBGRA`  | ```default<br/>PrefersPixelLayoutBGRA(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_Boolean      *out_prefers_bgraPB);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `SupportsPixelLayoutARGB` | ```default<br/>SupportsPixelLayoutARGB(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_Boolean      *out_supports_argbPB);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `PrefersPixelLayoutARGB`  | ```default<br/>PrefersPixelLayoutARGB(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_Boolean      *out_prefers_argbPB);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `RetainObject`            | Retain (increase reference count on) any object (pen, brush, path, etc). For example, it should be used when any object is copied and the copied object should be retained.<br/><br/>```default<br/>RetainObject(<br/>  DRAWBOT_ObjectRef  in_obj_ref);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `ReleaseObject`           | Release (decrease reference count on) any object (pen, brush, path, etc). This function MUST be called for any object created using `NewXYZ()` from this suite.<br/>Do not call this function on a `DRAWBOT_SupplierRef` and `DRAWBOT_SupplierRef`, since these are not created by the plug-in.<br/><br/>```default<br/>ReleaseObject(<br/>  DRAWBOT_ObjectRef  in_obj_ref);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-----
+---
 
-.. _effect-ui-events/custom-ui-and-drawbot.Drawbot_SurfaceSuite:
+<a id="effect-ui-events-custom-ui-and-drawbot-drawbot-surfacesuite"></a>
 
-Drawbot_SurfaceSuite
-================================================================================
+## Drawbot_SurfaceSuite
 
 Calls to draw on the surface, and to query and set drawing settings.
 
-Drawbot_SurfaceSuite1
-********************************************************************************
+### Drawbot_SurfaceSuite1
 
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|        **Function**        |                                                             **Purpose**                                                              |
-+============================+======================================================================================================================================+
-| ``PushStateStack``         | Push the current surface state onto the stack. It should be popped to retrieve old state.                                            |
-|                            | It is required to restore state if you are going to clip or transform a surface or change the interpolation or anti-aliasing policy. |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   PushStateStack(                                                                                                                    |
-|                            |     DRAWBOT_SurfaceRef  in_surface_ref);                                                                                             |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``PopStateStack``          | Pop the last pushed surface state off the stack.                                                                                     |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   PopStateStack(                                                                                                                     |
-|                            |     DRAWBOT_SurfaceRef  in_surface_ref);                                                                                             |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``PaintRect``              | Paint a rectangle with a color on the surface.                                                                                       |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   PaintRect(                                                                                                                         |
-|                            |     DRAWBOT_SurfaceRef       in_surface_ref,                                                                                         |
-|                            |     const DRAWBOT_ColorRGBA  *in_colorP,                                                                                             |
-|                            |     const DRAWBOT_RectF32    *in_rectPR);                                                                                            |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``FillPath``               | Fill a path using a brush and fill type.                                                                                             |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   FillPath(                                                                                                                          |
-|                            |     DRAWBOT_SurfaceRef  in_surface_ref,                                                                                              |
-|                            |     DRAWBOT_BrushRef    in_brush_ref,                                                                                                |
-|                            |     DRAWBOT_PathRef     in_path_ref,                                                                                                 |
-|                            |     DRAWBOT_FillType    in_fill_type);                                                                                               |
-|                            |                                                                                                                                      |
-|                            | ``DRAWBOT_FillType`` is one of the following:                                                                                        |
-|                            |                                                                                                                                      |
-|                            |   - ``kDRAWBOT_FillType_EvenOdd``,                                                                                                   |
-|                            |   - ``kDRAWBOT_FillType_Winding``                                                                                                    |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``StrokePath``             | Stroke a path using a pen.                                                                                                           |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   StrokePath(                                                                                                                        |
-|                            |     DRAWBOT_SurfaceRef  in_surface_ref,                                                                                              |
-|                            |     DRAWBOT_PenRef      in_pen_ref,                                                                                                  |
-|                            |     DRAWBOT_PathRef     in_path_ref);                                                                                                |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``Clip``                   | Clip the surface.                                                                                                                    |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   Clip(                                                                                                                              |
-|                            |     DRAWBOT_SurfaceRef    in_surface_ref,                                                                                            |
-|                            |     DRAWBOT_SupplierRef   in_supplier_ref,                                                                                           |
-|                            |     const DRAWBOT_Rect32  *in_rectPR);                                                                                               |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``GetClipBounds``          | Get clip bounds.                                                                                                                     |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   GetClipBounds(                                                                                                                     |
-|                            |     DRAWBOT_SurfaceRef  in_surface_ref,                                                                                              |
-|                            |     DRAWBOT_Rect32      *out_rectPR);                                                                                                |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``IsWithinClipBounds``     | Checks whether a rect is within the clip bounds.                                                                                     |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   IsWithinClipBounds(                                                                                                                |
-|                            |     DRAWBOT_SurfaceRef    in_surface_ref,                                                                                            |
-|                            |     const DRAWBOT_Rect32  *in_rectPR,                                                                                                |
-|                            |     DRAWBOT_Boolean       *out_withinPB);                                                                                            |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``Transform``              | Transform the last surface state.                                                                                                    |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   Transform(                                                                                                                         |
-|                            |     DRAWBOT_SurfaceRef       in_surface_ref,                                                                                         |
-|                            |     const DRAWBOT_MatrixF32  *in_matrixP);                                                                                           |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``DrawString``             | Draw a string.                                                                                                                       |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   DrawString(                                                                                                                        |
-|                            |     DRAWBOT_SurfaceRef       in_surface_ref,                                                                                         |
-|                            |     DRAWBOT_BrushRef         in_brush_ref,                                                                                           |
-|                            |     DRAWBOT_FontRef          in_font_ref,                                                                                            |
-|                            |     const DRAWBOT_UTF16Char  *in_stringP,                                                                                            |
-|                            |     const DRAWBOT_PointF32   *in_originP,                                                                                            |
-|                            |     DRAWBOT_TextAlignment    in_alignment_style,                                                                                     |
-|                            |     DRAWBOT_TextTruncation   in_truncation_style,                                                                                    |
-|                            |     float                    in_truncation_width);                                                                                   |
-|                            |                                                                                                                                      |
-|                            | ``DRAWBOT_TextAlignment`` is one of the following:                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   - ``kDRAWBOT_TextAlignment_Left``,                                                                                                 |
-|                            |   - ``kDRAWBOT_TextAlignment_Center``,                                                                                               |
-|                            |   - ``kDRAWBOT_TextAlignment_Right``                                                                                                 |
-|                            |                                                                                                                                      |
-|                            | ``DRAWBOT_TextTruncation`` is one of the following:                                                                                  |
-|                            |                                                                                                                                      |
-|                            |   - ``kDRAWBOT_TextTruncation_None``,                                                                                                |
-|                            |   - ``kDRAWBOT_TextTruncation_End``,                                                                                                 |
-|                            |   - ``kDRAWBOT_TextTruncation_EndEllipsis``,                                                                                         |
-|                            |   - ``kDRAWBOT_TextTruncation_PathEllipsis``                                                                                         |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``DrawImage``              | Draw an image created using ``NewImageFromBuffer()`` on the surface. Alpha = [0.0f, 1.0f ].                                          |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   DrawImage(                                                                                                                         |
-|                            |     DRAWBOT_SurfaceRef      in_surface_ref,                                                                                          |
-|                            |     DRAWBOT_ImageRef        in_image_ref,                                                                                            |
-|                            |     const DRAWBOT_PointF32  *in_originP,                                                                                             |
-|                            |     float                   in_alpha);                                                                                               |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``SetInterpolationPolicy`` | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   SetInterpolationPolicy(                                                                                                            |
-|                            |     DRAWBOT_SurfaceRef           in_surface_ref,                                                                                     |
-|                            |     DRAWBOT_InterpolationPolicy  in_interp);                                                                                         |
-|                            |                                                                                                                                      |
-|                            | ``DRAWBOT_InterpolationPolicy`` is one of the following:                                                                             |
-|                            |                                                                                                                                      |
-|                            |   - ``kDRAWBOT_InterpolationPolicy_None``,                                                                                           |
-|                            |   - ``kDRAWBOT_InterpolationPolicy_Med``,                                                                                            |
-|                            |   - ``kDRAWBOT_InterpolationPolicy_High``                                                                                            |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``GetInterpolationPolicy`` | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   GetInterpolationPolicy(                                                                                                            |
-|                            |     DRAWBOT_SurfaceRef           in_surface_ref,                                                                                     |
-|                            |     DRAWBOT_InterpolationPolicy  *out_interpP);                                                                                      |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``SetAntiAliasPolicy``     | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   SetAntiAliasPolicy(                                                                                                                |
-|                            |     DRAWBOT_SurfaceRef       in_surface_ref,                                                                                         |
-|                            |     DRAWBOT_AntiAliasPolicy  in_policy);                                                                                             |
-|                            |                                                                                                                                      |
-|                            | ``DRAWBOT_AntiAliasPolicy`` is one of the following:                                                                                 |
-|                            |                                                                                                                                      |
-|                            |   - ``kDRAWBOT_AntiAliasPolicy_None``,                                                                                               |
-|                            |   - ``kDRAWBOT_AntiAliasPolicy_Med``,                                                                                                |
-|                            |   - ``kDRAWBOT_AntiAliasPolicy_High``                                                                                                |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``GetAntiAliasPolicy``     | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   GetAntiAliasPolicy(                                                                                                                |
-|                            |     DRAWBOT_SurfaceRef       in_surface_ref,                                                                                         |
-|                            |     DRAWBOT_AntiAliasPolicy  *out_policyP);                                                                                          |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ``Flush``                  | Flush drawing. This is not always needed, and if overused, may cause excessive redrawing and flashing.                               |
-|                            |                                                                                                                                      |
-|                            | ::                                                                                                                                   |
-|                            |                                                                                                                                      |
-|                            |   Flush(                                                                                                                             |
-|                            |     DRAWBOT_SurfaceRef  in_surface_ref);                                                                                             |
-+----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| **Function**             | **Purpose**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `PushStateStack`         | Push the current surface state onto the stack. It should be popped to retrieve old state.<br/>It is required to restore state if you are going to clip or transform a surface or change the interpolation or anti-aliasing policy.<br/><br/>```default<br/>PushStateStack(<br/>  DRAWBOT_SurfaceRef  in_surface_ref);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `PopStateStack`          | Pop the last pushed surface state off the stack.<br/><br/>```default<br/>PopStateStack(<br/>  DRAWBOT_SurfaceRef  in_surface_ref);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `PaintRect`              | Paint a rectangle with a color on the surface.<br/><br/>```default<br/>PaintRect(<br/>  DRAWBOT_SurfaceRef       in_surface_ref,<br/>  const DRAWBOT_ColorRGBA  *in_colorP,<br/>  const DRAWBOT_RectF32    *in_rectPR);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `FillPath`               | Fill a path using a brush and fill type.<br/><br/>```default<br/>FillPath(<br/>  DRAWBOT_SurfaceRef  in_surface_ref,<br/>  DRAWBOT_BrushRef    in_brush_ref,<br/>  DRAWBOT_PathRef     in_path_ref,<br/>  DRAWBOT_FillType    in_fill_type);<br/>```<br/><br/>`DRAWBOT_FillType` is one of the following:<br/><br/>> - `kDRAWBOT_FillType_EvenOdd`,<br/>> - `kDRAWBOT_FillType_Winding`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `StrokePath`             | Stroke a path using a pen.<br/><br/>```default<br/>StrokePath(<br/>  DRAWBOT_SurfaceRef  in_surface_ref,<br/>  DRAWBOT_PenRef      in_pen_ref,<br/>  DRAWBOT_PathRef     in_path_ref);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `Clip`                   | Clip the surface.<br/><br/>```default<br/>Clip(<br/>  DRAWBOT_SurfaceRef    in_surface_ref,<br/>  DRAWBOT_SupplierRef   in_supplier_ref,<br/>  const DRAWBOT_Rect32  *in_rectPR);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `GetClipBounds`          | Get clip bounds.<br/><br/>```default<br/>GetClipBounds(<br/>  DRAWBOT_SurfaceRef  in_surface_ref,<br/>  DRAWBOT_Rect32      *out_rectPR);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `IsWithinClipBounds`     | Checks whether a rect is within the clip bounds.<br/><br/>```default<br/>IsWithinClipBounds(<br/>  DRAWBOT_SurfaceRef    in_surface_ref,<br/>  const DRAWBOT_Rect32  *in_rectPR,<br/>  DRAWBOT_Boolean       *out_withinPB);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `Transform`              | Transform the last surface state.<br/><br/>```default<br/>Transform(<br/>  DRAWBOT_SurfaceRef       in_surface_ref,<br/>  const DRAWBOT_MatrixF32  *in_matrixP);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `DrawString`             | Draw a string.<br/><br/>```default<br/>DrawString(<br/>  DRAWBOT_SurfaceRef       in_surface_ref,<br/>  DRAWBOT_BrushRef         in_brush_ref,<br/>  DRAWBOT_FontRef          in_font_ref,<br/>  const DRAWBOT_UTF16Char  *in_stringP,<br/>  const DRAWBOT_PointF32   *in_originP,<br/>  DRAWBOT_TextAlignment    in_alignment_style,<br/>  DRAWBOT_TextTruncation   in_truncation_style,<br/>  float                    in_truncation_width);<br/>```<br/><br/>`DRAWBOT_TextAlignment` is one of the following:<br/><br/>> - `kDRAWBOT_TextAlignment_Left`,<br/>> - `kDRAWBOT_TextAlignment_Center`,<br/>> - `kDRAWBOT_TextAlignment_Right`<br/><br/>`DRAWBOT_TextTruncation` is one of the following:<br/><br/>> - `kDRAWBOT_TextTruncation_None`,<br/>> - `kDRAWBOT_TextTruncation_End`,<br/>> - `kDRAWBOT_TextTruncation_EndEllipsis`,<br/>> - `kDRAWBOT_TextTruncation_PathEllipsis` |
+| `DrawImage`              | Draw an image created using `NewImageFromBuffer()` on the surface. Alpha = [0.0f, 1.0f ].<br/><br/>```default<br/>DrawImage(<br/>  DRAWBOT_SurfaceRef      in_surface_ref,<br/>  DRAWBOT_ImageRef        in_image_ref,<br/>  const DRAWBOT_PointF32  *in_originP,<br/>  float                   in_alpha);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `SetInterpolationPolicy` | ```default<br/>SetInterpolationPolicy(<br/>  DRAWBOT_SurfaceRef           in_surface_ref,<br/>  DRAWBOT_InterpolationPolicy  in_interp);<br/>```<br/><br/>`DRAWBOT_InterpolationPolicy` is one of the following:<br/><br/>> - `kDRAWBOT_InterpolationPolicy_None`,<br/>> - `kDRAWBOT_InterpolationPolicy_Med`,<br/>> - `kDRAWBOT_InterpolationPolicy_High`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `GetInterpolationPolicy` | ```default<br/>GetInterpolationPolicy(<br/>  DRAWBOT_SurfaceRef           in_surface_ref,<br/>  DRAWBOT_InterpolationPolicy  *out_interpP);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `SetAntiAliasPolicy`     | ```default<br/>SetAntiAliasPolicy(<br/>  DRAWBOT_SurfaceRef       in_surface_ref,<br/>  DRAWBOT_AntiAliasPolicy  in_policy);<br/>```<br/><br/>`DRAWBOT_AntiAliasPolicy` is one of the following:<br/><br/>> - `kDRAWBOT_AntiAliasPolicy_None`,<br/>> - `kDRAWBOT_AntiAliasPolicy_Med`,<br/>> - `kDRAWBOT_AntiAliasPolicy_High`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `GetAntiAliasPolicy`     | ```default<br/>GetAntiAliasPolicy(<br/>  DRAWBOT_SurfaceRef       in_surface_ref,<br/>  DRAWBOT_AntiAliasPolicy  *out_policyP);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `Flush`                  | Flush drawing. This is not always needed, and if overused, may cause excessive redrawing and flashing.<br/><br/>```default<br/>Flush(<br/>  DRAWBOT_SurfaceRef  in_surface_ref);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
-----
+---
 
-Drawbot_PathSuite
-================================================================================
+## Drawbot_PathSuite
 
 Calls to draw paths.
 
-Drawbot_PathSuite1
-********************************************************************************
+### Drawbot_PathSuite1
 
-+--------------+---------------------------------------------------------+
-| **Function** |                       **Purpose**                       |
-+==============+=========================================================+
-| ``MoveTo``   | Move to a point.                                        |
-|              |                                                         |
-|              | ::                                                      |
-|              |                                                         |
-|              |   MoveTo(                                               |
-|              |     DRAWBOT_PathRef  in_path_ref,                       |
-|              |     float            in_x,                              |
-|              |     float            in_y);                             |
-+--------------+---------------------------------------------------------+
-| ``LineTo``   | Add a line to the path.                                 |
-|              |                                                         |
-|              | ::                                                      |
-|              |                                                         |
-|              |   LineTo(                                               |
-|              |     DRAWBOT_PathRef  in_path_ref,                       |
-|              |     float            in_x,                              |
-|              |     float            in_y);                             |
-+--------------+---------------------------------------------------------+
-| ``BezierTo`` | Add a cubic bezier to the path.                         |
-|              |                                                         |
-|              | ::                                                      |
-|              |                                                         |
-|              |   BezierTo(                                             |
-|              |     DRAWBOT_PathRef         in_path_ref,                |
-|              |     const DRAWBOT_PointF32  *in_pt1P,                   |
-|              |     const DRAWBOT_PointF32  *in_pt2P,                   |
-|              |     const DRAWBOT_PointF32  *in_pt3P);                  |
-+--------------+---------------------------------------------------------+
-| ``AddRect``  | Add a rect to the path.                                 |
-|              |                                                         |
-|              | ::                                                      |
-|              |                                                         |
-|              |   AddRect(                                              |
-|              |     DRAWBOT_PathRef        in_path_ref,                 |
-|              |     const DRAWBOT_RectF32  *in_rectPR);                 |
-+--------------+---------------------------------------------------------+
-| ``AddArc``   | Add a arc to the path. Zero start degrees == 3 o'clock. |
-|              | Sweep is clockwise. Units for angle are in degrees.     |
-|              |                                                         |
-|              | ::                                                      |
-|              |                                                         |
-|              |   AddArc(                                               |
-|              |     DRAWBOT_PathRef         in_path_ref,                |
-|              |     const DRAWBOT_PointF32  *in_centerP,                |
-|              |     float                   in_radius,                  |
-|              |     float                   in_start_angle,             |
-|              |     float                   in_sweep);                  |
-+--------------+---------------------------------------------------------+
-| ``Close``    | Close the path.                                         |
-|              |                                                         |
-|              | ::                                                      |
-|              |                                                         |
-|              |   Close(                                                |
-|              |     DRAWBOT_PathRef  in_path_ref);                      |
-+--------------+---------------------------------------------------------+
+| **Function**   | **Purpose**                                                                                                                                                                                                                                                                                                                                                                   |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MoveTo`       | Move to a point.<br/><br/>```default<br/>MoveTo(<br/>  DRAWBOT_PathRef  in_path_ref,<br/>  float            in_x,<br/>  float            in_y);<br/>```                                                                                                                                                                                                                       |
+| `LineTo`       | Add a line to the path.<br/><br/>```default<br/>LineTo(<br/>  DRAWBOT_PathRef  in_path_ref,<br/>  float            in_x,<br/>  float            in_y);<br/>```                                                                                                                                                                                                                |
+| `BezierTo`     | Add a cubic bezier to the path.<br/><br/>```default<br/>BezierTo(<br/>  DRAWBOT_PathRef         in_path_ref,<br/>  const DRAWBOT_PointF32  *in_pt1P,<br/>  const DRAWBOT_PointF32  *in_pt2P,<br/>  const DRAWBOT_PointF32  *in_pt3P);<br/>```                                                                                                                                 |
+| `AddRect`      | Add a rect to the path.<br/><br/>```default<br/>AddRect(<br/>  DRAWBOT_PathRef        in_path_ref,<br/>  const DRAWBOT_RectF32  *in_rectPR);<br/>```                                                                                                                                                                                                                          |
+| `AddArc`       | Add a arc to the path. Zero start degrees == 3 o’clock.<br/>Sweep is clockwise. Units for angle are in degrees.<br/><br/>```default<br/>AddArc(<br/>  DRAWBOT_PathRef         in_path_ref,<br/>  const DRAWBOT_PointF32  *in_centerP,<br/>  float                   in_radius,<br/>  float                   in_start_angle,<br/>  float                   in_sweep);<br/>``` |
+| `Close`        | Close the path.<br/><br/>```default<br/>Close(<br/>  DRAWBOT_PathRef  in_path_ref);<br/>```                                                                                                                                                                                                                                                                                   |
 
-----
+---
 
-.. _effect-ui-events/custom-ui-and-drawbot.PF_EffectCustomUIOverlayThemeSuite:
+<a id="effect-ui-events-custom-ui-and-drawbot-pf-effectcustomuioverlaythemesuite"></a>
 
-PF_EffectCustomUIOverlayThemeSuite
-================================================================================
+## PF_EffectCustomUIOverlayThemeSuite
 
-This suite should be used for stroking and filling paths and vertices on the Composition and Layer Windows. After Effects is using this suite internally, and we have made it available to make custom UI look consistent across effects. The foreground/shadow colors are computed based on the app brightness level so that custom UI is always visible regardless of the application's Brightness setting in the Preferences.
+This suite should be used for stroking and filling paths and vertices on the Composition and Layer Windows. After Effects is using this suite internally, and we have made it available to make custom UI look consistent across effects. The foreground/shadow colors are computed based on the app brightness level so that custom UI is always visible regardless of the application’s Brightness setting in the Preferences.
 
-PF_EffectCustomUIOverlayThemeSuite1
-********************************************************************************
+### PF_EffectCustomUIOverlayThemeSuite1
 
-+------------------------------------+---------------------------------------------------------------------------------------------------------+
-|            **Function**            |                                               **Purpose**                                               |
-+====================================+=========================================================================================================+
-| ``PF_GetPreferredForegroundColor`` | Get the preferred foreground color.                                                                     |
-|                                    |                                                                                                         |
-|                                    | ::                                                                                                      |
-|                                    |                                                                                                         |
-|                                    |   PF_GetPreferredForegroundColor(                                                                       |
-|                                    |     DRAWBOT_ColorRGBA  *foreground_colorP);                                                             |
-+------------------------------------+---------------------------------------------------------------------------------------------------------+
-| ``PF_GetPreferredShadowColor``     | Get the preferred shadow color.                                                                         |
-|                                    |                                                                                                         |
-|                                    | ::                                                                                                      |
-|                                    |                                                                                                         |
-|                                    |   PF_GetPreferredShadowColor(                                                                           |
-|                                    |     DRAWBOT_ColorRGBA  *shadow_colorP);                                                                 |
-+------------------------------------+---------------------------------------------------------------------------------------------------------+
-| ``PF_GetPreferredStrokeWidth``     | Get the preferred foreground & shadow stroke width.                                                     |
-|                                    |                                                                                                         |
-|                                    | ::                                                                                                      |
-|                                    |                                                                                                         |
-|                                    |   PF_GetPreferredStrokeWidth(                                                                           |
-|                                    |     float  *stroke_widthPF);                                                                            |
-+------------------------------------+---------------------------------------------------------------------------------------------------------+
-| ``PF_GetPreferredVertexSize``      | Get the preferred vertex size.                                                                          |
-|                                    |                                                                                                         |
-|                                    | ::                                                                                                      |
-|                                    |                                                                                                         |
-|                                    |   PF_GetPreferredVertexSize(                                                                            |
-|                                    |     float  *vertex_sizePF);                                                                             |
-+------------------------------------+---------------------------------------------------------------------------------------------------------+
-| ``PF_GetPreferredShadowOffset``    | Get the preferred shadow offset.                                                                        |
-|                                    |                                                                                                         |
-|                                    | ::                                                                                                      |
-|                                    |                                                                                                         |
-|                                    |   PF_GetPreferredShadowOffset(                                                                          |
-|                                    |     A_LPoint  *shadow_offsetP);                                                                         |
-+------------------------------------+---------------------------------------------------------------------------------------------------------+
-| ``PF_StrokePath``                  | Stroke the path with the overlay theme foreground color.                                                |
-|                                    | Optionally draw the shadow using the overlay theme shadow color.                                        |
-|                                    | Uses overlay theme stroke width for stroking foreground and shadow strokes.                             |
-|                                    |                                                                                                         |
-|                                    | ::                                                                                                      |
-|                                    |                                                                                                         |
-|                                    |   PF_StrokePath(                                                                                        |
-|                                    |     const DRAWBOT_DrawRef  drawbot_ref,                                                                 |
-|                                    |     const DRAWBOT_PathRef  path_ref                                                                     |
-|                                    |     PF_Boolean             draw_shadowB);                                                               |
-+------------------------------------+---------------------------------------------------------------------------------------------------------+
-| ``PF_FillPath``                    | Fills the path with overlay theme foreground color.                                                     |
-|                                    | Optionally draw the shadow using the overlay theme shadow color.                                        |
-|                                    |                                                                                                         |
-|                                    | ::                                                                                                      |
-|                                    |                                                                                                         |
-|                                    |   PF_FillPath(                                                                                          |
-|                                    |     const DRAWBOT_DrawRef  drawbot_ref,                                                                 |
-|                                    |     const DRAWBOT_PathRef  path_ref                                                                     |
-|                                    |     PF_Boolean             draw_shadowB);                                                               |
-+------------------------------------+---------------------------------------------------------------------------------------------------------+
-| ``PF_FillVertex``                  | Fills a square vertex around the center point using the overlay theme foreground color and vertex size. |
-|                                    |                                                                                                         |
-|                                    | ::                                                                                                      |
-|                                    |                                                                                                         |
-|                                    |   PF_FillVertex(                                                                                        |
-|                                    |     const DRAWBOT_DrawRef  drawbot_ref,                                                                 |
-|                                    |     const A_FloatPoint     *center_pointP                                                               |
-|                                    |     PF_Boolean             draw_shadowB);                                                               |
-+------------------------------------+---------------------------------------------------------------------------------------------------------+
-
+| **Function**                     | **Purpose**                                                                                                                                                                                                                                                                                                                                                                              |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `PF_GetPreferredForegroundColor` | Get the preferred foreground color.<br/><br/>```default<br/>PF_GetPreferredForegroundColor(<br/>  DRAWBOT_ColorRGBA  *foreground_colorP);<br/>```                                                                                                                                                                                                                                        |
+| `PF_GetPreferredShadowColor`     | Get the preferred shadow color.<br/><br/>```default<br/>PF_GetPreferredShadowColor(<br/>  DRAWBOT_ColorRGBA  *shadow_colorP);<br/>```                                                                                                                                                                                                                                                    |
+| `PF_GetPreferredStrokeWidth`     | Get the preferred foreground & shadow stroke width.<br/><br/>```default<br/>PF_GetPreferredStrokeWidth(<br/>  float  *stroke_widthPF);<br/>```                                                                                                                                                                                                                                           |
+| `PF_GetPreferredVertexSize`      | Get the preferred vertex size.<br/><br/>```default<br/>PF_GetPreferredVertexSize(<br/>  float  *vertex_sizePF);<br/>```                                                                                                                                                                                                                                                                  |
+| `PF_GetPreferredShadowOffset`    | Get the preferred shadow offset.<br/><br/>```default<br/>PF_GetPreferredShadowOffset(<br/>  A_LPoint  *shadow_offsetP);<br/>```                                                                                                                                                                                                                                                          |
+| `PF_StrokePath`                  | Stroke the path with the overlay theme foreground color.<br/>Optionally draw the shadow using the overlay theme shadow color.<br/>Uses overlay theme stroke width for stroking foreground and shadow strokes.<br/><br/>```default<br/>PF_StrokePath(<br/>  const DRAWBOT_DrawRef  drawbot_ref,<br/>  const DRAWBOT_PathRef  path_ref<br/>  PF_Boolean             draw_shadowB);<br/>``` |
+| `PF_FillPath`                    | Fills the path with overlay theme foreground color.<br/>Optionally draw the shadow using the overlay theme shadow color.<br/><br/>```default<br/>PF_FillPath(<br/>  const DRAWBOT_DrawRef  drawbot_ref,<br/>  const DRAWBOT_PathRef  path_ref<br/>  PF_Boolean             draw_shadowB);<br/>```                                                                                        |
+| `PF_FillVertex`                  | Fills a square vertex around the center point using the overlay theme foreground color and vertex size.<br/><br/>```default<br/>PF_FillVertex(<br/>  const DRAWBOT_DrawRef  drawbot_ref,<br/>  const A_FloatPoint     *center_pointP<br/>  PF_Boolean             draw_shadowB);<br/>```                                                                                                 |

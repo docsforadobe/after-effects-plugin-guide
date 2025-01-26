@@ -1,142 +1,121 @@
-Welcome to the Adobe After Effects SDK Guide!
-################################################
+# Welcome to the Adobe After Effects SDK Guide!
 
-.. toctree::
-  :maxdepth: 1
-  :caption: About
+# About
 
-  about
-  history
+* [About this Document](about.md)
+* [Version History](history.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Introduction
+# Introduction
 
-  intro/intro
-  intro/what-can-i-do
-  intro/other-integration-possibilities
-  intro/sdk-audience
-  intro/whats-new
-  intro/how-to-start-creating-plug-ins
-  intro/sample-projects
-  intro/debugging-plug-ins
-  intro/compatibility-across-multiple-versions
-  intro/third-party-plug-in-hosts
-  intro/pipl-resources
-  intro/exceptions
-  intro/where-installers-should-put-plug-ins
-  intro/localization
-  intro/apple-silicon-support
-  intro/symbol-export
-  intro/next-steps
+* [Introduction](intro/intro.md)
+* [What Can I Do With This SDK?](intro/what-can-i-do.md)
+* [Other Integration Possibilities](intro/other-integration-possibilities.md)
+* [SDK Audience](intro/sdk-audience.md)
+* [What’s New](intro/whats-new.md)
+* [How To Start Creating Plug-ins](intro/how-to-start-creating-plug-ins.md)
+* [Sample Projects](intro/sample-projects.md)
+* [Debugging Plug-ins](intro/debugging-plug-ins.md)
+* [Compatibility Across Multiple Versions?](intro/compatibility-across-multiple-versions.md)
+* [Third-party Plug-in Hosts?](intro/third-party-plug-in-hosts.md)
+* [PiPL Resources](intro/pipl-resources.md)
+* [Exceptions](intro/exceptions.md)
+* [Where Installers Should Put Plug-ins](intro/where-installers-should-put-plug-ins.md)
+* [Localization](intro/localization.md)
+* [Apple Silicon Support](intro/apple-silicon-support.md)
+* [Exporting Symbols in Effects](intro/symbol-export.md)
+* [Next Steps](intro/next-steps.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Effect Basics
+# Effect Basics
 
-  effect-basics/effect-basics
-  effect-basics/entry-point
-  effect-basics/command-selectors
-  effect-basics/PF_InData
-  effect-basics/PF_OutData
-  effect-basics/parameters
-  effect-basics/PF_ParamDef
-  effect-basics/PF_EffectWorld
-  effect-basics/errors
+* [Effect Basics](effect-basics/effect-basics.md)
+* [Entry Point](effect-basics/entry-point.md)
+* [Command Selectors](effect-basics/command-selectors.md)
+* [PF_InData](effect-basics/PF_InData.md)
+* [PF_OutData](effect-basics/PF_OutData.md)
+* [Parameters](effect-basics/parameters.md)
+* [PF_ParamDef](effect-basics/PF_ParamDef.md)
+* [PF_EffectWorld / PF_LayerDef](effect-basics/PF_EffectWorld.md)
+* [Errors](effect-basics/errors.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Effect Details
+# Effect Details
 
-  effect-details/multi-frame-rendering-in-ae
-  effect-details/effect-details
-  effect-details/accessing-function-suites
-  effect-details/memory-allocation
-  effect-details/image-buffer-management-functions
-  effect-details/iteration-suites
-  effect-details/graphics-utility-suites
-  effect-details/interaction-callback-functions
-  effect-details/pixel-aspect-ratio
-  effect-details/parameters-floating-point-values
-  effect-details/parameter-supervision
-  effect-details/global-sequence-frame-data
-  effect-details/arbitrary-data-parameters
-  effect-details/useful-utility-functions
-  effect-details/motion-blur
-  effect-details/working-with-paths
-  effect-details/accessing-camera-light-information
-  effect-details/color-space-conversion
-  effect-details/changing-parameter-orders
-  effect-details/tips-tricks
-  effect-details/compute-cache-api
+* [Multi-Frame Rendering in AE](effect-details/multi-frame-rendering-in-ae.md)
+* [Effect Details](effect-details/effect-details.md)
+* [Accessing the After Effects Function Suites](effect-details/accessing-function-suites.md)
+* [Memory Allocation](effect-details/memory-allocation.md)
+* [Image Buffer Management Functions](effect-details/image-buffer-management-functions.md)
+* [Iteration Suites](effect-details/iteration-suites.md)
+* [Graphics Utility Suites](effect-details/graphics-utility-suites.md)
+* [Interaction Callback Functions](effect-details/interaction-callback-functions.md)
+* [Pixel Aspect Ratio](effect-details/pixel-aspect-ratio.md)
+* [Parameters & Floating Point Values](effect-details/parameters-floating-point-values.md)
+* [Parameter Supervision](effect-details/parameter-supervision.md)
+* [Global, Sequence, & Frame Data](effect-details/global-sequence-frame-data.md)
+* [Arbitrary Data Parameters](effect-details/arbitrary-data-parameters.md)
+* [Useful Utility Functions](effect-details/useful-utility-functions.md)
+* [Motion Blur](effect-details/motion-blur.md)
+* [Working With Paths](effect-details/working-with-paths.md)
+* [Accessing Camera & Light Information](effect-details/accessing-camera-light-information.md)
+* [Color Space Conversion](effect-details/color-space-conversion.md)
+* [Changing Parameter Orders, the Nice Way](effect-details/changing-parameter-orders.md)
+* [Tips & Tricks](effect-details/tips-tricks.md)
+* [Compute Cache API](effect-details/compute-cache-api.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: SmartFX
+# SmartFX
 
-  smartfx/smartfx
+* [SmartFX](smartfx/smartfx.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Effect UI & Events
+# Effect UI & Events
 
-  effect-ui-events/effect-ui-events
-  effect-ui-events/PF_EventExtra
-  effect-ui-events/PF_EventUnion
-  effect-ui-events/custom-ui-and-drawbot
-  effect-ui-events/ui-callbacks
-  effect-ui-events/tips-and-tricks
+* [Effect UI & Events](effect-ui-events/effect-ui-events.md)
+* [PF_EventExtra](effect-ui-events/PF_EventExtra.md)
+* [PF_EventUnion](effect-ui-events/PF_EventUnion.md)
+* [Custom UI & Drawbot](effect-ui-events/custom-ui-and-drawbot.md)
+* [UI Callbacks](effect-ui-events/ui-callbacks.md)
+* [Tips & Tricks](effect-ui-events/tips-and-tricks.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Audio
+# Audio
 
-  audio/audio
-  audio/global-outflags
-  audio/audio-data-structures
-  audio/audio-specific-float-slider-variables
-  audio/accessing-audio-data
-  audio/audio-considerations
+* [Audio](audio/audio.md)
+* [Global Outflags](audio/global-outflags.md)
+* [Audio Data Structures](audio/audio-data-structures.md)
+* [Audio-Specific Float Slider Variables](audio/audio-specific-float-slider-variables.md)
+* [Accessing Audio Data](audio/accessing-audio-data.md)
+* [Audio Considerations](audio/audio-considerations.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: AEGPs
+# AEGPs
 
-  aegps/aegps
-  aegps/overview
-  aegps/data-types
-  aegps/implementation
-  aegps/aegp-suites
-  aegps/cheating-effect-usage-of-aegp-suites
-  aegps/aegp-details
+* [AEGPs](aegps/aegps.md)
+* [Overview](aegps/overview.md)
+* [Data Types](aegps/data-types.md)
+* [Implementation](aegps/implementation.md)
+* [AEGP Suites](aegps/aegp-suites.md)
+* [Cheating Effect Usage of AEGP Suites](aegps/cheating-effect-usage-of-aegp-suites.md)
+* [AEGP Details](aegps/aegp-details.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Artisans
+# Artisans
 
-  artisans/artisans
-  artisans/artisan-data-types
+* [Artisans](artisans/artisans.md)
+* [Artisan Data Types](artisans/artisan-data-types.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: AEIOs
+# AEIOs
 
-  aeios/aeios
-  aeios/calling-sequence
-  aeios/AEIO_ModuleInfo
-  aeios/new-kids-on-the-function-block
-  aeios/implementation-details
+* [AEIOs](aeios/aeios.md)
+* [Calling Sequence](aeios/calling-sequence.md)
+* [AEIO_ModuleInfo](aeios/AEIO_ModuleInfo.md)
+* [New Kids On The Function Block](aeios/new-kids-on-the-function-block.md)
+* [Implementation Details](aeios/implementation-details.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Premiere Pro
+# Premiere Pro
 
-  ppro/ppro
-  ppro/plug-in-installation
-  ppro/basic-host-differences
-  ppro/multithreading
-  ppro/bigger-differences
-  ppro/plug-ins-reloaded
-  ppro/premiere-elements
-  ppro/unsupported-features
-  ppro/other-hosts
+* [Premiere Pro & Other Hosts](ppro/ppro.md)
+* [Plug-in Installation](ppro/plug-in-installation.md)
+* [Basic Host Differences](ppro/basic-host-differences.md)
+* [Multithreading](ppro/multithreading.md)
+* [Bigger Differences](ppro/bigger-differences.md)
+* [Plug-Ins… Reloaded](ppro/plug-ins-reloaded.md)
+* [Effects Presets](ppro/plug-ins-reloaded.md#effects-presets)
+* [Custom ECW UI Over A Standard Data Type](ppro/plug-ins-reloaded.md#custom-ecw-ui-over-a-standard-data-type)
+* [Premiere Elements](ppro/premiere-elements.md)
+* [Unsupported Features](ppro/unsupported-features.md)
+* [Other Hosts](ppro/other-hosts.md)
