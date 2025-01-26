@@ -2,9 +2,9 @@
 
 Generally, you should compile your plug-ins with the latest After Effects SDK headers. This makes the latest suites and API functionality available to your plug-ins. When a new version of After Effects is released, you generally will not need to provide a new version unless you wish to take advantage of new functionality exposed through the new SDK. However, you should always test your plug-in in new versions of After Effects before claiming compatibility with new versions.
 
-You should test your plug-in thoroughly in each version of After Effects supported by your plug-in. If you need to add a conditional block of code to be run only in specific versions of After Effects, you can always check the API version in [PF_InData](../effect-basics/PF_InData.md#effect-basics-pf-indata).version for effects, or in the major and minor_versionL passed into your AEGP in the [Entry Point](../aegps/implementation.md#aegps-implementation-entry-point).
+You should test your plug-in thoroughly in each version of After Effects supported by your plug-in. If you need to add a conditional block of code to be run only in specific versions of After Effects, you can always check the API version in [PF_InData](../effect-basics/PF_InData.md).version for effects, or in the major and minor_versionL passed into your AEGP in the [Entry Point](../aegps/implementation.md#entry-point).
 
-For even more precise version checking, a plug-in can run a script using `AEGP_ExecuteScript` ([AEGP_UtilitySuite6](../aegps/aegp-suites.md#aegps-aegp-suites-aegp-utilitysuite)), querying one of the following attributes:
+For even more precise version checking, a plug-in can run a script using `AEGP_ExecuteScript` ([AEGP_UtilitySuite6](../aegps/aegp-suites.md#aegp_utilitysuite6)), querying one of the following attributes:
 
 ```default
 app.version - e.g. 11.0.1x12

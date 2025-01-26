@@ -10,7 +10,7 @@ How your plug-in responds to things like downsampling, errors and exceptions, pi
 
 ## Responsiveness
 
-Make your plug-ins as responsive as possible using `PF_ABORT()` and `PF_PROGRESS()` from [Interaction Callbacks](interaction-callback-functions.md#effect-details-interaction-callback-functions-interaction-callbacks).
+Make your plug-ins as responsive as possible using `PF_ABORT()` and `PF_PROGRESS()` from [Interaction Callbacks](interaction-callback-functions.md#interaction-callbacks).
 
 We actually test all our effects for interrupt-ability; you'd be surprised how cranky users can get waiting for your pokey effect to finish processing a film resolution sequence!
 
@@ -61,7 +61,7 @@ Deeeeeep, man. After Effects rotates around the upper left corner of the upper l
 
 However, the subpixel sample and area sample callbacks actually treat (.0, .0) as a direct hit. To compensate for this, subtract 0.5 from x and y values before calling those functions.
 
-The matrix functions (`transform_world` from [PF_WorldTransformSuite1](graphics-utility-suites.md#effect-details-graphics-utility-suites-pf-worldtransformsuite)) don't have this problem.
+The matrix functions (`transform_world` from [PF_WorldTransformSuite1](graphics-utility-suites.md#pf_worldtransformsuite1)) don't have this problem.
 
 When translating an image by a subpixel amount, make the output layer one pixel wider than its input, and leave the origin at (0,0).
 
@@ -98,9 +98,9 @@ if (!err) {
 
 ## Caching Behavior
 
-After Effects provides numerous ways to specify caching behavior. `PF_OutFlag_NON_PARAM_VARY`, `PF_OutFlag_WIDE_TIME_INPUT`, `PF_OutFlag_I_USE_SHUTTER_ANGLE`, `PF_OutFlag_I_SYNTHESIZE_AUDIO`, `PF_OutFlag2_I_USE_3D_CAMERA`, and `PF_OutFlag2_I_USE_3D_LIGHTS` (all from [PF_OutFlags](../effect-basics/PF_OutData.md#effect-basics-pf-outdata-pf-outflags)) all influence caching decisions.
+After Effects provides numerous ways to specify caching behavior. `PF_OutFlag_NON_PARAM_VARY`, `PF_OutFlag_WIDE_TIME_INPUT`, `PF_OutFlag_I_USE_SHUTTER_ANGLE`, `PF_OutFlag_I_SYNTHESIZE_AUDIO`, `PF_OutFlag2_I_USE_3D_CAMERA`, and `PF_OutFlag2_I_USE_3D_LIGHTS` (all from [PF_OutFlags](../effect-basics/PF_OutData.md#pf_outflags)) all influence caching decisions.
 
-Supporting [dynamic outflags](../effect-basics/PF_OutData.md#effect-basics-pf-outdata-pf-outflags) can greatly improve performance, preventing After Effects from invalidating your effect's cache as aggressively as it otherwise would.
+Supporting [dynamic outflags](../effect-basics/PF_OutData.md#pf_outflags) can greatly improve performance, preventing After Effects from invalidating your effect's cache as aggressively as it otherwise would.
 
 Confirm that your plug-in performs well with different After Effects cache settings. Does your plug-in get called to update as often as expected, or does After Effects think it has valid pixels when you think it doesn't?
 
@@ -180,6 +180,6 @@ If you check out parameter values at other times, or use layer parameters at all
 
 Try using your plug-in in RAM previews to ensure you handle out-of-memory conditions gracefully. Does your plug-in handle running out of memory gracefully?
 
-If you receive `PF_Err_OUT_OF_MEMORY` (from [Error Codes](../effect-basics/errors.md#effect-basics-errors-error-codes)) when requesting memory, do you pass it back to After Effects?
+If you receive `PF_Err_OUT_OF_MEMORY` (from [Error Codes](../effect-basics/errors.md#error-codes)) when requesting memory, do you pass it back to After Effects?
 
 What happens when your video effect is applied to an audio-only layer? Test with projects created using older versions of your plug-in.

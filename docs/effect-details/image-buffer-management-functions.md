@@ -1,6 +1,6 @@
 # Image Buffer Management Functions
 
-Use these functions to create and destroy [PF_EffectWorld / PF_LayerDef](../effect-basics/PF_EffectWorld.md#effect-basics-pf-effectworld), and to find out their bit-depth.
+Use these functions to create and destroy [PF_EffectWorld / PF_LayerDef](../effect-basics/PF_EffectWorld.md), and to find out their bit-depth.
 
 ---
 

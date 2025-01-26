@@ -54,13 +54,13 @@ In AE, `width,height` are `(720,480)` and `pixel_aspect_ratio` is `(10,11)`.
 
 Premiere Pro handles field rendering differently than After Effects. While field rendering, PF_InData>field gives the current field being rendered, ignoring whether or not PF_OutFlag_PIX_INDEPENDENT flag was set.
 
-In Premiere Pro, effects receive the quality setting of the monitor window in [PF_InData>quality](../effect-basics/PF_InData.md#effect-basics-pf-indata-pf-indata-members). This differs from After Effects, where the source layer's quality setting is provided here.
+In Premiere Pro, effects receive the quality setting of the monitor window in [PF_InData>quality](../effect-basics/PF_InData.md#pf_indata-members). This differs from After Effects, where the source layer's quality setting is provided here.
 
 ---
 
 ## Parameter UI
 
-Premiere Pro does not honor the [PF_ParamFlag_START_COLLAPSED](../effect-basics/PF_ParamDef.md#effect-basics-pf-paramdef-parameter-flags) flag. Parameters are always initialized with their twirlies collapsed, and cannot be automatically twirled open by parameter supervision.
+Premiere Pro does not honor the [PF_ParamFlag_START_COLLAPSED](../effect-basics/PF_ParamDef.md#parameter-flags) flag. Parameters are always initialized with their twirlies collapsed, and cannot be automatically twirled open by parameter supervision.
 
 Premiere Pro supports the macro `PF_ADD_FLOAT_EXPONENTIAL_SLIDER()`, which lets you define an exponent. Although this macro is newly added for the CC 2015 release 2 SDK, Premiere Pro has used this for some time in the Fast Color Corrector, in the Input Grey Level parameter. The exponent is used so that although the range is from 0.10 to 10, 1.0 is about in the middle of the slider. The exponent we used was 2.5. Typical values would be from 0.01 to 100.
 

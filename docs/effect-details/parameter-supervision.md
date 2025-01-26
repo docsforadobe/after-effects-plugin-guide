@@ -1,6 +1,6 @@
 # Parameter Supervision
 
-Supervision means dynamically changing the values of some parameters based on the values of others. To supervise a parameter, set [PF_ParamFlag_SUPERVISE](../effect-basics/PF_ParamDef.md#effect-basics-pf-paramdef-parameter-flags) before adding it during *PF_Cmd_PARAM_SETUP*. Whenever it is changed, you will receive [PF_Cmd_USER_CHANGED_PARAM](../effect-basics/command-selectors.md#effect-basics-command-selectors-messaging). The index (into the plug-in's parameter array) of the changed parameter is sent in the PF_UserChangedParamExtra (extra) param. During *PF_Cmd_USER_CHANGED_PARAM*, you may change the values *and* appearance of any of your parameters.
+Supervision means dynamically changing the values of some parameters based on the values of others. To supervise a parameter, set [PF_ParamFlag_SUPERVISE](../effect-basics/PF_ParamDef.md#pf_paramdef) before adding it during *PF_Cmd_PARAM_SETUP*. Whenever it is changed, you will receive [PF_Cmd_USER_CHANGED_PARAM](../effect-basics/command-selectors.md#messaging). The index (into the plug-in's parameter array) of the changed parameter is sent in the PF_UserChangedParamExtra (extra) param. During *PF_Cmd_USER_CHANGED_PARAM*, you may change the values *and* appearance of any of your parameters.
 
 ---
 
@@ -8,7 +8,7 @@ Supervision means dynamically changing the values of some parameters based on th
 
 If you set `PF_ParamFlag_SUPERVISE` on any parameter, After Effects will send you *PF_Cmd_UPDATE_PARAMS_UI*, just as if you had set PF_OutFlag_SEND_UPDATE_PARAMS_UI.
 
-During *PF_Cmd_UPDATE_PARAMS_UI*, you may only change the appearance and enable state of parameters. Use `PF_UpdateParamUI()` from [PF_ParamUtilSuite3](#effect-detals-parameter-supervision-pf-paramutilsuite) to update the UI, passing it a *copy* of the parameter you wish to modify. Do *not* attempt to modify the original. It is not necessary to set `PF_OutFlag_REFRESH_UI`; `PF_UpdateParamUI()` handles that for you.
+During *PF_Cmd_UPDATE_PARAMS_UI*, you may only change the appearance and enable state of parameters. Use `PF_UpdateParamUI()` from [PF_ParamUtilSuite3](#pf_paramutilsuite3) to update the UI, passing it a *copy* of the parameter you wish to modify. Do *not* attempt to modify the original. It is not necessary to set `PF_OutFlag_REFRESH_UI`; `PF_UpdateParamUI()` handles that for you.
 
 !!! note
  This is the only way to update the UI of `PF_PUI_STD_CONTROL_ONLY` parameters.
@@ -17,7 +17,7 @@ During *PF_Cmd_UPDATE_PARAMS_UI*, you may only change the appearance and enable 
 
 ## Updating Parameter Values
 
-A parameter's value (not just UI) can be modified during [PF_Cmd_USER_CHANGED_PARAM](../effect-basics/command-selectors.md#effect-basics-command-selectors-messaging) and during [PF_Cmd_EVENT](../effect-basics/command-selectors.md#effect-basics-command-selectors-messaging) (*PF_Event_DO_CLICK*, *PF_Event_DRAG*, & *PF_Event_KEYDOWN*). After Effects will not honor changes made at other times.
+A parameter's value (not just UI) can be modified during [PF_Cmd_USER_CHANGED_PARAM](../effect-basics/command-selectors.md#messaging) and during [PF_Cmd_EVENT](../effect-basics/command-selectors.md#messaging) (*PF_Event_DO_CLICK*, *PF_Event_DRAG*, & *PF_Event_KEYDOWN*). After Effects will not honor changes made at other times.
 
 When changing parameter *values* (and not just the UI), modify the original parameter, and set `PF_Paramdef.uu.change_flags` to `PF_ChangeFlag_CHANGED_VALUE`.
 

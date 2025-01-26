@@ -6,7 +6,7 @@ Although this SDK describes the majority of integration possibilities with After
 
 ## Scripting
 
-Scripting is a relatively nimble and lightweight means to perform automated tasks with After Effects. ScriptUI is one way you can provide UI integration with custom dialogs and panels (see [HTML5 Panels](#intro-other-integration-possibilities-html5) too). And scripting may be used in tandem with plug-in development, in the cases where a certain function is made available via scripting and not via the C APIs described in this document.
+Scripting is a relatively nimble and lightweight means to perform automated tasks with After Effects. ScriptUI is one way you can provide UI integration with custom dialogs and panels (see [HTML5 Panels](#html5-panels) too). And scripting may be used in tandem with plug-in development, in the cases where a certain function is made available via scripting and not via the C APIs described in this document.
 
 Scripting in After Effects is done using ExtendScript, based on JavaScript. After Effects includes the ExtendScript ToolKit, a convenient interface for creating and testing your own scripts. Scripts may be compiled into .jsxbin binary files, to protect intellectual property.
 

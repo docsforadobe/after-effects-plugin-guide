@@ -16,7 +16,7 @@ If you call `AEGP_AddCompToRenderQueue` (from [AEGP_RenderQueueSuite1](aegp-suit
 
 ## Names And Solids
 
-Solids have names in the After Effects UI, but not in their `PF_LayerDef` [PF_EffectWorld / PF_LayerDef](../effect-basics/PF_EffectWorld.md#pf_effectworld--pf_layerdef). Consequently, their names cannot be retrieved by `AEGP_GetItemName` (in [AEGP_ItemSuite9](aegp-suites.md#aegp_itemsuite9)) or `AEGP_GetLayerName` (in [AEGP_LayerSuite9](aegp-suites.md#aegp_layersuite9)).
+Solids have names in the After Effects UI, but not in their `PF_LayerDef` [PF_EffectWorld / PF_LayerDef](../effect-basics/PF_EffectWorld.md). Consequently, their names cannot be retrieved by `AEGP_GetItemName` (in [AEGP_ItemSuite9](aegp-suites.md#aegp_itemsuite9)) or `AEGP_GetLayerName` (in [AEGP_LayerSuite9](aegp-suites.md#aegp_layersuite9)).
 
 However, you can use the ItemH associated with them to `AEGP_GetItemName` (from [AEGP_ItemSuite9](aegp-suites.md#aegp_itemsuite9)).
 

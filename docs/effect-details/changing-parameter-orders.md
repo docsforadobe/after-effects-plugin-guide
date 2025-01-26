@@ -20,4 +20,4 @@ If you don't, if someone saves a project with the old default and then reads it 
 
 Presto! Instant support call.
 
-This is another prime use case for `PF_ParamFlag_USE_VALUE_FOR_OLD_PROJECTS` from [Parameter Flags](../effect-basics/PF_ParamDef.md#effect-basics-pf-paramdef-parameter-flags).
+This is another prime use case for `PF_ParamFlag_USE_VALUE_FOR_OLD_PROJECTS` from [Parameter Flags](../effect-basics/PF_ParamDef.md#parameter-flags).

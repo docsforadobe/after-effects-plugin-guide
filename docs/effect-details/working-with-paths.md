@@ -2,13 +2,13 @@
 
 ## Accessing Path Data
 
-Paths differ from other parameter types, in that their values are not directly accessible. In addition to checking them out and in (like layer parameters), you must use our path data function suites to obtain the details of the path at a given time. See [PF_PathQuerySuite1](#effect-details-working-with-paths-pf-pathquerysuite) and [PF_PathDataSuite](#effect-details-working-with-paths-pf-pathdatasuite). Never use the values present in a path parameter when it's passed to you, without first checking it out; while deleted paths will not be available, further updating is done "lazily" (later); your effect won't see these changes unless it checks out the path.
+Paths differ from other parameter types, in that their values are not directly accessible. In addition to checking them out and in (like layer parameters), you must use our path data function suites to obtain the details of the path at a given time. See [PF_PathQuerySuite1](#pf_pathquerysuite1) and [PF_PathDataSuite](#pf_pathdatasuite). Never use the values present in a path parameter when it's passed to you, without first checking it out; while deleted paths will not be available, further updating is done "lazily" (later); your effect won't see these changes unless it checks out the path.
 
 ---
 
 ## Manipulating Path Data
 
-You can also use the [AEGP_MaskOutlineSuite3](../aegps/aegp-suites.md#aegps-aegp-suites-aegp-maskoutlinesuite) to manipulate paths. See [Cheating Effect Usage of AEGP Suites](../aegps/cheating-effect-usage-of-aegp-suites.md#aegps-cheating-effect-usage-of-aegp-suites). Path parameters are treated as opaque blobs of data; get and set functions must be used to access and manipulate them. Like layer parameters, they must be checked out (and in!) by effects which access them.
+You can also use the [AEGP_MaskOutlineSuite3](../aegps/aegp-suites.md#aegp_maskoutlinesuite3) to manipulate paths. See [Cheating Effect Usage of AEGP Suites](../aegps/cheating-effect-usage-of-aegp-suites.md). Path parameters are treated as opaque blobs of data; get and set functions must be used to access and manipulate them. Like layer parameters, they must be checked out (and in!) by effects which access them.
 
 ---
 

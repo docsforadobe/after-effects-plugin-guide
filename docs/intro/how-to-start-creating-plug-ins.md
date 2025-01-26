@@ -2,7 +2,7 @@
 
 ## Play!
 
-Before you write a line of code, Spend some significant time playing with After Effects, and with the [Sample Projects](sample-projects.md#intro-sample-projects). Build the plug-ins into the right folder. Set lots of breakpoints, read the amusing and informative comments.
+Before you write a line of code, Spend some significant time playing with After Effects, and with the [Sample Projects](sample-projects.md). Build the plug-ins into the right folder. Set lots of breakpoints, read the amusing and informative comments.
 
 See a quickstart video on building an effect (on macOS): [quickstart video](https://assets.adobe.com/public/08c43fb7-4633-4007-5201-b3b77405d770?scid=social_20180227_75678337)
 

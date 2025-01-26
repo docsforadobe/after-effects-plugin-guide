@@ -8,7 +8,7 @@ Third-party effects can enable support of Multi-Frame Rendering through the AE E
 PF_OutFlag2_SUPPORTS_THREADED_RENDERING
 ```
 
-This flag indicates the effect supports rendering on multiple threads concurrently. Single or multiple applications of this effect on a layer can be called to render at the same time on multiple threads. Effects must be thread-safe before this flag is set. Please see the [What does it mean for an effect to be thread-safe?](#ts-effect) section below for more information.
+This flag indicates the effect supports rendering on multiple threads concurrently. Single or multiple applications of this effect on a layer can be called to render at the same time on multiple threads. Effects must be thread-safe before this flag is set. Please see the [What does it mean for an effect to be thread-safe?](#what-does-it-mean-for-an-effect-to-be-thread-safe) section below for more information.
 
 !!! note
  When After Effects uses Multi-Frame Rendering, an effect that is not thread-safe and does not set this flag will force each render thread to enter and exit the effect code one thread at a time. This will significantly reduce the performance improvements that MFR provides and as such a warning icon will be shown in the Effects Control Window alongside the effect to warn the user of the performance impact.
@@ -21,7 +21,7 @@ For effects that require writing to sequence_data during Render, a flag is avail
 PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER
 ```
 
-Each rendering thread will have its own instance of sequence_data that is not shared nor synchronized with other rendering threads. If the data stored in sequence_data is time-consuming to compute, the new [Compute Cache For Multi-Frame Rendering](#compute-cache) should be utilized.
+Each rendering thread will have its own instance of sequence_data that is not shared nor synchronized with other rendering threads. If the data stored in sequence_data is time-consuming to compute, the new [Compute Cache For Multi-Frame Rendering](#compute-cache-for-multi-frame-rendering) should be utilized.
 
 !!! note
  Use of the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` flag requires compiling against the March 2021 SDK or later.
@@ -38,8 +38,8 @@ The table below outlines the changes an effect will need to make to support the 
 |-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Plugin does not set PF_OutFlag2_SUPPORTS_THREADED_RENDERING                                                     | No changes needed. Effect and sequence_data will continue to work as it did in the past.                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING but neither reads nor writes to sequence_data during Render | Recompile the plugin with the March 2021 SDK, no other code changes are required.<br/><br/>If the plugin is not compiled with the March 2021 SDK, the plugin will stop utilizing MFR starting with AE 22.0x6.                                                                                                                                                                                                                                                                                                 |
-| Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING but only reads sequence_data during Render                  | Recompile the plugin with the March 2021 SDK, update reading sequence_data via `PF_EffectSequenceDataSuite1` for thread-safe access. See [Accessing sequence_data at Render Time with Multi-Frame Rendering](global-sequence-frame-data.md#effect-details-sequence-data-mfr-suite) for more information.                                                                                                                                                                                                      |
-| Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING and reads and writes to sequence_data during Render         | Recompile the plugin with the March 2021 SDK and modify the plugin to:<br/><br/>1. Utilize the [Compute Cache API](compute-cache-api.md#effect-details-compute-cache-api) for thread-safe cache access instead of reading/writing to sequence_data directly.  See [Compute Cache For Multi-Frame Rendering](#compute-cache) for more information.<br/><br/>AND / OR<br/><br/>1. Add the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` to the effect to restore direct read/write access to sequence_data. |
+| Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING but only reads sequence_data during Render                  | Recompile the plugin with the March 2021 SDK, update reading sequence_data via `PF_EffectSequenceDataSuite1` for thread-safe access. See [Accessing sequence_data at Render Time with Multi-Frame Rendering](global-sequence-frame-data.md#accessing-sequence_data-at-render-time-with-multi-frame-rendering) for more information.                                                                                                                                                                                                      |
+| Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING and reads and writes to sequence_data during Render         | Recompile the plugin with the March 2021 SDK and modify the plugin to:<br/><br/>1. Utilize the [Compute Cache API](compute-cache-api.md#compute-cache-api) for thread-safe cache access instead of reading/writing to sequence_data directly.  See [Compute Cache For Multi-Frame Rendering](#compute-cache-for-multi-frame-rendering) for more information.<br/><br/>AND / OR<br/><br/>1. Add the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` to the effect to restore direct read/write access to sequence_data. |
 
 !!! note
  Effects compiled with the March 2021 SDK and using the PF_OutFlag2_SUPPORTS_THREADED_RENDERING flag and, optionally, the PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER flag will work with After Effects beta builds starting with 18.0 when the `PF_EffectSequeceDataSuite1` was introduced. Check for the presence of this suite if you need to support both sequence_data behaviors.
@@ -69,7 +69,7 @@ The `sequence_data` object and related Sequence Selectors have been used over th
 
 * The `sequence_data` object is now const when read at Render time and should be accessed through the `PF_EffectSequenceDataSuite` interface.
 * Writing to `seqeunce_data` at render time is disabled by default and results will be undefined if `sequence_data` is attempted to be written to at render time.
-* If an effect must write to sequence_data at render time, it must set the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` flag which will tell After Effects to allow writes to `sequence_data` but it will be at the expense of performance. The `sequence_data` object will be duplicated to each render thread when the render begins, and each render thread will have its own independent copy of `sequence_data` to manage for the lifetime of the render. For performance reasons, it is preferred that the [Compute Cache For Multi-Frame Rendering](#compute-cache) is utilized for writing any data required by the effect.
+* If an effect must write to sequence_data at render time, it must set the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` flag which will tell After Effects to allow writes to `sequence_data` but it will be at the expense of performance. The `sequence_data` object will be duplicated to each render thread when the render begins, and each render thread will have its own independent copy of `sequence_data` to manage for the lifetime of the render. For performance reasons, it is preferred that the [Compute Cache For Multi-Frame Rendering](#compute-cache-for-multi-frame-rendering) is utilized for writing any data required by the effect.
 
 ---
 
@@ -82,13 +82,13 @@ The Compute Cache provides a thread-safe cache as a replacement or supplement to
 * You should use the Compute Cache if your effect uses `sequence_data` and needs to write to or update `sequence_data` during Render, especially if the computation of needed data is time-consuming to calculate.
 * Without the Compute Cache, the effect will need to add the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` flag which will create unique copies of sequence_data per render thread. Each render thread may then need to perform the time-consuming calculations independently and won't be able to share the results between the render threads.
 * By using the Compute Cache, render threads can share the task of computing the data and reap the benefits of already computed data.
-* The Compute Cache API supports both single and multi-checkout computation tasks depending upon the needs of the effect. See the [Compute Cache API](compute-cache-api.md#effect-details-compute-cache-api) documentation for more information.
+* The Compute Cache API supports both single and multi-checkout computation tasks depending upon the needs of the effect. See the [Compute Cache API](compute-cache-api.md#compute-cache-api) documentation for more information.
 
 ### How do I enable the Compute Cache?
 
 The Compute Cache API is available starting in the March 2021 SDK and the suite is enabled by default in After Effects 2022 and above builds.
 
-See the [Compute Cache API](compute-cache-api.md#effect-details-compute-cache-api) documentation for implementation details and sample code.
+See the [Compute Cache API](compute-cache-api.md#compute-cache-api) documentation for implementation details and sample code.
 
 ---
 
@@ -138,7 +138,7 @@ If you develop on Mac:
   > `FindSilEdges()` is the function name the variable is in.
   <br/>
   > `new_kInfinite` is the actual variable name. Namespace and function names might not be shown based on where the variable is.
-  1. Search for each symbol in your code, fix it (see [here](#fix-static) on how) and repeat for every binary file in your solution
+  1. Search for each symbol in your code, fix it (see [here](#how-to-locate-the-static-and-global-variables-in-your-effects) on how) and repeat for every binary file in your solution
 
 <br/>
 
@@ -197,7 +197,7 @@ If you develop on Windows:
     > `static` shows that the data is in the static section of the memory.
     <br/>
     > `[0008FCD0][0003:00001CD0]` shows the Binary Address and the Binary Address offset of the data.
-    1. Search for each symbol in your code, fix it (see [here](#fix-static) on how) and repeat for every binary/source file in your solution
+    1. Search for each symbol in your code, fix it (see [here](#how-to-locate-the-static-and-global-variables-in-your-effects) on how) and repeat for every binary/source file in your solution
 
 ---
 
@@ -418,7 +418,7 @@ Once you have completed the above preparation steps, test your effect thoroughly
 
 * Go through all your existing manual and automated testing plans.
 * Test all the effect parameters and make sure they are working properly.
-* Add in some of the AE effects that have already been made thread-safe as appropriate. See the [Thread-Safe First Party Effects](#first-party) section.
+* Add in some of the AE effects that have already been made thread-safe as appropriate. See the [Thread-Safe First Party Effects](#thread-safe-first-party-effects) section.
 * Make sure there are no crashes, hangs, render differences or other unexpected changes when rendering with multi-frame rendering enabled.
 
 ---

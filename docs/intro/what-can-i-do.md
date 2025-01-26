@@ -12,13 +12,13 @@ See a quickstart video on building an effect (on macOS): [adobe.ly/2sjMDwM](http
 
 *After Effects General Plug-ins (AEGPs)* can read and modify nearly every element of After Effects projects and preferences. They can add menu items, 'hook' (register themselves to receive) and trigger After Effects' internal commands, and add new panels that dock and resize within the After Effects UI. They can work with markers and keyframes, and manage the render queue. They can even run scripts. Some examples of built-in AEGPs are the AAF importer, and the SWF exporter. Automatic Duck Pro Import AE is another well-known AEGP.
 
-*After Effects Input/Output (AEIO) plug-ins* provide support for new media file types. Unless you need a custom setup dialog to specify interpretation settings, the [Premiere Pro Importers](other-integration-possibilities.md#intro-other-integration-possibilities-premiere-pro-importers) API provides similar functionality, and is preferable in many cases. AEIOs use the AEGP API along with certain APIs specific to AEIOs. While After Effects still supports Photoshop format plug-ins and filters, as well as Foreign Project Format (FPF) plug-ins, these APIs have been long deprecated in favor of the AEIO API.
+*After Effects Input/Output (AEIO) plug-ins* provide support for new media file types. Unless you need a custom setup dialog to specify interpretation settings, the [Premiere Pro Importers](other-integration-possibilities.md#premiere-pro-importers) API provides similar functionality, and is preferable in many cases. AEIOs use the AEGP API along with certain APIs specific to AEIOs. While After Effects still supports Photoshop format plug-ins and filters, as well as Foreign Project Format (FPF) plug-ins, these APIs have been long deprecated in favor of the AEIO API.
 
-*BlitHook* plug-ins output video to external hardware for broadcast quality monitoring and playback to tape. The EMP sample project provides a starting point. In After Effects CC 2014 and later, [Mercury Transmit](other-integration-possibilities.md#intro-other-integration-possibilities-mercury-transmit) is the recommended API.
+*BlitHook* plug-ins output video to external hardware for broadcast quality monitoring and playback to tape. The EMP sample project provides a starting point. In After Effects CC 2014 and later, [Mercury Transmit](other-integration-possibilities.md#mercury-transmit) is the recommended API.
 
 *Artisans* provide rendered output of 3D layers, taking over 3D rendering from After Effects (which still handles all rendering of 2D layers). Artisans use the AEGP API along with certain APIs specific to Artisans.
 
-Didn't see the type of integration you need described above? After Effects is very flexible, and there are several other ways to integrate with After Effects. See: [Other Integration Possibilities](other-integration-possibilities.md#intro-other-integration-possibilities).
+Didn't see the type of integration you need described above? After Effects is very flexible, and there are several other ways to integrate with After Effects. See: [Other Integration Possibilities](other-integration-possibilities.md).
 
 ---
 
@@ -28,7 +28,7 @@ Effects plug-ins appear in both the *Effect* menu and the Effects & Presets pane
 
 After Effects General Plug-ins (AEGPs) can add items to any After Effects menu, and additional panels listed in the Window menu. These menu items are indistinguishable from After Effects' own menu items.
 
-[AEIOs](../aeios/aeios.md#aeios-aeios) and Photoshop Format plug-ins can appear in the *File > Import* menu, or in the *Import File* dialog in the *Files of type* drop-down, depending on the type of importer. AEIOs and Format plug-ins can also appear as available output formats in the render queue.
+[AEIOs](../aeios/aeios.md) and Photoshop Format plug-ins can appear in the *File > Import* menu, or in the *Import File* dialog in the *Files of type* drop-down, depending on the type of importer. AEIOs and Format plug-ins can also appear as available output formats in the render queue.
 
 BlitHook plug-ins are automatically loaded and used by AE, but do not appear in any menu or dialog. The plug-in may optionally provide a menu item that opens it's own custom settings dialog. It would register and update the menu item using the AEGP API.
 
@@ -40,9 +40,9 @@ Artisans appear in the *Rendering Plug-in* drop-down in the *Advanced* tab of th
 
 ## How Does After Effects Interact With Plug-ins?
 
-Plug-ins, written in C or C++, are bundle packages on macOS and DLLs on Windows. They must contain a Plug-in Property List ([PiPL Resources](pipl-resources.md#intro-pipl-resources)) resource on both platforms. The plug-ins must be located in one of a few specific folders in order to be loaded and used by After Effects.
+Plug-ins, written in C or C++, are bundle packages on macOS and DLLs on Windows. They must contain a Plug-in Property List ([PiPL Resources](pipl-resources.md)) resource on both platforms. The plug-ins must be located in one of a few specific folders in order to be loaded and used by After Effects.
 
-For effects plug-ins, After Effects sends command selectors (and relevant information) to the plug-in [Entry Point](../effect-basics/entry-point.md#effect-basics-entry-point) designated in the effects' [PiPL Resources](pipl-resources.md#intro-pipl-resources) resource. Selectors are sent in response to actions the user takes—applying the effect, changing parameters, scrubbing through frames in the timeline, and rendering all prompt different sequences of selectors.
+For effects plug-ins, After Effects sends command selectors (and relevant information) to the plug-in [Entry Point](../effect-basics/entry-point.md) designated in the effects' [PiPL Resources](pipl-resources.md) resource. Selectors are sent in response to actions the user takes—applying the effect, changing parameters, scrubbing through frames in the timeline, and rendering all prompt different sequences of selectors.
 
 After Effects creates multiple instances of effects, with settings and input data unique to each sequence. All instances share the same global data, and can share data between all frames within their sequence. After Effects doesn't process all image data as soon as the user applies an effect; it invokes effects only when their output is required.
 

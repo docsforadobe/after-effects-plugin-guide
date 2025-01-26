@@ -2,9 +2,9 @@
 
 After Effects allows plug-ins to store data at three scopes: global, sequence, and frame. Consider carefully where you store information; choosing poorly can impact performance, or make your plug-in confusing to the user.
 
-Use global data for information common to all instances of the effect: static variables and data, bitmaps, pointers to other DLLs or external applications. If your effect supports Multi-Frame Rendering, any static or global variables must be free of race conditions (see [What does it mean for an effect to be thread-safe?](multi-frame-rendering-in-ae.md#ts-effect) for more information).
+Use global data for information common to all instances of the effect: static variables and data, bitmaps, pointers to other DLLs or external applications. If your effect supports Multi-Frame Rendering, any static or global variables must be free of race conditions (see [What does it mean for an effect to be thread-safe?](multi-frame-rendering-in-ae.md#what-does-it-mean-for-an-effect-to-be-thread-safe) for more information).
 
-Store anything specific to this instance of your plug-in (UI settings, text strings, and any custom data not stored in parameters) in Sequence Data or in the new [Compute Cache For Multi-Frame Rendering](multi-frame-rendering-in-ae.md#compute-cache).
+Store anything specific to this instance of your plug-in (UI settings, text strings, and any custom data not stored in parameters) in Sequence Data or in the new [Compute Cache For Multi-Frame Rendering](multi-frame-rendering-in-ae.md#compute-cache-for-multi-frame-rendering).
 
 Frame data is used for information specific to rendering a given frame. This has fallen into disuse, as most machines are capable of loading an entire frame into memory at a time. Of course, your IMAX-generating users will still appreciate any optimizations you can make.
 
@@ -23,9 +23,9 @@ After Effects saves sequence data in the project file, but not global or frame d
 
 Careful sequence data validation is important for effects that do simulation across time, where frame N is dependent on frame N-1, and you use a cache of calculated data in your sequence data. If a parameter is changed, certain calculated data may no longer be valid, but it would also be wasteful to blindly recalculate everything after every change.
 
-When asked to render frame N, assuming you have your cached data calculated up to frame N-1, call `PF_GetCurrentState()` / `PF_AreStatesIdentical()` from [PF_ParamUtilSuite3](parameter-supervision.md#effect-detals-parameter-supervision-pf-paramutilsuite) to see if the cache of calculated data is still valid given the current parameter settings.
+When asked to render frame N, assuming you have your cached data calculated up to frame N-1, call `PF_GetCurrentState()` / `PF_AreStatesIdentical()` from [PF_ParamUtilSuite3](parameter-supervision.md#pf_paramutilsuite3) to see if the cache of calculated data is still valid given the current parameter settings.
 
-The state of all parameters (except those with [PF_ParamFlag_EXCLUDE_FROM_HAVE_INPUTS_CHANGED](../effect-basics/PF_ParamDef.md#effect-basics-pf-paramdef-parameter-flags) set), including layer parameters (including [param[0]](../effect-basics/PF_ParamDef.md#effect-basics-pf-paramdef-param-zero)) are checked over the passed time span.
+The state of all parameters (except those with [PF_ParamFlag_EXCLUDE_FROM_HAVE_INPUTS_CHANGED](../effect-basics/PF_ParamDef.md#parameter-flags) set), including layer parameters (including [param[0]](../effect-basics/PF_ParamDef.md#param-zero)) are checked over the passed time span.
 
 This is done efficiently, as the change tracking is done with timestamps.
 
@@ -39,13 +39,13 @@ To test that it is working, apply your effect with one parameter keyframed on ev
 
 If your sequence data references external memory (in pointers or handles), you must flatten and unflatten your data for disk-safe storage. This is analogous to creating your own miniature file format.
 
-Upon receiving [PF_Cmd_SEQUENCE_FLATTEN](../effect-basics/command-selectors.md#effect-basics-command-selectors-sequence-selectors), put data referenced by pointers into one contiguous block from which you can later recover the old structure.
+Upon receiving [PF_Cmd_SEQUENCE_FLATTEN](../effect-basics/command-selectors.md#sequence-selectors), put data referenced by pointers into one contiguous block from which you can later recover the old structure.
 
 If your sequence data contains a pointer to a long, allocate 4 bytes in which to store the flattened data. You must handle platform-specific byte ordering.
 
 Remember, your users (the ones who bought two copies of your plug-in, anyway) may want the same project to work on macOS and Windows.
 
-After Effects sends [PF_Cmd_SEQUENCE_RESETUP](../effect-basics/command-selectors.md#effect-basics-command-selectors-sequence-selectors) when the data is reloaded, for either flat or unflat data.
+After Effects sends [PF_Cmd_SEQUENCE_RESETUP](../effect-basics/command-selectors.md#sequence-selectors) when the data is reloaded, for either flat or unflat data.
 
 Use a flag at a common offset within both structures to indicate the data's state.
 
@@ -67,7 +67,7 @@ typedef struct {
 
 ## Resizing Sequence Data
 
-During [PF_Cmd_SEQUENCE_SETUP](../effect-basics/command-selectors.md#effect-basics-command-selectors-sequence-selectors), allocate a handle for data specific to this instance of your effect.
+During [PF_Cmd_SEQUENCE_SETUP](../effect-basics/command-selectors.md#sequence-selectors), allocate a handle for data specific to this instance of your effect.
 
 You may modify the contents, but not the size, of the sequence data during any selector.
 
