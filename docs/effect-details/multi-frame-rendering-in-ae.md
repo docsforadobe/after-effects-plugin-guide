@@ -10,8 +10,8 @@ PF_OutFlag2_SUPPORTS_THREADED_RENDERING
 
 This flag indicates the effect supports rendering on multiple threads concurrently. Single or multiple applications of this effect on a layer can be called to render at the same time on multiple threads. Effects must be thread-safe before this flag is set. Please see the [What does it mean for an effect to be thread-safe?](#ts-effect) section below for more information.
 
-#### NOTE
-When After Effects uses Multi-Frame Rendering, an effect that is not thread-safe and does not set this flag will force each render thread to enter and exit the effect code one thread at a time. This will significantly reduce the performance improvements that MFR provides and as such a warning icon will be shown in the Effects Control Window alongside the effect to warn the user of the performance impact.
+!!! note
+ When After Effects uses Multi-Frame Rendering, an effect that is not thread-safe and does not set this flag will force each render thread to enter and exit the effect code one thread at a time. This will significantly reduce the performance improvements that MFR provides and as such a warning icon will be shown in the Effects Control Window alongside the effect to warn the user of the performance impact.
 
 ---
 
@@ -23,8 +23,8 @@ PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER
 
 Each rendering thread will have its own instance of sequence_data that is not shared nor synchronized with other rendering threads. If the data stored in sequence_data is time-consuming to compute, the new [Compute Cache For Multi-Frame Rendering](#compute-cache) should be utilized.
 
-#### NOTE
-Use of the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` flag requires compiling against the March 2021 SDK or later.
+!!! note
+ Use of the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` flag requires compiling against the March 2021 SDK or later.
 
 ---
 
@@ -41,8 +41,8 @@ The table below outlines the changes an effect will need to make to support the 
 | Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING but only reads sequence_data during Render                  | Recompile the plugin with the March 2021 SDK, update reading sequence_data via `PF_EffectSequenceDataSuite1` for thread-safe access. See [Accessing sequence_data at Render Time with Multi-Frame Rendering](global-sequence-frame-data.md#effect-details-sequence-data-mfr-suite) for more information.                                                                                                                                                                                                      |
 | Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING and reads and writes to sequence_data during Render         | Recompile the plugin with the March 2021 SDK and modify the plugin to:<br/><br/>1. Utilize the [Compute Cache API](compute-cache-api.md#effect-details-compute-cache-api) for thread-safe cache access instead of reading/writing to sequence_data directly.  See [Compute Cache For Multi-Frame Rendering](#compute-cache) for more information.<br/><br/>AND / OR<br/><br/>1. Add the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` to the effect to restore direct read/write access to sequence_data. |
 
-#### NOTE
-Effects compiled with the March 2021 SDK and using the PF_OutFlag2_SUPPORTS_THREADED_RENDERING flag and, optionally, the PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER flag will work with After Effects beta builds starting with 18.0 when the `PF_EffectSequeceDataSuite1` was introduced. Check for the presence of this suite if you need to support both sequence_data behaviors.
+!!! note
+ Effects compiled with the March 2021 SDK and using the PF_OutFlag2_SUPPORTS_THREADED_RENDERING flag and, optionally, the PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER flag will work with After Effects beta builds starting with 18.0 when the `PF_EffectSequeceDataSuite1` was introduced. Check for the presence of this suite if you need to support both sequence_data behaviors.
 
 ---
 
@@ -56,14 +56,14 @@ UI selectors are still sent on the main thread, however `PF_Cmd_SEQUENCE_SETUP`,
 
 ## Sequence Data in Multi-Frame rendering
 
-The `sequence_data` object and related Sequence Selectors have been used over the years to provide a way to store data during the effect’s lifetime. Multi-Frame Rendering introduces some changes to be aware of:
+The `sequence_data` object and related Sequence Selectors have been used over the years to provide a way to store data during the effect's lifetime. Multi-Frame Rendering introduces some changes to be aware of:
 
 **Changes as of June 2020**
 
 * Multi-Frame rendering requires that After Effects marshal `sequence_data` to the render threads. In order to make this efficient for effects with `sequence_data` that require flattening with the `PF_OutFlag_SEQUENCE_DATA_NEEDS_FLATTENING` flag, these effects must now also set the `PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA` flag.
 
-#### NOTE
-In a future version of After Effects, the requirement to set the `PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA` flag and handle the associated selector in the plugin will be enforced. A warning dialog will be added on load of any effect that does not meet this requirement.
+!!! note
+ In a future version of After Effects, the requirement to set the `PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA` flag and handle the associated selector in the plugin will be enforced. A warning dialog will be added on load of any effect that does not meet this requirement.
 
 **Changes as of March 2021**
 
@@ -80,7 +80,7 @@ The Compute Cache provides a thread-safe cache as a replacement or supplement to
 ### When would you use the Compute Cache?
 
 * You should use the Compute Cache if your effect uses `sequence_data` and needs to write to or update `sequence_data` during Render, especially if the computation of needed data is time-consuming to calculate.
-* Without the Compute Cache, the effect will need to add the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` flag which will create unique copies of sequence_data per render thread. Each render thread may then need to perform the time-consuming calculations independently and won’t be able to share the results between the render threads.
+* Without the Compute Cache, the effect will need to add the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` flag which will create unique copies of sequence_data per render thread. Each render thread may then need to perform the time-consuming calculations independently and won't be able to share the results between the render threads.
 * By using the Compute Cache, render threads can share the task of computing the data and reap the benefits of already computed data.
 * The Compute Cache API supports both single and multi-checkout computation tasks depending upon the needs of the effect. See the [Compute Cache API](compute-cache-api.md#effect-details-compute-cache-api) documentation for more information.
 
@@ -102,14 +102,14 @@ To be more specific, the effect:
 2. Does not write to `in_data->global_data` at render time. Reading can be done. Write in `PF_Cmd_GLOBAL_SETUP` and `PF_Cmd_GLOBAL_SETDOWN` only.
 3. Does not write to `in_data->sequence_data` at render time or during `PF_Cmd_UPDATE_PARAMS_UI` event. Reading can be done via the PF_EffectSequenceDataSuite interface.
 
-#### NOTE
-If an effect uses any blocking synchronization mechanisms, such as mutexes or gates, these must not be held when calling back into the host. Common calls would be when using a suite or making a checkout call. Failing to do so will very likely result in deadlocks.
+!!! note
+ If an effect uses any blocking synchronization mechanisms, such as mutexes or gates, these must not be held when calling back into the host. Common calls would be when using a suite or making a checkout call. Failing to do so will very likely result in deadlocks.
 
 ---
 
 ## How to locate the static and global variables in your effects
 
-To help you locate the static and global variables in your effect, we’ve developed a **Static Analyzer tool** for you to use.
+To help you locate the static and global variables in your effect, we've developed a **Static Analyzer tool** for you to use.
 You can find the tool in this Git Repo: [https://github.com/adobe/ae-plugin-thread-safety](https://github.com/adobe/ae-plugin-thread-safety)
 
 If you develop on Mac:
@@ -147,7 +147,7 @@ If you develop on Windows:
   : 1. **In order to run this tool, you need a working installation of Visual Studio**
     2. Clone/Download the Git Repo at the URL provided above
     3. Find the `register_msdia.cmd` script in the **Win** folder
-    4. Search for **“x64 Native Tools Command Prompt for VS….”** from the **Start Menu**
+    4. Search for **"x64 Native Tools Command Prompt for VS…."** from the **Start Menu**
     5. Right click -> Run as an Administrator
     6. In the terminal, `cd` to the directory where your `register_msdia.cmd` is located at
     7. Run `.\register_msdia.cmd`
@@ -157,12 +157,12 @@ If you develop on Windows:
   **2. Using the Windows Static Analyzer**
   : 1. Find the executable `CheckThreadSafeSymbols.exe` in the **Win** folder
     2. Compile your effect in **Debug** mode and find its **.pdb** file
-    3. You should also find some **.obj** files in the same build directory if you haven’t modified your project build settings
+    3. You should also find some **.obj** files in the same build directory if you haven't modified your project build settings
     4. You have **two options** on what to scan through: binaries or source files, using `-objfile` or `-source` flag.
     <br/>
     > * **You can get the same symbols out of either option.**
-    > * Use the `-source` option if you don’t know exactly what binaries your source code is ending up in, or if you’d like to keep track of thread safety on a per-source-file basis.
-    > * Use the `-objfile` option if you want more fine-grained control over what parts of your project you’re scanning.
+    > * Use the `-source` option if you don't know exactly what binaries your source code is ending up in, or if you'd like to keep track of thread safety on a per-source-file basis.
+    > * Use the `-objfile` option if you want more fine-grained control over what parts of your project you're scanning.
     1. To analyze the symbols in an object file, run:
        ```default
        CheckThreadSafeSymbols.exe -objfile [absolute path to the binary you want analyzed] [absolute path to .pdb]
@@ -171,11 +171,11 @@ If you develop on Windows:
        ```default
        CheckThreadSafeSymbols.exe -source [absolute path to the source file you want analyzed] [absolute path to .pdb]
        ```
-    3. Global variables aren’t limited to the scope of one file or binary in pdbs, so you’ll have to check over the list of all project globals without filtering. Use the -g output to get a list of all of them:
+    3. Global variables aren't limited to the scope of one file or binary in pdbs, so you'll have to check over the list of all project globals without filtering. Use the -g output to get a list of all of them:
        ```default
        CheckThreadSafeSymbols.exe -g [absolute path to .pdb]
        ```
-    4. If you’re unsure of what binaries your effect is outputting, the tool can also output a **(noisy)** list of binaries, along with the source files each pulls data from. Files you’ve changed are likely to be near the top. To see the list, run:
+    4. If you're unsure of what binaries your effect is outputting, the tool can also output a **(noisy)** list of binaries, along with the source files each pulls data from. Files you've changed are likely to be near the top. To see the list, run:
        ```default
        CheckThreadSafeSymbols.exe -sf [absolute path to .pdb]
        ```
@@ -284,7 +284,7 @@ Here are some standard approaches for treating statics or globals:
   > }
   > ```
   <br/>
-  **3. Is the data initialized once at runtime based on data that doesn’t change on subsequent renders?**
+  **3. Is the data initialized once at runtime based on data that doesn't change on subsequent renders?**
   <br/>
   > ```c++
   > // Example of a non Thread-Safe code
@@ -300,7 +300,7 @@ Here are some standard approaches for treating statics or globals:
   > }
   > ```
   <br/>
-  > **Double-check that this state isn’t known before your code executes (case 2), but if you have to initialize at runtime use a const static local. (Note that thread-safe initialization of static local objects is part of the C++ spec)**
+  > **Double-check that this state isn't known before your code executes (case 2), but if you have to initialize at runtime use a const static local. (Note that thread-safe initialization of static local objects is part of the C++ spec)**
   <br/>
   > ```c++
   > void UseState(int depends_on_unchanging_runtime_state) {
@@ -389,8 +389,8 @@ Here are some standard approaches for treating statics or globals:
   > }
   > ```
 
-#### NOTE
-**The above examples are the common cases we’ve seen in our effects. You can always come up other methods to treat your statics and globals that best suits your needs.**
+!!! note
+ **The above examples are the common cases we've seen in our effects. You can always come up other methods to treat your statics and globals that best suits your needs.**
 
 ---
 

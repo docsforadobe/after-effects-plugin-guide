@@ -14,7 +14,7 @@ You can access the After Effects Scripting Guide, and find a link to the scripti
 
 After Effects can be driven by executing scripts from the commandline. In your script, you can open the project and run script actions on it. So for example, you can execute the following statement to run a script from the command line directly:
 
-AfterFX -s “app.quit()”
+AfterFX -s "app.quit()"
 
 Or you can execute this statement to run a .jsx script that includes a quit at the end:
 
@@ -40,7 +40,7 @@ Closely coupled with scripting is the command line interface offered by aerender
 
 Premiere Pro importers provide support for importing media into applications across most applications in the Adobe Creative Cloud, including Premiere Pro, Media Encoder, Prelude, and Audition. Because of this broader compatibility, unless you need very specific integration with After Effects only available via the AEIO API in this SDK, we recommend developing a Premiere Pro importer. The Premiere Pro SDK is available at: [https://www.adobe.io/apis/](https://www.adobe.io/apis/creativecloud/premierepro.html) [creativecloud/premierepro.html](https://www.adobe.io/apis/creativecloud/premierepro.html)
 
-One advantage of MediaCore importer plug-ins over AEIOs is its priority system: The highest priority importer gets first crack at importing a file, and if the particular imported file isn’t supported, the next-highest priority importer will then have the opportunity to try importing it, and so on.
+One advantage of MediaCore importer plug-ins over AEIOs is its priority system: The highest priority importer gets first crack at importing a file, and if the particular imported file isn't supported, the next-highest priority importer will then have the opportunity to try importing it, and so on.
 
 ---
 

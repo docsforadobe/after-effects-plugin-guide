@@ -6,7 +6,7 @@ The PF_EventUnion in PF_EventExtra is a union of the four following structures.
 
 ## Click
 
-A mouse click or drag occurred within the custom UI’s area.
+A mouse click or drag occurred within the custom UI's area.
 
 ### PF_DoClickEventInfo
 
@@ -32,14 +32,14 @@ Note: when handling draw requests, use the image dimensions provided in [PF_InDa
 
 | **Member**    | **Purpose**                                                                                                                                                                                                                                                           |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `update_rect` | The rectangle in which to draw, in the context window’s coordinate system. These coordinates can be converted to different coordinate systems using the [UI Callbacks](ui-callbacks.md#effect-ui-events-ui-callbacks).<br/>See the CCU sample project for an example. |
+| `update_rect` | The rectangle in which to draw, in the context window's coordinate system. These coordinates can be converted to different coordinate systems using the [UI Callbacks](ui-callbacks.md#effect-ui-events-ui-callbacks).<br/>See the CCU sample project for an example. |
 | `depth`       | Pixel depth of the drawing context.                                                                                                                                                                                                                                   |
 
 ---
 
 ## Keydown
 
-The user pressed a key, and the effect’s UI is active.
+The user pressed a key, and the effect's UI is active.
 
 Use the macros in AE_EffectUI.h to access and manipulate the key codes received.
 
@@ -58,7 +58,7 @@ PF_KeyDownEvent
 
 ## AdjustCursor
 
-The cursor has moved onto (but not off of) the effect’s custom UI, to allow the effect to change the cursor.
+The cursor has moved onto (but not off of) the effect's custom UI, to allow the effect to change the cursor.
 
 ### PF_AdjustCursorEventInfo
 
@@ -66,13 +66,13 @@ The cursor has moved onto (but not off of) the effect’s custom UI, to allow th
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `screen_point` | Screen coordinate of the mouse pointer. For Custom Comp UI, these coordinates can be converted to composition coordinates using the [UI Callbacks](ui-callbacks.md#effect-ui-events-ui-callbacks).<br/>See the CCU sample project for an example.                                                |
 | `modifiers`    | What, if any, modifier keys were held down when the message was sent.                                                                                                                                                                                                                            |
-| `set_cursor`   | Set this to your desired cursor, or `PF_Cursor_CUSTOM` if you have set the cursor yourself using OS-specific calls. See AE_EffectUI.h for a complete enumeration of built-in cursors.<br/>If you don’t want to override the cursor, set this to `PF_Cursor_NONE`, or simply ignore this message. |
+| `set_cursor`   | Set this to your desired cursor, or `PF_Cursor_CUSTOM` if you have set the cursor yourself using OS-specific calls. See AE_EffectUI.h for a complete enumeration of built-in cursors.<br/>If you don't want to override the cursor, set this to `PF_Cursor_NONE`, or simply ignore this message. |
 
 ---
 
 ## Arbitrary Parameters Event
 
-After Effects needs your plug-in to manage it’s arbitrary data parameter(s).
+After Effects needs your plug-in to manage it's arbitrary data parameter(s).
 
 Though arbitrary data types are not required for custom UI support, `PF_ArbParamsExtra` follows the EventInfo model.
 

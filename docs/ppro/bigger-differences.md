@@ -6,7 +6,7 @@ As long as an effect only supports the basic ARGB_8u pixel format supported by A
 
 ## Pixel Formats
 
-Premiere Pro provides function suites for declaring support for pixel formats other than the 8-bit RGB format used by After Effects - ARGB_8u. These pixel formats include the Premiere Pro native 8-bit RGB format - BGRA_8u, as well as YUV, 32-bit formats, and more. For a more detailed discussion of the various pixel formats, see [“Pixel Formats and Colorspaces” from the Premiere Pro SDK Guide](http://ppro-plugin-sdk.aenhancers.com/universals/pixel-formats-and-color-spaces.html).
+Premiere Pro provides function suites for declaring support for pixel formats other than the 8-bit RGB format used by After Effects - ARGB_8u. These pixel formats include the Premiere Pro native 8-bit RGB format - BGRA_8u, as well as YUV, 32-bit formats, and more. For a more detailed discussion of the various pixel formats, see ["Pixel Formats and Colorspaces" from the Premiere Pro SDK Guide](http://ppro-plugin-sdk.aenhancers.com/universals/pixel-formats-and-color-spaces.html).
 
 Use the PF Pixel Format Suite (defined in PrAESDKSupport.h) to register for [PF_EffectWorld / PF_LayerDef](../effect-basics/PF_EffectWorld.md#effect-basics-pf-effectworld) in other pixel formats. Use the Premiere Pixel Format Suite (defined in the aptly-named PrSDKPixelFormatSuite.h) to get black and white values in those pixel formats.
 
@@ -16,7 +16,7 @@ After Effects functions such as PF_BLEND() have not been enhanced to work with p
 
 ## 32-Bit Float Support
 
-Premiere Pro does not support After Effects 16-bit rendering or SmartFX. For 32-bit rendering in Premiere Pro, you’ll need to declare support for one of the 32-bit pixel formats (see previous section), and then implement 32-bit rendering for PF_Cmd_RENDER. You can support multiple render depths this way. See the SDK Noise sample project for an example.
+Premiere Pro does not support After Effects 16-bit rendering or SmartFX. For 32-bit rendering in Premiere Pro, you'll need to declare support for one of the 32-bit pixel formats (see previous section), and then implement 32-bit rendering for PF_Cmd_RENDER. You can support multiple render depths this way. See the SDK Noise sample project for an example.
 
 Depending on the clip(s) to which an effect is applied, 32-bit processing is not always necessary to preserve the quality of the source input. But there are settings to force 32-bit rendering, to give effects processing finer granularity and more headroom, if desired. Go to Settings>Sequence Settings> Video Previews>Maximum Bit Depth, to control previewing from the timeline. For export to file, use Export Settings>Video>Basic Settings>Render at Maximum Depth.
 

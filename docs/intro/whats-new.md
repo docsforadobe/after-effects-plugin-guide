@@ -1,21 +1,21 @@
-# What’s New
+# What's New
 
-If this is your first time developing an After Effects plug-in, you can skip the What’s New section and go directly to [How To Start Creating Plug-ins](how-to-start-creating-plug-ins.md#intro-how-to-start-creating-plug-ins).
+If this is your first time developing an After Effects plug-in, you can skip the What's New section and go directly to [How To Start Creating Plug-ins](how-to-start-creating-plug-ins.md#intro-how-to-start-creating-plug-ins).
 
 ---
 
-## What’s New In After Effects 2022
+## What's New In After Effects 2022
 
 After Effects 2022 contains the first full public release with Multi-Frame Rendering support. The associated AE Effects SDK released in October 2021 includes one change for increasing the maximum number of PF_Iterate threads.
 
 ---
 
-## What’s New in the After Effects SDK in March 2021
+## What's New in the After Effects SDK in March 2021
 
 ### Multi-Frame Rendering Changes
 
 1. The final behavior for the `PF_OutFlag2_SUPPORTS_THREADED_RENDERING` flag is now in place. Setting this flag to indicate support for Multi-Frame Rendering will also enforce the data stored in `sequence_data` to be const/read-only at Render time and access to `sequence_data` is now through a suite, `PF_EffectSequenceDataSuite1`.
-2. A new flag, `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` is now available to set alongside `PF_OutFlag2_SUPPORTS_THREADED_RENDERING` if your plugin cannot be updated to work with the new sequence_data behavior. After Effects won’t be able to apply as much rendering concurrency and therefore performance improvements to effects that set this flag (hence the \_SLOWER flag name).
+2. A new flag, `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` is now available to set alongside `PF_OutFlag2_SUPPORTS_THREADED_RENDERING` if your plugin cannot be updated to work with the new sequence_data behavior. After Effects won't be able to apply as much rendering concurrency and therefore performance improvements to effects that set this flag (hence the \_SLOWER flag name).
 3. A new suite, the Compute Cache (previously referred to as the 3-way checkout cache) is now available. This suite provides a thread-safe cache that plugins can use as a replacement or supplement to sequence_data to support multiple render threads computing and caching data needed to render frames.
 
 Due to these changes, you must update to, and compile with, the March 2021 SDK to maintain Multi-Frame Rendering compatibility with AE Beta builds moving forward. Plugins compiled with the June 2020 SDK will cease to support Multi-Frame Rendering, even if `PF_OutFlag2_SUPPORTS_THREADED_RENDERING` is set, starting with AE 22.0x6 (released on June 29th 2021).
@@ -24,7 +24,7 @@ Please see [Multi-Frame Rendering in AE](../effect-details/multi-frame-rendering
 
 ### Apple Silicon Support
 
-* The AE SDK now supports building effects for Apple Silicon natively. While After Effects itself is not yet running on Apple Silicon, Adobe as a company is moving forward with native support across many of our products. Applications such as Premiere Pro now have native versions available, and your effects may be loaded in Premiere Pro by features such as Motion Graphic Templates. When running the native version of Premiere Pro only natively compiled effects will work so it’s important to update your effects with Apple Silicon support soon. Please see the [Apple Silicon Support](apple-silicon-support.md#intro-apple-silicon-support) section for more information.
+* The AE SDK now supports building effects for Apple Silicon natively. While After Effects itself is not yet running on Apple Silicon, Adobe as a company is moving forward with native support across many of our products. Applications such as Premiere Pro now have native versions available, and your effects may be loaded in Premiere Pro by features such as Motion Graphic Templates. When running the native version of Premiere Pro only natively compiled effects will work so it's important to update your effects with Apple Silicon support soon. Please see the [Apple Silicon Support](apple-silicon-support.md#intro-apple-silicon-support) section for more information.
 
 ### Exporting Symbols from Effects
 
@@ -40,21 +40,21 @@ To gain access to the AE host-side changes for this SDK, you will need to downlo
 
 ---
 
-## What’s New In After Effects Beta builds after June 2020
+## What's New In After Effects Beta builds after June 2020
 
 AE (currently only in Beta builds) now supports Multi-Frame rendering. See [Multi-Frame Rendering in AE](../effect-details/multi-frame-rendering-in-ae.md#effect-details-multi-frame-rendering-in-ae) for more details.
 
 ---
 
-## What’s New In CC 2019 (16.0)?
+## What's New In CC 2019 (16.0)?
 
-We’ve made some changes to how GPU effects are handled. See “GPU Effects Changes” for details.
+We've made some changes to how GPU effects are handled. See "GPU Effects Changes" for details.
 
 ---
 
-## What’s New In 15.0?
+## What's New In 15.0?
 
-After Effects now supports the *GPU effect rendering* previously supported in Premiere Pro. Note that unknown effects with a match name that includes “ADBE “ will be excluded from GPU rendering, so make sure any of your GPU effects have your own custom match name. Effects that support GPU rendering will receive the GPU badge in the Effect panel.
+After Effects now supports the *GPU effect rendering* previously supported in Premiere Pro. Note that unknown effects with a match name that includes "ADBE " will be excluded from GPU rendering, so make sure any of your GPU effects have your own custom match name. Effects that support GPU rendering will receive the GPU badge in the Effect panel.
 
 The GPU effect sample projects in the Premiere Pro SDK have been updated to register as GPU effects in AE, although the render output still needs work.
 
@@ -68,15 +68,15 @@ The effect sample projects have been updated to use this approach, while maintai
 
 The new AEGP Math Suite provides helpful calls for matrix multiplication.
 
-The application font is now Adobe Clean. Previously, the fonts used in After Effects’ UI were Tahoma on Windows and Lucida Grande on macOS X. This is a proprietary font, and we can not make it available for use in your UI.
+The application font is now Adobe Clean. Previously, the fonts used in After Effects' UI were Tahoma on Windows and Lucida Grande on macOS X. This is a proprietary font, and we can not make it available for use in your UI.
 
 ---
 
-## What’s New In CC 2017.1 (14.2)?
+## What's New In CC 2017.1 (14.2)?
 
 - Layer Params can include Masks and Effects
 
-Effects that use layers as an input, such as Set Matte and Displacement Map, can now target the input layer’s masks and effects, instead of only the source of the layer. This means that for there is no need to pre-compose layers just so that they can be referenced by an effect.
+Effects that use layers as an input, such as Set Matte and Displacement Map, can now target the input layer's masks and effects, instead of only the source of the layer. This means that for there is no need to pre-compose layers just so that they can be referenced by an effect.
 
 Where an effect includes a layer parameter, a new menu to the right of the layer selector allows you to choose whether to target the input layer from its source, masks, or effects:
 
@@ -86,7 +86,7 @@ Where an effect includes a layer parameter, a new menu to the right of the layer
 
 This control is similar to the View menu at the bottom of the Layer viewer panel, which allows you to render the layer from different positions in the rendering order: from its source, from its masks, or from its individual effects.
 
-As this is a user-facing option, the design is intended to be transparent to the effect. From the effect’s perspective, the input simply just includes the upstream effects and masks without any change to the effect. For any effect that uses layer params, here are some testing recommendations:
+As this is a user-facing option, the design is intended to be transparent to the effect. From the effect's perspective, the input simply just includes the upstream effects and masks without any change to the effect. For any effect that uses layer params, here are some testing recommendations:
 
 - Effect continues to work as expected.
 - Using new control in the layer param for Source/Mask/Effects works with effect.
@@ -102,25 +102,25 @@ It should be used along with `AEGP_SetSelection()`.
 
 ---
 
-## What’s New In CC 2017 (14.1)?
+## What's New In CC 2017 (14.1)?
 
 Unicode support for [AEGP Item Suite](../aegps/aegp-suites.md#aegps-aegp-suites-item-suite) and [AEGP Render Queue Item Suite](../aegps/aegp-suites.md#aegps-aegp-suites-render-queue-item-suite).
 
 ---
 
-## What’s New In CC 2017 (14.0)?
+## What's New In CC 2017 (14.0)?
 
 The GLator sample is back! It has been updated to demonstrate proper OpenGL context management in an effect plug-in.
 
 ---
 
-## What’s New In CC 2015.3 (13.8)?
+## What's New In CC 2015.3 (13.8)?
 
 PF_OutFlag_I_AM_OBSOLETE is now supported in Premiere Pro. Also, effect custom UI in Premiere Pro now supports high DPI displays, such as Retina Displays.
 
 ---
 
-## What’s New In CC 2015 (13.6)?
+## What's New In CC 2015 (13.6)?
 
 New AEGP Item View Suite. This provides a way to get playback time for item view. Only the composition case is implemented in this release. The time passed back should be the playback time of the view when playing and the current (needle) time otherwise.
 
@@ -128,7 +128,7 @@ AEGP_RenderNewItemSoundData() has been reworked and provides functionality simil
 
 ---
 
-## What’s New In CC 2015 (13.5.1)?
+## What's New In CC 2015 (13.5.1)?
 
 This release fixes some audio APIs that broke in 13.5 due to threading changes. In 13.5, when called on the UI thread, AEGP_RenderNewItemSoundData() would return A_Err_GENERIC. This restores the functionality when called on the UI thread.
 
@@ -136,7 +136,7 @@ To avoid a deadlock, in PF_Cmd_UPDATE_PARAMS_UI only, AEGP_RenderNewItemSoundDat
 
 ---
 
-## What’s New In CC 2015 (13.5)?
+## What's New In CC 2015 (13.5)?
 
 - Separate UI and Render Threads
 
@@ -185,7 +185,7 @@ FORCE_RERENDER is still needed for situations where sequence_data needs to be co
 
 FORCE_RERENDER is the trigger for this whether the render request uses the cache or not. Once we have the full set of APIs in place needed to manage render state, we will be able to deprecate FORCE_RERENDER.
 
-FORCE_RERENDER doesn’t work in every situation it did before, because it needs to synchronize the UI copy of sequence_data with the render thread copy.
+FORCE_RERENDER doesn't work in every situation it did before, because it needs to synchronize the UI copy of sequence_data with the render thread copy.
 
 FORCE_RERENDER works when set during PF_Cmd_USER_CHANGED_PARAM. It also works in CLICK and DRAG events, but only if PF_Cmd_GET_FLATTENED_SEQUENCE_DATA is implemented. This is required to prevent flattening and loss of UI state in the middle of mouse operations. Without GET_FLATTENED, the new FORCE_RERENDER behavior will NOT be turned on.
 
@@ -197,7 +197,7 @@ GuidMixInPtr()
 
 Used by SmartFX only. Use this if custom UI or PF_Cmd_DO_DIALOG changes sequence data, or if the render result depends on anything else not factored in, and rerendering may be needed. During PF_Cmd_SMART_PRERENDER, the effect can call GuidMixInPtr() to mix any additional state that affects the render into our internal GUID for the cached frame. Using this GUID, AE can tell whether the frame already exists or if it needs to be rendered. See an example in SmartyPants sample project.
 
-This is an improvement over the older mechanisms PF_OutFlag_FORCE_RERENDER and PF_Cmd_DO_DIALOG, which would remove the frame from the cache because the host didn’t know what else the plug-in was factoring into the rendering. This can also be used rather than PF_OutFlag2_OUTPUT_IS_WATERMARKED.
+This is an improvement over the older mechanisms PF_OutFlag_FORCE_RERENDER and PF_Cmd_DO_DIALOG, which would remove the frame from the cache because the host didn't know what else the plug-in was factoring into the rendering. This can also be used rather than PF_OutFlag2_OUTPUT_IS_WATERMARKED.
 
 - Request Frames Asynchronously Without Blocking the UI
 
@@ -207,7 +207,7 @@ PF_GetContextAsyncManager() AEGP_CheckoutOrRender_ItemFrame_AsyncManager() AEGP_
 
 For cases where such renders formerly were triggered by side-effect or cancelled implicity
 
-(such as custom UI histogram drawing), and lifetime is less clear from inside the plug-in, use the new “Async Manager” which can handle multiple simultaneous async requests for effect Custom UI and will automatically support interactions with other AE UI behavior.
+(such as custom UI histogram drawing), and lifetime is less clear from inside the plug-in, use the new "Async Manager" which can handle multiple simultaneous async requests for effect Custom UI and will automatically support interactions with other AE UI behavior.
 
 Note: Async retrieval of frames is preferred for handling passive drawing situations, but not when a user action will update the project state. If you are (1) responding to a specific user click, AND 2) you need to update the project as a result, the synchronous AEGP_RenderAndCheckoutLayerFrame() is recommended.
 
@@ -219,7 +219,7 @@ Effects such as keyers or those that draw histograms of post-processed video can
 
 - AEGP Usage on Render Thread
 
-We’ve tightened validation of when AEGP calls could be used dangerously (such as from the wrong thread or making a change to the project state in render). You may see new errors if code is hitting such cases. For example, making these calls on the render thread will result in an error:
+We've tightened validation of when AEGP calls could be used dangerously (such as from the wrong thread or making a change to the project state in render). You may see new errors if code is hitting such cases. For example, making these calls on the render thread will result in an error:
 
 suites.UtilitySuite5()->AEGP_StartUndoGroup() suites.StreamSuite2()->AEGP_GetStreamName() suites.StreamSuite2()->AEGP_SetExpressionState() suites.StreamSuite2()->AEGP_SetExpression() suites.StreamSuite2()->AEGP_GetNewLayerStream() suites.StreamSuite2()->AEGP_DisposeStream() suites.EffectSuite3()->AEGP_DisposeEffect() suites.UtilitySuite5()->AEGP_EndUndoGroup()
 
@@ -247,7 +247,7 @@ AEGP_RenderAndCheckoutFrame() (on the UI Thread). This call should generally not
 
 Use in the render thread is fine. The one case where this may still be useful on the UI thread is a case like a UI button that requires a frame to calculate a parameter which then updates the AE project.
 
-For example, an “Auto Color” button that takes a frame and then adjusts effect params as a result.
+For example, an "Auto Color" button that takes a frame and then adjusts effect params as a result.
 
 A beta of a progress dialog for this blocking operation if it is slow has been implemented, but using this call on the UI thread should be limited to this special cases. The dialog design is not final.
 
@@ -269,7 +269,7 @@ Since many older plug-ins were made unloadable in AE with the shift to 64-bit, i
 
 However, building with an older SDK and using an 8 or higher version will result in the plug-in reporting an incorrect version to AE, which will then cause mismatch with the PiPL version check for the effect which will have the higher bits set. This is not supported.
 
-If built with an older SDK, you will need to keep the effect version at 7 or below. Increase in version max has been accomplished by adding 4 new higher significant bits to the version that only AE 13.5 and above “sees”. These new high version bits are not contiguous with the original, preexisting MAJOR version bits – just ignore the intermediate bits. The new version layout looks like this in hexadecimal or binary.
+If built with an older SDK, you will need to keep the effect version at 7 or below. Increase in version max has been accomplished by adding 4 new higher significant bits to the version that only AE 13.5 and above "sees". These new high version bits are not contiguous with the original, preexisting MAJOR version bits - just ignore the intermediate bits. The new version layout looks like this in hexadecimal or binary.
 
 0x 3C38 0000
 
@@ -301,15 +301,15 @@ This APIs are in progress, and should not be used yet.
 
 ---
 
-## What’s New In CC 2014.1 (13.1)?
+## What's New In CC 2014.1 (13.1)?
 
 PF_CreateNewAppProgressDialog()
 
-It won’t open the dialog unless it detects a slow render. (2 seconds timeout).
+It won't open the dialog unless it detects a slow render. (2 seconds timeout).
 
 ---
 
-## What’s New In CC 2014 (13.0)?
+## What's New In CC 2014 (13.0)?
 
 Starting in CC 2014, After Effects will now honor a change to a custom UI height made using [PF_UpdateParamUI](../effect-details/parameter-supervision.md#effect-detals-parameter-supervision-pf-paramutilsuite).
 
@@ -317,8 +317,8 @@ Starting in CC 2014, After Effects will now honor a change to a custom UI height
 
 layer with effects applied at non-render time. This is useful for an operation that requires the frame, for example, when a button is clicked and it is acceptable to wait for a moment while it is rendering.
 
-#### NOTE
-Since it is not asynchronous, it will not solve the general problem where custom UI needs to draw based on the frame.
+!!! note
+ Since it is not asynchronous, it will not solve the general problem where custom UI needs to draw based on the frame.
 
 The layer render options are specified using the new [AEGP_LayerRenderOptionsSuite](../aegps/aegp-suites.md#aegps-aegp-suites-aegp-layerrenderoptionssuite).
 
@@ -326,7 +326,7 @@ The layer render options are specified using the new [AEGP_LayerRenderOptionsSui
 
 ---
 
-## What’s New In CC (12.0)?
+## What's New In CC (12.0)?
 
 Effect names can now be up to 47 characters long, up from 31 characters previously.
 
@@ -348,7 +348,7 @@ The behavior for `AEGP_NewPlaceholderFootageWithPath` has been updated, so that 
 
 ---
 
-## What’s New In CS6.0.1 (11.0.1)?
+## What's New In CS6.0.1 (11.0.1)?
 
 New in 11.0.1, the AE effect API version has been incremented to 13.3.
 
@@ -362,15 +362,15 @@ The workaround is to simply make the call again. This workaround is no longer ne
 
 ---
 
-## What’s New In CS6 (11.0)?
+## What's New In CS6 (11.0)?
 
-We’ve made several refinements for better parameter UI handling. `PF_PUI_INVISIBLE` parameter UI flag is now supported in After Effects, which is useful if your plug-in needs hidden parameters that affect rendering. Now when a plug-in disables a parameter using [PF_UpdateParamUI](../effect-details/parameter-supervision.md#effect-detals-parameter-supervision-pf-paramutilsuite), we now save that state in the UI flags so that the plug-in can check the flag in the future to see if it is disabled. A new flag, `PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN`, allows a parameter to be unhidden without twirling open any parents and without scrolling the parameter into view in the Effect Controls panel and the Timeline panel.
+We've made several refinements for better parameter UI handling. `PF_PUI_INVISIBLE` parameter UI flag is now supported in After Effects, which is useful if your plug-in needs hidden parameters that affect rendering. Now when a plug-in disables a parameter using [PF_UpdateParamUI](../effect-details/parameter-supervision.md#effect-detals-parameter-supervision-pf-paramutilsuite), we now save that state in the UI flags so that the plug-in can check the flag in the future to see if it is disabled. A new flag, `PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN`, allows a parameter to be unhidden without twirling open any parents and without scrolling the parameter into view in the Effect Controls panel and the Timeline panel.
 
 Effects that render a watermark over the output when the plug-in is in trial mode can now tell After Effects whether watermark rendering mode is on or off, using the new `PF_OutFlag2_OUTPUT_IS_WATERMARKED`.
 
-The new Global Performance Cache means you must tell After Effects to discard old cached frames [when changing your effect’s rendering](../effect-details/tips-tricks.md#effect-details-tips-tricks-caching-behavior).
+The new Global Performance Cache means you must tell After Effects to discard old cached frames [when changing your effect's rendering](../effect-details/tips-tricks.md#effect-details-tips-tricks-caching-behavior).
 
-We’ve removed `PF_HasParamChanged` and `PF_HaveInputsChangedOverTimeSpan`, providing [PF_AreStatesIdentical](../effect-details/parameter-supervision.md#effect-detals-parameter-supervision-pf-paramutilsuite) instead.
+We've removed `PF_HasParamChanged` and `PF_HaveInputsChangedOverTimeSpan`, providing [PF_AreStatesIdentical](../effect-details/parameter-supervision.md#effect-detals-parameter-supervision-pf-paramutilsuite) instead.
 
 Effects that provide custom UI can now receive `PF_Event_MOUSE_EXITED`, to gain notification that the mouse exited the layer or comp panel. `PF_ParamUtilsSuite` is now at version 3.
 
@@ -400,4 +400,4 @@ For effects running in Premiere Pro CS6, we have added the ability to get 32-bit
 
 ## …and what was new before CS6?
 
-For history this far back, see obsolete copies of the SDK (which we don’t provide; if someone wants you do develop for antique software, they’d best provide the SDK).
+For history this far back, see obsolete copies of the SDK (which we don't provide; if someone wants you do develop for antique software, they'd best provide the SDK).

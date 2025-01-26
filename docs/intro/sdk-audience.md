@@ -1,8 +1,8 @@
 # SDK Audience
 
-You must be a proficient C/C++ programmer to write After Effects plug-ins. While we’ll help with issues specific to the After Effects API, we can’t help you learn your IDE or basic programming concepts.
+You must be a proficient C/C++ programmer to write After Effects plug-ins. While we'll help with issues specific to the After Effects API, we can't help you learn your IDE or basic programming concepts.
 
-This SDK guide assumes you understand After Effects from a user’s perspective, and basic motion graphics terminology. If you don’t, get the [Adobe After Effects Classroom in a Book](http://www.adobepress.com/store/adobe-after-effects-cc-classroom-in-a-book-2017-release-9780134665320), or any of the other fine instructional books on the market. It will help you understand necessary
+This SDK guide assumes you understand After Effects from a user's perspective, and basic motion graphics terminology. If you don't, get the [Adobe After Effects Classroom in a Book](http://www.adobepress.com/store/adobe-after-effects-cc-classroom-in-a-book-2017-release-9780134665320), or any of the other fine instructional books on the market. It will help you understand necessary
 
 topics such as alpha channels, pixel aspect ratio, interlacing, color spaces, and more for After Effects.
 

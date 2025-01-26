@@ -18,7 +18,7 @@ The Drawbot suites include `DRAWBOT_DrawbotSuite`, `DRAWBOT_SupplierSuite`, `DRA
 
 ---
 
-## Make Your Custom UI Look Not So “Custom”
+## Make Your Custom UI Look Not So "Custom"
 
 Use the new [PF_EffectCustomUIOverlayThemeSuite](#effect-ui-events-custom-ui-and-drawbot-pf-effectcustomuioverlaythemesuite) to match the host application UI. Your users will thank you.
 
@@ -129,14 +129,14 @@ Calls to draw paths.
 | `LineTo`       | Add a line to the path.<br/><br/>```default<br/>LineTo(<br/>  DRAWBOT_PathRef  in_path_ref,<br/>  float            in_x,<br/>  float            in_y);<br/>```                                                                                                                                                                                                                |
 | `BezierTo`     | Add a cubic bezier to the path.<br/><br/>```default<br/>BezierTo(<br/>  DRAWBOT_PathRef         in_path_ref,<br/>  const DRAWBOT_PointF32  *in_pt1P,<br/>  const DRAWBOT_PointF32  *in_pt2P,<br/>  const DRAWBOT_PointF32  *in_pt3P);<br/>```                                                                                                                                 |
 | `AddRect`      | Add a rect to the path.<br/><br/>```default<br/>AddRect(<br/>  DRAWBOT_PathRef        in_path_ref,<br/>  const DRAWBOT_RectF32  *in_rectPR);<br/>```                                                                                                                                                                                                                          |
-| `AddArc`       | Add a arc to the path. Zero start degrees == 3 o’clock.<br/>Sweep is clockwise. Units for angle are in degrees.<br/><br/>```default<br/>AddArc(<br/>  DRAWBOT_PathRef         in_path_ref,<br/>  const DRAWBOT_PointF32  *in_centerP,<br/>  float                   in_radius,<br/>  float                   in_start_angle,<br/>  float                   in_sweep);<br/>``` |
+| `AddArc`       | Add a arc to the path. Zero start degrees == 3 o'clock.<br/>Sweep is clockwise. Units for angle are in degrees.<br/><br/>```default<br/>AddArc(<br/>  DRAWBOT_PathRef         in_path_ref,<br/>  const DRAWBOT_PointF32  *in_centerP,<br/>  float                   in_radius,<br/>  float                   in_start_angle,<br/>  float                   in_sweep);<br/>``` |
 | `Close`        | Close the path.<br/><br/>```default<br/>Close(<br/>  DRAWBOT_PathRef  in_path_ref);<br/>```                                                                                                                                                                                                                                                                                   |
 
 ---
 
 ## PF_EffectCustomUIOverlayThemeSuite
 
-This suite should be used for stroking and filling paths and vertices on the Composition and Layer Windows. After Effects is using this suite internally, and we have made it available to make custom UI look consistent across effects. The foreground/shadow colors are computed based on the app brightness level so that custom UI is always visible regardless of the application’s Brightness setting in the Preferences.
+This suite should be used for stroking and filling paths and vertices on the Composition and Layer Windows. After Effects is using this suite internally, and we have made it available to make custom UI look consistent across effects. The foreground/shadow colors are computed based on the app brightness level so that custom UI is always visible regardless of the application's Brightness setting in the Preferences.
 
 ### PF_EffectCustomUIOverlayThemeSuite1
 

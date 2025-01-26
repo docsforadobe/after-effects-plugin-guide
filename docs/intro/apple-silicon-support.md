@@ -4,8 +4,8 @@ Adobe now supports Apple Silicon effect plugins in some products running nativel
 
 Not all Adobe products have native Apple Silicon versions yet, but in those that do, only effect plugins with Apple Silicon implementations will be available. We recommend adding the Apple Silicon target soon in anticipation of rapid adoption of these new M1 machines.
 
-#### NOTE
-In order to build a Mac Universal binary, you will need Xcode 12.2 or greater. Adobe is currently using Xcode 12.4.
+!!! note
+ In order to build a Mac Universal binary, you will need Xcode 12.2 or greater. Adobe is currently using Xcode 12.4.
 
 To learn more about Universal binaries, please visit [https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary](https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary)
 
@@ -33,13 +33,13 @@ Assuming there are no compile time issues with the Apple Silicon build, you can 
 
 ---
 
-## Exception Behavior with Apple Silicon Across “C” Functions
+## Exception Behavior with Apple Silicon Across "C" Functions
 
-Extra care should be taken when using exceptions on Apple Silicon. In many environments throwing exceptions that propagate through traditional “C” functions worked fine. It was bad practice, with undefined behavior, but generally “worked”.
+Extra care should be taken when using exceptions on Apple Silicon. In many environments throwing exceptions that propagate through traditional "C" functions worked fine. It was bad practice, with undefined behavior, but generally "worked".
 
 On Apple Silicon, rather than undefined behavior the ABI has changed so terminate() is called when this occurs.
 
-Since the main entry point of a plugin is always an extern “C” calling convention, this code should be wrapped in a try/catch block to prevent program termination. For example:
+Since the main entry point of a plugin is always an extern "C" calling convention, this code should be wrapped in a try/catch block to prevent program termination. For example:
 
 ```c++
 PF_Err EffectMain ( PF_Cmd cmd,

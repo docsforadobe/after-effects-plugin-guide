@@ -14,8 +14,8 @@ You may get frames passed in the project bit-depth instead of the final output i
 
 ## User Data vs. Options
 
-It’s possible to use either user data allocations or options handles to store metadata about a file.
+It's possible to use either user data allocations or options handles to store metadata about a file.
 
-We use user data for information that’s to be embedded in the file (presuming the file format supports such information); marker data, field labels, etc.
+We use user data for information that's to be embedded in the file (presuming the file format supports such information); marker data, field labels, etc.
 
 We use option handles for information about the file; output settings, dimensions, details of compression settings used.

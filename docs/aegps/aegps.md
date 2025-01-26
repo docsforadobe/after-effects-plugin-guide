@@ -4,7 +4,7 @@ The After Effects General Plug-in (AEGP) API is powerful and broad, offering fun
 
 To users, AEGPs appear to be part of After Effects.
 
-They can add, intercept, and trigger menu commands, access the keyframe database, and register functions as part of After Effects’ internal messaging.
+They can add, intercept, and trigger menu commands, access the keyframe database, and register functions as part of After Effects' internal messaging.
 
 AEGPs can add and remove items to projects and compositions, add and remove filters and keyframes.
 

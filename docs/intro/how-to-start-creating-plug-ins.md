@@ -32,7 +32,7 @@ AEGP developers will do well to start with Projector (for After Effects project 
 
 ## Test!
 
-If only for testing convenience, you should have a project saved with your effect applied, and all its parameters keyframed to strange values. Between these projects which stress your plug-in, and the tools provided by your development environment, you’re well on your way to shipping some tested code.
+If only for testing convenience, you should have a project saved with your effect applied, and all its parameters keyframed to strange values. Between these projects which stress your plug-in, and the tools provided by your development environment, you're well on your way to shipping some tested code.
 
 ---
 
@@ -44,6 +44,6 @@ If you run into behavior that seems wrong, see if you can reproduce the behavior
 
 ## Developers Matter
 
-Third party developers drive API and SDK improvement and expansion. Your products enable After Effects to do things we’d never considered. Your efforts make After Effects better; keep it up!
+Third party developers drive API and SDK improvement and expansion. Your products enable After Effects to do things we'd never considered. Your efforts make After Effects better; keep it up!
 
 We work hard on the SDK, and welcome your comments and feedback. Almost every change we make to the API is suggested by developers like you. [Give us feedback](https://community.adobe.com/t5/after-effects/bd-p/after-effects?page=1&sort=latest_replies&filter=all&topics=label-sdkcom)

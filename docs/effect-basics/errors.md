@@ -2,11 +2,11 @@
 
 Always, always, *always* (always!) return a `PF_Err` from `main()`. Plug-ins must pass all errors back to After Effects.
 
-It is vitally important that you pass any errors (returned to you by callbacks and PICA suites) to After Effects, unless you’ve handled them.
+It is vitally important that you pass any errors (returned to you by callbacks and PICA suites) to After Effects, unless you've handled them.
 
-Be vigilant about returning the right error code, and disposing of any memory you’ve allocated.
+Be vigilant about returning the right error code, and disposing of any memory you've allocated.
 
-Really. We’re serious.
+Really. We're serious.
 
 ---
 
@@ -30,11 +30,11 @@ Really. We’re serious.
 
 After Effects has a consistent policy for error handling; follow it.
 
-If you encounter an error in your plug-in’s code, report it to the user immediately, before returning from your plug-in to After Effects.
+If you encounter an error in your plug-in's code, report it to the user immediately, before returning from your plug-in to After Effects.
 
-After Effects considers errors from the operating system, encountered during your plug-in’s execution, to be yours.
+After Effects considers errors from the operating system, encountered during your plug-in's execution, to be yours.
 
-If you get an error code back from one of our callback functions, pass it back to After Effects; we’ve already reported it.
+If you get an error code back from one of our callback functions, pass it back to After Effects; we've already reported it.
 
 Out-of-memory errors are never reported by After Effects. Error reporting is always suppressed during RAM preview, and when After Effects is running in - noui mode.
 

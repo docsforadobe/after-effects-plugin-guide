@@ -1,6 +1,6 @@
 # Plug-Ins… Reloaded
 
-On it’s first launch, Premiere Pro loads all the plug-ins, reads the PiPL, and sends PF_Cmd_GLOBAL_SETUP to determine the plug-ins’ capabilities. To save time on future application launches, it saves some of these capabilities in what we call the plug-in cache (the registry on Windows, a Property List file on macOS). The next time the application is launched, the cached information is used wherever possible, rather than loading the plug-ins.
+On it's first launch, Premiere Pro loads all the plug-ins, reads the PiPL, and sends PF_Cmd_GLOBAL_SETUP to determine the plug-ins' capabilities. To save time on future application launches, it saves some of these capabilities in what we call the plug-in cache (the registry on Windows, a Property List file on macOS). The next time the application is launched, the cached information is used wherever possible, rather than loading the plug-ins.
 
 When debugging, you can always force a reload of all the plug-ins by holding down the Shift key when launching Premiere Pro.
 
@@ -18,14 +18,14 @@ Effect presets appear in the Presets bin in the Effects panel, and can be applie
 
 1. Apply a filter to a clip
 2. Set the parameters of the filter, adding keyframes if desired
-3. Right-click on the filter name in the Effect Controls panel, and select “Save Preset…”
-4. Create preset bins if desired by right-clicking in the Effects panel and choosing “New Presets Bin”
+3. Right-click on the filter name in the Effect Controls panel, and select "Save Preset…"
+4. Create preset bins if desired by right-clicking in the Effects panel and choosing "New Presets Bin"
 5. Organize the presets in the preset folders
-6. Select the bins and/or presets you wish to export, right-click, and choose “Export Preset”
+6. Select the bins and/or presets you wish to export, right-click, and choose "Export Preset"
 
 Presets should be installed in the Plug-ins directory. Once they are installed in that directory, they will be read-only, and the user will not be able to move them to a different folder or change their names. User-created presets will be modifiable.
 
-On Windows Vista, these are in the user’s hidden AppData folder (e.g. C:Users[user name]AppDataRoamingAdobePremiere Pro[version]Effect Presets and Custom Items.prfpset).
+On Windows Vista, these are in the user's hidden AppData folder (e.g. C:Users[user name]AppDataRoamingAdobePremiere Pro[version]Effect Presets and Custom Items.prfpset).
 
 On macOS, they are in the user folder, at ~/Library/ Application Support/Adobe/Premiere Pro/[version]/Effect Presets and Custom Items.prfpset.
 

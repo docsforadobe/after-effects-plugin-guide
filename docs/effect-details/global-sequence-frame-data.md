@@ -12,10 +12,10 @@ Frame data is used for information specific to rendering a given frame. This has
 
 ## Persistence
 
-After Effects saves sequence data in the project file, but not global or frame data. Pointers within sequence data which point to external data are, in all likelihood, invalid upon reopening the project, and must be re-connected. We call this process “flattening” and “unflattening” the sequence data.
+After Effects saves sequence data in the project file, but not global or frame data. Pointers within sequence data which point to external data are, in all likelihood, invalid upon reopening the project, and must be re-connected. We call this process "flattening" and "unflattening" the sequence data.
 
-#### NOTE
-The Compute Cache does not store its contents to the project file. The data stored in the cache must be recreated during render.
+!!! note
+ The Compute Cache does not store its contents to the project file. The data stored in the cache must be recreated during render.
 
 ---
 
@@ -29,7 +29,7 @@ The state of all parameters (except those with [PF_ParamFlag_EXCLUDE_FROM_HAVE_I
 
 This is done efficiently, as the change tracking is done with timestamps.
 
-If the inputs have not changed, you can safely use your cache, AND the internal caching system will assume that you have a temporal dependency on the passed range. So if something changes upstream, the host’s caches will be properly invalidated automatically.
+If the inputs have not changed, you can safely use your cache, AND the internal caching system will assume that you have a temporal dependency on the passed range. So if something changes upstream, the host's caches will be properly invalidated automatically.
 
 To test that it is working, apply your effect with one parameter keyframed on every frame. RAM Preview to fill the cache, then change one of the keyframes. The related frame and all dependent frames (e.g. later frames, in the case of a simulation) should lose their cache marks and require re-rendering. Similarly, upstream changes to sources of layer parameters should cause time-selective invalidation of the cache.
 
@@ -47,7 +47,7 @@ Remember, your users (the ones who bought two copies of your plug-in, anyway) ma
 
 After Effects sends [PF_Cmd_SEQUENCE_RESETUP](../effect-basics/command-selectors.md#effect-basics-command-selectors-sequence-selectors) when the data is reloaded, for either flat or unflat data.
 
-Use a flag at a common offset within both structures to indicate the data’s state.
+Use a flag at a common offset within both structures to indicate the data's state.
 
 ```default
 typedef struct {

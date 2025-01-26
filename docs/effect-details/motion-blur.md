@@ -8,4 +8,4 @@ They must [check out](interaction-callback-functions.md#effect-details-interacti
 
 If the plug-in checks out parameters outside this interval, set [PF_OutFlag_WIDE_TIME_INPUT](../effect-basics/PF_OutData.md#effect-basics-pf-outdata-pf-outflags).
 
-Doing so allows After Effects to compare the parameters within the sampling interval, and determine if they’ve changed.
+Doing so allows After Effects to compare the parameters within the sampling interval, and determine if they've changed.

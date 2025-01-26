@@ -12,8 +12,8 @@ AEFX_SuiteScoper<PF_GPUDeviceSuite1> gpu_suite = AEFX_SuiteScoper<PF_GPUDeviceSu
   out_dataP);
 ```
 
-#### NOTE
-AEFX_SuiteScoper will throw an Exception, `A_Err_MISSING_SUITE`, if the requested suite cannot be acquired and the optional second template argument, `ALLOW_NO_SUITE`, is set to false. If you set `ALLOW_NO_SUITE` to false, please ensure you wrap the `AEFX_SuiteScoper<>` call with a try/catch wrapper. If `ALLOW_NO_SUITE` is set to true, then you should check the returned pointer is not NULL before using it.
+!!! note
+ AEFX_SuiteScoper will throw an Exception, `A_Err_MISSING_SUITE`, if the requested suite cannot be acquired and the optional second template argument, `ALLOW_NO_SUITE`, is set to false. If you set `ALLOW_NO_SUITE` to false, please ensure you wrap the `AEFX_SuiteScoper<>` call with a try/catch wrapper. If `ALLOW_NO_SUITE` is set to true, then you should check the returned pointer is not NULL before using it.
 
 Once you have the suite you may make calls to any function in the suite list so:
 
@@ -31,10 +31,10 @@ Behind the scenes, both of these methods acquire PICA function suites using `Acq
 
 WhizBangSuite1 may provide a Foobar() function which takes two arguments, and WhizBangSuite2>Foobar() may take three. Though each new version of a suite supercedes the old one, feel free to acquire multiple versions of the same suite; we never remove or alter previously shipped suites.
 
-When unsure of the capabilities of the plug-in host (no third party host besides Premiere supports PICA), attempt to acquire the latest version, and “fall back” to previous versions. If functionality you require isn’t available, warn the user, and return an error (or fall back on other behavior when running in more “primitive” plug-in hosts). Note that support for these suites in other hosts of After Effects plug-ins is a maze of twisty caves and passages, all alike.
+When unsure of the capabilities of the plug-in host (no third party host besides Premiere supports PICA), attempt to acquire the latest version, and "fall back" to previous versions. If functionality you require isn't available, warn the user, and return an error (or fall back on other behavior when running in more "primitive" plug-in hosts). Note that support for these suites in other hosts of After Effects plug-ins is a maze of twisty caves and passages, all alike.
 
 ---
 
 ## Threading
 
-Unless documented otherwise, assume that any function provided by our suites is not thread-safe. For example, only your plug-in’s main thread should do anything that modifies the user interface.
+Unless documented otherwise, assume that any function provided by our suites is not thread-safe. For example, only your plug-in's main thread should do anything that modifies the user interface.
