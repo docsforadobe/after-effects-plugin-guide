@@ -146,7 +146,7 @@ Use caution: the functions for opening and creating projects do not save changes
 ### AEGP_TimeDisplay2
 
 !!! note
- Values in unused fields persist when After Effects is using a different display type.
+    Values in unused fields persist when After Effects is using a different display type.
 
 | **Member**                       | **Description**                                                                                                                                         |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -203,7 +203,7 @@ Unless more specificity is required for the function(s) you're using, remain as 
 | `AEGP_GetItemMRUView`          | Gets an item's most recently used view.<br/>The view can be used with two calls in the `AEGP_ColorSettingsSuite`,<br/>to perform a color transform on a pixel buffer from working to view color space.<br/><br/>```default<br/>AEGP_GetItemMRUView(<br/>  AEGP_ItemH      itemH,<br/>  AEGP_ItemViewP  *mru_viewP);<br/>```                                                                                                                                                                                                                                                                                               |
 
 !!! note
- `AEGP_RenderNewItemSoundData()` used to be here, but is now part of [AEGP_RenderSuite4](#aegp_rendersuite4).
+    `AEGP_RenderNewItemSoundData()` used to be here, but is now part of [AEGP_RenderSuite4](#aegp_rendersuite4).
 
 ---
 
@@ -887,8 +887,7 @@ After Effects can handle plug-ins which change the preferences during their appl
 | `AEGP_GetValueKeyByIndex`   | Retrieves the value of the indexed key.<br/><br/>```default<br/>AEGP_GetValueKeyByIndex(<br/>  AEGP_PersistentBlobH  blobH,<br/>  const A_char          *section_keyZ,<br/>  A_long                key_index,<br/>  A_long                max_key_size,<br/>  A_char                *value_keyZ);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 !!! note
- For the functions below, if a given key is not found, the default value is both written to the blob and returned as the value;
-if no default is provided, a blank value will be written and returned.
+    For the functions below, if a given key is not found, the default value is both written to the blob and returned as the value; if no default is provided, a blank value will be written and returned.
 
 | **Function**             | **Purpose**                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -979,7 +978,7 @@ Then do the rendering with [AEGP_RenderSuite4](#aegp_rendersuite4).
 ### AEGP_LayerRenderOptionsSuite1
 
 !!! note
- New in 13.0
+    New in 13.0
 
 | **Function**                   | **Purpose**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1210,7 +1209,7 @@ Factoid: For each frame rendered for a given render item, the list of output mod
 These functions provide a way for effects (and AEGPs) to obtain information about the context of an applied effect.
 
 !!! note
- Any time you modify or rely on data from outside the normal render pipeline, you run the risk of dependency problems.
+    Any time you modify or rely on data from outside the normal render pipeline, you run the risk of dependency problems.
 
 There is no way for After Effects to know that you depend on this external information; consequently, you will not be notified if it changes out from under you.
 

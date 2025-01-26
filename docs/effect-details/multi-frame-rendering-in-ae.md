@@ -11,7 +11,7 @@ PF_OutFlag2_SUPPORTS_THREADED_RENDERING
 This flag indicates the effect supports rendering on multiple threads concurrently. Single or multiple applications of this effect on a layer can be called to render at the same time on multiple threads. Effects must be thread-safe before this flag is set. Please see the [What does it mean for an effect to be thread-safe?](#what-does-it-mean-for-an-effect-to-be-thread-safe) section below for more information.
 
 !!! note
- When After Effects uses Multi-Frame Rendering, an effect that is not thread-safe and does not set this flag will force each render thread to enter and exit the effect code one thread at a time. This will significantly reduce the performance improvements that MFR provides and as such a warning icon will be shown in the Effects Control Window alongside the effect to warn the user of the performance impact.
+      When After Effects uses Multi-Frame Rendering, an effect that is not thread-safe and does not set this flag will force each render thread to enter and exit the effect code one thread at a time. This will significantly reduce the performance improvements that MFR provides and as such a warning icon will be shown in the Effects Control Window alongside the effect to warn the user of the performance impact.
 
 ---
 
@@ -24,7 +24,7 @@ PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER
 Each rendering thread will have its own instance of sequence_data that is not shared nor synchronized with other rendering threads. If the data stored in sequence_data is time-consuming to compute, the new [Compute Cache For Multi-Frame Rendering](#compute-cache-for-multi-frame-rendering) should be utilized.
 
 !!! note
- Use of the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` flag requires compiling against the March 2021 SDK or later.
+      Use of the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` flag requires compiling against the March 2021 SDK or later.
 
 ---
 
@@ -42,7 +42,7 @@ The table below outlines the changes an effect will need to make to support the 
 | Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING and reads and writes to sequence_data during Render         | Recompile the plugin with the March 2021 SDK and modify the plugin to:<br/><br/>1. Utilize the [Compute Cache API](compute-cache-api.md#compute-cache-api) for thread-safe cache access instead of reading/writing to sequence_data directly.  See [Compute Cache For Multi-Frame Rendering](#compute-cache-for-multi-frame-rendering) for more information.<br/><br/>AND / OR<br/><br/>1. Add the `PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER` to the effect to restore direct read/write access to sequence_data. |
 
 !!! note
- Effects compiled with the March 2021 SDK and using the PF_OutFlag2_SUPPORTS_THREADED_RENDERING flag and, optionally, the PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER flag will work with After Effects beta builds starting with 18.0 when the `PF_EffectSequeceDataSuite1` was introduced. Check for the presence of this suite if you need to support both sequence_data behaviors.
+      Effects compiled with the March 2021 SDK and using the PF_OutFlag2_SUPPORTS_THREADED_RENDERING flag and, optionally, the PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER flag will work with After Effects beta builds starting with 18.0 when the `PF_EffectSequeceDataSuite1` was introduced. Check for the presence of this suite if you need to support both sequence_data behaviors.
 
 ---
 
@@ -63,7 +63,7 @@ The `sequence_data` object and related Sequence Selectors have been used over th
 * Multi-Frame rendering requires that After Effects marshal `sequence_data` to the render threads. In order to make this efficient for effects with `sequence_data` that require flattening with the `PF_OutFlag_SEQUENCE_DATA_NEEDS_FLATTENING` flag, these effects must now also set the `PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA` flag.
 
 !!! note
- In a future version of After Effects, the requirement to set the `PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA` flag and handle the associated selector in the plugin will be enforced. A warning dialog will be added on load of any effect that does not meet this requirement.
+      In a future version of After Effects, the requirement to set the `PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA` flag and handle the associated selector in the plugin will be enforced. A warning dialog will be added on load of any effect that does not meet this requirement.
 
 **Changes as of March 2021**
 
@@ -103,7 +103,7 @@ To be more specific, the effect:
 3. Does not write to `in_data->sequence_data` at render time or during `PF_Cmd_UPDATE_PARAMS_UI` event. Reading can be done via the PF_EffectSequenceDataSuite interface.
 
 !!! note
- If an effect uses any blocking synchronization mechanisms, such as mutexes or gates, these must not be held when calling back into the host. Common calls would be when using a suite or making a checkout call. Failing to do so will very likely result in deadlocks.
+      If an effect uses any blocking synchronization mechanisms, such as mutexes or gates, these must not be held when calling back into the host. Common calls would be when using a suite or making a checkout call. Failing to do so will very likely result in deadlocks.
 
 ---
 
@@ -390,7 +390,7 @@ Here are some standard approaches for treating statics or globals:
   > ```
 
 !!! note
- **The above examples are the common cases we've seen in our effects. You can always come up other methods to treat your statics and globals that best suits your needs.**
+      The above examples are the common cases we've seen in our effects. You can always come up other methods to treat your statics and globals that best suits your needs.
 
 ---
 

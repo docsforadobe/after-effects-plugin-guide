@@ -15,7 +15,7 @@ Frame data is used for information specific to rendering a given frame. This has
 After Effects saves sequence data in the project file, but not global or frame data. Pointers within sequence data which point to external data are, in all likelihood, invalid upon reopening the project, and must be re-connected. We call this process "flattening" and "unflattening" the sequence data.
 
 !!! note
- The Compute Cache does not store its contents to the project file. The data stored in the cache must be recreated during render.
+    The Compute Cache does not store its contents to the project file. The data stored in the cache must be recreated during render.
 
 ---
 

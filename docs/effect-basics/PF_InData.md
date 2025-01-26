@@ -55,7 +55,7 @@ Also, don't worry; although `PF_InData` is dauntingly large, you need not memori
 ## extent_hint Usage
 
 !!! note
- hint rectangles are much more effective…and complicated…for [SmartFX](../smartfx/smartfx.md).
+    Hint rectangles are much more effective...and complicated...for [SmartFX](../smartfx/smartfx.md).
 
 Use `extent_hint` to process only those pixels for which output is required; this is one of the simplest optimizations you can make.
 

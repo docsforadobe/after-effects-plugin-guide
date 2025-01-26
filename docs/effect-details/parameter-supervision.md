@@ -11,7 +11,7 @@ If you set `PF_ParamFlag_SUPERVISE` on any parameter, After Effects will send yo
 During *PF_Cmd_UPDATE_PARAMS_UI*, you may only change the appearance and enable state of parameters. Use `PF_UpdateParamUI()` from [PF_ParamUtilSuite3](#pf_paramutilsuite3) to update the UI, passing it a *copy* of the parameter you wish to modify. Do *not* attempt to modify the original. It is not necessary to set `PF_OutFlag_REFRESH_UI`; `PF_UpdateParamUI()` handles that for you.
 
 !!! note
- This is the only way to update the UI of `PF_PUI_STD_CONTROL_ONLY` parameters.
+    This is the only way to update the UI of `PF_PUI_STD_CONTROL_ONLY` parameters.
 
 ---
 

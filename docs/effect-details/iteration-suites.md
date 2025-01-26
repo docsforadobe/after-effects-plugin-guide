@@ -7,7 +7,7 @@ After Effects will also manage progress reporting and user cancellation automati
 Use these suites! Make sure the pixel processing functions you pass to these iterator callbacks are re-entrant.
 
 !!! note
- The October 2021 SDK update increases the number of concurrent iterate threads up to the available system CPU cores instead of the previous hard-coded limit of 32.
+    The October 2021 SDK update increases the number of concurrent iterate threads up to the available system CPU cores instead of the previous hard-coded limit of 32.
 
 ---
 

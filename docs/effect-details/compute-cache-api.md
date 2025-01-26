@@ -183,7 +183,7 @@ The Auto Color plugin that ships with After Effects is an effect that now utiliz
 The initial steps in integrating the Cache and Hash suites were to identify what data was being computed by Auto Color's Temporal Smoothing, what portions of that computation are time-consuming, and then what effect parameters would cause a re-compute to be needed.
 
 !!! note
- Each effect will need to compute and cache different data, so you'll need to do this review uniquely for your effect.
+    Each effect will need to compute and cache different data, so you'll need to do this review uniquely for your effect.
 
 For Auto Color's Temporal Smoothing, the frame being rendered needs both histogram and level data from the frames surrounding it. The number of surrounding frames that are needed is based on the temporal smoothing parameters value. Both the histogram and levels data can be expensive to calculate but in general can be calculated once for each frame, cached, and then reused as needed.
 
