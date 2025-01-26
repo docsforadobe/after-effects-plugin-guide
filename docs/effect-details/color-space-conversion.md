@@ -6,7 +6,7 @@ Different pixel formats are useful for different operations. After Effects expos
 
 ## Pixel Types For Different Color Spaces
 
-| **Pixel Type**                                                | **Data Structure**                                                                                                 |
+| Pixel Type                                                | Data Structure                                                                                                 |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 | 8 bpc ARGB                                                    | ```default<br/>typedef struct {<br/>  A_u_char alpha, red, green, blue;<br/>} PF_Pixel8;<br/>```                   |
 | 16 bpc ARGB                                                   | ```default<br/>typedef struct {<br/>  A_u_short alpha, red, green, blue;<br/>} PF_Pixel16;<br/>```                 |
@@ -20,7 +20,7 @@ Plug-ins can draw on image processing algorithms written for nearly any color sp
 
 ## Color Space Conversion Callbacks
 
-| **Function**   | **Purpose**                                                                                                                                                                                                         | **Replaces**    |
+| Function   | Purpose                                                                                                                                                                                                         | Replaces    |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | RGBtoHLS       | Given an RGB pixel, returns an HLS (hue, lightness, saturation) pixel. HLS values are scaled from 0 to 1 in fixed point.                                                                                            | `PF_RGB_TO_HLS` |
 | HLStoRGB       | Given an HLS pixel, returns an RGB pixel.                                                                                                                                                                           | `PF_HLS_TO_RGB` |

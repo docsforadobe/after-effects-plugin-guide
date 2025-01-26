@@ -8,7 +8,7 @@ Notice that, in addition to describing the filetypes and extensions supported by
 
 ## AEIO_ModuleInfo Members
 
-| **Member**                | **Purpose**                                                                                                                                                                                                                                                                                                                                                                                                |
+| Member                | Purpose                                                                                                                                                                                                                                                                                                                                                                                                |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `sig`                     | A long, uniquely identifying your plug-in.<br/>Many developers prefer to use a decidedly Mac-ish four character code here.<br/>Please [let us know](mailto:zlam@adobe.com) what sig you're using.                                                                                                                                                                                                          |
 | `name`                    | Descriptive name for your AEIO plug-in.                                                                                                                                                                                                                                                                                                                                                                    |
@@ -32,7 +32,7 @@ AEIOs set these flags (like effect plug-ins use global outflags) in AEIO_ModuleI
 
 ### AEIO_ModuleFlags
 
-| **Flag**                               | **Purpose**                                                                                                                                                                               | **I or O?**   |
+| Flag                               | Purpose                                                                                                                                                                               | I or O?   |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | `AEIO_MFlag_INPUT`                     | AEIO is an input module.                                                                                                                                                                  | Input!        |
 | `AEIO_MFlag_OUTPUT`                    | AEIO is an output module (one plug-in can be both).                                                                                                                                       | Output!       |
@@ -68,7 +68,7 @@ AEIOs set these flags (like effect plug-ins use global outflags) in AEIO_ModuleI
 
 Gotta have dem flags…
 
-| **Flag**                                        | **Purpose**                                                                                                                                                                                                                                   | **I or O?**   |
+| Flag                                        | Purpose                                                                                                                                                                                                                                   | I or O?   |
 |-------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | `AEIO_MFlag2_AUDIO_OPTIONS`                     | The AEIO has an audio options dialog.                                                                                                                                                                                                         | Output        |
 | `AEIO_MFlag2_SEND_ADDMARKER_BEFORE_ADDFRAME`    | The AEIO wants to receive marker data before outputting video or audio (useful for MPEG streams).                                                                                                                                             | Output        |

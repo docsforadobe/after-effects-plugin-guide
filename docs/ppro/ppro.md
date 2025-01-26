@@ -10,7 +10,7 @@ In this chapter, we will describe the AE API support in Premiere Pro, but genera
 
 If you need to distinguish between Premiere Pro and Premiere Elements, you may use the Premiere-specific App Info Suite, available from the [Premiere Pro SDK](http://ppro-plugin-sdk.aenhancers.com) headers.
 
-| **Application Versions**                     |   **PF_InData> version.major** |   **PF_InData> version.minor** |
+| Application Versions                     |   PF_InData> version.major |   PF_InData> version.minor |
 |----------------------------------------------|--------------------------------|--------------------------------|
 | Premiere Pro CC through Premiere Pro CC 2019 |                             13 |                              4 |
 | Premiere Pro CS6                             |                             13 |                              2 |

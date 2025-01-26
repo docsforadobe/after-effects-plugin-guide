@@ -15,7 +15,7 @@ app.buildNumber - e.g. 12.
 
 ## API Versions
 
-| **Release**            | **Effect API Version**                                                                                       | **AEGP API Version**   |
+| Release            | Effect API Version                                                                                       | AEGP API Version   |
 |------------------------|--------------------------------------------------------------------------------------------------------------|------------------------|
 | 22.0                   | 13.27                                                                                                        |                        |
 | 18.2                   | 13.25                                                                                                        |                        |

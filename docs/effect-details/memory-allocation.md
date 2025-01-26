@@ -10,7 +10,7 @@ Handles passed to you by After Effects are locked for you before you're called, 
 
 ## PF_HandleSuite1
 
-| **Function**           | **Purpose**                                                                                                                                                                         | **Replaces**         |
+| Function           | Purpose                                                                                                                                                                         | Replaces         |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
 | `host_new_handle`      | Allocates a new handle.<br/><br/>```default<br/>PF_Handle (*host_new_handle)(<br/>  A_HandleSize size);<br/>```                                                                     | `PF_NEW_HANDLE`      |
 | `host_lock_handle`     | Locks a handle.<br/><br/>```default<br/>void (*host_lock_handle)(<br/>  PF_Handle pf_handle);<br/>```                                                                               | `PF_LOCK_HANDLE`     |

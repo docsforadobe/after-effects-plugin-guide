@@ -93,7 +93,7 @@ When enabling Multi-Frame Rendering on an effect, the `sequence_data` object wil
 
 ### PF_EffectSequenceDataSuite1
 
-| **Function**              | **Purpose**                                                                                                                                                                                                                                                     |
+| Function              | Purpose                                                                                                                                                                                                                                                     |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `PF_GetConstSequenceData` | Retrieves the read-only const sequence_data object for a rendering thread when Multi-Frame Rendering is enabled for an effect.<br/><br/>```c++<br/>PF_Err(*PF_GetConstSequenceData)(<br/>  PF_ProgPtr effect_ref,<br/>  PF_ConstHandle *sequence_data);<br/>``` |
 ```c++
