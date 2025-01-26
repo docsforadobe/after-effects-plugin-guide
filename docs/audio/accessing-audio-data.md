@@ -1,5 +1,3 @@
-<a id="audio-accessing-audio-data"></a>
-
 # Accessing Audio Data
 
 Use `PF_CHECKOUT_LAYER_AUDIO` from [Interaction Callbacks](../effect-details/interaction-callback-functions.md#effect-details-interaction-callback-functions-interaction-callbacks) to retrieve an audio layer.

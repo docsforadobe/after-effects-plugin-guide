@@ -1,5 +1,3 @@
-<a id="effect-details-iteration-suites"></a>
-
 # Iteration Suites
 
 Effects often iterate over all pixels in an image, filtering each one. By taking advantage of After Effects’ iteration suites, you make it possible for After Effects to sub-allocate your task to as many processors are present, taking advantage of hardware-specific acceleration.

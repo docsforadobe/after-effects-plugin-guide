@@ -1,12 +1,8 @@
-<a id="effect-basics-pf-paramdef"></a>
-
 # PF_ParamDef
 
 After Effects passes effects an array of PF_ParamDefs with each selector, describing the plug-in’s parameters at the current time. The values in the params array are only valid during some selectors (this is noted in the [selector descriptions](command-selectors.md#effect-basics-calling-sequence)).
 
 ---
-
-<a id="effect-basics-pf-paramdef-param-zero"></a>
 
 ## Param Zero
 
@@ -34,8 +30,6 @@ All parameter types are represented by a PF_ParamDef. Unions are used, so that o
 
 ---
 
-<a id="effect-basics-pf-paramdef-parameter-ui-flags"></a>
-
 ## Parameter UI Flags
 
 Control a parameter’s user interface with these flags.
@@ -58,8 +52,6 @@ Don’t confuse UI flags with behavior flags; they reside in different fields wi
 In addition to these flags, an effect parameter may be hidden or shown by using [AEGP_GetDynamicStreamFlags](../aegps/aegp-suites.md#aegps-aegp-suites-dynamic-stream-suite).
 
 ---
-
-<a id="effect-basics-pf-paramdef-parameter-flags"></a>
 
 ## Parameter Flags
 

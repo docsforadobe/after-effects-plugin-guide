@@ -1,5 +1,3 @@
-<a id="intro-intro"></a>
-
 # Introduction
 
 Welcome to the Adobe® After Effects® Software Development Kit!

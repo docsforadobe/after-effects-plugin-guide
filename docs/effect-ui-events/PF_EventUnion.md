@@ -1,5 +1,3 @@
-<a id="effect-ui-events-pf-eventunion"></a>
-
 # PF_EventUnion
 
 The PF_EventUnion in PF_EventExtra is a union of the four following structures.

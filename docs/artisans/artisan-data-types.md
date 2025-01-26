@@ -1,5 +1,3 @@
-<a id="artisans-artisan-data-types"></a>
-
 # Artisan Data Types
 
 Below are the data types most commonly used in the Artisan API.
@@ -78,8 +76,6 @@ Before rendering, the Artisans that ship with After Effects apply an inverse tra
 For example, if the pixel aspect ratio is 10/11 (DV NTSC), we multiply by 11/10 to get square pixels. We process and composite 3D layers, then re-divide to get back to the original pixel aspect ratio.
 
 The following suite supplies the layers, compositions, texture and destination buffers. This is a vital suite for all artisans.
-
-<a id="artisans-artisan-data-types-aegp-canvassuite"></a>
 
 ### AEGP_CanvasSuite8
 

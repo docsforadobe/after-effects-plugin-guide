@@ -1,12 +1,8 @@
-<a id="effect-basics-pf-effectworld"></a>
-
 # PF_EffectWorld / PF_LayerDef
 
 After Effects represents images using PF_EffectWorlds, also called PF_LayerDefs.
 
 ---
-
-<a id="effect-basics-pf-effectworld-structure"></a>
 
 ## PF_EffectWorld Structure
 
@@ -59,8 +55,6 @@ Use the following macros to access the data within (opaque) PF_PixelPtrs.
 It is, emphatically, *not* safe to simply cast pointers of one type into another! To make it work at all requires a cast, and there’s nothing that prevents you from casting it incorrectly. We may change its implementation at a later date (at which time you’ll thank us for forcing this level of abstraction).
 
 ---
-
-<a id="effect-basics-pf-effectworld-pf-pixelptr-accessor-macros"></a>
 
 ## PF_PixelPtr Accessor Macros
 

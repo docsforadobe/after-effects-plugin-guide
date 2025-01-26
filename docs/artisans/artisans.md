@@ -1,5 +1,3 @@
-<a id="artisans-artisans"></a>
-
 # Artisans
 
 #### NOTE

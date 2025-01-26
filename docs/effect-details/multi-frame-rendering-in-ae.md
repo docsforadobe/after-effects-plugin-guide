@@ -1,5 +1,3 @@
-<a id="effect-details-multi-frame-rendering-in-ae"></a>
-
 # Multi-Frame Rendering in AE
 
 In order to take advantage of modern hardware with more CPU cores and threads, After Effects 2022 and above now supports Multi-Frame Rendering. Multi-Frame rendering (MFR) allows multiple frames to be rendered concurrently thereby speeding up rendering and export of AE compositions.
@@ -56,8 +54,6 @@ UI selectors are still sent on the main thread, however `PF_Cmd_SEQUENCE_SETUP`,
 
 ---
 
-<a id="sequence-data"></a>
-
 ## Sequence Data in Multi-Frame rendering
 
 The `sequence_data` object and related Sequence Selectors have been used over the years to provide a way to store data during the effect’s lifetime. Multi-Frame Rendering introduces some changes to be aware of:
@@ -77,8 +73,6 @@ In a future version of After Effects, the requirement to set the `PF_OutFlag2_SU
 
 ---
 
-<a id="compute-cache"></a>
-
 ## Compute Cache For Multi-Frame Rendering
 
 The Compute Cache provides a thread-safe cache as a replacement or supplement to Sequence Data where effects can compute, store and read data before or during Render.
@@ -97,8 +91,6 @@ The Compute Cache API is available starting in the March 2021 SDK and the suite 
 See the [Compute Cache API](compute-cache-api.md#effect-details-compute-cache-api) documentation for implementation details and sample code.
 
 ---
-
-<a id="ts-effect"></a>
 
 ## What does it mean for an effect to be thread-safe?
 
@@ -208,8 +200,6 @@ If you develop on Windows:
     1. Search for each symbol in your code, fix it (see [here](#fix-static) on how) and repeat for every binary/source file in your solution
 
 ---
-
-<a id="fix-static"></a>
 
 ## What to do if you have static and globals in your effects
 
@@ -432,8 +422,6 @@ Once you have completed the above preparation steps, test your effect thoroughly
 * Make sure there are no crashes, hangs, render differences or other unexpected changes when rendering with multi-frame rendering enabled.
 
 ---
-
-<a id="first-party"></a>
 
 ## Thread-Safe First Party Effects
 

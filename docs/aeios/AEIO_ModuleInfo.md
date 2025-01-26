@@ -1,5 +1,3 @@
-<a id="aeios-aeio-moduleinfo"></a>
-
 # AEIO_ModuleInfo
 
 This is the structure where your AEIO will define its basic properties.

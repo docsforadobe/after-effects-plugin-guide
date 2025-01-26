@@ -1,5 +1,3 @@
-<a id="effect-basics-pf-outdata"></a>
-
 # PF_OutData
 
 Communicate changes made by your plug-in to After Effects using `PF_OutData`. Valid times for altering these fields are noted.
@@ -24,8 +22,6 @@ Communicate changes made by your plug-in to After Effects using `PF_OutData`. Va
 | [out_flags2](#effect-basics-pf-outdata-pf-outflags2) | Send messages to After Effects. OR together multiple values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 ---
-
-<a id="effect-basics-pf-outdata-pf-outflags"></a>
 
 ## PF_OutFlags
 
@@ -71,8 +67,6 @@ Update both the PiPL and your source code when you make a change. Many of these 
 | `PF_OutFlag_AUDIO_EFFECT_ONLY`               | Set during [PF_Cmd_GLOBAL_SETUP](command-selectors.md#effect-basics-command-selectors-global-selectors) if the effect alters only audio output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ---
-
-<a id="effect-basics-pf-outdata-pf-outflags2"></a>
 
 ## PF_OutFlags2
 

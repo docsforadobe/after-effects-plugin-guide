@@ -1,5 +1,3 @@
-<a id="intro-other-integration-possibilities"></a>
-
 # Other Integration Possibilities
 
 Although this SDK describes the majority of integration possibilities with After Effects, there are other possibilities not to be overlooked.
@@ -26,8 +24,6 @@ On Windows, AfterFX.com is the way to get feedback to the console, because After
 
 ---
 
-<a id="intro-other-integration-possibilities-html5"></a>
-
 ## HTML5 Panels
 
 In CC 2014 and later, After Effects supports HTML5 panels. They are accessed in After Effects from Window > Extensions > (your panel name). Panels can be resized and docked just like any other panel in After Effects. Panels are built using HTML5, After Effects Scripting, and JavaScript. You may download the After Effects Panel SDK from the the Adobe I/O website at: [https://www.adobe.io/apis/creativecloud/aftereffects.html](https://www.adobe.io/apis/creativecloud/aftereffects.html)
@@ -40,8 +36,6 @@ Closely coupled with scripting is the command line interface offered by aerender
 
 ---
 
-<a id="intro-other-integration-possibilities-premiere-pro-importers"></a>
-
 ## Premiere Pro Importers
 
 Premiere Pro importers provide support for importing media into applications across most applications in the Adobe Creative Cloud, including Premiere Pro, Media Encoder, Prelude, and Audition. Because of this broader compatibility, unless you need very specific integration with After Effects only available via the AEIO API in this SDK, we recommend developing a Premiere Pro importer. The Premiere Pro SDK is available at: [https://www.adobe.io/apis/](https://www.adobe.io/apis/creativecloud/premierepro.html) [creativecloud/premierepro.html](https://www.adobe.io/apis/creativecloud/premierepro.html)
@@ -49,8 +43,6 @@ Premiere Pro importers provide support for importing media into applications acr
 One advantage of MediaCore importer plug-ins over AEIOs is its priority system: The highest priority importer gets first crack at importing a file, and if the particular imported file isn’t supported, the next-highest priority importer will then have the opportunity to try importing it, and so on.
 
 ---
-
-<a id="intro-other-integration-possibilities-mercury-transmit"></a>
 
 ## Mercury Transmit
 

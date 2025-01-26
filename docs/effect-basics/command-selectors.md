@@ -1,5 +1,3 @@
-<a id="effect-basics-command-selectors"></a>
-
 # Command Selectors
 
 Commands are, simply, what After Effects wants your effect to do.
@@ -13,8 +11,6 @@ They send information back to After Effects in [PF_OutData](PF_OutData.md#effect
 During events, they receive event-specific information in [PF_EventExtra](../effect-ui-events/PF_EventExtra.md#effect-ui-events-pf-eventextra).
 
 ---
-
-<a id="effect-basics-calling-sequence"></a>
 
 ## Calling Sequence
 
@@ -38,8 +34,6 @@ For SmartFX, `PF_Cmd_SMART_PRE_RENDER` may be sent any number of times, before a
 
 ## Command Selectors Table
 
-<a id="effect-basics-command-selectors-global-selectors"></a>
-
 ### Global Selectors
 
 All plug-ins must respond to these selectors.
@@ -51,8 +45,6 @@ All plug-ins must respond to these selectors.
 | `PF_Cmd_GLOBAL_SETDOWN` | Free all global data (only required if you allocated some).                                                                                                                                                                                                                                                                                                   |
 | `PF_Cmd_PARAM_SETUP`    | Describe your parameters and register them using [PF_ADD_PARAM](../effect-details/interaction-callback-functions.md#effect-details-interaction-callback-functions-interaction-callbacks).<br/><br/>Also, register custom user interface elements.<br/><br/>Set [PF_OutData>num_params](PF_OutData.md#effect-basics-pf-outdata) to match your parameter count. |
 
-<a id="effect-basics-command-selectors-sequence-selectors"></a>
-
 ### Sequence Selectors
 
 These control sequence data handling.
@@ -63,8 +55,6 @@ These control sequence data handling.
 | `PF_Cmd_SEQUENCE_RESETUP` | Re-create (usually unflatten) sequence data. Sent after sequence data is read from disk, during pre-composition, or when the effect is copied;<br/><br/>After Effects flattens sequence data before duplication. During duplication, `PF_Cmd_SEQUENCE_RESETUP` is sent for both the old and new sequences.<br/><br/>Don’t expect a `PF_Cmd_SEQUENCE_FLATTEN` between `PF_Cmd_SEQUENCE_RESETUPs`.                                                                                                                                                                                                 |
 | `PF_Cmd_SEQUENCE_FLATTEN` | Sent when saving and when duplicating the sequence. Flatten sequence data containing pointers or handles so it can be written to disk.<br/><br/>This will saved with the project file. Free the unflat data and set the `out_data>sequence_data` to point to the new flattened data. Flat data must be correctly byte-ordered for file storage.<br/><br/>As of 6.0, if an effect’s sequence data has recently been flattened, the effect may be deleted without receiving an additional `PF_Cmd_SEQUENCE_SETDOWN`.<br/><br/>In this case, After Effects will dispose of your flat sequence data. |
 | `PF_Cmd_SEQUENCE_SETDOWN` | Free all sequence data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-
-<a id="effect-basics-command-selectors-frame-selectors"></a>
 
 ### Frame Selectors
 
@@ -80,8 +70,6 @@ Passed for each frame (or set of audio samples) to be rendered by your plug-in.
 | `PF_Cmd_AUDIO_SETDOWN`    | Free memory allocated during PF_Cmd_AUDIO_SETUP.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `PF_Cmd_SMART_PRE_RENDER` | SmartFX only. Identify the area(s) of input the effect will need to produce its output, based on whatever criteria the effect implements.<br/><br/>maybe sent up to twice when MediaCore is hosting. The first will come during GetFrameDependencies to collect the inputs.<br/><br/>The source checkouts can return full frame dimensions here. Once the sources are rendered, if they are different in size than the first call<br/>then this selector will be emitted a second time with the actual source sizes in order to get a correct output size.<br/><br/>Note that MediaCore wants all of the output, so PF_PreRenderOutput::max_result_rect will be used.<br/><br/>**New in 16.0**<br/><br/>Set `PF_RenderOutputFlag_GPU_RENDER_POSSIBLE` in `PF_PreRenderOutput` to render on the GPU.<br/><br/>If this flag is not set the requested render is not possible with the requested GPU, because of parameters or render settings.<br/><br/>The host may re-call PreRender with another what_gpu option (or PF_GPU_Framework_None).<br/><br/>```default<br/>typedef struct {<br/>  PF_RenderRequest  output_request; // what the effect is being asked to render<br/>  short             bitdepth;       // bitdepth the effect is being driven in (in bpc)<br/>  const             void *gpu_data; // (new AE 16.0)<br/>  PF_GPU_Framework  what_gpu;       // (new AE 16.0)<br/>  A_u_long          device_index;   // (new AE 16.0) For use in conjunction with PrSDKGPUDeviceSuite<br/>} PF_PreRenderInput;<br/>``` |
 | `PF_Cmd_SMART_RENDER`     | SmartFX only. Perform rendering and provide output for the area(s) the effect was asked to render.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-
-<a id="effect-basics-command-selectors-messaging"></a>
 
 ### Messaging
 

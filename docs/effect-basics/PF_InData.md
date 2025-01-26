@@ -1,5 +1,3 @@
-<a id="effect-basics-pf-indata"></a>
-
 # PF_InData
 
 After Effects communicates system, project, layer and audio information using `PF_InData`. This structure is updated before each command selector is sent to a plug-in.
@@ -9,8 +7,6 @@ Fields valid only during specific [PF_Cmds](command-selectors.md#effect-basics-c
 Also, don’t worry; although `PF_InData` is dauntingly large, you need not memorize each member’s purpose; you’ll use some of the fields some of the time.
 
 ---
-
-<a id="effect-basics-pf-indata-pf-indata-members"></a>
 
 ## PF_InData Members
 
@@ -55,8 +51,6 @@ Also, don’t worry; although `PF_InData` is dauntingly large, you need not memo
 | `shutter_phase`              | Offset from frame time to shutter open time as a percentage of a frame duration.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 ---
-
-<a id="effect-basics-pf-indata-extent-hint-usage"></a>
 
 ## extent_hint Usage
 

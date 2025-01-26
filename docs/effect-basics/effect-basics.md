@@ -1,5 +1,3 @@
-<a id="effect-basics-effect-basics"></a>
-
 # Effect Basics
 
 This chapter will provide all the information you need to know to understand how a basic effect plug-in works.

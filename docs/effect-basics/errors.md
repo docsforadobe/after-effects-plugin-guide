@@ -1,5 +1,3 @@
-<a id="effect-basics-errors"></a>
-
 # Errors
 
 Always, always, *always* (always!) return a `PF_Err` from `main()`. Plug-ins must pass all errors back to After Effects.
@@ -11,8 +9,6 @@ Be vigilant about returning the right error code, and disposing of any memory yo
 Really. We’re serious.
 
 ---
-
-<a id="effect-basics-errors-error-codes"></a>
 
 ## Error Codes
 

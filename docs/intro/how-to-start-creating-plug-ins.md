@@ -1,5 +1,3 @@
-<a id="intro-how-to-start-creating-plug-ins"></a>
-
 # How To Start Creating Plug-ins
 
 ## Play!

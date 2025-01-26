@@ -1,5 +1,3 @@
-<a id="aegps-implementation"></a>
-
 # Implementation
 
 Because the functionality available through the AEGP API is so vast, and the integration with After Effects so complete, a good deal of design work is necessary to ensure that your plug-in behaves appropriately in all situations.
@@ -13,8 +11,6 @@ Check the version of the AEGP API (from within your AEGP’s entry point functio
 AEGPs may also use any effect API suite function which doesn’t require a PF_ProgPtr (obtained by effects from PF_InData).
 
 ---
-
-<a id="aegps-implementation-entry-point"></a>
 
 ## Entry Point
 
@@ -47,8 +43,6 @@ Like everything else in the AEGP API, this is done through a function suite; in 
 
 ---
 
-<a id="aegps-implementation-adding-a-menu-item"></a>
-
 ## Example: Adding A Menu Item
 
 During your entry point function, use `AEGP_GetUniqueCommand()` from [Command Suite](aegp-suites.md#aegps-aegp-suites-command-suite) to obtain a command ID from After Effects, for use with `AEGP_InsertMenuCommand`. Use a different ID for each menu item you add.
@@ -58,8 +52,6 @@ Using AEGP_RegisterSuite’s `AEGP_RegisterCommandHook()`, tell After Effects wh
 No matter how many menu items you add, you register only one CommandHook. When called, determine which menu item was chosen (based on the command ID), use AEGP PICA suite functions to determine the current state of the project, and act accordingly. For example, keyframing plug-ins may want to disable their menu items unless a (keyframe-able) parameter stream is part of the current selection.
 
 ---
-
-<a id="aegps-implementation-private-data"></a>
 
 ## Private Data
 

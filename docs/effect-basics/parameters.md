@@ -1,5 +1,3 @@
-<a id="effect-basics-parameters"></a>
-
 # Parameters
 
 Parameters are streams of values that vary with time; the source image, sliders, angles, points, colors, paths, and any arbitrary data types the user can manipulate.
@@ -17,8 +15,6 @@ You may have up to (approximately) 38 kajillion parameters, or as many as your u
 Avoid countless problems by clearing PF_ParamDefs with AEFX_CLR_STRUCT (defined in AE_Macros.h) before registering them.
 
 ---
-
-<a id="effect-basics-parameters-parameter-types"></a>
 
 ## Parameter Types
 

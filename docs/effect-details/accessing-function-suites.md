@@ -1,5 +1,3 @@
-<a id="effect-details-accessing-function-suites"></a>
-
 # Accessing the After Effects Function Suites
 
 If you are writing C++ code, accessing the suites should be done using the AEFX_SuiteScoper which automatically acquires the suite when needed and disposes of it when done.

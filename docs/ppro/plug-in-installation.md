@@ -1,5 +1,3 @@
-<a id="ppro-plug-in-installation"></a>
-
 # Plug-in Installation
 
 Use the common plug-in folder as described here: [Where Installers Should Put Plug-ins](../intro/where-installers-should-put-plug-ins.md#intro-where-installers-should-put-plug-ins).

@@ -1,5 +1,3 @@
-<a id="audio-audio-data-structures"></a>
-
 # Audio Data Structures
 
 The following data types are used by After Effects to describe audio data.

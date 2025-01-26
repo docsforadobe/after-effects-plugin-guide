@@ -1,5 +1,3 @@
-<a id="intro-sample-projects"></a>
-
 # Sample Projects
 
 There is at least one sample of every type of plug-in supported by the current API, as well as projects to illustrate particular concepts.

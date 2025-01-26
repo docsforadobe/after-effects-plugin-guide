@@ -1,5 +1,3 @@
-<a id="smartfx-smartfx"></a>
-
 # SmartFX
 
 The SmartFX API provides bidirectional communication between effects and After Effects, enabling many performance optimizations and providing previously unavailable dependency information. This extension of the effect API is the way to implement 32-bit per channel support in After Effects.
@@ -47,8 +45,6 @@ Effects which set `PF_OutFlag2_SUPPORTS_SMART_RENDER` (from [PF_OutFlags](../eff
 After Effects requests output from the effect. The effect tells After Effects what input it needs to generate that output, through the use of callback functions, and by manipulating the structures in the extra parameter. An effect cannot access the pixels of any layer inputs it has not checked out during *PF_Cmd_SMART_PRE_RENDER*. So all layer inputs that an effect might possibly need must be checked out in advance using checkout_layer. If an effect might need certain layer inputs, they must be checked out now, even if later during rendering the effect may decide that the layer isn’t needed. Also, since no parameter array is passed to SmartFX during *PF_Cmd_SMART_PRE_RENDER* or `PF_Cmd_SMART_RENDER`, any non-layer parameters needed must be retrieved using `PF_CHECKOUT_PARAM` (from [Interaction Callbacks](../effect-details/interaction-callback-functions.md#effect-details-interaction-callback-functions-interaction-callbacks))
 
 ---
-
-<a id="smartfx-smartfx-pf-prerenderextra"></a>
 
 ## PF_PreRenderExtra
 

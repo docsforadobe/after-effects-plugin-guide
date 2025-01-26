@@ -1,5 +1,3 @@
-<a id="aegps-aegp-details"></a>
-
 # AEGP Details
 
 ## Have A Cookie

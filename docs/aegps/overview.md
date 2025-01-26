@@ -1,5 +1,3 @@
-<a id="aegps-overview"></a>
-
 # Overview
 
 AEGPs use Plug-In Component Architecture (PICA) function suites to access all functionality.

@@ -1,5 +1,3 @@
-<a id="effect-ui-events-pf-eventextra"></a>
-
 # PF_EventExtra
 
 This structure provide context information for the current event. After Effects passes a pointer to this structure in the extra parameter of the [Entry Point](../effect-basics/entry-point.md#effect-basics-entry-point) function.

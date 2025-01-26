@@ -1,5 +1,3 @@
-<a id="aegps-aegps"></a>
-
 # AEGPs
 
 The After Effects General Plug-in (AEGP) API is powerful and broad, offering functionality beyond what is available to effect plug-ins.

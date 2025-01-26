@@ -1,5 +1,3 @@
-<a id="aegps-cheating-effect-usage-of-aegp-suites"></a>
-
 # Cheating Effect Usage of AEGP Suites
 
 As soon as we showed developers the initial implementation of AEGP suites, they wanted to “cheat” and use them from within effects. This is certainly possible, but please keep in mind that depending on factors outside the effect API (i.e., any information you get from the AEGP APIs) can lead to trouble. If After Effects thinks an effect has all the information it needs to render, it won’t (for example) update its parameters based on changes made through an AEGP function. We’re actively working on this dependency issue for future versions, but bear it in mind as you write effects which “masquerade” as AEGPs.

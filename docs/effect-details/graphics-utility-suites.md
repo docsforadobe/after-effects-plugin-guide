@@ -1,5 +1,3 @@
-<a id="effect-details-graphics-utility-suites"></a>
-
 # Graphics Utility Suites
 
 After Effects exposes its internal transform and graphic utility routines through the following function suites.
@@ -9,8 +7,6 @@ After Effects exposes its internal transform and graphic utility routines throug
 ## Transform Worlds
 
 These functions combine `PF_EffectWorlds` in interesting ways. When you use these, you’re using the same code After Effects does internally.
-
-<a id="effect-details-graphics-utility-suites-pf-worldtransformsuite"></a>
 
 ### PF_WorldTransformSuite1
 
@@ -25,8 +21,6 @@ These functions combine `PF_EffectWorlds` in interesting ways. When you use thes
 | `transform_world` | Given a PF_EffectWorld and a matrix (or array of matrices), transforms and blends using an After Effects transfer mode, with an optional mask.<br/><br/>The matrices pointer points to a matrix array used for motion-blur.<br/><br/>When is a transform not a transform? A Z-scale transform is not a transform, unless the transformed layer is a parent of other layers that do not all lie in the z=0 plane.<br/><br/>```default<br/>PF_Err transform_world (<br/>  PF_InData               *in_data,<br/>  PF_Quality              quality,<br/>  PF_ModeFlags            m_flags,<br/>  PF_Field                field,<br/>  const PF_EffectWorld    *src_world,<br/>  const PF_CompositeMode  *comp_mode,<br/>  const PF_MaskWorld      *mask_world0,<br/>  const PF_FloatMatrix    *matrices,<br/>  A_long                  num_matrices,<br/>  Boolean                 src2dst_matrix,<br/>  const PF_Rect           *dest_rect,<br/>  PF_EffectWorld          *dst_world);<br/>``` |
 
 ---
-
-<a id="effect-details-graphics-utility-suites-kernel-flags"></a>
 
 ## Kernel Flags
 

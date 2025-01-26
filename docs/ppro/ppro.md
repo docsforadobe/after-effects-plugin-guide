@@ -1,5 +1,3 @@
-<a id="ppro-ppro"></a>
-
 # Premiere Pro & Other Hosts
 
 Adobe Premiere Pro and Adobe Premiere Elements both support the After Effects effect API as described in chapters 2, 3, and 5.

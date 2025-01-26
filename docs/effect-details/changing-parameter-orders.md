@@ -1,5 +1,3 @@
-<a id="effect-details-changing-parameter-orders"></a>
-
 # Changing Parameter Orders, the Nice Way
 
 It is possible to add or remove parameters from a plug-in, without forcing users to re-apply all instances of that plug-in to use the updated version. However, some advance planning on your part is necessary to allow for such changes. Your users (and technical support staff) will appreciate the effort.

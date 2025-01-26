@@ -1,5 +1,3 @@
-<a id="effect-details-working-with-paths"></a>
-
 # Working With Paths
 
 ## Accessing Path Data
@@ -33,8 +31,6 @@ Path vertices are more complex than simple points. All member variables are PF_F
 
 ---
 
-<a id="effect-details-working-with-paths-pf-pathdatasuite"></a>
-
 ## PF_PathDataSuite
 
 This suite provides information about paths (sequences of vertices).
@@ -54,8 +50,6 @@ This suite provides information about paths (sequences of vertices).
 | `PF_PathGetName`             | Retrieves the name of the path (up to `PF_MAX_PATH_NAME_LEN` long).<br/><br/>```default<br/>PF_PathGetName(<br/>  PF_ProgPtr  effect_ref,<br/>  PF_PathID   unique_id,<br/>  A_char      *nameZ);<br/>```                                                                                                                                                                                                                                                                                                                                                            |
 
 ---
-
-<a id="effect-details-working-with-paths-pf-pathquerysuite"></a>
 
 ## PF_PathQuerySuite1
 

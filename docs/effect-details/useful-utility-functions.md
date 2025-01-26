@@ -1,5 +1,3 @@
-<a id="effect-details-useful-utility-functions"></a>
-
 # Useful Utility Functions
 
 ## PF_EffectUISuite
@@ -11,8 +9,6 @@ Although not strictly concerned with parameters, this suite can change the name 
 | `PF_SetOptionsButtonName` | Changes the text on the options button in the effect controls palette.<br/><br/>NOTE: This must be called during [PF_Cmd_PARAM_SETUP](../effect-basics/command-selectors.md#effect-basics-command-selectors-global-selectors).<br/><br/>```default<br/>PF_SetOptionsButtonName(<br/>  PF_ProgPtr    effect_ref,<br/>  const A_char  *nameZ);<br/>```<br/><br/>`nameZ` may be up to `A_char[31]` in length. |
 
 ---
-
-<a id="effect-details-useful-utility-functions-pf-appsuite"></a>
 
 ## PF_AppSuite
 
@@ -61,8 +57,6 @@ What better way to shame someone into purchasing a copy of your plug-in than by 
 | `PF_AppendInfoText`         | Appends characters to the currently-displayed info text.<br/><br/>```default<br/>PF_AppendInfoText(<br/>  const A_char  *appendZ0);<br/>```                                                                                                                                                                                                                    |
 
 ---
-
-<a id="effect-details-useful-utility-functions-pf-advtimesuite"></a>
 
 ## Formatting Time
 

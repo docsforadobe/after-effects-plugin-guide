@@ -1,5 +1,3 @@
-<a id="effect-detals-parameter-supervision"></a>
-
 # Parameter Supervision
 
 Supervision means dynamically changing the values of some parameters based on the values of others. To supervise a parameter, set [PF_ParamFlag_SUPERVISE](../effect-basics/PF_ParamDef.md#effect-basics-pf-paramdef-parameter-flags) before adding it during *PF_Cmd_PARAM_SETUP*. Whenever it is changed, you will receive [PF_Cmd_USER_CHANGED_PARAM](../effect-basics/command-selectors.md#effect-basics-command-selectors-messaging). The index (into the plug-in’s parameter array) of the changed parameter is sent in the PF_UserChangedParamExtra (extra) param. During *PF_Cmd_USER_CHANGED_PARAM*, you may change the values *and* appearance of any of your parameters.
@@ -28,8 +26,6 @@ This change will be also update the UI, and will be undoable by the user. Note t
 This suite is provided to give effect plug-ins some access to their parameter streams, without requiring AEGP suite usage. At least some of these functions are provided by several third-party hosts. These functions are especially handy for effects with supervised parameters.
 
 ---
-
-<a id="effect-detals-parameter-supervision-pf-paramutilsuite"></a>
 
 ## PF_ParamUtilSuite3
 

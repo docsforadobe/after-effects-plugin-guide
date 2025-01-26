@@ -1,5 +1,3 @@
-<a id="effect-details-arbitrary-data-parameters"></a>
-
 # Arbitrary Data Parameters
 
 Some values are not adequately represented by After Effects existing parameter types. You can create and register any data for interpolation by After Effects, by creating parameters of arbitrary data type, or “arb data”. You can rely on our interpolation engine and parameter management, without having to force your data into a pre-defined parameter type.
@@ -27,8 +25,6 @@ These functions deal with custom data structure management. Your arb data will b
 | `PF_Arbitrary_SCAN_FUNC`       | Given a buffer of text data (often from the system clipboard), parse it into your arbitrary data format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ---
-
-<a id="effect-details-arbitrary-data-parameters-implementing-arbitrary-data"></a>
 
 ## Implementing Arbitrary Data
 

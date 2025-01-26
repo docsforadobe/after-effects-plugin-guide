@@ -1,5 +1,3 @@
-<a id="audio-global-outflags"></a>
-
 # Global Outflags
 
 All audio effects must set either `PF_OutFlag_AUDIO_EFFECT_TOO` or `PF_OutFlag_AUDIO_EFFECT_ONLY`.

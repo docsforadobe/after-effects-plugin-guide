@@ -1,5 +1,3 @@
-<a id="aeios-implementation-details"></a>
-
 # Implementation Details
 
 ## Export Bit-Depth

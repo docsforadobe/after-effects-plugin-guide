@@ -1,5 +1,3 @@
-<a id="history"></a>
-
 # Version History
 
 | Revision Date    | Documentor              | Notes                                                                                                                                                                                                                                                                                                                 |

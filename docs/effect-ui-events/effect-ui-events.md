@@ -1,5 +1,3 @@
-<a id="effect-ui-events-effect-ui-events"></a>
-
 # Effect UI & Events
 
 Effects can provide custom UI in two areas: (1) the Effect Controls Window (custom ECW UI), and (2) the Composition or Layer Windows (Custom Comp UI).

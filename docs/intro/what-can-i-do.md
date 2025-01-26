@@ -1,5 +1,3 @@
-<a id="intro-what-can-i-do"></a>
-
 # What Can I Do With This SDK?
 
 This SDK describes the Application Programming Interface (API) that developers use to build plug-ins. These plug-ins can extend the capabilities of After Effects and other applications that support the After Effects API. Plug-ins may also be used to bridge the gap between After Effects and another application.

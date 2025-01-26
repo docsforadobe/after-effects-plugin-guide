@@ -1,5 +1,3 @@
-<a id="effect-details-pixel-aspect-ratio"></a>
-
 # Pixel Aspect Ratio
 
 Effects must respond correctly to footage with non-square pixels, and non-uniform downsampling factors. Even different layer parameters can have different pixel aspect ratios! Doing so isn’t difficult once you understand the concepts involved.

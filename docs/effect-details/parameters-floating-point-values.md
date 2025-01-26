@@ -1,5 +1,3 @@
-<a id="effect-details-parameters-floating-point-values"></a>
-
 # Parameters & Floating Point Values
 
 We have something to admit to you; for years, even though we’ve given you 8 bit color values, we’ve internally used floating point representations behind your back.
@@ -10,8 +8,6 @@ Well, we can’t live the lie any longer! Given a color parameter (passed to you
 
 ---
 
-<a id="effect-details-parameters-floating-point-values-pf-colorparamsuite"></a>
-
 ## PF_ColorParamSuite1
 
 | **Function**                                  | **Purpose**                                                                                                                                                                          |
@@ -19,8 +15,6 @@ Well, we can’t live the lie any longer! Given a color parameter (passed to you
 | `PF_GetFloatingPoint`<br/>`ColorFromColorDef` | ```default<br/>PF_Err PF_GetFloatingPointColorFromColorDef(<br/>  PF_ProgPtr         effect_ref,<br/>  const PF_ParamDef  *color_defP,<br/>  PF_PixelFloat      *fp_colorP);<br/>``` |
 
 ---
-
-<a id="effect-details-parameters-floating-point-values-pf-pointparamsuite"></a>
 
 ## PF_PointParamSuite1
 
@@ -31,8 +25,6 @@ We also provide a way to get floating point values for point parameters.
 | `PF_GetFloatingPoint`<br/>`ValueFromPointDef` | ```default<br/>PF_Err PF_GetFloatingPointValueFromPointDef(<br/>  PF_ProgPtr         effect_ref,<br/>  const PF_ParamDef  *point_defP,<br/>  A_FloatPoint       *fp_pointP);<br/>``` |
 
 ---
-
-<a id="effect-details-parameters-floating-point-values-pf-angleparamsuite"></a>
 
 ## PF_AngleParamSuite1
 

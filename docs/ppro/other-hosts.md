@@ -1,5 +1,3 @@
-<a id="ppro-other-hosts"></a>
-
 # Other Hosts
 
 For third-party hosts, the Adobe policy remains:

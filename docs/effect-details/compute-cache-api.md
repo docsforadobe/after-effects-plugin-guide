@@ -1,5 +1,3 @@
-<a id="effect-details-compute-cache-api"></a>
-
 # Compute Cache API
 
 The Compute Cache API provides a thread-safe cache as a replacement or supplement to Sequence Data where effects can compute, store and read data before or during Render. It should be used to cache data that is time consuming to compute. For Multi-Frame Rendering effects it can have a large benefit by eliminating redundant computation across threads. The cache is unified with other caches in After Effects thus memory usage is balanced across other caches. The model also supports the user doing A/B testing with parameters and the cache state persisting for both A and B states thus speeding up workflow. These last two design characteristics benefit both single- and multi-frame rendering effects.
@@ -148,8 +146,6 @@ Render()
 
 ---
 
-<a id="effect-details-wait-for-other-threadb"></a>
-
 ## Impact of wait_for_other_threadB on AEGP_ComputeIfNeededAndCheckout
 
 Calls to `AEGP_ComputeIfNeededAndCheckout` will return a checkout receipt for the cache value in nearly every permutation of the parameters, except when `wait_for_other_threadB` is set to `false` and another thread is already rendering the requested cache value.
@@ -179,8 +175,6 @@ Calls to `AEGP_ComputeIfNeededAndCheckout` will return a checkout receipt for th
 * The `delete_compute_value` callback should free any resources related to the cache entry. The Compute Cache only contains a void \* pointer to the resources and cannot free the resources on behalf of the effect.
 
 ---
-
-<a id="effect-details-compute-cache-real-example"></a>
 
 ## Real-world Integration Example
 

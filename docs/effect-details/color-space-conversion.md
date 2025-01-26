@@ -1,5 +1,3 @@
-<a id="effect-details-color-space-conversion"></a>
-
 # Color Space Conversion
 
 Different pixel formats are useful for different operations. After Effects exposes its internal functions through PF_ColorCallbacksSuite. Here are the supported formats.

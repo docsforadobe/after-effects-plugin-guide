@@ -1,5 +1,3 @@
-<a id="ppro-premiere-elements"></a>
-
 # Premiere Elements
 
 Premiere Elements (but not Premiere Pro) displays visual icons for each effect. You will need to provide icons for your effects, or else an empty black icon will be shown for your effects, or even worse behavior in Premiere Elements 8.

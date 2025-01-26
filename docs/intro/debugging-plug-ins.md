@@ -1,5 +1,3 @@
-<a id="intro-debugging-plug-ins"></a>
-
 # Debugging Plug-ins
 
 The best way to learn the interaction(s) between After Effects and plug-ins is running the samples in your debugger. Spending some quality time in your compiler’s debugger, and a sample project that closely resembles your plug-in, can really pay off.
@@ -22,8 +20,6 @@ On macOS:
 4. From there you can either hit the Play button to build and run the current scheme, or you can launch the application and later at any point choose Debug > Attach to Process.
 
 ---
-
-<a id="intro-debugging-plug-ins-deleting-preferences"></a>
 
 ## Deleting Preferences
 

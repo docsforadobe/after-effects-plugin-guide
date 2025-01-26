@@ -1,5 +1,3 @@
-<a id="intro-compatibility-across-multiple-versions"></a>
-
 # Compatibility Across Multiple Versions?
 
 Generally, you should compile your plug-ins with the latest After Effects SDK headers. This makes the latest suites and API functionality available to your plug-ins. When a new version of After Effects is released, you generally will not need to provide a new version unless you wish to take advantage of new functionality exposed through the new SDK. However, you should always test your plug-in in new versions of After Effects before claiming compatibility with new versions.
@@ -14,8 +12,6 @@ app.buildNumber - e.g. 12.
 ```
 
 ---
-
-<a id="intro-compatibility-across-multiple-versions-api-versions"></a>
 
 ## API Versions
 

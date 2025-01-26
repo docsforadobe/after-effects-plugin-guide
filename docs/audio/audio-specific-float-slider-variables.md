@@ -1,5 +1,3 @@
-<a id="audio-audio-specific-float-slider-variables"></a>
-
 # Audio-Specific Float Slider Variables
 
 `PF_Param_FLOAT_SLIDERs` contain several parameters not found in other sliders; flags, phase, and curve tolerance.

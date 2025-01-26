@@ -1,12 +1,8 @@
-<a id="effect-details-interaction-callback-functions"></a>
-
 # Interaction Callback Functions
 
 While the un-macro’d function pointers are provided in [PF_InData](../effect-basics/PF_InData.md#effect-basics-pf-indata), use the provided macros to access them. See how stringent we are about deprecating macro usage? Let’s let this be our little secret.
 
 ---
-
-<a id="effect-details-interaction-callback-functions-interaction-callbacks"></a>
 
 ## Interaction Callbacks
 

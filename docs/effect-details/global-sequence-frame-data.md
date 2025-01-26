@@ -1,5 +1,3 @@
-<a id="effect-details-global-sequence-frame-data"></a>
-
 # Global, Sequence, & Frame Data
 
 After Effects allows plug-ins to store data at three scopes: global, sequence, and frame. Consider carefully where you store information; choosing poorly can impact performance, or make your plug-in confusing to the user.
@@ -20,8 +18,6 @@ After Effects saves sequence data in the project file, but not global or frame d
 The Compute Cache does not store its contents to the project file. The data stored in the cache must be recreated during render.
 
 ---
-
-<a id="effect-details-global-sequence-frame-data-validating-sequence-data"></a>
 
 ## Validating Sequence Data
 
@@ -90,8 +86,6 @@ You may resize the sequence data handle only during the following selectors:
 > - `PF_Cmd_DO_DIALOG`
 
 ---
-
-<a id="effect-details-sequence-data-mfr-suite"></a>
 
 ## Accessing sequence_data at Render Time with Multi-Frame Rendering
 

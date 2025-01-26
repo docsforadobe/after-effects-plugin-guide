@@ -1,5 +1,3 @@
-<a id="intro-apple-silicon-support"></a>
-
 # Apple Silicon Support
 
 Adobe now supports Apple Silicon effect plugins in some products running natively on Apple Silicon. For instance, After Effects effect plugins are also available in Adobe Premiere Pro and Adobe Media Encoder.

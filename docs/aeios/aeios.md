@@ -1,5 +1,3 @@
-<a id="aeios-aeios"></a>
-
 # AEIOs
 
 AEIOs are AEGPs that perform media file import and/or export. AEIOs do everything for a file of a given type that After Effects (or the plug-ins which ship with After Effects) would normally do. On the import side, AEIOs can open existing files, manage file-specific interpretation options, and provide audio and frames from the file to After Effects in AEGP_SoundWorld and PF_EffectWorld format. Additionally, AEIOs can create files interactively, asking users for the settings they’d like instead of reading them from a file. On the export side, AEIOs can create and manage output options for render queue items, create output files and save frames (provided by After Effects as PF_EffectWorlds) into those files.

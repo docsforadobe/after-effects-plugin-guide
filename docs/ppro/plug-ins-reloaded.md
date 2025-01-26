@@ -1,5 +1,3 @@
-<a id="ppro-plug-ins-reloaded"></a>
-
 # Plug-Ins… Reloaded
 
 On it’s first launch, Premiere Pro loads all the plug-ins, reads the PiPL, and sends PF_Cmd_GLOBAL_SETUP to determine the plug-ins’ capabilities. To save time on future application launches, it saves some of these capabilities in what we call the plug-in cache (the registry on Windows, a Property List file on macOS). The next time the application is launched, the cached information is used wherever possible, rather than loading the plug-ins.

@@ -1,5 +1,3 @@
-<a id="ppro-basic-host-differences"></a>
-
 # Basic Host Differences
 
 We’ve tried to provide robust compatibility for After Effects effect plug-ins in Premiere Pro.

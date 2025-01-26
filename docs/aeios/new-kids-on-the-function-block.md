@@ -1,5 +1,3 @@
-<a id="aeios-new-kids-on-the-function-block"></a>
-
 # New Kids On The Function Block
 
 During its main entry point function, each AEIO plug-in must fill in an AEIO_FunctionBlock, providing pointers to the functions After Effects will call for different file-related tasks.
@@ -11,8 +9,6 @@ For a barebones AEIO for video input only, implement the following functions: `A
 Starting from the IO sample, it is best to leave the other functions defined too, and fill them in further as needed.
 
 ---
-
-<a id="aeios-new-kids-on-the-function-block-aeio-functionblock"></a>
 
 ## AEIO_FunctionBlock4
 
@@ -75,8 +71,6 @@ These functions manage an input specification, After Effects’ internal represe
 
 Any image or audio data in After Effects (except solids) is obtained from an input specification handle, or `AEIO_InSpecH`.
 
-<a id="aeios-new-kids-on-the-function-block-aegp-ioinsuite"></a>
-
 ### AEGP_IOInSuite5
 
 | **Function**                           | **Purpose**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -123,8 +117,6 @@ Any image or audio data in After Effects (except solids) is obtained from an inp
 ## What Goes Out
 
 These functions manage all interactions with an output specification in After Effects’ render queue.
-
-<a id="aeios-new-kids-on-the-function-block-aegpiooutsuite"></a>
 
 ### AEGPIOOutSuite4
 

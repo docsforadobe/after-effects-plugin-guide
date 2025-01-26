@@ -1,5 +1,3 @@
-<a id="effect-details-tips-tricks"></a>
-
 # Tips & Tricks
 
 ## Best Practices
@@ -97,8 +95,6 @@ if (!err) {
 ```
 
 ---
-
-<a id="effect-details-tips-tricks-caching-behavior"></a>
 
 ## Caching Behavior
 

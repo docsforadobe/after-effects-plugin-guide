@@ -1,5 +1,3 @@
-<a id="intro-localization"></a>
-
 # Localization
 
 Starting in CC, PF App Suite ([Useful Utility Functions](../effect-details/useful-utility-functions.md#effect-details-useful-utility-functions)) adds `PF_AppGetLanguage()` to query the current language so that a plug-in can use the correct language string.

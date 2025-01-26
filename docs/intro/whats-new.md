@@ -1,5 +1,3 @@
-<a id="intro-whats-new"></a>
-
 # What’s New
 
 If this is your first time developing an After Effects plug-in, you can skip the What’s New section and go directly to [How To Start Creating Plug-ins](how-to-start-creating-plug-ins.md#intro-how-to-start-creating-plug-ins).

@@ -1,5 +1,3 @@
-<a id="effect-ui-events-custom-ui-and-drawbot"></a>
-
 # Custom UI & Drawbot
 
 Custom UI uses a composited drawing model using Drawbot. The Drawbot suites can be used for:
@@ -26,8 +24,6 @@ Use the new [PF_EffectCustomUIOverlayThemeSuite](#effect-ui-events-custom-ui-and
 
 ---
 
-<a id="effect-ui-events-custom-ui-and-drawbot-redrawing"></a>
-
 ## Redrawing
 
 In order to redraw a specific area of a pane, we recommend the following:
@@ -45,8 +41,6 @@ To support HiDPI and Retina Displays, you can use offscreen images that are twic
 
 ---
 
-<a id="effect-ui-events-custom-ui-and-drawbot-pf-effectcustomuisuite"></a>
-
 ## PF_EffectCustomUISuite
 
 Enables an effect to get the drawing reference. This is the first call needed to use Drawbot.
@@ -58,8 +52,6 @@ Enables an effect to get the drawing reference. This is the first call needed to
 | `PF_GetDrawingReference` | Get the drawing reference.<br/><br/>```default<br/>PF_GetDrawingReference(<br/>  const PF_ContextH  effect_contextH,<br/>  DRAWBOT_DrawRef    *referenceP0);<br/>``` |
 
 ---
-
-<a id="effect-ui-events-custom-ui-and-drawbot-drawbot-drawbotsuite"></a>
 
 ## Drawbot_DrawbotSuite
 
@@ -73,8 +65,6 @@ Using the Drawbot reference, get the supplier and surface references.
 | `GetSurface`   | Get the surface reference.<br/><br/>Needed to use [Drawbot_SurfaceSuite](#effect-ui-events-custom-ui-and-drawbot-drawbot-surfacesuite).<br/><br/>```default<br/>GetSurface(<br/>  DRAWBOT_DrawRef     in_drawbot_ref,<br/>  DRAWBOT_SurfaceRef  *out_surfaceP);<br/>```        |
 
 ---
-
-<a id="effect-ui-events-custom-ui-and-drawbot-drawbot-suppliersuite"></a>
 
 ## Drawbot_SupplierSuite
 
@@ -99,8 +89,6 @@ Calls to create and release drawing tools, get default settings, and query drawi
 | `ReleaseObject`           | Release (decrease reference count on) any object (pen, brush, path, etc). This function MUST be called for any object created using `NewXYZ()` from this suite.<br/>Do not call this function on a `DRAWBOT_SupplierRef` and `DRAWBOT_SupplierRef`, since these are not created by the plug-in.<br/><br/>```default<br/>ReleaseObject(<br/>  DRAWBOT_ObjectRef  in_obj_ref);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ---
-
-<a id="effect-ui-events-custom-ui-and-drawbot-drawbot-surfacesuite"></a>
 
 ## Drawbot_SurfaceSuite
 
@@ -145,8 +133,6 @@ Calls to draw paths.
 | `Close`        | Close the path.<br/><br/>```default<br/>Close(<br/>  DRAWBOT_PathRef  in_path_ref);<br/>```                                                                                                                                                                                                                                                                                   |
 
 ---
-
-<a id="effect-ui-events-custom-ui-and-drawbot-pf-effectcustomuioverlaythemesuite"></a>
 
 ## PF_EffectCustomUIOverlayThemeSuite
 

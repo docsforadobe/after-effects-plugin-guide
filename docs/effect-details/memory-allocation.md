@@ -1,5 +1,3 @@
-<a id="effect-details-memory-allocation"></a>
-
 # Memory Allocation
 
 Use After Effects for any memory allocations of significant size. For small allocations, you can use new and delete, but this is the exception, not the rule. In low-memory conditions (such as during RAM preview), it’s very important that plug-ins deal gracefully with out-of-memory conditions, and not compete with After Effects for OS memory. By using our memory allocation functions, After Effects can know when to free cached images, to avoid memory swapping. Failing to use our functions for sizable allocations can cause lock-ups, crashes, and tech support calls. Don’t do that.
@@ -9,8 +7,6 @@ If you’re wrapping existing C++ classes, create a base class that implements n
 Handles passed to you by After Effects are locked for you before you’re called, and unlocked once you return.
 
 ---
-
-<a id="effect-details-memory-allocation-pf-handlesuite"></a>
 
 ## PF_HandleSuite1
 

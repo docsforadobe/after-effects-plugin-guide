@@ -1,5 +1,3 @@
-<a id="effect-ui-events-tips-and-tricks"></a>
-
 # Tips & Tricks
 
 ## UI Performance
