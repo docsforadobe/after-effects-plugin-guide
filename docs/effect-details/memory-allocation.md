@@ -17,4 +17,4 @@ Handles passed to you by After Effects are locked for you before you're called, 
 | `host_unlock_handle`   | Unlocks a handle.<br/><pre>void (*host_unlock_handle)(<br/>  PF_Handle pf_handle);</pre>                                                                           | `PF_UNLOCK_HANDLE`   |
 | `host_dispose_handle`  | Frees a handle.<br/><pre>void (*host_dispose_handle)(<br/>  PF_Handle pf_handle);</pre>                                                                            | `PF_DISPOSE_HANDLE`  |
 | `host_get_handle_size` | Returns the size, in bytes, of the reallocatable block whose handle is passed in.<br/><pre>A_HandleSize (*host_get_handle_size)(<br/>  PF_Handle pf_handle);</pre> | `PF_GET_HANDLE_SIZE` |
-| `host_resize_handle`   | Resizes a handle.<br/><pre>PF_Err (*host_resize_handle)(<br/>  A_HandleSize new_sizeL, PF_Handle *handlePH);</pre>                                                 | `PF_RESIZE_HANDLE`   |
+| `host_resize_handle`   | Resizes a handle.<br/><pre>PF_Err (*host_resize_handle)(<br/>  A_HandleSize new_sizeL, PF_Handle \*handlePH);</pre>                                                 | `PF_RESIZE_HANDLE`   |
