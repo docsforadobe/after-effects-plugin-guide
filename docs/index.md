@@ -12,25 +12,25 @@ As always, your input is valued and appreciated.
 
 ## Organization
 
-The [Introduction](intro/intro.md#intro-intro) provides an overview of the integration possibilities with After Effects. It explains what plug-ins are, and how they work with After Effects. It describes the sample projects, and how to modify them. It explains where to install plug-ins, and what resources they use.
+The [Introduction](intro/intro.md) provides an overview of the integration possibilities with After Effects. It explains what plug-ins are, and how they work with After Effects. It describes the sample projects, and how to modify them. It explains where to install plug-ins, and what resources they use.
 
-The basics of effect plug-ins are discussed in [Effect Basics](effect-basics/effect-basics.md#effect-basics-effect-basics). This overview provides information on the function parameters passed to and from an effect plug-in's entry point. It describes capability flags, effect parameters, and image buffers.
+The basics of effect plug-ins are discussed in [Effect Basics](effect-basics/effect-basics.md). This overview provides information on the function parameters passed to and from an effect plug-in's entry point. It describes capability flags, effect parameters, and image buffers.
 
-[Effect Details](effect-details/effect-details.md#effect-details-effect-details) dives into the details of developing a complete effect plug-in using the many provided callback functions. It also provides many testing ideas to ensure the plug-in is stabile.
+[Effect Details](effect-details/effect-details.md) dives into the details of developing a complete effect plug-in using the many provided callback functions. It also provides many testing ideas to ensure the plug-in is stabile.
 
-[SmartFX](smartfx/smartfx.md#smartfx-smartfx) is the extension to the effect plug-in API to support 32-bit floating point images.
+[SmartFX](smartfx/smartfx.md) is the extension to the effect plug-in API to support 32-bit floating point images.
 
-[Effect UI & Events](effect-ui-events/effect-ui-events.md#effect-ui-events-effect-ui-events) covers events sent to effect plug-ins, how to incorporate custom user interface elements, parameter supervision, and the reliance of custom data parameter types on Custom UI messaging.
+[Effect UI & Events](effect-ui-events/effect-ui-events.md) covers events sent to effect plug-ins, how to incorporate custom user interface elements, parameter supervision, and the reliance of custom data parameter types on Custom UI messaging.
 
-[Audio](audio/audio.md#audio-audio) effects are covered in… [Audio](audio/audio.md#audio-audio).
+[Audio](audio/audio.md) effects are covered in… [Audio](audio/audio.md).
 
-[AEGPs](aegps/aegps.md#aegps-aegps) details the After Effects General Plug-in (AEGP) API. Provided callback functions, hooking into internal messaging, manipulating the current contents of open projects and handling menu commands are all covered at length.
+[AEGPs](aegps/aegps.md) details the After Effects General Plug-in (AEGP) API. Provided callback functions, hooking into internal messaging, manipulating the current contents of open projects and handling menu commands are all covered at length.
 
-[Artisans](artisans/artisans.md#artisans-artisans) covers specialized plug-in 3D renderer AEGPs.
+[Artisans](artisans/artisans.md) covers specialized plug-in 3D renderer AEGPs.
 
-[AEIOs](aeios/aeios.md#aeios-aeios), specialized AEGPs which handle file input and output.
+[AEIOs](aeios/aeios.md), specialized AEGPs which handle file input and output.
 
-[Premiere Pro & Other Hosts](ppro/ppro.md#ppro-ppro) discusses issues related to compatibility with Premiere Pro and other applications that support a subset of After Effects plug-ins.
+[Premiere Pro & Other Hosts](ppro/ppro.md) discusses issues related to compatibility with Premiere Pro and other applications that support a subset of After Effects plug-ins.
 
 ---
 
