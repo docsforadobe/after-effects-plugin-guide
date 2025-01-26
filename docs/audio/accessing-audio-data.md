@@ -1,12 +1,12 @@
 # Accessing Audio Data
 
-Use `PF_CHECKOUT_LAYER_AUDIO` from [Interaction Callbacks](../effect-details/interaction-callback-functions.md#effect-details-interaction-callback-functions-interaction-callbacks) to retrieve an audio layer.
+Use `PF_CHECKOUT_LAYER_AUDIO` from [Interaction Callbacks](../effect-details/interaction-callback-functions.md) to retrieve an audio layer.
 
 This layer is opaque; use `PF_GET_AUDIO_DATA` to access specific details about that audio.
 
 As with pixel data, it's important that you check in the audio as soon as possible.
 
-If your effect requires as input a time span different from the output time span, update the `startsampL` and `endsampL` field in `PF_OutData` during `PF_Cmd_AUDIO_SETUP` from [Frame Selectors](../effect-basics/command-selectors.md#effect-basics-command-selectors-frame-selectors).
+If your effect requires as input a time span different from the output time span, update the `startsampL` and `endsampL` field in `PF_OutData` during `PF_Cmd_AUDIO_SETUP` from [Frame Selectors](../effect-basics/command-selectors.md#frame-selectors).
 
 ---
 

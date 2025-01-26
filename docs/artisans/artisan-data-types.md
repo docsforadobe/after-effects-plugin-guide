@@ -39,7 +39,7 @@ After Effects is *not* a 3D modeling application. Users work in a responsive mod
 
 ## Registering An Artisan
 
-An Artisan is an AEGP, and has a single entry point. Artisans must also register their own function entry points and have a special callback for this purpose. See `AEGP_RegisterArtisan()` from [AEGP_RegisterSuites5](../aegps/aegp-suites.md#aegps-aegp-suites-aegp-registersuites).
+An Artisan is an AEGP, and has a single entry point. Artisans must also register their own function entry points and have a special callback for this purpose. See `AEGP_RegisterArtisan()` from [AEGP_RegisterSuites5](../aegps/aegp-suites.md#aegp_registersuites5).
 
 This tables shows the functions that Artisans can support as defined by `PR_ArtisanEntryPoints`: only `render_func` is required.
 
@@ -133,7 +133,7 @@ The following suite supplies the layers, compositions, texture and destination b
 | `AEGP_GetInteractiveExposure`           | Returns the exposure for the given `PR_RenderContextH`, expressed as a floating point number.<br/><br/>```default<br/>AEGP_GetInteractiveExposure(<br/>  const PR_RenderContextH  rcH,<br/>  A_FpLong                 *exposurePF);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `AEGP_GetColorTransform`                | Returns the color transform for the given `PR_RenderContextH`.<br/><br/>```default<br/>AEGP_GetColorTransform)(<br/>  const PR_RenderContextH  render_contextH,<br/>  A_Boolean                *cms_onB,<br/>  A_u_long                 *xform_keyLu,<br/>  void                      *xformP);<br/>```                                                                                                                                                                                                                                                                                                                                          |
 | `AEGP_GetCompShutterTime`               | Returns the shutter angle for the given `PR_RenderContextH`.<br/><br/>```default<br/>AEGP_GetCompShutterTime)(<br/>  PR_RenderContextH  render_contextH,<br/>  A_Time             *shutter_time,<br/>  A_Time             *shutter_dur);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `AEGP_MapCompToLayerTime`               | New in CC. Unlike [AEGP_ConvertCompToLayerTime](../aegps/aegp-suites.md#aegps-aegp-suites-aegp-layersuite),<br/>this handles time remapping with collapsed or nested comps.<br/><br/>```default<br/>AEGP_MapCompToLayerTime(<br/>  PR_RenderContextH         render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  const A_Time              *comp_timePT,<br/>  A_Time                    *layer_timePT);<br/>```                                                                                                                                                                                                              |
+| `AEGP_MapCompToLayerTime`               | New in CC. Unlike [AEGP_ConvertCompToLayerTime](../aegps/aegp-suites.md#aegp_layersuite9),<br/>this handles time remapping with collapsed or nested comps.<br/><br/>```default<br/>AEGP_MapCompToLayerTime(<br/>  PR_RenderContextH         render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  const A_Time              *comp_timePT,<br/>  A_Time                    *layer_timePT);<br/>```                                                                                                                                                                                                              |
 
 ---
 
@@ -294,6 +294,6 @@ We've added the ability for artisans to provide functions After Effects can use 
 
 `AEGP_QueryXformGetTransformTime()` and `AEGP_QueryXformGetViewTime()` are both necessary for an artisan to build a representation of the scene to render.
 
-`AEGP_QueryXformGetTransformTime()` gets the time of the transform, which is then passed to `AEGP_GetCompShutterFrameRange()` from [AEGP_CompSuite11](../aegps/aegp-suites.md#aegps-aegp-suites-aegp-compsuite).
+`AEGP_QueryXformGetTransformTime()` gets the time of the transform, which is then passed to `AEGP_GetCompShutterFrameRange()` from [AEGP_CompSuite11](../aegps/aegp-suites.md#aegp_compsuite11).
 
-`AEGP_QueryXformGetViewTime()` gets the time of the view, which is used in calling `AEGP_GetLayerToWorldXformFromView()` from [AEGP_LayerSuite9](../aegps/aegp-suites.md#aegps-aegp-suites-aegp-layersuite).
+`AEGP_QueryXformGetViewTime()` gets the time of the view, which is used in calling `AEGP_GetLayerToWorldXformFromView()` from [AEGP_LayerSuite9](../aegps/aegp-suites.md#aegp_layersuite9).

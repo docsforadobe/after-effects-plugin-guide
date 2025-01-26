@@ -42,7 +42,7 @@ This is also a good way to learn the calling sequence before beginning implement
 
 ## Registering Your AEIO
 
-During your plug-in's entry point function, populate a AEIO_ModuleInfo describing the filetype(s) the AEIO supports, and an AEIO_FunctionBlock structure that points to your file handling functions. For some of these functions, you can rely on After Effects' default behavior by returning AEIO_Err_USE_DFLT_CALLBACK. However, you must still provide a function matching the required signature, that does so. Once you've filled out both these structures, call `AEGP_RegisterIO()` from [AEGP_RegisterSuites5](../aegps/aegp-suites.md#aegps-aegp-suites-aegp-registersuites).
+During your plug-in's entry point function, populate a AEIO_ModuleInfo describing the filetype(s) the AEIO supports, and an AEIO_FunctionBlock structure that points to your file handling functions. For some of these functions, you can rely on After Effects' default behavior by returning AEIO_Err_USE_DFLT_CALLBACK. However, you must still provide a function matching the required signature, that does so. Once you've filled out both these structures, call `AEGP_RegisterIO()` from [AEGP_RegisterSuites5](../aegps/aegp-suites.md#aegp_registersuites5).
 
 In the AEIO_ModuleInfo that you pass in to the register call, you provide the file type and description information that After Effects uses in the Import dialog, for the "Files of type" drop-down on Windows, or the Enable drop-down on MacOS. As of CS6, file extensions cannot be more than three characters long, even though we have a few built-in importers with longer extensions.
 
@@ -52,7 +52,7 @@ In the AEIO_ModuleInfo that you pass in to the register call, you provide the fi
 
 On most import-related functions, an `AEIO_InSpecH` is passed. On most output-related functions, an `AEIO_OutSpecH` is passed.
 
-What are these mysterious handles? These opaque data handles can be used with [AEGP_IOInSuite5](new-kids-on-the-function-block.md#aeios-new-kids-on-the-function-block-aegp-ioinsuite) and [AEGPIOOutSuite4](new-kids-on-the-function-block.md#aeios-new-kids-on-the-function-block-aegpiooutsuite), to set or query for information about the import or output.
+What are these mysterious handles? These opaque data handles can be used with [AEGP_IOInSuite5](new-kids-on-the-function-block.md#aegp_ioinsuite5) and [AEGPIOOutSuite4](new-kids-on-the-function-block.md#aegpiooutsuite4), to set or query for information about the import or output.
 
 For example, on an import, you'll use `AEIO_InSpecH` when calling `AEGP_SetInSpecDimensions` in AEGP_IOInSuite.
 
