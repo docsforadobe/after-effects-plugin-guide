@@ -1,121 +1,72 @@
-# Welcome to the Adobe After Effects SDK Guide!
-
-# About
-
-* [About this Document](about.md)
-* [Version History](history.md)
-
 # Introduction
 
-* [Introduction](intro/intro.md)
-* [What Can I Do With This SDK?](intro/what-can-i-do.md)
-* [Other Integration Possibilities](intro/other-integration-possibilities.md)
-* [SDK Audience](intro/sdk-audience.md)
-* [What’s New](intro/whats-new.md)
-* [How To Start Creating Plug-ins](intro/how-to-start-creating-plug-ins.md)
-* [Sample Projects](intro/sample-projects.md)
-* [Debugging Plug-ins](intro/debugging-plug-ins.md)
-* [Compatibility Across Multiple Versions?](intro/compatibility-across-multiple-versions.md)
-* [Third-party Plug-in Hosts?](intro/third-party-plug-in-hosts.md)
-* [PiPL Resources](intro/pipl-resources.md)
-* [Exceptions](intro/exceptions.md)
-* [Where Installers Should Put Plug-ins](intro/where-installers-should-put-plug-ins.md)
-* [Localization](intro/localization.md)
-* [Apple Silicon Support](intro/apple-silicon-support.md)
-* [Exporting Symbols in Effects](intro/symbol-export.md)
-* [Next Steps](intro/next-steps.md)
+This document has changed much over the years. Part encyclopedia, part how-to guide, with multiple sedimentary layers of accreted information from more than two decades of API development and refinement.
 
-# Effect Basics
+Yes, there does need to be one source of information about every last niggling detail of the After Effects APIs. However, since no human in their right mind would ever want to *read* such a document, we’ve tried to keep it involving and interesting.
 
-* [Effect Basics](effect-basics/effect-basics.md)
-* [Entry Point](effect-basics/entry-point.md)
-* [Command Selectors](effect-basics/command-selectors.md)
-* [PF_InData](effect-basics/PF_InData.md)
-* [PF_OutData](effect-basics/PF_OutData.md)
-* [Parameters](effect-basics/parameters.md)
-* [PF_ParamDef](effect-basics/PF_ParamDef.md)
-* [PF_EffectWorld / PF_LayerDef](effect-basics/PF_EffectWorld.md)
-* [Errors](effect-basics/errors.md)
+As opportunity allows, we’ll try to include more diagrams, illustrations, and purdy pickshurs explaining API intricacies.
 
-# Effect Details
+As always, your input is valued and appreciated.
 
-* [Multi-Frame Rendering in AE](effect-details/multi-frame-rendering-in-ae.md)
-* [Effect Details](effect-details/effect-details.md)
-* [Accessing the After Effects Function Suites](effect-details/accessing-function-suites.md)
-* [Memory Allocation](effect-details/memory-allocation.md)
-* [Image Buffer Management Functions](effect-details/image-buffer-management-functions.md)
-* [Iteration Suites](effect-details/iteration-suites.md)
-* [Graphics Utility Suites](effect-details/graphics-utility-suites.md)
-* [Interaction Callback Functions](effect-details/interaction-callback-functions.md)
-* [Pixel Aspect Ratio](effect-details/pixel-aspect-ratio.md)
-* [Parameters & Floating Point Values](effect-details/parameters-floating-point-values.md)
-* [Parameter Supervision](effect-details/parameter-supervision.md)
-* [Global, Sequence, & Frame Data](effect-details/global-sequence-frame-data.md)
-* [Arbitrary Data Parameters](effect-details/arbitrary-data-parameters.md)
-* [Useful Utility Functions](effect-details/useful-utility-functions.md)
-* [Motion Blur](effect-details/motion-blur.md)
-* [Working With Paths](effect-details/working-with-paths.md)
-* [Accessing Camera & Light Information](effect-details/accessing-camera-light-information.md)
-* [Color Space Conversion](effect-details/color-space-conversion.md)
-* [Changing Parameter Orders, the Nice Way](effect-details/changing-parameter-orders.md)
-* [Tips & Tricks](effect-details/tips-tricks.md)
-* [Compute Cache API](effect-details/compute-cache-api.md)
+---
 
-# SmartFX
+## Organization
 
-* [SmartFX](smartfx/smartfx.md)
+The [Introduction](intro/intro.md#intro-intro) provides an overview of the integration possibilities with After Effects. It explains what plug-ins are, and how they work with After Effects. It describes the sample projects, and how to modify them. It explains where to install plug-ins, and what resources they use.
 
-# Effect UI & Events
+The basics of effect plug-ins are discussed in [Effect Basics](effect-basics/effect-basics.md#effect-basics-effect-basics). This overview provides information on the function parameters passed to and from an effect plug-in’s entry point. It describes capability flags, effect parameters, and image buffers.
 
-* [Effect UI & Events](effect-ui-events/effect-ui-events.md)
-* [PF_EventExtra](effect-ui-events/PF_EventExtra.md)
-* [PF_EventUnion](effect-ui-events/PF_EventUnion.md)
-* [Custom UI & Drawbot](effect-ui-events/custom-ui-and-drawbot.md)
-* [UI Callbacks](effect-ui-events/ui-callbacks.md)
-* [Tips & Tricks](effect-ui-events/tips-and-tricks.md)
+[Effect Details](effect-details/effect-details.md#effect-details-effect-details) dives into the details of developing a complete effect plug-in using the many provided callback functions. It also provides many testing ideas to ensure the plug-in is stabile.
 
-# Audio
+[SmartFX](smartfx/smartfx.md#smartfx-smartfx) is the extension to the effect plug-in API to support 32-bit floating point images.
 
-* [Audio](audio/audio.md)
-* [Global Outflags](audio/global-outflags.md)
-* [Audio Data Structures](audio/audio-data-structures.md)
-* [Audio-Specific Float Slider Variables](audio/audio-specific-float-slider-variables.md)
-* [Accessing Audio Data](audio/accessing-audio-data.md)
-* [Audio Considerations](audio/audio-considerations.md)
+[Effect UI & Events](effect-ui-events/effect-ui-events.md#effect-ui-events-effect-ui-events) covers events sent to effect plug-ins, how to incorporate custom user interface elements, parameter supervision, and the reliance of custom data parameter types on Custom UI messaging.
 
-# AEGPs
+[Audio](audio/audio.md#audio-audio) effects are covered in… [Audio](audio/audio.md#audio-audio).
 
-* [AEGPs](aegps/aegps.md)
-* [Overview](aegps/overview.md)
-* [Data Types](aegps/data-types.md)
-* [Implementation](aegps/implementation.md)
-* [AEGP Suites](aegps/aegp-suites.md)
-* [Cheating Effect Usage of AEGP Suites](aegps/cheating-effect-usage-of-aegp-suites.md)
-* [AEGP Details](aegps/aegp-details.md)
+[AEGPs](aegps/aegps.md#aegps-aegps) details the After Effects General Plug-in (AEGP) API. Provided callback functions, hooking into internal messaging, manipulating the current contents of open projects and handling menu commands are all covered at length.
 
-# Artisans
+[Artisans](artisans/artisans.md#artisans-artisans) covers specialized plug-in 3D renderer AEGPs.
 
-* [Artisans](artisans/artisans.md)
-* [Artisan Data Types](artisans/artisan-data-types.md)
+[AEIOs](aeios/aeios.md#aeios-aeios), specialized AEGPs which handle file input and output.
 
-# AEIOs
+[Premiere Pro & Other Hosts](ppro/ppro.md#ppro-ppro) discusses issues related to compatibility with Premiere Pro and other applications that support a subset of After Effects plug-ins.
 
-* [AEIOs](aeios/aeios.md)
-* [Calling Sequence](aeios/calling-sequence.md)
-* [AEIO_ModuleInfo](aeios/AEIO_ModuleInfo.md)
-* [New Kids On The Function Block](aeios/new-kids-on-the-function-block.md)
-* [Implementation Details](aeios/implementation-details.md)
+---
 
-# Premiere Pro
+## Documentation Conventions
 
-* [Premiere Pro & Other Hosts](ppro/ppro.md)
-* [Plug-in Installation](ppro/plug-in-installation.md)
-* [Basic Host Differences](ppro/basic-host-differences.md)
-* [Multithreading](ppro/multithreading.md)
-* [Bigger Differences](ppro/bigger-differences.md)
-* [Plug-Ins… Reloaded](ppro/plug-ins-reloaded.md)
-* [Effects Presets](ppro/plug-ins-reloaded.md#effects-presets)
-* [Custom ECW UI Over A Standard Data Type](ppro/plug-ins-reloaded.md#custom-ecw-ui-over-a-standard-data-type)
-* [Premiere Elements](ppro/premiere-elements.md)
-* [Unsupported Features](ppro/unsupported-features.md)
-* [Other Hosts](ppro/other-hosts.md)
+Functions, structure names and general C/C++ code are in Courier; MyStruct and MyFunction();
+
+Text in blue is hyperlinked.
+
+Command selectors are italicized; *PF_Cmd_RENDER*.
+
+---
+
+## A Note About Coding Style
+
+Because we use the public APIs for our own plug-ins, our coding guidelines are apparent throughout the SDK. Here’s a description of the pseudo-neo-post-Hungarian notation we use. Of course, you’re welcome to code however you like. If you feel strongly that we should change our internal coding standards, please post your requests at comp.sys.programmer.better.things.to.do.with.your.time, and we’ll carefully consider them before not making any changes.
+
+### Coding Conventions
+
+| Type                                             | Suffix     | Example          |
+|--------------------------------------------------|------------|------------------|
+| Handle                                           | **H**      | `fooH`           |
+| pointer (to)                                     | **P**      | `fooP`           |
+| Boolean                                          | **B**      | `visibleB`       |
+| Float                                            | **F**      | `degreesF`       |
+| Long                                             | **L**      | `offsetL`        |
+| unsigned long                                    | **Lu**     | `countLu`        |
+| short                                            | **S**      | `indexS`         |
+| char                                             | **C**      | `digitC`         |
+| unsigned char                                    | **Cu**     | `redCu`          |
+| function pointer                                 | **\_func** | `sample_func`    |
+| time value                                       | **T**      | `durationT`      |
+| `char*` (NULL-terminated C string)               | **Z**      | `nameZ`          |
+| rectangle                                        | **R**      | `boundsR`        |
+| fixed rectangle                                  | **FiR**    | `boundsFiR`      |
+| float rectangle                                  | **FR**     | `boundsFR`       |
+| ratio                                            | **Rt**     | `scale_factorRt` |
+| `void*`                                          | **PV**     | `refconPV`       |
+| optional parameter (must be passed, can be NULL) | **0**      | `extra_flags0`   |
