@@ -36,7 +36,7 @@ Your preset will show up when users search for the name to which it was saved.
 
 Sometimes, instead of just processing every pixel, you'll want to get to a specific offset within the input frame. Below is one way to sample the pixel at a given (x,y) location; similar code could be used to write to the given location.
 
-```default
+```cpp
 PF_Pixel *sampleIntegral32(PF_EffectWorld &def, int x, int y){
   return (PF_Pixel*)((char*)def.data +
     (y * def.rowbytes) +
@@ -81,7 +81,7 @@ Look at where the default anchor point location is. The transform is not at the 
 
 You don't necessarily begin effect processing with a clean output slate. Our Gaussian blur filter, in an effort to do so, performs the following before rendering:
 
-```default
+```cpp
 src_rect.left   = in_data>output_origin_x;
 src_rect.right  = src_rect.left + input>width;
 src_rect.top    = in_data>output_origin_y;

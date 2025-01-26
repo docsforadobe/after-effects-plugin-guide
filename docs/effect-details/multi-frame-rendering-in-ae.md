@@ -4,7 +4,7 @@ In order to take advantage of modern hardware with more CPU cores and threads, A
 
 Third-party effects can enable support of Multi-Frame Rendering through the AE Effects SDK by setting the following PF_OutFlag:
 
-```default
+```cpp
 PF_OutFlag2_SUPPORTS_THREADED_RENDERING
 ```
 
@@ -17,7 +17,7 @@ This flag indicates the effect supports rendering on multiple threads concurrent
 
 For effects that require writing to sequence_data during Render, a flag is available for backwards compatibility:
 
-```default
+```cpp
 PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER
 ```
 
@@ -117,17 +117,17 @@ If you develop on Mac:
   2. Find the bash script `check_symbols_for_thread_safety.sh` in the **Mac** folder
   3. Navigate inside the package content of a plugin or effect and locate the binary files. (For example, the **Curves.plugin** has its binary file here: `/Applications/Adobe After Effects [your AE version]/Plug-ins/Effects/Curves.plugin/Contents/MacOS/Curves`)
   4. To analyze the binary, run:
-     ```default
+     ```sh
      check_symbols_for_thread_safety.sh [Binary location]
      For example, check_symbols_for_thread_safety.sh /Applications/Adobe After Effects [your AE version]/Plug-ins/Effects/Curves.plugin/Contents/MacOS/Curves)
      ```
   5. You will see output from the tool in this format:
-     ```default
+     ```sh
      [symbol type]; [symbol name]
      ```
   6. `[symbol type]` is an one case-sensitive letter that indicates the type of the variable. You can find all the type information here: [https://linux.die.net/man/1/nm](https://linux.die.net/man/1/nm)
   7. Here is an example of the output:
-     ```default
+     ```cpp
      b; Deform::FindSilEdges()::new_kInfinite
      ```
   <br/>
@@ -164,27 +164,27 @@ If you develop on Windows:
     > * Use the `-source` option if you don't know exactly what binaries your source code is ending up in, or if you'd like to keep track of thread safety on a per-source-file basis.
     > * Use the `-objfile` option if you want more fine-grained control over what parts of your project you're scanning.
     1. To analyze the symbols in an object file, run:
-       ```default
+       ```bat
        CheckThreadSafeSymbols.exe -objfile [absolute path to the binary you want analyzed] [absolute path to .pdb]
        ```
     2. To analyze the symbols in a source file, run:
-       ```default
+       ```bat
        CheckThreadSafeSymbols.exe -source [absolute path to the source file you want analyzed] [absolute path to .pdb]
        ```
     3. Global variables aren't limited to the scope of one file or binary in pdbs, so you'll have to check over the list of all project globals without filtering. Use the -g output to get a list of all of them:
-       ```default
+       ```bat
        CheckThreadSafeSymbols.exe -g [absolute path to .pdb]
        ```
     4. If you're unsure of what binaries your effect is outputting, the tool can also output a **(noisy)** list of binaries, along with the source files each pulls data from. Files you've changed are likely to be near the top. To see the list, run:
-       ```default
+       ```bat
        CheckThreadSafeSymbols.exe -sf [absolute path to .pdb]
        ```
     5. Output symbols will take the form:
-       ```default
+       ```cpp
        [Symbol name], [Symbol type], [Datakind], ([Section type of data location], [Binary Address][Binary Address Offset])
        ```
     6. Here is an example of the output:
-       ```c++
+       ```cpp
        menuBuf, Type: char[0x1000], File Static, (static, [0008FCD0][0003:00001CD0])
        ```
     <br/>
@@ -208,7 +208,7 @@ When you see a static or global variable, it would be the best to make it a loca
 Here are some standard approaches for treating statics or globals:
 : **1. Could the data be easily passed between functions instead without a change in behavior?**
   <br/>
-  > ```c++
+  > ```cpp
   > // Example of a non Thread-Safe code
   <br/>
   > static int should_just_be_local;
@@ -225,7 +225,7 @@ Here are some standard approaches for treating statics or globals:
   <br/>
   > **Either add it to a struct or expand function arguments to include it**
   <br/>
-  > ```c++
+  > ```cpp
   > // We can fix the above code by passing the should_just_be_local variable through function arguments
   <br/>
   > void UseState(int should_just_be_local) {
@@ -240,7 +240,7 @@ Here are some standard approaches for treating statics or globals:
   <br/>
   **2. Could the data be initialized before you execute your code (e.g. a lookup table, a const variable)?**
   <br/>
-  > ```c++
+  > ```cpp
   > // Example of a non Thread-Safe code
   <br/>
   > // Many places in the code need to read this table but won't be writing to it
@@ -265,7 +265,7 @@ Here are some standard approaches for treating statics or globals:
   <br/>
   > **Make it** `const` **or replace it with a macro**
   <br/>
-  > ```c++
+  > ```cpp
   > std::array<int, 64> InitializeState() {
   <br/>
   >   std::array<int, 64> temp;
@@ -286,7 +286,7 @@ Here are some standard approaches for treating statics or globals:
   <br/>
   **3. Is the data initialized once at runtime based on data that doesn't change on subsequent renders?**
   <br/>
-  > ```c++
+  > ```cpp
   > // Example of a non Thread-Safe code
   > static int depends_on_unchanging_runtime_state;
   <br/>
@@ -302,7 +302,7 @@ Here are some standard approaches for treating statics or globals:
   <br/>
   > **Double-check that this state isn't known before your code executes (case 2), but if you have to initialize at runtime use a const static local. (Note that thread-safe initialization of static local objects is part of the C++ spec)**
   <br/>
-  > ```c++
+  > ```cpp
   > void UseState(int depends_on_unchanging_runtime_state) {
   >               DoComputation(depends_on_unchanging_runtime_state);
   >       }
@@ -318,7 +318,7 @@ Here are some standard approaches for treating statics or globals:
   <br/>
   **4. The data has to stay static/global not being a const. But each render thread can have its own copy of the data.**
   <br/>
-  > ```c++
+  > ```cpp
   > // This variable has to be static and not a const
   > static int this_thread_needs_access;
   <br/>
@@ -333,7 +333,7 @@ Here are some standard approaches for treating statics or globals:
   <br/>
   > **Just make the variable thread_local**
   <br/>
-  > ```c++
+  > ```cpp
   > // Make this variable a thread_local variable
   > thread_local static int this_thread_needs_access;
   <br/>
@@ -348,7 +348,7 @@ Here are some standard approaches for treating statics or globals:
   <br/>
   **5. The data has to stay static/global not being a const and each thread needs to read and write from the most up-to-date state. (rare)**
   <br/>
-  > ```c++
+  > ```cpp
   > // This variable has to be static and not a const
   > // It also needs to be shared across several threads
   > static int every_thread_needs_latest_state;
@@ -364,7 +364,7 @@ Here are some standard approaches for treating statics or globals:
   <br/>
   > **In this case, protect access with a mutex.**
   <br/>
-  > ```c++
+  > ```cpp
   > // Add a mutex (lock)
   > static std::mutex ex_lock;
   <br/>

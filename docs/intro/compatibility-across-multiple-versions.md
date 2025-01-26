@@ -6,7 +6,7 @@ You should test your plug-in thoroughly in each version of After Effects support
 
 For even more precise version checking, a plug-in can run a script using `AEGP_ExecuteScript` ([AEGP_UtilitySuite6](../aegps/aegp-suites.md#aegp_utilitysuite6)), querying one of the following attributes:
 
-```default
+```cpp
 app.version - e.g. 11.0.1x12
 app.buildNumber - e.g. 12.
 ```

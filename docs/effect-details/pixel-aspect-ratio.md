@@ -26,7 +26,7 @@ The simplest way to get all of this right is to work entirely in full resolution
 
 1. When getting your point parameters, go immediately to floating point and a full resolution square pixel system, like this.
 
-```default
+```cpp
 x *= in_data>pixel_aspect_ratio.num / (float)in_data>pixel_aspect_ratio.den;
 x *= in_data>downsample_x.den / (float)in_data>downsample_x.num;
 y *= in_data>downsample_y.den / (float)in_data>downsample_y.num;

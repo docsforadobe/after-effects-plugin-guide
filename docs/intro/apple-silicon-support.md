@@ -22,7 +22,7 @@ To learn more about Universal binaries, please visit [https://developer.apple.co
 
 > * Find the .r resource file for your plugin.
 > * Add `CodeMacARM64 {"EffectMain"}` next to your existing Intel Mac entry point definition.
->   ```c++
+>   ```cpp
 >   #if defined(AE_OS_MAC)
 >     CodeMacARM64 {"EffectMain"},
 >     CodeMacIntel64 {"EffectMain"},
@@ -44,7 +44,7 @@ On Apple Silicon, rather than undefined behavior the ABI has changed so terminat
 
 Since the main entry point of a plugin is always an extern "C" calling convention, this code should be wrapped in a try/catch block to prevent program termination. For example:
 
-```c++
+```cpp
 PF_Err EffectMain ( PF_Cmd cmd,
   PF_InData *in_data,
   PF_OutData *out_data,

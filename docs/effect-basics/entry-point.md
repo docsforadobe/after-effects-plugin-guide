@@ -4,7 +4,7 @@ All communication between After Effects and an effect plug-in is initiated by Af
 
 For all effect plug-ins, the entry point function must have the following signature:
 
-```default
+```cpp
 PF_Err main (
   PF_Cmd       cmd,
   PF_InData    *in_data,

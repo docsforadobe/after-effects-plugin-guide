@@ -14,7 +14,7 @@ AEGPs may also use any effect API suite function which doesn't require a PF_Prog
 
 ## Entry Point
 
-```default
+```cpp
 A_Err AEGP_PluginInitFuncPrototype(
   struct SPBasicSuite  *pica_basicP,
   A_long               major_versionL,

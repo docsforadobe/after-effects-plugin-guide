@@ -4,7 +4,7 @@ If you are writing C++ code, accessing the suites should be done using the AEFX_
 
 Here is an example using AEFX_SuiteScope to access the PF_GPUDeviceSuite1 suite:
 
-```c++
+```cpp
 AEFX_SuiteScoper<PF_GPUDeviceSuite1> gpu_suite = AEFX_SuiteScoper<PF_GPUDeviceSuite1>(
   in_dataP,
   kPFGPUDeviceSuite,
@@ -21,7 +21,7 @@ AEFX_SuiteScoper<PF_GPUDeviceSuite1> gpu_suite = AEFX_SuiteScoper<PF_GPUDeviceSu
 
 Once you have the suite you may make calls to any function in the suite list so:
 
-```c++
+```cpp
 gpu_suite->GetDeviceInfo(in_dataP->effect_ref, extraP->input->device_index, &device_info);
 ```
 

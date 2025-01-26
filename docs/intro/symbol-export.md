@@ -8,7 +8,7 @@ In early 2021, the version of the Boost library used by After Effects was upgrad
 
 An example can be found in the SDK samples in entry.h:
 
-```default
+```cpp
 #ifdef AE_OS_WIN
         #define DllExport   __declspec( dllexport )
 #elif defined AE_OS_MAC
@@ -18,7 +18,7 @@ An example can be found in the SDK samples in entry.h:
 
 and then this is applied to the entry point function, for example:
 
-```default
+```cpp
 extern "C" DllExport
 PF_Err PluginDataEntryFunction(
   PF_PluginDataPtr inPtr,

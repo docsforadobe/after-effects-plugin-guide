@@ -8,11 +8,11 @@ Different pixel formats are useful for different operations. After Effects expos
 
 | Pixel Type                                                | Data Structure                                                                                                 |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| 8 bpc ARGB                                                    | ```default<br/>typedef struct {<br/>  A_u_char alpha, red, green, blue;<br/>} PF_Pixel8;<br/>```                   |
-| 16 bpc ARGB                                                   | ```default<br/>typedef struct {<br/>  A_u_short alpha, red, green, blue;<br/>} PF_Pixel16;<br/>```                 |
-| 32 bpc ARGB                                                   | ```default<br/>typedef struct {<br/>  PF_FpShort alpha, red, green, blue;<br/>} PF_PixelFloat, PF_Pixel32;<br/>``` |
-| HLS (Hue, Lightness, Saturation)                              | ```default<br/>typedef PF_Fixed PF_HLS_PIXEL[3]<br/>```                                                            |
-| YIQ (luminance, in-phase chrominance, quadrature chrominance) | ```default<br/>typedef PF_Fixed PF_YIQ_PIXEL[3]<br/>```                                                            |
+| 8 bpc ARGB                                                    | <pre>typedef struct {<br/>  A_u_char alpha, red, green, blue;<br/>} PF_Pixel8;</pre>                   |
+| 16 bpc ARGB                                                   | <pre>typedef struct {<br/>  A_u_short alpha, red, green, blue;<br/>} PF_Pixel16;</pre>                 |
+| 32 bpc ARGB                                                   | <pre>typedef struct {<br/>  PF_FpShort alpha, red, green, blue;<br/>} PF_PixelFloat, PF_Pixel32;</pre> |
+| HLS (Hue, Lightness, Saturation)                              | <pre>typedef PF_Fixed PF_HLS_PIXEL[3]</pre>                                                            |
+| YIQ (luminance, in-phase chrominance, quadrature chrominance) | <pre>typedef PF_Fixed PF_YIQ_PIXEL[3]</pre>                                                            |
 
 ---
 

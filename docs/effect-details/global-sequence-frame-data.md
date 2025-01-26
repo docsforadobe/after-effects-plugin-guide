@@ -49,7 +49,7 @@ After Effects sends [PF_Cmd_SEQUENCE_RESETUP](../effect-basics/command-selectors
 
 Use a flag at a common offset within both structures to indicate the data's state.
 
-```default
+```cpp
 typedef struct {
   A_char*    messageZ;
   PF_FpLong  big_numF;
@@ -95,8 +95,9 @@ When enabling Multi-Frame Rendering on an effect, the `sequence_data` object wil
 
 | Function              | Purpose                                                                                                                                                                                                                                                     |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `PF_GetConstSequenceData` | Retrieves the read-only const sequence_data object for a rendering thread when Multi-Frame Rendering is enabled for an effect.<br/><br/>```c++<br/>PF_Err(*PF_GetConstSequenceData)(<br/>  PF_ProgPtr effect_ref,<br/>  PF_ConstHandle *sequence_data);<br/>``` |
-```c++
+| `PF_GetConstSequenceData` | Retrieves the read-only const sequence_data object for a rendering thread when Multi-Frame Rendering is enabled for an effect.<br/><pre>PF_Err(*PF_GetConstSequenceData)(<br/>  PF_ProgPtr effect_ref,<br/>  PF_ConstHandle *sequence_data);</pre> |
+
+```cpp
 static PF_Err Render(
    PF_InData   *in_dataP,
    PF_OutData  *out_dataP,

@@ -60,14 +60,14 @@ It is, emphatically, *not* safe to simply cast pointers of one type into another
 
 | Macro             | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `PF_GET_PIXEL_DATA16` | Obtain a pointer to a 16-bpc pixel within the specified world.<br/><br/>The returned pixel pointer will be NULL if the world is not 16-bpc.<br/><br/>The second parameter is optional; if it is not NULL, the returned pixel will be<br/>an interpretation of the values in the passed-in pixel, as if it were in the specified PF_EffectWorld.<br/><br/>```default<br/>PF_GET_PIXEL_DATA16 (<br/>  PF_EffectWorld wP,<br/>  PF_PixelPtr    pP0,<br/>  PF_Pixel16     *outPP);<br/>``` |
-| `PF_GET_PIXEL_DATA8`  | Obtain a pointer to a 8-bpc pixel within the specified world.<br/><br/>The returned pixel pointer will be NULL if the world is not 8- bpc.<br/><br/>The second parameter is optional; if it is not NULL, the returned pixel will be<br/>an interpretation of the values in the passed-in pixel, as if it were in the specified PF_EffectWorld.<br/><br/>```default<br/>PF_GET_PIXEL_DATA8 (<br/>  PF_EffectWorld wP,<br/>  PF_PixelPtr    pP0,<br/>  PF_Pixel8      *outPP);<br/>```   |
+| `PF_GET_PIXEL_DATA16` | Obtain a pointer to a 16-bpc pixel within the specified world.<br/><br/>The returned pixel pointer will be NULL if the world is not 16-bpc.<br/><br/>The second parameter is optional; if it is not NULL, the returned pixel will be<br/>an interpretation of the values in the passed-in pixel, as if it were in the specified PF_EffectWorld.<br/><pre>PF_GET_PIXEL_DATA16 (<br/>  PF_EffectWorld wP,<br/>  PF_PixelPtr    pP0,<br/>  PF_Pixel16     *outPP);</pre> |
+| `PF_GET_PIXEL_DATA8`  | Obtain a pointer to a 8-bpc pixel within the specified world.<br/><br/>The returned pixel pointer will be NULL if the world is not 8- bpc.<br/><br/>The second parameter is optional; if it is not NULL, the returned pixel will be<br/>an interpretation of the values in the passed-in pixel, as if it were in the specified PF_EffectWorld.<br/><pre>PF_GET_PIXEL_DATA8 (<br/>  PF_EffectWorld wP,<br/>  PF_PixelPtr    pP0,<br/>  PF_Pixel8      *outPP);</pre>   |
 
 Think of `PF_GET_PIXEL_DATA16` and `PF_GET_PIXEL_DATA8` as safe (ahem) casting routines.
 
 The code required is actually very simple to get a `PF_Pixel16*` out of the PF_EffectWorld output:
 
-```default
+```cpp
 {
   PF_Pixel16 *deep_pixelP = NULL;
   PF_Err     err = PF_Err_NONE;
