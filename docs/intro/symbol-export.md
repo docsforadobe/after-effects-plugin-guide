@@ -50,7 +50,8 @@ To disable symbol export in Xcode:
 1. Find the **Apple Clang - Code Generation** section in the **Build** settings for your project.
 2. Set the **Symbols Hidden By Default** to **YES**
 
-![image](intro/images/appleclang-symbols.png)
+![Apple Clang Symbols](../_static/appleclang-symbols.png "Apple Clang Symbols")
+*Apple Clang Symbols*
 
 For any specific symbols that must be made public, use the `__attribute__((visibility("default")))` in code.
 

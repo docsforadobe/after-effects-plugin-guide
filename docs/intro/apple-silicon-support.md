@@ -5,7 +5,7 @@ Adobe now supports Apple Silicon effect plugins in some products running nativel
 Not all Adobe products have native Apple Silicon versions yet, but in those that do, only effect plugins with Apple Silicon implementations will be available. We recommend adding the Apple Silicon target soon in anticipation of rapid adoption of these new M1 machines.
 
 !!! note
- In order to build a Mac Universal binary, you will need Xcode 12.2 or greater. Adobe is currently using Xcode 12.4.
+    In order to build a Mac Universal binary, you will need Xcode 12.2 or greater. Adobe is currently using Xcode 12.4.
 
 To learn more about Universal binaries, please visit [https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary](https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary)
 
@@ -15,7 +15,9 @@ To learn more about Universal binaries, please visit [https://developer.apple.co
 
 1. Open your plugins Xcode project in 12.2 or above and Xcode will automatically add an Apple Silicon target for you.
 
-![image](intro/images/mac_universal_build.png)
+![Mac Universal Build](../_static/mac_universal_build.png "Mac Universal Build")
+*Mac Universal Build*
+
 1. Tell After Effects what the main entry point is for Apple Silicon builds.
 
 > * Find the .r resource file for your plugin.
@@ -27,7 +29,8 @@ To learn more about Universal binaries, please visit [https://developer.apple.co
 >   #endif
 >   ```
 > * If for some reason you need different entry points on x64 and ARM just provide a different entry point name and string.
-1. Compile the Universal binary by building for the Any Mac (Apple Silicon, Intel) Target, or by using Product -> Archive.
+
+3. Compile the Universal binary by building for the Any Mac (Apple Silicon, Intel) Target, or by using Product -> Archive.
 
 Assuming there are no compile time issues with the Apple Silicon build, you can now use the single Universal binary for both Intel and Apple Silicon applications.
 
