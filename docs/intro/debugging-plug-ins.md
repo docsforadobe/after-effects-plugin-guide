@@ -4,7 +4,7 @@ The best way to learn the interaction(s) between After Effects and plug-ins is r
 
 Once you've got the plug-in building directly into the plug-ins folder as explained above, here's how to specify After Effects as the application to run during debug sessions:
 
-On Windows:
+### Windows:
 
 1. In the Visual Studio solution, in the Solution Explorer panel, choose the project you want to debug
 2. Right-click it and choose Set as StartUp Project
@@ -12,7 +12,7 @@ On Windows:
 4. In Configuration Properties > Debugging > Command, provide the path to the executable file of the host application the plug-ins will be running in (this may be After Effects or Premiere Pro)
 5. From there you can either hit the Play button, or you can launch the application and later at any point choose Debug > Attach to Process...
 
-On macOS:
+### macOS:
 
 1. In Xcode, in the Project Navigator, choose the xcodeproj you want to debug
 2. Choose Product > Scheme > Edit Scheme...

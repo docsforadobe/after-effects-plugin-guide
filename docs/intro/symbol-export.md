@@ -57,11 +57,9 @@ For any specific symbols that must be made public, use the `__attribute__((visib
 
 More information can be found in Apple's Xcode documentation [https://help.apple.com/xcode/mac/11.4/#/itcaec37c2a6](https://help.apple.com/xcode/mac/11.4/#/itcaec37c2a6) (excerpt below):
 
-```none
-Symbols Hidden by Default (GCC_SYMBOLS_PRIVATE_EXTERN)
-
-When enabled, all symbols are declared private extern unless explicitly marked to be exported using __attribute__((visibility("default"))) in code. If not enabled, all symbols are exported unless explicitly marked as private extern.
-```
+> Symbols Hidden by Default (GCC_SYMBOLS_PRIVATE_EXTERN)
+>
+> When enabled, all symbols are declared private extern unless explicitly marked to be exported using __attribute__((visibility("default"))) in code. If not enabled, all symbols are exported unless explicitly marked as private extern.
 
 ---
 
@@ -71,10 +69,9 @@ By default, builds from Visual Studio automatically disable symbol exports. To e
 
 More information can be found in Microsoft's Visual Studio documentation [https://docs.microsoft.com/en-us/cpp/build/exporting-from-a-dll?view=msvc-160](https://docs.microsoft.com/en-us/cpp/build/exporting-from-a-dll?view=msvc-160) (excerpt below):
 
-```none
-You can export functions from a DLL using two methods:
-  1. Create a module definition (.def) file and use the .def file when building the DLL. Use this approach if you want to export functions from your DLL by ordinal rather than by name.
-  2. Use the keyword __declspec(dllexport) in the function's definition.
-
-When exporting functions with either method, make sure to use the __stdcall calling convention.
-```
+> You can export functions from a DLL using two methods:
+>
+> 1. Create a module definition (.def) file and use the .def file when building the DLL. Use this approach if you want to export functions from your DLL by ordinal rather than by name.
+> 2. Use the keyword __declspec(dllexport) in the function's definition.
+>
+> When exporting functions with either method, make sure to use the __stdcall calling convention.

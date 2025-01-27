@@ -6,6 +6,13 @@ When passing strings to AE, some parts of the API accept Unicode. In other areas
 
 Testing with different languages in AE doesn't require an OS reinstallation, but it does require a reinstallation of AE:
 
-For Win, change the system locale to the targeted language (control panel > region and language > administrative tab > change system locale), restart machine, and then install AE in the according language.
+### Windows
 
-For Mac, set targeted language to the primary language in the preferred language list, and then install AE in the according language.
+- Change the system locale to the targeted language (control panel > region and language > administrative tab > change system locale)
+- Restart machine
+- Install AE in the according language.
+
+### MacOS
+
+- Set targeted language to the primary language in the preferred language list
+- Install AE in the according language.

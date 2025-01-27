@@ -1,5 +1,17 @@
 # Introduction
 
+Welcome to the Adobe® After Effects® Software Development Kit!
+
+This is a living document and is constantly being updated and edited. The latest public version of the SDK is available at: [https://www.adobe.io/after-effects/](https://www.adobe.io/after-effects/)
+
+If you need more information, your question may already be answered on the After Effects SDK forum: [After Effects SDK Forum](https://community.adobe.com/t5/after-effects/bd-p/after-effects?page=1&sort=latest_replies&filter=all&topics=label-sdk)
+
+Use the search box there, and post a new question if your question hasn’t already been answered.
+
+---
+
+## About
+
 This document has changed much over the years. Part encyclopedia, part how-to guide, with multiple sedimentary layers of accreted information from more than two decades of API development and refinement.
 
 Yes, there does need to be one source of information about every last niggling detail of the After Effects APIs. However, since no human in their right mind would ever want to *read* such a document, we've tried to keep it involving and interesting.
@@ -12,7 +24,7 @@ As always, your input is valued and appreciated.
 
 ## Organization
 
-The [Introduction](intro/intro.md) provides an overview of the integration possibilities with After Effects. It explains what plug-ins are, and how they work with After Effects. It describes the sample projects, and how to modify them. It explains where to install plug-ins, and what resources they use.
+The [What Can I Do With This SDK?](intro/what-can-i-do.md) provides an overview of the integration possibilities with After Effects. It explains what plug-ins are, and how they work with After Effects. It describes the sample projects, and how to modify them. It explains where to install plug-ins, and what resources they use.
 
 The basics of effect plug-ins are discussed in [Effect Basics](effect-basics/effect-basics.md). This overview provides information on the function parameters passed to and from an effect plug-in's entry point. It describes capability flags, effect parameters, and image buffers.
 
