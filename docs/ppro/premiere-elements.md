@@ -4,6 +4,6 @@ Premiere Elements (but not Premiere Pro) displays visual icons for each effect. 
 
 The icons are 60x45 PNG files, and are placed here:
 
-[Program Files]AdobeAdobe Premiere Elements [version]Plug-inCommonEffectPreviews
+`/[Program Files]/Adobe/Adobe Premiere Elements [version]/Plug-in/Common/Effect/Previews/`
 
 The filename should be the match name of the effect, which you specify in the [PiPL Resources](../intro/pipl-resources.md), prefixed with "AE." So if the match name was "MatchName", then the filename should be "AE.MatchName.png"

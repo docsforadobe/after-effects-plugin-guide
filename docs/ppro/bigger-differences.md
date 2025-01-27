@@ -10,13 +10,13 @@ Premiere Pro provides function suites for declaring support for pixel formats ot
 
 Use the PF Pixel Format Suite (defined in PrAESDKSupport.h) to register for [PF_EffectWorld / PF_LayerDef](../effect-basics/PF_EffectWorld.md) in other pixel formats. Use the Premiere Pixel Format Suite (defined in the aptly-named PrSDKPixelFormatSuite.h) to get black and white values in those pixel formats.
 
-After Effects functions such as PF_BLEND() have not been enhanced to work with pixel formats beyond 8-bit RGB.
+After Effects functions such as `PF_BLEND()` have not been enhanced to work with pixel formats beyond 8-bit RGB.
 
 ---
 
 ## 32-Bit Float Support
 
-Premiere Pro does not support After Effects 16-bit rendering or SmartFX. For 32-bit rendering in Premiere Pro, you'll need to declare support for one of the 32-bit pixel formats (see previous section), and then implement 32-bit rendering for PF_Cmd_RENDER. You can support multiple render depths this way. See the SDK Noise sample project for an example.
+Premiere Pro does not support After Effects 16-bit rendering or SmartFX. For 32-bit rendering in Premiere Pro, you'll need to declare support for one of the 32-bit pixel formats (see previous section), and then implement 32-bit rendering for `PF_Cmd_RENDER`. You can support multiple render depths this way. See the SDK Noise sample project for an example.
 
 Depending on the clip(s) to which an effect is applied, 32-bit processing is not always necessary to preserve the quality of the source input. But there are settings to force 32-bit rendering, to give effects processing finer granularity and more headroom, if desired. Go to Settings>Sequence Settings> Video Previews>Maximum Bit Depth, to control previewing from the timeline. For export to file, use Export Settings>Video>Basic Settings>Render at Maximum Depth.
 
@@ -24,6 +24,6 @@ Depending on the clip(s) to which an effect is applied, 32-bit processing is not
 
 ## PF_CHECKOUT_PARAM and Pixel Formats
 
-Before CS6, PF_CHECKOUT_PARAM() only returned 8-bit ARGB buffers, regardless of the pixel format currently being used for rendering. Starting in CS6, an effect can opt in to get frames in the same format as the render request, whether it is 32-bit float, YUV, etc.
+Before CS6, `PF_CHECKOUT_PARAM()` only returned 8-bit ARGB buffers, regardless of the pixel format currently being used for rendering. Starting in CS6, an effect can opt in to get frames in the same format as the render request, whether it is 32-bit float, YUV, etc.
 
-Plug-ins may request this behavior, but existing plug-ins will continue working receiving 8-bit ARGB frames. The call is EffectWantsCheckedOutFramesToMatch RenderPixelFormat(), in the PF Utility Suite, defined in PrSDKAESupport.h. The call should be made on PF_Cmd_GLOBAL_SETUP, the same selector where an effect would already advertise support beyond 8-bit RGB using AddSupportedPixelFormat().
+Plug-ins may request this behavior, but existing plug-ins will continue working receiving 8-bit ARGB frames. The call is EffectWantsCheckedOutFramesToMatch RenderPixelFormat(), in the PF Utility Suite, defined in PrSDKAESupport.h. The call should be made on `PF_Cmd_GLOBAL_SETUP`, the same selector where an effect would already advertise support beyond 8-bit RGB using `AddSupportedPixelFormat()`.

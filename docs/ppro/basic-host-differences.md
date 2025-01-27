@@ -14,7 +14,7 @@ Premiere Pro uses slightly different time values in PF_InData. For example in CS
 
 Rendering in NTSC, time_scale is 60000, time_step is 1001, field gives field order (in After Effects, for field rendering, scale is 2997, step is 50, or for progressive rendering, scale is 2997, step is 100).
 
-Rendering in PAL, time_scale is 50, time_step is 1, field gives field order (in After Effects, for field rendering, scale is 3200, step is 64, or for progressive rendering, scale is 3200, step is 128.
+Rendering in PAL, time_scale is 50, time_step is 1, field gives field order (in After Effects, for field rendering, scale is 3200, step is 64, or for progressive rendering, scale is 3200, step is 128).
 
 It's the ratio of time-related values that produces the time value, not specifically the time_scale value. It's possible Premiere Pro will use different time_scales in the future, so please don't hard code. Just be aware that it does not necessarily use the exact same values as After Effects.
 
@@ -52,7 +52,7 @@ In AE, `width,height` are `(720,480)` and `pixel_aspect_ratio` is `(10,11)`.
 
 ## PF_InData
 
-Premiere Pro handles field rendering differently than After Effects. While field rendering, PF_InData>field gives the current field being rendered, ignoring whether or not PF_OutFlag_PIX_INDEPENDENT flag was set.
+Premiere Pro handles field rendering differently than After Effects. While field rendering, `PF_InData>field` gives the current field being rendered, ignoring whether or not `PF_OutFlag_PIX_INDEPENDENT` flag was set.
 
 In Premiere Pro, effects receive the quality setting of the monitor window in [PF_InData>quality](../effect-basics/PF_InData.md#pf_indata-members). This differs from After Effects, where the source layer's quality setting is provided here.
 
@@ -72,12 +72,12 @@ Starting in CC 2015, effects will not be sent `PF_Cmd_UPDATE_PARAMS_UI` or `PF_E
 
 Many suites supported by After Effects are not implemented in the Premiere Pro host. In several cases, even if a suite is missing in Premiere Pro, an equivalent macro function is available. Here are a few examples:
 
-| After Effects suite call            | Premiere Pro equivalent function   |
-|-----------------------------------------|----------------------------------------|
-| `WorldTransformSuite1()->copy()`        | `PF_COPY()`                            |
-| `WorldTransformSuite1()->convolve()`    | `in_data->utils->convolve()`           |
-| `FillMatteSuite2()->fill()`             | `PF_FILL()`                            |
-| `PF_PixelDataSuite1->get_pixel_data8()` | `PF_GET_PIXEL_DATA8()`                 |
+|        After Effects suite call         | Premiere Pro equivalent function |
+| --------------------------------------- | -------------------------------- |
+| `WorldTransformSuite1()->copy()`        | `PF_COPY()`                      |
+| `WorldTransformSuite1()->convolve()`    | `in_data->utils->convolve()`     |
+| `FillMatteSuite2()->fill()`             | `PF_FILL()`                      |
+| `PF_PixelDataSuite1->get_pixel_data8()` | `PF_GET_PIXEL_DATA8()`           |
 
 The sample projects demonstrate alternate ways of handling a missing suite, by checking for the host application and version. The Portable sample project demonstrates both host application and version checking.
 

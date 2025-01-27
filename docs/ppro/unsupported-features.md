@@ -18,7 +18,7 @@ Premiere Pro is currently known to not support the following features of the Aft
 
 ---
 
-## But… Why'd You LOAD It If You Can't RUN It?!
+## But... Why'd You LOAD It If You Can't RUN It?!
 
 Premiere Pro attempts to load AEGP plug-ins. To detect this and avoid any problem behavior, your command hook function can access a suite which is only provided by After Effects; AEGP_CanvasSuite is a fine candidate.
 
