@@ -2,8 +2,8 @@
 
 The following data types are used by After Effects to describe audio data.
 
-| Structure        | Description                                                                                                                                                   |
-|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      Structure       |                                                                            Description                                                                            |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PF_SoundFormat`     | Indicates whether the audio is in unsigned pulse code modulation (PCM), signed PCM, or floating point format.                                                     |
 | `PF_SoundSampleSize` | Samples are in 1, 2, or 4 byte format.                                                                                                                            |
 | `PF_SoundChannels`   | Indicates whether the audio is mono or stereo.                                                                                                                    |
