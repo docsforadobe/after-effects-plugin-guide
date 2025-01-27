@@ -9,7 +9,6 @@ nav:
     - Home: index.md
     - Version History: history.md
     - Introduction:
-        - Introduction: intro/intro.md
         - What Can I Do With This SDK?: intro/what-can-i-do.md
         - Other Integration Possibilities: intro/other-integration-possibilities.md
         - SDK Audience: intro/sdk-audience.md
