@@ -56,7 +56,7 @@ Presto, recursion!
 
 If you're going to check out parameters, your effects must handle re-entrant render requests appropriately.
 
-Don't use globals, or read or write static variables…but you weren't going to anyway, right?
+Don't use globals, or read or write static variables...but you weren't going to anyway, right?
 
 ---
 

@@ -62,11 +62,11 @@ AEIOs set these flags (like effect plug-ins use global outflags) in AEIO_ModuleI
 | `AEIO_MFlag_HAS_META_DATA`             | The file format supported by the AEIO supports user-definable metadata.<br/><br/>If this flag is set, the embed pop-up in the output module dialog will be enabled.                       | Output        |
 | `AEIO_MFlag_CAN_DO_MARKERS`            | The file format support by the AEIO supports markers, url flips, and/or chapters.                                                                                                         | Output        |
 | `AEIO_MFlag_CAN_DRAW_DEEP`             | The AEIO can draw into 16bpc ("deep") `PF_EffectWorlds`.                                                                                                                                  | Input         |
-| `AEIO_MFlag_RESERVED4`                 | Special super-secret flag. Doesn't do anything…or does it?<br/><br/>(*No, it doesn't.*)                                                                                                   | ???           |
+| `AEIO_MFlag_RESERVED4`                 | Special super-secret flag. Doesn't do anything...or does it?<br/><br/>(*No, it doesn't.*)                                                                                                   | ???           |
 
 ### AEIO_ModuleFlags2
 
-Gotta have dem flags…
+Gotta have dem flags...
 
 | Flag                                        | Purpose                                                                                                                                                                                                                                   | I or O?   |
 |-------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|

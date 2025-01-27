@@ -2,7 +2,7 @@
 
 Commands are, simply, what After Effects wants your effect to do.
 
-Responses to some selectors are required; most are optional, though recall that we did add them for a *reason*…
+Responses to some selectors are required; most are optional, though recall that we did add them for a *reason*...
 
 With each command selector sent, effects receive information from After Effects in [PF_InData](PF_InData.md#pf_indata), input and parameter values in PF_ParamDef[] (an array of parameter descriptions including the input layer), and access to callbacks and function suites.
 
@@ -26,7 +26,7 @@ For SmartFX, `PF_Cmd_SMART_PRE_RENDER` may be sent any number of times, before a
 
 `PF_Cmd_SEQUENCE_SETDOWN` is sent on exit, when the user removes an effect or closes the project. `PF_Cmd_SEQUENCE_RESETUP` is sent when a project is loaded or when the layer to which it's applied changes. `PF_Cmd_SEQUENCE_FLATTEN` is sent when the After Effects project is written out to disk.
 
-`PF_Cmd_ABOUT` is sent when the user chooses *About…* from the Effect Controls Window (ECW).
+`PF_Cmd_ABOUT` is sent when the user chooses *About...* from the Effect Controls Window (ECW).
 
 `PF_Cmd_GLOBAL_SETDOWN` is sent when After Effects closes, or when the last instance of the effect is removed. Do not rely on this message to determine when your plug-in is being removed from memory; use OS-specific entry points.
 
@@ -107,6 +107,6 @@ For SmartFX, `PF_Cmd_SMART_PRE_RENDER` may be sent any number of times, before a
 
 `PF_Cmd_SEQUENCE_SETDOWN` is sent on exit, when the user removes an effect or closes the project. `PF_Cmd_SEQUENCE_RESETUP` is sent when a project is loaded or when the layer to which it's applied changes. `PF_Cmd_SEQUENCE_FLATTEN` is sent when the After Effects project is written out to disk.
 
-`PF_Cmd_ABOUT` is sent when the user chooses *About…* from the Effect Controls Window (ECW).
+`PF_Cmd_ABOUT` is sent when the user chooses *About...* from the Effect Controls Window (ECW).
 
 `PF_Cmd_GLOBAL_SETDOWN` is sent when After Effects closes, or when the last instance of the effect is removed. Do not rely on this message to determine when your plug-in is being removed from memory; use OS-specific entry points.

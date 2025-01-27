@@ -22,7 +22,7 @@ The basics of effect plug-ins are discussed in [Effect Basics](effect-basics/eff
 
 [Effect UI & Events](effect-ui-events/effect-ui-events.md) covers events sent to effect plug-ins, how to incorporate custom user interface elements, parameter supervision, and the reliance of custom data parameter types on Custom UI messaging.
 
-[Audio](audio/audio.md) effects are covered in… [Audio](audio/audio.md).
+[Audio](audio/audio.md) effects are covered in... [Audio](audio/audio.md).
 
 [AEGPs](aegps/aegps.md) details the After Effects General Plug-in (AEGP) API. Provided callback functions, hooking into internal messaging, manipulating the current contents of open projects and handling menu commands are all covered at length.
 

@@ -10,12 +10,12 @@ On Windows:
 2. Right-click it and choose Set as StartUp Project
 3. Right-click it again and choose Properties
 4. In Configuration Properties > Debugging > Command, provide the path to the executable file of the host application the plug-ins will be running in (this may be After Effects or Premiere Pro)
-5. From there you can either hit the Play button, or you can launch the application and later at any point choose Debug > Attach to Process…
+5. From there you can either hit the Play button, or you can launch the application and later at any point choose Debug > Attach to Process...
 
 On macOS:
 
 1. In Xcode, in the Project Navigator, choose the xcodeproj you want to debug
-2. Choose Product > Scheme > Edit Scheme…
+2. Choose Product > Scheme > Edit Scheme...
 3. Under Run, in the Info tab, for Executable, choose the host application the plug-ins will be running in (this may be After Effects or Premiere Pro)
 4. From there you can either hit the Play button to build and run the current scheme, or you can launch the application and later at any point choose Debug > Attach to Process.
 

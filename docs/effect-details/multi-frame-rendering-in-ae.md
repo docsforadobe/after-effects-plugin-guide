@@ -147,7 +147,7 @@ If you develop on Windows:
   : 1. **In order to run this tool, you need a working installation of Visual Studio**
     2. Clone/Download the Git Repo at the URL provided above
     3. Find the `register_msdia.cmd` script in the **Win** folder
-    4. Search for **"x64 Native Tools Command Prompt for VS…."** from the **Start Menu**
+    4. Search for **"x64 Native Tools Command Prompt for VS...."** from the **Start Menu**
     5. Right click -> Run as an Administrator
     6. In the terminal, `cd` to the directory where your `register_msdia.cmd` is located at
     7. Run `.\register_msdia.cmd`

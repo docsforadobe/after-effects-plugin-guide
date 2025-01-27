@@ -398,6 +398,6 @@ For effects running in Premiere Pro CS6, we have added the ability to get 32-bit
 
 ---
 
-## …and what was new before CS6?
+## ...and what was new before CS6?
 
 For history this far back, see obsolete copies of the SDK (which we don't provide; if someone wants you do develop for antique software, they'd best provide the SDK).

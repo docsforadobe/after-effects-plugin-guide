@@ -16,7 +16,7 @@ Consider a blur effect applied to a huge layer which is mostly off-screen, or vi
 
 SmartFX solves this problem by reversing the calling sequence. The effect is told how much of its output is required, and must explicitly *ask* the host for the inputs it needs. The render process is split into two parts: pre-render and render.
 
-During pre-render, the effect describes the input pixel data it needs; this necessary input can vary based on anything you like (non-input layer parameters, non-layer parameters, information from in_data, settings in sequence data…). The effect must also return the extent of the resulting output, which may be smaller than the requested size if there are empty pixels in the requested portion of the layer.
+During pre-render, the effect describes the input pixel data it needs; this necessary input can vary based on anything you like (non-input layer parameters, non-layer parameters, information from in_data, settings in sequence data...). The effect must also return the extent of the resulting output, which may be smaller than the requested size if there are empty pixels in the requested portion of the layer.
 
 During the render stage, the effect can *only* retrieve pixels that it has previously requested. This two-pass approach facilitates many important optimizations. For example, an effect which multiplies or mattes one input against another might discover that its first input is not
 
@@ -101,7 +101,7 @@ The size of the original layer, before any effects and downsampling are applied,
 
 However, this is not fool-proof, as the user could have applied a distortion or translation effect. Also, this value is available only for the layer to which the effect is applied, not other layer parameters.
 
-…or…
+...or...
 
 Every layer input has a `max_result_rect` which encompasses all pixel data, in some sense the master "size" of a layer.
 

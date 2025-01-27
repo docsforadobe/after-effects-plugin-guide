@@ -4,7 +4,7 @@ It is possible to add or remove parameters from a plug-in, without forcing users
 
 You must first create a parameter array index. During *PF_Cmd_PARAM_SETUP*, assign index values to each parameter as you add them, using a simple enumeration. The order of enumeration corresponds to the order in which the parameters are registered during *PF_Cmd_PARAM_SETUP*, which in turn determines the order in which they appear in the Effect Control and Timeline panels.
 
-Create another enumeration for disk IDs. The order of this enumeration must *not* be changed, though you may add to the end of this list. Note that the order of this list need not correspond with that of the parameter array index. Parameter disk IDs should range from 1 to 9999. Why not zero? Long story…
+Create another enumeration for disk IDs. The order of this enumeration must *not* be changed, though you may add to the end of this list. Note that the order of this list need not correspond with that of the parameter array index. Parameter disk IDs should range from 1 to 9999. Why not zero? Long story...
 
 *In the early "wild west" days of After Effects plug-in programming, it was fairly common for developers not to bother with setting IDs. After Effects, realizing this, checked the ID of the first parameter added by that effect; if it was zero, it was assumed that the programmer hadn't bothered to ID params; After Effects then assigned each its own ID. This assumption works fine if you never set param IDs, but not so well if you start numbering your IDs from NULL. That's why.*
 
