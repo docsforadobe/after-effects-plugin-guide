@@ -10,8 +10,8 @@ Well, we can't live the lie any longer! Given a color parameter (passed to you b
 
 ## PF_ColorParamSuite1
 
-| Function                                  | Purpose                                                                                                                                                                          |
-|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                   Function                    |                                                                                  Purpose                                                                                   |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PF_GetFloatingPoint`<br/>`ColorFromColorDef` | <pre>PF_Err PF_GetFloatingPointColorFromColorDef(<br/>  PF_ProgPtr         effect_ref,<br/>  const PF_ParamDef  \*color_defP,<br/>  PF_PixelFloat      \*fp_colorP);</pre> |
 
 ---
@@ -20,8 +20,8 @@ Well, we can't live the lie any longer! Given a color parameter (passed to you b
 
 We also provide a way to get floating point values for point parameters.
 
-| Function                                  | Purpose                                                                                                                                                                          |
-|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                   Function                    |                                                                                  Purpose                                                                                   |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PF_GetFloatingPoint`<br/>`ValueFromPointDef` | <pre>PF_Err PF_GetFloatingPointValueFromPointDef(<br/>  PF_ProgPtr         effect_ref,<br/>  const PF_ParamDef  \*point_defP,<br/>  A_FloatPoint       \*fp_pointP);</pre> |
 
 ---
@@ -30,6 +30,6 @@ We also provide a way to get floating point values for point parameters.
 
 New in CS6.0.2, we now provide a way to get floating point values for angle parameters.
 
-| Function                                  | Purpose                                                                                                                                                                          |
-|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                   Function                    |                                                                                  Purpose                                                                                   |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PF_GetFloatingPoint`<br/>`ValueFromAngleDef` | <pre>PF_Err PF_GetFloatingPointValueFromAngleDef(<br/>  PF_ProgPtr         effect_ref,<br/>  const PF_ParamDef  \*angle_defP,<br/>  A_FloatLong        \*fp_valueP);</pre> |

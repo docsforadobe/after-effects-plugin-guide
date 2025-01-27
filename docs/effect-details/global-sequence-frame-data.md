@@ -73,17 +73,17 @@ You may modify the contents, but not the size, of the sequence data during any s
 
 You may resize the sequence data handle only during the following selectors:
 
-> - `PF_Cmd_AUDIO_SETUP`
-> - `PF_Cmd_AUDIO_SETDOWN`
-> - `PF_Cmd_FRAME_SETUP`
-> - `PF_Cmd_FRAME_SETDOWN`
-> - `PF_Cmd_AUDIO_RENDER`
-> - `PF_Cmd_RENDER`
-> - `PF_Cmd_SEQUENCE_SETUP`
-> - `PF_Cmd_SEQUENCE_SETDOWN`
-> - `PF_Cmd_SEQUENCE_FLATTEN`
-> - `PF_Cmd_SEQUENCE_RESETUP`
-> - `PF_Cmd_DO_DIALOG`
+- `PF_Cmd_AUDIO_SETUP`
+- `PF_Cmd_AUDIO_SETDOWN`
+- `PF_Cmd_FRAME_SETUP`
+- `PF_Cmd_FRAME_SETDOWN`
+- `PF_Cmd_AUDIO_RENDER`
+- `PF_Cmd_RENDER`
+- `PF_Cmd_SEQUENCE_SETUP`
+- `PF_Cmd_SEQUENCE_SETDOWN`
+- `PF_Cmd_SEQUENCE_FLATTEN`
+- `PF_Cmd_SEQUENCE_RESETUP`
+- `PF_Cmd_DO_DIALOG`
 
 ---
 
@@ -93,8 +93,8 @@ When enabling Multi-Frame Rendering on an effect, the `sequence_data` object wil
 
 ### PF_EffectSequenceDataSuite1
 
-| Function              | Purpose                                                                                                                                                                                                                                                     |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         Function          |                                                                                                                       Purpose                                                                                                                       |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PF_GetConstSequenceData` | Retrieves the read-only const sequence_data object for a rendering thread when Multi-Frame Rendering is enabled for an effect.<br/><pre>PF_Err(*PF_GetConstSequenceData)(<br/>  PF_ProgPtr effect_ref,<br/>  PF_ConstHandle \*sequence_data);</pre> |
 
 ```cpp
