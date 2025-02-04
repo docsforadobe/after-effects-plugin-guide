@@ -1,0 +1,167 @@
+# Site metadata
+site_name: After Effects C++ SDK Guide
+site_url: https://ae-plugins.docsforadobe.dev/
+repo_url: https://github.com/docsforadobe/after-effects-plugin-guide/
+repo_name: "after-effects-plugin-guide"
+
+# Customize navigation
+nav:
+    - Home: index.md
+    - Version History: history.md
+    - Introduction:
+        - What Can I Do With This SDK?: intro/what-can-i-do.md
+        - Other Integration Possibilities: intro/other-integration-possibilities.md
+        - SDK Audience: intro/sdk-audience.md
+        - What's New: intro/whats-new.md
+        - How To Start Creating Plug-ins: intro/how-to-start-creating-plug-ins.md
+        - Sample Projects: intro/sample-projects.md
+        - Debugging Plug-ins: intro/debugging-plug-ins.md
+        - Compatibility Across Multiple Versions?: intro/compatibility-across-multiple-versions.md
+        - Third-party Plug-in Hosts?: intro/third-party-plug-in-hosts.md
+        - PiPL Resources: intro/pipl-resources.md
+        - Exceptions: intro/exceptions.md
+        - Where Installers Should Put Plug-ins: intro/where-installers-should-put-plug-ins.md
+        - Localization: intro/localization.md
+        - Apple Silicon Support: intro/apple-silicon-support.md
+        - Exporting Symbols in Effects: intro/symbol-export.md
+        - Next Steps: intro/next-steps.md
+    - Effect Basics:
+        - Effect Basics: effect-basics/effect-basics.md
+        - Entry Point: effect-basics/entry-point.md
+        - Command Selectors: effect-basics/command-selectors.md
+        - PF_InData: effect-basics/PF_InData.md
+        - PF_OutData: effect-basics/PF_OutData.md
+        - Parameters: effect-basics/parameters.md
+        - PF_ParamDef: effect-basics/PF_ParamDef.md
+        - PF_EffectWorld / PF_LayerDef: effect-basics/PF_EffectWorld.md
+        - Errors: effect-basics/errors.md
+    - Effect Details:
+        - Multi-Frame Rendering in AE: effect-details/multi-frame-rendering-in-ae.md
+        - Effect Details: effect-details/effect-details.md
+        - Accessing the After Effects Function Suites: effect-details/accessing-function-suites.md
+        - Memory Allocation: effect-details/memory-allocation.md
+        - Image Buffer Management Functions: effect-details/image-buffer-management-functions.md
+        - Iteration Suites: effect-details/iteration-suites.md
+        - Graphics Utility Suites: effect-details/graphics-utility-suites.md
+        - Interaction Callback Functions: effect-details/interaction-callback-functions.md
+        - Pixel Aspect Ratio: effect-details/pixel-aspect-ratio.md
+        - Parameters & Floating Point Values: effect-details/parameters-floating-point-values.md
+        - Parameter Supervision: effect-details/parameter-supervision.md
+        - Global, Sequence, & Frame Data: effect-details/global-sequence-frame-data.md
+        - Arbitrary Data Parameters: effect-details/arbitrary-data-parameters.md
+        - Useful Utility Functions: effect-details/useful-utility-functions.md
+        - Motion Blur: effect-details/motion-blur.md
+        - Working With Paths: effect-details/working-with-paths.md
+        - Accessing Camera & Light Information: effect-details/accessing-camera-light-information.md
+        - Color Space Conversion: effect-details/color-space-conversion.md
+        - Changing Parameter Orders, the Nice Way: effect-details/changing-parameter-orders.md
+        - Tips & Tricks: effect-details/tips-tricks.md
+        - Compute Cache API: effect-details/compute-cache-api.md
+    - SmartFX:
+        - SmartFX: smartfx/smartfx.md
+    - Effect UI & Events:
+        - Effect UI & Events: effect-ui-events/effect-ui-events.md
+        - PF_EventExtra: effect-ui-events/PF_EventExtra.md
+        - PF_EventUnion: effect-ui-events/PF_EventUnion.md
+        - Custom UI & Drawbot: effect-ui-events/custom-ui-and-drawbot.md
+        - UI Callbacks: effect-ui-events/ui-callbacks.md
+        - Tips & Tricks: effect-ui-events/tips-and-tricks.md
+    - Audio:
+        - Audio: audio/audio.md
+        - Global Outflags: audio/global-outflags.md
+        - Audio Data Structures: audio/audio-data-structures.md
+        - Audio-Specific Float Slider Variables: audio/audio-specific-float-slider-variables.md
+        - Accessing Audio Data: audio/accessing-audio-data.md
+        - Audio Considerations: audio/audio-considerations.md
+    - AEGPs:
+        - AEGPs: aegps/aegps.md
+        - Overview: aegps/overview.md
+        - Data Types: aegps/data-types.md
+        - Implementation: aegps/implementation.md
+        - AEGP Suites: aegps/aegp-suites.md
+        - Cheating Effect Usage of AEGP Suites: aegps/cheating-effect-usage-of-aegp-suites.md
+        - AEGP Details: aegps/aegp-details.md
+    - Artisans:
+        - Artisans: artisans/artisans.md
+        - Artisan Data Types: artisans/artisan-data-types.md
+    - AEIOs:
+        - AEIOs: aeios/aeios.md
+        - Calling Sequence: aeios/calling-sequence.md
+        - AEIO_ModuleInfo: aeios/AEIO_ModuleInfo.md
+        - New Kids On The Function Block: aeios/new-kids-on-the-function-block.md
+        - Implementation Details: aeios/implementation-details.md
+    - Premiere Pro:
+        - Premiere Pro & Other Hosts: ppro/ppro.md
+        - Plug-in Installation: ppro/plug-in-installation.md
+        - Basic Host Differences: ppro/basic-host-differences.md
+        - Multithreading: ppro/multithreading.md
+        - Bigger Differences: ppro/bigger-differences.md
+        - Plug-Ins... Reloaded: ppro/plug-ins-reloaded.md
+        - Premiere Elements: ppro/premiere-elements.md
+        - Unsupported Features: ppro/unsupported-features.md
+        - Other Hosts: ppro/other-hosts.md
+
+
+
+# Do not touch below-- shared for all docs
+
+copyright: All content is copyright Adobe Systems Incorporated.
+
+extra:
+    homepage: https://docsforadobe.dev
+
+theme:
+    name: material
+    custom_dir: overrides
+    features:
+        - announce.dismiss
+        - content.action.edit
+        - content.action.view
+        - search.highlight
+        - search.suggest
+        - toc.follow
+    palette:
+        # Palette toggle for dark mode
+        - media: "(prefers-color-scheme: dark)"
+          primary: black
+          scheme: slate
+          toggle:
+              icon: material/brightness-4
+              name: Switch to light mode
+
+        # Palette toggle for light mode
+        - media: "(prefers-color-scheme: light)"
+          primary: white
+          scheme: default
+          toggle:
+              icon: material/brightness-7
+              name: Switch to dark mode
+
+extra_css:
+    # CSS shared between the whole org
+    - https://docsforadobe.dev/_global/global.css
+    - https://docsforadobe.dev/_global/global-syntax-highlight.css
+
+    # CSS specific to this file
+    - _static/extra.css
+
+markdown_extensions:
+    - admonition
+    - pymdownx.superfences
+    - toc:
+        title: Page Contents
+        permalink: true
+        toc_depth: 3
+
+plugins:
+    - git-revision-date-localized
+    - search:
+        separator: '[\s\-,\.:!=\[\]()"/]+'
+
+    # Note: print-site must be last!
+    - print-site:
+        add_cover_page: true
+        add_print_site_banner: true
+        cover_page_template: "overrides/templates/print_site_cover_page.tpl"
+        print_page_title: "Offline Docs"
+        print_site_banner_template: "overrides/templates/print_site_banner.tpl"
