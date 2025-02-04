@@ -1,0 +1,3569 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ae-plugins.docsforadobe.dev/intro/whats-new/">
+      
+      
+        <link rel="prev" href="../sdk-audience/">
+      
+      
+        <link rel="next" href="../how-to-start-creating-plug-ins/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+    
+    
+      
+        <title>What's New - After Effects C++ SDK Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global-syntax-highlight.css">
+    
+      <link rel="stylesheet" href="../../_static/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#whats-new" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+  Welcome to the new scripting guide!
+
+  This is a work in progress.
+
+  Please provide all feedback via
+  <a ref="me" href="https://github.com/orgs/docsforadobe/discussions">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1M1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg>
+    </span>
+    <strong>the org's discussion forum</strong>
+  </a>.
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docsforadobe.dev" title="After Effects C++ SDK Guide" class="md-header__button md-logo" aria-label="After Effects C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            After Effects C++ SDK Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              What's New
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/docsforadobe/after-effects-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    after-effects-plugin-guide
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docsforadobe.dev" title="After Effects C++ SDK Guide" class="md-nav__button md-logo" aria-label="After Effects C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    After Effects C++ SDK Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/docsforadobe/after-effects-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    after-effects-plugin-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-can-i-do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What Can I Do With This SDK?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-integration-possibilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Integration Possibilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdk-audience/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Audience
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    What's New
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    What's New
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-after-effects-2022" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In After Effects 2022
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-the-after-effects-sdk-in-march-2021" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in the After Effects SDK in March 2021
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in the After Effects SDK in March 2021">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#multi-frame-rendering-changes" class="md-nav__link">
+		<span class="md-ellipsis">
+			Multi-Frame Rendering Changes
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#apple-silicon-support" class="md-nav__link">
+		<span class="md-ellipsis">
+			Apple Silicon Support
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#exporting-symbols-from-effects" class="md-nav__link">
+		<span class="md-ellipsis">
+			Exporting Symbols from Effects
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#downloading-the-march-2021-sdk" class="md-nav__link">
+		<span class="md-ellipsis">
+			Downloading the March 2021 SDK
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#after-effects-beta-builds" class="md-nav__link">
+		<span class="md-ellipsis">
+			After Effects Beta Builds
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-after-effects-beta-builds-after-june-2020" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In After Effects Beta builds after June 2020
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2019-160" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2019 (16.0)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-150" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In 15.0?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20171-142" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2017.1 (14.2)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2017-141" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2017 (14.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2017-140" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2017 (14.0)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20153-138" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2015.3 (13.8)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2015-136" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2015 (13.6)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2015-1351" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2015 (13.5.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2015-135" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2015 (13.5)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20141-131" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2014.1 (13.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2014-130" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2014 (13.0)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-120" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC (12.0)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs601-1101" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CS6.0.1 (11.0.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs6-110" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CS6 (11.0)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#and-what-was-new-before-cs6" class="md-nav__link">
+		<span class="md-ellipsis">
+			...and what was new before CS6?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-start-creating-plug-ins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How To Start Creating Plug-ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample-projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging-plug-ins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging Plug-ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compatibility-across-multiple-versions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compatibility Across Multiple Versions?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../third-party-plug-in-hosts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Third-party Plug-in Hosts?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipl-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PiPL Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../where-installers-should-put-plug-ins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Where Installers Should Put Plug-ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apple-silicon-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apple Silicon Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../symbol-export/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exporting Symbols in Effects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../next-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Next Steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Effect Basics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Effect Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/effect-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effect Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/entry-point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entry Point
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/command-selectors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Command Selectors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/PF_InData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_InData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/PF_OutData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_OutData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/parameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parameters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/PF_ParamDef/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_ParamDef
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/PF_EffectWorld/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_EffectWorld / PF_LayerDef
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Errors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Effect Details
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Effect Details
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/multi-frame-rendering-in-ae/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi-Frame Rendering in AE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/effect-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effect Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/accessing-function-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accessing the After Effects Function Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/memory-allocation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Allocation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/image-buffer-management-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Buffer Management Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/iteration-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iteration Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/graphics-utility-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphics Utility Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/interaction-callback-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interaction Callback Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/pixel-aspect-ratio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Aspect Ratio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/parameters-floating-point-values/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parameters & Floating Point Values
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/parameter-supervision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parameter Supervision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/global-sequence-frame-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Global, Sequence, & Frame Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/arbitrary-data-parameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arbitrary Data Parameters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/useful-utility-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Useful Utility Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/motion-blur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motion Blur
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/working-with-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Working With Paths
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/accessing-camera-light-information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accessing Camera & Light Information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/color-space-conversion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Color Space Conversion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/changing-parameter-orders/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changing Parameter Orders, the Nice Way
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/tips-tricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips & Tricks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-details/compute-cache-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute Cache API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SmartFX
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            SmartFX
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartfx/smartfx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SmartFX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Effect UI & Events
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Effect UI & Events
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/effect-ui-events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effect UI & Events
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/PF_EventExtra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_EventExtra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/PF_EventUnion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_EventUnion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/custom-ui-and-drawbot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom UI & Drawbot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/ui-callbacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UI Callbacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/tips-and-tricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips & Tricks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Audio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/audio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/global-outflags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Global Outflags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/audio-data-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Data Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/audio-specific-float-slider-variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio-Specific Float Slider Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/accessing-audio-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accessing Audio Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/audio-considerations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Considerations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AEGPs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            AEGPs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/aegps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AEGPs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/data-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/aegp-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AEGP Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/cheating-effect-usage-of-aegp-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheating Effect Usage of AEGP Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/aegp-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AEGP Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Artisans
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Artisans
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../artisans/artisans/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Artisans
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../artisans/artisan-data-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Artisan Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AEIOs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            AEIOs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aeios/aeios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AEIOs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aeios/calling-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Calling Sequence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aeios/AEIO_ModuleInfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AEIO_ModuleInfo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aeios/new-kids-on-the-function-block/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    New Kids On The Function Block
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aeios/implementation-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementation Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Premiere Pro
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Premiere Pro
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/ppro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Premiere Pro & Other Hosts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/plug-in-installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug-in Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/basic-host-differences/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Host Differences
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/multithreading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multithreading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/bigger-differences/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bigger Differences
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/plug-ins-reloaded/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug-Ins... Reloaded
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/premiere-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Premiere Elements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/unsupported-features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unsupported Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/other-hosts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Hosts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-after-effects-2022" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In After Effects 2022
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-the-after-effects-sdk-in-march-2021" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in the After Effects SDK in March 2021
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in the After Effects SDK in March 2021">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#multi-frame-rendering-changes" class="md-nav__link">
+		<span class="md-ellipsis">
+			Multi-Frame Rendering Changes
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#apple-silicon-support" class="md-nav__link">
+		<span class="md-ellipsis">
+			Apple Silicon Support
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#exporting-symbols-from-effects" class="md-nav__link">
+		<span class="md-ellipsis">
+			Exporting Symbols from Effects
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#downloading-the-march-2021-sdk" class="md-nav__link">
+		<span class="md-ellipsis">
+			Downloading the March 2021 SDK
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#after-effects-beta-builds" class="md-nav__link">
+		<span class="md-ellipsis">
+			After Effects Beta Builds
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-after-effects-beta-builds-after-june-2020" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In After Effects Beta builds after June 2020
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2019-160" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2019 (16.0)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-150" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In 15.0?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20171-142" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2017.1 (14.2)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2017-141" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2017 (14.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2017-140" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2017 (14.0)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20153-138" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2015.3 (13.8)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2015-136" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2015 (13.6)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2015-1351" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2015 (13.5.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2015-135" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2015 (13.5)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20141-131" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2014.1 (13.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2014-130" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC 2014 (13.0)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-120" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CC (12.0)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs601-1101" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CS6.0.1 (11.0.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs6-110" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New In CS6 (11.0)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#and-what-was-new-before-cs6" class="md-nav__link">
+		<span class="md-ellipsis">
+			...and what was new before CS6?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/edit/master/docs/intro/whats-new.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/raw/master/docs/intro/whats-new.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="whats-new">What's New<a class="headerlink" href="#whats-new" title="Permanent link">&para;</a></h1>
+<p>If this is your first time developing an After Effects plug-in, you can skip the What's New section and go directly to <a href="../how-to-start-creating-plug-ins/">How To Start Creating Plug-ins</a>.</p>
+<hr />
+<h2 id="whats-new-in-after-effects-2022">What's New In After Effects 2022<a class="headerlink" href="#whats-new-in-after-effects-2022" title="Permanent link">&para;</a></h2>
+<p>After Effects 2022 contains the first full public release with Multi-Frame Rendering support. The associated AE Effects SDK released in October 2021 includes one change for increasing the maximum number of PF_Iterate threads.</p>
+<hr />
+<h2 id="whats-new-in-the-after-effects-sdk-in-march-2021">What's New in the After Effects SDK in March 2021<a class="headerlink" href="#whats-new-in-the-after-effects-sdk-in-march-2021" title="Permanent link">&para;</a></h2>
+<h3 id="multi-frame-rendering-changes">Multi-Frame Rendering Changes<a class="headerlink" href="#multi-frame-rendering-changes" title="Permanent link">&para;</a></h3>
+<ol>
+<li>The final behavior for the <code>PF_OutFlag2_SUPPORTS_THREADED_RENDERING</code> flag is now in place. Setting this flag to indicate support for Multi-Frame Rendering will also enforce the data stored in <code>sequence_data</code> to be const/read-only at Render time and access to <code>sequence_data</code> is now through a suite, <code>PF_EffectSequenceDataSuite1</code>.</li>
+<li>A new flag, <code>PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER</code> is now available to set alongside <code>PF_OutFlag2_SUPPORTS_THREADED_RENDERING</code> if your plugin cannot be updated to work with the new sequence_data behavior. After Effects won't be able to apply as much rendering concurrency and therefore performance improvements to effects that set this flag (hence the _SLOWER flag name).</li>
+<li>A new suite, the Compute Cache (previously referred to as the 3-way checkout cache) is now available. This suite provides a thread-safe cache that plugins can use as a replacement or supplement to sequence_data to support multiple render threads computing and caching data needed to render frames.</li>
+</ol>
+<p>Due to these changes, you must update to, and compile with, the March 2021 SDK to maintain Multi-Frame Rendering compatibility with AE Beta builds moving forward. Plugins compiled with the June 2020 SDK will cease to support Multi-Frame Rendering, even if <code>PF_OutFlag2_SUPPORTS_THREADED_RENDERING</code> is set, starting with AE 22.0x6 (released on June 29th 2021).</p>
+<p>Please see <a href="../../effect-details/multi-frame-rendering-in-ae/">Multi-Frame Rendering in AE</a> for more information.</p>
+<h3 id="apple-silicon-support">Apple Silicon Support<a class="headerlink" href="#apple-silicon-support" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The AE SDK now supports building effects for Apple Silicon natively. While After Effects itself is not yet running on Apple Silicon, Adobe as a company is moving forward with native support across many of our products. Applications such as Premiere Pro now have native versions available, and your effects may be loaded in Premiere Pro by features such as Motion Graphic Templates. When running the native version of Premiere Pro only natively compiled effects will work so it's important to update your effects with Apple Silicon support soon. Please see the <a href="../apple-silicon-support/">Apple Silicon Support</a> section for more information.</li>
+</ul>
+<h3 id="exporting-symbols-from-effects">Exporting Symbols from Effects<a class="headerlink" href="#exporting-symbols-from-effects" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The SDK samples have been updated on not export symbols by default on MacOS. Please see <a href="../symbol-export/">Exporting Symbols in Effects</a> for more information.</li>
+</ul>
+<h3 id="downloading-the-march-2021-sdk">Downloading the March 2021 SDK<a class="headerlink" href="#downloading-the-march-2021-sdk" title="Permanent link">&para;</a></h3>
+<p>The SDK can be downloaded from the Adobe Developer Console at <a href="https://adobe.io/after-effects/">https://adobe.io/after-effects/</a></p>
+<h3 id="after-effects-beta-builds">After Effects Beta Builds<a class="headerlink" href="#after-effects-beta-builds" title="Permanent link">&para;</a></h3>
+<p>To gain access to the AE host-side changes for this SDK, you will need to download a new After Effects beta build from the Creative Cloud Desktop App. Builds 18.2x11 and above are supported with the March 2021 SDK.</p>
+<hr />
+<h2 id="whats-new-in-after-effects-beta-builds-after-june-2020">What's New In After Effects Beta builds after June 2020<a class="headerlink" href="#whats-new-in-after-effects-beta-builds-after-june-2020" title="Permanent link">&para;</a></h2>
+<p>AE (currently only in Beta builds) now supports Multi-Frame rendering. See <a href="../../effect-details/multi-frame-rendering-in-ae/">Multi-Frame Rendering in AE</a> for more details.</p>
+<hr />
+<h2 id="whats-new-in-cc-2019-160">What's New In CC 2019 (16.0)?<a class="headerlink" href="#whats-new-in-cc-2019-160" title="Permanent link">&para;</a></h2>
+<p>We've made some changes to how GPU effects are handled. See "GPU Effects Changes" for details.</p>
+<hr />
+<h2 id="whats-new-in-150">What's New In 15.0?<a class="headerlink" href="#whats-new-in-150" title="Permanent link">&para;</a></h2>
+<p>After Effects now supports the <em>GPU effect rendering</em> previously supported in Premiere Pro. Note that unknown effects with a match name that includes "ADBE " will be excluded from GPU rendering, so make sure any of your GPU effects have your own custom match name. Effects that support GPU rendering will receive the GPU badge in the Effect panel.</p>
+<p>The GPU effect sample projects in the Premiere Pro SDK have been updated to register as GPU effects in AE, although the render output still needs work.</p>
+<p>A new entry point has been defined, to allow effects to register basic information with the host at runtime, without relying on legacy PiPL resources. An effect can register multiple entry points in a single binary this way. Premiere Pro is the first host to support this entry point, and After Effects will support this in a future release.</p>
+<p>The effect sample projects have been updated to use this approach, while maintaining the PiPL for backwards compatibility.</p>
+<p><code>AEGP_StreamSuite</code> is now at version 5, where <a href="../../aegps/aegp-suites/#aegp_streamsuite5">AEGP_GetExpression()</a> and <a href="../../aegps/aegp-suites/#aegp_streamsuite5">AEGP_SetExpression()</a> have been upgraded to support Unicode.</p>
+<p><code>PF_AdvTimeSuite</code> is now at version 4, with a new call <a href="../../effect-details/useful-utility-functions/#pf_advtimesuite4">PF_TimeCountFrames()</a>, that returns the index of the frame in the current comp.</p>
+<p>The new AEGP Math Suite provides helpful calls for matrix multiplication.</p>
+<p>The application font is now Adobe Clean. Previously, the fonts used in After Effects' UI were Tahoma on Windows and Lucida Grande on macOS X. This is a proprietary font, and we can not make it available for use in your UI.</p>
+<hr />
+<h2 id="whats-new-in-cc-20171-142">What's New In CC 2017.1 (14.2)?<a class="headerlink" href="#whats-new-in-cc-20171-142" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Layer Params can include Masks and Effects</li>
+</ul>
+<p>Effects that use layers as an input, such as Set Matte and Displacement Map, can now target the input layer's masks and effects, instead of only the source of the layer. This means that for there is no need to pre-compose layers just so that they can be referenced by an effect.</p>
+<p>Where an effect includes a layer parameter, a new menu to the right of the layer selector allows you to choose whether to target the input layer from its source, masks, or effects:</p>
+<ul>
+<li>Source: targets only the source of the layer. Masks and effects are ignored.</li>
+<li>Masks: targets the layer after its masks are applied. Effects are ignored.</li>
+<li>Effects &amp; Masks: targets the layer after its masks and effects are applied.</li>
+</ul>
+<p>This control is similar to the View menu at the bottom of the Layer viewer panel, which allows you to render the layer from different positions in the rendering order: from its source, from its masks, or from its individual effects.</p>
+<p>As this is a user-facing option, the design is intended to be transparent to the effect. From the effect's perspective, the input simply just includes the upstream effects and masks without any change to the effect. For any effect that uses layer params, here are some testing recommendations:</p>
+<ul>
+<li>Effect continues to work as expected.</li>
+<li>Using new control in the layer param for Source/Mask/Effects works with effect.</li>
+<li>Opening old projects or saving back to a previous version project does not break effect.</li>
+<li>Confirm that effect cannot self-reference; meaning cannot use the effects on the layer as input for the same layer.</li>
+<li>Suite Enhancements</li>
+</ul>
+<p>PF_AdvTimeSuite is now at version 3, providing a revised <a href="../../effect-details/useful-utility-functions/#pf_advtimesuite4">PF_GetTimeDisplayPref()</a> call that uses a revised <code>PF_TimeDisplayPrefVersion</code> parameter, that supports higher frame rates.
+The previous version 2 of the call can now return an error if there is a problem with the values exceeding the range supported by the structure.</p>
+<p>Comp Suite is now at version 11, with a new call, <a href="../../aegps/aegp-suites/#aegp_compsuite11">AEGP_ReorderCompSelection()</a>, to move a selection to a certain layer index.
+It should be used along with <code>AEGP_SetSelection()</code>.</p>
+<hr />
+<h2 id="whats-new-in-cc-2017-141">What's New In CC 2017 (14.1)?<a class="headerlink" href="#whats-new-in-cc-2017-141" title="Permanent link">&para;</a></h2>
+<p>Unicode support for <a href="../../aegps/aegp-suites/#aegp_itemsuite9">AEGP Item Suite</a> and <a href="../../aegps/aegp-suites/#render-queue-item-suite">AEGP Render Queue Item Suite</a>.</p>
+<hr />
+<h2 id="whats-new-in-cc-2017-140">What's New In CC 2017 (14.0)?<a class="headerlink" href="#whats-new-in-cc-2017-140" title="Permanent link">&para;</a></h2>
+<p>The GLator sample is back! It has been updated to demonstrate proper OpenGL context management in an effect plug-in.</p>
+<hr />
+<h2 id="whats-new-in-cc-20153-138">What's New In CC 2015.3 (13.8)?<a class="headerlink" href="#whats-new-in-cc-20153-138" title="Permanent link">&para;</a></h2>
+<p>PF_OutFlag_I_AM_OBSOLETE is now supported in Premiere Pro. Also, effect custom UI in Premiere Pro now supports high DPI displays, such as Retina Displays.</p>
+<hr />
+<h2 id="whats-new-in-cc-2015-136">What's New In CC 2015 (13.6)?<a class="headerlink" href="#whats-new-in-cc-2015-136" title="Permanent link">&para;</a></h2>
+<p>New AEGP Item View Suite. This provides a way to get playback time for item view. Only the composition case is implemented in this release. The time passed back should be the playback time of the view when playing and the current (needle) time otherwise.</p>
+<p>AEGP_RenderNewItemSoundData() has been reworked and provides functionality similar to 13.2.</p>
+<hr />
+<h2 id="whats-new-in-cc-2015-1351">What's New In CC 2015 (13.5.1)?<a class="headerlink" href="#whats-new-in-cc-2015-1351" title="Permanent link">&para;</a></h2>
+<p>This release fixes some audio APIs that broke in 13.5 due to threading changes. In 13.5, when called on the UI thread, AEGP_RenderNewItemSoundData() would return A_Err_GENERIC. This restores the functionality when called on the UI thread.</p>
+<p>To avoid a deadlock, in PF_Cmd_UPDATE_PARAMS_UI only, AEGP_RenderNewItemSoundData() will now return silence. This will no longer function as before in this context, but it will continue to work properly elsewhere.</p>
+<hr />
+<h2 id="whats-new-in-cc-2015-135">What's New In CC 2015 (13.5)?<a class="headerlink" href="#whats-new-in-cc-2015-135" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Separate UI and Render Threads</li>
+</ul>
+<p>This release of After Effects includes major architectural changes to separate the UI (main) thread from the render thread. The render thread sends selectors such as PF_Cmd_RENDER, PF_Cmd_SMART_PRERENDER, and PF_Cmd_SMART_RENDER to effect plug-ins. The UI thread sends selectors such as PF_Cmd_SEQUENCE_SETUP, PF_Cmd_USER_CHANGED_PARAM, PF_Cmd_DO_DIALOG, and PF_EVENT_DRAW. PF_Cmd_SEQUENCE_RESETUP is</p>
+<p>sent on both render and UI threads.</p>
+<p>These changes are to improve interactive performance and responsiveness. At the same time, the new design introduces some new requirements and may break assumptions that existing plug-ins relied on. Here are some of the major changes:</p>
+<ol>
+<li>The project can no longer be modified by the render thread (and in fact the render thread now has its own local copy of the project)</li>
+<li>Rendering cannot pass modified sequence data back to the UI thread for custom UI updates</li>
+<li>In general the UI thread should no longer do time-consuming operations such as synchronously rendering frames</li>
+</ol>
+<p>Is your plug-in affected? Test for these problems:</p>
+<ol>
+<li>Render not updating after UI parameter change because it depends on sequence_data, which may not be currently copied to render</li>
+<li>Render not updating during click/drag in the Composition Window (similar reasons)</li>
+<li>Custom Effect UI not updating because it depends on sequence_data generated in render (which is no longer available to the UI because it is in a different project, the render project is immutable, and cache contains previously-rendered frames)</li>
+<li>Errors telling you an operation on the render thread (or UI thread) is not expected</li>
+</ol>
+<p>Generally, calculations that will persist or update the UI will now have to be pulled from the UI thread rather than pushed from the render thread. These cases can require use of new</p>
+<p>13.5 APIs or different solutions than in past releases.</p>
+<ul>
+<li>The Need For More Efficient Sequence Data Handling</li>
+</ul>
+<p>PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA</p>
+<p>PF_Cmd_GET_FLATTENED_SEQUENCE_DATA</p>
+<p>Up to version 13.2, serializing/flattening sequence_data always involved deallocating and reallocating any data structures. Starting in 13.5, as effect changes are made, serializing/ flattening happens even more often. Why? AE needs to serialize/flatten project changes to send from the UI thread to the render thread, to keep them both synchronized.</p>
+<p>To make this process more efficient, starting in 13.5, AE can send PF_Cmd_GET_FLATTENED_SEQUENCE_DATA to request sequence data without requiring the existing data to be deallocated and reallocated. The main difference between this selector and PF_Cmd_SEQUENCE_FLATTEN is that a copy of the correct flattened state is returned without disposing the original structure(s) the effect is currently using. For a code example, refer to the PathMaster sample project.</p>
+<p>This will eventually become required for plug-ins that are rebuilt to be thread-safe (see PF_OutFlag2_AE13_5_THREADSAFE below). The venerable PF_Cmd_SEQUENCE_FLATTEN will eventually be unsupported in future versions.</p>
+<ul>
+<li>PF_OutFlag_FORCE_RERENDER Changes</li>
+</ul>
+<p>Where possible, we recommend triggering rerenders using one of the following: GuidMixInPtr() (described in the next section), arb data, or PF_ChangeFlag_CHANGED_VALUE. All of these allow cached frames to be reused after an Undo.</p>
+<p>Note: As of 14.0, setting PF_ChangeFlag_CHANGED_VALUE for layer or path params is not triggering a rerender. Instead, you may change set the value using AEGP_StreamSuite-</p>
+<blockquote>
+<p>AEGP_SetStreamValue().</p>
+</blockquote>
+<p>FORCE_RERENDER is still needed for situations where sequence_data needs to be copied from the UI thread to the render project/effect clone to keep them matched.</p>
+<p>FORCE_RERENDER is the trigger for this whether the render request uses the cache or not. Once we have the full set of APIs in place needed to manage render state, we will be able to deprecate FORCE_RERENDER.</p>
+<p>FORCE_RERENDER doesn't work in every situation it did before, because it needs to synchronize the UI copy of sequence_data with the render thread copy.</p>
+<p>FORCE_RERENDER works when set during PF_Cmd_USER_CHANGED_PARAM. It also works in CLICK and DRAG events, but only if PF_Cmd_GET_FLATTENED_SEQUENCE_DATA is implemented. This is required to prevent flattening and loss of UI state in the middle of mouse operations. Without GET_FLATTENED, the new FORCE_RERENDER behavior will NOT be turned on.</p>
+<ul>
+<li>GUIDs for Cached Frames</li>
+</ul>
+<p>PF_OutFlag2_I_MIX_GUID_DEPENDENCIES</p>
+<p>GuidMixInPtr()</p>
+<p>Used by SmartFX only. Use this if custom UI or PF_Cmd_DO_DIALOG changes sequence data, or if the render result depends on anything else not factored in, and rerendering may be needed. During PF_Cmd_SMART_PRERENDER, the effect can call GuidMixInPtr() to mix any additional state that affects the render into our internal GUID for the cached frame. Using this GUID, AE can tell whether the frame already exists or if it needs to be rendered. See an example in SmartyPants sample project.</p>
+<p>This is an improvement over the older mechanisms PF_OutFlag_FORCE_RERENDER and PF_Cmd_DO_DIALOG, which would remove the frame from the cache because the host didn't know what else the plug-in was factoring into the rendering. This can also be used rather than PF_OutFlag2_OUTPUT_IS_WATERMARKED.</p>
+<ul>
+<li>Request Frames Asynchronously Without Blocking the UI</li>
+</ul>
+<p>PF_OutFlag2_CUSTOM_UI_ASYNC_MANAGER</p>
+<p>PF_GetContextAsyncManager() AEGP_CheckoutOrRender_ItemFrame_AsyncManager() AEGP_CheckoutOrRender_LayerFrame_AsyncManager()</p>
+<p>For cases where such renders formerly were triggered by side-effect or cancelled implicity</p>
+<p>(such as custom UI histogram drawing), and lifetime is less clear from inside the plug-in, use the new "Async Manager" which can handle multiple simultaneous async requests for effect Custom UI and will automatically support interactions with other AE UI behavior.</p>
+<p>Note: Async retrieval of frames is preferred for handling passive drawing situations, but not when a user action will update the project state. If you are (1) responding to a specific user click, AND 2) you need to update the project as a result, the synchronous AEGP_RenderAndCheckoutLayerFrame() is recommended.</p>
+<p>The new HistoGrid sample in the SDK shows how to do completely asynchronous custom UI DRAW event handling on the UI thread when 1 or more frame renders are needed. e.g. for calculating histograms that are shown in the effect pane. Please note there is still a known bug where drag-changing an upstream param may not refresh the histogram draw until the mouse hovers over it.</p>
+<ul>
+<li>Get Rendered Output of an Effect from its UI</li>
+</ul>
+<p>Effects such as keyers or those that draw histograms of post-processed video can retrieve the needed AEGP_LayerRenderOptionsH using the new function AEGP_NewFromDownstreamOfEffect() in AEGP_LayerRenderOptionsSuite. This function may only be called from the UI thread.</p>
+<ul>
+<li>AEGP Usage on Render Thread</li>
+</ul>
+<p>We've tightened validation of when AEGP calls could be used dangerously (such as from the wrong thread or making a change to the project state in render). You may see new errors if code is hitting such cases. For example, making these calls on the render thread will result in an error:</p>
+<p>suites.UtilitySuite5()-&gt;AEGP_StartUndoGroup() suites.StreamSuite2()-&gt;AEGP_GetStreamName() suites.StreamSuite2()-&gt;AEGP_SetExpressionState() suites.StreamSuite2()-&gt;AEGP_SetExpression() suites.StreamSuite2()-&gt;AEGP_GetNewLayerStream() suites.StreamSuite2()-&gt;AEGP_DisposeStream() suites.EffectSuite3()-&gt;AEGP_DisposeEffect() suites.UtilitySuite5()-&gt;AEGP_EndUndoGroup()</p>
+<p>The solution is to move these calls to the UI thread. Selectors for passive UI updates (such as PF_EVENT_DRAW) are not a place to make changes to project state.</p>
+<p>Another example of more strict requirements is AEGP_RegisterWithAEGP(). The documentation has always noted that this function must be called on PF_Cmd_GLOBAL_SETUP. However in previous versions, plug-ins were able to call this function at other times without running into trouble. Not anymore in 13.5! Calling this function at other times can cause crashes!</p>
+<ul>
+<li>PF_Cmd_SEQUENCE_RESETUP Called on UI or Render Thread?</li>
+</ul>
+<p>There is now a PF_InFlag_PROJECT_IS_RENDER_ONLY flag that is only valid in PF_Cmd_SEQUENCE_RESETUP that will tell you if the effect instance is for render-only purposes. If so, the project should be treated as completely read-only, and you will not be receiving UI related selectors on that effect instance. This can be used to optimize away any UI-only initialization that render does not need. If this flag is false, you should setup UI as normal. This should not be used to avoid reporting errors in render. Errors in render should be reported as usual via existing SDK mechanisms.</p>
+<ul>
+<li>Changes to Avoid Deadlocks</li>
+</ul>
+<p>During development, it was noticed that deadlocks could occur in specific call usage. Seatbelts have been introduced to avoid this. The cases occur in PF_Cmd_UPDATE_PARAMS_UI when using particular calls because of deprecated synchronous behavior in these calls when used in the UI:</p>
+<p>In PF_Cmd_UPDATE_PARAMS_UI only, PF_PARAM_CHECKOUT() for layer parameters will behave as before except that it will return a black frame of the same size, etc., rather than actual rendered pixels. Code that used this for enable/disable detection of parameters should still work as before. Code that used this for getting analysis frames, etc. outside of PF_Cmd_UPDATE_PARAMS_UI will work as before.</p>
+<p>In PF_Cmd_UPDATE_PARAMS_UI only, PF_GetCurrentState() will now return a random GUID. This will no longer function as before in this context, but it will continue to work properly elsewhere.</p>
+<p>The above uses should be rare, but if this affects you please contact us about workarounds.</p>
+<ul>
+<li>Deprecated</li>
+</ul>
+<p>AEGP_RenderAndCheckoutFrame() (on the UI Thread). This call should generally not be used on the UI thread since synchronous renders block interactivity.</p>
+<p>Use in the render thread is fine. The one case where this may still be useful on the UI thread is a case like a UI button that requires a frame to calculate a parameter which then updates the AE project.</p>
+<p>For example, an "Auto Color" button that takes a frame and then adjusts effect params as a result.</p>
+<p>A beta of a progress dialog for this blocking operation if it is slow has been implemented, but using this call on the UI thread should be limited to this special cases. The dialog design is not final.</p>
+<ul>
+<li>Flag for Thread-Safe Effects</li>
+</ul>
+<p>PF_OutFlag2_AE13_5_THREADSAFE</p>
+<p>Plug-ins updated for threading should use this flag to tell AE that the plug-in is expected to be UI thread &lt;&gt; Render thread safe.</p>
+<p>This flag tells AE that different threads on different AE project copies can be in the effect at the same time but not accessing the same instance. While multiple render threads are not yet in use, this will be useful in future releases.</p>
+<ul>
+<li>Support for Effect Version greater than 7 (new max is MAJOR version 127)</li>
+</ul>
+<p>Effects greater than version 7 will now report properly in 13.5 if built with the current SDK headers. It is possible to use these recompiled effects in AE versions older than 13.5, but internally the version number will wrap modulo 8 (e.g. AE will internally see effect version 8 as version 0).</p>
+<p>This can affect the version shown in error dialog display by older AE and affect usage reporting.</p>
+<p>Since many older plug-ins were made unloadable in AE with the shift to 64-bit, it should be unlikely this wrapping would cause ambiguity with actual plug-ins in current use (unless these plug-ins have been rapidly increasing version number over the last few years).</p>
+<p>However, building with an older SDK and using an 8 or higher version will result in the plug-in reporting an incorrect version to AE, which will then cause mismatch with the PiPL version check for the effect which will have the higher bits set. This is not supported.</p>
+<p>If built with an older SDK, you will need to keep the effect version at 7 or below. Increase in version max has been accomplished by adding 4 new higher significant bits to the version that only AE 13.5 and above "sees". These new high version bits are not contiguous with the original, preexisting MAJOR version bits - just ignore the intermediate bits. The new version layout looks like this in hexadecimal or binary.</p>
+<p>0x 3C38 0000</p>
+<p>^^ original MAJOR version bits as a hex mask 0-7</p>
+<p>^^ new HIGH bits extending the original MAJOR version bits 8-127</p>
+<p>0b 0011 1100 0011 1000 0000 0000 0000 0000</p>
+<p>^^ ^ original MAJOR version bits as a hex mask 0-7</p>
+<p>^^ ^^ ignore / do not use</p>
+<p>^^ ^^ new HIGH bits extend the original MAJOR version bits 8-127.</p>
+<p>These bits are ignored in AE versions older than 13.5.</p>
+<ul>
+<li>New Installer Hints for macOS</li>
+</ul>
+<p>Developers can find paths to the default location of plug-ins, scripts, and presets on macOS X in a new plist file (same as the paths in the Windows registry): /Library/Preferences/ com.Adobe.After Effects.paths.plist</p>
+<p>You can use the values in this plist to direct where your installers or scripts write files, in the same way that you would use the paths keys in the registry on Windows: HKEY_LOCAL_MACHINESOFTWAREAdobeAfter Effects13.5</p>
+<ul>
+<li>Work In Progress</li>
+</ul>
+<p>AEGP_RenderAndCheckoutLayerFrame_Async() AEGP_CancelAsyncRequest()</p>
+<p>This APIs are in progress, and should not be used yet.</p>
+<hr />
+<h2 id="whats-new-in-cc-20141-131">What's New In CC 2014.1 (13.1)?<a class="headerlink" href="#whats-new-in-cc-20141-131" title="Permanent link">&para;</a></h2>
+<p>PF_CreateNewAppProgressDialog()</p>
+<p>It won't open the dialog unless it detects a slow render. (2 seconds timeout).</p>
+<hr />
+<h2 id="whats-new-in-cc-2014-130">What's New In CC 2014 (13.0)?<a class="headerlink" href="#whats-new-in-cc-2014-130" title="Permanent link">&para;</a></h2>
+<p>Starting in CC 2014, After Effects will now honor a change to a custom UI height made using <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_UpdateParamUI</a>.</p>
+<p><a href="../../aegps/aegp-suites/#aegp_effectsuite4">AEGP Effect Suite</a> is now at version 4, adding new functions to work with effect masks. <a href="../../aegps/aegp-suites/#aegp_rendersuite4">AEGP_RenderSuite</a> is now at version 4, adding a new function <code>AEGP_RenderAndCheckoutLayerFrame</code>, which allows frame checkout of the current</p>
+<p>layer with effects applied at non-render time. This is useful for an operation that requires the frame, for example, when a button is clicked and it is acceptable to wait for a moment while it is rendering.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since it is not asynchronous, it will not solve the general problem where custom UI needs to draw based on the frame.</p>
+</div>
+<p>The layer render options are specified using the new <a href="../../aegps/aegp-suites/#aegp_renderoptionssuite4">AEGP_LayerRenderOptionsSuite</a>.</p>
+<p><a href="../other-integration-possibilities/#mercury-transmit">Mercury Transmit</a> plug-ins and <a href="../other-integration-possibilities/#html5-panels">HTML5 Panels</a> are now supported.</p>
+<hr />
+<h2 id="whats-new-in-cc-120">What's New In CC (12.0)?<a class="headerlink" href="#whats-new-in-cc-120" title="Permanent link">&para;</a></h2>
+<p>Effect names can now be up to 47 characters long, up from 31 characters previously.</p>
+<p>We added the <a href="../../effect-details/parameters-floating-point-values/#pf_angleparamsuite1">PF_AngleParamSuite</a>, providing a way to get floating point values for angle parameters. <a href="../../effect-details/useful-utility-functions/">PF App Suite</a> version 5 adds <code>PF_AppGetLanguage</code> to query the current language so that a plug-in can use the correct language string, as well as several new PF_App_ColorType enum values for new elements whose colors can be queried.</p>
+<p><a href="../../aegps/aegp-suites/#persistent-data-suite">AEGP Persistent Data Suite</a> is now at version 4, adding a new parameter to AEGP_GetApplicationBlob to choose between retrieving several different application blobs. There are also new functions to get/set time and ARGB values.</p>
+<p><a href="../../aegps/aegp-suites/#aegp_compositesuite2">AEGP Composition Suite</a> is now at version 10, adding new functions to check/modify whether layer names or source names are shown, and whether the blend modes column is shown or not. Also added are new functions to get and set the Motion Blur Adaptive Sample Limit.</p>
+<p><a href="../../aegps/aegp-suites/#aegp_layersuite9">AEGP Layer Suite</a> is now at version 8, adding new functions to set/get the layer sampling quality. <a href="../../artisans/artisan-data-types/#aegp_canvassuite8">AEGP_CanvasSuite</a> is also now at version 8. The new function <code>AEGP_MapCompToLayerTime</code> handles time remapping with collapsed or nested comps, unlike AEGP_ConvertCompToLayerTime.</p>
+<p><a href="../../aegps/aegp-suites/#aegp_utilitysuite6">AEGP_UtilitySuite</a> is now at version 6, adding a new Unicode-aware function: <code>AEGP_ReportInfoUnicode</code>. Another new function, <code>AEGP_GetPluginPaths</code>, provides some useful paths related to the plug-in and the After Effects executable itself.</p>
+<p>The behavior for <code>AEGP_NewPlaceholderFootageWithPath</code> has been updated, so that the file_type should now be properly set, otherwise a warning will appear.</p>
+<p><code>AEGP_InsertMenuCommand</code> can now insert menu items in the File&gt;New submenu.</p>
+<p><a href="../../aeios/new-kids-on-the-function-block/#aegp_ioinsuite5">AEGP_IOInSuite</a> is now at version 5, adding new functions to get/set/clear the native start time, and to get/set the drop-frame setting of footage.</p>
+<hr />
+<h2 id="whats-new-in-cs601-1101">What's New In CS6.0.1 (11.0.1)?<a class="headerlink" href="#whats-new-in-cs601-1101" title="Permanent link">&para;</a></h2>
+<p>New in 11.0.1, the AE effect API version has been incremented to 13.3.</p>
+<p>This allows effects to distinguish between 11.0 and 11.0.1.</p>
+<p>There is a bug in 11.0 with the Global Performance Cache, when a SmartFX effect uses both <code>PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT</code> &amp; <code>PF_OutFlag_NON_PARAM_VARY</code>.</p>
+<p>Calling <code>checkout_layer</code> during <code>PF_Cmd_SMART_PRE_RENDER</code> returns empty rects in <code>PF_CheckoutResult</code>.</p>
+<p>The workaround is to simply make the call again. This workaround is no longer needed in 11.0.1.</p>
+<hr />
+<h2 id="whats-new-in-cs6-110">What's New In CS6 (11.0)?<a class="headerlink" href="#whats-new-in-cs6-110" title="Permanent link">&para;</a></h2>
+<p>We've made several refinements for better parameter UI handling. <code>PF_PUI_INVISIBLE</code> parameter UI flag is now supported in After Effects, which is useful if your plug-in needs hidden parameters that affect rendering. Now when a plug-in disables a parameter using <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_UpdateParamUI</a>, we now save that state in the UI flags so that the plug-in can check the flag in the future to see if it is disabled. A new flag, <code>PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN</code>, allows a parameter to be unhidden without twirling open any parents and without scrolling the parameter into view in the Effect Controls panel and the Timeline panel.</p>
+<p>Effects that render a watermark over the output when the plug-in is in trial mode can now tell After Effects whether watermark rendering mode is on or off, using the new <code>PF_OutFlag2_OUTPUT_IS_WATERMARKED</code>.</p>
+<p>The new Global Performance Cache means you must tell After Effects to discard old cached frames <a href="../../effect-details/tips-tricks/#caching-behavior">when changing your effect's rendering</a>.</p>
+<p>We've removed <code>PF_HasParamChanged</code> and <code>PF_HaveInputsChangedOverTimeSpan</code>, providing <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_AreStatesIdentical</a> instead.</p>
+<p>Effects that provide custom UI can now receive <code>PF_Event_MOUSE_EXITED</code>, to gain notification that the mouse exited the layer or comp panel. <code>PF_ParamUtilsSuite</code> is now at version 3.</p>
+<p><code>PF_GET_PLATFORM_DATA</code> now has new selectors for getting the wide character path of the executable and resource file: <code>PF_PlatData_EXE_FILE_PATH_W</code> and <code>PF_PlatData_RES_FILE_PATH_W</code>. The previous non-wide selectors are now deprecated.</p>
+<p>3D is a major theme of AE CS6. A new <code>AEGP_LayerFlag_ENVIRONMENT_LAYER</code> has been added. Many new <a href="../../aegps/aegp-suites/#aegp_streamsuite5">layer streams</a> were added.</p>
+<p>Additionally, <code>AEGP_LayerStream_SPECULAR_COEFF</code> was renamed to <code>AEGP_LayerStream_SPECULAR_INTENSITY</code>, <code>AEGP_LayerStream_SHININESS_COEFF</code> was renamed to <code>AEGP_LayerStream_SPECULAR_SHININESS</code>, and <code>AEGP_LayerStream_METAL_COEFF</code> was renamed to just <code>AEGP_LayerStream_METAL</code>.</p>
+<p>A new suite, <a href="../../aegps/aegp-suites/#render-queue-monitor-suite">AEGP_RenderQueueMonitorSuite</a>, provides all the info a render queue manager needs to figure out what is happening at any point in a render.</p>
+<p><a href="../../aegps/aegp-suites/#aegp_masksuite6">AEGP Mask Suite</a> is now at version 6, and provides functions to get and set the mask feather falloff type. <a href="../../aegps/aegp-suites/#aegp_maskoutlinesuite3">AEGP Mask Outline Suite</a> is now at version 3, and provides access to get and set mask outline feather information.</p>
+<p>Effects that depend on masks now have a new flag available, <code>PF_OutFlag2_DEPENDS_ON_UNREFERENCED_MASKS</code>.</p>
+<p><a href="../../aegps/aegp-suites/#aegp_compositesuite2">AEGP Composition Suite</a> is now at version 9. AEGP_CreateTextLayerInComp and</p>
+<p>AEGP_CreateBoxTextLayerInComp now have a new parameter, select_new_layerB.</p>
+<p><a href="../../aegps/aegp-suites/#aegp_rendersuite4">AEGP Render Suite</a> is now at version 3, adding a new function to get the GUID for a render receipt.</p>
+<p>Finally, we have added two new read-only <a href="../../aegps/aegp-suites/#aegp_dynamicstreamsuite4">Dynamic Stream</a> flags: <code>AEGP_DynStreamFlag_SHOWN_WHEN_EMPTY</code> and <code>AEGP_DynStreamFlag_SKIP_REVEAL_WHEN_UNHIDDEN</code>.</p>
+<p>For effects running in Premiere Pro CS6, we have added the ability to get 32-bit float and YUV frames from <code>PF_CHECKOUT_PARAM</code>.</p>
+<hr />
+<h2 id="and-what-was-new-before-cs6">...and what was new before CS6?<a class="headerlink" href="#and-what-was-new-before-cs6" title="Permanent link">&para;</a></h2>
+<p>For history this far back, see obsolete copies of the SDK (which we don't provide; if someone wants you do develop for antique software, they'd best provide the SDK).</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      All content is copyright Adobe Systems Incorporated.
+    </div>
+  
+  
+    Made with
+    <a
+      href="https://squidfunk.github.io/mkdocs-material/"
+      target="_blank" rel="noopener"
+    >
+      Material for MkDocs
+    </a>
+  
+</div>
+
+<!-- Print button -->
+<div class="md-copyright">
+  
+  <a href="../../print_page/" title="Print Site" class="md-content__button md-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></svg>
+  </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>

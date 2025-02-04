@@ -1,0 +1,3293 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ae-plugins.docsforadobe.dev/effect-details/compute-cache-api/">
+      
+      
+        <link rel="prev" href="../tips-tricks/">
+      
+      
+        <link rel="next" href="../../smartfx/smartfx/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+    
+    
+      
+        <title>Compute Cache API - After Effects C++ SDK Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global-syntax-highlight.css">
+    
+      <link rel="stylesheet" href="../../_static/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#compute-cache-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+  Welcome to the new scripting guide!
+
+  This is a work in progress.
+
+  Please provide all feedback via
+  <a ref="me" href="https://github.com/orgs/docsforadobe/discussions">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1M1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg>
+    </span>
+    <strong>the org's discussion forum</strong>
+  </a>.
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docsforadobe.dev" title="After Effects C++ SDK Guide" class="md-header__button md-logo" aria-label="After Effects C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            After Effects C++ SDK Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Compute Cache API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/docsforadobe/after-effects-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    after-effects-plugin-guide
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docsforadobe.dev" title="After Effects C++ SDK Guide" class="md-nav__button md-logo" aria-label="After Effects C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    After Effects C++ SDK Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/docsforadobe/after-effects-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    after-effects-plugin-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/what-can-i-do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What Can I Do With This SDK?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/other-integration-possibilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Integration Possibilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/sdk-audience/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Audience
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/how-to-start-creating-plug-ins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How To Start Creating Plug-ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/sample-projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/debugging-plug-ins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging Plug-ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/compatibility-across-multiple-versions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compatibility Across Multiple Versions?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/third-party-plug-in-hosts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Third-party Plug-in Hosts?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/pipl-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PiPL Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/exceptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/where-installers-should-put-plug-ins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Where Installers Should Put Plug-ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/localization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/apple-silicon-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apple Silicon Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/symbol-export/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exporting Symbols in Effects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/next-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Next Steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Effect Basics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Effect Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/effect-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effect Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/entry-point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entry Point
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/command-selectors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Command Selectors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/PF_InData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_InData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/PF_OutData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_OutData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/parameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parameters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/PF_ParamDef/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_ParamDef
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/PF_EffectWorld/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_EffectWorld / PF_LayerDef
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-basics/errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Errors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Effect Details
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Effect Details
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi-frame-rendering-in-ae/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi-Frame Rendering in AE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../effect-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effect Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessing-function-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accessing the After Effects Function Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory-allocation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Allocation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-buffer-management-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Buffer Management Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iteration-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iteration Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics-utility-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphics Utility Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interaction-callback-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interaction Callback Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pixel-aspect-ratio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Aspect Ratio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameters-floating-point-values/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parameters & Floating Point Values
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter-supervision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parameter Supervision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global-sequence-frame-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Global, Sequence, & Frame Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arbitrary-data-parameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arbitrary Data Parameters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../useful-utility-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Useful Utility Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motion-blur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motion Blur
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Working With Paths
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessing-camera-light-information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accessing Camera & Light Information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-space-conversion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Color Space Conversion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changing-parameter-orders/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changing Parameter Orders, the Nice Way
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tips-tricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips & Tricks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Compute Cache API
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Compute Cache API
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#aegp_computecachesuite1" class="md-nav__link">
+		<span class="md-ellipsis">
+			AEGP_ComputeCacheSuite1
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#aegp_computecachecallbacks" class="md-nav__link">
+		<span class="md-ellipsis">
+			AEGP_ComputeCacheCallbacks
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#generating-a-key" class="md-nav__link">
+		<span class="md-ellipsis">
+			Generating a Key
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#aegp_hashsuite1" class="md-nav__link">
+		<span class="md-ellipsis">
+			AEGP_HashSuite1
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#compute-or-checkout-the-cache-value" class="md-nav__link">
+		<span class="md-ellipsis">
+			Compute or Checkout the Cache Value
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Compute or Checkout the Cache Value">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#single-cache-value" class="md-nav__link">
+		<span class="md-ellipsis">
+			Single Cache Value
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#multi-checkout-cache-values" class="md-nav__link">
+		<span class="md-ellipsis">
+			Multi-Checkout Cache Values
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#impact-of-wait_for_other_threadb-on-aegp_computeifneededandcheckout" class="md-nav__link">
+		<span class="md-ellipsis">
+			Impact of wait_for_other_threadB on AEGP_ComputeIfNeededAndCheckout
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#checking-cache-state" class="md-nav__link">
+		<span class="md-ellipsis">
+			Checking Cache State
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#persistence-of-cache" class="md-nav__link">
+		<span class="md-ellipsis">
+			Persistence of Cache
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#real-world-integration-example" class="md-nav__link">
+		<span class="md-ellipsis">
+			Real-world Integration Example
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SmartFX
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            SmartFX
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartfx/smartfx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SmartFX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Effect UI & Events
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Effect UI & Events
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/effect-ui-events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effect UI & Events
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/PF_EventExtra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_EventExtra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/PF_EventUnion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_EventUnion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/custom-ui-and-drawbot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom UI & Drawbot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/ui-callbacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UI Callbacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effect-ui-events/tips-and-tricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips & Tricks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Audio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/audio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/global-outflags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Global Outflags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/audio-data-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Data Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/audio-specific-float-slider-variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio-Specific Float Slider Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/accessing-audio-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accessing Audio Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/audio-considerations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Considerations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AEGPs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            AEGPs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/aegps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AEGPs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/data-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/aegp-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AEGP Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/cheating-effect-usage-of-aegp-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheating Effect Usage of AEGP Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aegps/aegp-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AEGP Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Artisans
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Artisans
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../artisans/artisans/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Artisans
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../artisans/artisan-data-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Artisan Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AEIOs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            AEIOs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aeios/aeios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AEIOs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aeios/calling-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Calling Sequence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aeios/AEIO_ModuleInfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AEIO_ModuleInfo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aeios/new-kids-on-the-function-block/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    New Kids On The Function Block
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aeios/implementation-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementation Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Premiere Pro
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Premiere Pro
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/ppro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Premiere Pro & Other Hosts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/plug-in-installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug-in Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/basic-host-differences/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Host Differences
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/multithreading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multithreading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/bigger-differences/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bigger Differences
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/plug-ins-reloaded/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug-Ins... Reloaded
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/premiere-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Premiere Elements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/unsupported-features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unsupported Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ppro/other-hosts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Hosts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#aegp_computecachesuite1" class="md-nav__link">
+		<span class="md-ellipsis">
+			AEGP_ComputeCacheSuite1
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#aegp_computecachecallbacks" class="md-nav__link">
+		<span class="md-ellipsis">
+			AEGP_ComputeCacheCallbacks
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#generating-a-key" class="md-nav__link">
+		<span class="md-ellipsis">
+			Generating a Key
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#aegp_hashsuite1" class="md-nav__link">
+		<span class="md-ellipsis">
+			AEGP_HashSuite1
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#compute-or-checkout-the-cache-value" class="md-nav__link">
+		<span class="md-ellipsis">
+			Compute or Checkout the Cache Value
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Compute or Checkout the Cache Value">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#single-cache-value" class="md-nav__link">
+		<span class="md-ellipsis">
+			Single Cache Value
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#multi-checkout-cache-values" class="md-nav__link">
+		<span class="md-ellipsis">
+			Multi-Checkout Cache Values
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#impact-of-wait_for_other_threadb-on-aegp_computeifneededandcheckout" class="md-nav__link">
+		<span class="md-ellipsis">
+			Impact of wait_for_other_threadB on AEGP_ComputeIfNeededAndCheckout
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#checking-cache-state" class="md-nav__link">
+		<span class="md-ellipsis">
+			Checking Cache State
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#persistence-of-cache" class="md-nav__link">
+		<span class="md-ellipsis">
+			Persistence of Cache
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#real-world-integration-example" class="md-nav__link">
+		<span class="md-ellipsis">
+			Real-world Integration Example
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/edit/master/docs/effect-details/compute-cache-api.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/raw/master/docs/effect-details/compute-cache-api.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="compute-cache-api">Compute Cache API<a class="headerlink" href="#compute-cache-api" title="Permanent link">&para;</a></h1>
+<p>The Compute Cache API provides a thread-safe cache as a replacement or supplement to Sequence Data where effects can compute, store and read data before or during Render. It should be used to cache data that is time consuming to compute. For Multi-Frame Rendering effects it can have a large benefit by eliminating redundant computation across threads. The cache is unified with other caches in After Effects thus memory usage is balanced across other caches. The model also supports the user doing A/B testing with parameters and the cache state persisting for both A and B states thus speeding up workflow. These last two design characteristics benefit both single- and multi-frame rendering effects.</p>
+<p>The Compute Cache is implemented in the AEGP_ComputeCache suite and is accessible via <code>AEGP_ComputeCacheSuite1</code> and <code>AEGP_ComputeCacheCallbacks</code>.</p>
+<hr />
+<h2 id="aegp_computecachesuite1">AEGP_ComputeCacheSuite1<a class="headerlink" href="#aegp_computecachesuite1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AEGP_ClassRegister</code></td>
+<td>Registers the cache type using a globally unique identifier for the compute class, such as "adobe.ae.effect.test_effect.cache_v_1".<br/><br/>An object of type <code>AEGP_ComputeCacheCallbacks</code> should be setup with function pointers to the callback methods required by <code>AEGP_ComputeCacheSuite1</code>.<br/><br/>This function will typically be called during <code>PF_Cmd_GLOBAL_SETUP</code>, but can be called any time.<br/><pre>A_Err (*AEGP_ClassRegister)(<br/>  AEGP_CCComputeClassIdP  compute_classP,<br/>  const AEGP_ComputeCacheCallbacks  *callbacksP);</pre></td>
+</tr>
+<tr>
+<td><code>AEGP_ClassUnRegister</code></td>
+<td>Unregister a previously registered cache type using the globally unique identifier for the compute class.<br/><br/>All cached values will be purged at this time through calls to delete_compute_value.<br/><br/>This function will typically be called during <code>PF_Cmd_GLOBAL_SETDOWN</code>, but can be called any time.<br/><pre>A_Err (*AEGP_ClassUnregister)(<br/>  AEGP_CCComputeClassIdP    compute_classP);</pre></td>
+</tr>
+<tr>
+<td><code>AEGP_ComputeIfNeededAndCheckout</code></td>
+<td>This is the main checkout call that is used to compute and/or return an <code>AEGP_CCCheckoutReceiptP</code> receipt pointer to the cache entry.<br/><br/>Pass in the <code>AEGP_CCComputeClassIdP</code> that was used in the <code>AEGP_RegisterClass</code> method.<br/><br/>The <code>AEGP_CCComputeOptionsRefconP</code> object will be passed through to the <code>AEGP_ComputeCacheCallbacks</code>, <code>generate_key</code> and <code>compute</code> method as needed. This objects type is opaque to <code>AEGP_ComputeCacheSuite1</code> and will need to be casted appropriately by the effects implementation of <code>generate_key</code> and <code>compute</code>.<br/><br/>The <code>wait_for_other_threadB bool</code> is used when the cache value needs to be computed. When set to <code>true</code>, the method will always execute the compute step or return a completed receipt to the cache. When set to <code>false</code>, this method will complete the compute step unless another thread is already computing the cache entry, in which case <code>A_Err_NOT_IN_CACHE_OR_COMPUTE_PENDING</code> will be returned. See <a href="#impact-of-wait_for_other_threadb-on-aegp_computeifneededandcheckout">Impact of wait_for_other_threadB on AEGP_ComputeIfNeededAndCheckout</a> for more information on this parameter.<br/><br/>The <code>CCCheckoutReceiptP</code> is an opaque pointer that can then be passed into <code>AEGP_GetReceiptComputeValue</code> to get a pointer to the computed value from the cache.<br/><pre>A_Err (*AEGP_ComputeIfNeededAndCheckout)(<br/>  AEGP_CCComputeClassIdP    compute_classP,<br/>  AEGP_CCComputeOptionsRefconP  opaque_optionsP,<br/>  bool  wait_for_other_threadB,<br/>  AEGP_CCCheckoutReceiptP   *compute_receiptPP);</pre></td>
+</tr>
+<tr>
+<td><code>AEGP_CheckoutCached</code></td>
+<td>Use this method to check if the cache value has already been computed, returning the <code>AEGP_CCCheckoutReceiptP</code> receipt if available.<br/><br/>If the cache has not been computed, <code>A_Err_NOT_IN_CACHE_OR_COMPUTE_PENDING</code> will be returned.<br/><pre>A_Err (*AEGP_CheckoutCached)(<br/>  AEGP_CCComputeClassIdP    compute_classP,<br/>  AEGP_CCComputeOptionsRefconP    opaque_optionsP,<br/>  AEGP_CCCheckoutReceiptP   *compute_receiptPP);</pre></td>
+</tr>
+<tr>
+<td><code>AEGP_GetReceiptComputeValue</code></td>
+<td>Use this method to retrieve the cache value from the compute method.<br/><br/>Pass in the receipt received from <code>AEGP_ComputeIfNeededAndCheckout</code> or <code>AEGP_CheckoutCached</code>.<br/><br/>The returned <code>CCComputeValueRefconP</code> should be casted to the correct object type that was used in the <code>compute</code> method.<br/><pre>A_Err (*AEGP_GetReceiptComputeValue)(<br/>  const AEGP_CCCheckoutReceiptP   compute_receiptP,<br/>  AEGP_CCComputeValueRefconP    *compute_valuePP);</pre></td>
+</tr>
+<tr>
+<td><code>AEGP_CheckinComputeReceipt</code></td>
+<td>Call this method after the effect code is done using a checked-out, computed cache value, before returning to the host, passing in the receipt returned from <code>AEGP_ComputeIfNeededAndCheckout</code> or <code>AEGP_CheckoutCached</code>.<br/><br/>If the receipt being passed in is invalid, error <code>A_Err_STRUCT</code> will be returned. A pop-up error dialog will also be shown with this message, <em>"Trying to check in invalid receipt. Please make sure you are not double checking in or checking in invalid receipts."</em><br/><pre>A_Err (*AEGP_CheckinComputeReceipt)(<br/>  AEGP_CCCheckoutReceiptP   compute_receiptP );</pre></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="aegp_computecachecallbacks">AEGP_ComputeCacheCallbacks<a class="headerlink" href="#aegp_computecachecallbacks" title="Permanent link">&para;</a></h2>
+<p>The effect must provide implementations for these callbacks.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>generate_key</code></td>
+<td>Called when creating a cache entry and when doing a cache lookup. Should be fast to compute. All of the inputs needed to uniquely address the cache entry must be hashed into the key. If a layer checkout is needed to calculate the cache value, such as with a histogram, then the hash of that input must be included.<br/>See <code>PF_ParamUtilsSuite::PF_GetCurrentState</code> to get the hash for a layer param. Note this is the hash of the inputs needed to generate the frame, not a hash the pixels in the frame, thus a render is not triggered when making this call.<br/><br/>The <code>AEGP_CCComputeOptionsRefconP</code> will contain the data passed into the <code>AEGP_ComputeIfNeededAndCheckout</code> or <code>AEGP_CheckoutCached</code> methods.<br/><br/>The <code>AEGP_CComputeKeyP</code> <code>out_keyP</code> returns the hashed key value, see the <code>AEGP_CCComputeKey</code> definition in the <code>AE_ComputeCacheSuite.h</code> for type definition.<br/><br/><strong>NOTE:</strong><br/>The <code>AEGP_CCComputeOptionsRefconP</code> parameter passed into <code>generate_key</code> and <code>compute</code> must contain all inputs to calculate the hash key for a cache value / to compute the cache value itself.<br/>This will frequently include many or all of the effect parameters and any layer parameters needed to calculate the cache value. See the <a href="#real-world-integration-example">Real-world Integration Example</a> for more details.<br/><pre>A_Err (*generate_key)(<br/>  AEGP_CCComputeOptionsRefconP   optionsP,<br/>  AEGP_CCComputeKeyP   out_keyP);</pre></td>
+</tr>
+<tr>
+<td><code>compute</code></td>
+<td>Called by <code>AEGP_ComputeIfNeededAndCheckout</code> when a cache value needs to be computed.<br/><br/>The <code>AEGP_CCComputeOptionsRefconP</code> will contain the data passed into the <code>AEGP_ComputeIfNeededAndCheckout</code> method.<br/><br/>Set <code>out_valuePP</code> to point to the result of the computed cache value, casted to the <code>AEGP_CCComputeValueRefconP</code> type.<br/><br/>For example:<br/><pre>*out_valuePP = reinterpret_cast<AEGP_CCComputeValueRefconP>(myComputedResultP);</pre><br/><pre>A_Err (*compute)(<br/>  AEGP_CCComputeOptionsRefconP   optionsP,<br/>  AEGP_CCComputeValueRefconP   *out_valuePP);</pre></td>
+</tr>
+<tr>
+<td><code>approx_size_value</code></td>
+<td>Called by the cache system to determine the total footprint of memory being used by the computed cache value. The computed value is not required to be a flat structure.<br/><br/>The size is an input to the cache purging heuristic.<br/><br/>The <code>AEGP_CCComputeValueRefconP</code> is the computed cache value that can be used to generate the size value to return.<br/><pre>size_t (*approx_size_value)(<br/>  AEGP_CCComputeValueRefconP   valueP);</pre></td>
+</tr>
+<tr>
+<td><code>delete_compute_value</code></td>
+<td>This is called to free the value when the cache entry needs to be purged. All resources owned by the cache value must be freed here.<br/><pre>void (*delete_compute_value)(<br/>  AEGP_CCComputeValueRefconP   valueP);</pre></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="generating-a-key">Generating a Key<a class="headerlink" href="#generating-a-key" title="Permanent link">&para;</a></h2>
+<p>The <code>generate_key</code> callback must return a unique key within the Registered Class to be used as the cache key for an entry in the cache but for future-proofing, we'd strongly suggest the key is globally unique across all registered classes. The AE SDK provides the <code>AEGP_HashSuite1</code> suite to assist in generating a GUID that can be used as the key.</p>
+<p>The result of <code>generate_key</code> must be provided as a <code>AEGP_CCComputeKey</code> object which is type defined from the following struct:</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">AEGP_GUID</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">A_long</span><span class="w"> </span><span class="n">bytes</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="p">}</span><span class="w"> </span><span class="n">AEGP_GUID</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h2 id="aegp_hashsuite1">AEGP_HashSuite1<a class="headerlink" href="#aegp_hashsuite1" title="Permanent link">&para;</a></h2>
+<p>The <code>AEGP_HashSuite1</code> can be used to generate a unique key for use within the <code>AEGP_ComputeCacheCallbacks</code> <code>generate_key()</code> callback method.</p>
+<p>After the suite is acquired, call the <code>AEGP_CreateHashFromPtr()</code> method with a buffer; we suggest a character array with a recognizable string so you can easily recall what's being stored in the cache entry. Then call <code>AEGP_HashMixInPtr()</code> with any effect parameters, layer checkout hash results, etc., that should result in a different cache key and entry.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AEGP_CreateHashFromPtr</code></td>
+<td>Call this to begin creating the hash which will be returned in <code>hashP</code> that can be used for returning from <code>generate_key</code>.<br/><pre>A_Err (*AEGP_CreateHashFromPtr)(<br/>  const A_u_longlong buf_sizeLu,<br/>  const void *bufPV,<br/>  AEGP_GUID *hashP);</pre></td>
+</tr>
+<tr>
+<td><code>AEGP_HashMixInPtr</code></td>
+<td>Call this for each effect parameter, layer checkout hash or other data that would be used in calculating a cache entry.<br/><pre>A_Err(*AEGP_HashMixInPtr)(<br/>  const A_u_longlong buf_sizeLu,<br/>  const void *bufPV,<br/>  AEGP_GUID *hashP);</pre></td>
+</tr>
+</tbody>
+</table>
+<p>Here's an example of using the <code>AEGP_HashSuite1</code> where Levels2Histo_generate_key_cb() is a callback called for <code>generate_key()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">A_Err</span><span class="w"> </span><span class="nf">Levels2Histo_generate_key_cb</span><span class="p">(</span><span class="n">AEGP_CCComputeOptionsRefconP</span><span class="w"> </span><span class="n">opaque_optionsP</span><span class="p">,</span><span class="w"> </span><span class="n">AEGP_CCComputeKeyP</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">try</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Levels2Histo_options</span><span class="o">&amp;</span><span class="w">  </span><span class="n">histo_op</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Levels2Histo_options</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">opaque_optionsP</span><span class="p">));</span>
+<span class="w">    </span><span class="n">A_Err</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Err_NONE</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">AEGP_HashSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hash_suite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">AEGP_HashSuite1</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n">in_dataP</span><span class="p">,</span>
+<span class="w">        </span><span class="n">kAEGPHashSuite</span><span class="p">,</span>
+<span class="w">        </span><span class="n">kAEGPHashSuiteVersion1</span><span class="p">,</span>
+<span class="w">        </span><span class="n">out_dataP</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// define a simple buffer that is easy to recognize as a starting hash</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hash_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Level2Histo&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_CreateHashFromPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">hash_buffer</span><span class="p">),</span><span class="w"> </span><span class="n">hash_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Mix in effect parameters that would create a different compute result and should generate a different cache entry and key.</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_HashMixInPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">histo_op</span><span class="p">.</span><span class="n">depthL</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">histo_op</span><span class="p">.</span><span class="n">depthL</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_HashMixInPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">histo_op</span><span class="p">.</span><span class="n">bB</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">histo_op</span><span class="p">.</span><span class="n">bB</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// mix in any other effect parameters that should affect the cache key</span>
+<span class="w">    </span><span class="c1">// ...</span>
+
+<span class="w">    </span><span class="c1">// out_keyP is returned as the generated key for use as the cache key.</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">      </span><span class="cm">/* return most appropriate PF_Err */</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="compute-or-checkout-the-cache-value">Compute or Checkout the Cache Value<a class="headerlink" href="#compute-or-checkout-the-cache-value" title="Permanent link">&para;</a></h2>
+<p>When adding cache support one of the first questions to answer is if a single render call needs to checkout more than one cache value. If more than one cache value is needed to complete a render, then the multi-checkout pattern can be applied to concurrently calculate the caches across multiple render calls and thus avoid serialization of the compute.</p>
+<h3 id="single-cache-value">Single Cache Value<a class="headerlink" href="#single-cache-value" title="Permanent link">&para;</a></h3>
+<p>If a render call only needs one cache value for rendering a frame, then set the <code>wait_for_other_threadB</code> parameter in <code>AEGP_ComputeIfNeededAndCheckout</code> to <code>true</code>. The checkout call will return a receipt, possibly calling the compute callback to populate the cache; or waiting on another thread that had already started the needed computation.</p>
+<h3 id="multi-checkout-cache-values">Multi-Checkout Cache Values<a class="headerlink" href="#multi-checkout-cache-values" title="Permanent link">&para;</a></h3>
+<p>If a render call needs multiple cache values, then the multi-checkout pattern can be used to keep the render threads utilized and thus avoid serializing the compute.</p>
+<p>The concept of using multi-checkout is to have one render (e.g. rendering frame 3) thread take advantage of any other render threads (e.g. frame 1, 2) that are computing needed cache values concurrently with the thread (e.g. frame 3 needs data from frames 1 and 2). If no other threads are computing the requested cached value, then the render thread (frame 3) will execute the compute. Once all the cache value checkout calls have been made, the render thread (frame 3) can then wait for any other threads (frame 1, 2) to finish their compute before executing the pixel rendering. Once the pixel rendering is complete, make sure to check-in any cache values that were checked out (frame 1, 2 and 3).</p>
+<p>Below is example pseudo-code to illustrate this approach.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Render</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Make a request for each cache value that is needed to complete the render</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">first_err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AEGP_ComputeIfNeededAndCheckout</span><span class="p">(</span><span class="n">first_options</span><span class="p">,</span><span class="w"> </span><span class="n">do_not_wait</span><span class="p">,</span><span class="w"> </span><span class="n">first_cache_receipt</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">second_err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AEGP_ComputeIfNeededAndCheckout</span><span class="p">(</span><span class="n">second_options</span><span class="p">,</span><span class="w"> </span><span class="n">do_not_wait</span><span class="p">,</span><span class="w"> </span><span class="n">second_cache_receipt</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Add as many additional do_not_wait checkout calls here as needed.</span>
+
+<span class="w">    </span><span class="c1">// Once all the requests have been made, check to see if any of the Checkouts did not return</span>
+<span class="w">    </span><span class="c1">// a valid checkout receipt.</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">first_err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">A_Err_NOT_IN_CACHE_OR_COMPUTE_PENDING</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">AEGP_ComputeIfNeededAndCheckout</span><span class="p">(</span><span class="n">wait</span><span class="p">,</span><span class="w"> </span><span class="n">first_cache_receipt</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">second_err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">A_Err_NOT_IN_CACHE_OR_COMPUTE_PENDING</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">AEGP_ComputeIfNeededAndCheckout</span><span class="p">(</span><span class="n">wait</span><span class="p">,</span><span class="w"> </span><span class="n">second_cache_receipt</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// Add as many additional waiting checkout calls here as needed</span>
+
+<span class="w">    </span><span class="c1">// All cache values are now available via AEGP_GetReceiptComputeValue for use in the Render</span>
+
+<span class="w">    </span><span class="c1">// ... complete the render steps</span>
+
+<span class="w">    </span><span class="c1">// Check in all cache values now</span>
+<span class="w">    </span><span class="n">AEGP_CheckinComputeReceipt</span><span class="p">(</span><span class="n">first_cache_receipt</span><span class="p">);</span>
+<span class="w">    </span><span class="n">AEGP_CheckinComputeReceipt</span><span class="p">(</span><span class="n">second_cache_receipt</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="impact-of-wait_for_other_threadb-on-aegp_computeifneededandcheckout">Impact of wait_for_other_threadB on AEGP_ComputeIfNeededAndCheckout<a class="headerlink" href="#impact-of-wait_for_other_threadb-on-aegp_computeifneededandcheckout" title="Permanent link">&para;</a></h2>
+<p>Calls to <code>AEGP_ComputeIfNeededAndCheckout</code> will return a checkout receipt for the cache value in nearly every permutation of the parameters, except when <code>wait_for_other_threadB</code> is set to <code>false</code> and another thread is already rendering the requested cache value.</p>
+<table>
+<thead>
+<tr>
+<th>Cache State</th>
+<th><code>wait_for_other_threadB</code> set to <code>False</code></th>
+<th><code>wait_for_other_threadB</code> set to <code>True</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No cache for key</em></td>
+<td>Compute and checkout receipt returned</td>
+<td>Compute and checkout receipt returned</td>
+</tr>
+<tr>
+<td><em>Being computed by another thread</em></td>
+<td>Returns A_Err_NOT_IN_CACHE_OR_COMPUTE_PENDING<br/><br/>Note that After Effects will not report this error to the user, it is only for the effect to respond to.</td>
+<td>Wait for another thread and return checkout receipt upon completion</td>
+</tr>
+<tr>
+<td><em>Cached</em></td>
+<td>Checkout receipt returned</td>
+<td>Checkout receipt returned</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="checking-cache-state">Checking Cache State<a class="headerlink" href="#checking-cache-state" title="Permanent link">&para;</a></h2>
+<ul>
+<li>There may be scenarios where an effect needs to check if a cache value has been computed but doesn't want to actually execute or block while waiting on another thread to complete the compute. This can be achieved through the <code>AEGP_CheckoutCached()</code> method.</li>
+<li>This call could be used to implement a polling pattern where another piece of code is expected to populate the cache. For example, a UI thread could poll the cache for a histogram that is generated on a render thread.</li>
+<li>If the cache value is available, the <code>AEGP_CCCheckoutReceiptP</code> parameter will return a checkout receipt that can be passed to <code>AEGP_GetReceiptComputeValue()</code> to retrieve the cache value. If the cache value is not available, the method will return a <code>A_Err_NOT_IN_CACHE_OR_COMPUTE_PENDING</code> error code.</li>
+</ul>
+<hr />
+<h2 id="persistence-of-cache">Persistence of Cache<a class="headerlink" href="#persistence-of-cache" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Unlike flattened sequence data, the contents of the Compute Cache are not stored with the project and anything computed will need to be recomputed when the project is reopened.</li>
+<li>Entries in the cache will automatically purge if memory is needed for other operations by After Effects. Code relying on the cache value being available should be written assuming the compute step will need to be completed each time.</li>
+<li>The <code>approx_size_value</code> callback should return quickly but provide a reasonably accurate measurement of the data being held by the cache entry. This will allow After Effects to make better decisions on what to purge and when.</li>
+<li>Unregistering the cache class will remove all data of that class from the cache. It will cause a <code>delete_compute_value</code> callback to be made for each entry in the cache associated with the cache class.</li>
+<li>The <code>delete_compute_value</code> callback should free any resources related to the cache entry. The Compute Cache only contains a void * pointer to the resources and cannot free the resources on behalf of the effect.</li>
+</ul>
+<hr />
+<h2 id="real-world-integration-example">Real-world Integration Example<a class="headerlink" href="#real-world-integration-example" title="Permanent link">&para;</a></h2>
+<p>The Auto Color plugin that ships with After Effects is an effect that now utilizes the Compute Cache and the <code>HashSuite1</code> suite to cache histogram and level data used when the effect parameter, Temporal Smoothing, is set to a value greater than 0.</p>
+<p>The initial steps in integrating the Cache and Hash suites were to identify what data was being computed by Auto Color's Temporal Smoothing, what portions of that computation are time-consuming, and then what effect parameters would cause a re-compute to be needed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each effect will need to compute and cache different data, so you'll need to do this review uniquely for your effect.</p>
+</div>
+<p>For Auto Color's Temporal Smoothing, the frame being rendered needs both histogram and level data from the frames surrounding it. The number of surrounding frames that are needed is based on the temporal smoothing parameters value. Both the histogram and levels data can be expensive to calculate but in general can be calculated once for each frame, cached, and then reused as needed.</p>
+<p>However, in the Auto Color effect are a number of other parameters that are used to calculate the cache values including the Black Clip, White Clip, Mid Tones and the Auto Color mode. Accordingly, these parameters need to be included in the <code>generate_key</code> and <code>compute</code> methods.</p>
+<p>With that information in hand, we began the integration of the Compute Cache:</p>
+<ol>
+<li>Define the class registration id and add calls to register and unregister the checkout cache class and callbacks<ul>
+<li>The call to AEGP_ClassRegister is executed during <code>PF_Cmd_GLOBAL_SETUP</code>.</li>
+<li>The call to AEGP_ClassUnregister is executed during <code>PF_Cmd_GLOBAL_SETDOWN</code>.</li>
+</ul>
+</li>
+<li>Implement the callback functions for <code>generate_key</code>, <code>compute</code>, <code>approx_size_value</code> and <code>delete_compute_value</code>.<ul>
+<li><code>generate_key</code> utilizes the <code>AEGP_HashSuite1</code> to generate a unique key mixing in the black clip, white clip, mid tones and auto levels mode. It also mixes in the frame time and time step to ensure the cache is unique for the specific frame being computed.</li>
+<li><code>compute</code> calculates the histogram and levels and stores those two data structures into a single struct that is set as the <code>out_valuePP</code> parameter from the compute callback.</li>
+<li><code>approx_size_value</code> adds the <code>sizeof()</code> the histogram and level data structures that are in the cached value to return the size of the memory being used by the cache entry.</li>
+<li><code>delete_compute_value</code> clears the memory held by the histogram and level data structures for the cache entry.</li>
+</ul>
+</li>
+<li>Integrate the compute/checkout call into Temporal Smoothing<ul>
+<li>The Temporal Smoothing code was updated to include calls to <code>AEGP_ComputeIfNeededAndCheckout</code>. The calls are made for each frame time / time step needed for the Temporal Smoothing algorithm, utilizing the results from other rendering threads computing surrounding frame histogram and levels data.</li>
+</ul>
+</li>
+<li>Integrate the cache check-out and check-in<ul>
+<li>Once all the required cache values were computed for a frame, the effect code checks out the cache values needed using <code>AEGP_GetReceiptComputeValue</code>.</li>
+<li>The cache values are then used as part of the temporal smoothing algorithm to make the adjustments to the color of the frame.</li>
+<li>Once the cache values are no longer needed by the current frame, a call to <code>AEGP_CheckinComputeReceipt</code> is made for each cache value receipt.</li>
+<li>Auto Color does not use <code>AEGP_CheckoutCached</code> at this time.</li>
+</ul>
+</li>
+<li>Testing sequence_data versus Compute Cache implementations<ul>
+<li>Auto Color was using sequence data to store the histogram and levels data, and prior to using the Compute Cache, it would have a unique copy of sequence_data on each rendering thread. This meant that every histogram and level required for a frame would need to be rendered on every thread.</li>
+<li>With the change to use the Compute Cache, each frame being rendered gained the performance benefits of other render threads computing the histogram and levels data and storing it for future use.</li>
+<li>The improvement in rendering the Auto Color effect over a piece of footage with the Compute Cache has resulted in at least 3x faster renders than the sequence_data version.</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      All content is copyright Adobe Systems Incorporated.
+    </div>
+  
+  
+    Made with
+    <a
+      href="https://squidfunk.github.io/mkdocs-material/"
+      target="_blank" rel="noopener"
+    >
+      Material for MkDocs
+    </a>
+  
+</div>
+
+<!-- Print button -->
+<div class="md-copyright">
+  
+  <a href="../../print_page/" title="Print Site" class="md-content__button md-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></svg>
+  </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>
