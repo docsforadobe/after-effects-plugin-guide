@@ -508,17 +508,17 @@ A stream value is a large union, only one structure of which (depending on the s
 
 ```cpp
 typedef union {
-  AEGP_FourDVal         four_d;
-  AEGP_ThreeDVal        three_d;
-  AEGP_TwoDVal          two_d;
-  AEGP_OneDVal          one_d;
-  AEGP_ColorVal         color;
-  AEGP_ArbBlockVal      arbH;
-  AEGP_MarkerValP       markerP;
-  AEGP_LayerIDVal       layer_id;
-  AEGP_MaskIDVal        mask_id;
-  AEGP_MaskOutlineValH  mask;
-  AEGP_TextDocumentH    text_documentH;
+    AEGP_FourDVal         four_d;
+    AEGP_ThreeDVal        three_d;
+    AEGP_TwoDVal          two_d;
+    AEGP_OneDVal          one_d;
+    AEGP_ColorVal         color;
+    AEGP_ArbBlockVal      arbH;
+    AEGP_MarkerValP       markerP;
+    AEGP_LayerIDVal       layer_id;
+    AEGP_MaskIDVal        mask_id;
+    AEGP_MaskOutlineValH  mask;
+    AEGP_TextDocumentH    text_documentH;
 } AEGP_StreamVal2;
 ```
 
@@ -762,13 +762,13 @@ New for CS6, masks can be feathered.
 
 ```cpp
 typedef struct {
-  A_long                  segment;          // mask segment where feather is
-  PF_FpLong               segment_sF;       // 0-1: feather location on segment
-  PF_FpLong               radiusF;          // negative value allowed if type == AEGP_MaskFeatherType_INNER
-  PF_FpShort              ui_corner_angleF; // 0-1: angle of UI handle on corners
-  PF_FpShort              tensionF;         // 0-1: tension of boundary at feather pt
-  AEGP_MaskFeatherInterp  interp;
-  AEGP_MaskFeatherType    type;
+    A_long                  segment;          // mask segment where feather is
+    PF_FpLong               segment_sF;       // 0-1: feather location on segment
+    PF_FpLong               radiusF;          // negative value allowed if type == AEGP_MaskFeatherType_INNER
+    PF_FpShort              ui_corner_angleF; // 0-1: angle of UI handle on corners
+    PF_FpShort              tensionF;         // 0-1: tension of boundary at feather pt
+    AEGP_MaskFeatherInterp  interp;
+    AEGP_MaskFeatherType    type;
 } AEGP_MaskFeather;
 ```
 
@@ -1082,10 +1082,10 @@ Audio render settings are represented using the `AEGP_SoundDataFormat`.
 
 ```cpp
 struct AEGP_SoundDataFormat {
-  A_FpLong            sample_rateF;
-  AEGP_SoundEncoding  encoding;
-  A_long              bytes_per_sampleL;
-  A_long              num_channelsL; // 1 for mono, 2 for stereo
+    A_FpLong            sample_rateF;
+    AEGP_SoundEncoding  encoding;
+    A_long              bytes_per_sampleL;
+    A_long              num_channelsL; // 1 for mono, 2 for stereo
 } AEGP_SoundDataFormat;
 ```
 

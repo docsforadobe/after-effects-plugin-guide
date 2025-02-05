@@ -38,16 +38,16 @@ Sometimes, instead of just processing every pixel, you'll want to get to a speci
 
 ```cpp
 PF_Pixel *sampleIntegral32(PF_EffectWorld &def, int x, int y){
-  return (PF_Pixel*)((char*)def.data +
-    (y * def.rowbytes) +
-    (x * sizeof(PF_Pixel)));
+    return (PF_Pixel*)((char*)def.data +
+        (y * def.rowbytes) +
+        (x * sizeof(PF_Pixel)));
 }
 
 PF_Pixel16 *sampleIntegral64(PF_EffectWorld &def, int x, int y){
-  assert(PF_WORLD_IS_DEEP(&def));
-  return (PF_Pixel16*)((char*)def.data +
-    (y * def.rowbytes) +
-    (x * sizeof(PF_Pixel16)));
+    assert(PF_WORLD_IS_DEEP(&def));
+    return (PF_Pixel16*)((char*)def.data +
+        (y * def.rowbytes) +
+        (x * sizeof(PF_Pixel16)));
 }
 ```
 
@@ -90,7 +90,7 @@ src_rect.bottom = src_rect.top + input>height;
 err = PF_FILL(NULL, NULL, output);
 
 if (!err) {
-  err = PF_COPY(&params[0]>u.ld, output, NULL, &src_rect);
+    err = PF_COPY(&params[0]>u.ld, output, NULL, &src_rect);
 }
 ```
 

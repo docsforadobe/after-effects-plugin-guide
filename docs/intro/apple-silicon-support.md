@@ -46,18 +46,18 @@ Since the main entry point of a plugin is always an extern "C" calling conventio
 
 ```cpp
 PF_Err EffectMain ( PF_Cmd cmd,
-  PF_InData *in_data,
-  PF_OutData *out_data,
-  PF_ParamDef *params[],
-  PF_LayerDef *output )
+    PF_InData *in_data,
+    PF_OutData *out_data,
+    PF_ParamDef *params[],
+    PF_LayerDef *output )
 {
-  try
-  {
-      /* Your code here */
-  }
-  catch
-  {
-      /* return most appropriate PF_Err */
-  }
+    try
+    {
+        /* Your code here */
+    }
+    catch
+    {
+        /* return most appropriate PF_Err */
+    }
 }
 ```

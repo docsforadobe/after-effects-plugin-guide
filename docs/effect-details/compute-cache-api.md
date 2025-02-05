@@ -40,7 +40,7 @@ The result of `generate_key` must be provided as a `AEGP_CCComputeKey` object wh
 
 ```cpp
 typedef struct AEGP_GUID {
-  A_long bytes[4];
+    A_long bytes[4];
 } AEGP_GUID;
 ```
 
@@ -62,39 +62,39 @@ Here's an example of using the `AEGP_HashSuite1` where Levels2Histo_generate_key
 ```cpp
 A_Err Levels2Histo_generate_key_cb(AEGP_CCComputeOptionsRefconP opaque_optionsP, AEGP_CCComputeKeyP out_keyP)
 {
-  try
-  {
-    const Levels2Histo_options&  histo_op( *reinterpret_cast<Levels2Histo_options*>(opaque_optionsP));
-    A_Err err = Err_NONE;
+    try
+    {
+        const Levels2Histo_options&  histo_op( *reinterpret_cast<Levels2Histo_options*>(opaque_optionsP));
+        A_Err err = Err_NONE;
 
-    AEFX_SuiteScoper<AEGP_HashSuite1> hash_suite = AEFX_SuiteScoper<AEGP_HashSuite1>(
-        in_dataP,
-        kAEGPHashSuite,
-        kAEGPHashSuiteVersion1,
-        out_dataP);
+        AEFX_SuiteScoper<AEGP_HashSuite1> hash_suite = AEFX_SuiteScoper<AEGP_HashSuite1>(
+            in_dataP,
+            kAEGPHashSuite,
+            kAEGPHashSuiteVersion1,
+            out_dataP);
 
-    // define a simple buffer that is easy to recognize as a starting hash
-    const char* hash_buffer = "Level2Histo";
-    err = hash_suite->AEGP_CreateHashFromPtr(sizeof(hash_buffer), hash_buffer, out_keyP);
+        // define a simple buffer that is easy to recognize as a starting hash
+        const char* hash_buffer = "Level2Histo";
+        err = hash_suite->AEGP_CreateHashFromPtr(sizeof(hash_buffer), hash_buffer, out_keyP);
 
-    // Mix in effect parameters that would create a different compute result and should generate a different cache entry and key.
-    if (!err) {
-      err = hash_suite->AEGP_HashMixInPtr(sizeof(histo_op.depthL), &histo_op.depthL, out_keyP);
+        // Mix in effect parameters that would create a different compute result and should generate a different cache entry and key.
+        if (!err) {
+            err = hash_suite->AEGP_HashMixInPtr(sizeof(histo_op.depthL), &histo_op.depthL, out_keyP);
+        }
+
+        if (!err) {
+            err = hash_suite->AEGP_HashMixInPtr(sizeof(histo_op.bB), &histo_op.bB, out_keyP);
+        }
+
+        // mix in any other effect parameters that should affect the cache key
+        // ...
+
+        // out_keyP is returned as the generated key for use as the cache key.
     }
-
-    if (!err) {
-      err = hash_suite->AEGP_HashMixInPtr(sizeof(histo_op.bB), &histo_op.bB, out_keyP);
+    catch (...)
+    {
+        /* return most appropriate PF_Err */
     }
-
-    // mix in any other effect parameters that should affect the cache key
-    // ...
-
-    // out_keyP is returned as the generated key for use as the cache key.
-  }
-  catch (...)
-  {
-      /* return most appropriate PF_Err */
-  }
 }
 ```
 
