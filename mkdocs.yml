@@ -120,6 +120,7 @@ extra_css:
 
 markdown_extensions:
     - admonition
+    - markdown_grid_tables
     - pymdownx.superfences
     - toc:
         title: Page Contents

@@ -1,4 +1,5 @@
+markdown_grid_tables
 mkdocs
-mkdocs-material
 mkdocs-git-revision-date-localized-plugin
+mkdocs-material
 mkdocs-print-site-plugin
