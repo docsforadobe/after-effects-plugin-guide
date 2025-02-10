@@ -51,15 +51,15 @@ Use a flag at a common offset within both structures to indicate the data's stat
 
 ```cpp
 typedef struct {
-  A_char*    messageZ;
-  PF_FpLong  big_numF;
-  void*      temp_storage;
+    A_char*    messageZ;
+    PF_FpLong  big_numF;
+    void*      temp_storage;
 } non_flat_data;
 
 typedef struct {
-  char       message[256];
-  PF_FpLong  big_numF;
-  A_Boolean  big_endianB;
+    char       message[256];
+    PF_FpLong  big_numF;
+    A_Boolean  big_endianB;
 } flat_data;
 ```
 
@@ -99,19 +99,19 @@ When enabling Multi-Frame Rendering on an effect, the `sequence_data` object wil
 
 ```cpp
 static PF_Err Render(
-   PF_InData   *in_dataP,
-   PF_OutData  *out_dataP,
-   PF_ParamDef *params[],
-   PF_LayerDef *output )
+    PF_InData   *in_dataP,
+    PF_OutData  *out_dataP,
+    PF_ParamDef *params[],
+    PF_LayerDef *output )
 {
     PF_ConstHandle seq_handle;
 
     AEFX_SuiteScoper<PF_EffectSequenceDataSuite1> seqdata_suite =
-      AEFX_SuiteScoper<PF_EffectSequenceDataSuite1>(
-        in_dataP,
-        kPFEffectSequenceDataSuite,
-        kPFEffectSequenceDataSuiteVersion1,
-        out_dataP);
+        AEFX_SuiteScoper<PF_EffectSequenceDataSuite1>(
+            in_dataP,
+            kPFEffectSequenceDataSuite,
+            kPFEffectSequenceDataSuiteVersion1,
+            out_dataP);
 
     PF_ConstHandle const_seq;
     seqdata_suite->PF_GetConstSequenceData(in_data->effect_ref, &const_seq);

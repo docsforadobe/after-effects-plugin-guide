@@ -6,12 +6,12 @@ For all effect plug-ins, the entry point function must have the following signat
 
 ```cpp
 PF_Err main (
-  PF_Cmd       cmd,
-  PF_InData    *in_data,
-  PF_OutData   *out_data,
-  PF_ParamDef  *params[],
-  PF_LayerDef  *output,
-  void         *extra)
+    PF_Cmd       cmd,
+    PF_InData    *in_data,
+    PF_OutData   *out_data,
+    PF_ParamDef  *params[],
+    PF_LayerDef  *output,
+    void         *extra)
 ```
 
 The name of the entry point function above is "main", but it can be whatever is specified in [PiPL Resources](../intro/pipl-resources.md).

@@ -6,10 +6,10 @@ Here is an example using AEFX_SuiteScope to access the PF_GPUDeviceSuite1 suite:
 
 ```cpp
 AEFX_SuiteScoper<PF_GPUDeviceSuite1> gpu_suite = AEFX_SuiteScoper<PF_GPUDeviceSuite1>(
-  in_dataP,
-  kPFGPUDeviceSuite,
-  kPFGPUDeviceSuiteVersion1,
-  out_dataP);
+    in_dataP,
+    kPFGPUDeviceSuite,
+    kPFGPUDeviceSuiteVersion1,
+    out_dataP);
 ```
 
 !!! note

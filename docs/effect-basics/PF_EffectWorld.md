@@ -69,9 +69,9 @@ The code required is actually very simple to get a `PF_Pixel16*` out of the PF_E
 
 ```cpp
 {
-  PF_Pixel16 *deep_pixelP = NULL;
-  PF_Err     err = PF_Err_NONE;
-  err = PF_GET_PIXEL_DATA16(output, NULL, &deep_pixelP);
+    PF_Pixel16 *deep_pixelP = NULL;
+    PF_Err     err = PF_Err_NONE;
+    err = PF_GET_PIXEL_DATA16(output, NULL, &deep_pixelP);
 }
 ```
 

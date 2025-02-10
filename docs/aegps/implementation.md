@@ -16,11 +16,11 @@ AEGPs may also use any effect API suite function which doesn't require a PF_Prog
 
 ```cpp
 A_Err AEGP_PluginInitFuncPrototype(
-  struct SPBasicSuite  *pica_basicP,
-  A_long               major_versionL,
-  A_long               minor_versionL,
-  AEGP_PluginID        aegp_plugin_id,
-  AEGP_GlobalRefcon    *global_refconP)
+    struct SPBasicSuite  *pica_basicP,
+    A_long               major_versionL,
+    A_long               minor_versionL,
+    AEGP_PluginID        aegp_plugin_id,
+    AEGP_GlobalRefcon    *global_refconP)
 ```
 
 The plug-in's entry point, exported in the [PiPL Resources](../intro/pipl-resources.md), is called just once during launch; all other calls to the AEGP go to the functions it's registered.
