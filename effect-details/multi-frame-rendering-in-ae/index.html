@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -64,11 +64,11 @@
     
       <link rel="stylesheet" href="../../css/print-site-material.css">
     
-      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global.css">
-    
-      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global-syntax-highlight.css">
-    
       <link rel="stylesheet" href="../../_static/extra.css">
+    
+      <link rel="stylesheet" href="../../docs/_global/css/global.css">
+    
+      <link rel="stylesheet" href="../../docs/_global/css/global-syntax-highlight.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -112,7 +112,7 @@
               </button>
             
             
-  Welcome to the new scripting guide!
+  Welcome to the new docsforadobe guide!
 
   This is a work in progress.
 
@@ -3379,9 +3379,11 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <li>Compile your effect in <strong>Debug</strong> mode and find its <strong>.pdb</strong> file</li>
 <li>You should also find some <strong>.obj</strong> files in the same build directory if you haven't modified your project build settings</li>
 <li>You have <strong>two options</strong> on what to scan through: binaries or source files, using <code>-objfile</code> or <code>-source</code> flag.<ul>
-<li>Note: You can get the same symbols out of either option.</li>
+<li>Note: You can get the same symbols out of either option.<ul>
 <li>Use the <code>-source</code> option if you don't know exactly what binaries your source code is ending up in, or if you'd like to keep track of thread safety on a per-source-file basis.</li>
 <li>Use the <code>-objfile</code> option if you want more fine-grained control over what parts of your project you're scanning.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>To analyze the symbols in an object file, run:
@@ -3448,34 +3450,34 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">InitializeState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">state_with_initializer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">state_with_initializer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">state_was_initialized</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">InitializeState</span><span class="p">();</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">state_was_initialized</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">InitializeState</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Make it <code>const</code> or replace it with a macro:</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">InitializeState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
 
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// We can fix the above code by making this table a const and initialize it before using it</span>
 <span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">state_with_initializer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InitializeState</span><span class="p">();</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="is-the-data-initialized-once-at-runtime-based-on-data-that-doesnt-change-on-subsequent-renders">Is the data initialized once at runtime based on data that doesn't change on subsequent renders?<a class="headerlink" href="#is-the-data-initialized-once-at-runtime-based-on-data-that-doesnt-change-on-subsequent-renders" title="Permanent link">&para;</a></h3>
@@ -3483,24 +3485,24 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
-<span class="w">  </span><span class="n">UseState</span><span class="p">();</span>
+<span class="w">    </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
+<span class="w">    </span><span class="n">UseState</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Double-check that this state isn't known before your code executes (case 2), but if you have to initialize at runtime use a const static local. (Note that thread-safe initialization of static local objects is part of the C++ spec):</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">              </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
-<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
+<span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// We can fix the above code by making the variable a const static local</span>
-<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// We can fix the above code by making the variable a const static local</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
 
-<span class="w">  </span><span class="n">UseState</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
+<span class="w">    </span><span class="n">UseState</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="the-data-has-to-stay-staticglobal-not-being-a-const-but-each-render-thread-can-have-its-own-copy-of-the-data">The data has to stay static/global not being a const. But each render thread can have its own copy of the data.<a class="headerlink" href="#the-data-has-to-stay-staticglobal-not-being-a-const-but-each-render-thread-can-have-its-own-copy-of-the-data" title="Permanent link">&para;</a></h3>
@@ -3508,11 +3510,11 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">this_thread_needs_access</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+<span class="w">    </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Just make the variable thread_local:</p>
@@ -3520,11 +3522,11 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">thread_local</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">this_thread_needs_access</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+<span class="w">    </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="the-data-has-to-stay-staticglobal-not-being-a-const-and-each-thread-needs-to-read-and-write-from-the-most-up-to-date-state-rare">The data has to stay static/global not being a const and each thread needs to read and write from the most up-to-date state. (rare)<a class="headerlink" href="#the-data-has-to-stay-staticglobal-not-being-a-const-and-each-thread-needs-to-read-and-write-from-the-most-up-to-date-state-rare" title="Permanent link">&para;</a></h3>
@@ -3533,11 +3535,11 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+<span class="w">    </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">every_thread_needs_latest_state</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">every_thread_needs_latest_state</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>In this case, protect access with a mutex:</p>
@@ -3547,21 +3549,21 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Protect the access with the mutex (lock)</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
-<span class="w">    </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Protect the access with the mutex (lock)</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
+<span class="w">        </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">state_capture</span><span class="p">;</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Protect the access with the mutex (lock)</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
-<span class="w">    </span><span class="n">state_capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_capture</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">state_capture</span><span class="p">;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Protect the access with the mutex (lock)</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
+<span class="w">        </span><span class="n">state_capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_capture</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="admonition note">
@@ -3615,7 +3617,7 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 5, 2025</span>
   </span>
 
     
@@ -3681,9 +3683,13 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
     <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../js/print-site.js"></script>
+      
+        <script src="../../_static/extra.js"></script>
+      
+        <script src="../../docs/_global/js/global.js"></script>
       
     
   </body>

@@ -2,338 +2,342 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/history/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
+    </url>
+    <url>
+         <loc>https://ae-plugins.docsforadobe.dev/_global/readme/</loc>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aegps/aegp-details/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aegps/aegp-suites/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aegps/aegps/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aegps/cheating-effect-usage-of-aegp-suites/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aegps/data-types/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aegps/implementation/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aegps/overview/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aeios/AEIO_ModuleInfo/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aeios/aeios/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aeios/calling-sequence/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aeios/implementation-details/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/aeios/new-kids-on-the-function-block/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/artisans/artisan-data-types/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/artisans/artisans/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/audio/accessing-audio-data/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/audio/audio-considerations/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/audio/audio-data-structures/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/audio/audio-specific-float-slider-variables/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/audio/audio/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/audio/global-outflags/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-basics/PF_EffectWorld/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-basics/PF_InData/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-basics/PF_OutData/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-basics/PF_ParamDef/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-basics/command-selectors/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-basics/effect-basics/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-basics/entry-point/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-basics/errors/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-basics/parameters/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/accessing-camera-light-information/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/accessing-function-suites/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/arbitrary-data-parameters/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/changing-parameter-orders/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/color-space-conversion/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/compute-cache-api/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/effect-details/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/global-sequence-frame-data/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/graphics-utility-suites/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/image-buffer-management-functions/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/interaction-callback-functions/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/iteration-suites/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/memory-allocation/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/motion-blur/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/multi-frame-rendering-in-ae/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/parameter-supervision/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/parameters-floating-point-values/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/pixel-aspect-ratio/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/tips-tricks/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/useful-utility-functions/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-details/working-with-paths/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-ui-events/PF_EventExtra/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-ui-events/PF_EventUnion/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-ui-events/custom-ui-and-drawbot/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-ui-events/effect-ui-events/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-ui-events/tips-and-tricks/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/effect-ui-events/ui-callbacks/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/apple-silicon-support/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/compatibility-across-multiple-versions/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/debugging-plug-ins/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/exceptions/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/how-to-start-creating-plug-ins/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/localization/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/next-steps/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/other-integration-possibilities/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/pipl-resources/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/sample-projects/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/sdk-audience/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/symbol-export/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/third-party-plug-in-hosts/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/what-can-i-do/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/whats-new/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/intro/where-installers-should-put-plug-ins/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/ppro/basic-host-differences/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/ppro/bigger-differences/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/ppro/multithreading/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/ppro/other-hosts/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/ppro/plug-in-installation/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/ppro/plug-ins-reloaded/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/ppro/ppro/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/ppro/premiere-elements/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/ppro/unsupported-features/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
     <url>
          <loc>https://ae-plugins.docsforadobe.dev/smartfx/smartfx/</loc>
-         <lastmod>2025-02-04</lastmod>
+         <lastmod>2025-02-10</lastmod>
     </url>
 </urlset>

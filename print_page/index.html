@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -60,11 +60,11 @@
     
       <link rel="stylesheet" href="../css/print-site-material.css">
     
-      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global.css">
-    
-      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global-syntax-highlight.css">
-    
       <link rel="stylesheet" href="../_static/extra.css">
+    
+      <link rel="stylesheet" href="../docs/_global/css/global.css">
+    
+      <link rel="stylesheet" href="../docs/_global/css/global-syntax-highlight.css">
     
     <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -114,7 +114,7 @@
               </button>
             
             
-  Welcome to the new scripting guide!
+  Welcome to the new docsforadobe guide!
 
   This is a work in progress.
 
@@ -5155,19 +5155,19 @@ It should be used along with <code>AEGP_SetSelection()</code>.</p>
 <p>On Apple Silicon, rather than undefined behavior the ABI has changed so terminate() is called when this occurs.</p>
 <p>Since the main entry point of a plugin is always an extern "C" calling convention, this code should be wrapped in a try/catch block to prevent program termination. For example:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PF_Err</span><span class="w"> </span><span class="nf">EffectMain</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">PF_Cmd</span><span class="w"> </span><span class="n">cmd</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PF_InData</span><span class="w"> </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PF_OutData</span><span class="w"> </span><span class="o">*</span><span class="n">out_data</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PF_ParamDef</span><span class="w"> </span><span class="o">*</span><span class="n">params</span><span class="p">[],</span>
-<span class="w">  </span><span class="n">PF_LayerDef</span><span class="w"> </span><span class="o">*</span><span class="n">output</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">PF_InData</span><span class="w"> </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PF_OutData</span><span class="w"> </span><span class="o">*</span><span class="n">out_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PF_ParamDef</span><span class="w"> </span><span class="o">*</span><span class="n">params</span><span class="p">[],</span>
+<span class="w">    </span><span class="n">PF_LayerDef</span><span class="w"> </span><span class="o">*</span><span class="n">output</span><span class="w"> </span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="k">try</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">      </span><span class="cm">/* Your code here */</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">catch</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">      </span><span class="cm">/* return most appropriate PF_Err */</span>
-<span class="w">  </span><span class="p">}</span>
+<span class="w">    </span><span class="k">try</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Your code here */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">catch</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* return most appropriate PF_Err */</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></section><section class="print-page" id="intro-symbol-export"><h1 id="intro-symbol-export-exporting-symbols-in-effects">Exporting Symbols in Effects<a class="headerlink" href="#intro-symbol-export-exporting-symbols-in-effects" title="Permanent link">&para;</a></h1>
 <p>The After Effects team recently became aware of an issue with conflicting symbols that violate the C++ language One Definition Rule (ODR).</p>
@@ -5183,23 +5183,23 @@ It should be used along with <code>AEGP_SetSelection()</code>.</p>
 <p>and then this is applied to the entry point function, for example:</p>
 <div class="highlight"><pre><span></span><code><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="n">DllExport</span>
 <span class="n">PF_Err</span><span class="w"> </span><span class="n">PluginDataEntryFunction</span><span class="p">(</span>
-<span class="w">  </span><span class="n">PF_PluginDataPtr</span><span class="w"> </span><span class="n">inPtr</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PF_PluginDataCB</span><span class="w"> </span><span class="n">inPluginDataCallBackPtr</span><span class="p">,</span>
-<span class="w">  </span><span class="n">SPBasicSuite</span><span class="o">*</span><span class="w"> </span><span class="n">inSPBasicSuitePtr</span><span class="p">,</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">inHostName</span><span class="p">,</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">inHostVersion</span><span class="p">)</span>
+<span class="w">    </span><span class="n">PF_PluginDataPtr</span><span class="w"> </span><span class="n">inPtr</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PF_PluginDataCB</span><span class="w"> </span><span class="n">inPluginDataCallBackPtr</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SPBasicSuite</span><span class="o">*</span><span class="w"> </span><span class="n">inSPBasicSuitePtr</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">inHostName</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">inHostVersion</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="n">PF_Err</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_Err_INVALID_CALLBACK</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PF_Err</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_Err_INVALID_CALLBACK</span><span class="p">;</span>
 
-<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_REGISTER_EFFECT</span><span class="p">(</span>
-<span class="w">    </span><span class="n">inPtr</span><span class="p">,</span>
-<span class="w">    </span><span class="n">inPluginDataCallBackPtr</span><span class="p">,</span>
-<span class="w">    </span><span class="s">&quot;ColorGrid&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Name</span>
-<span class="w">    </span><span class="s">&quot;ADBE ColorGrid&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Match Name</span>
-<span class="w">    </span><span class="s">&quot;Sample Plug-ins&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Category</span>
-<span class="w">    </span><span class="n">AE_RESERVED_INFO</span><span class="p">);</span><span class="w"> </span><span class="c1">// Reserved Info</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_REGISTER_EFFECT</span><span class="p">(</span>
+<span class="w">        </span><span class="n">inPtr</span><span class="p">,</span>
+<span class="w">        </span><span class="n">inPluginDataCallBackPtr</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;ColorGrid&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Name</span>
+<span class="w">        </span><span class="s">&quot;ADBE ColorGrid&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Match Name</span>
+<span class="w">        </span><span class="s">&quot;Sample Plug-ins&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Category</span>
+<span class="w">        </span><span class="n">AE_RESERVED_INFO</span><span class="p">);</span><span class="w"> </span><span class="c1">// Reserved Info</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <hr />
@@ -5241,12 +5241,12 @@ It should be used along with <code>AEGP_SetSelection()</code>.</p>
 <p>All communication between After Effects and an effect plug-in is initiated by After Effects, and it all happens by the host (After Effects) calling a single entry point function.</p>
 <p>For all effect plug-ins, the entry point function must have the following signature:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PF_Err</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="n">PF_Cmd</span><span class="w">       </span><span class="n">cmd</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PF_InData</span><span class="w">    </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PF_OutData</span><span class="w">   </span><span class="o">*</span><span class="n">out_data</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PF_ParamDef</span><span class="w">  </span><span class="o">*</span><span class="n">params</span><span class="p">[],</span>
-<span class="w">  </span><span class="n">PF_LayerDef</span><span class="w">  </span><span class="o">*</span><span class="n">output</span><span class="p">,</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">extra</span><span class="p">)</span>
+<span class="w">    </span><span class="n">PF_Cmd</span><span class="w">       </span><span class="n">cmd</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PF_InData</span><span class="w">    </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PF_OutData</span><span class="w">   </span><span class="o">*</span><span class="n">out_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PF_ParamDef</span><span class="w">  </span><span class="o">*</span><span class="n">params</span><span class="p">[],</span>
+<span class="w">    </span><span class="n">PF_LayerDef</span><span class="w">  </span><span class="o">*</span><span class="n">output</span><span class="p">,</span>
+<span class="w">    </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">extra</span><span class="p">)</span>
 </code></pre></div>
 <p>The name of the entry point function above is "main", but it can be whatever is specified in <a href="#intro-pipl-resources">PiPL Resources</a>.</p>
 <p>Before each call to the entry point function, After Effects updates <a href="#effect-basics-pf_indata">PF_InData</a> and the plug- in's parameter array PF_ParamDef[] (except as noted).</p>
@@ -6364,9 +6364,9 @@ It should be used along with <code>AEGP_SetSelection()</code>.</p>
 <p>Think of <code>PF_GET_PIXEL_DATA16</code> and <code>PF_GET_PIXEL_DATA8</code> as safe (ahem) casting routines.</p>
 <p>The code required is actually very simple to get a <code>PF_Pixel16*</code> out of the PF_EffectWorld output:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="n">PF_Pixel16</span><span class="w"> </span><span class="o">*</span><span class="n">deep_pixelP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PF_Err</span><span class="w">     </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_Err_NONE</span><span class="p">;</span>
-<span class="w">  </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_GET_PIXEL_DATA16</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">deep_pixelP</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PF_Pixel16</span><span class="w"> </span><span class="o">*</span><span class="n">deep_pixelP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PF_Err</span><span class="w">     </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_Err_NONE</span><span class="p">;</span>
+<span class="w">    </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_GET_PIXEL_DATA16</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">deep_pixelP</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>This returns deep_pixelP as NULL if the world does not have deep pixels.</p>
@@ -6589,9 +6589,11 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <li>Compile your effect in <strong>Debug</strong> mode and find its <strong>.pdb</strong> file</li>
 <li>You should also find some <strong>.obj</strong> files in the same build directory if you haven't modified your project build settings</li>
 <li>You have <strong>two options</strong> on what to scan through: binaries or source files, using <code>-objfile</code> or <code>-source</code> flag.<ul>
-<li>Note: You can get the same symbols out of either option.</li>
+<li>Note: You can get the same symbols out of either option.<ul>
 <li>Use the <code>-source</code> option if you don't know exactly what binaries your source code is ending up in, or if you'd like to keep track of thread safety on a per-source-file basis.</li>
 <li>Use the <code>-objfile</code> option if you want more fine-grained control over what parts of your project you're scanning.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>To analyze the symbols in an object file, run:
@@ -6658,34 +6660,34 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">InitializeState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">state_with_initializer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">state_with_initializer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">state_was_initialized</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">InitializeState</span><span class="p">();</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">state_was_initialized</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">InitializeState</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Make it <code>const</code> or replace it with a macro:</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">InitializeState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
 
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// We can fix the above code by making this table a const and initialize it before using it</span>
 <span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">state_with_initializer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InitializeState</span><span class="p">();</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="effect-details-multi-frame-rendering-in-ae-is-the-data-initialized-once-at-runtime-based-on-data-that-doesnt-change-on-subsequent-renders">Is the data initialized once at runtime based on data that doesn't change on subsequent renders?<a class="headerlink" href="#effect-details-multi-frame-rendering-in-ae-is-the-data-initialized-once-at-runtime-based-on-data-that-doesnt-change-on-subsequent-renders" title="Permanent link">&para;</a></h3>
@@ -6693,24 +6695,24 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
-<span class="w">  </span><span class="n">UseState</span><span class="p">();</span>
+<span class="w">    </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
+<span class="w">    </span><span class="n">UseState</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Double-check that this state isn't known before your code executes (case 2), but if you have to initialize at runtime use a const static local. (Note that thread-safe initialization of static local objects is part of the C++ spec):</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">              </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
-<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
+<span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// We can fix the above code by making the variable a const static local</span>
-<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// We can fix the above code by making the variable a const static local</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
 
-<span class="w">  </span><span class="n">UseState</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
+<span class="w">    </span><span class="n">UseState</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="effect-details-multi-frame-rendering-in-ae-the-data-has-to-stay-staticglobal-not-being-a-const-but-each-render-thread-can-have-its-own-copy-of-the-data">The data has to stay static/global not being a const. But each render thread can have its own copy of the data.<a class="headerlink" href="#effect-details-multi-frame-rendering-in-ae-the-data-has-to-stay-staticglobal-not-being-a-const-but-each-render-thread-can-have-its-own-copy-of-the-data" title="Permanent link">&para;</a></h3>
@@ -6718,11 +6720,11 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">this_thread_needs_access</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+<span class="w">    </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Just make the variable thread_local:</p>
@@ -6730,11 +6732,11 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">thread_local</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">this_thread_needs_access</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+<span class="w">    </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="effect-details-multi-frame-rendering-in-ae-the-data-has-to-stay-staticglobal-not-being-a-const-and-each-thread-needs-to-read-and-write-from-the-most-up-to-date-state-rare">The data has to stay static/global not being a const and each thread needs to read and write from the most up-to-date state. (rare)<a class="headerlink" href="#effect-details-multi-frame-rendering-in-ae-the-data-has-to-stay-staticglobal-not-being-a-const-and-each-thread-needs-to-read-and-write-from-the-most-up-to-date-state-rare" title="Permanent link">&para;</a></h3>
@@ -6743,11 +6745,11 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+<span class="w">    </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">every_thread_needs_latest_state</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">every_thread_needs_latest_state</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>In this case, protect access with a mutex:</p>
@@ -6757,21 +6759,21 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Protect the access with the mutex (lock)</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
-<span class="w">    </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Protect the access with the mutex (lock)</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
+<span class="w">        </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">state_capture</span><span class="p">;</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Protect the access with the mutex (lock)</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
-<span class="w">    </span><span class="n">state_capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_capture</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">state_capture</span><span class="p">;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Protect the access with the mutex (lock)</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
+<span class="w">        </span><span class="n">state_capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_capture</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="admonition note">
@@ -6815,10 +6817,10 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <p>If you are writing C++ code, accessing the suites should be done using the AEFX_SuiteScoper which automatically acquires the suite when needed and disposes of it when done.</p>
 <p>Here is an example using AEFX_SuiteScope to access the PF_GPUDeviceSuite1 suite:</p>
 <div class="highlight"><pre><span></span><code><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_GPUDeviceSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gpu_suite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_GPUDeviceSuite1</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">  </span><span class="n">in_dataP</span><span class="p">,</span>
-<span class="w">  </span><span class="n">kPFGPUDeviceSuite</span><span class="p">,</span>
-<span class="w">  </span><span class="n">kPFGPUDeviceSuiteVersion1</span><span class="p">,</span>
-<span class="w">  </span><span class="n">out_dataP</span><span class="p">);</span>
+<span class="w">    </span><span class="n">in_dataP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">kPFGPUDeviceSuite</span><span class="p">,</span>
+<span class="w">    </span><span class="n">kPFGPUDeviceSuiteVersion1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">out_dataP</span><span class="p">);</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -7561,15 +7563,15 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <p>After Effects sends <a href="#effect-basics-command-selectors-sequence-selectors">PF_Cmd_SEQUENCE_RESETUP</a> when the data is reloaded, for either flat or unflat data.</p>
 <p>Use a flag at a common offset within both structures to indicate the data's state.</p>
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">A_char</span><span class="o">*</span><span class="w">    </span><span class="n">messageZ</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PF_FpLong</span><span class="w">  </span><span class="n">big_numF</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">      </span><span class="n">temp_storage</span><span class="p">;</span>
+<span class="w">    </span><span class="n">A_char</span><span class="o">*</span><span class="w">    </span><span class="n">messageZ</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PF_FpLong</span><span class="w">  </span><span class="n">big_numF</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="o">*</span><span class="w">      </span><span class="n">temp_storage</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">non_flat_data</span><span class="p">;</span>
 
 <span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">       </span><span class="n">message</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-<span class="w">  </span><span class="n">PF_FpLong</span><span class="w">  </span><span class="n">big_numF</span><span class="p">;</span>
-<span class="w">  </span><span class="n">A_Boolean</span><span class="w">  </span><span class="n">big_endianB</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w">       </span><span class="n">message</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<span class="w">    </span><span class="n">PF_FpLong</span><span class="w">  </span><span class="n">big_numF</span><span class="p">;</span>
+<span class="w">    </span><span class="n">A_Boolean</span><span class="w">  </span><span class="n">big_endianB</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">flat_data</span><span class="p">;</span>
 </code></pre></div>
 <hr />
@@ -7609,19 +7611,19 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 </tbody>
 </table>
 <div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="n">PF_Err</span><span class="w"> </span><span class="nf">Render</span><span class="p">(</span>
-<span class="w">   </span><span class="n">PF_InData</span><span class="w">   </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
-<span class="w">   </span><span class="n">PF_OutData</span><span class="w">  </span><span class="o">*</span><span class="n">out_dataP</span><span class="p">,</span>
-<span class="w">   </span><span class="n">PF_ParamDef</span><span class="w"> </span><span class="o">*</span><span class="n">params</span><span class="p">[],</span>
-<span class="w">   </span><span class="n">PF_LayerDef</span><span class="w"> </span><span class="o">*</span><span class="n">output</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">PF_InData</span><span class="w">   </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PF_OutData</span><span class="w">  </span><span class="o">*</span><span class="n">out_dataP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PF_ParamDef</span><span class="w"> </span><span class="o">*</span><span class="n">params</span><span class="p">[],</span>
+<span class="w">    </span><span class="n">PF_LayerDef</span><span class="w"> </span><span class="o">*</span><span class="n">output</span><span class="w"> </span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">PF_ConstHandle</span><span class="w"> </span><span class="n">seq_handle</span><span class="p">;</span>
 
 <span class="w">    </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_EffectSequenceDataSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">seqdata_suite</span><span class="w"> </span><span class="o">=</span>
-<span class="w">      </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_EffectSequenceDataSuite1</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">        </span><span class="n">in_dataP</span><span class="p">,</span>
-<span class="w">        </span><span class="n">kPFEffectSequenceDataSuite</span><span class="p">,</span>
-<span class="w">        </span><span class="n">kPFEffectSequenceDataSuiteVersion1</span><span class="p">,</span>
-<span class="w">        </span><span class="n">out_dataP</span><span class="p">);</span>
+<span class="w">        </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_EffectSequenceDataSuite1</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">in_dataP</span><span class="p">,</span>
+<span class="w">            </span><span class="n">kPFEffectSequenceDataSuite</span><span class="p">,</span>
+<span class="w">            </span><span class="n">kPFEffectSequenceDataSuiteVersion1</span><span class="p">,</span>
+<span class="w">            </span><span class="n">out_dataP</span><span class="p">);</span>
 
 <span class="w">    </span><span class="n">PF_ConstHandle</span><span class="w"> </span><span class="n">const_seq</span><span class="p">;</span>
 <span class="w">    </span><span class="n">seqdata_suite</span><span class="o">-&gt;</span><span class="n">PF_GetConstSequenceData</span><span class="p">(</span><span class="n">in_data</span><span class="o">-&gt;</span><span class="n">effect_ref</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">const_seq</span><span class="p">);</span>
@@ -8204,16 +8206,16 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <h2 id="effect-details-tips-tricks-sampling-pixels-at-xy">Sampling Pixels At (x,y)<a class="headerlink" href="#effect-details-tips-tricks-sampling-pixels-at-xy" title="Permanent link">&para;</a></h2>
 <p>Sometimes, instead of just processing every pixel, you'll want to get to a specific offset within the input frame. Below is one way to sample the pixel at a given (x,y) location; similar code could be used to write to the given location.</p>
 <div class="highlight"><pre><span></span><code><span class="n">PF_Pixel</span><span class="w"> </span><span class="o">*</span><span class="nf">sampleIntegral32</span><span class="p">(</span><span class="n">PF_EffectWorld</span><span class="w"> </span><span class="o">&amp;</span><span class="n">def</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">){</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">PF_Pixel</span><span class="o">*</span><span class="p">)((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">def</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">+</span>
-<span class="w">    </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">def</span><span class="p">.</span><span class="n">rowbytes</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">    </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">PF_Pixel</span><span class="p">)));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">PF_Pixel</span><span class="o">*</span><span class="p">)((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">def</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">+</span>
+<span class="w">        </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">def</span><span class="p">.</span><span class="n">rowbytes</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">        </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">PF_Pixel</span><span class="p">)));</span>
 <span class="p">}</span>
 
 <span class="n">PF_Pixel16</span><span class="w"> </span><span class="o">*</span><span class="nf">sampleIntegral64</span><span class="p">(</span><span class="n">PF_EffectWorld</span><span class="w"> </span><span class="o">&amp;</span><span class="n">def</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">){</span>
-<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="n">PF_WORLD_IS_DEEP</span><span class="p">(</span><span class="o">&amp;</span><span class="n">def</span><span class="p">));</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">PF_Pixel16</span><span class="o">*</span><span class="p">)((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">def</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">+</span>
-<span class="w">    </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">def</span><span class="p">.</span><span class="n">rowbytes</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">    </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">PF_Pixel16</span><span class="p">)));</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">PF_WORLD_IS_DEEP</span><span class="p">(</span><span class="o">&amp;</span><span class="n">def</span><span class="p">));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">PF_Pixel16</span><span class="o">*</span><span class="p">)((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">def</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">+</span>
+<span class="w">        </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">def</span><span class="p">.</span><span class="n">rowbytes</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">        </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">PF_Pixel16</span><span class="p">)));</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Special thanks to Paul Miller for answering this question.</p>
@@ -8239,7 +8241,7 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_FILL</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">);</span>
 
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_COPY</span><span class="p">(</span><span class="o">&amp;</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">ld</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">src_rect</span><span class="p">);</span>
+<span class="w">    </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PF_COPY</span><span class="p">(</span><span class="o">&amp;</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">ld</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">src_rect</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <hr />
@@ -8370,7 +8372,7 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <p>The <code>generate_key</code> callback must return a unique key within the Registered Class to be used as the cache key for an entry in the cache but for future-proofing, we'd strongly suggest the key is globally unique across all registered classes. The AE SDK provides the <code>AEGP_HashSuite1</code> suite to assist in generating a GUID that can be used as the key.</p>
 <p>The result of <code>generate_key</code> must be provided as a <code>AEGP_CCComputeKey</code> object which is type defined from the following struct:</p>
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">AEGP_GUID</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">A_long</span><span class="w"> </span><span class="n">bytes</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="w">    </span><span class="n">A_long</span><span class="w"> </span><span class="n">bytes</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 <span class="p">}</span><span class="w"> </span><span class="n">AEGP_GUID</span><span class="p">;</span>
 </code></pre></div>
 <hr />
@@ -8398,39 +8400,39 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <p>Here's an example of using the <code>AEGP_HashSuite1</code> where Levels2Histo_generate_key_cb() is a callback called for <code>generate_key()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">A_Err</span><span class="w"> </span><span class="nf">Levels2Histo_generate_key_cb</span><span class="p">(</span><span class="n">AEGP_CCComputeOptionsRefconP</span><span class="w"> </span><span class="n">opaque_optionsP</span><span class="p">,</span><span class="w"> </span><span class="n">AEGP_CCComputeKeyP</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="k">try</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Levels2Histo_options</span><span class="o">&amp;</span><span class="w">  </span><span class="n">histo_op</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Levels2Histo_options</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">opaque_optionsP</span><span class="p">));</span>
-<span class="w">    </span><span class="n">A_Err</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Err_NONE</span><span class="p">;</span>
+<span class="w">    </span><span class="k">try</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Levels2Histo_options</span><span class="o">&amp;</span><span class="w">  </span><span class="n">histo_op</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Levels2Histo_options</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">opaque_optionsP</span><span class="p">));</span>
+<span class="w">        </span><span class="n">A_Err</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Err_NONE</span><span class="p">;</span>
 
-<span class="w">    </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">AEGP_HashSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hash_suite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">AEGP_HashSuite1</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">        </span><span class="n">in_dataP</span><span class="p">,</span>
-<span class="w">        </span><span class="n">kAEGPHashSuite</span><span class="p">,</span>
-<span class="w">        </span><span class="n">kAEGPHashSuiteVersion1</span><span class="p">,</span>
-<span class="w">        </span><span class="n">out_dataP</span><span class="p">);</span>
+<span class="w">        </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">AEGP_HashSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hash_suite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">AEGP_HashSuite1</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">in_dataP</span><span class="p">,</span>
+<span class="w">            </span><span class="n">kAEGPHashSuite</span><span class="p">,</span>
+<span class="w">            </span><span class="n">kAEGPHashSuiteVersion1</span><span class="p">,</span>
+<span class="w">            </span><span class="n">out_dataP</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// define a simple buffer that is easy to recognize as a starting hash</span>
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hash_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Level2Histo&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_CreateHashFromPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">hash_buffer</span><span class="p">),</span><span class="w"> </span><span class="n">hash_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// define a simple buffer that is easy to recognize as a starting hash</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hash_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Level2Histo&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_CreateHashFromPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">hash_buffer</span><span class="p">),</span><span class="w"> </span><span class="n">hash_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// Mix in effect parameters that would create a different compute result and should generate a different cache entry and key.</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_HashMixInPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">histo_op</span><span class="p">.</span><span class="n">depthL</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">histo_op</span><span class="p">.</span><span class="n">depthL</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Mix in effect parameters that would create a different compute result and should generate a different cache entry and key.</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_HashMixInPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">histo_op</span><span class="p">.</span><span class="n">depthL</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">histo_op</span><span class="p">.</span><span class="n">depthL</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_HashMixInPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">histo_op</span><span class="p">.</span><span class="n">bB</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">histo_op</span><span class="p">.</span><span class="n">bB</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// mix in any other effect parameters that should affect the cache key</span>
+<span class="w">        </span><span class="c1">// ...</span>
+
+<span class="w">        </span><span class="c1">// out_keyP is returned as the generated key for use as the cache key.</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_HashMixInPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">histo_op</span><span class="p">.</span><span class="n">bB</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">histo_op</span><span class="p">.</span><span class="n">bB</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* return most appropriate PF_Err */</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// mix in any other effect parameters that should affect the cache key</span>
-<span class="w">    </span><span class="c1">// ...</span>
-
-<span class="w">    </span><span class="c1">// out_keyP is returned as the generated key for use as the cache key.</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">      </span><span class="cm">/* return most appropriate PF_Err */</span>
-<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <hr />
@@ -9683,11 +9685,11 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <hr />
 <h2 id="aegps-implementation-entry-point">Entry Point<a class="headerlink" href="#aegps-implementation-entry-point" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="n">A_Err</span><span class="w"> </span><span class="n">AEGP_PluginInitFuncPrototype</span><span class="p">(</span>
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">SPBasicSuite</span><span class="w">  </span><span class="o">*</span><span class="n">pica_basicP</span><span class="p">,</span>
-<span class="w">  </span><span class="n">A_long</span><span class="w">               </span><span class="n">major_versionL</span><span class="p">,</span>
-<span class="w">  </span><span class="n">A_long</span><span class="w">               </span><span class="n">minor_versionL</span><span class="p">,</span>
-<span class="w">  </span><span class="n">AEGP_PluginID</span><span class="w">        </span><span class="n">aegp_plugin_id</span><span class="p">,</span>
-<span class="w">  </span><span class="n">AEGP_GlobalRefcon</span><span class="w">    </span><span class="o">*</span><span class="n">global_refconP</span><span class="p">)</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">SPBasicSuite</span><span class="w">  </span><span class="o">*</span><span class="n">pica_basicP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">A_long</span><span class="w">               </span><span class="n">major_versionL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">A_long</span><span class="w">               </span><span class="n">minor_versionL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">AEGP_PluginID</span><span class="w">        </span><span class="n">aegp_plugin_id</span><span class="p">,</span>
+<span class="w">    </span><span class="n">AEGP_GlobalRefcon</span><span class="w">    </span><span class="o">*</span><span class="n">global_refconP</span><span class="p">)</span>
 </code></pre></div>
 <p>The plug-in's entry point, exported in the <a href="#intro-pipl-resources">PiPL Resources</a>, is called just once during launch; all other calls to the AEGP go to the functions it's registered.</p>
 <p>This is very different from the effect plug-in model, where all communication comes through the same entry point.</p>
@@ -11009,17 +11011,17 @@ After Effects currently adheres to the single project model.</p>
 <h2 id="aegps-aegp-suites-okay-what-did-i-just-get">Okay, What Did I Just Get?<a class="headerlink" href="#aegps-aegp-suites-okay-what-did-i-just-get" title="Permanent link">&para;</a></h2>
 <p>A stream value is a large union, only one structure of which (depending on the stream type) is populated. Note the similarity to the <a href="#effect-basics-pf_paramdef">PF_ParamDef</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">union</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">AEGP_FourDVal</span><span class="w">         </span><span class="n">four_d</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_ThreeDVal</span><span class="w">        </span><span class="n">three_d</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_TwoDVal</span><span class="w">          </span><span class="n">two_d</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_OneDVal</span><span class="w">          </span><span class="n">one_d</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_ColorVal</span><span class="w">         </span><span class="n">color</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_ArbBlockVal</span><span class="w">      </span><span class="n">arbH</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_MarkerValP</span><span class="w">       </span><span class="n">markerP</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_LayerIDVal</span><span class="w">       </span><span class="n">layer_id</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_MaskIDVal</span><span class="w">        </span><span class="n">mask_id</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_MaskOutlineValH</span><span class="w">  </span><span class="n">mask</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_TextDocumentH</span><span class="w">    </span><span class="n">text_documentH</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_FourDVal</span><span class="w">         </span><span class="n">four_d</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_ThreeDVal</span><span class="w">        </span><span class="n">three_d</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_TwoDVal</span><span class="w">          </span><span class="n">two_d</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_OneDVal</span><span class="w">          </span><span class="n">one_d</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_ColorVal</span><span class="w">         </span><span class="n">color</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_ArbBlockVal</span><span class="w">      </span><span class="n">arbH</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_MarkerValP</span><span class="w">       </span><span class="n">markerP</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_LayerIDVal</span><span class="w">       </span><span class="n">layer_id</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_MaskIDVal</span><span class="w">        </span><span class="n">mask_id</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_MaskOutlineValH</span><span class="w">  </span><span class="n">mask</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_TextDocumentH</span><span class="w">    </span><span class="n">text_documentH</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">AEGP_StreamVal2</span><span class="p">;</span>
 </code></pre></div>
 <hr />
@@ -11606,13 +11608,13 @@ After Effects currently adheres to the single project model.</p>
 <p>New for CS6, masks can be feathered.</p>
 <p><code>AEGP_MaskFeather</code> is defined as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">A_long</span><span class="w">                  </span><span class="n">segment</span><span class="p">;</span><span class="w">          </span><span class="c1">// mask segment where feather is</span>
-<span class="w">  </span><span class="n">PF_FpLong</span><span class="w">               </span><span class="n">segment_sF</span><span class="p">;</span><span class="w">       </span><span class="c1">// 0-1: feather location on segment</span>
-<span class="w">  </span><span class="n">PF_FpLong</span><span class="w">               </span><span class="n">radiusF</span><span class="p">;</span><span class="w">          </span><span class="c1">// negative value allowed if type == AEGP_MaskFeatherType_INNER</span>
-<span class="w">  </span><span class="n">PF_FpShort</span><span class="w">              </span><span class="n">ui_corner_angleF</span><span class="p">;</span><span class="w"> </span><span class="c1">// 0-1: angle of UI handle on corners</span>
-<span class="w">  </span><span class="n">PF_FpShort</span><span class="w">              </span><span class="n">tensionF</span><span class="p">;</span><span class="w">         </span><span class="c1">// 0-1: tension of boundary at feather pt</span>
-<span class="w">  </span><span class="n">AEGP_MaskFeatherInterp</span><span class="w">  </span><span class="n">interp</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_MaskFeatherType</span><span class="w">    </span><span class="n">type</span><span class="p">;</span>
+<span class="w">    </span><span class="n">A_long</span><span class="w">                  </span><span class="n">segment</span><span class="p">;</span><span class="w">          </span><span class="c1">// mask segment where feather is</span>
+<span class="w">    </span><span class="n">PF_FpLong</span><span class="w">               </span><span class="n">segment_sF</span><span class="p">;</span><span class="w">       </span><span class="c1">// 0-1: feather location on segment</span>
+<span class="w">    </span><span class="n">PF_FpLong</span><span class="w">               </span><span class="n">radiusF</span><span class="p">;</span><span class="w">          </span><span class="c1">// negative value allowed if type == AEGP_MaskFeatherType_INNER</span>
+<span class="w">    </span><span class="n">PF_FpShort</span><span class="w">              </span><span class="n">ui_corner_angleF</span><span class="p">;</span><span class="w"> </span><span class="c1">// 0-1: angle of UI handle on corners</span>
+<span class="w">    </span><span class="n">PF_FpShort</span><span class="w">              </span><span class="n">tensionF</span><span class="p">;</span><span class="w">         </span><span class="c1">// 0-1: tension of boundary at feather pt</span>
+<span class="w">    </span><span class="n">AEGP_MaskFeatherInterp</span><span class="w">  </span><span class="n">interp</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_MaskFeatherType</span><span class="w">    </span><span class="n">type</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">AEGP_MaskFeather</span><span class="p">;</span>
 </code></pre></div>
 <p><code>AEGP_MaskFeatherInterp</code> is either <code>AEGP_MaskFeatherInterp_NORMAL</code> or <code>AEGP_MaskFeatherInterp_HOLD_CW</code>.</p>
@@ -12404,10 +12406,10 @@ To get started, retrieve an ``AEGP_TextDocumentH`` by calling ``AEGP_GetLayerStr
 <h2 id="aegps-aegp-suites-audio-settings">Audio Settings<a class="headerlink" href="#aegps-aegp-suites-audio-settings" title="Permanent link">&para;</a></h2>
 <p>Audio render settings are represented using the <code>AEGP_SoundDataFormat</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">AEGP_SoundDataFormat</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">A_FpLong</span><span class="w">            </span><span class="n">sample_rateF</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AEGP_SoundEncoding</span><span class="w">  </span><span class="n">encoding</span><span class="p">;</span>
-<span class="w">  </span><span class="n">A_long</span><span class="w">              </span><span class="n">bytes_per_sampleL</span><span class="p">;</span>
-<span class="w">  </span><span class="n">A_long</span><span class="w">              </span><span class="n">num_channelsL</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1 for mono, 2 for stereo</span>
+<span class="w">    </span><span class="n">A_FpLong</span><span class="w">            </span><span class="n">sample_rateF</span><span class="p">;</span>
+<span class="w">    </span><span class="n">AEGP_SoundEncoding</span><span class="w">  </span><span class="n">encoding</span><span class="p">;</span>
+<span class="w">    </span><span class="n">A_long</span><span class="w">              </span><span class="n">bytes_per_sampleL</span><span class="p">;</span>
+<span class="w">    </span><span class="n">A_long</span><span class="w">              </span><span class="n">num_channelsL</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1 for mono, 2 for stereo</span>
 <span class="p">}</span><span class="w"> </span><span class="n">AEGP_SoundDataFormat</span><span class="p">;</span>
 </code></pre></div>
 <p><code>bytes_per_sampleL</code> is always either <code>1</code>, <code>2</code>, or <code>4</code>, and is ignored if float encoding is specified.</p>
@@ -14620,9 +14622,13 @@ Let N be the unit normal vector to the layer.</p>
     <script id="__config" type="application/json">{"base": "/", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f13b1293.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/extra.js"></script>
+      
+        <script src="../docs/_global/js/global.js"></script>
       
     
   </body>

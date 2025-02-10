@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -64,11 +64,11 @@
     
       <link rel="stylesheet" href="../../css/print-site-material.css">
     
-      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global.css">
-    
-      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global-syntax-highlight.css">
-    
       <link rel="stylesheet" href="../../_static/extra.css">
+    
+      <link rel="stylesheet" href="../../docs/_global/css/global.css">
+    
+      <link rel="stylesheet" href="../../docs/_global/css/global-syntax-highlight.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -112,7 +112,7 @@
               </button>
             
             
-  Welcome to the new scripting guide!
+  Welcome to the new docsforadobe guide!
 
   This is a work in progress.
 
@@ -3013,7 +3013,7 @@
 <p>The <code>generate_key</code> callback must return a unique key within the Registered Class to be used as the cache key for an entry in the cache but for future-proofing, we'd strongly suggest the key is globally unique across all registered classes. The AE SDK provides the <code>AEGP_HashSuite1</code> suite to assist in generating a GUID that can be used as the key.</p>
 <p>The result of <code>generate_key</code> must be provided as a <code>AEGP_CCComputeKey</code> object which is type defined from the following struct:</p>
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">AEGP_GUID</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">A_long</span><span class="w"> </span><span class="n">bytes</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="w">    </span><span class="n">A_long</span><span class="w"> </span><span class="n">bytes</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 <span class="p">}</span><span class="w"> </span><span class="n">AEGP_GUID</span><span class="p">;</span>
 </code></pre></div>
 <hr />
@@ -3041,39 +3041,39 @@
 <p>Here's an example of using the <code>AEGP_HashSuite1</code> where Levels2Histo_generate_key_cb() is a callback called for <code>generate_key()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">A_Err</span><span class="w"> </span><span class="nf">Levels2Histo_generate_key_cb</span><span class="p">(</span><span class="n">AEGP_CCComputeOptionsRefconP</span><span class="w"> </span><span class="n">opaque_optionsP</span><span class="p">,</span><span class="w"> </span><span class="n">AEGP_CCComputeKeyP</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="k">try</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Levels2Histo_options</span><span class="o">&amp;</span><span class="w">  </span><span class="n">histo_op</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Levels2Histo_options</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">opaque_optionsP</span><span class="p">));</span>
-<span class="w">    </span><span class="n">A_Err</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Err_NONE</span><span class="p">;</span>
+<span class="w">    </span><span class="k">try</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Levels2Histo_options</span><span class="o">&amp;</span><span class="w">  </span><span class="n">histo_op</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Levels2Histo_options</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">opaque_optionsP</span><span class="p">));</span>
+<span class="w">        </span><span class="n">A_Err</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Err_NONE</span><span class="p">;</span>
 
-<span class="w">    </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">AEGP_HashSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hash_suite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">AEGP_HashSuite1</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">        </span><span class="n">in_dataP</span><span class="p">,</span>
-<span class="w">        </span><span class="n">kAEGPHashSuite</span><span class="p">,</span>
-<span class="w">        </span><span class="n">kAEGPHashSuiteVersion1</span><span class="p">,</span>
-<span class="w">        </span><span class="n">out_dataP</span><span class="p">);</span>
+<span class="w">        </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">AEGP_HashSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hash_suite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">AEGP_HashSuite1</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">in_dataP</span><span class="p">,</span>
+<span class="w">            </span><span class="n">kAEGPHashSuite</span><span class="p">,</span>
+<span class="w">            </span><span class="n">kAEGPHashSuiteVersion1</span><span class="p">,</span>
+<span class="w">            </span><span class="n">out_dataP</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// define a simple buffer that is easy to recognize as a starting hash</span>
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hash_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Level2Histo&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_CreateHashFromPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">hash_buffer</span><span class="p">),</span><span class="w"> </span><span class="n">hash_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// define a simple buffer that is easy to recognize as a starting hash</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hash_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Level2Histo&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_CreateHashFromPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">hash_buffer</span><span class="p">),</span><span class="w"> </span><span class="n">hash_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// Mix in effect parameters that would create a different compute result and should generate a different cache entry and key.</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_HashMixInPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">histo_op</span><span class="p">.</span><span class="n">depthL</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">histo_op</span><span class="p">.</span><span class="n">depthL</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Mix in effect parameters that would create a different compute result and should generate a different cache entry and key.</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_HashMixInPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">histo_op</span><span class="p">.</span><span class="n">depthL</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">histo_op</span><span class="p">.</span><span class="n">depthL</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_HashMixInPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">histo_op</span><span class="p">.</span><span class="n">bB</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">histo_op</span><span class="p">.</span><span class="n">bB</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// mix in any other effect parameters that should affect the cache key</span>
+<span class="w">        </span><span class="c1">// ...</span>
+
+<span class="w">        </span><span class="c1">// out_keyP is returned as the generated key for use as the cache key.</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_HashMixInPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">histo_op</span><span class="p">.</span><span class="n">bB</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">histo_op</span><span class="p">.</span><span class="n">bB</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
+<span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* return most appropriate PF_Err */</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// mix in any other effect parameters that should affect the cache key</span>
-<span class="w">    </span><span class="c1">// ...</span>
-
-<span class="w">    </span><span class="c1">// out_keyP is returned as the generated key for use as the cache key.</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">      </span><span class="cm">/* return most appropriate PF_Err */</span>
-<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <hr />
@@ -3218,7 +3218,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 5, 2025</span>
   </span>
 
     
@@ -3284,9 +3284,13 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../js/print-site.js"></script>
+      
+        <script src="../../_static/extra.js"></script>
+      
+        <script src="../../docs/_global/js/global.js"></script>
       
     
   </body>
