@@ -1,5 +1,1 @@
-markdown_grid_tables
-mkdocs
-mkdocs-git-revision-date-localized-plugin
-mkdocs-material
-mkdocs-print-site-plugin
+-r docs/_global/requirements.txt
