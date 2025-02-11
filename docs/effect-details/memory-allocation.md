@@ -10,11 +10,30 @@ Handles passed to you by After Effects are locked for you before you're called, 
 
 ## PF_HandleSuite1
 
-|        Function        |                                                                              Purpose                                                                               |       Replaces       |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| `host_new_handle`      | Allocates a new handle.<br/><pre>PF_Handle (*host_new_handle)(<br/>  A_HandleSize size);</pre>                                                                     | `PF_NEW_HANDLE`      |
-| `host_lock_handle`     | Locks a handle.<br/><pre>void (*host_lock_handle)(<br/>  PF_Handle pf_handle);</pre>                                                                               | `PF_LOCK_HANDLE`     |
-| `host_unlock_handle`   | Unlocks a handle.<br/><pre>void (*host_unlock_handle)(<br/>  PF_Handle pf_handle);</pre>                                                                           | `PF_UNLOCK_HANDLE`   |
-| `host_dispose_handle`  | Frees a handle.<br/><pre>void (*host_dispose_handle)(<br/>  PF_Handle pf_handle);</pre>                                                                            | `PF_DISPOSE_HANDLE`  |
-| `host_get_handle_size` | Returns the size, in bytes, of the reallocatable block whose handle is passed in.<br/><pre>A_HandleSize (*host_get_handle_size)(<br/>  PF_Handle pf_handle);</pre> | `PF_GET_HANDLE_SIZE` |
-| `host_resize_handle`   | Resizes a handle.<br/><pre>PF_Err (*host_resize_handle)(<br/>  A_HandleSize new_sizeL, PF_Handle \*handlePH);</pre>                                                | `PF_RESIZE_HANDLE`   |
++------------------------+----------------------------------------------------------------------------------------------------------+----------------------+
+|        Function        |                                                 Purpose                                                  |       Replaces       |
++========================+==========================================================================================================+======================+
+| `host_new_handle`      | Allocates a new handle.                                                                                  | `PF_NEW_HANDLE`      |
+|                        |                                                                                                          |                      |
+|                        | <pre lang="cpp">PF_Handle (*host_new_handle)(<br/>  A_HandleSize size);</pre>                            |                      |
++------------------------+----------------------------------------------------------------------------------------------------------+----------------------+
+| `host_lock_handle`     | Locks a handle.                                                                                          | `PF_LOCK_HANDLE`     |
+|                        |                                                                                                          |                      |
+|                        | <pre lang="cpp">void (*host_lock_handle)(<br/>  PF_Handle pf_handle);</pre>                              |                      |
++------------------------+----------------------------------------------------------------------------------------------------------+----------------------+
+| `host_unlock_handle`   | Unlocks a handle.                                                                                        | `PF_UNLOCK_HANDLE`   |
+|                        |                                                                                                          |                      |
+|                        | <pre lang="cpp">void (*host_unlock_handle)(<br/>  PF_Handle pf_handle);</pre>                            |                      |
++------------------------+----------------------------------------------------------------------------------------------------------+----------------------+
+| `host_dispose_handle`  | Frees a handle.                                                                                          | `PF_DISPOSE_HANDLE`  |
+|                        |                                                                                                          |                      |
+|                        | <pre lang="cpp">void (*host_dispose_handle)(<br/>  PF_Handle pf_handle);</pre>                           |                      |
++------------------------+----------------------------------------------------------------------------------------------------------+----------------------+
+| `host_get_handle_size` | Returns the size, in bytes, of the reallocatable block whose handle is passed in.                        | `PF_GET_HANDLE_SIZE` |
+|                        |                                                                                                          |                      |
+|                        | <pre lang="cpp">A_HandleSize (*host_get_handle_size)(<br/>  PF_Handle pf_handle);</pre>                  |                      |
++------------------------+----------------------------------------------------------------------------------------------------------+----------------------+
+| `host_resize_handle`   | Resizes a handle.                                                                                        | `PF_RESIZE_HANDLE`   |
+|                        |                                                                                                          |                      |
+|                        | <pre lang="cpp">PF_Err (*host_resize_handle)(<br/>  A_HandleSize new_sizeL, PF_Handle \*handlePH);</pre> |                      |
++------------------------+----------------------------------------------------------------------------------------------------------+----------------------+

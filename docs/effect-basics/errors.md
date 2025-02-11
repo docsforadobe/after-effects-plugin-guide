@@ -12,17 +12,33 @@ Really. We're serious.
 
 ## Error Codes
 
-|                Error                |                                                                                                                                                      Meaning                                                                                                                                                      |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PF_Err_NONE`                       | Success.                                                                                                                                                                                                                                                                                                          |
-| `PF_Err_OUT_OF_MEMORY`              | Memory allocation failed.<br/><br/>Note that RAM preview will cause this condition, so After Effects will be expecting to receive this error from your plug-in.                                                                                                                                                   |
-| `PF_Err_INTERNAL_STRUCT_DAMAGED`    | Problems using a data structure.                                                                                                                                                                                                                                                                                  |
-| `PF_Err_INVALID_INDEX`              | Problems finding/using array member.                                                                                                                                                                                                                                                                              |
-| `PF_Err_UNRECOGNIZED_PARAM_TYPE`    | Problem with parameter data.                                                                                                                                                                                                                                                                                      |
-| `PF_Err_INVALID_CALLBACK`           | Problems accessing function through pointer.                                                                                                                                                                                                                                                                      |
-| `PF_Err_BAD_CALLBACK_PARAM`         | Problems using a parameter passed to a callback.                                                                                                                                                                                                                                                                  |
-| `PF_Interrupt_CANCEL`               | Both effect and AEGP callbacks can return this to effects, if a user action aborts a render.<br/><br/>If the effect gets this error from a callback, it should stop processing the frame and return the error to the host.<br/><br/>Failure to pass the error back may result in misrendered frames being cached. |
-| `PF_Err_CANNOT_PARSE_KEYFRAME_TEXT` | Return this from `PF_Arbitrary_SCAN_FUNC` when problems occur parsing the clipboard into keyframe data.                                                                                                                                                                                                           |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+|                Error                |                                                           Meaning                                                            |
++=====================================+==============================================================================================================================+
+| `PF_Err_NONE`                       | Success.                                                                                                                     |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| `PF_Err_OUT_OF_MEMORY`              | Memory allocation failed.                                                                                                    |
+|                                     |                                                                                                                              |
+|                                     | Note that RAM preview will cause this condition, so After Effects will be expecting to receive this error from your plug-in. |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| `PF_Err_INTERNAL_STRUCT_DAMAGED`    | Problems using a data structure.                                                                                             |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| `PF_Err_INVALID_INDEX`              | Problems finding/using array member.                                                                                         |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| `PF_Err_UNRECOGNIZED_PARAM_TYPE`    | Problem with parameter data.                                                                                                 |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| `PF_Err_INVALID_CALLBACK`           | Problems accessing function through pointer.                                                                                 |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| `PF_Err_BAD_CALLBACK_PARAM`         | Problems using a parameter passed to a callback.                                                                             |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| `PF_Interrupt_CANCEL`               | Both effect and AEGP callbacks can return this to effects, if a user action aborts a render.                                 |
+|                                     |                                                                                                                              |
+|                                     | If the effect gets this error from a callback, it should stop processing the frame and return the error to the host.         |
+|                                     |                                                                                                                              |
+|                                     | Failure to pass the error back may result in misrendered frames being cached.                                                |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| `PF_Err_CANNOT_PARSE_KEYFRAME_TEXT` | Return this from `PF_Arbitrary_SCAN_FUNC` when problems occur parsing the clipboard into keyframe data.                      |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 
 ---
 
