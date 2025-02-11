@@ -2775,158 +2775,361 @@
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Name</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>inter</code></td>
-<td>Callbacks used for user interaction, adding parameters, checking whether the user has interrupted the effect, displaying a progress bar,<br/>and obtaining source frames and parameter values at times other than the current time being rendered.<br/><br/>This very useful function suite is described in <a href="../../effect-details/interaction-callback-functions/">Interaction Callback Functions</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>inter</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Callbacks used for user interaction, adding parameters, checking whether the user has interrupted the effect, displaying a progress bar, and obtaining source frames and parameter values at times other than the current time being rendered.</p>
+<p>This very useful function suite is described in <a href="../../effect-details/interaction-callback-functions/">Interaction Callback Functions</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>utils</code></td>
-<td>Graphical and mathematical callbacks. This pointer is defined at all times.</td>
+<td colspan="1" rowspan="1">
+<p><code>utils</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Graphical and mathematical callbacks. This pointer is defined at all times.</p>
+</td>
 </tr>
 <tr>
-<td><code>effect_ref</code></td>
-<td>Opaque data that must be passed to most of the various callback routines.<br/><br/>After Effects uses this to identify your plug-in.</td>
+<td colspan="1" rowspan="1">
+<p><code>effect_ref</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Opaque data that must be passed to most of the various callback routines.</p>
+<p>After Effects uses this to identify your plug-in.</p>
+</td>
 </tr>
 <tr>
-<td><code>quality</code></td>
-<td>The current quality setting, either <code>PF_Quality_HI</code> or <code>PF_Quality_LO</code>.<br/><br/>Effects should perform faster in LO, and more accurately in HI.<br/><br/>The graphics utility callbacks perform differently between LO and HI quality; so should your effect!<br/><br/>This field is defined during all frame and sequence selectors.</td>
+<td colspan="1" rowspan="1">
+<p><code>quality</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The current quality setting, either <code>PF_Quality_HI</code> or <code>PF_Quality_LO</code>.</p>
+<p>Effects should perform faster in LO, and more accurately in HI.</p>
+<p>The graphics utility callbacks perform differently between LO and HI quality; so should your effect!</p>
+<p>This field is defined during all frame and sequence selectors.</p>
+</td>
 </tr>
 <tr>
-<td><code>version</code></td>
-<td>Effects specification version, Indicate the version you need to run successfully during <code>PF_Cmd_GLOBAL_SETUP</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>version</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Effects specification version, Indicate the version you need to run successfully during <code>PF_Cmd_GLOBAL_SETUP</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>serial_num</code></td>
-<td>The serial number of the invoking application.</td>
+<td colspan="1" rowspan="1">
+<p><code>serial_num</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The serial number of the invoking application.</p>
+</td>
 </tr>
 <tr>
-<td><code>appl_id</code></td>
-<td>The identifier of the invoking application.<br/><br/>If your plug-in is running in After Effects, <code>appl_id</code> contains the application creator code 'FXTC'.<br/><br/>If it is running in <a href="../../ppro/ppro/">Premiere Pro &amp; Other Hosts</a> it will be 'PrMr'.<br/><br/>Use this to test whether your plug-in, licensed for use with one application, is being used with another.</td>
+<td colspan="1" rowspan="1">
+<p><code>appl_id</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The identifier of the invoking application.</p>
+<p>If your plug-in is running in After Effects, <code>appl_id</code> contains the application creator code 'FXTC'.</p>
+<p>If it is running in <a href="../../ppro/ppro/">Premiere Pro &amp; Other Hosts</a> it will be 'PrMr'.</p>
+<p>Use this to test whether your plug-in, licensed for use with one application, is being used with another.</p>
+</td>
 </tr>
 <tr>
-<td><code>num_params</code></td>
-<td>Input parameter count.</td>
+<td colspan="1" rowspan="1">
+<p><code>num_params</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input parameter count.</p>
+</td>
 </tr>
 <tr>
-<td><code>what_cpu</code></td>
-<td>Under macOS this contains the Gestalt value for CPU type (see Inside Macintosh, volume 6). Undefined on Windows.</td>
+<td colspan="1" rowspan="1">
+<p><code>what_cpu</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Under macOS this contains the Gestalt value for CPU type (see Inside Macintosh, volume 6). Undefined on Windows.</p>
+</td>
 </tr>
 <tr>
-<td><code>what_fpu</code></td>
-<td>Under macOS this contains the Gestalt value for FPU type.<br/><br/>Undefined on Windows.</td>
+<td colspan="1" rowspan="1">
+<p><code>what_fpu</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Under macOS this contains the Gestalt value for FPU type. Undefined on Windows.</p>
+</td>
 </tr>
 <tr>
-<td><code>current_time</code></td>
-<td>The time of the current frame being rendered, valid during <a href="../command-selectors/#frame-selectors">PF_Cmd_RENDER</a>.<br/>This is the current time in the layer, not in any composition.<br/>If a layer starts at other than time 0 or is time-stretched, layer time and composition time are distinct.<br/><br/>The current frame number is <code>current_time</code> divided by <code>time_step</code>.<br/>The current time in seconds is <code>current_time</code> divided by time_scale.<br/><br/>To handle time stretching, composition frame rate changes, and time remapping, After Effects may ask effects to render at non-integral times (between two frames).<br/><br/>Be prepared for this; don't assume that you'll only be asked for frames on frame boundaries.<br/><br/>NOTE: As of CS3 (8.0), effects may be asked to render at negative current times. Deal!</td>
+<td colspan="1" rowspan="1">
+<p><code>current_time</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The time of the current frame being rendered, valid during <a href="../command-selectors/#frame-selectors">PF_Cmd_RENDER</a>.</p>
+<p>This is the current time in the layer, not in any composition.</p>
+<p>If a layer starts at other than time 0 or is time-stretched, layer time and composition time are distinct.</p>
+<p>The current frame number is <code>current_time</code> divided by <code>time_step</code>.</p>
+<p>The current time in seconds is <code>current_time</code> divided by time_scale.</p>
+<p>To handle time stretching, composition frame rate changes, and time remapping, After Effects may ask effects to render at non-integral times (between two frames).</p>
+<p>Be prepared for this; don't assume that you'll only be asked for frames on frame boundaries.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of CS3 (8.0), effects may be asked to render at negative current times. Deal!</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>time_step</code></td>
-<td>The duration of the current source frame being rendered.<br/><br/>In several situations with nested compositions, this source frame duration may be different than the time span between frames in the layer (<code>local_time_step</code>).<br/><br/>This value can be converted to seconds by dividing by time_scale.<br/><br/>When calculating other source frame times, such as for <a href="../../effect-details/interaction-callback-functions/#interaction-callbacks">PF_CHECKOUT_PARAM</a>, use this value rather than <code>local_time_step</code>.<br/><br/>Can be negative if the layer is time-reversed. Can vary from one frame to the next if time remapping is applied on a nested composition.<br/><br/>Can differ from local_time_step when source material is stretched or remapped in a nested composition.<br/><br/>For example, this could occur when an inner composition is nested within an outer composition with a different frame rate, or time remapping is applied to the outer composition.<br/><br/>This value will be 0 during <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a> if it is not constant for all frames.<br/><br/>It will be set correctly during <code>PF_Cmd_FRAME_SETUP</code> and <code>PF_Cmd_FRAME_SETDOWN</code> selectors.<br/><br/>WARNING: This can be zero, so check it before you divide.</td>
+<td colspan="1" rowspan="1">
+<p><code>time_step</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The duration of the current source frame being rendered.</p>
+<p>In several situations with nested compositions, this source frame duration may be different than the time span between frames in the layer (<code>local_time_step</code>).</p>
+<p>This value can be converted to seconds by dividing by time_scale.</p>
+<p>When calculating other source frame times, such as for <a href="../../effect-details/interaction-callback-functions/#interaction-callbacks">PF_CHECKOUT_PARAM</a>, use this value rather than <code>local_time_step</code>.</p>
+<p>Can be negative if the layer is time-reversed. Can vary from one frame to the next if time remapping is applied on a nested composition.</p>
+<p>Can differ from local_time_step when source material is stretched or remapped in a nested composition.</p>
+<p>For example, this could occur when an inner composition is nested within an outer composition with a different frame rate, or time remapping is applied to the outer composition.</p>
+<p>This value will be 0 during <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a> if it is not constant for all frames.</p>
+<p>It will be set correctly during <code>PF_Cmd_FRAME_SETUP</code> and <code>PF_Cmd_FRAME_SETDOWN</code> selectors.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This can be zero, so check it before you divide.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>total_time</code></td>
-<td>Duration of the layer.<br/><br/>If the layer is time-stretched longer than 100%, the value will be adjusted accordingly; but if the layer is time-stretched shorter, the value will not be affected.<br/><br/>If time remapping is enabled, this value will be the duration of the composition.<br/><br/>This value can be converted to seconds by dividing by <code>time_scale</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>total_time</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Duration of the layer.</p>
+<p>If the layer is time-stretched longer than 100%, the value will be adjusted accordingly; but if the layer is time-stretched shorter, the value will not be affected.</p>
+<p>If time remapping is enabled, this value will be the duration of the composition.</p>
+<p>This value can be converted to seconds by dividing by <code>time_scale</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>local_time_step</code></td>
-<td>Time difference between frames in the layer.<br/><br/>Affected by any time stretch applied to a layer.<br/><br/>Can be negative if the layer is time-reversed.<br/><br/>Unlike <code>time_step</code>, this value is constant from one frame to the next.<br/><br/>This value can be converted to seconds by dividing by <code>time_scale</code>.<br/><br/>For a step value that is constant over the entire frame range of the layer, use <code>local_time_step</code>, which is based on the composition's framerate and layer stretch.</td>
+<td colspan="1" rowspan="1">
+<p><code>local_time_step</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Time difference between frames in the layer.</p>
+<p>Affected by any time stretch applied to a layer.</p>
+<p>Can be negative if the layer is time-reversed.</p>
+<p>Unlike <code>time_step</code>, this value is constant from one frame to the next.</p>
+<p>This value can be converted to seconds by dividing by <code>time_scale</code>.</p>
+<p>For a step value that is constant over the entire frame range of the layer, use <code>local_time_step</code>, which is based on the composition's framerate and layer stretch.</p>
+</td>
 </tr>
 <tr>
-<td><code>time_scale</code></td>
-<td>The units per second that <code>current_time</code>, <code>time_step</code>, <code>local_time_step</code> and <code>total_time</code> are in.<br/><br/>If <code>time_scale</code> is 30, then the units of <code>current_time</code>, <code>time_step</code>, <code>local_time_step</code> and <code>total_time</code> are in 30ths of a second.<br/><br/>The <code>time_step</code> might then be 3, indicating that the sequence is actually being rendered at 10 frames per second. <code>total_time</code> might be 105, indicating that the sequence is 3.5 seconds long.</td>
+<td colspan="1" rowspan="1">
+<p><code>time_scale</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The units per second that <code>current_time</code>, <code>time_step</code>, <code>local_time_step</code> and <code>total_time</code> are in.</p>
+<p>If <code>time_scale</code> is 30, then the units of <code>current_time</code>, <code>time_step</code>, <code>local_time_step</code> and <code>total_time</code> are in 30ths of a second.</p>
+<p>The <code>time_step</code> might then be 3, indicating that the sequence is actually being rendered at 10 frames per second. <code>total_time</code> might be 105, indicating that the sequence is 3.5 seconds long.</p>
+</td>
 </tr>
 <tr>
-<td><code>field</code></td>
-<td>Valid only if <a href="../PF_OutData/#pf_outflags">PF_OutFlag_PIX_INDEPENDENT</a> was set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.<br/><br/>Check this field to see if you can process just the upper or lower field.</td>
+<td colspan="1" rowspan="1">
+<p><code>field</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Valid only if <a href="../PF_OutData/#pf_outflags">PF_OutFlag_PIX_INDEPENDENT</a> was set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+<p>Check this field to see if you can process just the upper or lower field.</p>
+</td>
 </tr>
 <tr>
-<td><code>shutter_angle</code></td>
-<td>Motion blur shutter angle. Values range from 0 to 1, which represents 360 degrees.<br/><br/>Will be zero unless motion blur is enabled and checked for the target layer.<br/><br/><code>shutter_angle == 180</code> means the time interval between <code>current_time</code> and <code>current_time + 1/2 time_step</code>.<br/><br/>Valid only if <a href="../PF_OutData/#pf_outflags">PF_OutFlag_I_USE_SHUTTER_ANGLE</a> was set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.<br/><br/>See the section on <a href="../../effect-details/motion-blur/">Motion Blur</a> for details on how to implement motion blur in your effect.</td>
+<td colspan="1" rowspan="1">
+<p><code>shutter_angle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Motion blur shutter angle. Values range from 0 to 1, which represents 360 degrees.</p>
+<p>Will be zero unless motion blur is enabled and checked for the target layer.</p>
+<p><code>shutter_angle == 180</code> means the time interval between <code>current_time</code> and <code>current_time + 1/2 time_step</code>.</p>
+<p>Valid only if <a href="../PF_OutData/#pf_outflags">PF_OutFlag_I_USE_SHUTTER_ANGLE</a> was set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+<p>See the section on <a href="../../effect-details/motion-blur/">Motion Blur</a> for details on how to implement motion blur in your effect.</p>
+</td>
 </tr>
 <tr>
-<td><code>width</code></td>
-<td>Dimensions of the source layer, which are not necessarily the same as the width and height fields in the input image parameter.<br/><br/>Buffer resizing effects can cause this difference. Not affected by downsampling.</td>
+<td colspan="1" rowspan="1">
+<p><code>width</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Dimensions of the source layer, which are not necessarily the same as the width and height fields in the input image parameter.</p>
+<p>Buffer resizing effects can cause this difference. Not affected by downsampling.</p>
+</td>
 </tr>
 <tr>
-<td><code>height</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>height</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>extent_hint</code></td>
-<td>The intersection of the visible portions of the input and output layers; encloses the composition rectangle transformed into layer coordinates.<br/><br/>Iterating over only this rectangle of pixels can speed your effect dramatically. See <a href="#extent_hint-usage">extent_hint Usage</a> later in this chapter regarding proper usage.</td>
+<td colspan="1" rowspan="1">
+<p><code>extent_hint</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The intersection of the visible portions of the input and output layers; encloses the composition rectangle transformed into layer coordinates.</p>
+<p>Iterating over only this rectangle of pixels can speed your effect dramatically. See <a href="#extent_hint-usage">extent_hint Usage</a> later in this chapter regarding proper usage.</p>
+</td>
 </tr>
 <tr>
-<td><code>output_origin_x</code></td>
-<td>The origin of the output buffer in the input buffer. Non-zero only when the effect changes the origin.</td>
+<td colspan="1" rowspan="1">
+<p><code>output_origin_x</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The origin of the output buffer in the input buffer. Non-zero only when the effect changes the origin.</p>
+</td>
 </tr>
 <tr>
-<td><code>output_origin_y</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>output_origin_y</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>downsample_x</code></td>
-<td>Point control parameters and layer parameter dimensions are automatically adjusted to compensate for a user telling After Effects to render only every nth pixel.<br/><br/>Effects need the downsampling factors to interpret scalar parameters representing pixel distances in the image (like sliders).<br/><br/>For example, a blur of 4 pixels should be interpreted as a blur of 2 pixels if the downsample factor is 1/2 in each direction (downsample factors are represented as ratios.)<br/><br/>Valid only during:<ul><li><a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a></li><li><a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_RESETUP</a></li><li><a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a></li><li><a href="../command-selectors/#frame-selectors">PF_Cmd_RENDER</a></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>downsample_x</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Point control parameters and layer parameter dimensions are automatically adjusted to compensate for a user telling After Effects to render only every nth pixel.</p>
+<p>Effects need the downsampling factors to interpret scalar parameters representing pixel distances in the image (like sliders).</p>
+<p>For example, a blur of 4 pixels should be interpreted as a blur of 2 pixels if the downsample factor is 1/2 in each direction (downsample factors are represented as ratios.)</p>
+<p>Valid only during:</p>
+<ul>
+<li><a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a></li>
+<li><a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_RESETUP</a></li>
+<li><a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a></li>
+<li><a href="../command-selectors/#frame-selectors">PF_Cmd_RENDER</a></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>downsample_y</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>downsample_y</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>pixel_aspect_ratio</code></td>
-<td>Pixel aspect ratio (width over height).</td>
+<td colspan="1" rowspan="1">
+<p><code>pixel_aspect_ratio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pixel aspect ratio (width over height).</p>
+</td>
 </tr>
 <tr>
-<td><code>in_flags</code></td>
-<td>Unused.</td>
+<td colspan="1" rowspan="1">
+<p><code>in_flags</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unused.</p>
+</td>
 </tr>
 <tr>
-<td><code>global_data</code></td>
-<td>Data stored by your plug-in during other selectors. Locked and unlocked by After Effects before and after calling the plug-in.</td>
+<td colspan="1" rowspan="1">
+<p><code>global_data</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Data stored by your plug-in during other selectors. Locked and unlocked by After Effects before and after calling the plug-in.</p>
+</td>
 </tr>
 <tr>
-<td><code>sequence_data</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>sequence_data</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>frame_data</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>frame_data</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>start_sampL</code></td>
-<td>Starting sample number, relative to the start of the audio layer.</td>
+<td colspan="1" rowspan="1">
+<p><code>start_sampL</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Starting sample number, relative to the start of the audio layer.</p>
+</td>
 </tr>
 <tr>
-<td><code>dur_sampL</code></td>
-<td>Duration of audio, expressed as the number of samples. Audio-specific.</td>
+<td colspan="1" rowspan="1">
+<p><code>dur_sampL</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Duration of audio, expressed as the number of samples. Audio-specific.</p>
+</td>
 </tr>
 <tr>
-<td><code>total_sampL</code></td>
-<td>Samples in the audio layer; equivalent to total_time expressed in samples.</td>
+<td colspan="1" rowspan="1">
+<p><code>total_sampL</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Samples in the audio layer; equivalent to total_time expressed in samples.</p>
+</td>
 </tr>
 <tr>
-<td><code>src_snd</code></td>
-<td>PF_SoundWorld describing the input sound. Audio-specific.</td>
+<td colspan="1" rowspan="1">
+<p><code>src_snd</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_SoundWorld</code> describing the input sound. Audio-specific.</p>
+</td>
 </tr>
 <tr>
-<td><code>pica_basicP</code></td>
-<td>Pointer to the PICA Basic suite, used to acquire other suites.</td>
+<td colspan="1" rowspan="1">
+<p><code>pica_basicP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pointer to the PICA Basic suite, used to acquire other suites.</p>
+</td>
 </tr>
 <tr>
-<td><code>pre_effect_source_origin_x</code></td>
-<td>Origin of the source image in the input buffer. Valid only when sent with a frame selector.<br/><br/>Non-zero only if one or more effects that preceded this effect on the same layer resized the output buffer and moved the origin.<br/><br/>Check for both the resize and the new origin to determine output area.<br/><br/>This is useful for effects which have implicit spatial operations (other than point controls), like flipping a file around an image's center.<br/><br/>NOTE: Checked-out point parameters are adjusted for the pre-effect origin at the current time, not the time being checked out.</td>
+<td colspan="1" rowspan="1">
+<p><code>pre_effect_source_origin_x</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Origin of the source image in the input buffer. Valid only when sent with a frame selector.</p>
+<p>Non-zero only if one or more effects that preceded this effect on the same layer resized the output buffer and moved the origin.</p>
+<p>Check for both the resize and the new origin to determine output area.</p>
+<p>This is useful for effects which have implicit spatial operations (other than point controls), like flipping a file around an image's center.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Checked-out point parameters are adjusted for the pre-effect origin at the current time, not the time being checked out.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>pre_effect_source_origin_y</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>pre_effect_source_origin_y</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>shutter_phase</code></td>
-<td>Offset from frame time to shutter open time as a percentage of a frame duration.</td>
+<td colspan="1" rowspan="1">
+<p><code>shutter_phase</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Offset from frame time to shutter open time as a percentage of a frame duration.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2985,7 +3188,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3048,7 +3251,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

@@ -1804,6 +1804,28 @@
 </li>
       
         <li class="md-nav__item">
+	<a href="#member" class="md-nav__link">
+		<span class="md-ellipsis">
+			Member
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#purpose" class="md-nav__link">
+		<span class="md-ellipsis">
+			Purpose
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
 	<a href="#arbitrary-parameters-event" class="md-nav__link">
 		<span class="md-ellipsis">
 			Arbitrary Parameters Event
@@ -2917,6 +2939,28 @@
 </li>
       
         <li class="md-nav__item">
+	<a href="#member" class="md-nav__link">
+		<span class="md-ellipsis">
+			Member
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#purpose" class="md-nav__link">
+		<span class="md-ellipsis">
+			Purpose
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
 	<a href="#arbitrary-parameters-event" class="md-nav__link">
 		<span class="md-ellipsis">
 			Arbitrary Parameters Event
@@ -2987,38 +3031,71 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>when</code></td>
-<td>The (OS-level) time at which the click occurred.</td>
+<td colspan="1" rowspan="1">
+<p><code>when</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The (OS-level) time at which the click occurred.</p>
+</td>
 </tr>
 <tr>
-<td><code>screen_point</code></td>
-<td>Where, in screen coordinates, the click occurred. For Custom Comp UI, these coordinates can be converted to composition coordinates using the <a href="../ui-callbacks/">UI Callbacks</a>.<br/>See the CCU sample project for an example.</td>
+<td colspan="1" rowspan="1">
+<p><code>screen_point</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Where, in screen coordinates, the click occurred. For Custom Comp UI, these coordinates can be converted to composition coordinates using the <a href="../ui-callbacks/">UI Callbacks</a>.</p>
+<p>See the CCU sample project for an example.</p>
+</td>
 </tr>
 <tr>
-<td><code>num_clicks</code></td>
-<td>The number of clicks that occurred.</td>
+<td colspan="1" rowspan="1">
+<p><code>num_clicks</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The number of clicks that occurred.</p>
+</td>
 </tr>
 <tr>
-<td><code>modifiers</code></td>
-<td>Which modifier keys (if any) were held down during click.</td>
+<td colspan="1" rowspan="1">
+<p><code>modifiers</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Which modifier keys (if any) were held down during click.</p>
+</td>
 </tr>
 <tr>
-<td><code>continue_refcon[4]</code></td>
-<td>An array of 4 <code>A_intptr_t</code> the plug-in can use to store information during a click-drag-drag sequence.</td>
+<td colspan="1" rowspan="1">
+<p><code>continue_refcon[4]</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An array of 4 <code>A_intptr_t</code> the plug-in can use to store information during a click-drag-drag sequence.</p>
+</td>
 </tr>
 <tr>
-<td><code>send_drag</code></td>
-<td>Set this flag to <code>TRUE</code> to indicate continued dragging. The next click event will then effectively be a drag event.</td>
+<td colspan="1" rowspan="1">
+<p><code>send_drag</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this flag to <code>TRUE</code> to indicate continued dragging. The next click event will then effectively be a drag event.</p>
+</td>
 </tr>
 <tr>
-<td><code>last_time</code></td>
-<td>Set when the drag event ends (the user has released the mouse button).</td>
+<td colspan="1" rowspan="1">
+<p><code>last_time</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set when the drag event ends (the user has released the mouse button).</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3030,18 +3107,31 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>update_rect</code></td>
-<td>The rectangle in which to draw, in the context window's coordinate system. These coordinates can be converted to different coordinate systems using the <a href="../ui-callbacks/">UI Callbacks</a>.<br/>See the CCU sample project for an example.</td>
+<td colspan="1" rowspan="1">
+<p><code>update_rect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The rectangle in which to draw, in the context window's coordinate system. These coordinates can be converted to different coordinate systems using the <a href="../ui-callbacks/">UI Callbacks</a>.</p>
+<p>See the CCU sample project for an example.</p>
+</td>
 </tr>
 <tr>
-<td><code>depth</code></td>
-<td>Pixel depth of the drawing context.</td>
+<td colspan="1" rowspan="1">
+<p><code>depth</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pixel depth of the drawing context.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3054,26 +3144,91 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>when</code></td>
-<td>Time at which the click occurred.</td>
+<td colspan="1" rowspan="1">
+<p><code>when</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Time at which the click occurred.</p>
+</td>
 </tr>
 <tr>
-<td><code>screen_point</code></td>
-<td>Screen coordinate of the mouse pointer when the key was pressed.<br/>For Custom Comp UI, these coordinates can be converted to composition coordinates using the <a href="../ui-callbacks/">UI Callbacks</a>.<br/>See the CCU sample project for an example.</td>
+<td colspan="1" rowspan="1">
+<p><code>screen_point</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Screen coordinate of the mouse pointer when the key was pressed.</p>
+<p>For Custom Comp UI, these coordinates can be converted to composition coordinates using the <a href="../ui-callbacks/">UI Callbacks</a>.</p>
+<p>See the CCU sample project for an example.</p>
+</td>
 </tr>
 <tr>
-<td><code>key_code</code></td>
-<td>Either a character code (for printable characters, we use the unshifted upper case version; A not a, 7 not &amp;), or a control code:<ul><li><code>PF_ControlCode_Unknown</code></li><li><code>PF_ControlCode_Space</code></li><li><code>PF_ControlCode_Backspace</code></li><li><code>PF_ControlCode_Tab</code></li><li><code>PF_ControlCode_Return</code></li><li><code>PF_ControlCode_Enter</code></li><li><code>PF_ControlCode_Escape</code></li><li><code>PF_ControlCode_F1</code></li><li>...</li><li><code>PF_ControlCode_F24</code></li><li><code>PF_ControlCode_PrintScreen</code></li><li><code>PF_ControlCode_ScrollLock</code></li><li><code>PF_ControlCode_Pause</code></li><li><code>PF_ControlCode_Insert</code></li><li><code>PF_ControlCode_Delete</code></li><li><code>PF_ControlCode_Home</code></li><li><code>PF_ControlCode_End</code></li><li><code>PF_ControlCode_PageUp</code></li><li><code>PF_ControlCode_PageDown</code></li><li><code>PF_ControlCode_Help</code></li><li><code>PF_ControlCode_Clear</code></li><li><code>PF_ControlCode_Left</code></li><li><code>PF_ControlCode_Right</code></li><li><code>PF_ControlCode_Up</code></li><li><code>PF_ControlCode_Down</code></li><li><code>PF_ControlCode_NumLock</code></li><li><code>PF_ControlCode_Command</code></li><li><code>PF_ControlCode_Option</code></li><li><code>PF_ControlCode_Alt</code> = <code>PF_ControlCode_Option</code></li><li><code>PF_ControlCode_Control</code></li><li><code>PF_ControlCode_Shift</code></li><li><code>PF_ControlCode_CapsLock</code></li><li><code>PF_ControlCode_ContextMenu</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>key_code</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Either a character code (for printable characters, we use the unshifted upper case version; A not a, 7 not &amp;), or a control code:</p>
+<ul>
+<li><code>PF_ControlCode_Unknown</code></li>
+<li><code>PF_ControlCode_Space</code></li>
+<li><code>PF_ControlCode_Backspace</code></li>
+<li><code>PF_ControlCode_Tab</code></li>
+<li><code>PF_ControlCode_Return</code></li>
+<li><code>PF_ControlCode_Enter</code></li>
+<li><code>PF_ControlCode_Escape</code></li>
+<li><code>PF_ControlCode_F1</code></li>
+<li>...</li>
+<li><code>PF_ControlCode_F24</code></li>
+<li><code>PF_ControlCode_PrintScreen</code></li>
+<li><code>PF_ControlCode_ScrollLock</code></li>
+<li><code>PF_ControlCode_Pause</code></li>
+<li><code>PF_ControlCode_Insert</code></li>
+<li><code>PF_ControlCode_Delete</code></li>
+<li><code>PF_ControlCode_Home</code></li>
+<li><code>PF_ControlCode_End</code></li>
+<li><code>PF_ControlCode_PageUp</code></li>
+<li><code>PF_ControlCode_PageDown</code></li>
+<li><code>PF_ControlCode_Help</code></li>
+<li><code>PF_ControlCode_Clear</code></li>
+<li><code>PF_ControlCode_Left</code></li>
+<li><code>PF_ControlCode_Right</code></li>
+<li><code>PF_ControlCode_Up</code></li>
+<li><code>PF_ControlCode_Down</code></li>
+<li><code>PF_ControlCode_NumLock</code></li>
+<li><code>PF_ControlCode_Command</code></li>
+<li><code>PF_ControlCode_Option</code></li>
+<li><code>PF_ControlCode_Alt</code> = <code>PF_ControlCode_Option</code></li>
+<li><code>PF_ControlCode_Control</code></li>
+<li><code>PF_ControlCode_Shift</code></li>
+<li><code>PF_ControlCode_CapsLock</code></li>
+<li><code>PF_ControlCode_ContextMenu</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>modifiers</code></td>
-<td>Which (if any) modifier keys were down during the key press.<ul><li><code>PF_Mod_NONE</code></li><li><code>PF_Mod_CMD_CTRL_KEY</code> (cmd on Mac, ctrl on Windows)</li><li><code>PF_Mod_SHIFT_KEY</code></li><li><code>PF_Mod_CAPS_LOCK_KEY</code></li><li><code>PF_Mod_OPT_ALT_KEY</code> (option on Mac, alt on Windows)</li><li><code>PF_Mod_MAC_CONTROL_KEY</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>modifiers</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Which (if any) modifier keys were down during the key press.</p>
+<ul>
+<li><code>PF_Mod_NONE</code></li>
+<li><code>PF_Mod_CMD_CTRL_KEY</code> (cmd on Mac, ctrl on Windows)</li>
+<li><code>PF_Mod_SHIFT_KEY</code></li>
+<li><code>PF_Mod_CAPS_LOCK_KEY</code></li>
+<li><code>PF_Mod_OPT_ALT_KEY</code> (option on Mac, alt on Windows)</li>
+<li><code>PF_Mod_MAC_CONTROL_KEY</code></li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3082,24 +3237,34 @@
 <p>The cursor has moved onto (but not off of) the effect's custom UI, to allow the effect to change the cursor.</p>
 <h3 id="pf_adjustcursoreventinfo">PF_AdjustCursorEventInfo<a class="headerlink" href="#pf_adjustcursoreventinfo" title="Permanent link">&para;</a></h3>
 <table>
-<thead>
-<tr>
-<th>Member</th>
-<th>Purpose</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td><code>screen_point</code></td>
-<td>Screen coordinate of the mouse pointer. For Custom Comp UI, these coordinates can be converted to composition coordinates using the <a href="../ui-callbacks/">UI Callbacks</a>.<br/>See the CCU sample project for an example.</td>
+<td colspan="1" rowspan="1">
+<h2 id="member">Member<a class="headerlink" href="#member" title="Permanent link">&para;</a></h2>
+<p><code>screen_point</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
+<p>Screen coordinate of the mouse pointer. For Custom Comp UI, these coordinates can be converted to composition coordinates using the <a href="../ui-callbacks/">UI Callbacks</a>.</p>
+<p>See the CCU sample project for an example.</p>
+</td>
 </tr>
 <tr>
-<td><code>modifiers</code></td>
-<td>What, if any, modifier keys were held down when the message was sent.</td>
+<td colspan="1" rowspan="1">
+<p><code>modifiers</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>What, if any, modifier keys were held down when the message was sent.</p>
+</td>
 </tr>
 <tr>
-<td><code>set_cursor</code></td>
-<td>Set this to your desired cursor, or <code>PF_Cursor_CUSTOM</code> if you have set the cursor yourself using OS-specific calls. See AE_EffectUI.h for a complete enumeration of built-in cursors.<br/>If you don't want to override the cursor, set this to <code>PF_Cursor_NONE</code>, or simply ignore this message.</td>
+<td colspan="1" rowspan="1">
+<p><code>set_cursor</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this to your desired cursor, or <code>PF_Cursor_CUSTOM</code> if you have set the cursor yourself using OS-specific calls. See AE_EffectUI.h for a complete enumeration of built-in cursors.</p>
+<p>If you don't want to override the cursor, set this to <code>PF_Cursor_NONE</code>, or simply ignore this message.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3129,7 +3294,20 @@
 <td>Used for byte-alignment</td>
 </tr>
 <tr>
-<td><pre>u {<br/>  new_func_params<br/>  dispose_func_params<br/>  copy_func_params<br/>  flat_size_func_params<br/>  flatten_func_params<br/>  unflatten_func_params<br/>  interp_func_params<br/>  compare_func_params<br/>  print_size_func_params<br/>  print_func_params<br/>  scan_func_params<br/>}</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">u</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">new_func_params</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">dispose_func_params</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">copy_func_params</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">flat_size_func_params</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">flatten_func_params</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">unflatten_func_params</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">interp_func_params</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">compare_func_params</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">print_size_func_params</span>
+</span><span id="__span-0-11"><span class="w">  </span><span class="n">print_func_params</span>
+</span><span id="__span-0-12"><span class="w">  </span><span class="n">scan_func_params</span>
+</span><span id="__span-0-13"><span class="p">}</span>
+</span></code></pre></div></td>
 <td>(One of these will be passed; see <a href="../../effect-details/arbitrary-data-parameters/">Arbitrary Data Parameters</a>)</td>
 </tr>
 </tbody>
@@ -3154,7 +3332,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3217,7 +3395,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

@@ -2751,58 +2751,116 @@
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Field</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>my_version</code></td>
-<td>Set this flag (using the PF_VERSION macro) to the version of your plug-in code.<br/><br/>After Effects uses this data to decide which of duplicate effects to load.</td>
+<td colspan="1" rowspan="1">
+<p><code>my_version</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this flag (using the PF_VERSION macro) to the version of your plug-in code.</p>
+<p>After Effects uses this data to decide which of duplicate effects to load.</p>
+</td>
 </tr>
 <tr>
-<td><code>name</code></td>
-<td>Unused.</td>
+<td colspan="1" rowspan="1">
+<p><code>name</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unused.</p>
+</td>
 </tr>
 <tr>
-<td><code>global_data</code></td>
-<td>Handle which will be returned to you in <a href="../PF_InData/">PF_InData</a> with every call.<br/><br/>Use After Effects' memory allocation functions.</td>
+<td colspan="1" rowspan="1">
+<p><code>global_data</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Handle which will be returned to you in <a href="../PF_InData/">PF_InData</a> with every call.</p>
+<p>Use After Effects' memory allocation functions.</p>
+</td>
 </tr>
 <tr>
-<td><code>num_params</code></td>
-<td>After Effects checks this field against the number of calls made to<br/><br/>PF_ADD_PARAM, as well as the implicit input layer.</td>
+<td colspan="1" rowspan="1">
+<p><code>num_params</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After Effects checks this field against the number of calls made to <code>PF_ADD_PARAM</code>, as well as the implicit input layer.</p>
+</td>
 </tr>
 <tr>
-<td><code>sequence_data</code></td>
-<td>Allocatable upon receiving <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a>,<br/>this handle will be passed back to you in <a href="../PF_InData/">PF_InData</a> during all subsequent calls.</td>
+<td colspan="1" rowspan="1">
+<p><code>sequence_data</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocatable upon receiving <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a>, this handle will be passed back to you in <a href="../PF_InData/">PF_InData</a> during all subsequent calls.</p>
+</td>
 </tr>
 <tr>
-<td><code>flat_sdata_size</code></td>
-<td>Unused (After Effects knows the size, because you used its allocation functions to get the memory in the first place).</td>
+<td colspan="1" rowspan="1">
+<p><code>flat_sdata_size</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unused (After Effects knows the size, because you used its allocation functions to get the memory in the first place).</p>
+</td>
 </tr>
 <tr>
-<td><code>frame_data</code></td>
-<td>Handle you (might have) allocated during <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a>.<br/><br/>This is never written to disk; it was used to pass information from your <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a> response to your<br/><a href="../command-selectors/#frame-selectors">PF_Cmd_RENDER</a> or <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETDOWN</a> (which you must do if you resize the output buffer).<br/><br/>Otherwise, this memory is rarely used.</td>
+<td colspan="1" rowspan="1">
+<p><code>frame_data</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Handle you (might have) allocated during <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a>.</p>
+<p>This is never written to disk; it was used to pass information from your <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a> response to your <a href="../command-selectors/#frame-selectors">PF_Cmd_RENDER</a> or <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETDOWN</a> (which you must do if you resize the output buffer).</p>
+<p>Otherwise, this memory is rarely used.</p>
+</td>
 </tr>
 <tr>
-<td><code>width</code>, <code>height</code>, <code>origin</code></td>
-<td>Set during <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a> if the output image size differs from the input.<br/><br/><code>width</code> and <code>height</code> are the size of the output buffer, and <code>origin</code> is the point the input should map to in the output.<br/><br/>To create a 5-pixel drop shadow up and left, set origin to (5, 5).</td>
+<td colspan="1" rowspan="1">
+<p><code>width</code>, <code>height</code>, <code>origin</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set during <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a> if the output image size differs from the input.</p>
+<p><code>width</code> and <code>height</code> are the size of the output buffer, and <code>origin</code> is the point the input should map to in the output.</p>
+<p>To create a 5-pixel drop shadow up and left, set origin to (5, 5).</p>
+</td>
 </tr>
 <tr>
-<td><a href="#pf_outflags">out_flags</a></td>
-<td>Send messages to After Effects. OR together multiple values.</td>
+<td colspan="1" rowspan="1">
+<p><a href="#pf_outflags">out_flags</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Send messages to After Effects. OR together multiple values.</p>
+</td>
 </tr>
 <tr>
-<td><code>return_msg</code></td>
-<td>After Effects displays any C string you put here (checked and cleared after every command selector).</td>
+<td colspan="1" rowspan="1">
+<p><code>return_msg</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After Effects displays any C string you put here (checked and cleared after every command selector).</p>
+</td>
 </tr>
 <tr>
-<td><code>start_sampL</code>,<br/><code>dur_sampL</code>,<br/><code>dest_snd</code></td>
-<td>Used only for <a href="../../audio/audio/">Audio</a> commands</td>
+<td colspan="1" rowspan="1">
+<p><code>start_sampL</code>, <code>dur_sampL</code>, <code>dest_snd</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Used only for <a href="../../audio/audio/">Audio</a> commands</p>
+</td>
 </tr>
 <tr>
-<td><a href="#pf_outflags2">out_flags2</a></td>
-<td>Send messages to After Effects. OR together multiple values.</td>
+<td colspan="1" rowspan="1">
+<p><a href="#pf_outflags2">out_flags2</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Send messages to After Effects. OR together multiple values.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2814,138 +2872,342 @@
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Indicates</th>
+<th colspan="1" rowspan="1">
+<p>Flag</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Indicates</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_OutFlag_KEEP_RESOURCE_OPEN</code></td>
-<td>The plug-in's resources must be available during all commands.<br/><br/>During <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>, the plug-in's resources are always open, but unavailable at all other times<br/>(except during <a href="../command-selectors/#global-selectors">PF_Cmd_ABOUT</a> and <a href="../command-selectors/#messaging">PF_Cmd_DO_DIALOG</a>), unless this flag has been set.<br/><br/>Set if you need access to resources at any time other than during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.<br/><br/>NOTE: We recommend the plug-in load and store the necessary resources in global data, rather than keeping the file's resources open.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_KEEP_RESOURCE_OPEN</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The plug-in's resources must be available during all commands.</p>
+<p>During <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>, the plug-in's resources are always open, but unavailable at all other times (except during <a href="../command-selectors/#global-selectors">PF_Cmd_ABOUT</a> and <a href="../command-selectors/#messaging">PF_Cmd_DO_DIALOG</a>), unless this flag has been set.</p>
+<p>Set if you need access to resources at any time other than during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend the plug-in load and store the necessary resources in global data, rather than keeping the file's resources open.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_WIDE_TIME_INPUT</code></td>
-<td>The effect checks out a parameter at a time other than <code>current_time</code>.<br/><br/>If you use a parameter (including layer parameters) from another time, set this flag.<br/><br/>Otherwise, After Effects won't correctly invalidate cached frames used by your effect.<br/><br/>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.<br/><br/>If you set this flag, we strongly recommend you also set <code>PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT</code> for better performance.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_WIDE_TIME_INPUT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect checks out a parameter at a time other than <code>current_time</code>.</p>
+<p>If you use a parameter (including layer parameters) from another time, set this flag.</p>
+<p>Otherwise, After Effects won't correctly invalidate cached frames used by your effect.</p>
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+<p>If you set this flag, we strongly recommend you also set <code>PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT</code> for better performance.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_NON_PARAM_VARY</code></td>
-<td>With this flag set, After Effects will not cache output when the effect is applied to a still.<br/><br/>Otherwise, After Effects will cache your output to be used to render other frames, if possible.<br/><br/>Set this flag if output varies based on something besides a parameter value.<br/><br/>If the effect produces changing frames when applied to a still image and all parameters are constant,<br/>that's a sure sign that this bit should be set (e.g. Wave Warp).<br/><br/>Particle effects, for example, will need this.<br/><br/>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.<br/><br/>Can be overridden dynamically if needed during <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>.<br/><br/>Turn this off whenever possible to improve performance.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_NON_PARAM_VARY</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>With this flag set, After Effects will not cache output when the effect is applied to a still.</p>
+<p>Otherwise, After Effects will cache your output to be used to render other frames, if possible.</p>
+<p>Set this flag if output varies based on something besides a parameter value.</p>
+<p>If the effect produces changing frames when applied to a still image and all parameters are constant, that's a sure sign that this bit should be set (e.g. Wave Warp).</p>
+<p>Particle effects, for example, will need this.</p>
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+<p>Can be overridden dynamically if needed during <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>.</p>
+<p>Turn this off whenever possible to improve performance.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_RESERVED6</code></td>
-<td>Unused. Formerly PF_OutFlag_SEND_PARAMS_UPDATE. Replaced by <code>PF_OutFlag_REFRESH_UI</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_RESERVED6</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unused. Formerly <code>PF_OutFlag_SEND_PARAMS_UPDATE</code>. Replaced by <code>PF_OutFlag_REFRESH_UI</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_SEQUENCE_DATA_NEEDS_FLATTENING</code></td>
-<td>Both After Effects and Premiere Pro assume this flag is set.<br/><br/>Flattening is necessary when sequence data contains referencing items (pointers, handles), which must be flattened for storage and unflattened for use.<br/><br/>See <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_RESETUP</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_SEQUENCE_DATA_NEEDS_FLATTENING</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Both After Effects and Premiere Pro assume this flag is set.</p>
+<p>Flattening is necessary when sequence data contains referencing items (pointers, handles), which must be flattened for storage and unflattened for use.</p>
+<p>See <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_RESETUP</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_I_DO_DIALOG</code></td>
-<td>Effect displays a dialog in response to <a href="../command-selectors/#messaging">PF_Cmd_DO_DIALOG</a>.<br/><br/>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>, checked during <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a>.<br/><br/>Note: the effect's response to PF_OutFlag_I_DO_DIALOG is not undoable.<br/>You can use arbitrary data with a custom UI, should such changes become necessary.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_I_DO_DIALOG</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Effect displays a dialog in response to <a href="../command-selectors/#messaging">PF_Cmd_DO_DIALOG</a>.</p>
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>, checked during <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The effect's response to <code>PF_OutFlag_I_DO_DIALOG</code> is not undoable. You can use arbitrary data with a custom UI, should such changes become necessary.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_USE_OUTPUT_EXTENT</code></td>
-<td>Effect honors the output <code>extent_rect</code>. Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.<br/><br/>See details at the end of the chapter for proper usage.<br/><br/>Note: Obsolete for SmartFX.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_USE_OUTPUT_EXTENT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Effect honors the output <code>extent_rect</code>. Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+<p>See details at the end of the chapter for proper usage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Obsolete for SmartFX.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_SEND_DO_DIALOG</code></td>
-<td>Effect must show dialog to function (added for compatibility with Photoshop plug-ins).<br/><br/>After Effects sends <a href="../command-selectors/#messaging">PF_Cmd_DO_DIALOG</a> after <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a>.<br/><br/>Set during <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_RESETUP</a>, not during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_SEND_DO_DIALOG</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Effect must show dialog to function (added for compatibility with Photoshop plug-ins).</p>
+<p>After Effects sends <a href="../command-selectors/#messaging">PF_Cmd_DO_DIALOG</a> after <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a>.</p>
+<p>Set during <a href="../command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_RESETUP</a>, not during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_DISPLAY_ERROR_MESSAGE</code></td>
-<td>Display the contents of <code>return_msg</code> in an error dialog.<br/><br/>Whenever return_msg is non-NULL, After Effects displays the contents in a dialog, which will be an error dialog if this flag is set.<br/><br/>Set after any command, and can be used during debugging.<br/><br/>This is also a good way to implement nag messages for tryout versions.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_DISPLAY_ERROR_MESSAGE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Display the contents of <code>return_msg</code> in an error dialog.</p>
+<p>Whenever return_msg is non-NULL, After Effects displays the contents in a dialog, which will be an error dialog if this flag is set.</p>
+<p>Set after any command, and can be used during debugging.</p>
+<p>This is also a good way to implement nag messages for tryout versions.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_I_EXPAND_BUFFER</code></td>
-<td>Effect expands the output buffer.<br/><br/>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.<br/><br/>Set this flag and <code>PF_OutFlag_USE_OUTPUT_EXTENT</code> to use the intersection<br/>of the output <code>extent_rect</code> and your new buffer size during <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a>.<br/><br/>Use <code>pre_effect_source_origin</code> fields to detect other transformations.<br/><br/>Note: Only set this flag if you need to; it drastically reduces caching efficiency.<br/><br/>Note: Obsolete for SmartFX.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_I_EXPAND_BUFFER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Effect expands the output buffer.</p>
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+<p>Set this flag and <code>PF_OutFlag_USE_OUTPUT_EXTENT</code> to use the intersection of the output <code>extent_rect</code> and your new buffer size during <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a>.</p>
+<p>Use <code>pre_effect_source_origin</code> fields to detect other transformations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only set this flag if you need to; it drastically reduces caching efficiency.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Obsolete for SmartFX.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_PIX_INDEPENDENT</code></td>
-<td>A given pixel is independent of the pixels around it.<br/><br/>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> or <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>.<br/><br/>As an example, color correction effects are typically pixel independent, distortions are not.<br/><br/>NOTE: If your effect doesn't use the color values of one pixel to affect those of adjacent pixels, set this outflag!<br/>It can provide dramatic performance improvements.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_PIX_INDEPENDENT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A given pixel is independent of the pixels around it.</p>
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> or <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>.</p>
+<p>As an example, color correction effects are typically pixel independent, distortions are not.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your effect doesn't use the color values of one pixel to affect those of adjacent pixels, set this outflag!</p>
+<p>It can provide dramatic performance improvements.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_I_WRITE_INPUT_BUFFER</code></td>
-<td>The effect writes into the input buffer.<br/><br/>This is of limited use; while saving an allocation, it invalidates some pipeline caching. Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_I_WRITE_INPUT_BUFFER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect writes into the input buffer.</p>
+<p>This is of limited use; while saving an allocation, it invalidates some pipeline caching. Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_I_SHRINK_BUFFER</code></td>
-<td>The effect shrinks its buffer based on the <code>extent_rect</code> in order to be more memory efficient.<br/><br/>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> whenever possible.<br/><br/>Note: Obsolete for SmartFX.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_I_SHRINK_BUFFER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect shrinks its buffer based on the <code>extent_rect</code> in order to be more memory efficient.</p>
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> whenever possible.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Obsolete for SmartFX.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_WORKS_IN_PLACE</code></td>
-<td>Unused.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_WORKS_IN_PLACE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unused.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_SQUARE_PIX_ONLY</code></td>
-<td>Unused.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_SQUARE_PIX_ONLY</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unused.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_CUSTOM_UI</code></td>
-<td>The effect has a custom user interface and requires <a href="../command-selectors/#messaging">PF_Cmd_EVENT</a> messages.<br/><br/>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_CUSTOM_UI</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect has a custom user interface and requires <a href="../command-selectors/#messaging">PF_Cmd_EVENT</a> messages.</p>
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_RESERVED5</code></td>
-<td>Unused.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_RESERVED5</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unused.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_REFRESH_UI</code></td>
-<td>Refresh the entire effect controls, composition, and layer windows.<br/><br/>Set during <a href="../command-selectors/#messaging">PF_Cmd_EVENT</a>, <a href="../command-selectors/#frame-selectors">PF_Cmd_RENDER</a>, and <a href="../command-selectors/#messaging">PF_Cmd_DO_DIALOG</a>.<br/><br/>If refreshing custom UI during <code>PF_Cmd_EVENT</code>, we recommend using the <a href="../../effect-ui-events/custom-ui-and-drawbot/">new redraw mechanism</a> with finer granularity.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_REFRESH_UI</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Refresh the entire effect controls, composition, and layer windows.</p>
+<p>Set during <a href="../command-selectors/#messaging">PF_Cmd_EVENT</a>, <a href="../command-selectors/#frame-selectors">PF_Cmd_RENDER</a>, and <a href="../command-selectors/#messaging">PF_Cmd_DO_DIALOG</a>.</p>
+<p>If refreshing custom UI during <code>PF_Cmd_EVENT</code>, we recommend using the <a href="../../effect-ui-events/custom-ui-and-drawbot/">new redraw mechanism</a> with finer granularity.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_NOP_RENDER</code></td>
-<td>Set this flag during <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a> to invalidate the current render.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_NOP_RENDER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this flag during <a href="../command-selectors/#frame-selectors">PF_Cmd_FRAME_SETUP</a> to invalidate the current render.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_I_USE_SHUTTER_ANGLE</code></td>
-<td>Indicates rendered images depend upon the value of <code>shutter_angle</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_I_USE_SHUTTER_ANGLE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Indicates rendered images depend upon the value of <code>shutter_angle</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_I_USE_AUDIO</code></td>
-<td>Effect's parameters depend on audio data, obtained using <a href="../../effect-details/interaction-callback-functions/#interaction-callbacks">PF_CHECKOUT_LAYER_AUDIO</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_I_USE_AUDIO</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Effect's parameters depend on audio data, obtained using <a href="../../effect-details/interaction-callback-functions/#interaction-callbacks">PF_CHECKOUT_LAYER_AUDIO</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_I_AM_OBSOLETE</code></td>
-<td>Effect is available for use when working with an old project in which it was originally applied, but doesn't appear in the effect menu.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_I_AM_OBSOLETE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Effect is available for use when working with an old project in which it was originally applied, but doesn't appear in the effect menu.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_FORCE_RERENDER</code></td>
-<td>Effect made a change that requires a re-render. PF_ChangeFlag_CHANGED_VALUE also forces a re-render.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_FORCE_RERENDER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Effect made a change that requires a re-render. PF_ChangeFlag_CHANGED_VALUE also forces a re-render.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_PiPL_OVERRIDES_OUTDATA_OUTFLAGS</code></td>
-<td>After Effects will use PiPL outflags, and ignore those set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_PiPL_OVERRIDES_OUTDATA_OUTFLAGS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After Effects will use PiPL outflags, and ignore those set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_I_HAVE_EXTERNAL_DEPENDENCIES</code></td>
-<td>Effect depends on an external file (or external font).<br/><br/>If set, After Effects sends <a href="../command-selectors/#messaging">PF_Cmd_GET_EXTERNAL_DEPENDENCIES</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_I_HAVE_EXTERNAL_DEPENDENCIES</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Effect depends on an external file (or external font).</p>
+<p>If set, After Effects sends <a href="../command-selectors/#messaging">PF_Cmd_GET_EXTERNAL_DEPENDENCIES</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_DEEP_COLOR_AWARE</code></td>
-<td>The effect handles 16-bpc color.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_DEEP_COLOR_AWARE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect handles 16-bpc color.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_SEND_UPDATE_PARAMS_UI</code></td>
-<td>Set this flag during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> to receive <a href="../command-selectors/#messaging">PF_Cmd_UPDATE_PARAMS_UI</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_SEND_UPDATE_PARAMS_UI</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this flag during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> to receive <a href="../command-selectors/#messaging">PF_Cmd_UPDATE_PARAMS_UI</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_AUDIO_FLOAT_ONLY</code></td>
-<td>Effect requires audio data in PF_SIGNED_FLOAT format.<br/><br/>After Effects will perform any required format conversion.<br/><br/>You must also set either <code>PF_OutFlag_AUDIO_EFFECT_TOO</code> or <code>PF_OutFlag_AUDIO_EFFECT_ONLY</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_AUDIO_FLOAT_ONLY</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Effect requires audio data in PF_SIGNED_FLOAT format.</p>
+<p>After Effects will perform any required format conversion.</p>
+<p>You must also set either <code>PF_OutFlag_AUDIO_EFFECT_TOO</code> or <code>PF_OutFlag_AUDIO_EFFECT_ONLY</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_AUDIO_IIR</code></td>
-<td>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> if the (audio) effect is an Infinite Impulse Response filter.<br/><br/>This is true if output at a given time depends on output from previous times.<br/><br/>When an IIR filter receives <a href="../command-selectors/#frame-selectors">PF_Cmd_AUDIO_RENDER</a>, the input audio time span is the same as the output audio time span<br/>(when they intersect with the output time span requested in <a href="../command-selectors/#frame-selectors">PF_Cmd_AUDIO_SETUP</a>).<br/><br/>In response to <a href="../command-selectors/#frame-selectors">PF_Cmd_AUDIO_SETUP</a>, the filter can request audio from earlier times (as for delay effects).<br/><br/>The filter can access parameters from that earlier time, and should cache them (along with interim audio) in sequence data.<br/><br/>If the audio generated does not correspond to the requested output audio's time, the output audio duration should be set to zero.<br/><br/>The filter can update its delay line using the parameters and the input audio.<br/><br/>Having cached its delay line, request more input audio during <a href="../command-selectors/#frame-selectors">PF_Cmd_AUDIO_SETUP</a><br/>based on the last cached delay line. Use <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_HasParamChanged</a> to determine whether or not your cache is valid.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_AUDIO_IIR</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> if the (audio) effect is an Infinite Impulse Response filter.</p>
+<p>This is true if output at a given time depends on output from previous times.</p>
+<p>When an IIR filter receives <a href="../command-selectors/#frame-selectors">PF_Cmd_AUDIO_RENDER</a>, the input audio time span is the same as the output audio time span (when they intersect with the output time span requested in <a href="../command-selectors/#frame-selectors">PF_Cmd_AUDIO_SETUP</a>).</p>
+<p>In response to <a href="../command-selectors/#frame-selectors">PF_Cmd_AUDIO_SETUP</a>, the filter can request audio from earlier times (as for delay effects).</p>
+<p>The filter can access parameters from that earlier time, and should cache them (along with interim audio) in sequence data.</p>
+<p>If the audio generated does not correspond to the requested output audio's time, the output audio duration should be set to zero.</p>
+<p>The filter can update its delay line using the parameters and the input audio.</p>
+<p>Having cached its delay line, request more input audio during <a href="../command-selectors/#frame-selectors">PF_Cmd_AUDIO_SETUP</a> based on the last cached delay line. Use <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_HasParamChanged</a> to determine whether or not your cache is valid.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_I_SYNTHESIZE_AUDIO</code></td>
-<td>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> time if the effect generates audio, even when passed silence.<br/><br/>You must also set either <code>PF_OutFlag_AUDIO_EFFECT_TOO</code> or <code>PF_OutFlag_AUDIO_EFFECT_ONLY</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_I_SYNTHESIZE_AUDIO</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> time if the effect generates audio, even when passed silence.</p>
+<p>You must also set either <code>PF_OutFlag_AUDIO_EFFECT_TOO</code> or <code>PF_OutFlag_AUDIO_EFFECT_ONLY</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_AUDIO_EFFECT_TOO</code></td>
-<td>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> if the effect alters audio.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_AUDIO_EFFECT_TOO</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> if the effect alters audio.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag_AUDIO_EFFECT_ONLY</code></td>
-<td>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> if the effect alters only audio output.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag_AUDIO_EFFECT_ONLY</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> if the effect alters only audio output.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2957,98 +3219,248 @@
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Indicates</th>
+<th colspan="1" rowspan="1">
+<p>Flag</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Indicates</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_OutFlag2_NONE</code></td>
-<td>Nothing.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_NONE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Nothing.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_SUPPORTS_QUERY_DYNAMIC_FLAGS</code></td>
-<td>The effect responds to <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>. Must be set in the PiPL and during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_SUPPORTS_QUERY_DYNAMIC_FLAGS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect responds to <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>. Must be set in the PiPL and during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_I_USE_3D_CAMERA</code></td>
-<td>The effect accesses 3D camera information.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_I_USE_3D_CAMERA</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect accesses 3D camera information.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_I_USE_3D_LIGHTS</code></td>
-<td>The effect accesses 3D lighting information.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_I_USE_3D_LIGHTS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect accesses 3D lighting information.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_PARAM_GROUP_START_COLLAPSED_FLAG</code></td>
-<td>This flag in itself doesn't control the state of the param group twirlies.<br/><br/>The initial collapse state of each individual parameter group is set during <a href="../command-selectors/#global-selectors">PF_Cmd_PARAM_SETUP</a>, by setting the <a href="../PF_ParamDef/#parameter-flags">PF_ParamFlag_START_COLLAPSED</a> flag in <a href="../PF_ParamDef/#parameter-flags">PF_ParamFlags</a>.<br/>but those individual settings will not be honored unless the effect sets this bit.<br/><br/>Otherwise, all parameter groups will be collapsed by default.<br/><br/>Remember to set this flag in both the PiPL and here during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP.</a></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_PARAM_GROUP_START_COLLAPSED_FLAG</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This flag in itself doesn't control the state of the param group twirlies.</p>
+<p>The initial collapse state of each individual parameter group is set during <a href="../command-selectors/#global-selectors">PF_Cmd_PARAM_SETUP</a>, by setting the <a href="../PF_ParamDef/#parameter-flags">PF_ParamFlag_START_COLLAPSED</a> flag in <a href="../PF_ParamDef/#parameter-flags">PF_ParamFlags</a>, but those individual settings will not be honored unless the effect sets this bit.</p>
+<p>Otherwise, all parameter groups will be collapsed by default.</p>
+<p>Remember to set this flag in both the PiPL and here during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP.</a></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_I_AM_THREADSAFE</code></td>
-<td>Currently this does nothing. If this sounds interesting to you, you may be interested in <code>PF_OutFlag2_PPRO_DO_NOT_CLONE_SEQUENCE_DATA_FOR_RENDER</code>, described below.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_I_AM_THREADSAFE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Currently this does nothing. If this sounds interesting to you, you may be interested in <code>PF_OutFlag2_PPRO_DO_NOT_CLONE_SEQUENCE_DATA_FOR_RENDER</code>, described below.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_CAN_COMBINE_WITH_DESTINATION</code></td>
-<td>Originally added for Premiere usage, but no longer used.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_CAN_COMBINE_WITH_DESTINATION</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Originally added for Premiere usage, but no longer used.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_DOESNT_NEED_EMPTY_PIXELS</code></td>
-<td>Added for render optimizations; shrinks the input buffer passed to the effect to exclude any empty pixels<br/>(where empty means "zero alpha" unless <code>PF_OutFlag2_REVEALS_ZERO_ALPHA</code> is set, in which case RGB must be zero as well).<br/><br/>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> or <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>.<br/><br/>The origin of the trimmed buffer can be found in <code>in_data&gt;pre_effect_source_origin</code>.<br/><br/>Effects with both this flag and <code>PF_OutFlag_I_EXPAND_BUFFER</code> set may get called with a null input buffer if their input is completely empty, and must be able to handle this case without crashing.<br/><br/>Note: this flag can cause the size of the output buffer to change.<br/><br/>Note: Obsolete for SmartFX.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_DOESNT_NEED_EMPTY_PIXELS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Added for render optimizations; shrinks the input buffer passed to the effect to exclude any empty pixels (where empty means "zero alpha" unless <code>PF_OutFlag2_REVEALS_ZERO_ALPHA</code> is set, in which case RGB must be zero as well).</p>
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> or <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>.</p>
+<p>The origin of the trimmed buffer can be found in <code>in_data&gt;pre_effect_source_origin</code>.</p>
+<p>Effects with both this flag and <code>PF_OutFlag_I_EXPAND_BUFFER</code> set may get called with a null input buffer if their input is completely empty, and must be able to handle this case without crashing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this flag can cause the size of the output buffer to change.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Obsolete for SmartFX.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_REVEALS_ZERO_ALPHA</code></td>
-<td>This is the one flag implementors need to pay most attention to since it represents a change in the default behavior.<br/><br/>Set this flag if the effect can take pixels with zero alpha and reveal the RGB data in them (like our Set Channels effect).<br/><br/>This tells After Effects not to trim such pixels when determining the input for the effect.<br/><br/>This flag can be changed during <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>.<br/><br/>Note that, while this flag can cause changes to the size of the <code>extent_hint</code>, it will not change the image buffer size.<br/><br/>As of 6.0, pixels outside the mask's bounding box are zeroed.<br/><br/>If your effect can reveal such pixels, tell AE not to throw away these RGB values by setting this flag.<br/><br/>If your effect does not always reveal such pixels, set this bit dynamically.<br/><br/>To see if your effect needs this bit set, apply a mask significantly smaller than the layer to a solid, then apply the effect and set it to its alpha-modifying state.<br/><br/>If the rectangular bounding box of the mask becomes visible, this bit needs to be set.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_REVEALS_ZERO_ALPHA</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This is the one flag implementors need to pay most attention to since it represents a change in the default behavior.</p>
+<p>Set this flag if the effect can take pixels with zero alpha and reveal the RGB data in them (like our Set Channels effect).</p>
+<p>This tells After Effects not to trim such pixels when determining the input for the effect.</p>
+<p>This flag can be changed during <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>.</p>
+<p>Note that, while this flag can cause changes to the size of the <code>extent_hint</code>, it will not change the image buffer size.</p>
+<p>As of 6.0, pixels outside the mask's bounding box are zeroed.</p>
+<p>If your effect can reveal such pixels, tell AE not to throw away these RGB values by setting this flag.</p>
+<p>If your effect does not always reveal such pixels, set this bit dynamically.</p>
+<p>To see if your effect needs this bit set, apply a mask significantly smaller than the layer to a solid, then apply the effect and set it to its alpha-modifying state.</p>
+<p>If the rectangular bounding box of the mask becomes visible, this bit needs to be set.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_PRESERVES_FULLY_OPAQUE_PIXELS</code></td>
-<td>Preserve those pixels!</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_PRESERVES_FULLY_OPAQUE_PIXELS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Preserve those pixels!</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_SUPPORTS_SMART_RENDER</code></td>
-<td>The effect uses the SmartFX API.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_SUPPORTS_SMART_RENDER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect uses the SmartFX API.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_FLOAT_COLOR_AWARE</code></td>
-<td>The effect supports 32-bpc floating point color representation.<br/><br/>NOTE: <code>PF_OutFlag2_SUPPORTS_SMART_RENDER</code> must also be set.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_FLOAT_COLOR_AWARE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect supports 32-bpc floating point color representation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>PF_OutFlag2_SUPPORTS_SMART_RENDER</code> must also be set.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_I_USE_COLORSPACE_ENUMERATION</code></td>
-<td>This is for effects which optimized for different color spaces in Premiere Pro. See the Premiere Pro SDK for more details.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_I_USE_COLORSPACE_ENUMERATION</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This is for effects which optimized for different color spaces in Premiere Pro. See the Premiere Pro SDK for more details.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_I_AM_DEPRECATED</code></td>
-<td>Setting this during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> puts the effect in the localized "Obsolete" folder in the Effects panel.<br/><br/>Compare to <code>PF_OutFlag_I_AM_OBSOLETE</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_I_AM_DEPRECATED</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Setting this during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> puts the effect in the localized "Obsolete" folder in the Effects panel.</p>
+<p>Compare to <code>PF_OutFlag_I_AM_OBSOLETE</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_PPRO_DO_NOT_CLONE_SEQUENCE_DATA_FOR_RENDER</code></td>
-<td>Supported in Premiere Pro, and not in After Effects.<br/><br/>This affects how Premiere Pro drives the plug-in using <a href="../../ppro/multithreading/">Multithreading</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_PPRO_DO_NOT_CLONE_SEQUENCE_DATA_FOR_RENDER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Supported in Premiere Pro, and not in After Effects.</p>
+<p>This affects how Premiere Pro drives the plug-in using <a href="../../ppro/multithreading/">Multithreading</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT</code></td>
-<td>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.<br/><br/>Requires setting of <code>PF_OutFlag_WIDE_TIME_INPUT</code> (which allows you to support old hosts), but effectively overrides that flag.<br/><br/>When set, all parameter checkouts are tracked so over-time dependencies are known by the host, and much more efficient.<br/><br/>For example, if you set only the old <code>PF_OutFlag_WIDE_TIME_INPUT</code>, anytime anything changes at any time upstream from your effect, you will be called to re-render.<br/><br/>With this flag set, if a given frame 17 has checked out things from times 0-17, AE will know that any changes at frames 18+ will not affect that cached frame.<br/><br/>Note that if you use this new flag, you must not cache any time-dependent data in your sequence data (or anywhere else),<br/>unless you also <a href="../../effect-details/global-sequence-frame-data/#validating-sequence-data">validate that cache</a> using <code>PF_GetCurrentState()</code> / <code>PF_AreStatesIdentical()</code> from <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_ParamUtilSuite3</a> before using the time-dependent data.<br/><br/>This only works for SmartFX (those that set <code>PF_OutFlag2_SUPPORTS_SMART_RENDER</code>).<br/><br/>If you haven't set that, After Effects will silently treat this as <code>PF_OutFlag_WIDE_TIME_INPUT</code> instead.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+<p>Requires setting of <code>PF_OutFlag_WIDE_TIME_INPUT</code> (which allows you to support old hosts), but effectively overrides that flag.</p>
+<p>When set, all parameter checkouts are tracked so over-time dependencies are known by the host, and much more efficient.</p>
+<p>For example, if you set only the old <code>PF_OutFlag_WIDE_TIME_INPUT</code>, anytime anything changes at any time upstream from your effect, you will be called to re-render.</p>
+<p>With this flag set, if a given frame 17 has checked out things from times 0-17, AE will know that any changes at frames 18+ will not affect that cached frame.</p>
+<p>Note that if you use this new flag, you must not cache any time-dependent data in your sequence data (or anywhere else), unless you also <a href="../../effect-details/global-sequence-frame-data/#validating-sequence-data">validate that cache</a> using <code>PF_GetCurrentState()</code> / <code>PF_AreStatesIdentical()</code> from <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_ParamUtilSuite3</a> before using the time-dependent data.</p>
+<p>This only works for SmartFX (those that set <code>PF_OutFlag2_SUPPORTS_SMART_RENDER</code>).</p>
+<p>If you haven't set that, After Effects will silently treat this as <code>PF_OutFlag_WIDE_TIME_INPUT</code> instead.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_I_USE_COMP_TIMECODE</code></td>
-<td>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.<br/><br/>This lets AE know it should rerender an effect if the composition start time and/ or drop-frame setting has been modified.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_I_USE_COMP_TIMECODE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a>.</p>
+<p>This lets AE know it should rerender an effect if the composition start time and/ or drop-frame setting has been modified.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_DEPENDS_ON_UNREFERENCED_MASKS</code></td>
-<td>New in CS6. Set this if you are going to look at paths that aren't directly referenced by a path param, e.g. if you are going to draw a stroke on all masks.<br/><br/>This is needed so After Effects knows to invalidate your output when a mask is modified that doesn't appear to be referenced by your effect.<br/><br/>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> or <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_DEPENDS_ON_UNREFERENCED_MASKS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS6. Set this if you are going to look at paths that aren't directly referenced by a path param, e.g. if you are going to draw a stroke on all masks.</p>
+<p>This is needed so After Effects knows to invalidate your output when a mask is modified that doesn't appear to be referenced by your effect.</p>
+<p>Set during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> or <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_OUTPUT_IS_WATERMARKED</code></td>
-<td>New in CS6. Set this during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> if your output is going to be watermarked in some way that makes it unsuitable for final use, probably because the user is using an unlicensed demo version.<br/><br/>It is ok to change this state during the course of app session during <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>, if e.g. a floating license status changes.<br/><br/>Plug-in authors that actually do have this state changing asynchronously must be careful to have the next render match the last state returned from <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a> otherwise race conditions could cause incorrect frames to be cached.<br/><br/>(This is a non-issue if you only change this in response to <code>DO_DIALOG</code>.)</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_OUTPUT_IS_WATERMARKED</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS6. Set this during <a href="../command-selectors/#global-selectors">PF_Cmd_GLOBAL_SETUP</a> if your output is going to be watermarked in some way that makes it unsuitable for final use, probably because the user is using an unlicensed demo version.</p>
+<p>It is ok to change this state during the course of app session during <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a>, if e.g. a floating license status changes.</p>
+<p>Plug-in authors that actually do have this state changing asynchronously must be careful to have the next render match the last state returned from <a href="../command-selectors/#messaging">PF_Cmd_QUERY_DYNAMIC_FLAGS</a> otherwise race conditions could cause incorrect frames to be cached.</p>
+<p>(This is a non-issue if you only change this in response to <code>DO_DIALOG</code>.)</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_SUPPORTS_GPU_RENDER_F32</code></td>
-<td>New in 16.0 Set during PF_Cmd_GLOBAL_SETUP, this indicates GPU support.<br/><br/>The effect will be called with GPU selectors, and will be badged as GPU-supporting in the GUI.<br/><br/>At <code>PF_Cmd_GPU_DEVICE_SETUP</code> time, these flags indicate rendering capabilities for a specific device and framework.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_SUPPORTS_GPU_RENDER_F32</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in 16.0 Set during PF_Cmd_GLOBAL_SETUP, this indicates GPU support.</p>
+<p>The effect will be called with GPU selectors, and will be badged as GPU-supporting in the GUI.</p>
+<p>At <code>PF_Cmd_GPU_DEVICE_SETUP</code> time, these flags indicate rendering capabilities for a specific device and framework.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_SUPPORTS_THREADED_RENDERING</code></td>
-<td>Available in After Effects Beta builds starting June 2020, After Effects 2022.<br/><br/>Set during <code>PF_Cmd_GLOBAL_SETUP</code>, this indicates the effect supports rendering on multiple threads at the same time. Single or multiple applications of this effect on a layer can be called to render at the same time on multiple threads.<br/><br/>This flag indicates the effect supports rendering on multiple threads at the same time. Single or multiple applications of this effect on a layer can be called to render at the same time on multiple threads.<br/><br/>If you are using the <code>PF_OutFlag_SEQUENCE_DATA_NEEDS_FLATTENING</code> flag, remember to also set the <code>PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA</code> flag. See <a href="../../effect-details/multi-frame-rendering-in-ae/#sequence-data-in-multi-frame-rendering">Sequence Data in Multi-Frame rendering</a> for more information.<br/><br/><strong>Note: This flag should only be set on plugins that have been tested to be thread-safe with multi-frame rendering enabled in AE.</strong><br/><br/>For more information on how to use this flag, please see <a href="../../effect-details/multi-frame-rendering-in-ae/">Multi-Frame Rendering in AE</a> under Effect Details.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_SUPPORTS_THREADED_RENDERING</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Available in After Effects Beta builds starting June 2020, After Effects 2022.</p>
+<p>Set during <code>PF_Cmd_GLOBAL_SETUP</code>, this indicates the effect supports rendering on multiple threads at the same time. Single or multiple applications of this effect on a layer can be called to render at the same time on multiple threads.</p>
+<p>This flag indicates the effect supports rendering on multiple threads at the same time. Single or multiple applications of this effect on a layer can be called to render at the same time on multiple threads.</p>
+<p>If you are using the <code>PF_OutFlag_SEQUENCE_DATA_NEEDS_FLATTENING</code> flag, remember to also set the <code>PF_OutFlag2_SUPPORTS_GET_FLATTENED_SEQUENCE_DATA</code> flag. See <a href="../../effect-details/multi-frame-rendering-in-ae/#sequence-data-in-multi-frame-rendering">Sequence Data in Multi-Frame rendering</a> for more information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This flag should only be set on plugins that have been tested to be thread-safe with multi-frame rendering enabled in AE.</p>
+</div>
+<p>For more information on how to use this flag, please see <a href="../../effect-details/multi-frame-rendering-in-ae/">Multi-Frame Rendering in AE</a> under Effect Details.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER</code></td>
-<td>Available in After Effects Beta builds starting March 2021, After Effects 2022.<br/><br/>Indicates the effect needs sequence_data replicated for each render thread, thus allowing each render to have sequence_data which can be written to. Note that changes to sequence_data will be discarded regularly, currently after each span of frames is rendered such as single RAM Preview or Render Queue export.<br/><br/><strong>Note: This flag should only be set on plugins that have been tested to be thread-safe with multi-frame rendering enabled in AE.</strong><br/><br/>For more information on how to use this flag, please see <a href="../../effect-details/multi-frame-rendering-in-ae/">Multi-Frame Rendering in AE</a> under Effect Details.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Available in After Effects Beta builds starting March 2021, After Effects 2022.</p>
+<p>Indicates the effect needs sequence_data replicated for each render thread, thus allowing each render to have sequence_data which can be written to. Note that changes to sequence_data will be discarded regularly, currently after each span of frames is rendered such as single RAM Preview or Render Queue export.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This flag should only be set on plugins that have been tested to be thread-safe with multi-frame rendering enabled in AE.</p>
+</div>
+<p>For more information on how to use this flag, please see <a href="../../effect-details/multi-frame-rendering-in-ae/">Multi-Frame Rendering in AE</a> under Effect Details.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3072,7 +3484,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3135,7 +3547,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

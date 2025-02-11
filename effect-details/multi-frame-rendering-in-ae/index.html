@@ -3235,8 +3235,8 @@
 <h1 id="multi-frame-rendering-in-ae">Multi-Frame Rendering in AE<a class="headerlink" href="#multi-frame-rendering-in-ae" title="Permanent link">&para;</a></h1>
 <p>In order to take advantage of modern hardware with more CPU cores and threads, After Effects 2022 and above now supports Multi-Frame Rendering. Multi-Frame rendering (MFR) allows multiple frames to be rendered concurrently thereby speeding up rendering and export of AE compositions.</p>
 <p>Third-party effects can enable support of Multi-Frame Rendering through the AE Effects SDK by setting the following PF_OutFlag:</p>
-<div class="highlight"><pre><span></span><code><span class="n">PF_OutFlag2_SUPPORTS_THREADED_RENDERING</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_OutFlag2_SUPPORTS_THREADED_RENDERING</span>
+</span></code></pre></div>
 <p>This flag indicates the effect supports rendering on multiple threads concurrently. Single or multiple applications of this effect on a layer can be called to render at the same time on multiple threads. Effects must be thread-safe before this flag is set. Please see the <a href="#what-does-it-mean-for-an-effect-to-be-thread-safe">What does it mean for an effect to be thread-safe?</a> section below for more information.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3244,8 +3244,8 @@
 </div>
 <hr />
 <p>For effects that require writing to sequence_data during Render, a flag is available for backwards compatibility:</p>
-<div class="highlight"><pre><span></span><code><span class="n">PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER</span>
+</span></code></pre></div>
 <p>Each rendering thread will have its own instance of sequence_data that is not shared nor synchronized with other rendering threads. If the data stored in sequence_data is time-consuming to compute, the new <a href="#compute-cache-for-multi-frame-rendering">Compute Cache For Multi-Frame Rendering</a> should be utilized.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3258,26 +3258,51 @@
 <table>
 <thead>
 <tr>
-<th>MFR &amp; Sequence Data Usage</th>
-<th>Changes Needed with March 2021 SDK</th>
+<th colspan="1" rowspan="1">
+<p>MFR &amp; Sequence Data Usage</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Changes Needed with March 2021 SDK</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Plugin does not set PF_OutFlag2_SUPPORTS_THREADED_RENDERING</td>
-<td>No changes needed. Effect and sequence_data will continue to work as it did in the past.</td>
+<td colspan="1" rowspan="1">
+<p>Plugin does not set PF_OutFlag2_SUPPORTS_THREADED_RENDERING</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No changes needed. Effect and sequence_data will continue to work as it did in the past.</p>
+</td>
 </tr>
 <tr>
-<td>Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING but neither reads nor writes to sequence_data during Render</td>
-<td>Recompile the plugin with the March 2021 SDK, no other code changes are required.<br/><br/>If the plugin is not compiled with the March 2021 SDK, the plugin will stop utilizing MFR starting with AE 22.0x6.</td>
+<td colspan="1" rowspan="1">
+<p>Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING but neither reads nor writes to sequence_data during Render</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Recompile the plugin with the March 2021 SDK, no other code changes are required.</p>
+<p>If the plugin is not compiled with the March 2021 SDK, the plugin will stop utilizing MFR starting with AE 22.0x6.</p>
+</td>
 </tr>
 <tr>
-<td>Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING but only reads sequence_data during Render</td>
-<td>Recompile the plugin with the March 2021 SDK, update reading sequence_data via <code>PF_EffectSequenceDataSuite1</code> for thread-safe access. See <a href="../global-sequence-frame-data/#accessing-sequence_data-at-render-time-with-multi-frame-rendering">Accessing sequence_data at Render Time with Multi-Frame Rendering</a> for more information.</td>
+<td colspan="1" rowspan="1">
+<p>Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING but only reads sequence_data during Render</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Recompile the plugin with the March 2021 SDK, update reading sequence_data via <code>PF_EffectSequenceDataSuite1</code> for thread-safe access. See <a href="../global-sequence-frame-data/#accessing-sequence_data-at-render-time-with-multi-frame-rendering">Accessing sequence_data at Render Time with Multi-Frame Rendering</a> for more information.</p>
+</td>
 </tr>
 <tr>
-<td>Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING and reads and writes to sequence_data during Render</td>
-<td>Recompile the plugin with the March 2021 SDK and modify the plugin to:<br/><br/>1. Utilize the <a href="../compute-cache-api/#compute-cache-api">Compute Cache API</a> for thread-safe cache access instead of reading/writing to sequence_data directly.  See <a href="#compute-cache-for-multi-frame-rendering">Compute Cache For Multi-Frame Rendering</a> for more information.<br/><br/>AND / OR<br/><br/>2. Add the <code>PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER</code> to the effect to restore direct read/write access to sequence_data.</td>
+<td colspan="1" rowspan="1">
+<p>Plugin sets PF_OutFlag2_SUPPORTS_THREADED_RENDERING and reads and writes to sequence_data during Render</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Recompile the plugin with the March 2021 SDK and modify the plugin to:</p>
+<ol>
+<li>Utilize the <a href="../compute-cache-api/#compute-cache-api">Compute Cache API</a> for thread-safe cache access instead of reading/writing to sequence_data directly.  See <a href="#compute-cache-for-multi-frame-rendering">Compute Cache For Multi-Frame Rendering</a> for more information. AND / OR</li>
+<li>Add the <code>PF_OutFlag2_MUTABLE_RENDER_SEQUENCE_DATA_SLOWER</code> to the effect to restore direct read/write access to sequence_data.</li>
+</ol>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3342,16 +3367,16 @@ You can find the tool in this Git Repo: <a href="https://github.com/adobe/ae-plu
 <li>Find the bash script <code>check_symbols_for_thread_safety.sh</code> in the <strong>Mac</strong> folder</li>
 <li>Navigate inside the package content of a plugin or effect and locate the binary files. (For example, the <strong>Curves.plugin</strong> has its binary file here: <code>/Applications/Adobe After Effects [your AE version]/Plug-ins/Effects/Curves.plugin/Contents/MacOS/Curves</code>)</li>
 <li>To analyze the binary, run:
-    <div class="highlight"><pre><span></span><code>check_symbols_for_thread_safety.sh<span class="w"> </span><span class="o">[</span>Binary<span class="w"> </span>location<span class="o">]</span>
-For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thread_safety.sh<span class="w"> </span>/Applications/Adobe<span class="w"> </span>After<span class="w"> </span>Effects<span class="w"> </span><span class="o">[</span>your<span class="w"> </span>AE<span class="w"> </span>version<span class="o">]</span>/Plug-ins/Effects/Curves.plugin/Contents/MacOS/Curves<span class="o">)</span>
-</code></pre></div></li>
+    <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1">check_symbols_for_thread_safety.sh<span class="w"> </span><span class="o">[</span>Binary<span class="w"> </span>location<span class="o">]</span>
+</span><span id="__span-2-2">For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thread_safety.sh<span class="w"> </span>/Applications/Adobe<span class="w"> </span>After<span class="w"> </span>Effects<span class="w"> </span><span class="o">[</span>your<span class="w"> </span>AE<span class="w"> </span>version<span class="o">]</span>/Plug-ins/Effects/Curves.plugin/Contents/MacOS/Curves<span class="o">)</span>
+</span></code></pre></div></li>
 <li>You will see output from the tool in this format:
-    <div class="highlight"><pre><span></span><code><span class="o">[</span>symbol<span class="w"> </span>type<span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="o">[</span>symbol<span class="w"> </span>name<span class="o">]</span>
-</code></pre></div></li>
+    <div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><span class="o">[</span>symbol<span class="w"> </span>type<span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="o">[</span>symbol<span class="w"> </span>name<span class="o">]</span>
+</span></code></pre></div></li>
 <li><code>[symbol type]</code> is an one case-sensitive letter that indicates the type of the variable. You can find all the type information here: <a href="https://linux.die.net/man/1/nm">https://linux.die.net/man/1/nm</a></li>
 <li>Here is an example of the output:
-    <div class="highlight"><pre><span></span><code><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="n">Deform</span><span class="o">::</span><span class="n">FindSilEdges</span><span class="p">()</span><span class="o">::</span><span class="n">new_kInfinite</span>
-</code></pre></div><ul>
+    <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="n">Deform</span><span class="o">::</span><span class="n">FindSilEdges</span><span class="p">()</span><span class="o">::</span><span class="n">new_kInfinite</span>
+</span></code></pre></div><ul>
 <li><code>b</code> shows this symbol is in the uninitialized data section, which indicates it might be a static variable.</li>
 <li><code>Deform::FindSilEdges()::new_kInfinite</code> is the symbol name where <code>Deform</code> is name of the namespace that the variable is located at.</li>
 <li><code>FindSilEdges()</code> is the function name the variable is in.</li>
@@ -3387,23 +3412,23 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 </ul>
 </li>
 <li>To analyze the symbols in an object file, run:
-    <div class="highlight"><pre><span></span><code>CheckThreadSafeSymbols.exe -objfile [absolute path to the binary you want analyzed] [absolute path to .pdb]
-</code></pre></div></li>
+    <div class="language-bat highlight"><pre><span></span><code><span id="__span-5-1">CheckThreadSafeSymbols.exe -objfile [absolute path to the binary you want analyzed] [absolute path to .pdb]
+</span></code></pre></div></li>
 <li>To analyze the symbols in a source file, run:
-    <div class="highlight"><pre><span></span><code>CheckThreadSafeSymbols.exe -source [absolute path to the source file you want analyzed] [absolute path to .pdb]
-</code></pre></div></li>
+    <div class="language-bat highlight"><pre><span></span><code><span id="__span-6-1">CheckThreadSafeSymbols.exe -source [absolute path to the source file you want analyzed] [absolute path to .pdb]
+</span></code></pre></div></li>
 <li>Global variables aren't limited to the scope of one file or binary in pdbs, so you'll have to check over the list of all project globals without filtering. Use the -g output to get a list of all of them:
-    <div class="highlight"><pre><span></span><code>CheckThreadSafeSymbols.exe -g [absolute path to .pdb]
-</code></pre></div></li>
+    <div class="language-bat highlight"><pre><span></span><code><span id="__span-7-1">CheckThreadSafeSymbols.exe -g [absolute path to .pdb]
+</span></code></pre></div></li>
 <li>If you're unsure of what binaries your effect is outputting, the tool can also output a <strong>(noisy)</strong> list of binaries, along with the source files each pulls data from. Files you've changed are likely to be near the top. To see the list, run:
-    <div class="highlight"><pre><span></span><code>CheckThreadSafeSymbols.exe -sf [absolute path to .pdb]
-</code></pre></div></li>
+    <div class="language-bat highlight"><pre><span></span><code><span id="__span-8-1">CheckThreadSafeSymbols.exe -sf [absolute path to .pdb]
+</span></code></pre></div></li>
 <li>Output symbols will take the form:
-    <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">Symbol</span><span class="w"> </span><span class="n">name</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">Symbol</span><span class="w"> </span><span class="n">type</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">Datakind</span><span class="p">],</span><span class="w"> </span><span class="p">([</span><span class="n">Section</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">location</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">Binary</span><span class="w"> </span><span class="n">Address</span><span class="p">][</span><span class="n">Binary</span><span class="w"> </span><span class="n">Address</span><span class="w"> </span><span class="n">Offset</span><span class="p">])</span>
-</code></pre></div></li>
+    <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><span class="p">[</span><span class="n">Symbol</span><span class="w"> </span><span class="n">name</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">Symbol</span><span class="w"> </span><span class="n">type</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">Datakind</span><span class="p">],</span><span class="w"> </span><span class="p">([</span><span class="n">Section</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">location</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">Binary</span><span class="w"> </span><span class="n">Address</span><span class="p">][</span><span class="n">Binary</span><span class="w"> </span><span class="n">Address</span><span class="w"> </span><span class="n">Offset</span><span class="p">])</span>
+</span></code></pre></div></li>
 <li>Here is an example of the output:
-    <div class="highlight"><pre><span></span><code><span class="n">menuBuf</span><span class="p">,</span><span class="w"> </span><span class="n">Type</span><span class="o">:</span><span class="w"> </span><span class="kt">char</span><span class="p">[</span><span class="mh">0x1000</span><span class="p">],</span><span class="w"> </span><span class="n">File</span><span class="w"> </span><span class="n">Static</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">static</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0008F</span><span class="n">CD0</span><span class="p">][</span><span class="mo">0003</span><span class="o">:</span><span class="mo">00001</span><span class="n">CD0</span><span class="p">])</span>
-</code></pre></div><ul>
+    <div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><span class="n">menuBuf</span><span class="p">,</span><span class="w"> </span><span class="n">Type</span><span class="o">:</span><span class="w"> </span><span class="kt">char</span><span class="p">[</span><span class="mh">0x1000</span><span class="p">],</span><span class="w"> </span><span class="n">File</span><span class="w"> </span><span class="n">Static</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">static</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0008F</span><span class="n">CD0</span><span class="p">][</span><span class="mo">0003</span><span class="o">:</span><span class="mo">00001</span><span class="n">CD0</span><span class="p">])</span>
+</span></code></pre></div><ul>
 <li><code>menuBuf</code> is the actual variable name.</li>
 <li><code>Type: char[0x1000]</code> shows what type of the variable it is. The data here is a <code>char</code>.</li>
 <li><code>File Static</code> shows what kind of that data it is. The data here is a <strong>File-scoped static variable.</strong> You can find all the data kinds and what they mean on this page <a href="https://docs.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/datakind?view=vs-2019">https://docs.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/datakind?view=vs-2019</a></li>
@@ -3418,154 +3443,154 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
 <p>When you see a static or global variable, it would be the best to make it a local variable if possible. But what if that variable has to be static or global?</p>
 <p>Here are some standard approaches for treating statics or globals:</p>
 <h3 id="could-the-data-be-easily-passed-between-functions-instead-without-a-change-in-behavior">Could the data be easily passed between functions instead without a change in behavior?<a class="headerlink" href="#could-the-data-be-easily-passed-between-functions-instead-without-a-change-in-behavior" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Example of a non Thread-Safe code</span>
-<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">should_just_be_local</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">should_just_be_local</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">should_just_be_local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputation</span><span class="p">();</span>
-<span class="w">    </span><span class="n">UseState</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><span class="c1">// Example of a non Thread-Safe code</span>
+</span><span id="__span-11-2"><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">should_just_be_local</span><span class="p">;</span>
+</span><span id="__span-11-3">
+</span><span id="__span-11-4"><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-5"><span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">should_just_be_local</span><span class="p">);</span>
+</span><span id="__span-11-6"><span class="p">}</span>
+</span><span id="__span-11-7">
+</span><span id="__span-11-8"><span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-9"><span class="w">    </span><span class="n">should_just_be_local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputation</span><span class="p">();</span>
+</span><span id="__span-11-10"><span class="w">    </span><span class="n">UseState</span><span class="p">();</span>
+</span><span id="__span-11-11"><span class="p">}</span>
+</span></code></pre></div>
 <p>Either add it to a struct or expand function arguments to include it:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// We can fix the above code by passing the should_just_be_local variable through function arguments</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">should_just_be_local</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">should_just_be_local</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">should_just_be_local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputation</span><span class="p">();</span>
-<span class="w">    </span><span class="n">UseState</span><span class="p">(</span><span class="n">should_just_be_local</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><span class="c1">// We can fix the above code by passing the should_just_be_local variable through function arguments</span>
+</span><span id="__span-12-2">
+</span><span id="__span-12-3"><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">should_just_be_local</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-4"><span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">should_just_be_local</span><span class="p">);</span>
+</span><span id="__span-12-5"><span class="p">}</span>
+</span><span id="__span-12-6">
+</span><span id="__span-12-7"><span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-8"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">should_just_be_local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputation</span><span class="p">();</span>
+</span><span id="__span-12-9"><span class="w">    </span><span class="n">UseState</span><span class="p">(</span><span class="n">should_just_be_local</span><span class="p">);</span>
+</span><span id="__span-12-10"><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="could-the-data-be-initialized-before-you-execute-your-code-eg-a-lookup-table-a-const-variable">Could the data be initialized before you execute your code (e.g. a lookup table, a const variable)?<a class="headerlink" href="#could-the-data-be-initialized-before-you-execute-your-code-eg-a-lookup-table-a-const-variable" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Example of a non Thread-Safe code</span>
-
-<span class="c1">// Many places in the code need to read this table but won&#39;t be writing to it</span>
-<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">state_with_initializer</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
-<span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">InitializeState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">state_with_initializer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">state_was_initialized</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">InitializeState</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><span class="c1">// Example of a non Thread-Safe code</span>
+</span><span id="__span-13-2">
+</span><span id="__span-13-3"><span class="c1">// Many places in the code need to read this table but won&#39;t be writing to it</span>
+</span><span id="__span-13-4"><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">state_with_initializer</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+</span><span id="__span-13-5"><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-13-6">
+</span><span id="__span-13-7"><span class="kt">void</span><span class="w"> </span><span class="nf">InitializeState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-8"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-9"><span class="w">        </span><span class="n">state_with_initializer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-13-10"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-11"><span class="w">    </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-13-12"><span class="p">}</span>
+</span><span id="__span-13-13">
+</span><span id="__span-13-14"><span class="kt">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-15"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">state_was_initialized</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-16"><span class="w">        </span><span class="n">InitializeState</span><span class="p">();</span>
+</span><span id="__span-13-17"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-18"><span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
+</span><span id="__span-13-19"><span class="p">}</span>
+</span></code></pre></div>
 <p>Make it <code>const</code> or replace it with a macro:</p>
-<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">InitializeState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
-
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// We can fix the above code by making this table a const and initialize it before using it</span>
-<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">state_with_initializer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InitializeState</span><span class="p">();</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">InitializeState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+</span><span id="__span-14-3">
+</span><span id="__span-14-4"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-5"><span class="w">        </span><span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-14-6"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-7"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+</span><span id="__span-14-8"><span class="p">}</span>
+</span><span id="__span-14-9">
+</span><span id="__span-14-10"><span class="c1">// We can fix the above code by making this table a const and initialize it before using it</span>
+</span><span id="__span-14-11"><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">state_with_initializer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InitializeState</span><span class="p">();</span>
+</span><span id="__span-14-12">
+</span><span id="__span-14-13"><span class="kt">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-14"><span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_with_initializer</span><span class="p">);</span>
+</span><span id="__span-14-15"><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="is-the-data-initialized-once-at-runtime-based-on-data-that-doesnt-change-on-subsequent-renders">Is the data initialized once at runtime based on data that doesn't change on subsequent renders?<a class="headerlink" href="#is-the-data-initialized-once-at-runtime-based-on-data-that-doesnt-change-on-subsequent-renders" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Example of a non Thread-Safe code</span>
-<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
-<span class="w">    </span><span class="n">UseState</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><span class="c1">// Example of a non Thread-Safe code</span>
+</span><span id="__span-15-2"><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">;</span>
+</span><span id="__span-15-3">
+</span><span id="__span-15-4"><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-5"><span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
+</span><span id="__span-15-6"><span class="p">}</span>
+</span><span id="__span-15-7">
+</span><span id="__span-15-8"><span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-9"><span class="w">    </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
+</span><span id="__span-15-10"><span class="w">    </span><span class="n">UseState</span><span class="p">();</span>
+</span><span id="__span-15-11"><span class="p">}</span>
+</span></code></pre></div>
 <p>Double-check that this state isn't known before your code executes (case 2), but if you have to initialize at runtime use a const static local. (Note that thread-safe initialization of static local objects is part of the C++ spec):</p>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// We can fix the above code by making the variable a const static local</span>
-<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
-
-<span class="w">    </span><span class="n">UseState</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
+</span><span id="__span-16-3"><span class="p">}</span>
+</span><span id="__span-16-4">
+</span><span id="__span-16-5"><span class="kt">void</span><span class="w"> </span><span class="nf">SetAndUseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-6"><span class="w">    </span><span class="c1">// We can fix the above code by making the variable a const static local</span>
+</span><span id="__span-16-7"><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depends_on_unchanging_runtime_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoComputationThatNeedsStateOnlyOnce</span><span class="p">();</span>
+</span><span id="__span-16-8">
+</span><span id="__span-16-9"><span class="w">    </span><span class="n">UseState</span><span class="p">(</span><span class="n">depends_on_unchanging_runtime_state</span><span class="p">);</span>
+</span><span id="__span-16-10"><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="the-data-has-to-stay-staticglobal-not-being-a-const-but-each-render-thread-can-have-its-own-copy-of-the-data">The data has to stay static/global not being a const. But each render thread can have its own copy of the data.<a class="headerlink" href="#the-data-has-to-stay-staticglobal-not-being-a-const-but-each-render-thread-can-have-its-own-copy-of-the-data" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// This variable has to be static and not a const</span>
-<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">this_thread_needs_access</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><span class="c1">// This variable has to be static and not a const</span>
+</span><span id="__span-17-2"><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">this_thread_needs_access</span><span class="p">;</span>
+</span><span id="__span-17-3">
+</span><span id="__span-17-4"><span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-5"><span class="w">    </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+</span><span id="__span-17-6"><span class="p">}</span>
+</span><span id="__span-17-7">
+</span><span id="__span-17-8"><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-9"><span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
+</span><span id="__span-17-10"><span class="p">}</span>
+</span></code></pre></div>
 <p>Just make the variable thread_local:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Make this variable a thread_local variable</span>
-<span class="k">thread_local</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">this_thread_needs_access</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><span class="c1">// Make this variable a thread_local variable</span>
+</span><span id="__span-18-2"><span class="k">thread_local</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">this_thread_needs_access</span><span class="p">;</span>
+</span><span id="__span-18-3">
+</span><span id="__span-18-4"><span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-5"><span class="w">    </span><span class="n">this_thread_needs_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+</span><span id="__span-18-6"><span class="p">}</span>
+</span><span id="__span-18-7">
+</span><span id="__span-18-8"><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-9"><span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">this_thread_needs_access</span><span class="p">);</span>
+</span><span id="__span-18-10"><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="the-data-has-to-stay-staticglobal-not-being-a-const-and-each-thread-needs-to-read-and-write-from-the-most-up-to-date-state-rare">The data has to stay static/global not being a const and each thread needs to read and write from the most up-to-date state. (rare)<a class="headerlink" href="#the-data-has-to-stay-staticglobal-not-being-a-const-and-each-thread-needs-to-read-and-write-from-the-most-up-to-date-state-rare" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// This variable has to be static and not a const</span>
-<span class="c1">// It also needs to be shared across several threads</span>
-<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">every_thread_needs_latest_state</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><span class="c1">// This variable has to be static and not a const</span>
+</span><span id="__span-19-2"><span class="c1">// It also needs to be shared across several threads</span>
+</span><span id="__span-19-3"><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
+</span><span id="__span-19-4">
+</span><span id="__span-19-5"><span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-6"><span class="w">    </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+</span><span id="__span-19-7"><span class="p">}</span>
+</span><span id="__span-19-8">
+</span><span id="__span-19-9"><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-10"><span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">every_thread_needs_latest_state</span><span class="p">);</span>
+</span><span id="__span-19-11"><span class="p">}</span>
+</span></code></pre></div>
 <p>In this case, protect access with a mutex:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Add a mutex (lock)</span>
-<span class="k">static</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">ex_lock</span><span class="p">;</span>
-
-<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Protect the access with the mutex (lock)</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
-<span class="w">        </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">state_capture</span><span class="p">;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Protect the access with the mutex (lock)</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
-<span class="w">        </span><span class="n">state_capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_capture</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><span class="c1">// Add a mutex (lock)</span>
+</span><span id="__span-20-2"><span class="k">static</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">ex_lock</span><span class="p">;</span>
+</span><span id="__span-20-3">
+</span><span id="__span-20-4"><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
+</span><span id="__span-20-5">
+</span><span id="__span-20-6"><span class="kt">void</span><span class="w"> </span><span class="nf">SetState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-7"><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-20-8"><span class="w">        </span><span class="c1">// Protect the access with the mutex (lock)</span>
+</span><span id="__span-20-9"><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
+</span><span id="__span-20-10"><span class="w">        </span><span class="n">every_thread_needs_latest_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_state</span><span class="p">;</span>
+</span><span id="__span-20-11"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-20-12"><span class="p">}</span>
+</span><span id="__span-20-13">
+</span><span id="__span-20-14"><span class="kt">void</span><span class="w"> </span><span class="nf">UseState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-15"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">state_capture</span><span class="p">;</span>
+</span><span id="__span-20-16"><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-20-17"><span class="w">        </span><span class="c1">// Protect the access with the mutex (lock)</span>
+</span><span id="__span-20-18"><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">ex_lock</span><span class="p">);</span>
+</span><span id="__span-20-19"><span class="w">        </span><span class="n">state_capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">every_thread_needs_latest_state</span><span class="p">;</span>
+</span><span id="__span-20-20"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-20-21"><span class="w">    </span><span class="n">DoComputation</span><span class="p">(</span><span class="n">state_capture</span><span class="p">);</span>
+</span><span id="__span-20-22"><span class="p">}</span>
+</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The above examples are the common cases we've seen in our effects. You can always come up other methods to treat your statics and globals that best suits your needs.</p>
@@ -3617,7 +3642,7 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3680,7 +3705,7 @@ For<span class="w"> </span>example,<span class="w"> </span>check_symbols_for_thr
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

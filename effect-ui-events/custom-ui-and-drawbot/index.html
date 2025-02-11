@@ -3138,14 +3138,26 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_GetDrawingReference</code></td>
-<td>Get the drawing reference.<br/><pre>PF_GetDrawingReference(<br/>  const PF_ContextH  effect_contextH,<br/>  DRAWBOT_DrawRef    *referenceP0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetDrawingReference</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Get the drawing reference.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PF_GetDrawingReference</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_ContextH</span><span class="w">  </span><span class="n">effect_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_DrawRef</span><span class="w">    </span><span class="o">*</span><span class="n">referenceP0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3156,18 +3168,40 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>GetSupplier</code></td>
-<td>Get the supplier reference.<br/><br/>Needed to use <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.<br/><pre>GetSupplier(<br/>  DRAWBOT_DrawRef      in_drawbot_ref,<br/>  DRAWBOT_SupplierRef  *out_supplierP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>GetSupplier</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Get the supplier reference.</p>
+<p>Needed to use <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">GetSupplier</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_DrawRef</span><span class="w">      </span><span class="n">in_drawbot_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">  </span><span class="o">*</span><span class="n">out_supplierP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>GetSurface</code></td>
-<td>Get the surface reference.<br/><br/>Needed to use <a href="#drawbot_surfacesuite">Drawbot_SurfaceSuite</a>.<br/><pre>GetSurface(<br/>  DRAWBOT_DrawRef     in_drawbot_ref,<br/>  DRAWBOT_SurfaceRef  *out_surfaceP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>GetSurface</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Get the surface reference.</p>
+<p>Needed to use <a href="#drawbot_surfacesuite">Drawbot_SurfaceSuite</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">GetSurface</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_DrawRef</span><span class="w">     </span><span class="n">in_drawbot_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">  </span><span class="o">*</span><span class="n">out_surfaceP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3178,62 +3212,192 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>NewPen</code></td>
-<td>Create a new pen. Release this using <code>ReleaseObject</code> from <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.<br/><pre>NewPen(<br/>  DRAWBOT_SupplierRef      in_supplier_ref,<br/>  const DRAWBOT_ColorRGBA  *in_colorP,<br/>  float                    in_size,<br/>  DRAWBOT_PenRef           *out_penP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>NewPen</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Create a new pen. Release this using <code>ReleaseObject</code> from <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">NewPen</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">      </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_ColorRGBA</span><span class="w">  </span><span class="o">*</span><span class="n">in_colorP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">float</span><span class="w">                    </span><span class="n">in_size</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">DRAWBOT_PenRef</span><span class="w">           </span><span class="o">*</span><span class="n">out_penP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>NewBrush</code></td>
-<td>Create a new brush. Release this using <code>ReleaseObject</code> from <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.<br/><pre>NewBrush(<br/>  DRAWBOT_SupplierRef      in_supplier_ref,<br/>  const DRAWBOT_ColorRGBA  *in_colorP,<br/>  DRAWBOT_BrushRef         *out_brushP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>NewBrush</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Create a new brush. Release this using <code>ReleaseObject</code> from <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">NewBrush</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">      </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_ColorRGBA</span><span class="w">  </span><span class="o">*</span><span class="n">in_colorP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">DRAWBOT_BrushRef</span><span class="w">         </span><span class="o">*</span><span class="n">out_brushP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>SupportsText</code></td>
-<td>Check if current supplier supports text.<br/><pre>SupportsText(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_Boolean      *out_supports_textB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>SupportsText</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Check if current supplier supports text.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">SupportsText</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">  </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_Boolean</span><span class="w">      </span><span class="o">*</span><span class="n">out_supports_textB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>GetDefaultFontSize</code></td>
-<td>Get the default font size.<br/><pre>GetDefaultFontSize(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  float                *out_font_sizeF);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>GetDefaultFontSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Get the default font size.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">GetDefaultFontSize</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">  </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">float</span><span class="w">                </span><span class="o">*</span><span class="n">out_font_sizeF</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>NewDefaultFont</code></td>
-<td>Create a new font with default settings.<br/><br/>You can pass the default font size from <code>GetDefaultFontSize</code>.<br/><br/>Release this using <code>ReleaseObject</code> from <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.<br/><pre>NewDefaultFont(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  float                in_font_sizeF,<br/>  DRAWBOT_FontRef      *out_fontP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>NewDefaultFont</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Create a new font with default settings.</p>
+<p>You can pass the default font size from <code>GetDefaultFontSize</code>.</p>
+<p>Release this using <code>ReleaseObject</code> from <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">NewDefaultFont</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">  </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">float</span><span class="w">                </span><span class="n">in_font_sizeF</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">DRAWBOT_FontRef</span><span class="w">      </span><span class="o">*</span><span class="n">out_fontP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>NewImageFromBuffer</code></td>
-<td>Create a new image from buffer passed to in_dataP.<br/><br/>Release this using <code>ReleaseObject</code> from <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.<br/><pre>NewImageFromBuffer(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  int                  in_width,<br/>  int                  in_height,<br/>  int                  in_row_bytes,<br/>  DRAWBOT_PixelLayout  in_pl,<br/>  const void           *in_dataP,<br/>  DRAWBOT_ImageRef     *out_imageP);</pre><br/><br/><code>DRAWBOT_PixelLayout</code> can be one of the following:<ul><li><code>kDRAWBOT_PixelLayout_24RGB</code></li><li><code>kDRAWBOT_PixelLayout_24BGR</code></li><li><code>kDRAWBOT_PixelLayout_32RGB</code></li><li><code>ARGB</code> (A is ignored)</li><li><code>kDRAWBOT_PixelLayout_32BGR</code></li><li><code>BGRA</code> (A is ignored)</li><li><code>kDRAWBOT_PixelLayout_32ARGB_Straight</code></li><li><code>kDRAWBOT_PixelLayout_32ARGB_Premul</code></li><li><code>kDRAWBOT_PixelLayout_32BGRA_Straight</code></li><li><code>kDRAWBOT_PixelLayout_32BGRA_Premul</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>NewImageFromBuffer</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Create a new image from buffer passed to in_dataP.</p>
+<p>Release this using <code>ReleaseObject</code> from <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">NewImageFromBuffer</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">  </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">int</span><span class="w">                  </span><span class="n">in_width</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">int</span><span class="w">                  </span><span class="n">in_height</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="kt">int</span><span class="w">                  </span><span class="n">in_row_bytes</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">DRAWBOT_PixelLayout</span><span class="w">  </span><span class="n">in_pl</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">DRAWBOT_ImageRef</span><span class="w">     </span><span class="o">*</span><span class="n">out_imageP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>DRAWBOT_PixelLayout</code> can be one of the following:</p>
+<ul>
+<li><code>kDRAWBOT_PixelLayout_24RGB</code></li>
+<li><code>kDRAWBOT_PixelLayout_24BGR</code></li>
+<li><code>kDRAWBOT_PixelLayout_32RGB</code></li>
+<li><code>ARGB</code> (A is ignored)</li>
+<li><code>kDRAWBOT_PixelLayout_32BGR</code></li>
+<li><code>BGRA</code> (A is ignored)</li>
+<li><code>kDRAWBOT_PixelLayout_32ARGB_Straight</code></li>
+<li><code>kDRAWBOT_PixelLayout_32ARGB_Premul</code></li>
+<li><code>kDRAWBOT_PixelLayout_32BGRA_Straight</code></li>
+<li><code>kDRAWBOT_PixelLayout_32BGRA_Premul</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>NewPath</code></td>
-<td>Create a new path. Release this using <code>ReleaseObject</code> from <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.<br/><pre>NewPath(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_PathRef      *out_pathP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>NewPath</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Create a new path. Release this using <code>ReleaseObject</code> from <a href="#drawbot_suppliersuite">Drawbot_SupplierSuite</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">NewPath</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">  </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_PathRef</span><span class="w">      </span><span class="o">*</span><span class="n">out_pathP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>SupportsPixelLayoutBGRA</code></td>
-<td>A given Drawbot implementation can support multiple channel orders, but will likely prefer one over the other.<br/>Use the following four callbacks to get the preferred channel order for any API that takes a <code>DRAWBOT_PixelLayout</code> (e.g. <code>NewImageFromBuffer</code>).<br/><pre>SupportsPixelLayoutBGRA(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_Boolean      *out_supports_bgraPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>SupportsPixelLayoutBGRA</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A given Drawbot implementation can support multiple channel orders, but will likely prefer one over the other.</p>
+<p>Use the following four callbacks to get the preferred channel order for any API that takes a <code>DRAWBOT_PixelLayout</code> (e.g. <code>NewImageFromBuffer</code>).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">SupportsPixelLayoutBGRA</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">  </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_Boolean</span><span class="w">      </span><span class="o">*</span><span class="n">out_supports_bgraPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PrefersPixelLayoutBGRA</code></td>
-<td><pre>PrefersPixelLayoutBGRA(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_Boolean      *out_prefers_bgraPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PrefersPixelLayoutBGRA</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PrefersPixelLayoutBGRA</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">  </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_Boolean</span><span class="w">      </span><span class="o">*</span><span class="n">out_prefers_bgraPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>SupportsPixelLayoutARGB</code></td>
-<td><pre>SupportsPixelLayoutARGB(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_Boolean      *out_supports_argbPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>SupportsPixelLayoutARGB</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">SupportsPixelLayoutARGB</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">  </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_Boolean</span><span class="w">      </span><span class="o">*</span><span class="n">out_supports_argbPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PrefersPixelLayoutARGB</code></td>
-<td><pre>PrefersPixelLayoutARGB(<br/>  DRAWBOT_SupplierRef  in_supplier_ref,<br/>  DRAWBOT_Boolean      *out_prefers_argbPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PrefersPixelLayoutARGB</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PrefersPixelLayoutARGB</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">  </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_Boolean</span><span class="w">      </span><span class="o">*</span><span class="n">out_prefers_argbPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>RetainObject</code></td>
-<td>Retain (increase reference count on) any object (pen, brush, path, etc). For example, it should be used when any object is copied and the copied object should be retained.<br/><pre>RetainObject(<br/>  DRAWBOT_ObjectRef  in_obj_ref);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>RetainObject</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retain (increase reference count on) any object (pen, brush, path, etc). For example, it should be used when any object is copied and the copied object should be retained.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">RetainObject</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_ObjectRef</span><span class="w">  </span><span class="n">in_obj_ref</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>ReleaseObject</code></td>
-<td>Release (decrease reference count on) any object (pen, brush, path, etc). This function MUST be called for any object created using <code>NewXYZ()</code> from this suite.<br/>Do not call this function on a <code>DRAWBOT_SupplierRef</code> and <code>DRAWBOT_SupplierRef</code>, since these are not created by the plug-in.<br/><pre>ReleaseObject(<br/>  DRAWBOT_ObjectRef  in_obj_ref);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>ReleaseObject</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Release (decrease reference count on) any object (pen, brush, path, etc). This function MUST be called for any object created using <code>NewXYZ()</code> from this suite.</p>
+<p>Do not call this function on a <code>DRAWBOT_SupplierRef</code> and <code>DRAWBOT_SupplierRef</code>, since these are not created by the plug-in.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">ReleaseObject</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_ObjectRef</span><span class="w">  </span><span class="n">in_obj_ref</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3244,74 +3408,246 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PushStateStack</code></td>
-<td>Push the current surface state onto the stack. It should be popped to retrieve old state.<br/>It is required to restore state if you are going to clip or transform a surface or change the interpolation or anti-aliasing policy.<br/><pre>PushStateStack(<br/>  DRAWBOT_SurfaceRef  in_surface_ref);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PushStateStack</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Push the current surface state onto the stack. It should be popped to retrieve old state.</p>
+<p>It is required to restore state if you are going to clip or transform a surface or change the interpolation or anti-aliasing policy.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PushStateStack</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">  </span><span class="n">in_surface_ref</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PopStateStack</code></td>
-<td>Pop the last pushed surface state off the stack.<br/><pre>PopStateStack(<br/>  DRAWBOT_SurfaceRef  in_surface_ref);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PopStateStack</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pop the last pushed surface state off the stack.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PopStateStack</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">  </span><span class="n">in_surface_ref</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PaintRect</code></td>
-<td>Paint a rectangle with a color on the surface.<br/><pre>PaintRect(<br/>  DRAWBOT_SurfaceRef       in_surface_ref,<br/>  const DRAWBOT_ColorRGBA  *in_colorP,<br/>  const DRAWBOT_RectF32    *in_rectPR);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PaintRect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Paint a rectangle with a color on the surface.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PaintRect</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">       </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_ColorRGBA</span><span class="w">  </span><span class="o">*</span><span class="n">in_colorP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_RectF32</span><span class="w">    </span><span class="o">*</span><span class="n">in_rectPR</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>FillPath</code></td>
-<td>Fill a path using a brush and fill type.<br/><pre>FillPath(<br/>  DRAWBOT_SurfaceRef  in_surface_ref,<br/>  DRAWBOT_BrushRef    in_brush_ref,<br/>  DRAWBOT_PathRef     in_path_ref,<br/>  DRAWBOT_FillType    in_fill_type);</pre><br/><br/><code>DRAWBOT_FillType</code> is one of the following:<ul><li><code>kDRAWBOT_FillType_EvenOdd</code></li><li><code>kDRAWBOT_FillType_Winding</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>FillPath</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Fill a path using a brush and fill type.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">FillPath</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">  </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_BrushRef</span><span class="w">    </span><span class="n">in_brush_ref</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">DRAWBOT_PathRef</span><span class="w">     </span><span class="n">in_path_ref</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">DRAWBOT_FillType</span><span class="w">    </span><span class="n">in_fill_type</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>DRAWBOT_FillType</code> is one of the following:</p>
+<ul>
+<li><code>kDRAWBOT_FillType_EvenOdd</code></li>
+<li><code>kDRAWBOT_FillType_Winding</code>
+</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>StrokePath</code></td>
-<td>Stroke a path using a pen.<br/><pre>StrokePath(<br/>  DRAWBOT_SurfaceRef  in_surface_ref,<br/>  DRAWBOT_PenRef      in_pen_ref,<br/>  DRAWBOT_PathRef     in_path_ref);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>StrokePath</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Stroke a path using a pen.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">StrokePath</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">  </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_PenRef</span><span class="w">      </span><span class="n">in_pen_ref</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">DRAWBOT_PathRef</span><span class="w">     </span><span class="n">in_path_ref</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>Clip</code></td>
-<td>Clip the surface.<br/><pre>Clip(<br/>  DRAWBOT_SurfaceRef    in_surface_ref,<br/>  DRAWBOT_SupplierRef   in_supplier_ref,<br/>  const DRAWBOT_Rect32  *in_rectPR);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>Clip</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Clip the surface.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">Clip</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">    </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_SupplierRef</span><span class="w">   </span><span class="n">in_supplier_ref</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_Rect32</span><span class="w">  </span><span class="o">*</span><span class="n">in_rectPR</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>GetClipBounds</code></td>
-<td>Get clip bounds.<br/><pre>GetClipBounds(<br/>  DRAWBOT_SurfaceRef  in_surface_ref,<br/>  DRAWBOT_Rect32      *out_rectPR);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>GetClipBounds</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Get clip bounds.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">GetClipBounds</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">  </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_Rect32</span><span class="w">      </span><span class="o">*</span><span class="n">out_rectPR</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>IsWithinClipBounds</code></td>
-<td>Checks whether a rect is within the clip bounds.<br/><pre>IsWithinClipBounds(<br/>  DRAWBOT_SurfaceRef    in_surface_ref,<br/>  const DRAWBOT_Rect32  *in_rectPR,<br/>  DRAWBOT_Boolean       *out_withinPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>IsWithinClipBounds</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Checks whether a rect is within the clip bounds.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">IsWithinClipBounds</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">    </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_Rect32</span><span class="w">  </span><span class="o">*</span><span class="n">in_rectPR</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">DRAWBOT_Boolean</span><span class="w">       </span><span class="o">*</span><span class="n">out_withinPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>Transform</code></td>
-<td>Transform the last surface state.<br/><pre>Transform(<br/>  DRAWBOT_SurfaceRef       in_surface_ref,<br/>  const DRAWBOT_MatrixF32  *in_matrixP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>Transform</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Transform the last surface state.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">Transform</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">       </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_MatrixF32</span><span class="w">  </span><span class="o">*</span><span class="n">in_matrixP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>DrawString</code></td>
-<td>Draw a string.<br/><pre>DrawString(<br/>  DRAWBOT_SurfaceRef       in_surface_ref,<br/>  DRAWBOT_BrushRef         in_brush_ref,<br/>  DRAWBOT_FontRef          in_font_ref,<br/>  const DRAWBOT_UTF16Char  *in_stringP,<br/>  const DRAWBOT_PointF32   *in_originP,<br/>  DRAWBOT_TextAlignment    in_alignment_style,<br/>  DRAWBOT_TextTruncation   in_truncation_style,<br/>  float                    in_truncation_width);</pre><br/><br/><code>DRAWBOT_TextAlignment</code> is one of the following:<ul><li><code>kDRAWBOT_TextAlignment_Left</code></li><li><code>kDRAWBOT_TextAlignment_Center</code></li><li><code>kDRAWBOT_TextAlignment_Right</code></li></ul><code>DRAWBOT_TextTruncation</code> is one of the following:<ul><li><code>kDRAWBOT_TextTruncation_None</code></li><li><code>kDRAWBOT_TextTruncation_End</code></li><li><code>kDRAWBOT_TextTruncation_EndEllipsis</code></li><li><code>kDRAWBOT_TextTruncation_PathEllipsis</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>DrawString</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Draw a string.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">DrawString</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">       </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_BrushRef</span><span class="w">         </span><span class="n">in_brush_ref</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">DRAWBOT_FontRef</span><span class="w">          </span><span class="n">in_font_ref</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_UTF16Char</span><span class="w">  </span><span class="o">*</span><span class="n">in_stringP</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_PointF32</span><span class="w">   </span><span class="o">*</span><span class="n">in_originP</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">DRAWBOT_TextAlignment</span><span class="w">    </span><span class="n">in_alignment_style</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">DRAWBOT_TextTruncation</span><span class="w">   </span><span class="n">in_truncation_style</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="kt">float</span><span class="w">                    </span><span class="n">in_truncation_width</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>DRAWBOT_TextAlignment</code> is one of the following:</p>
+<ul>
+<li><code>kDRAWBOT_TextAlignment_Left</code></li>
+<li><code>kDRAWBOT_TextAlignment_Center</code></li>
+<li><code>kDRAWBOT_TextAlignment_Right</code></li>
+</ul>
+<p><code>DRAWBOT_TextTruncation</code> is one of the following:</p>
+<ul>
+<li><code>kDRAWBOT_TextTruncation_None</code></li>
+<li><code>kDRAWBOT_TextTruncation_End</code></li>
+<li><code>kDRAWBOT_TextTruncation_EndEllipsis</code></li>
+<li><code>kDRAWBOT_TextTruncation_PathEllipsis</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>DrawImage</code></td>
-<td>Draw an image created using <code>NewImageFromBuffer()</code> on the surface. Alpha = [0.0f, 1.0f ].<br/><pre>DrawImage(<br/>  DRAWBOT_SurfaceRef      in_surface_ref,<br/>  DRAWBOT_ImageRef        in_image_ref,<br/>  const DRAWBOT_PointF32  *in_originP,<br/>  float                   in_alpha);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>DrawImage</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Draw an image created using <code>NewImageFromBuffer()</code> on the surface. Alpha = [0.0f, 1.0f ].</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">DrawImage</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">      </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_ImageRef</span><span class="w">        </span><span class="n">in_image_ref</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_PointF32</span><span class="w">  </span><span class="o">*</span><span class="n">in_originP</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="kt">float</span><span class="w">                   </span><span class="n">in_alpha</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>SetInterpolationPolicy</code></td>
-<td><pre>SetInterpolationPolicy(<br/>  DRAWBOT_SurfaceRef           in_surface_ref,<br/>  DRAWBOT_InterpolationPolicy  in_interp);</pre><br/><br/><code>DRAWBOT_InterpolationPolicy</code> is one of the following:<ul><li><code>kDRAWBOT_InterpolationPolicy_None</code></li><li><code>kDRAWBOT_InterpolationPolicy_Med</code></li><li><code>kDRAWBOT_InterpolationPolicy_High</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>SetInterpolationPolicy</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">SetInterpolationPolicy</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">           </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_InterpolationPolicy</span><span class="w">  </span><span class="n">in_interp</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>DRAWBOT_InterpolationPolicy</code> is one of the following:</p>
+<ul>
+<li><code>kDRAWBOT_InterpolationPolicy_None</code></li>
+<li><code>kDRAWBOT_InterpolationPolicy_Med</code></li>
+<li><code>kDRAWBOT_InterpolationPolicy_High</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>GetInterpolationPolicy</code></td>
-<td><pre>GetInterpolationPolicy(<br/>  DRAWBOT_SurfaceRef           in_surface_ref,<br/>  DRAWBOT_InterpolationPolicy  *out_interpP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>GetInterpolationPolicy</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">GetInterpolationPolicy</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">           </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_InterpolationPolicy</span><span class="w">  </span><span class="o">*</span><span class="n">out_interpP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>SetAntiAliasPolicy</code></td>
-<td><pre>SetAntiAliasPolicy(<br/>  DRAWBOT_SurfaceRef       in_surface_ref,<br/>  DRAWBOT_AntiAliasPolicy  in_policy);</pre><br/><br/><code>DRAWBOT_AntiAliasPolicy</code> is one of the following:<ul><li><code>kDRAWBOT_AntiAliasPolicy_None</code></li><li><code>kDRAWBOT_AntiAliasPolicy_Med</code></li><li><code>kDRAWBOT_AntiAliasPolicy_High</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>SetAntiAliasPolicy</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">SetAntiAliasPolicy</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">       </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_AntiAliasPolicy</span><span class="w">  </span><span class="n">in_policy</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>DRAWBOT_AntiAliasPolicy</code> is one of the following:</p>
+<ul>
+<li><code>kDRAWBOT_AntiAliasPolicy_None</code></li>
+<li><code>kDRAWBOT_AntiAliasPolicy_Med</code></li>
+<li><code>kDRAWBOT_AntiAliasPolicy_High</code>
+</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>GetAntiAliasPolicy</code></td>
-<td><pre>GetAntiAliasPolicy(<br/>  DRAWBOT_SurfaceRef       in_surface_ref,<br/>  DRAWBOT_AntiAliasPolicy  *out_policyP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>GetAntiAliasPolicy</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">GetAntiAliasPolicy</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">       </span><span class="n">in_surface_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">DRAWBOT_AntiAliasPolicy</span><span class="w">  </span><span class="o">*</span><span class="n">out_policyP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>Flush</code></td>
-<td>Flush drawing. This is not always needed, and if overused, may cause excessive redrawing and flashing.<br/><pre>Flush(<br/>  DRAWBOT_SurfaceRef  in_surface_ref);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>Flush</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Flush drawing. This is not always needed, and if overused, may cause excessive redrawing and flashing.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">Flush</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_SurfaceRef</span><span class="w">  </span><span class="n">in_surface_ref</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3322,34 +3658,93 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>MoveTo</code></td>
-<td>Move to a point.<br/><pre>MoveTo(<br/>  DRAWBOT_PathRef  in_path_ref,<br/>  float            in_x,<br/>  float            in_y);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>MoveTo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Move to a point.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">MoveTo</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_PathRef</span><span class="w">  </span><span class="n">in_path_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">float</span><span class="w">            </span><span class="n">in_x</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">float</span><span class="w">            </span><span class="n">in_y</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>LineTo</code></td>
-<td>Add a line to the path.<br/><pre>LineTo(<br/>  DRAWBOT_PathRef  in_path_ref,<br/>  float            in_x,<br/>  float            in_y);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>LineTo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Add a line to the path.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">LineTo</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_PathRef</span><span class="w">  </span><span class="n">in_path_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">float</span><span class="w">            </span><span class="n">in_x</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">float</span><span class="w">            </span><span class="n">in_y</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>BezierTo</code></td>
-<td>Add a cubic bezier to the path.<br/><pre>BezierTo(<br/>  DRAWBOT_PathRef         in_path_ref,<br/>  const DRAWBOT_PointF32  *in_pt1P,<br/>  const DRAWBOT_PointF32  *in_pt2P,<br/>  const DRAWBOT_PointF32  *in_pt3P);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>BezierTo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Add a cubic bezier to the path.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">BezierTo</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_PathRef</span><span class="w">         </span><span class="n">in_path_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_PointF32</span><span class="w">  </span><span class="o">*</span><span class="n">in_pt1P</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_PointF32</span><span class="w">  </span><span class="o">*</span><span class="n">in_pt2P</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_PointF32</span><span class="w">  </span><span class="o">*</span><span class="n">in_pt3P</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AddRect</code></td>
-<td>Add a rect to the path.<br/><pre>AddRect(<br/>  DRAWBOT_PathRef        in_path_ref,<br/>  const DRAWBOT_RectF32  *in_rectPR);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AddRect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Add a rect to the path.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">AddRect</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_PathRef</span><span class="w">        </span><span class="n">in_path_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_RectF32</span><span class="w">  </span><span class="o">*</span><span class="n">in_rectPR</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AddArc</code></td>
-<td>Add a arc to the path. Zero start degrees == 3 o'clock.<br/>Sweep is clockwise. Units for angle are in degrees.<br/><pre>AddArc(<br/>  DRAWBOT_PathRef         in_path_ref,<br/>  const DRAWBOT_PointF32  *in_centerP,<br/>  float                   in_radius,<br/>  float                   in_start_angle,<br/>  float                   in_sweep);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AddArc</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Add a arc to the path. Zero start degrees == 3 o'clock.</p>
+<p>Sweep is clockwise. Units for angle are in degrees.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">AddArc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_PathRef</span><span class="w">         </span><span class="n">in_path_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_PointF32</span><span class="w">  </span><span class="o">*</span><span class="n">in_centerP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">float</span><span class="w">                   </span><span class="n">in_radius</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="kt">float</span><span class="w">                   </span><span class="n">in_start_angle</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="kt">float</span><span class="w">                   </span><span class="n">in_sweep</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>Close</code></td>
-<td>Close the path.<br/><pre>Close(<br/>  DRAWBOT_PathRef  in_path_ref);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>Close</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Close the path.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">Close</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_PathRef</span><span class="w">  </span><span class="n">in_path_ref</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3360,42 +3755,111 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_GetPreferredForegroundColor</code></td>
-<td>Get the preferred foreground color.<br/><pre>PF_GetPreferredForegroundColor(<br/>  DRAWBOT_ColorRGBA  *foreground_colorP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetPreferredForegroundColor</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Get the preferred foreground color.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PF_GetPreferredForegroundColor</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_ColorRGBA</span><span class="w">  </span><span class="o">*</span><span class="n">foreground_colorP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetPreferredShadowColor</code></td>
-<td>Get the preferred shadow color.<br/><pre>PF_GetPreferredShadowColor(<br/>  DRAWBOT_ColorRGBA  *shadow_colorP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetPreferredShadowColor</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Get the preferred shadow color.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PF_GetPreferredShadowColor</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">DRAWBOT_ColorRGBA</span><span class="w">  </span><span class="o">*</span><span class="n">shadow_colorP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetPreferredStrokeWidth</code></td>
-<td>Get the preferred foreground &amp; shadow stroke width.<br/><pre>PF_GetPreferredStrokeWidth(<br/>  float  *stroke_widthPF);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetPreferredStrokeWidth</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Get the preferred foreground &amp; shadow stroke width.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PF_GetPreferredStrokeWidth</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">float</span><span class="w">  </span><span class="o">*</span><span class="n">stroke_widthPF</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetPreferredVertexSize</code></td>
-<td>Get the preferred vertex size.<br/><pre>PF_GetPreferredVertexSize(<br/>  float  *vertex_sizePF);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetPreferredVertexSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Get the preferred vertex size.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PF_GetPreferredVertexSize</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">float</span><span class="w">  </span><span class="o">*</span><span class="n">vertex_sizePF</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetPreferredShadowOffset</code></td>
-<td>Get the preferred shadow offset.<br/><pre>PF_GetPreferredShadowOffset(<br/>  A_LPoint  *shadow_offsetP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetPreferredShadowOffset</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Get the preferred shadow offset.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PF_GetPreferredShadowOffset</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">A_LPoint</span><span class="w">  </span><span class="o">*</span><span class="n">shadow_offsetP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_StrokePath</code></td>
-<td>Stroke the path with the overlay theme foreground color.<br/>Optionally draw the shadow using the overlay theme shadow color.<br/>Uses overlay theme stroke width for stroking foreground and shadow strokes.<br/><pre>PF_StrokePath(<br/>  const DRAWBOT_DrawRef  drawbot_ref,<br/>  const DRAWBOT_PathRef  path_ref<br/>  PF_Boolean             draw_shadowB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_StrokePath</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Stroke the path with the overlay theme foreground color.</p>
+<p>Optionally draw the shadow using the overlay theme shadow color.</p>
+<p>Uses overlay theme stroke width for stroking foreground and shadow strokes.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PF_StrokePath</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_DrawRef</span><span class="w">  </span><span class="n">drawbot_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_PathRef</span><span class="w">  </span><span class="n">path_ref</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">             </span><span class="n">draw_shadowB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_FillPath</code></td>
-<td>Fills the path with overlay theme foreground color.<br/>Optionally draw the shadow using the overlay theme shadow color.<br/><pre>PF_FillPath(<br/>  const DRAWBOT_DrawRef  drawbot_ref,<br/>  const DRAWBOT_PathRef  path_ref<br/>  PF_Boolean             draw_shadowB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_FillPath</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Fills the path with overlay theme foreground color.</p>
+<p>Optionally draw the shadow using the overlay theme shadow color.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PF_FillPath</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_DrawRef</span><span class="w">  </span><span class="n">drawbot_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_PathRef</span><span class="w">  </span><span class="n">path_ref</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">             </span><span class="n">draw_shadowB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_FillVertex</code></td>
-<td>Fills a square vertex around the center point using the overlay theme foreground color and vertex size.<br/><pre>PF_FillVertex(<br/>  const DRAWBOT_DrawRef  drawbot_ref,<br/>  const A_FloatPoint     *center_pointP<br/>  PF_Boolean             draw_shadowB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_FillVertex</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Fills a square vertex around the center point using the overlay theme foreground color and vertex size.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="w"> </span><span class="n">PF_FillVertex</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DRAWBOT_DrawRef</span><span class="w">  </span><span class="n">drawbot_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_FloatPoint</span><span class="w">     </span><span class="o">*</span><span class="n">center_pointP</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">             </span><span class="n">draw_shadowB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3419,7 +3883,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3482,7 +3946,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

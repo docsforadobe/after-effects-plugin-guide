@@ -2736,23 +2736,34 @@
 <tbody>
 <tr>
 <td>8 bpc ARGB</td>
-<td><pre>typedef struct {<br/>  A_u_char alpha, red, green, blue;<br/>} PF_Pixel8;</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">A_u_char</span><span class="w"> </span><span class="n">alpha</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="p">}</span><span class="w"> </span><span class="n">PF_Pixel8</span><span class="p">;</span>
+</span></code></pre></div></td>
 </tr>
 <tr>
 <td>16 bpc ARGB</td>
-<td><pre>typedef struct {<br/>  A_u_short alpha, red, green, blue;<br/>} PF_Pixel16;</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">A_u_short</span><span class="w"> </span><span class="n">alpha</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="p">}</span><span class="w"> </span><span class="n">PF_Pixel16</span><span class="p">;</span>
+</span></code></pre></div></td>
 </tr>
 <tr>
 <td>32 bpc ARGB</td>
-<td><pre>typedef struct {<br/>  PF_FpShort alpha, red, green, blue;<br/>} PF_PixelFloat, PF_Pixel32;</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_FpShort</span><span class="w"> </span><span class="n">alpha</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="p">}</span><span class="w"> </span><span class="n">PF_PixelFloat</span><span class="p">,</span><span class="w"> </span><span class="n">PF_Pixel32</span><span class="p">;</span>
+</span></code></pre></div></td>
 </tr>
 <tr>
 <td>HLS (Hue, Lightness, Saturation)</td>
-<td><pre>typedef PF_Fixed PF_HLS_PIXEL[3]</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="n">PF_Fixed</span><span class="w"> </span><span class="n">PF_HLS_PIXEL</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</span></code></pre></div></td>
 </tr>
 <tr>
 <td>YIQ (luminance, in-phase chrominance, quadrature chrominance)</td>
-<td><pre>typedef PF_Fixed PF_YIQ_PIXEL[3]</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="n">PF_Fixed</span><span class="w"> </span><span class="n">PF_YIQ_PIXEL</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</span></code></pre></div></td>
 </tr>
 </tbody>
 </table>
@@ -2780,7 +2791,7 @@
 </tr>
 <tr>
 <td>RGBtoYIQ</td>
-<td>Given an RGB pixel, returns a YIQ (luminance, inphase chrominance, quadrature chrominance) pixel.<br/>Y is 0 to 1 in fixed point, I is -0.5959 to 0.5959 in fixed point, and Q is -0.5227 to 0.5227 in fixed point.</td>
+<td>Given an RGB pixel, returns a YIQ (luminance, inphase chrominance, quadrature chrominance) pixel. Y is 0 to 1 in fixed point, I is -0.5959 to 0.5959 in fixed point, and Q is -0.5227 to 0.5227 in fixed point.</td>
 <td><code>PF_RGB_TO_YIQ</code></td>
 </tr>
 <tr>
@@ -2830,7 +2841,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -2893,7 +2904,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

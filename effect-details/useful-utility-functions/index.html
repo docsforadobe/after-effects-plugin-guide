@@ -2952,14 +2952,31 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_SetOptionsButtonName</code></td>
-<td>Changes the text on the options button in the effect controls palette.<br/><br/>NOTE: This must be called during <a href="../../effect-basics/command-selectors/#global-selectors">PF_Cmd_PARAM_SETUP</a>.<br/><pre>PF_SetOptionsButtonName(<br/>  PF_ProgPtr    effect_ref,<br/>  const A_char  *nameZ);</pre><br/><br/><code>nameZ</code> may be up to <code>A_char[31]</code> in length.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_SetOptionsButtonName</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Changes the text on the options button in the effect controls palette.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This must be called during <a href="../../effect-basics/command-selectors/#global-selectors">PF_Cmd_PARAM_SETUP</a>.</p>
+</div>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_SetOptionsButtonName</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">nameZ</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>nameZ</code> may be up to <code>A_char[31]</code> in length.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2971,54 +2988,181 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_AppGetBgColor</code></td>
-<td>Retrieves the current background color.<br/><pre>PF_AppGetBgColor(<br/>  PF_App_Color  bg_colorP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_AppGetBgColor</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the current background color.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_AppGetBgColor</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_App_Color</span><span class="w">  </span><span class="n">bg_colorP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_AppGetColor</code></td>
-<td>Retrieves the color for the specified UI element. See AE_EffectSuites.h for a complete enumeration of available <code>PF_App_Color</code> values;<br/>basically any color in After Effects' UI can be retrieved.<br/><br/>CC adds several new <code>PF_App_ColorType</code> enum values for new elements that can be queried.<br/><br/>Note that in CS6, the color definitions are off from <code>FILL_LIGHT</code> downward.<br/><br/>Use following psuedocode for CS6 only:<br/><pre>GetColor(enum e)<br/>{<br/>  if host_is_CS6 and e &gt;= FILL_LIGHT<br/>  e += 3<br/>    call real GetColor<br/>}<br/><br/>PF_AppGetColor(<br/>  PF_App_ColorType  color_type,<br/>  PF_App_Color      *app_colorP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_AppGetColor</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the color for the specified UI element.</p>
+<p>See AE_EffectSuites.h for a complete enumeration of available <code>PF_App_Color</code> values; basically any color in After Effects' UI can be retrieved.</p>
+<p>CC adds several new <code>PF_App_ColorType</code> enum values for new elements that can be queried.</p>
+<p>Note that in CS6, the color definitions are off from <code>FILL_LIGHT</code> downward.</p>
+<p>Use following psuedocode for CS6 only:</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">GetColor</span><span class="p">(</span><span class="k">enum</span><span class="w"> </span><span class="nc">e</span><span class="p">)</span>
+</span><span id="__span-0-2"><span class="p">{</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">host_is_CS6</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span><span class="w"> </span><span class="n">FILL_LIGHT</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">e</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="__span-0-5"><span class="w">    </span><span class="n">call</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">GetColor</span>
+</span><span id="__span-0-6"><span class="p">}</span>
+</span><span id="__span-0-7">
+</span><span id="__span-0-8"><span class="n">PF_AppGetColor</span><span class="p">(</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">PF_App_ColorType</span><span class="w">  </span><span class="n">color_type</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">PF_App_Color</span><span class="w">      </span><span class="o">*</span><span class="n">app_colorP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_AppGetLanguage</code></td>
-<td>New in CC. Retrieves the active displayed language of AE UI so plug-in can match. Here are the possible language codes as of CC:<ul><li>Chinese - <code>zh_CN</code></li><li>English - <code>en_US</code></li><li>French - <code>fr_FR</code></li><li>German - <code>de_DE</code></li><li>Italian - <code>it_IT</code></li><li>Japanese - <code>ja_JP</code></li><li>Korean - <code>ko_KR</code></li><li>Spanish - <code>es_ES</code></li></ul><pre>PF_AppGetLanguage(<br/>  A_char  lang_tagZ);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_AppGetLanguage</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. Retrieves the active displayed language of AE UI so plug-in can match. Here are the possible language codes as of CC:</p>
+<ul>
+<li>Chinese - <code>zh_CN</code></li>
+<li>English - <code>en_US</code></li>
+<li>French - <code>fr_FR</code></li>
+<li>German - <code>de_DE</code></li>
+<li>Italian - <code>it_IT</code></li>
+<li>Japanese - <code>ja_JP</code></li>
+<li>Korean - <code>ko_KR</code></li>
+<li>Spanish - <code>es_ES</code></li>
+</ul>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_AppGetLanguage</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">A_char</span><span class="w">  </span><span class="n">lang_tagZ</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetPersonalInfo</code></td>
-<td>Retrieves the user's registration information.<br/><pre>PF_GetPersonalInfo(<br/>  PF_AppPersonalTextInfo  *ptiP);<br/><br/>typedef struct PF_AppPersonalTextInfo {<br/>  A_char  name[PF_APP_MAX_PERS_LEN + 1];<br/>  A_char  org[PF_APP_MAX_PERS_LEN + 1];<br/>  A_char  serial_str[PF_APP_MAX_PERS_LEN+1];<br/>} PF_AppPersonalTextInfo;</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetPersonalInfo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the user's registration information.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_GetPersonalInfo</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_AppPersonalTextInfo</span><span class="w">  </span><span class="o">*</span><span class="n">ptiP</span><span class="p">);</span>
+</span><span id="__span-0-3">
+</span><span id="__span-0-4"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">PF_AppPersonalTextInfo</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_char</span><span class="w">  </span><span class="n">name</span><span class="p">[</span><span class="n">PF_APP_MAX_PERS_LEN</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_char</span><span class="w">  </span><span class="n">org</span><span class="p">[</span><span class="n">PF_APP_MAX_PERS_LEN</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_char</span><span class="w">  </span><span class="n">serial_str</span><span class="p">[</span><span class="n">PF_APP_MAX_PERS_LEN</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-0-8"><span class="p">}</span><span class="w"> </span><span class="n">PF_AppPersonalTextInfo</span><span class="p">;</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetFontStyleSheet</code></td>
-<td>Retrieves font style sheet information for the fonts used in After Effects' UI.<br/><br/>Trivia: The font used in After Effects' UI starting in 15.0 is Adobe Clean.<br/>Before that, it was Tahoma on Windows and Lucida Grande on macOS X.<br/><pre>PF_GetFontStyleSheet(<br/>  PF_FontStyleSheet  sheet,<br/>  PF_FontName        *font_nameP0,<br/>  A_short            *font_numPS0,<br/>  A_short            *sizePS0,<br/>  A_short            *stylePS0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetFontStyleSheet</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves font style sheet information for the fonts used in After Effects' UI.</p>
+<p>Trivia: The font used in After Effects' UI starting in 15.0 is Adobe Clean.</p>
+<p>Before that, it was Tahoma on Windows and Lucida Grande on macOS X.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_GetFontStyleSheet</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_FontStyleSheet</span><span class="w">  </span><span class="n">sheet</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_FontName</span><span class="w">        </span><span class="o">*</span><span class="n">font_nameP0</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_short</span><span class="w">            </span><span class="o">*</span><span class="n">font_numPS0</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_short</span><span class="w">            </span><span class="o">*</span><span class="n">sizePS0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_short</span><span class="w">            </span><span class="o">*</span><span class="n">stylePS0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_SetCursor</code></td>
-<td>Sets the cursor to any of After Effects' cursors. See AE_EffectUI.h for a complete enumeration.<br/><br/>Set to:<br/></li><li><code>PF_Cursor_NONE</code> to allow After Effects to set the cursor.</li><li><code>PF_Cursor_CUSTOM</code> if you've used OS-specific calls to change the cursor (After Effects will honor your changes).</li></ul><pre>PF_SetCursor(<br/>  PF_CursorType  cursor);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_SetCursor</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the cursor to any of After Effects' cursors. See AE_EffectUI.h for a complete enumeration.</p>
+<p>Set to:
+- <code>PF_Cursor_NONE</code> to allow After Effects to set the cursor.
+- <code>PF_Cursor_CUSTOM</code> if you've used OS-specific calls to change the cursor (After Effects will honor your changes).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_SetCursor</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_CursorType</span><span class="w">  </span><span class="n">cursor</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_IsRenderEngine</code></td>
-<td>Returns TRUE if After Effects is running in watched folder mode, or is a render engine installation.<br/><pre>PF_IsRenderEngine(<br/>  PF_Boolean  *render_enginePB);</pre><br/><br/>As of AE6.5, this function returns <code>TRUE</code> if the installation is the render engine,<br/>or if the After Effects is being run with no UI, or if After Effects is in watched folder mode.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_IsRenderEngine</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns TRUE if After Effects is running in watched folder mode, or is a render engine installation.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_IsRenderEngine</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">  </span><span class="o">*</span><span class="n">render_enginePB</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>As of AE6.5, this function returns <code>TRUE</code> if the installation is the render engine, or if the After Effects is being run with no UI, or if After Effects is in watched folder mode.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_AppColorPickerDialog</code></td>
-<td>Displays the After Effects color picker dialog (which may be the system color picker, depending on the user's preferences).<br/><br/>Will return <code>PF_Interrupt_CANCEL</code> if user cancels dialog. Returned color is in the project's working color space.<br/><pre>PF_AppColorPickerDialog(<br/>  const A_char         *dialog_titleZ0,<br/>  const PF_PixelFloat  *sample_colorP,<br/>  PF_PixelFloat        *result_colorP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_AppColorPickerDialog</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Displays the After Effects color picker dialog (which may be the system color picker, depending on the user's preferences).</p>
+<p>Will return <code>PF_Interrupt_CANCEL</code> if user cancels dialog. Returned color is in the project's working color space.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_AppColorPickerDialog</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">         </span><span class="o">*</span><span class="n">dialog_titleZ0</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_PixelFloat</span><span class="w">  </span><span class="o">*</span><span class="n">sample_colorP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_PixelFloat</span><span class="w">        </span><span class="o">*</span><span class="n">result_colorP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetMouse</code></td>
-<td>Returns the position of the mouse in the custom UI coordinate space.<br/><pre>PF_GetMouse(<br/>  PF_Point  *pointP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetMouse</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the position of the mouse in the custom UI coordinate space.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_GetMouse</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_Point</span><span class="w">  </span><span class="o">*</span><span class="n">pointP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_InvalidateRect</code></td>
-<td>Queue up a <a href="../../effect-ui-events/custom-ui-and-drawbot/#redrawing">redraw</a> of a specific area of the custom UI for an effect.<br/><br/>Only valid while handling a non-drawing event in the effect.<br/><br/>Specify <code>rectP0</code> as <code>NULL</code> to invalidate the entire window. The redraw will happen at the next available idle moment after returning from the event.<br/><br/>Set the <code>PF_EO_UPDATE_NOW</code> event outflag to update the window immediately after the event returns.<br/><pre>PF_InvalidateRect(<br/>  const PF_ContextH  contextH,<br/>  const PF_Rect*     rectP0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_InvalidateRect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Queue up a <a href="../../effect-ui-events/custom-ui-and-drawbot/#redrawing">redraw</a> of a specific area of the custom UI for an effect.</p>
+<p>Only valid while handling a non-drawing event in the effect.</p>
+<p>Specify <code>rectP0</code> as <code>NULL</code> to invalidate the entire window. The redraw will happen at the next available idle moment after returning from the event.</p>
+<p>Set the <code>PF_EO_UPDATE_NOW</code> event outflag to update the window immediately after the event returns.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_InvalidateRect</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_ContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Rect</span><span class="o">*</span><span class="w">     </span><span class="n">rectP0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ConvertLocalToGlobal</code></td>
-<td>Converts from the custom UI coordinate system to global screen coordinates. Use only during custom UI event handling.<br/><pre>PF_ConvertLocalToGlobal(<br/>  const PF_Point  *localP,<br/>  PF_Point        *globalP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ConvertLocalToGlobal</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Converts from the custom UI coordinate system to global screen coordinates. Use only during custom UI event handling.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_ConvertLocalToGlobal</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Point</span><span class="w">  </span><span class="o">*</span><span class="n">localP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Point</span><span class="w">        </span><span class="o">*</span><span class="n">globalP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3030,54 +3174,137 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_SetProjectDirty</code></td>
-<td>Tells After Effects that the project has been changed since it was last saved.<br/><pre>PF_SetProjectDirty(void);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_SetProjectDirty</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Tells After Effects that the project has been changed since it was last saved.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_SetProjectDirty</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_SaveProject</code></td>
-<td>Saves the project to the current path. To save the project elsewhere, use <a href="../../aegps/aegp-suites/#aegp_projsuite6">AEGP_SaveProjectToPath()</a>.<br/><pre>PF_SaveProject(void);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_SaveProject</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Saves the project to the current path. To save the project elsewhere, use <a href="../../aegps/aegp-suites/#aegp_projsuite6">AEGP_SaveProjectToPath()</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_SaveProject</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_SaveBackgroundState</code></td>
-<td>Stores the background state (After Effects' position in the stacking order of open applications and windows).<br/><pre>PF_SaveBackgroundState(void);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_SaveBackgroundState</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Stores the background state (After Effects' position in the stacking order of open applications and windows).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_SaveBackgroundState</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ForceForeground</code></td>
-<td>Brings After Effects to the front of all currently open applications and windows.<br/><pre>PF_ForceForeground(void);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ForceForeground</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Brings After Effects to the front of all currently open applications and windows.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_ForceForeground</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_RestoreBackgroundState</code></td>
-<td>Puts After Effects back where it was, in relation to other applications and windows.<br/><pre>PF_RestoreBackgroundState(void);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_RestoreBackgroundState</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Puts After Effects back where it was, in relation to other applications and windows.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_RestoreBackgroundState</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_RefreshAllWindows</code></td>
-<td>Forces all After Effects windows to update.<br/>Note that although the Composition panel will be refreshed, this does not guarantee a new frame will be sent to External Monitor Preview plug-ins.<br/><pre>PF_RefreshAllWindows(void);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_RefreshAllWindows</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Forces all After Effects windows to update.</p>
+<p>Note that although the Composition panel will be refreshed, this does not guarantee a new frame will be sent to External Monitor Preview plug-ins.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_RefreshAllWindows</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_InfoDrawText</code></td>
-<td>Writes text into the After Effects info palette.<br/><pre>PF_InfoDrawText(<br/>  const A_char  *line1Z0,<br/>  const A_char  *line2Z0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_InfoDrawText</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Writes text into the After Effects info palette.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_InfoDrawText</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">line1Z0</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">line2Z0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_InfoDrawColor</code></td>
-<td>Draws the specified color in the After Effects info palette (alpha is ignored).<br/><pre>PF_InfoDrawColor(<br/>  PF_Pixel  color);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_InfoDrawColor</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Draws the specified color in the After Effects info palette (alpha is ignored).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_InfoDrawColor</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_Pixel</span><span class="w">  </span><span class="n">color</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_InfoDrawText3</code></td>
-<td>Writes three lines of text into the After Effects info palette.<br/><pre>PF_InfoDrawText3(<br/>  const A_char  *line1Z0,<br/>  const A_char  *line2Z0,<br/>  const A_char  *line3Z0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_InfoDrawText3</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Writes three lines of text into the After Effects info palette.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_InfoDrawText3</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">line1Z0</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">line2Z0</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">line3Z0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_InfoDrawText3Plus</code></td>
-<td>Writes three lines of text into the After Effects info palette, with portions of the second and third lines left and right justified.<br/><pre>PF_InfoDrawText3Plus(<br/>  const A_char  *line1Z0,<br/>  const A_char  *line2_jrZ0,<br/>  const A_char  *line2_jlZ0,<br/>  const A_char  *line3_jrZ0,<br/>  const A_char  *line3_jlZ0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_InfoDrawText3Plus</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Writes three lines of text into the After Effects info palette, with portions of the second and third lines left and right justified.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_InfoDrawText3Plus</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">line1Z0</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">line2_jrZ0</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">line2_jlZ0</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">line3_jrZ0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">line3_jlZ0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_AppendInfoText</code></td>
-<td>Appends characters to the currently-displayed info text.<br/><pre>PF_AppendInfoText(<br/>  const A_char  *appendZ0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_AppendInfoText</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Appends characters to the currently-displayed info text.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_AppendInfoText</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">appendZ0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3088,30 +3315,98 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_FormatTimeActiveItem</code></td>
-<td>Given a time value and scale, returns a formatted string representing that time.<br/>If durationB is <code>TRUE</code>, appropriate units will be appended.<br/><pre>PF_FormatTimeActiveItem(<br/>  A_long      time_valueUL,<br/>  A_u_long    time_scaleL,<br/>  PF_Boolean  durationB,<br/>  A_char      *time_buf);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_FormatTimeActiveItem</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a time value and scale, returns a formatted string representing that time.</p>
+<p>If durationB is <code>TRUE</code>, appropriate units will be appended.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_FormatTimeActiveItem</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">A_long</span><span class="w">      </span><span class="n">time_valueUL</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_u_long</span><span class="w">    </span><span class="n">time_scaleL</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">  </span><span class="n">durationB</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_char</span><span class="w">      </span><span class="o">*</span><span class="n">time_buf</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_FormatTime</code></td>
-<td>Contextualizes the formatted time string for the given PF_InData and PF_EffectWorld (i.e., layer time).<br/><pre>PF_FormatTime(<br/>  PF_InData       *in_data,<br/>  PF_EffectWorld  *world,<br/>  A_long          time_valueUL,<br/>  A_u_long        time_scaleL,<br/>  PF_Boolean      durationB,<br/>  A_char          *time_buf);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_FormatTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Contextualizes the formatted time string for the given PF_InData and PF_EffectWorld (i.e., layer time).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_FormatTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">       </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">world</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">time_valueUL</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_u_long</span><span class="w">        </span><span class="n">time_scaleL</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">      </span><span class="n">durationB</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_char</span><span class="w">          </span><span class="o">*</span><span class="n">time_buf</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_FormatTimePlus</code></td>
-<td>Allows you to select composition or layer time.<br/><pre>PF_FormatTimePlus(<br/>  PF_InData       *in_data,<br/>  PF_EffectWorld  *world,<br/>  A_long          time_valueUL,<br/>  A_u_long        time_scaleL,<br/>  PF_Boolean      comp_timeB,<br/>  PF_Boolean      durationB,<br/>  A_char          *time_buf);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_FormatTimePlus</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allows you to select composition or layer time.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_FormatTimePlus</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">       </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">world</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">time_valueUL</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_u_long</span><span class="w">        </span><span class="n">time_scaleL</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">      </span><span class="n">comp_timeB</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">      </span><span class="n">durationB</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">A_char</span><span class="w">          </span><span class="o">*</span><span class="n">time_buf</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetTimeDisplayPref</code></td>
-<td>Returns the starting frame number (specified by the user in composition settings), and the composition's time display preferences.<br/>Updated in 14.2 to support higher frame rates.<br/><pre>PF_GetTimeDisplayPref(<br/>  PF_TimeDisplayPref2  *tdp,<br/>  A_long               *starting_num);<br/>  typedef              struct {<br/>  A_char               display_mode;<br/>  A_long               framemax;<br/>  A_long               frames_per_foot;<br/>  A_char               frames_start;<br/>  A_Boolean            nondrop30B;<br/>  A_Boolean            honor_source_timecodeB;<br/>  A_Boolean            use_feet_framesB;<br/>  } PF_TimeDisplayPrefVersion3;</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetTimeDisplayPref</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the starting frame number (specified by the user in composition settings), and the composition's time display preferences.</p>
+<p>Updated in 14.2 to support higher frame rates.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_GetTimeDisplayPref</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_TimeDisplayPref2</span><span class="w">  </span><span class="o">*</span><span class="n">tdp</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">               </span><span class="o">*</span><span class="n">starting_num</span><span class="p">);</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">typedef</span><span class="w">              </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_char</span><span class="w">               </span><span class="n">display_mode</span><span class="p">;</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_long</span><span class="w">               </span><span class="n">framemax</span><span class="p">;</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_long</span><span class="w">               </span><span class="n">frames_per_foot</span><span class="p">;</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">A_char</span><span class="w">               </span><span class="n">frames_start</span><span class="p">;</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">            </span><span class="n">nondrop30B</span><span class="p">;</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">            </span><span class="n">honor_source_timecodeB</span><span class="p">;</span>
+</span><span id="__span-0-11"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">            </span><span class="n">use_feet_framesB</span><span class="p">;</span>
+</span><span id="__span-0-12"><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">PF_TimeDisplayPrefVersion3</span><span class="p">;</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_TimeCountFrames</code></td>
-<td>New in 15.0. Returns the index of the frame in the current comp.<br/><pre>PF_TimeCountFrames(<br/>  const A_Time  *start_timeTP,<br/>  const A_Time  *time_stepTP,<br/>  A_Boolean     include_partial_frameB,<br/>  A_long        *frame_countL);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_TimeCountFrames</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in 15.0. Returns the index of the frame in the current comp.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_TimeCountFrames</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">  </span><span class="o">*</span><span class="n">start_timeTP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">  </span><span class="o">*</span><span class="n">time_stepTP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">     </span><span class="n">include_partial_frameB</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">        </span><span class="o">*</span><span class="n">frame_countL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3125,30 +3420,74 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_MoveTimeStep</code></td>
-<td>Moves current time num_stepsL in the specified direction.<br/><pre>PF_MoveTimeStep(<br/>  PF_InData       *in_data,<br/>  PF_EffectWorld  *world,<br/>  PF_Step         time_dir,<br/>  A_long          num_stepsL);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_MoveTimeStep</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Moves current time num_stepsL in the specified direction.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_MoveTimeStep</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">       </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">world</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Step</span><span class="w">         </span><span class="n">time_dir</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">num_stepsL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_MoveTimeStepActiveItem</code></td>
-<td>Moves num_stepsL in the specified direction, for the active item.<br/><pre>PF_MoveTimeStepActiveItem(<br/>  PF_Step  time_dir,<br/>  A_long   num_stepsL);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_MoveTimeStepActiveItem</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Moves num_stepsL in the specified direction, for the active item.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_MoveTimeStepActiveItem</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_Step</span><span class="w">  </span><span class="n">time_dir</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">   </span><span class="n">num_stepsL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_TouchActiveItem</code></td>
-<td>Tells After Effects that the active item must be updated.<br/><pre>PF_TouchActiveItem (void);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_TouchActiveItem</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Tells After Effects that the active item must be updated.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_TouchActiveItem</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ForceRerender</code></td>
-<td>Forces After Effects to rerender the current frame.<br/><pre>PF_ForceRerender(<br/>  PF_InData       *in_data,<br/>  PF_EffectWorld  *world);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ForceRerender</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Forces After Effects to rerender the current frame.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_ForceRerender</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">       </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">world</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_EffectIsActiveOrEnabled</code></td>
-<td>Returns whether the effect which owns the <code>PF_ContextH</code> is currently active or enabled<br/>(if it isn't, After Effects won't be listening for function calls from it).<br/><pre>PF_EffectIsActiveOrEnabled(<br/>  PF_ContextH  contextH,<br/>  PF_Boolean   *enabledPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_EffectIsActiveOrEnabled</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns whether the effect which owns the <code>PF_ContextH</code> is currently active or enabled (if it isn't, After Effects won't be listening for function calls from it).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_EffectIsActiveOrEnabled</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">   </span><span class="o">*</span><span class="n">enabledPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3160,30 +3499,118 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_GetLayerChannelCount</code></td>
-<td>Retrieves the number of auxiliary channels associated with the indexed layer.<br/><pre>PF_GetLayerChannelCount(<br/>  PF_ProgPtr     effect_ref,<br/>  PF_ParamIndex  param_index,<br/>  A_long         *num_channelsPL);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetLayerChannelCount</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the number of auxiliary channels associated with the indexed layer.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_GetLayerChannelCount</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">     </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">  </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="o">*</span><span class="n">num_channelsPL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetLayerChannelIndexedRefAndDesc</code></td>
-<td>Retrieves (by index) a reference to, and description of, the specified channel.<br/><pre>PF_GetLayerChannelIndexedRefAndDesc(<br/>  PF_ProgPtr       effect_ref,<br/>  PF_ParamIndex    param_index,<br/>  PF_ChannelIndex  channel_index,<br/>  PF_Boolean       *foundPB,<br/>  PF_ChannelRef    *channel_refP,<br/>  PF_ChannelDesc   *channel_descP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetLayerChannelIndexedRefAndDesc</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves (by index) a reference to, and description of, the specified channel.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_GetLayerChannelIndexedRefAndDesc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">       </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">    </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ChannelIndex</span><span class="w">  </span><span class="n">channel_index</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">       </span><span class="o">*</span><span class="n">foundPB</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_ChannelRef</span><span class="w">    </span><span class="o">*</span><span class="n">channel_refP</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PF_ChannelDesc</span><span class="w">   </span><span class="o">*</span><span class="n">channel_descP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetLayerChannelTypedRefAndDesc</code></td>
-<td>Retrieves an auxiliary channel by type.<br/>Returned information is valid only if <code>foundPB</code> returns <code>TRUE</code>.<br/><pre>PF_GetLayerChannelTypedRefAndDesc(<br/>  PF_ProgPtr      effect_ref,<br/>  PF_ParamIndex   param_index,<br/>  PF_ChannelType  channel_type,<br/>  PF_Boolean      *foundPB,<br/>  PF_ChannelRef   *channel_refP,<br/>  PF_ChannelDesc  *channel_descP);</pre><br/><br/>PF_DataType will be one of the following:<ul><li><code>PF_DataType_FLOAT</code> - 34 bytes</li><li><code>PF_DataType_DOUBLE</code> - 38 bytes</li><li><code>PF_DataType_LONG</code> - 34 bytes</li><li><code>PF_DataType_SHORT</code> - 32 bytes</li><li><code>PF_DataType_FIXED_16_16</code> - 34 bytes</li><li><code>PF_DataType_CHAR</code> - 31 byte</li><li><code>PF_DataType_U_BYTE</code> - 31 byte</li><li><code>PF_DataType_U_SHORT</code> - 32 bytes</li><li><code>PF_DataType_U_FIXED_16_16</code> - 34 bytes</li><li><code>PF_DataType_RGB</code> - 3 bytes</li></ul>PF_ChannelType will be one of the following:<ul><li><code>PF_ChannelType_DEPTH</code></li><li><code>PF_ChannelType_NORMALS</code></li><li><code>PF_ChannelType_OBJECTID</code></li><li><code>PF_ChannelType_MOTIONVECTOR</code></li><li><code>PF_ChannelType_BK_COLOR</code></li><li><code>PF_ChannelType_TEXTURE</code></li><li><code>PF_ChannelType_COVERAGE</code></li><li><code>PF_ChannelType_NODE</code></li><li><code>PF_ChannelType_MATERIAL</code></li><li><code>PF_ChannelType_UNCLAMPED</code></li><li><code>PF_ChannelType_UNKNOWN</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetLayerChannelTypedRefAndDesc</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves an auxiliary channel by type.</p>
+<p>Returned information is valid only if <code>foundPB</code> returns <code>TRUE</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_GetLayerChannelTypedRefAndDesc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">   </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ChannelType</span><span class="w">  </span><span class="n">channel_type</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">      </span><span class="o">*</span><span class="n">foundPB</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_ChannelRef</span><span class="w">   </span><span class="o">*</span><span class="n">channel_refP</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PF_ChannelDesc</span><span class="w">  </span><span class="o">*</span><span class="n">channel_descP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>PF_DataType will be one of the following:</p>
+<ul>
+<li><code>PF_DataType_FLOAT</code> - 34 bytes</li>
+<li><code>PF_DataType_DOUBLE</code> - 38 bytes</li>
+<li><code>PF_DataType_LONG</code> - 34 bytes</li>
+<li><code>PF_DataType_SHORT</code> - 32 bytes</li>
+<li><code>PF_DataType_FIXED_16_16</code> - 34 bytes</li>
+<li><code>PF_DataType_CHAR</code> - 31 byte</li>
+<li><code>PF_DataType_U_BYTE</code> - 31 byte</li>
+<li><code>PF_DataType_U_SHORT</code> - 32 bytes</li>
+<li><code>PF_DataType_U_FIXED_16_16</code> - 34 bytes</li>
+<li><code>PF_DataType_RGB</code> - 3 bytes</li>
+</ul>
+<p>PF_ChannelType will be one of the following:</p>
+<ul>
+<li><code>PF_ChannelType_DEPTH</code></li>
+<li><code>PF_ChannelType_NORMALS</code></li>
+<li><code>PF_ChannelType_OBJECTID</code></li>
+<li><code>PF_ChannelType_MOTIONVECTOR</code></li>
+<li><code>PF_ChannelType_BK_COLOR</code></li>
+<li><code>PF_ChannelType_TEXTURE</code></li>
+<li><code>PF_ChannelType_COVERAGE</code></li>
+<li><code>PF_ChannelType_NODE</code></li>
+<li><code>PF_ChannelType_MATERIAL</code></li>
+<li><code>PF_ChannelType_UNCLAMPED</code></li>
+<li><code>PF_ChannelType_UNKNOWN</code>
+</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>PF_CheckoutLayerChannel</code></td>
-<td>Retrieves the <code>PF_ChannelChunk</code> containing the data associated with the given <code>PF_ChannelRefPtr</code>.<br/><pre>PF_CheckoutLayerChannel(<br/>  PF_ProgPtr        effect_ref,<br/>  PF_ChannelRefPtr  channel_refP,<br/>  long              what_time,<br/>  long              duration,<br/>  unsigned long     time_scale,<br/>  PF_DataType       data_type,<br/>  PF_ChannelChunk   *channel_chunkP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_CheckoutLayerChannel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the <code>PF_ChannelChunk</code> containing the data associated with the given <code>PF_ChannelRefPtr</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_CheckoutLayerChannel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">        </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ChannelRefPtr</span><span class="w">  </span><span class="n">channel_refP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">long</span><span class="w">              </span><span class="n">what_time</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="kt">long</span><span class="w">              </span><span class="n">duration</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w">     </span><span class="n">time_scale</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PF_DataType</span><span class="w">       </span><span class="n">data_type</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PF_ChannelChunk</span><span class="w">   </span><span class="o">*</span><span class="n">channel_chunkP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_CheckinLayerChannel</code></td>
-<td>Checks in the <code>PF_ChannelChunk</code>. Always, always, always check the data back in.<br/><pre>PF_CheckinLayerChannel(<br/>  PF_ProgPtr        effect_ref,<br/>  PF_ChannelRefPtr  channel_refP,<br/>  PF_ChannelChunk   *channel_chunkP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_CheckinLayerChannel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Checks in the <code>PF_ChannelChunk</code>. Always, always, always check the data back in.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_CheckinLayerChannel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">        </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ChannelRefPtr</span><span class="w">  </span><span class="n">channel_refP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ChannelChunk</span><span class="w">   </span><span class="o">*</span><span class="n">channel_chunkP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3207,7 +3634,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3270,7 +3697,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

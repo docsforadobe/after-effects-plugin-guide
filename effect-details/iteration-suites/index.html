@@ -2713,30 +2713,135 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>iterate</code></td>
-<td>Iterates across pixels from a source image, alters them, and populates a destination image.<br/><br/>You may specify a rectangular region of pixels across which to iterate; if you don't, After Effects will iterate over every overlapping pixel.<br/>You give a refcon, and the function is invoked with that refcon, plus the x and y coordinates of the current pixel, plus pointers to that pixel in the source and destination images.<br/>If you pass a NULL source, it will iterate over the dst. This function is quality independent.<br/><br/>Don't depend upon the pixels being traversed in any particular order.<br/>The image may be subset to different CPUs, so consider all the parameters (except dst) to be read-only while After Effects is processing.<br/>This callback automatically includes progress and abort checking, so don't do so in your pixel function.<br/><pre>iterate(<br/>  PF_InData       *in_data,<br/>  A_long          progress_base,<br/>  A_long          progress_final,<br/>  PF_EffectWorld  *src,<br/>  const PF_Rect   *area,<br/>  void            *refcon,<br/>  PF_Err (*pix_fn)(<br/>    void      *refcon,<br/>    A_long    x,<br/>    A_long    y,<br/>    PF_Pixel  *in,<br/>    PF_Pixel  *out),<br/>  PF_EffectWorld  *dst);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>iterate</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Iterates across pixels from a source image, alters them, and populates a destination image.</p>
+<p>You may specify a rectangular region of pixels across which to iterate; if you don't, After Effects will iterate over every overlapping pixel.</p>
+<p>You give a refcon, and the function is invoked with that refcon, plus the x and y coordinates of the current pixel, plus pointers to that pixel in the source and destination images.</p>
+<p>If you pass a NULL source, it will iterate over the dst. This function is quality independent.</p>
+<p>Don't depend upon the pixels being traversed in any particular order.</p>
+<p>The image may be subset to different CPUs, so consider all the parameters (except dst) to be read-only while After Effects is processing.</p>
+<p>This callback automatically includes progress and abort checking, so don't do so in your pixel function.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">iterate</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">       </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">progress_base</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">progress_final</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Rect</span><span class="w">   </span><span class="o">*</span><span class="n">area</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PF_Err</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pix_fn</span><span class="p">)(</span>
+</span><span id="__span-0-9"><span class="w">    </span><span class="kt">void</span><span class="w">      </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">    </span><span class="n">A_long</span><span class="w">    </span><span class="n">x</span><span class="p">,</span>
+</span><span id="__span-0-11"><span class="w">    </span><span class="n">A_long</span><span class="w">    </span><span class="n">y</span><span class="p">,</span>
+</span><span id="__span-0-12"><span class="w">    </span><span class="n">PF_Pixel</span><span class="w">  </span><span class="o">*</span><span class="n">in</span><span class="p">,</span>
+</span><span id="__span-0-13"><span class="w">    </span><span class="n">PF_Pixel</span><span class="w">  </span><span class="o">*</span><span class="n">out</span><span class="p">),</span>
+</span><span id="__span-0-14"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>iterate_origin</code></td>
-<td>Lets you specify an offset from the input into the output.<br/>For example, if your output buffer is smaller than your input buffer, pass <code>(in_- data&gt;output_origin_x, in_data&gt;output_origin_y)</code> as the origin,<br/>and NULL for area, and this function will offset the src pixel pointer appropriately for your pixel function.<br/><pre>iterate_origin(<br/>  PF_InData       *in_data,<br/>  A_long          progress_base,<br/>  A_long          progress_final,<br/>  PF_EffectWorld  *src,<br/>  const PF_Rect   *area,<br/>  const PF_Point  *origin,<br/>  void            *refcon,<br/>  PF_Err (*pix_fn)(<br/>    void      *refcon,<br/>    A_long    x,<br/>    A_long    y,<br/>    PF_Pixel  *in,<br/>    PF_Pixel  *out),<br/>  PF_EffectWorld  *dst);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>iterate_origin</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Lets you specify an offset from the input into the output.</p>
+<p>For example, if your output buffer is smaller than your input buffer, pass <code>(in_- data&gt;output_origin_x, in_data&gt;output_origin_y)</code> as the origin, and NULL for area, and this function will offset the src pixel pointer appropriately for your pixel function.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">iterate_origin</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">       </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">progress_base</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">progress_final</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Rect</span><span class="w">   </span><span class="o">*</span><span class="n">area</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Point</span><span class="w">  </span><span class="o">*</span><span class="n">origin</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">PF_Err</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pix_fn</span><span class="p">)(</span>
+</span><span id="__span-0-10"><span class="w">    </span><span class="kt">void</span><span class="w">      </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-11"><span class="w">    </span><span class="n">A_long</span><span class="w">    </span><span class="n">x</span><span class="p">,</span>
+</span><span id="__span-0-12"><span class="w">    </span><span class="n">A_long</span><span class="w">    </span><span class="n">y</span><span class="p">,</span>
+</span><span id="__span-0-13"><span class="w">    </span><span class="n">PF_Pixel</span><span class="w">  </span><span class="o">*</span><span class="n">in</span><span class="p">,</span>
+</span><span id="__span-0-14"><span class="w">    </span><span class="n">PF_Pixel</span><span class="w">  </span><span class="o">*</span><span class="n">out</span><span class="p">),</span>
+</span><span id="__span-0-15"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>iterate_lut</code></td>
-<td><code>PF_Iterate8Suite</code> only. Allows a Look-Up Table (LUT) to be passed for iteration; you can pass the same or different LUTs for each color channel.<br/>If no LUT is passed, an identity LUT is used.<br/><pre>iterate_lut(<br/>  PF_InData       *in_data,<br/>  A_long          prog_base,<br/>  A_long          prog_final,<br/>  PF_EffectWorld  *src,<br/>  const PF_Rect   *area,<br/>  A_u_char        *a_lut0,<br/>  A_u_char        *r_lut0,<br/>  A_u_char        *g_lut0,<br/>  A_u_char        *b_lut0,<br/>  PF_EffectWorld  *dst);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>iterate_lut</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Iterate8Suite</code> only. Allows a Look-Up Table (LUT) to be passed for iteration; you can pass the same or different LUTs for each color channel.</p>
+<p>If no LUT is passed, an identity LUT is used.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">iterate_lut</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">       </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">prog_base</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">prog_final</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Rect</span><span class="w">   </span><span class="o">*</span><span class="n">area</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_u_char</span><span class="w">        </span><span class="o">*</span><span class="n">a_lut0</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">A_u_char</span><span class="w">        </span><span class="o">*</span><span class="n">r_lut0</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">A_u_char</span><span class="w">        </span><span class="o">*</span><span class="n">g_lut0</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">A_u_char</span><span class="w">        </span><span class="o">*</span><span class="n">b_lut0</span><span class="p">,</span>
+</span><span id="__span-0-11"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>iterate_origin_non_clip_src</code></td>
-<td>Allows for iteration across pixels outside the intersection of the source and destination layers. For these pixels, you will be passed a<br/><br/>PF_Pixel with values {0,0,0,0}.<br/><pre>iterate_origin_non_clip_src(<br/>  PF_InData       *in_data,<br/>  A_long          progress_base,<br/>  A_long          progress_final,<br/>  PF_EffectWorld  *src,<br/>  const PF_Rect   *area,<br/>  const PF_Point  *origin,<br/>  void            *refcon,<br/>  PF_Err (*pix_fn)(<br/>    void      *refcon,<br/>    A_long    x,<br/>    A_long    y,<br/>    PF_Pixel  *in,<br/>    PF_Pixel  *out),<br/>  PF_EffectWorld  *dst);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>iterate_origin_non_clip_src</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allows for iteration across pixels outside the intersection of the source and destination layers. For these pixels, you will be passed a <code>PF_Pixel</code> with values {0,0,0,0}.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">iterate_origin_non_clip_src</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">       </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">progress_base</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">progress_final</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Rect</span><span class="w">   </span><span class="o">*</span><span class="n">area</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Point</span><span class="w">  </span><span class="o">*</span><span class="n">origin</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">PF_Err</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pix_fn</span><span class="p">)(</span>
+</span><span id="__span-0-10"><span class="w">    </span><span class="kt">void</span><span class="w">      </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-11"><span class="w">    </span><span class="n">A_long</span><span class="w">    </span><span class="n">x</span><span class="p">,</span>
+</span><span id="__span-0-12"><span class="w">    </span><span class="n">A_long</span><span class="w">    </span><span class="n">y</span><span class="p">,</span>
+</span><span id="__span-0-13"><span class="w">    </span><span class="n">PF_Pixel</span><span class="w">  </span><span class="o">*</span><span class="n">in</span><span class="p">,</span>
+</span><span id="__span-0-14"><span class="w">    </span><span class="n">PF_Pixel</span><span class="w">  </span><span class="o">*</span><span class="n">out</span><span class="p">),</span>
+</span><span id="__span-0-15"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>iterate_generic</code></td>
-<td>PF_Iterate8Suite only. If you want to do something once per available CPU, this is the function to use (pass PF_Iterations_ONCE_PER_PROCESSOR for iterationsL).<br/>Only call abort and progress functions from thread index 0.<br/><br/>Note: You can iterate over more than pixels. Internally, we use it for row-based image processing, and for once-per-entity updates of complex sequence data.<br/><pre>iterate_generic(<br/>  A_long iterationsL,<br/>  void   *refconPV,<br/>  PF_Err (*fn_func)(<br/>    void    *refconPV,<br/>    A_long  thread_idxL,<br/>    A_long  i,<br/>    A_long  itrtL));</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>iterate_generic</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Iterate8Suite</code> only. If you want to do something once per available CPU, this is the function to use (pass <code>PF_Iterations_ONCE_PER_PROCESSOR</code> for <code>iterationsL</code>).</p>
+<p>Only call abort and progress functions from thread index 0.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can iterate over more than pixels. Internally, we use it for row-based image processing, and for once-per-entity updates of complex sequence data.</p>
+</div>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">iterate_generic</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">A_long</span><span class="w"> </span><span class="n">iterationsL</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">void</span><span class="w">   </span><span class="o">*</span><span class="n">refconPV</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Err</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fn_func</span><span class="p">)(</span>
+</span><span id="__span-0-5"><span class="w">    </span><span class="kt">void</span><span class="w">    </span><span class="o">*</span><span class="n">refconPV</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">    </span><span class="n">A_long</span><span class="w">  </span><span class="n">thread_idxL</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">    </span><span class="n">A_long</span><span class="w">  </span><span class="n">i</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">    </span><span class="n">A_long</span><span class="w">  </span><span class="n">itrtL</span><span class="p">));</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2760,7 +2865,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -2823,7 +2928,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

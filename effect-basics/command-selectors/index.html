@@ -2883,26 +2883,49 @@
 <table>
 <thead>
 <tr>
-<th>Selector</th>
-<th>Response</th>
+<th colspan="1" rowspan="1">
+<p>Selector</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Response</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_Cmd_ABOUT</code></td>
-<td>Display a dialog describing the plug-in. Populate out_data&gt;return_msg and After Effects will display it in a simple modal dialog.<br/><br/>Include your plug- in's version information in the dialog. On macOS, the current resource file will be set to your effects module during this selector.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_ABOUT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Display a dialog describing the plug-in. Populate out_data&gt;return_msg and After Effects will display it in a simple modal dialog.</p>
+<p>Include your plug- in's version information in the dialog. On macOS, the current resource file will be set to your effects module during this selector.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_GLOBAL_SETUP</code></td>
-<td>Set any required flags and <code>PF_OutData</code> fields (including out_data&gt;my_version) to describe your plug-in's behavior.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_GLOBAL_SETUP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set any required flags and <code>PF_OutData</code> fields (including out_data&gt;my_version) to describe your plug-in's behavior.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_GLOBAL_SETDOWN</code></td>
-<td>Free all global data (only required if you allocated some).</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_GLOBAL_SETDOWN</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Free all global data (only required if you allocated some).</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_PARAM_SETUP</code></td>
-<td>Describe your parameters and register them using <a href="../../effect-details/interaction-callback-functions/#interaction-callbacks">PF_ADD_PARAM</a>.<br/><br/>Also, register custom user interface elements.<br/><br/>Set <a href="../PF_OutData/#pf_outdata">PF_OutData&gt;num_params</a> to match your parameter count.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_PARAM_SETUP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Describe your parameters and register them using <a href="../../effect-details/interaction-callback-functions/#interaction-callbacks">PF_ADD_PARAM</a>.</p>
+<p>Also, register custom user interface elements.</p>
+<p>Set <a href="../PF_OutData/#pf_outdata">PF_OutData&gt;num_params</a> to match your parameter count.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2911,26 +2934,51 @@
 <table>
 <thead>
 <tr>
-<th>Selector</th>
-<th>Response</th>
+<th colspan="1" rowspan="1">
+<p>Selector</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Response</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_Cmd_SEQUENCE_SETUP</code></td>
-<td>Allocate and initialize any sequence-specific data. Sent when the effect is first applied. <a href="../PF_InData/">PF_InData</a> is initialized at this time.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_SEQUENCE_SETUP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocate and initialize any sequence-specific data. Sent when the effect is first applied. <a href="../PF_InData/">PF_InData</a> is initialized at this time.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_SEQUENCE_RESETUP</code></td>
-<td>Re-create (usually unflatten) sequence data. Sent after sequence data is read from disk, during pre-composition, or when the effect is copied;<br/><br/>After Effects flattens sequence data before duplication. During duplication, <code>PF_Cmd_SEQUENCE_RESETUP</code> is sent for both the old and new sequences.<br/><br/>Don't expect a <code>PF_Cmd_SEQUENCE_FLATTEN</code> between <code>PF_Cmd_SEQUENCE_RESETUPs</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_SEQUENCE_RESETUP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Re-create (usually unflatten) sequence data. Sent after sequence data is read from disk, during pre-composition, or when the effect is copied;</p>
+<p>After Effects flattens sequence data before duplication. During duplication, <code>PF_Cmd_SEQUENCE_RESETUP</code> is sent for both the old and new sequences.</p>
+<p>Don't expect a <code>PF_Cmd_SEQUENCE_FLATTEN</code> between <code>PF_Cmd_SEQUENCE_RESETUPs</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_SEQUENCE_FLATTEN</code></td>
-<td>Sent when saving and when duplicating the sequence. Flatten sequence data containing pointers or handles so it can be written to disk.<br/><br/>This will saved with the project file. Free the unflat data and set the <code>out_data&gt;sequence_data</code> to point to the new flattened data. Flat data must be correctly byte-ordered for file storage.<br/><br/>As of 6.0, if an effect's sequence data has recently been flattened, the effect may be deleted without receiving an additional <code>PF_Cmd_SEQUENCE_SETDOWN</code>.<br/><br/>In this case, After Effects will dispose of your flat sequence data.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_SEQUENCE_FLATTEN</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sent when saving and when duplicating the sequence. Flatten sequence data containing pointers or handles so it can be written to disk.</p>
+<p>This will saved with the project file. Free the unflat data and set the <code>out_data&gt;sequence_data</code> to point to the new flattened data. Flat data must be correctly byte-ordered for file storage.</p>
+<p>As of 6.0, if an effect's sequence data has recently been flattened, the effect may be deleted without receiving an additional <code>PF_Cmd_SEQUENCE_SETDOWN</code>.</p>
+<p>In this case, After Effects will dispose of your flat sequence data.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_SEQUENCE_SETDOWN</code></td>
-<td>Free all sequence data.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_SEQUENCE_SETDOWN</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Free all sequence data.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2939,42 +2987,104 @@
 <table>
 <thead>
 <tr>
-<th>Selector</th>
-<th>Response</th>
+<th colspan="1" rowspan="1">
+<p>Selector</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Response</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_Cmd_FRAME_SETUP</code></td>
-<td>Allocate any frame-specific data. This is sent immediately before each frame is rendered, to allow for frame-specific setup data.<br/>If your effect changes the size of its output buffer, specify the new output height, width, and relative origin. All parameters except the input layer are valid.<br/><br/>If you set width and height to 0, After Effects ignores your response to the following <em>PF_Cmd_RENDER</em>.<br/><br/>NOTE: If <a href="../PF_OutData/#pf_outflags">PF_Outflag_I_EXPAND_BUFFER</a> is set, you will receive this selector (and <em>PF_Cmd_FRAME_SETDOWN)</em> twice, once without <em>PF_Cmd_RENDER</em> between them.<br/><br/>This is so we know whether or not the given layer will be visible.<br/><br/>Frame data dates from the days when machines might have 8MB of RAM. Given the calling sequence (above), it's much more efficient to just allocate during <em>PF_Cmd_RENDER</em>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_FRAME_SETUP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocate any frame-specific data. This is sent immediately before each frame is rendered, to allow for frame-specific setup data.</p>
+<p>If your effect changes the size of its output buffer, specify the new output height, width, and relative origin. All parameters except the input layer are valid.</p>
+<p>If you set width and height to 0, After Effects ignores your response to the following <code>PF_Cmd_RENDER</code>.</p>
+<p>NOTE: If <a href="../PF_OutData/#pf_outflags">PF_Outflag_I_EXPAND_BUFFER</a> is set, you will receive this selector (and <code>PF_Cmd_FRAME_SETDOWN</code>) twice, once without <code>PF_Cmd_RENDER</code> between them.</p>
+<p>This is so we know whether or not the given layer will be visible.</p>
+<p>Frame data dates from the days when machines might have 8MB of RAM. Given the calling sequence (above), it's much more efficient to just allocate during <code>PF_Cmd_RENDER</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_RENDER</code></td>
-<td>Render the effect into the output, based on the input frame and any parameters.<br/><br/>This render call can only support 8-bit or 16-bit per channel rendering. 32-bit per channel rendering must be handled in PF_Cmd_SMART_RENDER.<br/><br/>All fields in PF_InData are valid.<br/><br/>If your response to this selector is interrupted (your calls to PF_ABORT or PF_PROGRESS returns an error code), your results will not be used.<br/><br/>You cannot delete frame_data during this selector; you must wait until PF_Cmd_FRAME_SETDOWN.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_RENDER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Render the effect into the output, based on the input frame and any parameters.</p>
+<p>This render call can only support 8-bit or 16-bit per channel rendering. 32-bit per channel rendering must be handled in <code>PF_Cmd_SMART_RENDER</code>.</p>
+<p>All fields in <code>PF_InData</code> are valid.</p>
+<p>If your response to this selector is interrupted (your calls to <code>PF_ABORT</code> or <code>PF_PROGRESS</code> returns an error code), your results will not be used.</p>
+<p>You cannot delete <code>frame_data</code> during this selector; you must wait until <code>PF_Cmd_FRAME_SETDOWN</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_FRAME_SETDOWN</code></td>
-<td>Free any frame data allocated during PF_Cmd_FRAME_SETUP.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_FRAME_SETDOWN</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Free any frame data allocated during <code>PF_Cmd_FRAME_SETUP</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_AUDIO_SETUP</code></td>
-<td>Sent before every audio render. Request a time span of input audio. Allocate and initialize any sequence-specific data.<br/><br/>If your effect requires input from a time span other than the output time span, update the startsampL and endsampL field in PF_OutData.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_AUDIO_SETUP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sent before every audio render. Request a time span of input audio. Allocate and initialize any sequence-specific data.</p>
+<p>If your effect requires input from a time span other than the output time span, update the <code>startsampL</code> and <code>endsampL</code> field in <code>PF_OutData</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_AUDIO_RENDER</code></td>
-<td>Populate <a href="../PF_OutData/#pf_outdata">PF_OutData.dest_snd</a> with effect-ed audio. All fields in PF_InData are valid.<br/><br/>If your response to this selector is interrupted (your calls to <code>PF_ABORT</code> or <code>PF_PROGRESS</code> returns an error code), your results will not be used.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_AUDIO_RENDER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Populate <a href="../PF_OutData/#pf_outdata">PF_OutData.dest_snd</a> with effect-ed audio. All fields in <code>PF_InData</code> are valid.</p>
+<p>If your response to this selector is interrupted (your calls to <code>PF_ABORT</code> or <code>PF_PROGRESS</code> returns an error code), your results will not be used.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_AUDIO_SETDOWN</code></td>
-<td>Free memory allocated during PF_Cmd_AUDIO_SETUP.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_AUDIO_SETDOWN</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Free memory allocated during <code>PF_Cmd_AUDIO_SETUP</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_SMART_PRE_RENDER</code></td>
-<td>SmartFX only. Identify the area(s) of input the effect will need to produce its output, based on whatever criteria the effect implements.<br/><br/>maybe sent up to twice when MediaCore is hosting. The first will come during GetFrameDependencies to collect the inputs.<br/><br/>The source checkouts can return full frame dimensions here. Once the sources are rendered, if they are different in size than the first call<br/>then this selector will be emitted a second time with the actual source sizes in order to get a correct output size.<br/><br/>Note that MediaCore wants all of the output, so <code>PF_PreRenderOutput::max_result_rect</code> will be used.<br/><br/><strong>New in 16.0</strong><br/><br/>Set <code>PF_RenderOutputFlag_GPU_RENDER_POSSIBLE</code> in <code>PF_PreRenderOutput</code> to render on the GPU.<br/><br/>If this flag is not set the requested render is not possible with the requested GPU, because of parameters or render settings.<br/><br/>The host may re-call PreRender with another what_gpu option (or PF_GPU_Framework_None).<br/><pre>typedef struct {<br/>  PF_RenderRequest  output_request; // what the effect is being asked to render<br/>  short             bitdepth;       // bitdepth the effect is being driven in (in bpc)<br/>  const             void *gpu_data; // (new AE 16.0)<br/>  PF_GPU_Framework  what_gpu;       // (new AE 16.0)<br/>  A_u_long          device_index;   // (new AE 16.0) For use in conjunction with PrSDKGPUDeviceSuite<br/>} PF_PreRenderInput;</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_SMART_PRE_RENDER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>SmartFX only. Identify the area(s) of input the effect will need to produce its output, based on whatever criteria the effect implements.</p>
+<p>May be sent up to twice when MediaCore is hosting. The first will come during GetFrameDependencies to collect the inputs.</p>
+<p>The source checkouts can return full frame dimensions here. Once the sources are rendered, if they are different in size than the first call then this selector will be emitted a second time with the actual source sizes in order to get a correct output size.</p>
+<p>Note that MediaCore wants all of the output, so <code>PF_PreRenderOutput::max_result_rect</code> will be used.</p>
+<p><strong>New in 16.0</strong></p>
+<p>Set <code>PF_RenderOutputFlag_GPU_RENDER_POSSIBLE</code> in <code>PF_PreRenderOutput</code> to render on the GPU.</p>
+<p>If this flag is not set the requested render is not possible with the requested GPU, because of parameters or render settings.</p>
+<p>The host may re-call PreRender with another what_gpu option (or PF_GPU_Framework_None).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_RenderRequest</span><span class="w">  </span><span class="n">output_request</span><span class="p">;</span><span class="w"> </span><span class="c1">// what the effect is being asked to render</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">short</span><span class="w">             </span><span class="n">bitdepth</span><span class="p">;</span><span class="w">       </span><span class="c1">// bitdepth the effect is being driven in (in bpc)</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w">             </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">gpu_data</span><span class="p">;</span><span class="w"> </span><span class="c1">// (new AE 16.0)</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_GPU_Framework</span><span class="w">  </span><span class="n">what_gpu</span><span class="p">;</span><span class="w">       </span><span class="c1">// (new AE 16.0)</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_u_long</span><span class="w">          </span><span class="n">device_index</span><span class="p">;</span><span class="w">   </span><span class="c1">// (new AE 16.0) For use in conjunction with PrSDKGPUDeviceSuite</span>
+</span><span id="__span-0-7"><span class="p">}</span><span class="w"> </span><span class="n">PF_PreRenderInput</span><span class="p">;</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_SMART_RENDER</code></td>
-<td>SmartFX only. Perform rendering and provide output for the area(s) the effect was asked to render.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_SMART_RENDER</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>SmartFX only. Perform rendering and provide output for the area(s) the effect was asked to render.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2983,54 +3093,182 @@
 <table>
 <thead>
 <tr>
-<th>Selector</th>
-<th>Response</th>
+<th colspan="1" rowspan="1">
+<p>Selector</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Response</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_Cmd_EVENT</code></td>
-<td>This selector makes use of the extra parameter; the type of event to be handled is indicated by the e_type field, a member of the structure pointed to by extra.<br/><br/>See <a href="../../effect-ui-events/effect-ui-events/">Effect UI &amp; Events</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_EVENT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This selector makes use of the extra parameter; the type of event to be handled is indicated by the e_type field, a member of the structure pointed to by extra.</p>
+<p>See <a href="../../effect-ui-events/effect-ui-events/">Effect UI &amp; Events</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_USER_CHANGED_PARAM</code></td>
-<td>The user changed a parameter value. You will receive this command only if you've set the <code>PF_ParamFlag_SUPERVISE</code> flag.<br/><br/>You modify the parameter to control values, or make one parameter's value affect others. A parameter can be modified by different actions.<br/><br/><code>in_data.current_time</code> is set to the time of the frame that the user is looking at in the UI<br/>(internally, the current time of the comp converted into layer time) while they are changing the param that triggered the <code>PF_Cmd_USER_CHANGED_PARAM</code>.<br/><br/>It's also the time of a keyframe that is added automatically (if there isn't one already, and the stopwatch is enabled).<br/><br/>This is usually the same as the value passed for the PF_Cmd_RENDER that follows immediately after (unless caps lock is down), but not necessarily -<br/>there could be other comp windows open that cause a render at a different time in response to the changed param.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_USER_CHANGED_PARAM</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The user changed a parameter value. You will receive this command only if you've set the <code>PF_ParamFlag_SUPERVISE</code> flag.</p>
+<p>You modify the parameter to control values, or make one parameter's value affect others. A parameter can be modified by different actions.</p>
+<p><code>in_data.current_time</code> is set to the time of the frame that the user is looking at in the UI (internally, the current time of the comp converted into layer time) while they are changing the param that triggered the <code>PF_Cmd_USER_CHANGED_PARAM</code>.</p>
+<p>It's also the time of a keyframe that is added automatically (if there isn't one already, and the stopwatch is enabled).</p>
+<p>This is usually the same as the value passed for the PF_Cmd_RENDER that follows immediately after (unless caps lock is down), but not necessarily - there could be other comp windows open that cause a render at a different time in response to the changed param.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_UPDATE_PARAMS_UI</code></td>
-<td>The effect controls palette (ECP) needs to be updated. This might occur after opening the ECP or moving to a new time within the composition.<br/><br/>You can modify parameter characteristics (enabling or disabling them, for example) by calling <code>PF_UpdateParamUI()</code>.<br/><br/>Only cosmetic changes may be made in response to this command. Don't change parameter values while responding to <code>PF_Cmd_UPDATE_PARAMS_UI</code>;<br/>do so during <code>PF_Cmd_USER_CHANGED_PARAM</code> instead.<br/><br/>This command will only be sent regularly if <code>PF_OutFlag_SEND_UPDATE_PARAMS_UI</code> was set in the PiPL, and during <code>PF_Cmd_GLOBAL_SETUP</code>.<br/><br/>NOTE: Never check out parameters during this selector. Recursive badness is almost guaranteed to result.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_UPDATE_PARAMS_UI</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The effect controls palette (ECP) needs to be updated. This might occur after opening the ECP or moving to a new time within the composition.</p>
+<p>You can modify parameter characteristics (enabling or disabling them, for example) by calling <code>PF_UpdateParamUI()</code>.</p>
+<p>Only cosmetic changes may be made in response to this command. Don't change parameter values while responding to <code>PF_Cmd_UPDATE_PARAMS_UI</code>; do so during <code>PF_Cmd_USER_CHANGED_PARAM</code> instead.</p>
+<p>This command will only be sent regularly if <code>PF_OutFlag_SEND_UPDATE_PARAMS_UI</code> was set in the PiPL, and during <code>PF_Cmd_GLOBAL_SETUP</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Never check out parameters during this selector. Recursive badness is almost guaranteed to result.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_DO_DIALOG</code></td>
-<td>Display an options dialog. this is sent when the Options button is clicked (or a menu command has been selected).<br/><br/>This selector will only be sent if the effect has previously indicated that it has a dialog<br/><br/>(by setting the global <code>PF_OutFlag_I_DO_DIALOG</code> flag in response to <code>PF_Cmd_GLOBAL_SETUP</code>).<br/><br/>In version 3.x, the params passed with <code>PF_Cmd_DO_DIALOG</code> were invalid.<br/><br/>This is no longer the case; plug-ins can access non-layer parameters, check out parameters at other times, and perform UI updates during <code>PF_Cmd_DO_DIALOG</code>.<br/><br/>They still may not change the parameter's values.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_DO_DIALOG</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Display an options dialog. this is sent when the Options button is clicked (or a menu command has been selected).</p>
+<p>This selector will only be sent if the effect has previously indicated that it has a dialog (by setting the global <code>PF_OutFlag_I_DO_DIALOG</code> flag in response to <code>PF_Cmd_GLOBAL_SETUP</code>).</p>
+<p>In version 3.x, the params passed with <code>PF_Cmd_DO_DIALOG</code> were invalid.</p>
+<p>This is no longer the case; plug-ins can access non-layer parameters, check out parameters at other times, and perform UI updates during <code>PF_Cmd_DO_DIALOG</code>.</p>
+<p>They still may not change the parameter's values.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_ARBITRARY_CALLBACK</code></td>
-<td>Manage your arbitrary data type. You'll only receive this if you've registered a custom data type parameter.<br/><br/>The extra parameter indicates which handler function is being called.<br/><br/>Custom data types are discussed further in <a href="../../effect-details/arbitrary-data-parameters/">Implementing Arbitrary Data</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_ARBITRARY_CALLBACK</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Manage your arbitrary data type. You'll only receive this if you've registered a custom data type parameter.</p>
+<p>The extra parameter indicates which handler function is being called.</p>
+<p>Custom data types are discussed further in <a href="../../effect-details/arbitrary-data-parameters/">Implementing Arbitrary Data</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_GET_EXTERNAL_DEPENDENCIES</code></td>
-<td>Only sent if <code>PF_OutFlag_I_HAVE_EXTERNAL_DEPENDENCIES</code> was set during <code>PF_Cmd_GLOBAL_SETUP</code>.<br/><br/>Populate a string handle (in the PF_ExtDependenciesExtra pointed to by extra) with a description of your plug-in's dependencies,<br/>making sure to allocate space for the terminating NULL character.<br/><br/>Return just a <code>NULL</code> pointer for the string handle if there are no dependencies to report.<br/><br/>If the check type is <code>PF_DepCheckType_ALL_DEPENDENCIES</code>, report everything that might be required for your plug-in to render.<br/><br/>Report only missing items (or a null string if nothing's missing) if the check type is <code>PF_DepCheckType_MISSING_DEPENDENCIES</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_GET_EXTERNAL_DEPENDENCIES</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Only sent if <code>PF_OutFlag_I_HAVE_EXTERNAL_DEPENDENCIES</code> was set during <code>PF_Cmd_GLOBAL_SETUP</code>.</p>
+<p>Populate a string handle (in the PF_ExtDependenciesExtra pointed to by extra) with a description of your plug-in's dependencies, making sure to allocate space for the terminating NULL character.</p>
+<p>Return just a <code>NULL</code> pointer for the string handle if there are no dependencies to report.</p>
+<p>If the check type is <code>PF_DepCheckType_ALL_DEPENDENCIES</code>, report everything that might be required for your plug-in to render.</p>
+<p>Report only missing items (or a null string if nothing's missing) if the check type is <code>PF_DepCheckType_MISSING_DEPENDENCIES</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_COMPLETELY_GENERAL</code></td>
-<td>Respond to an AEGP. The extra parameter points to whatever parameter the AEGP sent.<br/><br/>AEGPs can only communicate with effects which respond to this selector.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_COMPLETELY_GENERAL</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Respond to an AEGP. The extra parameter points to whatever parameter the AEGP sent.</p>
+<p>AEGPs can only communicate with effects which respond to this selector.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_QUERY_DYNAMIC_FLAGS</code></td>
-<td>Sent only to plug-ins which have specified <code>PF_OutFlag2_SUPPORTS_QUERY_DYNAMIC_FLAGS</code> in <code>PF_OutFlags2</code>, in their PiPL and during <code>PF_Cmd_GLOBAL_SETUP</code>.<br/><br/>With all of the dynamic flags, if you will ever change them during this command, you must have set the flag on during <code>PF_Cmd_GLOBAL_SETUP</code>.<br/><br/>This selector will be sent at arbitrary times.<br/><br/>In response, the effect should access its (non-layer) parameters using <code>PF_CHECKOUT_PARAM</code>, and<br/>decide whether any of the flags that support <code>PF_Cmd_QUERY_DYNAMIC_FLAGS</code> should be set, such as:<ul><li><code>PF_OutFlag_WIDE_TIME_INPUT</code></li><li><code>PF_OutFlag_NON_PARAM_VARY</code></li><li><code>PF_OutFlag_PIX_INDEPENDENT</code></li><li><code>PF_OutFlag_I_USE_SHUTTER_ANGLE</code></li><li><code>PF_OutFlag2_I_USE_3D_CAMERA</code></li><li><code>PF_OutFlag2_I_USE_3D_LIGHTS</code></li><li><code>PF_OutFlag2_DOESNT_NEED_EMPTY_PIXELS</code></li><li><code>PF_OutFlag2_REVEALS_ZERO_ALPHA</code></li><li><code>PF_OutFlag2_DEPENDS_ON_UNREFERENCED_MASKS</code></li><li><code>PF_OutFlag2_OUTPUT_IS_WATERMARKED</code></li></ul>After Effects uses this information for caching and optimization purposes, so try to respond as quickly as possible.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_QUERY_DYNAMIC_FLAGS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sent only to plug-ins which have specified <code>PF_OutFlag2_SUPPORTS_QUERY_DYNAMIC_FLAGS</code> in <code>PF_OutFlags2</code>, in their PiPL and during <code>PF_Cmd_GLOBAL_SETUP</code>.</p>
+<p>With all of the dynamic flags, if you will ever change them during this command, you must have set the flag on during <code>PF_Cmd_GLOBAL_SETUP</code>.</p>
+<p>This selector will be sent at arbitrary times.</p>
+<p>In response, the effect should access its (non-layer) parameters using <code>PF_CHECKOUT_PARAM</code>, and decide whether any of the flags that support <code>PF_Cmd_QUERY_DYNAMIC_FLAGS</code> should be set, such as:</p>
+<ul>
+<li><code>PF_OutFlag_WIDE_TIME_INPUT</code></li>
+<li><code>PF_OutFlag_NON_PARAM_VARY</code></li>
+<li><code>PF_OutFlag_PIX_INDEPENDENT</code></li>
+<li><code>PF_OutFlag_I_USE_SHUTTER_ANGLE</code></li>
+<li><code>PF_OutFlag2_I_USE_3D_CAMERA</code></li>
+<li><code>PF_OutFlag2_I_USE_3D_LIGHTS</code></li>
+<li><code>PF_OutFlag2_DOESNT_NEED_EMPTY_PIXELS</code></li>
+<li><code>PF_OutFlag2_REVEALS_ZERO_ALPHA</code></li>
+<li><code>PF_OutFlag2_DEPENDS_ON_UNREFERENCED_MASKS</code></li>
+<li><code>PF_OutFlag2_OUTPUT_IS_WATERMARKED</code></li>
+</ul>
+<p>After Effects uses this information for caching and optimization purposes, so try to respond as quickly as possible.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_GPU_DEVICE_SETUP</code></td>
-<td>This selector can be called at any time by the host. It will be called not more than once for each GPU device.<br/><br/>Multiple GPU devices may be in the setup state at one time.<br/><br/>It will be called after GlobalSetup and before SequenceSetup.<br/><br/>The intent is for the effect to do GPU initialization if necessary and to give the effect an opportunity to<br/>opt out of a GPU device based solely on the properties of that device, and not any render context (frame size, etc).<br/><br/>If the effect rejects the GPU device it will get called for CPU render.<br/><br/><code>PF_InData::what_gpu != PF_GPU_Framework_None</code> is expected.<br/><br/>Effect is expected to set one or both of the <code>PF_OutFlag2_SUPPORTS_GPU_RENDER_Fxx</code> flags in <code>PF_OutData::out_flags2</code> if the device and framework in what_gpu is supported.<br/><br/>Note that only <code>PF_OutFlag2_SUPPORTS_GPU_RENDER_F32</code> will be in AE 16.0.<br/><br/>Effects that do not set flags here will NOT be considered to support GPU rendering for any of these devices.<br/><br/><code>PF_GPUDeviceSetupOutput::gpu_data</code> is a plug-in owned pointer that must be released with a the <code>PF_Cmd_GPU_DEVICE_SETDOWN</code> selector.<br/><br/>This pointer is also available at render time.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_GPU_DEVICE_SETUP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This selector can be called at any time by the host. It will be called not more than once for each GPU device.</p>
+<p>Multiple GPU devices may be in the setup state at one time.</p>
+<p>It will be called after GlobalSetup and before SequenceSetup.</p>
+<p>The intent is for the effect to do GPU initialization if necessary and to give the effect an opportunity to opt out of a GPU device based solely on the properties of that device, and not any render context (frame size, etc).</p>
+<p>If the effect rejects the GPU device it will get called for CPU render.</p>
+<p><code>PF_InData::what_gpu != PF_GPU_Framework_None</code> is expected.</p>
+<p>Effect is expected to set one or both of the <code>PF_OutFlag2_SUPPORTS_GPU_RENDER_Fxx</code> flags in <code>PF_OutData::out_flags2</code> if the device and framework in what_gpu is supported.</p>
+<p>Note that only <code>PF_OutFlag2_SUPPORTS_GPU_RENDER_F32</code> will be in AE 16.0.</p>
+<p>Effects that do not set flags here will NOT be considered to support GPU rendering for any of these devices.</p>
+<p><code>PF_GPUDeviceSetupOutput::gpu_data</code> is a plug-in owned pointer that must be released with a the <code>PF_Cmd_GPU_DEVICE_SETDOWN</code> selector.</p>
+<p>This pointer is also available at render time.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_GPU_DEVICE_SETDOWN</code></td>
-<td>Release any resources associated with gpu_data. In AE this will be called just before GPU device release.<br/><pre>typedef struct {<br/>  void              *gpu_data;  // effect must dispose.<br/>  PF_GPU_Framework  what_gpu;<br/>  A_u_long          device_index; // For use in conjunction with PrSDKGPUDeviceSuite<br/>} PF_GPUDeviceSetdownInput;<br/><br/>typedef struct {<br/>  PF_GPUDeviceSetdownInput  input;<br/>} PF_GPUDeviceSetdownExtra;</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_GPU_DEVICE_SETDOWN</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Release any resources associated with gpu_data. In AE this will be called just before GPU device release.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">void</span><span class="w">              </span><span class="o">*</span><span class="n">gpu_data</span><span class="p">;</span><span class="w">  </span><span class="c1">// effect must dispose.</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_GPU_Framework</span><span class="w">  </span><span class="n">what_gpu</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_u_long</span><span class="w">          </span><span class="n">device_index</span><span class="p">;</span><span class="w"> </span><span class="c1">// For use in conjunction with PrSDKGPUDeviceSuite</span>
+</span><span id="__span-0-5"><span class="p">}</span><span class="w"> </span><span class="n">PF_GPUDeviceSetdownInput</span><span class="p">;</span>
+</span><span id="__span-0-6">
+</span><span id="__span-0-7"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PF_GPUDeviceSetdownInput</span><span class="w">  </span><span class="n">input</span><span class="p">;</span>
+</span><span id="__span-0-9"><span class="p">}</span><span class="w"> </span><span class="n">PF_GPUDeviceSetdownExtra</span><span class="p">;</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Cmd_GPU_SMART_RENDER_GPU</code></td>
-<td>GPU equivalent to the existing <code>PF_Cmd_SMART_RENDER</code> selector.<br/><br/>At render time, either the <code>PF_Cmd_SMART_RENDER</code> or the <code>PF_Cmd_SMART_RENDER_GPU</code> selector will be called,<br/>depending on whether the effect is expected to produce a CPU or GPU frame as output.<br/><br/><code>PF_Cmd_SMART_RENDER_GPU</code> will only be called when <code>what_gpu != PF_GPU_Framework_None</code>, and has effects on any input / output <code>PF_LayerDef</code>'s.<br/><br/>All frame check-ins and check-outs will operate on GPU frames when this selector is in progress. Note <code>PF_Cmd_SMART_RENDER</code> shares the <code>Extra</code> structs.<br/><pre>typedef struct {<br/>  PF_RenderRequest  output_request;   // what the effect is being asked to render<br/>  short             bitdepth;         // bitdepth the effect is being driven in (in bpc)<br/>  void              *pre_render_data; // passed back from value placed in extra-&gt;output-&gt;pre_render_data during PF_Cmd_PRE_RENDER<br/>  const void        *gpu_data;        // (new AE 16.0)<br/>  PF_GPU_Framework  what_gpu;         // (new AE 16.0)<br/>  A_u_long          device_index;     // (new AE 16.0)<br/>} PF_SmartRenderInput;<br/><br/>typedef struct {<br/>  PF_SmartRenderInput *input;<br/>  PF_SmartRenderCallbacks *cb;<br/>} PF_SmartRenderExtra;</pre><br/><br/>The <code>what_gpu</code> and <code>device_index</code> fields are in the extra input for GPU-related selectors indicates to the plug-in the GPU framework to be used for rendering.<br/><br/>Input and output buffers will be prepared on this framework and device.<br/><br/>The device, context, command queue, and other associated GPU state can be queried with <code>PrSDKGPUDeviceSuite::GetDeviceInfo</code>.<br/><br/><code>what_gpu</code> will be the same between <code>PF_Cmd_SMART_PRE_RENDER</code> and <code>PF_Cmd_SMART_RENDER_GPU</code> selector calls.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Cmd_GPU_SMART_RENDER_GPU</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>GPU equivalent to the existing <code>PF_Cmd_SMART_RENDER</code> selector.</p>
+<p>At render time, either the <code>PF_Cmd_SMART_RENDER</code> or the <code>PF_Cmd_SMART_RENDER_GPU</code> selector will be called, depending on whether the effect is expected to produce a CPU or GPU frame as output.</p>
+<p><code>PF_Cmd_SMART_RENDER_GPU</code> will only be called when <code>what_gpu != PF_GPU_Framework_None</code>, and has effects on any input / output <code>PF_LayerDef</code>'s.</p>
+<p>All frame check-ins and check-outs will operate on GPU frames when this selector is in progress. Note <code>PF_Cmd_SMART_RENDER</code> shares the <code>Extra</code> structs.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_RenderRequest</span><span class="w">  </span><span class="n">output_request</span><span class="p">;</span><span class="w">   </span><span class="c1">// what the effect is being asked to render</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">short</span><span class="w">             </span><span class="n">bitdepth</span><span class="p">;</span><span class="w">         </span><span class="c1">// bitdepth the effect is being driven in (in bpc)</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">void</span><span class="w">              </span><span class="o">*</span><span class="n">pre_render_data</span><span class="p">;</span><span class="w"> </span><span class="c1">// passed back from value placed in extra-&amp;gt;output-&amp;gt;pre_render_data during PF_Cmd_PRE_RENDER</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w">        </span><span class="o">*</span><span class="n">gpu_data</span><span class="p">;</span><span class="w">        </span><span class="c1">// (new AE 16.0)</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_GPU_Framework</span><span class="w">  </span><span class="n">what_gpu</span><span class="p">;</span><span class="w">         </span><span class="c1">// (new AE 16.0)</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_u_long</span><span class="w">          </span><span class="n">device_index</span><span class="p">;</span><span class="w">     </span><span class="c1">// (new AE 16.0)</span>
+</span><span id="__span-0-8"><span class="p">}</span><span class="w"> </span><span class="n">PF_SmartRenderInput</span><span class="p">;</span>
+</span><span id="__span-0-9">
+</span><span id="__span-0-10"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><span class="w">  </span><span class="n">PF_SmartRenderInput</span><span class="w"> </span><span class="o">*</span><span class="n">input</span><span class="p">;</span>
+</span><span id="__span-0-12"><span class="w">  </span><span class="n">PF_SmartRenderCallbacks</span><span class="w"> </span><span class="o">*</span><span class="n">cb</span><span class="p">;</span>
+</span><span id="__span-0-13"><span class="p">}</span><span class="w"> </span><span class="n">PF_SmartRenderExtra</span><span class="p">;</span>
+</span></code></pre></div></p>
+<p>The <code>what_gpu</code> and <code>device_index</code> fields are in the extra input for GPU-related selectors indicates to the plug-in the GPU framework to be used for rendering.</p>
+<p>Input and output buffers will be prepared on this framework and device.</p>
+<p>The device, context, command queue, and other associated GPU state can be queried with <code>PrSDKGPUDeviceSuite::GetDeviceInfo</code>.</p>
+<p><code>what_gpu</code> will be the same between <code>PF_Cmd_SMART_PRE_RENDER</code> and <code>PF_Cmd_SMART_RENDER_GPU</code> selector calls.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3065,7 +3303,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3128,7 +3366,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

@@ -2795,46 +2795,186 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_ADD_PARAM</code></td>
-<td>Enumerate your plug-in's parameters to After Effects during <a href="../../effect-basics/command-selectors/#global-selectors">PF_Cmd_PARAM_SETUP</a>, using multiple calls to this function.<br/><br/>Note: Failing to completely clear out a PF_ParamDef prior to PF_ADD_PARAM() can cause many problems.<br/>Always use <code>AEFX_CLR_STRUCT</code> before adding parameters.<br/><pre>PF_Err PF_ADD_PARAM (<br/>  PF_InData       *in_data,<br/>  PF_ParamIndex   index,<br/>  PF_ParamDefPtr  def);</pre><br/><br/>We provide convenience macros for specific parameter types, in Utils/ Param_Utils.h:<ul><li><code>PF_ADD_COLOR</code></li><li><code>PF_ADD_ARBITRARY</code></li><li><code>PF_ADD_SLIDER</code></li><li><code>PF_ADD_FIXED</code></li><li><code>PF_ADD_FLOAT_SLIDERX</code></li><li><code>PF_ADD_CHECKBOXX</code></li><li><code>PF_ADD_BUTTON</code></li><li><code>PF_ADD_ANGLE</code></li><li><code>PF_ADD_NULL</code></li><li><code>PF_ADD_LAYER</code></li><li><code>PF_ADD_255_SLIDER</code></li><li><code>PF_ADD_PERCENT</code></li><li><code>PF_ADD_POINT</code></li><li><code>PF_ADD_POINT_3D</code></li><li><code>PF_ADD_TOPICX</code></li><li><code>PF_END_TOPIC</code></li><li><code>PF_ADD_POPUPX</code></li><li><code>PF_ADD_FLOAT_SLIDERX_DISABLED</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ADD_PARAM</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Enumerate your plug-in's parameters to After Effects during <a href="../../effect-basics/command-selectors/#global-selectors">PF_Cmd_PARAM_SETUP</a>, using multiple calls to this function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Failing to completely clear out a PF_ParamDef prior to PF_ADD_PARAM() can cause many problems.
+ Always use <code>AEFX_CLR_STRUCT</code> before adding parameters.</p>
+</div>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">PF_ADD_PARAM</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">       </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">   </span><span class="n">index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ParamDefPtr</span><span class="w">  </span><span class="n">def</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>We provide convenience macros for specific parameter types, in Utils/ Param_Utils.h:</p>
+<ul>
+<li><code>PF_ADD_COLOR</code></li>
+<li><code>PF_ADD_ARBITRARY</code></li>
+<li><code>PF_ADD_SLIDER</code></li>
+<li><code>PF_ADD_FIXED</code></li>
+<li><code>PF_ADD_FLOAT_SLIDERX</code></li>
+<li><code>PF_ADD_CHECKBOXX</code></li>
+<li><code>PF_ADD_BUTTON</code></li>
+<li><code>PF_ADD_ANGLE</code></li>
+<li><code>PF_ADD_NULL</code></li>
+<li><code>PF_ADD_LAYER</code></li>
+<li><code>PF_ADD_255_SLIDER</code></li>
+<li><code>PF_ADD_PERCENT</code></li>
+<li><code>PF_ADD_POINT</code></li>
+<li><code>PF_ADD_POINT_3D</code></li>
+<li><code>PF_ADD_TOPICX</code></li>
+<li><code>PF_END_TOPIC</code></li>
+<li><code>PF_ADD_POPUPX</code></li>
+<li><code>PF_ADD_FLOAT_SLIDERX_DISABLED</code>
+</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>PF_ABORT</code></td>
-<td>Returns non-zero if the user has cancelled; return that value to After Effects.<br/>Wrap your render routine in a "while abort has not been requested" while loop.<br/><pre>PF_Err PF_ABORT (PF_InData *in_data);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ABORT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns non-zero if the user has cancelled; return that value to After Effects.</p>
+<p>Wrap your render routine in a "while abort has not been requested" while loop.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">PF_ABORT</span><span class="w"> </span><span class="p">(</span><span class="n">PF_InData</span><span class="w"> </span><span class="o">*</span><span class="n">in_data</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PROGRESS</code></td>
-<td>Displays a progress bar during processing; current and total describe the percentage complete.<br/>Returns non-zero if you should suspend or abort your current processing; return that value to After Effects.<br/>Call once per scanline, unless your effect is very slow.<br/><br/>If total is 0, PF_ABORT is used instead (presenting the user with different choices).<br/><pre>PF_Err PF_PROGRESS (<br/>  PF_InData  *in_data,<br/>  A_long     current,<br/>  A_long     total );</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PROGRESS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Displays a progress bar during processing; current and total describe the percentage complete.</p>
+<p>Returns non-zero if you should suspend or abort your current processing; return that value to After Effects.</p>
+<p>Call once per scanline, unless your effect is very slow.</p>
+<p>If total is <code>0</code>, <code>PF_ABORT</code> is used instead (presenting the user with different choices).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">PF_PROGRESS</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">  </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">     </span><span class="n">current</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">     </span><span class="n">total</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_CHECKOUT_PARAM</code></td>
-<td>Obtains parameter values, or the source video layer, at a specified time. After Effects makes caching decisions based on the checkout state of parameters.<br/><br/>Allocate a new <a href="../../effect-basics/PF_ParamDef/#pf_paramdef">PF_ParamDef</a> to hold the result; those passed to the plug-in are read-only.<br/>If you check out a layer parameter that's set to <none>, the layer returned will be filled with zeros.<br/>Masks are not included with checked-out layers.<br/><br/>Do not check out layer parameters during UI event handling.<br/><pre>PF_Err PF_CHECKOUT_PARAM (<br/>  PF_InData      *in_data,<br/>  PF_ParamIndex  index,<br/>  A_long         what_time,<br/>  A_long         step,<br/>  A_long         time_scale,<br/>  PF_ParamDef    *param);</pre><br/><br/>If checking out the source layer, a deinterlaced frame will be returned. If you ask for the time that references the upper field, you will receive back the upper field with a filter used to generate the extra scanlines.<br/>For example, assuming line 0 and 2 are upper fields, and line 1 is a lower field, if you check out the upper fields, line 0 and 2 will be passed back directly from the source footage, and line 1 will be calculated by averaging lines 0 and 2.<br/>If you want to reassemble a full resolution source frame with both fields present, you can call PF_CHECKOUT_PARAM twice to get both fields, and reinterlace the footage.<br/><br/>What happens when checking out a layer at a time that is not frame-aligned? All items have essentially infinite time resolution, so when asking for a time at any value, AE renders the item at that time.<br/>For a composition, that involves interpolating all of the keyframes values to the subframe time.<br/>For footage, AE returns a full image that corresponds to the time asked, which is the nearest-to-left frame.<br/>If the user has frame-blending on that layer, an interpolated frame is generated.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_CHECKOUT_PARAM</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains parameter values, or the source video layer, at a specified time. After Effects makes caching decisions based on the checkout state of parameters.</p>
+<p>Allocate a new <a href="../../effect-basics/PF_ParamDef/#pf_paramdef">PF_ParamDef</a> to hold the result; those passed to the plug-in are read-only.</p>
+<p>If you check out a layer parameter that's set to <code>&lt;none&gt;</code>, the layer returned will be filled with zeros.</p>
+<p>Masks are not included with checked-out layers.</p>
+<p>Do not check out layer parameters during UI event handling.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">PF_CHECKOUT_PARAM</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">  </span><span class="n">index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">what_time</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">step</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">time_scale</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PF_ParamDef</span><span class="w">    </span><span class="o">*</span><span class="n">param</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>If checking out the source layer, a deinterlaced frame will be returned. If you ask for the time that references the upper field, you will receive back the upper field with a filter used to generate the extra scanlines.</p>
+<p>For example, assuming line 0 and 2 are upper fields, and line 1 is a lower field, if you check out the upper fields, line 0 and 2 will be passed back directly from the source footage, and line 1 will be calculated by averaging lines 0 and 2.</p>
+<p>If you want to reassemble a full resolution source frame with both fields present, you can call <code>PF_CHECKOUT_PARAM</code> twice to get both fields, and reinterlace the footage.</p>
+<p>What happens when checking out a layer at a time that is not frame-aligned? All items have essentially infinite time resolution, so when asking for a time at any value, AE renders the item at that time.</p>
+<p>For a composition, that involves interpolating all of the keyframes values to the subframe time.</p>
+<p>For footage, AE returns a full image that corresponds to the time asked, which is the nearest-to-left frame.</p>
+<p>If the user has frame-blending on that layer, an interpolated frame is generated.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_CHECKIN_PARAM</code></td>
-<td>Balance every <code>PF_CHECKOUT_PARAM</code>, with a <code>PF_CHECKIN_PARAM</code>.<br/><br/>Not doing so causes dismal performance and leaks memory. Once checked in, the fields in the <a href="../../effect-basics/PF_ParamDef/#pf_paramdef">PF_ParamDef</a> will no longer be valid.<br/><pre>PF_Err PF_CHECKIN_PARAM (<br/>  PF_InData    *in_data,<br/>  PF_ParamDef  *param );</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_CHECKIN_PARAM</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Balance every <code>PF_CHECKOUT_PARAM</code>, with a <code>PF_CHECKIN_PARAM</code>.</p>
+<p>Not doing so causes dismal performance and leaks memory. Once checked in, the fields in the <a href="../../effect-basics/PF_ParamDef/#pf_paramdef">PF_ParamDef</a> will no longer be valid.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">PF_CHECKIN_PARAM</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">    </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamDef</span><span class="w">  </span><span class="o">*</span><span class="n">param</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_REGISTER_UI</code></td>
-<td>Register a custom user interface element. See <a href="../../effect-ui-events/effect-ui-events/">Effect UI &amp; Events</a>. Note: The PF_UIAlignment flags are not honored.<br/><pre>PF_Err PF_REGISTER_UI (<br/>  PF_InData        *in_data,<br/>  PF_CustomUIInfo  *cust_info );</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_REGISTER_UI</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Register a custom user interface element. See <a href="../../effect-ui-events/effect-ui-events/">Effect UI &amp; Events</a>. Note: The PF_UIAlignment flags are not honored.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">PF_REGISTER_UI</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">        </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_CustomUIInfo</span><span class="w">  </span><span class="o">*</span><span class="n">cust_info</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_CHECKOUT_LAYER_AUDIO</code></td>
-<td>Given an index, start_time, duration, time_scale, rate, bytes_per_sample, num_channels, and fmt_signed, After Effects will return a corresponding PF_LayerAudio.<br/>After Effects will perform any necessary resampling.<br/><pre>PF_Err PF_CHECKOUT_LAYER_AUDIO (<br/>  PF_InData      *in_data,<br/>  PF_ParamIndex  index,<br/>  A_long         start_time,<br/>  A_long         duration,<br/>  A_u_long       time_scale,<br/>  PF_UFixed      rate,<br/>  A_long         bytes_per_sample,<br/>  A_long         num_channels,<br/>  A_long         fmt_signed,<br/>  PF_LayerAudio  *audio);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_CHECKOUT_LAYER_AUDIO</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given an index, start_time, duration, time_scale, rate, bytes_per_sample, num_channels, and fmt_signed, After Effects will return a corresponding PF_LayerAudio.</p>
+<p>After Effects will perform any necessary resampling.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">PF_CHECKOUT_LAYER_AUDIO</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">  </span><span class="n">index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">start_time</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">duration</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_u_long</span><span class="w">       </span><span class="n">time_scale</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PF_UFixed</span><span class="w">      </span><span class="n">rate</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">bytes_per_sample</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">num_channels</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">fmt_signed</span><span class="p">,</span>
+</span><span id="__span-0-11"><span class="w">  </span><span class="n">PF_LayerAudio</span><span class="w">  </span><span class="o">*</span><span class="n">audio</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_CHECKIN_LAYER_AUDIO</code></td>
-<td>Balance all calls to PF_CHECKOUT_LAYER_AUDIO, regardless of error conditions, with matching calls to PF_CHECKIN_LAYER_AUDIO.<br/><pre>PF_Err PF_CHECKIN_LAYER_AUDIO (<br/>  PF_InData      *in_data,<br/>  PF_LayerAudio  audio );</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_CHECKIN_LAYER_AUDIO</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Balance all calls to PF_CHECKOUT_LAYER_AUDIO, regardless of error conditions, with matching calls to <code>PF_CHECKIN_LAYER_AUDIO</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">PF_CHECKIN_LAYER_AUDIO</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_LayerAudio</span><span class="w">  </span><span class="n">audio</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GET_AUDIO_DATA</code></td>
-<td>Returns information about the PF_LayerAudio.<br/><br/>All the parameters after audio are optional; pass 0 for any value in which you aren't interested. rate0 is unsigned, and fmt_signed0 should be non-zero for signed, zero for unsigned.<br/>This callback is for visual effects that read audio information. To *alter* audio, write an audio filter.<br/><pre>PF_Err PF_GET_AUDIO_DATA (<br/>  PF_InData        *in_data,<br/>  PF_LayerAudio    audio,<br/>  PF_SndSamplePtr  *data0,<br/>  A_long           *num_samples0,<br/>  PF_UFixed        *rate0,<br/>  A_long           *bytes_per_sample0,<br/>  A_long           *num_channels0,<br/>  A_long           *fmt_signed0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GET_AUDIO_DATA</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns information about the PF_LayerAudio.</p>
+<p>All the parameters after audio are optional; pass 0 for any value in which you aren't interested. rate0 is unsigned, and fmt_signed0 should be non-zero for signed, zero for unsigned.</p>
+<p>This callback is for visual effects that read audio information. To <em>alter</em> audio, write an audio filter.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">PF_GET_AUDIO_DATA</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">        </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_LayerAudio</span><span class="w">    </span><span class="n">audio</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_SndSamplePtr</span><span class="w">  </span><span class="o">*</span><span class="n">data0</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">           </span><span class="o">*</span><span class="n">num_samples0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_UFixed</span><span class="w">        </span><span class="o">*</span><span class="n">rate0</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_long</span><span class="w">           </span><span class="o">*</span><span class="n">bytes_per_sample0</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">A_long</span><span class="w">           </span><span class="o">*</span><span class="n">num_channels0</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">A_long</span><span class="w">           </span><span class="o">*</span><span class="n">fmt_signed0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2862,45 +3002,45 @@
 <h2 id="progress-during-iteration">Progress During Iteration<a class="headerlink" href="#progress-during-iteration" title="Permanent link">&para;</a></h2>
 <p>After Effects strives to be as responsive as possible to user interaction, even while rendering. Do the same through appropriate use of PF_ITERATE(). For example, perhaps you're using a PF_ITERATE'd function three times during your response to <code>PF_Cmd_RENDER</code>.</p>
 <p>In this case, you'd start off with:</p>
-<div class="highlight"><pre><span></span><code><span class="n">lines_per_iterateL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in_data</span><span class="o">&gt;</span><span class="n">extent_hint</span><span class="p">.</span><span class="n">top</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">in_data</span><span class="o">&gt;</span><span class="n">extent_hint</span><span class="p">.</span><span class="n">bottom</span><span class="p">;</span>
-<span class="n">total_linesL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lines_per_iterateL</span><span class="p">;</span>
-<span class="n">lines_so_farL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">lines_per_iterateL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in_data</span><span class="o">&gt;</span><span class="n">extent_hint</span><span class="p">.</span><span class="n">top</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">in_data</span><span class="o">&gt;</span><span class="n">extent_hint</span><span class="p">.</span><span class="n">bottom</span><span class="p">;</span>
+</span><span id="__span-0-2"><span class="n">total_linesL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lines_per_iterateL</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="n">lines_so_farL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span></code></pre></div>
 <p>After each iteration, you'd add the already-completed lines to the current position:</p>
-<div class="highlight"><pre><span></span><code><span class="n">suites</span><span class="p">.</span><span class="n">iterate8suite</span><span class="p">()</span><span class="o">&gt;</span><span class="n">iterate</span><span class="p">(</span><span class="w"> </span><span class="n">lines_so_farL</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">total_linesL</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">input_worldP</span><span class="p">,</span>
-<span class="w">                                </span><span class="o">&amp;</span><span class="n">output</span><span class="o">&gt;</span><span class="n">extent_hint</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">refcon</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">WhizBangPreProcessFun</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">output_worldP</span><span class="p">);</span>
-
-<span class="n">lines_so_farL</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lines_per_iterateL</span><span class="p">;</span>
-
-<span class="n">ERR</span><span class="p">(</span><span class="n">PF_PROGRESS</span><span class="p">(</span><span class="n">lines_so_farL</span><span class="p">,</span><span class="w"> </span><span class="n">total_linesL</span><span class="p">));</span>
-
-<span class="n">suites</span><span class="p">.</span><span class="n">iterate8suite</span><span class="p">()</span><span class="o">&gt;</span><span class="n">iterate</span><span class="p">(</span><span class="w"> </span><span class="n">lines_so_farL</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">total_linesL</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">input_worldP</span><span class="p">,</span>
-<span class="w">                                </span><span class="o">&amp;</span><span class="n">output</span><span class="o">&gt;</span><span class="n">extent_hint</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">refcon</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">WhizBangRenderFunc</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">output_worldP</span><span class="p">);</span>
-
-<span class="n">lines_so_far</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lines_per_iterateL</span><span class="p">;</span>
-
-<span class="n">ERR</span><span class="p">(</span><span class="n">PF_PROGRESS</span><span class="p">(</span><span class="n">lines_so_farL</span><span class="p">,</span><span class="w"> </span><span class="n">total_linesL</span><span class="p">));</span>
-
-<span class="n">suites</span><span class="p">.</span><span class="n">iterate8suite</span><span class="p">()</span><span class="o">&gt;</span><span class="n">iterate</span><span class="p">(</span><span class="w"> </span><span class="n">lines_so_farL</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">total_linesL</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">input_worldP</span><span class="p">,</span>
-<span class="w">                                </span><span class="o">&amp;</span><span class="n">output</span><span class="o">&gt;</span><span class="n">extent_hint</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">refcon</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">WhizBangPostProcessFunc</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">output_worldP</span><span class="p">);</span>
-
-<span class="n">ERR</span><span class="p">(</span><span class="n">PF_PROGRESS</span><span class="p">(</span><span class="n">lines_so_farL</span><span class="p">,</span><span class="w"> </span><span class="n">total_linesL</span><span class="p">));</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">suites</span><span class="p">.</span><span class="n">iterate8suite</span><span class="p">()</span><span class="o">&gt;</span><span class="n">iterate</span><span class="p">(</span><span class="w"> </span><span class="n">lines_so_farL</span><span class="p">,</span>
+</span><span id="__span-1-2"><span class="w">                                </span><span class="n">total_linesL</span><span class="p">,</span>
+</span><span id="__span-1-3"><span class="w">                                </span><span class="n">input_worldP</span><span class="p">,</span>
+</span><span id="__span-1-4"><span class="w">                                </span><span class="o">&amp;</span><span class="n">output</span><span class="o">&gt;</span><span class="n">extent_hint</span><span class="p">,</span>
+</span><span id="__span-1-5"><span class="w">                                </span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-1-6"><span class="w">                                </span><span class="n">WhizBangPreProcessFun</span><span class="p">,</span>
+</span><span id="__span-1-7"><span class="w">                                </span><span class="n">output_worldP</span><span class="p">);</span>
+</span><span id="__span-1-8">
+</span><span id="__span-1-9"><span class="n">lines_so_farL</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lines_per_iterateL</span><span class="p">;</span>
+</span><span id="__span-1-10">
+</span><span id="__span-1-11"><span class="n">ERR</span><span class="p">(</span><span class="n">PF_PROGRESS</span><span class="p">(</span><span class="n">lines_so_farL</span><span class="p">,</span><span class="w"> </span><span class="n">total_linesL</span><span class="p">));</span>
+</span><span id="__span-1-12">
+</span><span id="__span-1-13"><span class="n">suites</span><span class="p">.</span><span class="n">iterate8suite</span><span class="p">()</span><span class="o">&gt;</span><span class="n">iterate</span><span class="p">(</span><span class="w"> </span><span class="n">lines_so_farL</span><span class="p">,</span>
+</span><span id="__span-1-14"><span class="w">                                </span><span class="n">total_linesL</span><span class="p">,</span>
+</span><span id="__span-1-15"><span class="w">                                </span><span class="n">input_worldP</span><span class="p">,</span>
+</span><span id="__span-1-16"><span class="w">                                </span><span class="o">&amp;</span><span class="n">output</span><span class="o">&gt;</span><span class="n">extent_hint</span><span class="p">,</span>
+</span><span id="__span-1-17"><span class="w">                                </span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-1-18"><span class="w">                                </span><span class="n">WhizBangRenderFunc</span><span class="p">,</span>
+</span><span id="__span-1-19"><span class="w">                                </span><span class="n">output_worldP</span><span class="p">);</span>
+</span><span id="__span-1-20">
+</span><span id="__span-1-21"><span class="n">lines_so_far</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lines_per_iterateL</span><span class="p">;</span>
+</span><span id="__span-1-22">
+</span><span id="__span-1-23"><span class="n">ERR</span><span class="p">(</span><span class="n">PF_PROGRESS</span><span class="p">(</span><span class="n">lines_so_farL</span><span class="p">,</span><span class="w"> </span><span class="n">total_linesL</span><span class="p">));</span>
+</span><span id="__span-1-24">
+</span><span id="__span-1-25"><span class="n">suites</span><span class="p">.</span><span class="n">iterate8suite</span><span class="p">()</span><span class="o">&gt;</span><span class="n">iterate</span><span class="p">(</span><span class="w"> </span><span class="n">lines_so_farL</span><span class="p">,</span>
+</span><span id="__span-1-26"><span class="w">                                </span><span class="n">total_linesL</span><span class="p">,</span>
+</span><span id="__span-1-27"><span class="w">                                </span><span class="n">input_worldP</span><span class="p">,</span>
+</span><span id="__span-1-28"><span class="w">                                </span><span class="o">&amp;</span><span class="n">output</span><span class="o">&gt;</span><span class="n">extent_hint</span><span class="p">,</span>
+</span><span id="__span-1-29"><span class="w">                                </span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-1-30"><span class="w">                                </span><span class="n">WhizBangPostProcessFunc</span><span class="p">,</span>
+</span><span id="__span-1-31"><span class="w">                                </span><span class="n">output_worldP</span><span class="p">);</span>
+</span><span id="__span-1-32">
+</span><span id="__span-1-33"><span class="n">ERR</span><span class="p">(</span><span class="n">PF_PROGRESS</span><span class="p">(</span><span class="n">lines_so_farL</span><span class="p">,</span><span class="w"> </span><span class="n">total_linesL</span><span class="p">));</span>
+</span></code></pre></div>
 
 
 
@@ -2921,7 +3061,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -2984,7 +3124,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

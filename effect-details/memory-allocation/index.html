@@ -2709,41 +2709,101 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
-<th>Replaces</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Replaces</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>host_new_handle</code></td>
-<td>Allocates a new handle.<br/><pre>PF_Handle (*host_new_handle)(<br/>  A_HandleSize size);</pre></td>
-<td><code>PF_NEW_HANDLE</code></td>
+<td colspan="1" rowspan="1">
+<p><code>host_new_handle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocates a new handle.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Handle</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">host_new_handle</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">A_HandleSize</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_NEW_HANDLE</code></p>
+</td>
 </tr>
 <tr>
-<td><code>host_lock_handle</code></td>
-<td>Locks a handle.<br/><pre>void (*host_lock_handle)(<br/>  PF_Handle pf_handle);</pre></td>
-<td><code>PF_LOCK_HANDLE</code></td>
+<td colspan="1" rowspan="1">
+<p><code>host_lock_handle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Locks a handle.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">host_lock_handle</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_Handle</span><span class="w"> </span><span class="n">pf_handle</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_LOCK_HANDLE</code></p>
+</td>
 </tr>
 <tr>
-<td><code>host_unlock_handle</code></td>
-<td>Unlocks a handle.<br/><pre>void (*host_unlock_handle)(<br/>  PF_Handle pf_handle);</pre></td>
-<td><code>PF_UNLOCK_HANDLE</code></td>
+<td colspan="1" rowspan="1">
+<p><code>host_unlock_handle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unlocks a handle.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">host_unlock_handle</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_Handle</span><span class="w"> </span><span class="n">pf_handle</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_UNLOCK_HANDLE</code></p>
+</td>
 </tr>
 <tr>
-<td><code>host_dispose_handle</code></td>
-<td>Frees a handle.<br/><pre>void (*host_dispose_handle)(<br/>  PF_Handle pf_handle);</pre></td>
-<td><code>PF_DISPOSE_HANDLE</code></td>
+<td colspan="1" rowspan="1">
+<p><code>host_dispose_handle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Frees a handle.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">host_dispose_handle</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_Handle</span><span class="w"> </span><span class="n">pf_handle</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_DISPOSE_HANDLE</code></p>
+</td>
 </tr>
 <tr>
-<td><code>host_get_handle_size</code></td>
-<td>Returns the size, in bytes, of the reallocatable block whose handle is passed in.<br/><pre>A_HandleSize (*host_get_handle_size)(<br/>  PF_Handle pf_handle);</pre></td>
-<td><code>PF_GET_HANDLE_SIZE</code></td>
+<td colspan="1" rowspan="1">
+<p><code>host_get_handle_size</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the size, in bytes, of the reallocatable block whose handle is passed in.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">A_HandleSize</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">host_get_handle_size</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_Handle</span><span class="w"> </span><span class="n">pf_handle</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GET_HANDLE_SIZE</code></p>
+</td>
 </tr>
 <tr>
-<td><code>host_resize_handle</code></td>
-<td>Resizes a handle.<br/><pre>PF_Err (*host_resize_handle)(<br/>  A_HandleSize new_sizeL, PF_Handle *handlePH);</pre></td>
-<td><code>PF_RESIZE_HANDLE</code></td>
+<td colspan="1" rowspan="1">
+<p><code>host_resize_handle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Resizes a handle.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">host_resize_handle</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">A_HandleSize</span><span class="w"> </span><span class="n">new_sizeL</span><span class="p">,</span><span class="w"> </span><span class="n">PF_Handle</span><span class="w"> </span><span class="o">*</span><span class="n">handlePH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_RESIZE_HANDLE</code></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2767,7 +2827,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -2830,7 +2890,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

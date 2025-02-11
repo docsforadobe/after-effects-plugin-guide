@@ -2773,131 +2773,297 @@
 <table>
 <thead>
 <tr>
-<th>Type</th>
-<th>Describes</th>
-<th>Manage Using</th>
+<th colspan="1" rowspan="1">
+<p>Type</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Describes</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Manage Using</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_MemHandle</code></td>
-<td>This structure contains more than just the referenced memory. So it should not be dereferenced directly.<br/>Use <code>AEGP_LockMemHandle</code> in the AEGP Memory Suite to get a pointer to the memory referenced by the <code>AEGP_MemHandle</code>.<br/>And of course, unlock it when you're done.</td>
-<td><a href="../aegp-suites/#aegp_memorysuite1">AEGP Memory Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_MemHandle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This structure contains more than just the referenced memory. So it should not be dereferenced directly.</p>
+<p>Use <code>AEGP_LockMemHandle</code> in the AEGP Memory Suite to get a pointer to the memory referenced by the <code>AEGP_MemHandle</code>. And of course, unlock it when you're done.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_memorysuite1">AEGP Memory Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_ProjectH</code></td>
-<td>The current After Effects project. Projects are a set of elements arranged hierarchically in a tree to preserve semantic relationships.<br/>Interior nodes of the tree are folders.<br/>As of CS6, there will only ever be one open project.</td>
-<td><a href="../aegp-suites/#aegp_projsuite6">AEGP Project Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_ProjectH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The current After Effects project. Projects are a set of elements arranged hierarchically in a tree to preserve semantic relationships.</p>
+<p>Interior nodes of the tree are folders.</p>
+<p>As of CS6, there will only ever be one open project.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_projsuite6">AEGP Project Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_ItemH</code></td>
-<td>An abstraction describing any element of a project, including folders. An item is anything that can be selected.<br/>Since multiple object types can be selected, we treat them as AEGP_ItemHs until more specificity is required.</td>
-<td><a href="../aegp-suites/#aegp_itemsuite9">AEGP Item Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_ItemH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An abstraction describing any element of a project, including folders. An item is anything that can be selected.</p>
+<p>Since multiple object types can be selected, we treat them as AEGP_ItemHs until more specificity is required.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_itemsuite9">AEGP Item Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_Collection2H</code></td>
-<td>A set of selected items.</td>
-<td><a href="../aegp-suites/#aegp_collectionsuite2">AEGP Collection Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_Collection2H</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A set of selected items.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_collectionsuite2">AEGP Collection Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_CompH</code></td>
-<td>A composition is a sequence of renderable items that, together, produce output.<br/>A composition exists over a time interval.<br/>Multiple compositions can exist within one project.</td>
-<td><a href="../aegp-suites/#aegp_compositesuite2">AEGP Composition Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_CompH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A composition is a sequence of renderable items that, together, produce output.</p>
+<p>A composition exists over a time interval.</p>
+<p>Multiple compositions can exist within one project.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_compositesuite2">AEGP Composition Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_FootageH</code></td>
-<td>An item that can be rendered. Folders and compositions are the only items that are not footage.</td>
-<td><a href="../aegp-suites/#aegp_footagesuite5">AEGP Footage Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_FootageH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An item that can be rendered. Folders and compositions are the only items that are not footage.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_footagesuite5">AEGP Footage Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_LayerH</code></td>
-<td>An element of a composition. Layers are rendered in sequence, which allows for occlusions.<br/>Solids, text, paint, cameras, lights, images, and image sequences are all represented as layers.<br/><br/>Layers may be defined over sub-intervals of the composition's time interval.</td>
-<td><a href="../aegp-suites/#aegp_layersuite9">AEGP Layer Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_LayerH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An element of a composition. Layers are rendered in sequence, which allows for occlusions.</p>
+<p>Solids, text, paint, cameras, lights, images, and image sequences are all represented as layers.</p>
+<p>Layers may be defined over sub-intervals of the composition's time interval.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_layersuite9">AEGP Layer Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_WorldH</code></td>
-<td>A frame of pixels.</td>
-<td><a href="../aegp-suites/#aegp_worldsuite3">AEGP World Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_WorldH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A frame of pixels.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_worldsuite3">AEGP World Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_EffectRefH</code></td>
-<td>An effect applied to a layer. An effect is a function that takes as its argument a layer (and possibly other parameters)<br/>and returns an altered version of the layer for rendering.</td>
-<td><a href="../aegp-suites/#aegp_effectsuite4">AEGP Effect Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_EffectRefH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An effect applied to a layer. An effect is a function that takes as its argument a layer (and possibly other parameters) and returns an altered version of the layer for rendering.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_effectsuite4">AEGP Effect Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_StreamRefH</code></td>
-<td>Any <a href="../aegp-suites/#diving-into-streams">parameter stream</a> attached to a layer, in a composition.<br/>See the description of <code>AEGP_GetNewLayerStream</code> from <a href="../aegp-suites/#stream-suite">AEGP_StreamSuite5</a> for a full list of stream types.</td>
-<td><a href="../aegp-suites/#stream-suite">AEGP Stream Suite</a>,<br/><a href="../aegp-suites/#aegp_dynamicstreamsuite4">AEGP Dynamic Stream Suite</a><br/><a href="../aegp-suites/#aegp_keyframesuite3">AEGP Keyframe Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_StreamRefH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Any <a href="../aegp-suites/#diving-into-streams">parameter stream</a> attached to a layer, in a composition.</p>
+<p>See the description of <code>AEGP_GetNewLayerStream</code> from <a href="../aegp-suites/#stream-suite">AEGP_StreamSuite5</a> for a full list of stream types.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#stream-suite">AEGP Stream Suite</a>,
+<a href="../aegp-suites/#aegp_dynamicstreamsuite4">AEGP Dynamic Stream Suite</a>,
+<a href="../aegp-suites/#aegp_keyframesuite3">AEGP Keyframe Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_MaskRefH</code></td>
-<td>A mask applied to a layer. An AEGP_MaskRefH is used to access details about the mask stream, not the specific points which constitute the mask.<br/>A mask is a rasterized path (sequence of vertices) that partitions a layer into two pieces, allowing each to be rendered differently.</td>
-<td><a href="../aegp-suites/#aegp_masksuite6">AEGP Mask Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_MaskRefH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A mask applied to a layer. An AEGP_MaskRefH is used to access details about the mask stream, not the specific points which constitute the mask.</p>
+<p>A mask is a rasterized path (sequence of vertices) that partitions a layer into two pieces, allowing each to be rendered differently.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_masksuite6">AEGP Mask Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_MaskOutlineValH</code></td>
-<td>The specific points which constitute the mask.<br/>The points in a mask outline are ordered, and the mask need not be closed.</td>
-<td><a href="../aegp-suites/#aegp_maskoutlinesuite3">AEGP Mask Outline Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_MaskOutlineValH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The specific points which constitute the mask.</p>
+<p>The points in a mask outline are ordered, and the mask need not be closed.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_maskoutlinesuite3">AEGP Mask Outline Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_TextDocumentH</code></td>
-<td>Represents the actual text associated with a text layer.</td>
-<td><a href="../aegp-suites/#aegp_textdocumentsuite1">AEGP Text Document Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_TextDocumentH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Represents the actual text associated with a text layer.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_textdocumentsuite1">AEGP Text Document Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_TextOutlinesH</code></td>
-<td>A reference to all the paths that make up the outlines of a given text layer.</td>
-<td><a href="../aegp-suites/#aegp_textlayersuite1">AEGP Text Layer Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_TextOutlinesH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A reference to all the paths that make up the outlines of a given text layer.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_textlayersuite1">AEGP Text Layer Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_MarkerVal</code></td>
-<td>The data associated with a given timeline marker.</td>
-<td><a href="../aegp-suites/#aegp_markersuite2">AEGP Marker Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_MarkerVal</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The data associated with a given timeline marker.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_markersuite2">AEGP Marker Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_PersistentBlobH</code></td>
-<td>A "blob" of data containing the current preferences.</td>
-<td><a href="../aegp-suites/#persistent-data-suite">AEGP Persistent Data Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_PersistentBlobH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A "blob" of data containing the current preferences.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#persistent-data-suite">AEGP Persistent Data Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderOptionsH</code></td>
-<td>The settings associated with a render request.</td>
-<td><a href="../aegp-suites/#aegp_renderoptionssuite4">AEGP Render Options Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderOptionsH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The settings associated with a render request.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_renderoptionssuite4">AEGP Render Options Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_LayerRenderOptionsH</code></td>
-<td>The settings associated with a layer render request.</td>
-<td><a href="../aegp-suites/#aegp_layerrenderoptionssuite1">AEGP Layer Render Options Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_LayerRenderOptionsH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The settings associated with a layer render request.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_layerrenderoptionssuite1">AEGP Layer Render Options Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_FrameReceiptH</code></td>
-<td>A reference to a rendered frame.</td>
-<td><a href="../aegp-suites/#render-suites">AEGP Render Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_FrameReceiptH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A reference to a rendered frame.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#render-suites">AEGP Render Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RQItemRefH</code></td>
-<td>An item in the render queue.</td>
-<td><a href="../aegp-suites/#render-queue-suite">AEGP Render Queue Suite</a><br/><a href="../aegp-suites/#render-queue-item-suite">AEGP Render Queue Item Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RQItemRefH</code>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An item in the render queue.
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#render-queue-suite">AEGP Render Queue Suite</a>,
+<a href="../aegp-suites/#render-queue-item-suite">AEGP Render Queue Item Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_OutputModuleRefH</code></td>
-<td>An output module, attached to a specific AEGP_RQItemRef in the render queue.</td>
-<td><a href="../aegp-suites/#output-module-suite">AEGP Output Module Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_OutputModuleRefH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An output module, attached to a specific AEGP_RQItemRef in the render queue.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#output-module-suite">AEGP Output Module Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SoundDataH</code></td>
-<td>The <a href="../aegp-suites/#audio-settings">audio settings</a> used for a given layer.</td>
-<td><a href="../aegp-suites/#aegp_sounddatesuite1">AEGP Sound Data Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SoundDataH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The <a href="../aegp-suites/#audio-settings">audio settings</a> used for a given layer.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../aegp-suites/#aegp_sounddatesuite1">AEGP Sound Data Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderLayerContextH</code></td>
-<td>State information at the time of a render request, sent to an Artisan by After Effects.</td>
-<td><a href="../../artisans/artisan-data-types/#aegp_canvassuite8">AEGP Canvas Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderLayerContextH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>State information at the time of a render request, sent to an Artisan by After Effects.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../../artisans/artisan-data-types/#aegp_canvassuite8">AEGP Canvas Suite</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderReceiptH</code></td>
-<td>Used by Artisans when rendering.</td>
-<td><a href="../../artisans/artisan-data-types/#aegp_canvassuite8">AEGP Canvas Suite</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderReceiptH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Used by Artisans when rendering.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><a href="../../artisans/artisan-data-types/#aegp_canvassuite8">AEGP Canvas Suite</a></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2914,42 +3080,80 @@
 <table>
 <thead>
 <tr>
-<th>Data Type</th>
-<th>Disposal function</th>
+<th colspan="1" rowspan="1">
+<p>Data Type</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Disposal Function</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_Collection2H</code></td>
-<td><code>AEGP_DisposeCollection</code>, from <a href="../aegp-suites/#aegp_collectionsuite2">AEGP_CollectionSuite2</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_Collection2H</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_DisposeCollection</code>, from <a href="../aegp-suites/#aegp_collectionsuite2">AEGP_CollectionSuite2</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_FootageH</code></td>
-<td><code>AEGP_DisposeFootage</code>, from <a href="../aegp-suites/#aegp_footagesuite5">AEGP_FootageSuite5</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_FootageH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_DisposeFootage</code>, from <a href="../aegp-suites/#aegp_footagesuite5">AEGP_FootageSuite5</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_WorldH</code></td>
-<td><code>AEGP_Dispose</code>, from <a href="../aegp-suites/#aegp_worldsuite3">AEGP_WorldSuite3</a><br/><br/>(Or <code>AEGP_DisposeTexture</code>, from <a href="../../artisans/artisan-data-types/#aegp_canvassuite8">AEGP_CanvasSuite8</a>, if layer texture created using <code>AEGP_RenderTexture</code>)</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_WorldH</code>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_Dispose</code>, from <a href="../aegp-suites/#aegp_worldsuite3">AEGP_WorldSuite3</a>
+(Or <code>AEGP_DisposeTexture</code>, from <a href="../../artisans/artisan-data-types/#aegp_canvassuite8">AEGP_CanvasSuite8</a>, if layer texture created using <code>AEGP_RenderTexture</code>)</p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_EffectRefH</code></td>
-<td><code>AEGP_DisposeEffect</code>, from <a href="../aegp-suites/#aegp_effectsuite4">AEGP_EffectSuite4</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_EffectRefH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_DisposeEffect</code>, from <a href="../aegp-suites/#aegp_effectsuite4">AEGP_EffectSuite4</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_MaskRefH</code></td>
-<td><code>AEGP_DisposeMask</code>, from <a href="../aegp-suites/#aegp_masksuite6">AEGP_MaskSuite6</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_MaskRefH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_DisposeMask</code>, from <a href="../aegp-suites/#aegp_masksuite6">AEGP_MaskSuite6</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderOptionsH</code></td>
-<td><code>AEGP_Dispose</code>, from <a href="../aegp-suites/#aegp_renderqueuemonitorsuite1">AEGP_RenderQueueMonitorSuite1</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderOptionsH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_Dispose</code>, from <a href="../aegp-suites/#aegp_renderqueuemonitorsuite1">AEGP_RenderQueueMonitorSuite1</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_LayerRenderOptionsH</code></td>
-<td><code>AEGP_Dispose</code>, from <a href="../aegp-suites/#aegp_layerrenderoptionssuite1">AEGP_LayerRenderOptionsSuite1</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_LayerRenderOptionsH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_Dispose</code>, from <a href="../aegp-suites/#aegp_layerrenderoptionssuite1">AEGP_LayerRenderOptionsSuite1</a></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderReceiptH</code></td>
-<td><code>AEGP_DisposeRenderReceipt</code>, from <a href="../../artisans/artisan-data-types/#aegp_canvassuite8">AEGP_CanvasSuite8</a></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderReceiptH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_DisposeRenderReceipt</code>, from <a href="../../artisans/artisan-data-types/#aegp_canvassuite8">AEGP_CanvasSuite8</a></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2973,7 +3177,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3036,7 +3240,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

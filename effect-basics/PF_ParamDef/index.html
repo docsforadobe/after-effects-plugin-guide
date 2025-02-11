@@ -2822,56 +2822,119 @@
 <table>
 <thead>
 <tr>
-<th>Data Type</th>
-<th>Name</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Data Type</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Name</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>A_long</code></td>
-<td><code>id</code></td>
-<td>The ID of this parameter. You can re-order parameters in future versions of your plug-in and not cause users to re-apply your effect,<br/><br/>if you maintain the parameter's ID across versions.</td>
+<td colspan="1" rowspan="1">
+<p><code>A_long</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>id</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The ID of this parameter. You can re-order parameters in future versions of your plug-in and not cause users to re-apply your effect, if you maintain the parameter's ID across versions.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ChangeFlags</code></td>
-<td><code>change_flags</code></td>
-<td>Set if you've changed a parameter value. Only valid during drag (not click!) events,<br/><br/><a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a> or <a href="../command-selectors/#messaging">PF_Cmd_UPDATE_PARAMS_UI</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ChangeFlags</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>change_flags</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set if you've changed a parameter value. Only valid during drag (not click!) events, <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a> or <a href="../command-selectors/#messaging">PF_Cmd_UPDATE_PARAMS_UI</a>.</p>
+</td>
 </tr>
 <tr>
-<td><a href="#parameter-ui-flags">PF_ParamUIFlags</a></td>
-<td><code>ui_flags</code></td>
-<td>Specify a parameter's UI behavior before adding; only<br/><br/><code>PF_PUI_DISABLED</code> may be set during event handling.</td>
+<td colspan="1" rowspan="1">
+<p><a href="#parameter-ui-flags">PF_ParamUIFlags</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>ui_flags</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Specify a parameter's UI behavior before adding; only <code>PF_PUI_DISABLED</code> may be set during event handling.</p>
+</td>
 </tr>
 <tr>
-<td><code>A_short</code></td>
-<td><code>ui_width</code></td>
-<td>Width of the parameter's user interface (for non-standard parameters only).</td>
+<td colspan="1" rowspan="1">
+<p><code>A_short</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>ui_width</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Width of the parameter's user interface (for non-standard parameters only).</p>
+</td>
 </tr>
 <tr>
-<td><code>A_short</code></td>
-<td><code>ui_height</code></td>
-<td>Height of the parameter's user interface (for non-standard parameters only).</td>
+<td colspan="1" rowspan="1">
+<p><code>A_short</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>ui_height</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Height of the parameter's user interface (for non-standard parameters only).</p>
+</td>
 </tr>
 <tr>
-<td><a href="../parameters/#parameter-types">PF_ParamType</a></td>
-<td><code>param_type</code></td>
-<td>Type of parameter.</td>
+<td colspan="1" rowspan="1">
+<p><a href="../parameters/#parameter-types">PF_ParamType</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>param_type</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Type of parameter.</p>
+</td>
 </tr>
 <tr>
-<td><code>A_char[32]</code></td>
-<td><code>name</code></td>
-<td>Name of parameter. Can be changed during event handling.<br/><br/>Yes, longer parameter names have been requested since After Effects 1.0.<br/><br/>Think of adequately describing your world-altering effect in 31 mere characters as a language challenge, like haiku.</td>
+<td colspan="1" rowspan="1">
+<p><code>A_char[32]</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>name</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Name of parameter. Can be changed during event handling.</p>
+<p>Yes, longer parameter names have been requested since After Effects 1.0.</p>
+<p>Think of adequately describing your world-altering effect in 31 mere characters as a language challenge, like haiku.</p>
+</td>
 </tr>
 <tr>
-<td><a href="#parameter-flags">PF_ParamFlags</a></td>
-<td><code>flags</code></td>
-<td>Specify a parameter's UI behavior before adding; only <code>PF_ParamFlag_COLLAPSE_TWIRLY</code> may be set during event handling.</td>
+<td colspan="1" rowspan="1">
+<p><a href="#parameter-flags">PF_ParamFlags</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>flags</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Specify a parameter's UI behavior before adding; only <code>PF_ParamFlag_COLLAPSE_TWIRLY</code> may be set during event handling.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ParamDefUnion</code></td>
-<td><code>u</code></td>
-<td>A union of all possible <a href="../parameters/#parameter-types">Parameter Types</a>.<br/><br/>Only the type specified by <code>param_type</code> contains meaningful data.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ParamDefUnion</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>u</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A union of all possible <a href="../parameters/#parameter-types">Parameter Types</a>.</p>
+<p>Only the type specified by <code>param_type</code> contains meaningful data.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2882,50 +2945,115 @@
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Flag</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_PUI_TOPIC</code></td>
-<td>Set this flag if you handle <code>PF_Cmd_EVENTs</code> for the "topic" of the parameter.<br/><br/>The "topic" is the portion of the param UI in the Effect Controls Window (ECW) that is still visible when the twirly-arrow is twirled up for that param.<br/><br/>If you set this flag, you must also set <code>PF_OutFlag_CUSTOM_UI</code> at PF_Cmd_GLOBAL_SETUP time.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PUI_TOPIC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this flag if you handle <code>PF_Cmd_EVENTs</code> for the "topic" of the parameter.</p>
+<p>The "topic" is the portion of the param UI in the Effect Controls Window (ECW) that is still visible when the twirly-arrow is twirled up for that param.</p>
+<p>If you set this flag, you must also set <code>PF_OutFlag_CUSTOM_UI</code> at PF_Cmd_GLOBAL_SETUP time.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PUI_CONTROL</code></td>
-<td>Set this flag if you handle <code>PF_Cmd_EVENTs</code> for the control area (area that becomes invisible when you twirl up a parameter's spinner) in the ECP.<br/><br/>If you set this flag, you must also set <code>PF_OutFlag_CUSTOM_UI</code> at <code>PF_Cmd_GLOBAL_SETUP</code> time.<br/><br/>See <a href="../../effect-ui-events/effect-ui-events/">Effect UI &amp; Events</a> for more details.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PUI_CONTROL</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this flag if you handle <code>PF_Cmd_EVENTs</code> for the control area (area that becomes invisible when you twirl up a parameter's spinner) in the ECP.</p>
+<p>If you set this flag, you must also set <code>PF_OutFlag_CUSTOM_UI</code> at <code>PF_Cmd_GLOBAL_SETUP</code> time.</p>
+<p>See <a href="../../effect-ui-events/effect-ui-events/">Effect UI &amp; Events</a> for more details.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PUI_STD_CONTROL_ONLY</code></td>
-<td>Set this flag if you want the standard control only - No data stream will be associated with this parameter, and thus no keyframes will be available in the Timeline panel.<br/><br/>You might want to do this to control something in your sequence data with a standard control.<br/><br/>Or in your arb data, or custom UI in the comp window, or to group-set multiple other controls.<br/><br/>This flag cannot be used with:<ul><li><code>PF_Param_CUSTOM</code></li><li><code>PF_Param_NO_DATA</code></li><li><code>PF_Param_LAYER</code></li><li><code>PF_Param_ARBITRARY_DATA</code></li><li><code>PF_Param_PATH</code></li></ul>If you set this flag, you must also set <code>PF_ParamFlag_SUPERVISE</code><br/>(otherwise you would never find out about value changes, and the setting would never be used for anything).<br/><br/>This flag does not require that the <a href="../PF_OutData/#pf_outflags">PF_OutFlag_CUSTOM_UI</a> flag be set.<br/><br/>If you want a standard control for <code>PF_Param_ARBITRARY_DATA</code>, just add one (or more) using <code>PF_PUI_STD_CONTROL_ONLY</code> with the supported param types,<br/>and then when handling <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a> you can modify your arb data.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PUI_STD_CONTROL_ONLY</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this flag if you want the standard control only - No data stream will be associated with this parameter, and thus no keyframes will be available in the Timeline panel.</p>
+<p>You might want to do this to control something in your sequence data with a standard control.</p>
+<p>Or in your arb data, or custom UI in the comp window, or to group-set multiple other controls.</p>
+<p>This flag cannot be used with:</p>
+<ul>
+<li><code>PF_Param_CUSTOM</code></li>
+<li><code>PF_Param_NO_DATA</code></li>
+<li><code>PF_Param_LAYER</code></li>
+<li><code>PF_Param_ARBITRARY_DATA</code></li>
+<li><code>PF_Param_PATH</code></li>
+</ul>
+<p>If you set this flag, you must also set <code>PF_ParamFlag_SUPERVISE</code> (otherwise you would never find out about value changes, and the setting would never be used for anything).</p>
+<p>This flag does not require that the <a href="../PF_OutData/#pf_outflags">PF_OutFlag_CUSTOM_UI</a> flag be set.</p>
+<p>If you want a standard control for <code>PF_Param_ARBITRARY_DATA</code>, just add one (or more) using <code>PF_PUI_STD_CONTROL_ONLY</code> with the supported param types, and then when handling <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a> you can modify your arb data.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PUI_NO_ECW_UI</code></td>
-<td>Set this flag if you want no UI to appear in the Effect Controls Window.<br/><br/>Presumably, you are setting the value of the parameter through some other method<br/>(e.g. custom UI in the comp window, or while handling <code>PF_Cmd_USER_CHANGED_PARAM</code> for a different param with <code>PF_ParamFlag_SUPERVISE</code> set).<br/><br/>In AE, this doesn't affect keyframe visibility in the timeline. In PPro it does remove the entire row, so you won't see keyframes.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PUI_NO_ECW_UI</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this flag if you want no UI to appear in the Effect Controls Window.</p>
+<p>Presumably, you are setting the value of the parameter through some other method (e.g. custom UI in the comp window, or while handling <code>PF_Cmd_USER_CHANGED_PARAM</code> for a different param with <code>PF_ParamFlag_SUPERVISE</code> set).</p>
+<p>In AE, this doesn't affect keyframe visibility in the timeline. In PPro it does remove the entire row, so you won't see keyframes.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PUI_ECW_SEPARATOR</code></td>
-<td>Not used in After Effects, but used in Premiere. Set this flag if you'd like a thick line above this parameter in the effect control window.<br/><br/>This is provided so that parameters can be grouped visually, if needed (without adding groups). This flag can be changed at runtime through the <code>PF_UpdateParamUI()</code> method.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PUI_ECW_SEPARATOR</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Not used in After Effects, but used in Premiere. Set this flag if you'd like a thick line above this parameter in the effect control window.</p>
+<p>This is provided so that parameters can be grouped visually, if needed (without adding groups). This flag can be changed at runtime through the <code>PF_UpdateParamUI()</code> method.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PUI_DISABLED</code></td>
-<td>Disables (grays out) the parameter, usually in response to <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PUI_DISABLED</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Disables (grays out) the parameter, usually in response to <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PUI_DONT_ERASE_TOPIC</code></td>
-<td>After Effects won't erase parameter's topic.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PUI_DONT_ERASE_TOPIC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After Effects won't erase parameter's topic.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PUI_DONT_ERASE_CONTROL</code></td>
-<td>After Effects won't erase parameter's control.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PUI_DONT_ERASE_CONTROL</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After Effects won't erase parameter's control.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PUI_RADIO_BUTTON</code></td>
-<td>Not used in After Effects, but used in Premiere. Display parameter as a radio-button group. Only valid for <code>PF_Param_POPUP</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PUI_RADIO_BUTTON</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Not used in After Effects, but used in Premiere. Display parameter as a radio-button group. Only valid for <code>PF_Param_POPUP</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PUI_INVISIBLE</code></td>
-<td>First supported in Premiere, and now supported in After Effects CS6 and later. This hides the parameter UI in both the Effect Controls and Timeline.<br/><br/>Premiere only: The flag is dynamic and parameter visibility can be toggled during the <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_UpdateParamUI</a> callback.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PUI_INVISIBLE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>First supported in Premiere, and now supported in After Effects CS6 and later. This hides the parameter UI in both the Effect Controls and Timeline.</p>
+<p>Premiere only: The flag is dynamic and parameter visibility can be toggled during the <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_UpdateParamUI</a> callback.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2936,46 +3064,97 @@
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Meaning</th>
+<th colspan="1" rowspan="1">
+<p>Flag</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Meaning</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_ParamFlag_CANNOT_TIME_VARY</code></td>
-<td>Parameter does not vary with time; no keyframe control will be provided in the Timeline panel.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ParamFlag_CANNOT_TIME_VARY</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Parameter does not vary with time; no keyframe control will be provided in the Timeline panel.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ParamFlag_CANNOT_INTERP</code></td>
-<td>Values are not algebraically interpolated.<br/><br/>You can still use discontinuous (hold) interpolation. Useful for parameters which are either on or off. Accelerates rendering.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ParamFlag_CANNOT_INTERP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Values are not algebraically interpolated.</p>
+<p>You can still use discontinuous (hold) interpolation. Useful for parameters which are either on or off. Accelerates rendering.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ParamFlag_COLLAPSE_TWIRLY</code></td>
-<td>Set this flag during <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a>.<br/><br/>This bit can now be set &amp; cleared when handling <a href="../command-selectors/#messaging">PF_Cmd_UPDATE_PARAMS_UI</a> and <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a> messages, so as to twirl your parameters and groups up and down at will.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ParamFlag_COLLAPSE_TWIRLY</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this flag during <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a>.</p>
+<p>This bit can now be set &amp; cleared when handling <a href="../command-selectors/#messaging">PF_Cmd_UPDATE_PARAMS_UI</a> and <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a> messages, so as to twirl your parameters and groups up and down at will.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ParamFlag_SUPERVISE</code></td>
-<td>Set to receive <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a> messages for this parameter.<br/><br/>See <a href="../../effect-details/parameter-supervision/">Parameter Supervision</a> for more information.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ParamFlag_SUPERVISE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set to receive <a href="../command-selectors/#messaging">PF_Cmd_USER_CHANGED_PARAM</a> messages for this parameter.</p>
+<p>See <a href="../../effect-details/parameter-supervision/">Parameter Supervision</a> for more information.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ParamFlag_START_COLLAPSED</code></td>
-<td>Controls the twirl-state of a topic spinner.<br/><br/>Can be changed during parameter supervision, not just during <a href="../command-selectors/#global-selectors">PF_Cmd_PARAM_SETUP</a>.<br/><br/>This flag will not be honored unless <a href="../PF_OutData/#pf_outflags">PF_OutFlag2_PARAM_GROUP_START_COLLAPSED</a> is set.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ParamFlag_START_COLLAPSED</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Controls the twirl-state of a topic spinner.</p>
+<p>Can be changed during parameter supervision, not just during <a href="../command-selectors/#global-selectors">PF_Cmd_PARAM_SETUP</a>.</p>
+<p>This flag will not be honored unless <a href="../PF_OutData/#pf_outflags">PF_OutFlag2_PARAM_GROUP_START_COLLAPSED</a> is set.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ParamFlag_USE_VALUE_FOR_OLD_PROJECTS</code></td>
-<td>This only affects the loading of projects saved with an older version of the effect which lacks parameters added later.<br/><br/>When set, the <code>PF_ParamDef.value</code> field set in <code>PF_ADD_PARAM()</code> will be used to initialize the missing parameter, but the dephault field will still be used for initial value of the parameter when the effect is newly applied or reset.<br/><br/>This is useful for when you want a parameter to default to one value but need it set to something else to preserve rendering behavior for older projects.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ParamFlag_USE_VALUE_FOR_OLD_PROJECTS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This only affects the loading of projects saved with an older version of the effect which lacks parameters added later.</p>
+<p>When set, the <code>PF_ParamDef.value</code> field set in <code>PF_ADD_PARAM()</code> will be used to initialize the missing parameter, but the dephault field will still be used for initial value of the parameter when the effect is newly applied or reset.</p>
+<p>This is useful for when you want a parameter to default to one value but need it set to something else to preserve rendering behavior for older projects.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ParamFlag_LAYER_PARAM_IS_TRACKMATTE</code></td>
-<td>Premiere Pro only: Only valid for layer parameters. Indicates that a layer param is used as a track-matte with applied filters.<br/><br/>Ignored in After Effects.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ParamFlag_LAYER_PARAM_IS_TRACKMATTE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Premiere Pro only: Only valid for layer parameters. Indicates that a layer param is used as a track-matte with applied filters.</p>
+<p>Ignored in After Effects.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ParamFlag_EXCLUDE_FROM_HAVE_INPUTS_CHANGED</code></td>
-<td>Only relevant if the effect sets <a href="../PF_OutData/#pf_outflags">PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT</a> and will call<br/><a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_AreStatesIdentical</a> or <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_HaveInputsChangedOverTimeSpan</a></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ParamFlag_EXCLUDE_FROM_HAVE_INPUTS_CHANGED</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Only relevant if the effect sets <a href="../PF_OutData/#pf_outflags">PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT</a> and will call <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_AreStatesIdentical</a> or <a href="../../effect-details/parameter-supervision/#pf_paramutilsuite3">PF_HaveInputsChangedOverTimeSpan</a></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN</code></td>
-<td>New in CS6. If this parameter is unhidden, then this flag tells After Effects to not twirl open any parents and to not scroll the parameter into view in the Effect Controls panel and the Timeline panel.<br/><br/>After Effects uses this behavior internally when paint strokes are made, so as not to distract the user by revealing the parameter.<br/>However, in another case, when turning on Time Remapping, that parameter is revealed.<br/><br/>So we provide you the same control over parameters in your own effects.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS6. If this parameter is unhidden, then this flag tells After Effects to not twirl open any parents and to not scroll the parameter into view in the Effect Controls panel and the Timeline panel.</p>
+<p>After Effects uses this behavior internally when paint strokes are made, so as not to distract the user by revealing the parameter.</p>
+<p>However, in another case, when turning on Time Remapping, that parameter is revealed.</p>
+<p>So we provide you the same control over parameters in your own effects.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3003,7 +3182,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3066,7 +3245,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

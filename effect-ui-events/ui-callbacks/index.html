@@ -2644,38 +2644,129 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>layer_to_comp</code></td>
-<td>Transforms layer panel coordinates to the composition panel coordinates.<br/><pre>PF_Err layer_to_comp (<br/>  void           *refcon,<br/>  PF_ContextH    context,<br/>  A_long         curr_time,<br/>  A_long         time_scale,<br/>  PF_FixedPoint  *pt);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>layer_to_comp</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Transforms layer panel coordinates to the composition panel coordinates.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">layer_to_comp</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ContextH</span><span class="w">    </span><span class="n">context</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">curr_time</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">time_scale</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_FixedPoint</span><span class="w">  </span><span class="o">*</span><span class="n">pt</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>comp_to_layer</code></td>
-<td>Transforms composition panel coordinates to the layer panel coordinates.<br/><pre>PF_Err comp_to_layer (<br/>  void           *refcon,<br/>  PF_ContextH    context,<br/>  A_long         curr_time,<br/>  A_long         time_scale,<br/>  PF_FixedPoint  *pt);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>comp_to_layer</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Transforms composition panel coordinates to the layer panel coordinates.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">comp_to_layer</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ContextH</span><span class="w">    </span><span class="n">context</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">curr_time</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">time_scale</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_FixedPoint</span><span class="w">  </span><span class="o">*</span><span class="n">pt</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>get_comp2layer_xform</code></td>
-<td>Returns the matrix used to convert from the composition panel to the layer panel.<br/>If <code>*exists</code> returns <code>FALSE</code>, the matrix cannot be computed because the layer scales to zero.<br/><pre>PF_Err get_comp2layer_xform (<br/>  void            *refcon,<br/>  PF_ContextH     context,<br/>  A_long          curr_time,<br/>  long            time_scale,<br/>  long            *exists,<br/>  PF_FloatMatrix  *comp2layer);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>get_comp2layer_xform</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the matrix used to convert from the composition panel to the layer panel.</p>
+<p>If <code>*exists</code> returns <code>FALSE</code>, the matrix cannot be computed because the layer scales to zero.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">get_comp2layer_xform</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ContextH</span><span class="w">     </span><span class="n">context</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">curr_time</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="kt">long</span><span class="w">            </span><span class="n">time_scale</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="kt">long</span><span class="w">            </span><span class="o">*</span><span class="n">exists</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PF_FloatMatrix</span><span class="w">  </span><span class="o">*</span><span class="n">comp2layer</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>get_layer2comp_xform</code></td>
-<td>Returns the transformation matrix used to convert from the layer panel to the composition panel.<br/>This always exists.<br/><pre>PF_Err get_layer2comp_xform (<br/>  void            *refcon,<br/>  PF_ContextH     context,<br/>  A_long          curr_time,<br/>  A_long          time_scale,<br/>  PF_FloatMatrix  *layer2comp);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>get_layer2comp_xform</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the transformation matrix used to convert from the layer panel to the composition panel.</p>
+<p>This always exists.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">get_layer2comp_xform</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ContextH</span><span class="w">     </span><span class="n">context</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">curr_time</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">time_scale</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_FloatMatrix</span><span class="w">  </span><span class="o">*</span><span class="n">layer2comp</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>source_to_frame</code></td>
-<td>Transforms the source coordinates in the current context to screen coordinates.<br/>Screen (frame) coordinates are affected by the current zoom level.<br/><pre>PF_Err source_to_frame(<br/>  void           *refcon,<br/>  PF_ContextH    context,<br/>  PF_FixedPoint  *pt);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>source_to_frame</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Transforms the source coordinates in the current context to screen coordinates.</p>
+<p>Screen (frame) coordinates are affected by the current zoom level.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">source_to_frame</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ContextH</span><span class="w">    </span><span class="n">context</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_FixedPoint</span><span class="w">  </span><span class="o">*</span><span class="n">pt</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>frame_to_source</code></td>
-<td>Transforms the screen coordinates identified by <code>*pt</code> to the source coordinates of the current context.<br/><pre>PF_Err frame_to_source(<br/>  void           *refcon,<br/>  PF_ContextH    context,<br/>  PF_FixedPoint  *pt);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>frame_to_source</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Transforms the screen coordinates identified by <code>*pt</code> to the source coordinates of the current context.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">frame_to_source</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">refcon</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ContextH</span><span class="w">    </span><span class="n">context</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_FixedPoint</span><span class="w">  </span><span class="o">*</span><span class="n">pt</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GET_PLATFORM_DATA</code></td>
-<td>Retrieves platform-specific data. For plug-ins loaded with localized resource files,<br/><code>PF_PlatData_RES_FILE_PATH</code> will point to the external file, not the plug-in file.<br/>Use <code>PF_PlatData_EXE_FILE_PATH</code> if you want the path of your plug-in.<br/><br/>Starting in CS6, use <code>PF_PlatData_EXE_FILE_PATH_W</code> and <code>PF_PlatData_RES_FILE_PATH_W</code><br/>instead of the old non-wide calls.<br/><pre>PF_Err PF_GET_PLATFORM_DATA (<br/>  PF_PlatDataID  which,<br/>  void           *ppData);</pre><br/><br/>PF_PlatDataID can have the following values:<ul><li><code>PF_PlatData_MAIN_WND</code></li><li><code>PF_PlatData_EXE_FILE_PATH_DEPRECATED</code></li><li><code>PF_PlatData_RES_FILE_PATH_DEPRECATED</code></li><li><code>PF_PlatData_RES_REFNUM</code> // macOS</li><li><code>PF_PlatData_RES_DLLINSTANCE</code> // Win</li><li><code>PF_PlatData_BUNDLE_REF</code></li><li><code>PF_PlatData_EXE_FILE_PATH_W</code> // new CS6</li><li><code>PF_PlatData_RES_FILE_PATH_W</code> // new CS6</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GET_PLATFORM_DATA</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves platform-specific data. For plug-ins loaded with localized resource files, <code>PF_PlatData_RES_FILE_PATH</code> will point to the external file, not the plug-in file.</p>
+<p>Use <code>PF_PlatData_EXE_FILE_PATH</code> if you want the path of your plug-in.</p>
+<p>Starting in CS6, use <code>PF_PlatData_EXE_FILE_PATH_W</code> and <code>PF_PlatData_RES_FILE_PATH_W</code> instead of the old non-wide calls.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">PF_GET_PLATFORM_DATA</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_PlatDataID</span><span class="w">  </span><span class="n">which</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">ppData</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>PF_PlatDataID</code> can have the following values:</p>
+<ul>
+<li><code>PF_PlatData_MAIN_WND</code></li>
+<li><code>PF_PlatData_EXE_FILE_PATH_DEPRECATED</code></li>
+<li><code>PF_PlatData_RES_FILE_PATH_DEPRECATED</code></li>
+<li><code>PF_PlatData_RES_REFNUM</code> // macOS</li>
+<li><code>PF_PlatData_RES_DLLINSTANCE</code> // Win</li>
+<li><code>PF_PlatData_BUNDLE_REF</code></li>
+<li><code>PF_PlatData_EXE_FILE_PATH_W</code> // new CS6</li>
+<li><code>PF_PlatData_RES_FILE_PATH_W</code> // new CS6</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2699,7 +2790,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -2762,7 +2853,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

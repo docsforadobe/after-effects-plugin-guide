@@ -2854,18 +2854,18 @@
 <p>Remember, your users (the ones who bought two copies of your plug-in, anyway) may want the same project to work on macOS and Windows.</p>
 <p>After Effects sends <a href="../../effect-basics/command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_RESETUP</a> when the data is reloaded, for either flat or unflat data.</p>
 <p>Use a flag at a common offset within both structures to indicate the data's state.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">A_char</span><span class="o">*</span><span class="w">    </span><span class="n">messageZ</span><span class="p">;</span>
-<span class="w">    </span><span class="n">PF_FpLong</span><span class="w">  </span><span class="n">big_numF</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">void</span><span class="o">*</span><span class="w">      </span><span class="n">temp_storage</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">non_flat_data</span><span class="p">;</span>
-
-<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">char</span><span class="w">       </span><span class="n">message</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-<span class="w">    </span><span class="n">PF_FpLong</span><span class="w">  </span><span class="n">big_numF</span><span class="p">;</span>
-<span class="w">    </span><span class="n">A_Boolean</span><span class="w">  </span><span class="n">big_endianB</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">flat_data</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">    </span><span class="n">A_char</span><span class="o">*</span><span class="w">    </span><span class="n">messageZ</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">    </span><span class="n">PF_FpLong</span><span class="w">  </span><span class="n">big_numF</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="w">    </span><span class="kt">void</span><span class="o">*</span><span class="w">      </span><span class="n">temp_storage</span><span class="p">;</span>
+</span><span id="__span-0-5"><span class="p">}</span><span class="w"> </span><span class="n">non_flat_data</span><span class="p">;</span>
+</span><span id="__span-0-6">
+</span><span id="__span-0-7"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><span class="w">    </span><span class="kt">char</span><span class="w">       </span><span class="n">message</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span id="__span-0-9"><span class="w">    </span><span class="n">PF_FpLong</span><span class="w">  </span><span class="n">big_numF</span><span class="p">;</span>
+</span><span id="__span-0-10"><span class="w">    </span><span class="n">A_Boolean</span><span class="w">  </span><span class="n">big_endianB</span><span class="p">;</span>
+</span><span id="__span-0-11"><span class="p">}</span><span class="w"> </span><span class="n">flat_data</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="resizing-sequence-data">Resizing Sequence Data<a class="headerlink" href="#resizing-sequence-data" title="Permanent link">&para;</a></h2>
 <p>During <a href="../../effect-basics/command-selectors/#sequence-selectors">PF_Cmd_SEQUENCE_SETUP</a>, allocate a handle for data specific to this instance of your effect.</p>
@@ -2891,40 +2891,52 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_GetConstSequenceData</code></td>
-<td>Retrieves the read-only const sequence_data object for a rendering thread when Multi-Frame Rendering is enabled for an effect.<br/><pre>PF_Err(*PF_GetConstSequenceData)(<br/>  PF_ProgPtr effect_ref,<br/>  PF_ConstHandle *sequence_data);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetConstSequenceData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the read-only const sequence_data object for a rendering thread when Multi-Frame Rendering is enabled for an effect.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="p">(</span><span class="o">*</span><span class="n">PF_GetConstSequenceData</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w"> </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ConstHandle</span><span class="w"> </span><span class="o">*</span><span class="n">sequence_data</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="n">PF_Err</span><span class="w"> </span><span class="nf">Render</span><span class="p">(</span>
-<span class="w">    </span><span class="n">PF_InData</span><span class="w">   </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
-<span class="w">    </span><span class="n">PF_OutData</span><span class="w">  </span><span class="o">*</span><span class="n">out_dataP</span><span class="p">,</span>
-<span class="w">    </span><span class="n">PF_ParamDef</span><span class="w"> </span><span class="o">*</span><span class="n">params</span><span class="p">[],</span>
-<span class="w">    </span><span class="n">PF_LayerDef</span><span class="w"> </span><span class="o">*</span><span class="n">output</span><span class="w"> </span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">PF_ConstHandle</span><span class="w"> </span><span class="n">seq_handle</span><span class="p">;</span>
-
-<span class="w">    </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_EffectSequenceDataSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">seqdata_suite</span><span class="w"> </span><span class="o">=</span>
-<span class="w">        </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_EffectSequenceDataSuite1</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">            </span><span class="n">in_dataP</span><span class="p">,</span>
-<span class="w">            </span><span class="n">kPFEffectSequenceDataSuite</span><span class="p">,</span>
-<span class="w">            </span><span class="n">kPFEffectSequenceDataSuiteVersion1</span><span class="p">,</span>
-<span class="w">            </span><span class="n">out_dataP</span><span class="p">);</span>
-
-<span class="w">    </span><span class="n">PF_ConstHandle</span><span class="w"> </span><span class="n">const_seq</span><span class="p">;</span>
-<span class="w">    </span><span class="n">seqdata_suite</span><span class="o">-&gt;</span><span class="n">PF_GetConstSequenceData</span><span class="p">(</span><span class="n">in_data</span><span class="o">-&gt;</span><span class="n">effect_ref</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">const_seq</span><span class="p">);</span>
-
-<span class="w">    </span><span class="c1">// cast const_seq to the type used when storing to sequence_data</span>
-
-<span class="w">    </span><span class="c1">// rest of render function code...</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="k">static</span><span class="w"> </span><span class="n">PF_Err</span><span class="w"> </span><span class="nf">Render</span><span class="p">(</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="n">PF_InData</span><span class="w">   </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-1-3"><span class="w">    </span><span class="n">PF_OutData</span><span class="w">  </span><span class="o">*</span><span class="n">out_dataP</span><span class="p">,</span>
+</span><span id="__span-1-4"><span class="w">    </span><span class="n">PF_ParamDef</span><span class="w"> </span><span class="o">*</span><span class="n">params</span><span class="p">[],</span>
+</span><span id="__span-1-5"><span class="w">    </span><span class="n">PF_LayerDef</span><span class="w"> </span><span class="o">*</span><span class="n">output</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-1-6"><span class="p">{</span>
+</span><span id="__span-1-7"><span class="w">    </span><span class="n">PF_ConstHandle</span><span class="w"> </span><span class="n">seq_handle</span><span class="p">;</span>
+</span><span id="__span-1-8">
+</span><span id="__span-1-9"><span class="w">    </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_EffectSequenceDataSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">seqdata_suite</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-1-10"><span class="w">        </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_EffectSequenceDataSuite1</span><span class="o">&gt;</span><span class="p">(</span>
+</span><span id="__span-1-11"><span class="w">            </span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-1-12"><span class="w">            </span><span class="n">kPFEffectSequenceDataSuite</span><span class="p">,</span>
+</span><span id="__span-1-13"><span class="w">            </span><span class="n">kPFEffectSequenceDataSuiteVersion1</span><span class="p">,</span>
+</span><span id="__span-1-14"><span class="w">            </span><span class="n">out_dataP</span><span class="p">);</span>
+</span><span id="__span-1-15">
+</span><span id="__span-1-16"><span class="w">    </span><span class="n">PF_ConstHandle</span><span class="w"> </span><span class="n">const_seq</span><span class="p">;</span>
+</span><span id="__span-1-17"><span class="w">    </span><span class="n">seqdata_suite</span><span class="o">-&gt;</span><span class="n">PF_GetConstSequenceData</span><span class="p">(</span><span class="n">in_data</span><span class="o">-&gt;</span><span class="n">effect_ref</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">const_seq</span><span class="p">);</span>
+</span><span id="__span-1-18">
+</span><span id="__span-1-19"><span class="w">    </span><span class="c1">// cast const_seq to the type used when storing to sequence_data</span>
+</span><span id="__span-1-20">
+</span><span id="__span-1-21"><span class="w">    </span><span class="c1">// rest of render function code...</span>
+</span><span id="__span-1-22"><span class="p">}</span>
+</span></code></pre></div>
 
 
 
@@ -2945,7 +2957,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3008,7 +3020,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

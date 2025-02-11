@@ -2830,300 +2830,1010 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Response</th>
-<th>I or O?</th>
-<th>Required?</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Response</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>I or O?</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Required?</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEIO_InitInSpecFromFile</code></td>
-<td>Given a file path, describe its contents to After Effects in the provided <code>AEIO_InSpecH</code>.<br/>Use all appropriate "set" calls from the <a href="#aegp_ioinsuite5">AEGP_IOInSuite</a>) to do so;<br/>if there is image data, set its depth, dimensions, and alpha interpretation.<br/>If there is audio, describe its channels and sample rate.<br/><br/>The file path is a NULL-terminated UTF-16 string with platform separators.<br/><pre>AEIO_InitInSpecFromFile(<br/>  AEIO_BasicData     *basic_dataP,<br/>  const A_UTF16Char  *file_pathZ,<br/>  AEIO_InSpecH       inH);</pre></td>
-<td>Input</td>
-<td>Yes, for file-based media</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_InitInSpecFromFile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a file path, describe its contents to After Effects in the provided <code>AEIO_InSpecH</code>.
+Use all appropriate "set" calls from the <a href="#aegp_ioinsuite5">AEGP_IOInSuite</a> to do so; if there is image data, set its depth, dimensions, and alpha interpretation.
+If there is audio, describe its channels and sample rate.</p>
+<p>The file path is a NULL-terminated UTF-16 string with platform separators.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_InitInSpecFromFile</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">     </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_UTF16Char</span><span class="w">  </span><span class="o">*</span><span class="n">file_pathZ</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">       </span><span class="n">inH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes, for file-based media</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_InitInSpecInteractive</code></td>
-<td>Using some form of user interaction (and not a file path provided by After Effects),<br/>describe the audio and video your generated AEIO_InSpecH contains.<br/><pre>AEIO_InitInSpecInteractive(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH);</pre></td>
-<td>Input</td>
-<td>Yes, for interactiv ely generated media</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_InitInSpecInteractive</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Using some form of user interaction (and not a file path provided by After Effects), describe the audio and video your generated AEIO_InSpecH contains.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_InitInSpecInteractive</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes, for interactiv ely generated media</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_DisposeInSpec</code></td>
-<td>Free an <code>AEIO_InSpecH</code>.<br/><pre>AEIO_DisposeInSpec(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH);</pre></td>
-<td>Input</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_DisposeInSpec</code>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Free an <code>AEIO_InSpecH</code>.
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_DisposeInSpec</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes
+</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_FlattenOptions</code></td>
-<td>For the given <code>AEIO_InSpecH</code>, return a flattened version of the data contained in its options handle.<br/>Obtain the unflattened options handle using <code>AEGP_GetInSpecOptionsHandle</code>.<br/><pre>AEIO_FlattenOptions(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  AEIO_Handle     *flat_optionsPH);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_FlattenOptions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>For the given <code>AEIO_InSpecH</code>, return a flattened version of the data contained in its options handle.</p>
+<p>Obtain the unflattened options handle using <code>AEGP_GetInSpecOptionsHandle</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_FlattenOptions</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_Handle</span><span class="w">     </span><span class="o">*</span><span class="n">flat_optionsPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_InflateOptions</code></td>
-<td>For the given <code>AEIO_InSpecH</code>, create (using <code>AEGP_SetInSpecOptionsHandle</code>)<br/>an unflattened version of its flattened option data.<br/><pre>AEIO_InflateOptions(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  AEIO_Handle     flat_optionsH);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_InflateOptions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>For the given <code>AEIO_InSpecH</code>, create (using <code>AEGP_SetInSpecOptionsHandle</code>) an unflattened version of its flattened option data.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_InflateOptions</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_Handle</span><span class="w">     </span><span class="n">flat_optionsH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_SynchInSpec</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed.<br/>Inspect the <code>AEIO_InSpecH</code>, update its options if necessary), and indicate whether or not you made changes.<br/><pre>AEIO_SynchInSpec(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  A_Boolean       *changed0);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_SynchInSpec</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Inspect the <code>AEIO_InSpecH</code>, (update its options if necessary), and indicate whether or not you made changes.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_SynchInSpec</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="o">*</span><span class="n">changed0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetActiveExtent</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed.<br/>Populate the provided <code>A_LRect</code> with the active extent of the file's pixels at the given time.<br/><pre>AEIO_GetActiveExtent(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  const A_Time    *tr,<br/>  A_LRect         *extent);</pre></td>
-<td>Input</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetActiveExtent</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Populate the provided <code>A_LRect</code> with the active extent of the file's pixels at the given time.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetActiveExtent</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">    </span><span class="o">*</span><span class="n">tr</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_LRect</span><span class="w">         </span><span class="o">*</span><span class="n">extent</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetInSpecInfo</code></td>
-<td>Provide a few strings in <code>AEIO_Verbiage</code> to describe the file, which will appear in the Project panel.<br/>This includes the strings used to describe the file type and subtype (the codec).<br/><pre>AEIO_GetInSpecInfo(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  AEIO_Verbiage   *verbiageP);</pre><br/><br/>This function gets called OFTEN; every time we refresh the project panel.<br/>Keep allocations to a minimum.<br/>In the AEIOs that ship with After Effects, we check for a valid <code>optionsH</code> (using <code>AEGP_GetInSpecOptionsHandle</code>);<br/>if we find one, we use the information from within it. If not, we do nothing.<br/><br/>This is important; if your AEIO handles still images, this function *will* get called for the folder containing the stills.<br/>Hopefully, there won't be an optionsH associated with it (unless you're writing a truly bizarre AEIO).</td>
-<td>Input</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetInSpecInfo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Provide a few strings in <code>AEIO_Verbiage</code> to describe the file, which will appear in the Project panel. This includes the strings used to describe the file type and subtype (the codec).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetInSpecInfo</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_Verbiage</span><span class="w">   </span><span class="o">*</span><span class="n">verbiageP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>This function gets called OFTEN; every time we refresh the project panel. Keep allocations to a minimum.</p>
+<p>In the AEIOs that ship with After Effects, we check for a valid <code>optionsH</code> (using <code>AEGP_GetInSpecOptionsHandle</code>); if we find one, we use the information from within it. If not, we do nothing.</p>
+<p>This is important; if your AEIO handles still images, this function <em>will</em> get called for the folder containing the stills. Hopefully, there won't be an optionsH associated with it (unless you're writing a truly bizarre AEIO).</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_DrawSparseFrame</code></td>
-<td>Draw a frame from the <code>AEIO_InSpecH</code>.<br/>The <code>PF_EffectWorld*</code> contains the width and height to use, but make sure you take the required_region0 into account, if it's not NULL.<br/><pre>AEIO_DrawSparseFrame(<br/>  AEIO_BasicData            *basic_dataP,<br/>  AEIO_InSpecH              inH,<br/>  AEIO_Quality              qual,<br/>  const AEIO_RationalScale  *rs0,<br/>  const A_Time              *tr,<br/>  const A_Time              *duration0,<br/>  const A_Rect               *required_region0,<br/>  PF_EffectWorld            *wP,<br/>  A_long<em>                   originx,<br/>  A_long</em>                   originy,<br/>  AEIO_DrawingFlags         *draw_flagsP);</pre><br/><br/>NOTE: return data as linear light (1.0), and After Effects<br/>will perform any necessary transformations to bring the footage into the working colorspace.</td>
-<td>Input</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_DrawSparseFrame</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Draw a frame from the <code>AEIO_InSpecH</code>.</p>
+<p>The <code>PF_EffectWorld*</code> contains the width and height to use, but make sure you take the required_region0 into account, if it's not <code>NULL</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_DrawSparseFrame</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">            </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">              </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_Quality</span><span class="w">              </span><span class="n">qual</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">AEIO_RationalScale</span><span class="w">  </span><span class="o">*</span><span class="n">rs0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">              </span><span class="o">*</span><span class="n">tr</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">              </span><span class="o">*</span><span class="n">duration0</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Rect</span><span class="w">               </span><span class="o">*</span><span class="n">required_region0</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">            </span><span class="o">*</span><span class="n">wP</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">A_long</span><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="w">                   </span><span class="n">originx</span><span class="p">,</span>
+</span><span id="__span-0-11"><span class="w">  </span><span class="n">A_long</span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="w">                   </span><span class="n">originy</span><span class="p">,</span>
+</span><span id="__span-0-12"><span class="w">  </span><span class="n">AEIO_DrawingFlags</span><span class="w">         </span><span class="o">*</span><span class="n">draw_flagsP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>NOTE: return data as linear light (1.0), and After Effects will perform any necessary transformations to bring the footage into the working colorspace.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetDimensions</code></td>
-<td>AEIO_Err_USE_DFLT_CALLBACK allowed. Provide the dimensions (and, if necessary, scaling factor) of the video in the AEIO_InSpecH.<br/><pre>AEIO_GetDimensions(<br/>  AEIO_BasicData            *basic_dataP,<br/>  AEIO_InSpecH              inH,<br/>  const AEIO_RationalScale  *rs0,<br/>  A_long                    *width0,<br/>  A_long                    *height0);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetDimensions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Provide the dimensions (and, if necessary, scaling factor) of the video in the AEIO_InSpecH.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetDimensions</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">            </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">              </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">AEIO_RationalScale</span><span class="w">  </span><span class="o">*</span><span class="n">rs0</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">                    </span><span class="o">*</span><span class="n">width0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_long</span><span class="w">                    </span><span class="o">*</span><span class="n">height0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetDuration</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Provide the duration of an <code>AEIO_InSpecH</code>, in seconds.<br/><pre>AEIO_GetDuration(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  A_Time          *trP);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetDuration</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Provide the duration of an <code>AEIO_InSpecH</code>, in seconds.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetDuration</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Time</span><span class="w">          </span><span class="o">*</span><span class="n">trP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetTime</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Provide the timebase of an <code>AEIO_InSpecH</code>.<br/><pre>AEIO_GetTime(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  A_Time          *tr);</pre><br/><br/>Here are the values we use internally for common timebases:<br/><br/>29.97 fps: scale = 100; value= 2997;<br/>59.94 fps: scale = 50; value = 2997;<br/>23.976 fps: scale = 125; value = 2997;<br/>30 fps: scale = 1; value = 30;<br/>25 fps: scale = 1; value = 25;</td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Provide the timebase of an <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Time</span><span class="w">          </span><span class="o">*</span><span class="n">tr</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>Here are the values we use internally for common timebases:</p>
+<ul>
+<li>29.97 fps: <code>scale = 100; value= 2997;</code></li>
+<li>59.94 fps: <code>scale = 50; value = 2997;</code></li>
+<li>23.976 fps: <code>scale = 125; value = 2997;</code></li>
+<li>30 fps: <code>scale = 1; value = 30;</code></li>
+<li>25 fps: <code>scale = 1; value = 25;</code></li>
+</ul>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetSound</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Provide sound from an <code>AEIO_InSpecH</code>, at the quality described.<br/><pre>AEIO_GetSound(<br/>  AEIO_BasicData             *basic_dataP,<br/>  AEIO_InSpecH               inH,<br/>  AEIO_SndQuality            quality,<br/>  const AEIO_InterruptFuncs  *interrupt_funcsP0,<br/>  const A_Time               *startPT,<br/>  const A_Time               *durPT,<br/>  A_u_long                   start_sampLu,<br/>  A_u_long                   num_samplesLu,<br/>  void                       *dataPV);</pre><br/><br/><code>AEIO_SndQuality</code> may be:<ul><li><code>AEIO_SndQuality_APPROX</code>, (this quality is used to draw the audio waveform)</li><li><code>AEIO_SndQuality_LO</code>,</li><li><code>AEIO_SndQuality_HI</code></li></ul></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetSound</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Provide sound from an <code>AEIO_InSpecH</code>, at the quality described.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetSound</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">             </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">               </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_SndQuality</span><span class="w">            </span><span class="n">quality</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">AEIO_InterruptFuncs</span><span class="w">  </span><span class="o">*</span><span class="n">interrupt_funcsP0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">               </span><span class="o">*</span><span class="n">startPT</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">               </span><span class="o">*</span><span class="n">durPT</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">A_u_long</span><span class="w">                   </span><span class="n">start_sampLu</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">A_u_long</span><span class="w">                   </span><span class="n">num_samplesLu</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="kt">void</span><span class="w">                       </span><span class="o">*</span><span class="n">dataPV</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>AEIO_SndQuality</code> may be:</p>
+<ul>
+<li><code>AEIO_SndQuality_APPROX</code>, (this quality is used to draw the audio waveform)</li>
+<li><code>AEIO_SndQuality_LO</code>,</li>
+<li><code>AEIO_SndQuality_HI</code></li>
+</ul>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_InqNextFrameTime</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed.<br/>Provide the time of the next frame (in the source footage's timebase) within the <code>AEIO_InSpecH</code>.<br/><pre>AEIO_InqNextFrameTime(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  const A_Time    *base_time_tr,<br/>  AEIO_TimeDir    time_dir,<br/>  A_Boolean       *found0,<br/>  A_Time          *key_time_tr0);</pre></td>
-<td>Input</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_InqNextFrameTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed.</p>
+<p>Provide the time of the next frame (in the source footage's timebase) within the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_InqNextFrameTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">    </span><span class="o">*</span><span class="n">base_time_tr</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">AEIO_TimeDir</span><span class="w">    </span><span class="n">time_dir</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="o">*</span><span class="n">found0</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_Time</span><span class="w">          </span><span class="o">*</span><span class="n">key_time_tr0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_InitOutputSpec</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed.<br/>Perform any initialization necessary for a new <code>AEIO_OutSpecH</code>, and indicate whether you made changes.<br/><pre>AEIO_InitOutputSpec(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  A_Boolean       *user_interacted);</pre><br/><br/>NOTE: The first time your AEIO is used, After Effects caches the last-known-good optionsH in its preferences.<br/>When testing this function, <a href="../../intro/debugging-plug-ins/#deleting-preferences">delete your preferences</a> often.</td>
-<td>Output</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_InitOutputSpec</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed.</p>
+<p>Perform any initialization necessary for a new <code>AEIO_OutSpecH</code>, and indicate whether you made changes.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_InitOutputSpec</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="o">*</span><span class="n">user_interacted</span><span class="p">);</span>
+</span></code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first time your AEIO is used, After Effects caches the last-known-good <code>optionsH</code> in its preferences.</p>
+</div>
+<p>When testing this function, <a href="../../intro/debugging-plug-ins/#deleting-preferences">delete your preferences</a> often.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetFlatOutputOptions</code></td>
-<td>Describe (in an <code>AEIO_Handle</code>) the output options for an <code>AEIO_OutSpecH</code>,<br/>in a disk-safe flat data structure (one that does not reference external memory).<br/>Note that your output options must be cross-platform, so pay attention to byte ordering issues.<br/><pre>AEIO_GetFlatOutputOptions(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  AEIO_Handle     *optionsH);</pre></td>
-<td>Output</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetFlatOutputOptions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Describe (in an <code>AEIO_Handle</code>) the output options for an <code>AEIO_OutSpecH</code>, in a disk-safe flat data structure (one that does not reference external memory).</p>
+<p>Note that your output options must be cross-platform, so pay attention to byte ordering issues.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetFlatOutputOptions</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_Handle</span><span class="w">     </span><span class="o">*</span><span class="n">optionsH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_DisposeOutputOptions</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Free the memory for the output options passed in.<br/><pre>AEIO_DisposeOutputOptions(<br/>  AEIO_BasicData  *basic_dataP,<br/>  void            *optionsPV);</pre></td>
-<td>Output</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_DisposeOutputOptions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Free the memory for the output options passed in.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_DisposeOutputOptions</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">optionsPV</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_UserOptionsDialog</code></td>
-<td>Display an output settings dialog (select TIFF output within After Effects to see when this dialog will occur).<br/>Store this information in an options handle using <code>AEGP_SetInSpecOptionsHandle</code>.<br/><pre>AEIO_UserOptionsDialog(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  PF_EffectWorld  *sample0,<br/>  A_Boolean       *interacted0);</pre></td>
-<td>Output</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_UserOptionsDialog</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Display an output settings dialog (select TIFF output within After Effects to see when this dialog will occur).</p>
+<p>Store this information in an options handle using <code>AEGP_SetInSpecOptionsHandle</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_UserOptionsDialog</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">sample0</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="o">*</span><span class="n">interacted0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetOutputInfo</code></td>
-<td>Describe (in text) the output options in an <code>AEIO_OutSpecH</code>.<br/><pre>AEIO_GetOutputInfo(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  AEIO_Verbiage   *verbiage);</pre></td>
-<td></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetOutputInfo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Describe (in text) the output options in an <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetOutputInfo</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_Verbiage</span><span class="w">   </span><span class="o">*</span><span class="n">verbiage</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>AEIO_OutputInfoChanged</code></td>
-<td>Update the <code>AEIO_OutSpecH</code> based on the current settings (using the various Get functions to obtain them).<br/><pre>AEIO_OutputInfoChanged(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH);</pre></td>
-<td>Output</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_OutputInfoChanged</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Update the <code>AEIO_OutSpecH</code> based on the current settings (using the various Get functions to obtain them).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_OutputInfoChanged</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_SetOutputFile</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Set the file path for output of an <code>AEIO_OutSpecH</code>.<br/>Return <code>AEIO_Err_USE_DEFAULT_CALLBACK</code> unless you've changed the path.<br/><br/>The file path is a NULL-terminated UTF-16 string with platform separators.<br/><pre>AEIO_SetOutputFile(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  A_UTF16Char     *file_pathZ);</pre></td>
-<td>Output</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_SetOutputFile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Set the file path for output of an <code>AEIO_OutSpecH</code>.</p>
+<p>Return <code>AEIO_Err_USE_DEFAULT_CALLBACK</code> unless you've changed the path.</p>
+<p>The file path is a NULL-terminated UTF-16 string with platform separators.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_SetOutputFile</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_UTF16Char</span><span class="w">     </span><span class="o">*</span><span class="n">file_pathZ</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_StartAdding</code></td>
-<td>Prepare to add frames to the output file.<br/>This is a good time to create the ouput file(s) on disk, and to write any header information to such files.<br/>This is also your first opportunity to allocate pixel buffers based on valid output spec values.<br/><pre>AEIO_StartAdding(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  A_long          flags);</pre></td>
-<td>Output</td>
-<td>Yes, for writing formats that support multiple frames</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_StartAdding</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Prepare to add frames to the output file.</p>
+<p>This is a good time to create the ouput file(s) on disk, and to write any header information to such files. This is also your first opportunity to allocate pixel buffers based on valid output spec values.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_StartAdding</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">flags</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes, for writing formats that support multiple frames</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_AddFrame</code></td>
-<td>Add frame(s) to output file. You may pass a pointer to a function you want called if the user interrupts the render.<br/><pre>AEIO_AddFrame(<br/>  AEIO_BasicData       *basic_dataP,<br/>  AEIO_OutSpecH        outH,<br/>  A_long               frame_index,<br/>  A_long               frames,<br/>  PF_EffectWorld       *wP,<br/>  const A_LPoint       *origin0,<br/>  A_Boolean            was_compressedB,<br/>  AEIO_InterruptFuncs  *inter0);</pre></td>
-<td>Output</td>
-<td>Yes, for writing formats that support multiple frames</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_AddFrame</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Add frame(s) to output file. You may pass a pointer to a function you want called if the user interrupts the render.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_AddFrame</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">       </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">        </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">               </span><span class="n">frame_index</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">               </span><span class="n">frames</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">       </span><span class="o">*</span><span class="n">wP</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_LPoint</span><span class="w">       </span><span class="o">*</span><span class="n">origin0</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">            </span><span class="n">was_compressedB</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">AEIO_InterruptFuncs</span><span class="w">  </span><span class="o">*</span><span class="n">inter0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes, for writing formats that support multiple frames</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_EndAdding</code></td>
-<td>Perform any clean-up associated with adding frames.<br/><pre>AEIO_EndAdding(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  A_long          flags);</pre></td>
-<td>Output</td>
-<td>Yes, for writing formats that support multiple frames</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_EndAdding</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Perform any clean-up associated with adding frames.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_EndAdding</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">flags</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes, for writing formats that support multiple frames</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_OutputFrame</code></td>
-<td>Output a single frame.<br/><pre>AEIO_OutputFrame(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  PF_EffectWorld  *wP);</pre></td>
-<td>Output</td>
-<td>Yes, for writing formats that support a single frame</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_OutputFrame</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output a single frame.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_OutputFrame</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">wP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes, for writing formats that support a single frame</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_WriteLabels</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Set alpha interpretation and field usage information for the <code>AEIO_OutSpecH</code>.<br/>Indicate in <code>AEIO_LabelFlags</code> which flags you wrote.<br/><pre>AEIO_WriteLabels(<br/>  AEIO_BasicData   *basic_dataP,<br/>  AEIO_OutSpecH    outH,<br/>  AEIO_LabelFlags  *written);</pre></td>
-<td>Output</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_WriteLabels</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Set alpha interpretation and field usage information for the <code>AEIO_OutSpecH</code>.</p>
+<p>Indicate in <code>AEIO_LabelFlags</code> which flags you wrote.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_WriteLabels</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">   </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">    </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_LabelFlags</span><span class="w">  </span><span class="o">*</span><span class="n">written</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetSizes</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Provide information about file size and remaining free space on output volume.<br/><pre>AEIO_GetSizes(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  A_u_longlong    *free_space,<br/>  A_u_longlong    *file_size);</pre></td>
-<td>Output</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetSizes</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Provide information about file size and remaining free space on output volume.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetSizes</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_u_longlong</span><span class="w">    </span><span class="o">*</span><span class="n">free_space</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_u_longlong</span><span class="w">    </span><span class="o">*</span><span class="n">file_size</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_Flush</code></td>
-<td>Destroy any options or user data associated with the <code>OutSpecH</code>.<br/><pre>AEIO_Flush(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH);</pre></td>
-<td></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Flush</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Destroy any options or user data associated with the <code>OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_Flush</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>AEIO_AddSoundChunk</code></td>
-<td>Add the given sound to the output file.<br/><pre>AEIO_AddSoundChunk(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  const A_Time    *start,<br/>  AEIO_SndWorldH  swH);</pre></td>
-<td>Output</td>
-<td>Yes, for writing formats with audio</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_AddSoundChunk</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Add the given sound to the output file.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_AddSoundChunk</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">    </span><span class="o">*</span><span class="n">start</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">AEIO_SndWorldH</span><span class="w">  </span><span class="n">swH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes, for writing formats with audio</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_Idle</code></td>
-<td>Optional. Do something with idle time. <code>AEIO_Err_USE_DFLT_CALLBACK</code> is not supported.<br/><pre>AEIO_Idle(<br/>  AEIO_BasicData        *basic_dataP,<br/>  AEIO_ModuleSignature  sig,<br/>  AEIO_IdleFlags        *idle_flags0);</pre></td>
-<td>Output</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Idle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Optional. Do something with idle time. <code>AEIO_Err_USE_DFLT_CALLBACK</code> is not supported.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_Idle</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">        </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_ModuleSignature</span><span class="w">  </span><span class="n">sig</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_IdleFlags</span><span class="w">        </span><span class="o">*</span><span class="n">idle_flags0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetDepths</code></td>
-<td>Set <code>AEIO_OptionsFlags</code> to indicate which pixel and color depths are valid for your output format.<br/>See the discussion on <a href="../implementation-details/#implementation-details">Export Bit-Depth</a>.<br/><pre>AEIO_GetDepths(<br/>  AEIO_BasicData     *basic_dataP,<br/>  AEIO_OutSpecH      outH,<br/>  AEIO_OptionsFlags  *which);</pre></td>
-<td>Output</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetDepths</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set <code>AEIO_OptionsFlags</code> to indicate which pixel and color depths are valid for your output format.</p>
+<p>See the discussion on <a href="../implementation-details/#implementation-details">Export Bit-Depth</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetDepths</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">     </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">      </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEIO_OptionsFlags</span><span class="w">  </span><span class="o">*</span><span class="n">which</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetOutputSuffix</code></td>
-<td><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Describe the three character extension for the output file.<br/><pre>AEIO_GetOutputSuffix(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  A_char          *suffix);</pre></td>
-<td>Output</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetOutputSuffix</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Err_USE_DFLT_CALLBACK</code> allowed. Describe the three character extension for the output file.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetOutputSuffix</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_char</span><span class="w">          </span><span class="o">*</span><span class="n">suffix</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_SeqOptionsDlg</code></td>
-<td>Display a footage options dialog, and indicate whether the user made any changes.<br/><pre>AEIO_SeqOptionsDlg(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  A_Boolean       *interactedPB);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_SeqOptionsDlg</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Display a footage options dialog, and indicate whether the user made any changes.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_SeqOptionsDlg</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="o">*</span><span class="n">interactedPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetNumAuxChannels</code></td>
-<td>Enumerate the auxiliary (beyond red, green, blue and alpha) channels of data contained in an <code>AEIO_InSpecH</code>.<br/><pre>AEIO_GetNumAuxChannels(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  A_long          *num_channelsPL);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetNumAuxChannels</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Enumerate the auxiliary (beyond red, green, blue and alpha) channels of data contained in an <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetNumAuxChannels</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="o">*</span><span class="n">num_channelsPL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetAuxChannelDesc</code></td>
-<td>Describe the data type, name, channel, and dimensionality of an auxiliary data channel.<br/><pre>AEIO_GetAuxChannelDesc(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  long            chan_indexL,<br/>  PF_ChannelDesc  *descP);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetAuxChannelDesc</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Describe the data type, name, channel, and dimensionality of an auxiliary data channel.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetAuxChannelDesc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">long</span><span class="w">            </span><span class="n">chan_indexL</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_ChannelDesc</span><span class="w">  </span><span class="o">*</span><span class="n">descP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_DrawAuxChannel</code></td>
-<td>Draw the auxiliary channel(s) from an <code>AEIO_InSpecH</code>.<br/><pre>AEIO_DrawAuxChannel(<br/>  AEIO_BasicData          *basic_dataP,<br/>  AEIO_InSpecH            inH,<br/>  A_long                  chan_indexL,<br/>  const AEIO_DrawFramePB  *pbP,<br/>  PF_ChannelChunk         *chunkP);</pre></td>
-<td></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_DrawAuxChannel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Draw the auxiliary channel(s) from an <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_DrawAuxChannel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">          </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">            </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">                  </span><span class="n">chan_indexL</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">AEIO_DrawFramePB</span><span class="w">  </span><span class="o">*</span><span class="n">pbP</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_ChannelChunk</span><span class="w">         </span><span class="o">*</span><span class="n">chunkP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>AEIO_FreeAuxChannel</code></td>
-<td>Free data associated with an auxiliary channel.<br/><pre>AEIO_FreeAuxChannel(<br/>  AEIO_BasicData   *basic_dataP,<br/>  AEIO_InSpecH     inH,<br/>  PF_ChannelChunk  *chunkP);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_FreeAuxChannel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Free data associated with an auxiliary channel.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_FreeAuxChannel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">   </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">     </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ChannelChunk</span><span class="w">  </span><span class="o">*</span><span class="n">chunkP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_Num</code> AuxFiles</td>
-<td>Enumerate the files needed to render the given <code>AEIO_InSpecH</code>.<br/>This function and <code>AEIO_GetNthAuxFileSpec</code> will be called when the user chooses <code>File &gt; Dependencies &gt; Collect Files...</code><br/>Here your AEIO tells AE what the associated files are.<br/><pre>AEIO_NumAuxFiles(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    seqH,<br/>  A_long          *files_per_framePL);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_Num</code> AuxFiles</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Enumerate the files needed to render the given <code>AEIO_InSpecH</code>.</p>
+<p>This function and <code>AEIO_GetNthAuxFileSpec</code> will be called when the user chooses <code>File &gt; Dependencies &gt; Collect Files...</code>. Here your AEIO tells AE what the associated files are.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_NumAuxFiles</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">seqH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="o">*</span><span class="n">files_per_framePL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetNthAuxFileSpec</code></td>
-<td>Retrieve data from the nth auxiliary file, for the specified frame.<br/>The path is a handle to a NULL-terminated A_UTF16Char string, and must be disposed with <code>AEGP_FreeMemHandle</code>.<br/><pre>AEIO_GetNthAuxFileSpec(<br/>  AEIO_BasicData *basic_dataP,<br/>  AEIO_InSpecH   seqH,<br/>  A_long         frame_numL,<br/>  A_long         n,<br/>  AEGP_MemHandle *pathPH);</pre></td>
-<td>Input</td>
-<td>No, if no aux files</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetNthAuxFileSpec</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieve data from the nth auxiliary file, for the specified frame.</p>
+<p>The path is a handle to a NULL-terminated A_UTF16Char string, and must be disposed with <code>AEGP_FreeMemHandle</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetNthAuxFileSpec</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w"> </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">   </span><span class="n">seqH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">frame_numL</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">n</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">AEGP_MemHandle</span><span class="w"> </span><span class="o">*</span><span class="n">pathPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No, if no aux files</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_CloseSourceFiles</code></td>
-<td>Close (or open, depending upon closeB) the source files for an <code>AEIO_InSpecH</code>.<br/>When the user Collects Files, the AEIO will first be asked to close its source files, then re-open them.<br/><pre>AEIO_CloseSourceFiles(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    seqH,<br/>  A_Boolean       closeB);</pre><br/><br/><code>TRUE</code> for close, <code>FALSE</code> for open.</td>
-<td>Input</td>
-<td>Yes</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_CloseSourceFiles</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Close (or open, depending upon closeB) the source files for an <code>AEIO_InSpecH</code>.</p>
+<p>When the user Collects Files, the AEIO will first be asked to close its source files, then re-open them.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_CloseSourceFiles</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">seqH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="n">closeB</span><span class="p">);</span>
+</span></code></pre></div></p>
+<ul>
+<li><code>TRUE</code> for close</li>
+<li><code>FALSE</code> for open.</li>
+</ul>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_CountUserData</code></td>
-<td>Enumerate the units of user data associated with the <code>AEIO_InSpecH</code>.<br/><pre>AEIO_CountUserData(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  A_u_long        typeLu,<br/>  A_u_long        max_sizeLu,<br/>  A_u_long        *num_of_typePLu);</pre></td>
-<td></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_CountUserData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Enumerate the units of user data associated with the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_CountUserData</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_u_long</span><span class="w">        </span><span class="n">typeLu</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_u_long</span><span class="w">        </span><span class="n">max_sizeLu</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_u_long</span><span class="w">        </span><span class="o">*</span><span class="n">num_of_typePLu</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>AEIO_SetUserData</code></td>
-<td>Set user data (of the given index and type) for the given <code>AEIO_OutSpecH</code>.<br/><pre>AEIO_SetUserData(<br/>  AEIO_BasicData     *basic_dataP,<br/>  AEIO_OutSpecH      outH,<br/>  A_u_long           typeLu,<br/>  A_u_long           indexLu,<br/>  const AEIO_Handle  dataH);</pre></td>
-<td>Output</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_SetUserData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set user data (of the given index and type) for the given <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_SetUserData</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">     </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">      </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_u_long</span><span class="w">           </span><span class="n">typeLu</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_u_long</span><span class="w">           </span><span class="n">indexLu</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">AEIO_Handle</span><span class="w">  </span><span class="n">dataH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetUserData</code></td>
-<td>Describe the user data (at the index and of the type given) associated with the <code>AEIO_InSpecH</code>.<br/><pre>AEIO_GetUserData(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_InSpecH    inH,<br/>  A_u_long        typeLu,<br/>  A_u_long        indexLu,<br/>  A_u_long        max_sizeLu,<br/>  AEIO_Handle     *dataPH);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetUserData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Describe the user data (at the index and of the type given) associated with the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetUserData</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_u_long</span><span class="w">        </span><span class="n">typeLu</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_u_long</span><span class="w">        </span><span class="n">indexLu</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_u_long</span><span class="w">        </span><span class="n">max_sizeLu</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">AEIO_Handle</span><span class="w">     </span><span class="o">*</span><span class="n">dataPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_AddMarker</code></td>
-<td>Associate a marker of the specified type, at the specified frame, with the <code>AEIO_OutSpecH</code>.<br/>You may provide an interrupt function to handle user cancellation of this action.<br/><pre>AEIO_AddMarker(<br/>  AEIO_BasicData       *basic_dataP,<br/>  AEIO_OutSpecH        outH,<br/>  A_long               frame_index,<br/>  AEIO_MarkerType      marker_type,<br/>  void                 *marker_dataPV,<br/>  AEIO_InterruptFuncs  *inter0);</pre></td>
-<td>Output</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_AddMarker</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Associate a marker of the specified type, at the specified frame, with the <code>AEIO_OutSpecH</code>.</p>
+<p>You may provide an interrupt function to handle user cancellation of this action.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_AddMarker</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">       </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">        </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">               </span><span class="n">frame_index</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">AEIO_MarkerType</span><span class="w">      </span><span class="n">marker_type</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="kt">void</span><span class="w">                 </span><span class="o">*</span><span class="n">marker_dataPV</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">AEIO_InterruptFuncs</span><span class="w">  </span><span class="o">*</span><span class="n">inter0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_VerifyFileImportable</code></td>
-<td>Indicate (by setting importablePB) whether or not the plug-in can import the file.<br/>Note that After Effects has already done basic extension checking; you may wish to open the file and determine whether or not it's valid.<br/>This can be a time-consuming process; most AEIOs that ship with After Effects simply return TRUE,<br/>and deal with bad files during <code>AEIO_InitInSpecFromFile</code>.<br/><br/>The file path is a NULL-terminated UTF-16 string with platform separators.<br/><pre>AEIO_VerifyFileImportable(<br/>  AEIO_BasicData        *basic_dataP,<br/>  AEIO_ModuleSignature  sig,<br/>  const A_UTF16Char     *file_pathZ,<br/>  A_Boolean             *importablePB);</pre></td>
-<td>Input</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_VerifyFileImportable</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Indicate (by setting <code>importablePB</code>) whether or not the plug-in can import the file.</p>
+<p>Note that After Effects has already done basic extension checking; you may wish to open the file and determine whether or not it's valid.</p>
+<p>This can be a time-consuming process; most AEIOs that ship with After Effects simply return TRUE, and deal with bad files during <code>AEIO_InitInSpecFromFile</code>.</p>
+<p>The file path is a NULL-terminated UTF-16 string with platform separators.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_VerifyFileImportable</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">        </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_ModuleSignature</span><span class="w">  </span><span class="n">sig</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_UTF16Char</span><span class="w">     </span><span class="o">*</span><span class="n">file_pathZ</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">             </span><span class="o">*</span><span class="n">importablePB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_UserAudioOptionsDialog</code></td>
-<td>Display an audio options dialog.<br/><pre>AEIO_UserAudioOptionsDialog(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  A_Boolean       *interacted0);</pre></td>
-<td>Output</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_UserAudioOptionsDialog</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Display an audio options dialog.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_UserAudioOptionsDialog</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="o">*</span><span class="n">interacted0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_AddMarker3</code></td>
-<td>Add a marker, with a flag specifying whether or not this is a composition marker.<br/><pre>AEIO_AddMarker3(<br/>  AEIO_BasicData         *basic_dataP,<br/>  AEIO_OutSpecH          outH,<br/>  A_long                 frame_index,<br/>  AEGP_ConstMarkerValP   marker_valP,<br/>  AEIO_RenderMarkerFlag  marker_flag,<br/>  AEIO_InterruptFuncs    *inter0);</pre></td>
-<td>Output</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_AddMarker3</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Add a marker, with a flag specifying whether or not this is a composition marker.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_AddMarker3</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">         </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">          </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">                 </span><span class="n">frame_index</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">AEGP_ConstMarkerValP</span><span class="w">   </span><span class="n">marker_valP</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">AEIO_RenderMarkerFlag</span><span class="w">  </span><span class="n">marker_flag</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">AEIO_InterruptFuncs</span><span class="w">    </span><span class="o">*</span><span class="n">inter0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_GetMimeType</code></td>
-<td>Describe the output mime type. This is used for XMP support.<br/><pre>AEIO_GetMimeType(<br/>  AEIO_BasicData  *basic_dataP,<br/>  AEIO_OutSpecH   outH,<br/>  A_long          mime_type_sizeL,<br/>  char            *mime_typeZ);</pre></td>
-<td>Output</td>
-<td>No</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_GetMimeType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Describe the output mime type. This is used for XMP support.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEIO_GetMimeType</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_BasicData</span><span class="w">  </span><span class="o">*</span><span class="n">basic_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">mime_type_sizeL</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="kt">char</span><span class="w">            </span><span class="o">*</span><span class="n">mime_typeZ</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3135,154 +3845,467 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_GetInSpecOptionsHandle</code></td>
-<td>Retrieves the options data (created by your AEIO) for the given <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecOptionsHandle(<br/>  AEIO_InSpecH  inH,<br/>  void          *optionsPPV);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecOptionsHandle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the options data (created by your AEIO) for the given <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecOptionsHandle</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">void</span><span class="w">          </span><span class="o">*</span><span class="n">optionsPPV</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecOptionsHandle</code></td>
-<td>Sets the options data for the given <code>AEIO_InSpecH</code>.<br/>Must be allocated using the <a href="../../aegps/aegp-suites/#aegp_memorysuite1">Memory Suite</a>.<br/><pre>AEGP_SetInSpecOptionsHandle(<br/>  AEIO_InSpecH  inH,<br/>  void          *optionsPV,<br/>  void          *old_optionsPPV);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecOptionsHandle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the options data for the given <code>AEIO_InSpecH</code>.</p>
+<p>Must be allocated using the <a href="../../aegps/aegp-suites/#aegp_memorysuite1">Memory Suite</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecOptionsHandle</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">void</span><span class="w">          </span><span class="o">*</span><span class="n">optionsPV</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">void</span><span class="w">          </span><span class="o">*</span><span class="n">old_optionsPPV</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecFilePath</code></td>
-<td>Retrieves the file path for the <code>AEIO_InSpecH</code>.<br/>The file path is a handle to a NULL-terminated A_UTF16Char string, and must be disposed with <code>AEGP_FreeMemHandle</code>.<br/><pre>AEGP_GetInSpecFilePath(<br/>  AEIO_InSpecH    inH,<br/>  AEGP_MemHandle  *file_nameZ);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecFilePath</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the file path for the <code>AEIO_InSpecH</code>.</p>
+<p>The file path is a handle to a NULL-terminated A_UTF16Char string, and must be disposed with <code>AEGP_FreeMemHandle</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecFilePath</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">    </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_MemHandle</span><span class="w">  </span><span class="o">*</span><span class="n">file_nameZ</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecNativeFPS</code></td>
-<td>Retrieves the frame rate of the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecNativeFPS(<br/>  AEIO_InSpecH  inH,<br/>  A_Fixed       *native_fpsP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecNativeFPS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the frame rate of the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecNativeFPS</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Fixed</span><span class="w">       </span><span class="o">*</span><span class="n">native_fpsP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecNativeFPS</code></td>
-<td>Sets the frame rate of the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_SetInSpecNativeFPS(<br/>  AEIO_InSpecH  inH,<br/>  A_Fixed       native_fpsP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecNativeFPS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the frame rate of the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecNativeFPS</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Fixed</span><span class="w">       </span><span class="n">native_fpsP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecDepth</code></td>
-<td>Retrieves the bit depth of the image data in the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecDepth(<br/>  AEIO_InSpecH  inH,<br/>  A_short       *depthPS);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecDepth</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the bit depth of the image data in the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecDepth</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_short</span><span class="w">       </span><span class="o">*</span><span class="n">depthPS</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecDepth</code></td>
-<td>Indicates to After Effects the bit depth of the image data in the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_SetInSpecDepth(<br/>  AEIO_InSpecH  inH,<br/>  A_short       depthS);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecDepth</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Indicates to After Effects the bit depth of the image data in the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecDepth</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_short</span><span class="w">       </span><span class="n">depthS</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecSize</code></td>
-<td>Retrieves the size (in bytes) of the data referenced by the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecSize(<br/>  AEIO_InSpecH   inH,<br/>  AEIO_FileSize  *sizePLLu);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the size (in bytes) of the data referenced by the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecSize</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">   </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_FileSize</span><span class="w">  </span><span class="o">*</span><span class="n">sizePLLu</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecSize</code></td>
-<td>Indicates to After Effects the size (in bytes) of the data referenced by the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_SetInSpecSize(<br/>  AEIO_InSpecH   inH,<br/>  AEIO_FileSize  sizeL);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Indicates to After Effects the size (in bytes) of the data referenced by the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecSize</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">   </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_FileSize</span><span class="w">  </span><span class="n">sizeL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecInterlaceLabel</code></td>
-<td>Retrieves field information for the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecInterlaceLabel(<br/>  AEIO_InSpecH  inH,<br/>  FIEL_Label    *interlaceP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecInterlaceLabel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves field information for the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecInterlaceLabel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">FIEL_Label</span><span class="w">    </span><span class="o">*</span><span class="n">interlaceP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecInterlaceLabel</code></td>
-<td>Specifies field information for the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_SetInSpecInterlaceLabel(<br/>  AEIO_InSpecH      inH,<br/>  const FIEL_Label  *interlaceP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecInterlaceLabel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Specifies field information for the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecInterlaceLabel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">      </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">FIEL_Label</span><span class="w">  </span><span class="o">*</span><span class="n">interlaceP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecAlphaLabel</code></td>
-<td>Retrieves alpha channel interpretation information for the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecAlphaLabel(<br/>  AEIO_InSpecH     inH,<br/>  AEIO_AlphaLabel  *alphaP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecAlphaLabel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves alpha channel interpretation information for the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecAlphaLabel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">     </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_AlphaLabel</span><span class="w">  </span><span class="o">*</span><span class="n">alphaP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecAlphaLabel</code></td>
-<td>Sets alpha channel interpretation information for the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_SetInSpecAlphaLabel(<br/>  AEIO_InSpecH           inH,<br/>  const AEIO_AlphaLabel* alphaP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecAlphaLabel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets alpha channel interpretation information for the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecAlphaLabel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">           </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">AEIO_AlphaLabel</span><span class="o">*</span><span class="w"> </span><span class="n">alphaP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecDuration</code></td>
-<td>Retrieves the duration of the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecDuration(<br/>  AEIO_InSpecH  inH,<br/>  A_Time        *durationP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecDuration</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the duration of the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecDuration</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Time</span><span class="w">        </span><span class="o">*</span><span class="n">durationP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecDuration</code></td>
-<td>Sets the duration of the <code>AEIO_InSpecH</code>.<br/><br/>NOTE: As of 5.5, this must be called, even for frame-based file formats.<br/>If you don't set the <code>A_Time.scale</code> to something other than zero, your file(s) will not import.<br/><br/>This will be fixed in future versions.<br/><pre>AEGP_SetInSpecDuration(<br/>  AEIO_InSpecH  inH,<br/>  const A_Time  *durationP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecDuration</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the duration of the <code>AEIO_InSpecH</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of 5.5, this must be called, even for frame-based file formats.</p>
+<p>If you don't set the <code>A_Time.scale</code> to something other than zero, your file(s) will not import.</p>
+<p>This will be fixed in future versions.</p>
+</div>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecDuration</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">  </span><span class="o">*</span><span class="n">durationP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecDimensions</code></td>
-<td>Retrieves the width and height of the image data in the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecDimensions(<br/>  AEIO_InSpecH  inH,<br/>  A_long        *widthPL0,<br/>  A_long        *heightPL0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecDimensions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the width and height of the image data in the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecDimensions</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">        </span><span class="o">*</span><span class="n">widthPL0</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">        </span><span class="o">*</span><span class="n">heightPL0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecDimensions</code></td>
-<td>Indicates to After Effects the width and height of the image data in the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_SetInSpecDimensions(<br/>  AEIO_InSpecH  inH,<br/>  A_long        widthL,<br/>  A_long        heightL);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecDimensions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Indicates to After Effects the width and height of the image data in the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecDimensions</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">        </span><span class="n">widthL</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">        </span><span class="n">heightL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_InSpecGetRational</code> Dimensions</td>
-<td>Retrieves the width, height, bounding rect, and scaling factor applied to an <code>AEIO_InSpecH</code>.<br/><pre>AEGP_InSpecGetRationalDimensions(<br/>  AEIO_InSpecH              inH,<br/>  const AEIO_RationalScale  *rs0,<br/>  A_long                    *width0,<br/>  A_long                    *height0,<br/>  A_Rect                    *r0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_InSpecGetRational</code> Dimensions</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the width, height, bounding rect, and scaling factor applied to an <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_InSpecGetRationalDimensions</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">              </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">AEIO_RationalScale</span><span class="w">  </span><span class="o">*</span><span class="n">rs0</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">                    </span><span class="o">*</span><span class="n">width0</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">                    </span><span class="o">*</span><span class="n">height0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_Rect</span><span class="w">                    </span><span class="o">*</span><span class="n">r0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecHSF</code></td>
-<td>Retrieves the horizontal scaling factor applied to an <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecHSF(<br/>  AEIO_InSpecH  inH,<br/>  A_Ratio       *hsf);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecHSF</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the horizontal scaling factor applied to an <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecHSF</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Ratio</span><span class="w">       </span><span class="o">*</span><span class="n">hsf</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecHSF</code></td>
-<td>Sets the horizontal scaling factor of an <code>AEIO_InSpecH</code>.<br/><pre>AEGP_SetInSpecHSF(<br/>  AEIO_InSpecH   inH,<br/>  const A_Ratio  *hsf);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecHSF</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the horizontal scaling factor of an <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecHSF</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">   </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Ratio</span><span class="w">  </span><span class="o">*</span><span class="n">hsf</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecSoundRate</code></td>
-<td>Obtains the sampling rate (in samples per second) for the audio data referenced by the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecSoundRate(<br/>  AEIO_InSpecH  inH,<br/>  A_FpLong      *ratePF);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecSoundRate</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the sampling rate (in samples per second) for the audio data referenced by the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecSoundRate</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">      </span><span class="o">*</span><span class="n">ratePF</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecSoundRate</code></td>
-<td>Sets the sampling rate (in samples per second) for the audio data referenced by the <code>AEIO_InSpecH</code>.<br/><pre>AEGP_SetInSpecSoundRate(<br/>  AEIO_InSpecH  inH,<br/>  A_FpLong      rateF);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecSoundRate</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the sampling rate (in samples per second) for the audio data referenced by the <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecSoundRate</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">      </span><span class="n">rateF</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecSoundEncoding</code></td>
-<td>Obtains the encoding method (signed PCM, unsigned PCM, or floating point) from an AEIO_InSpecH.<br/><pre>AEGP_GetInSpecSoundEncoding(<br/>  AEIO_InSpecH      inH,<br/>  AEIO_SndEncoding  *encodingP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecSoundEncoding</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the encoding method (signed PCM, unsigned PCM, or floating point) from an AEIO_InSpecH.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecSoundEncoding</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">      </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndEncoding</span><span class="w">  </span><span class="o">*</span><span class="n">encodingP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecSoundEncoding</code></td>
-<td>Sets the encoding method of an AEIO_InSpecH.<br/><pre>AEGP_SetInSpecSoundEncoding(<br/>  AEIO_InSpecH      inH,<br/>  AEIO_SndEncoding  encoding);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecSoundEncoding</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the encoding method of an AEIO_InSpecH.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecSoundEncoding</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">      </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndEncoding</span><span class="w">  </span><span class="n">encoding</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecSoundSampleSize</code></td>
-<td>Retrieves the bytes-per-sample (1,2, or 4) from an <code>AEIO_InSpecH</code>.<br/><pre>AEGP_GetInSpecSoundSampleSize(<br/>  AEIO_InSpecH        inH,<br/>  AEIO_SndSampleSize  *bytes_per_smpP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecSoundSampleSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the bytes-per-sample (1,2, or 4) from an <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecSoundSampleSize</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">        </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndSampleSize</span><span class="w">  </span><span class="o">*</span><span class="n">bytes_per_smpP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecSoundSampleSize</code></td>
-<td>Set the bytes per sample of an <code>AEIO_InSpecH</code>.<br/><pre>AEGP_SetInSpecSoundSampleSize(<br/>  AEIO_InSpecH        inH,<br/>  AEIO_SndSampleSize  bytes_per_sample);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecSoundSampleSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set the bytes per sample of an <code>AEIO_InSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecSoundSampleSize</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">        </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndSampleSize</span><span class="w">  </span><span class="n">bytes_per_sample</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecSoundChannels</code></td>
-<td>Determines whether the audio in the <code>AEIO_SndChannels</code> is mono or stereo.<br/><pre>AEGP_GetInSpecSoundChannels(<br/>  AEIO_InSpecH      inH,<br/>  AEIO_SndChannels  *num_channelsP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecSoundChannels</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Determines whether the audio in the <code>AEIO_SndChannels</code> is mono or stereo.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecSoundChannels</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">      </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndChannels</span><span class="w">  </span><span class="o">*</span><span class="n">num_channelsP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecSoundChannels</code></td>
-<td>Sets the audio in an <code>AEIO_SndChannels</code> to mono or stereo.<br/><pre>AEGP_SetInSpecSoundChannels(<br/>  AEIO_InSpecH      inH,<br/>  AEIO_SndChannels  num_channels);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecSoundChannels</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the audio in an <code>AEIO_SndChannels</code> to mono or stereo.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecSoundChannels</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">      </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndChannels</span><span class="w">  </span><span class="n">num_channels</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_AddAuxExtMap</code></td>
-<td>If your file format has auxiliary files which you want to prevent users from opening directly,<br/>pass it's extension, file type and creator to this function to keep it from appearing in input dialogs.<br/><pre>AEGP_AddAuxExtMap(<br/>  const A_char  *extension,<br/>  A_long        file_type,<br/>  A_long        creator);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_AddAuxExtMap</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If your file format has auxiliary files which you want to prevent users from opening directly, pass it's extension, file type and creator to this function to keep it from appearing in input dialogs.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_AddAuxExtMap</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_char</span><span class="w">  </span><span class="o">*</span><span class="n">extension</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">        </span><span class="n">file_type</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">        </span><span class="n">creator</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecEmbeddedColorProfile</code></td>
-<td>In case of RGB data, if there is an embedded icc profile, build an <code>AEGP_ColorProfile</code> out of<br/>this icc profile using <code>AEGP_GetNewColorProfileFromICCProfile</code> from <a href="../../aegps/aegp-suites/#aegp_colorsettingssuite5">AEGP_ColorSettingsSuite5</a><br/>and set the profile description set to NULL.<br/><br/>In case of non-RGB data, if there is an embedded non-RGB icc profile or you know the color space the data is in,<br/>set the color profile set to NULL, and provide the description as a NULL-terminated unicode string.<br/>Doing this disables color management UI that allows user to affect profile choice in the application UI.<br/><br/>If you are unpacking non-RGB data directly into working space (to get working space use <code>AEGP_GetNewWorkingSpaceColorProfile</code>), you are done.<br/><br/>If you are unpacking non-RGB data into specific RGB color space, you must pass the profile describing this space to <code>AEGP_SetInSpecAssignedColorProfile</code> below.<br/>Otherwise, your RGB data will be incorrectly interpreted as being in working space.<br/><br/>Either color profile or profile description should be NULL in this function. You cannot use both.<br/><pre>AEGP_SetInSpecEmbeddedColorProfile(<br/>  AEIO_InSpecH             inH,<br/>  AEGP_ConstColorProfileP  color_profileP0,<br/>  const A_UTF16Char        *profile_descP0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecEmbeddedColorProfile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>In case of RGB data, if there is an embedded icc profile, build an <code>AEGP_ColorProfile</code> out of this icc profile using <code>AEGP_GetNewColorProfileFromICCProfile</code> from <a href="../../aegps/aegp-suites/#aegp_colorsettingssuite5">AEGP_ColorSettingsSuite5</a> and set the profile description set to NULL.</p>
+<p>In case of non-RGB data, if there is an embedded non-RGB icc profile or you know the color space the data is in, set the color profile set to NULL, and provide the description as a NULL-terminated unicode string. Doing this disables color management UI that allows user to affect profile choice in the application UI.</p>
+<p>If you are unpacking non-RGB data directly into working space (to get working space use <code>AEGP_GetNewWorkingSpaceColorProfile</code>), you are done.</p>
+<p>If you are unpacking non-RGB data into specific RGB color space, you must pass the profile describing this space to <code>AEGP_SetInSpecAssignedColorProfile</code> below. Otherwise, your RGB data will be incorrectly interpreted as being in working space.</p>
+<p>Either color profile or profile description should be NULL in this function. You cannot use both.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecEmbeddedColorProfile</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">             </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_ConstColorProfileP</span><span class="w">  </span><span class="n">color_profileP0</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_UTF16Char</span><span class="w">        </span><span class="o">*</span><span class="n">profile_descP0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecAssignedColorProfile</code></td>
-<td>Assign a valid RGB color profile to the footage.<br/><pre>AEGP_SetInSpecAssignedColorProfile(<br/>  AEIO_InSpecH             inH,<br/>  AEGP_ConstColorProfileP  color_profileP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecAssignedColorProfile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Assign a valid RGB color profile to the footage.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecAssignedColorProfile</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">             </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_ConstColorProfileP</span><span class="w">  </span><span class="n">color_profileP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecNativeStartTime</code></td>
-<td>New in CC. Retrieves the native start time of the footage.<br/><pre>AEGP_GetInSpecNativeStartTime(<br/>  AEIO_InSpecH  inH,<br/>  A_Time        *startTimeP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecNativeStartTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. Retrieves the native start time of the footage.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecNativeStartTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Time</span><span class="w">        </span><span class="o">*</span><span class="n">startTimeP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecNativeStartTime</code></td>
-<td>New in CC. Assign a native start time to the footage.<br/><pre>AEGP_SetInSpecNativeStartTime(<br/>  AEIO_InSpecH  inH,<br/>  const A_Time  *startTimeP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecNativeStartTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. Assign a native start time to the footage.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecNativeStartTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">  </span><span class="o">*</span><span class="n">startTimeP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_ClearInSpecNativeStartTime</code></td>
-<td>New in CC. Clear the native start time of the footage.<br/>Setting the native start time to 0 using <code>AEGP_SetInSpecNativeStartTime</code> doesn't do this.<br/>It still means there is a special native start time provided.<br/><pre>AEGP_ClearInSpecNativeStartTime(<br/>  AEIO_InSpecH  inH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_ClearInSpecNativeStartTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. Clear the native start time of the footage.</p>
+<p>Setting the native start time to 0 using <code>AEGP_SetInSpecNativeStartTime</code> doesn't do this.</p>
+<p>It still means there is a special native start time provided.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_ClearInSpecNativeStartTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInSpecNativeDisplayDropFrame</code></td>
-<td>New in CC. Retrieve the drop-frame setting of the footage.<br/><pre>AEGP_GetInSpecNativeDisplayDropFrame(<br/>  AEIO_InSpecH  inH,<br/>  A_Boolean     *displayDropFrameBP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInSpecNativeDisplayDropFrame</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. Retrieve the drop-frame setting of the footage.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInSpecNativeDisplayDropFrame</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">     </span><span class="o">*</span><span class="n">displayDropFrameBP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetInSpecNativeDisplayDropFrame</code></td>
-<td>New in CC. Assign the drop-frame setting of the footage.<br/><pre>AEGP_SetInSpecNativeDisplayDropFrame(<br/>  AEIO_InSpecH  inH,<br/>  A_Boolean     displayDropFrameB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetInSpecNativeDisplayDropFrame</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. Assign the drop-frame setting of the footage.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetInSpecNativeDisplayDropFrame</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_InSpecH</span><span class="w">  </span><span class="n">inH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">     </span><span class="n">displayDropFrameB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3293,138 +4316,407 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_GetOutSpecOptionsHandle</code></td>
-<td>Retrieves the Options for the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecOptionsHandle(<br/>  AEIO_OutSpecH  outH,<br/>  void           *optionsPPV);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecOptionsHandle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the Options for the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecOptionsHandle</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">optionsPPV</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecOptionsHandle</code></td>
-<td>Sets the Options for the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecOptionsHandle(<br/>  AEIO_OutSpecH  outH,<br/>  void           *optionsPV,<br/>  void           *old_optionsPPV);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecOptionsHandle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the Options for the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecOptionsHandle</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">optionsPV</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">old_optionsPPV</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecFilePath</code></td>
-<td>Obtains the path for the <code>AEIO_OutSpecH</code>.<br/>The file path is a handle to a NULL-terminated A_UTF16Char string, and must be disposed with <code>AEGP_FreeMemHandle</code>.<br/><br/>If <code>file_rsrvdPB</code> returns <code>TRUE</code>, the plug-in should not overwrite it<br/>(After Effects has already created an empty file); doing so can cause network renders to fail.<br/><pre>AEGP_GetOutSpecFilePath(<br/>  AEIO_OutSpecH   outH,<br/>  AEGP_MemHandle  *unicode_pathPH,<br/>  A_Boolean       *file_rsrvdPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecFilePath</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the path for the <code>AEIO_OutSpecH</code>.</p>
+<p>The file path is a handle to a NULL-terminated A_UTF16Char string, and must be disposed with <code>AEGP_FreeMemHandle</code>.</p>
+<p>If <code>file_rsrvdPB</code> returns <code>TRUE</code>, the plug-in should not overwrite it (After Effects has already created an empty file); doing so can cause network renders to fail.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecFilePath</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">   </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_MemHandle</span><span class="w">  </span><span class="o">*</span><span class="n">unicode_pathPH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="o">*</span><span class="n">file_rsrvdPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecFPS</code></td>
-<td>Obtains the frames per second of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecFPS(<br/>  AEIO_OutSpecH  outH,<br/>  A_Fixed        *native_fpsP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecFPS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the frames per second of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecFPS</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Fixed</span><span class="w">        </span><span class="o">*</span><span class="n">native_fpsP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecNativeFPS</code></td>
-<td>Sets the frames per second of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecNativeFPS(<br/>  AEIO_OutSpecH  outH,<br/>  A_Fixed        native_fpsP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecNativeFPS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the frames per second of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecNativeFPS</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Fixed</span><span class="w">        </span><span class="n">native_fpsP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecDepth</code></td>
-<td>Obtains the pixel bit depth of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecDepth(<br/>  AEIO_OutSpecH  outH,<br/>  A_short        *depthPS);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecDepth</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the pixel bit depth of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecDepth</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_short</span><span class="w">        </span><span class="o">*</span><span class="n">depthPS</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecDepth</code></td>
-<td>Sets the pixel bit depth of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecDepth(<br/>  AEIO_OutSpecH  outH,<br/>  A_short        depthPS);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecDepth</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the pixel bit depth of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecDepth</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_short</span><span class="w">        </span><span class="n">depthPS</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecInterlaceLabel</code></td>
-<td>Obtains field information for the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecInterlaceLabel(<br/>  AEIO_OutSpecH  outH,<br/>  FIEL_Label     *interlaceP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecInterlaceLabel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains field information for the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecInterlaceLabel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">FIEL_Label</span><span class="w">     </span><span class="o">*</span><span class="n">interlaceP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecInterlaceLabel</code></td>
-<td>Set the field information for the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecInterlaceLabel(<br/>  AEIO_OutSpecH     outH,<br/>  const FIEL_Label  *interlaceP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecInterlaceLabel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set the field information for the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecInterlaceLabel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">     </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">FIEL_Label</span><span class="w">  </span><span class="o">*</span><span class="n">interlaceP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecAlphaLabel</code></td>
-<td>Obtains alpha interpretation information for the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecAlphaLabel(<br/>  AEIO_OutSpecH    outH,<br/>  AEIO_AlphaLabel  *alphaP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecAlphaLabel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains alpha interpretation information for the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecAlphaLabel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">    </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_AlphaLabel</span><span class="w">  </span><span class="o">*</span><span class="n">alphaP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecAlphaLabel</code></td>
-<td>Sets the alpha interpretation for the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecAlphaLabel(<br/>  AEIO_OutSpecH          outH,<br/>  const AEIO_AlphaLabel  *alphaP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecAlphaLabel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the alpha interpretation for the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecAlphaLabel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">          </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">AEIO_AlphaLabel</span><span class="w">  </span><span class="o">*</span><span class="n">alphaP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecDuration</code></td>
-<td>Obtains the duration of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecDuration(<br/>  AEIO_OutSpecH  outH,<br/>  A_Time         *durationP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecDuration</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the duration of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecDuration</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Time</span><span class="w">         </span><span class="o">*</span><span class="n">durationP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecDuration</code></td>
-<td>Sets the duration of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecDuration(<br/>  AEIO_OutSpecH  outH,<br/>  const A_Time   *durationP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecDuration</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the duration of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecDuration</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">   </span><span class="o">*</span><span class="n">durationP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecDimensions</code></td>
-<td>Obtains the dimensions of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecDimensions(<br/>  AEIO_OutSpecH  outH,<br/>  A_long         *widthPL0,<br/>  A_long         *heightPL0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecDimensions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the dimensions of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecDimensions</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="o">*</span><span class="n">widthPL0</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="o">*</span><span class="n">heightPL0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecHSF</code></td>
-<td>Obtains the horizontal scaling factor of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecHSF(<br/>  AEIO_OutSpecH  outH,<br/>  A_Ratio        *hsf);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecHSF</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the horizontal scaling factor of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecHSF</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Ratio</span><span class="w">        </span><span class="o">*</span><span class="n">hsf</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecHSF</code></td>
-<td>Sets the horizontal scaling factor of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecHSF(<br/>  AEIO_OutSpecH  outH,<br/>  const A_Ratio  *hsf);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecHSF</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the horizontal scaling factor of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecHSF</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Ratio</span><span class="w">  </span><span class="o">*</span><span class="n">hsf</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecSoundRate</code></td>
-<td>Obtains the sampling rate for the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecSoundRate(<br/>  AEIO_OutSpecH  outH,<br/>  A_FpLong       *ratePF);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecSoundRate</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the sampling rate for the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecSoundRate</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">       </span><span class="o">*</span><span class="n">ratePF</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecSoundRate</code></td>
-<td>Sets the sampling rate for the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecSoundRate(<br/>  AEIO_OutSpecH  outH,<br/>  A_FpLong       rateF);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecSoundRate</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the sampling rate for the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecSoundRate</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">       </span><span class="n">rateF</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecSoundEncoding</code></td>
-<td>Obtains the sound encoding format of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecSoundEncoding(<br/>  AEIO_OutSpecH     outH,<br/>  AEIO_SndEncoding  *encodingP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecSoundEncoding</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the sound encoding format of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecSoundEncoding</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">     </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndEncoding</span><span class="w">  </span><span class="o">*</span><span class="n">encodingP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecSoundEncoding</code></td>
-<td>Sets the sound encoding format of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecSoundEncoding(<br/>  AEIO_OutSpecH     outH,<br/>  AEIO_SndEncoding  encoding);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecSoundEncoding</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the sound encoding format of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecSoundEncoding</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">     </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndEncoding</span><span class="w">  </span><span class="n">encoding</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecSoundSampleSize</code></td>
-<td>Obtains the bytes-per-sample of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecSoundSampleSize(<br/>  AEIO_OutSpecH       outH,<br/>  AEIO_SndSampleSize  *bpsP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecSoundSampleSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the bytes-per-sample of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecSoundSampleSize</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">       </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndSampleSize</span><span class="w">  </span><span class="o">*</span><span class="n">bpsP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecSoundSampleSize</code></td>
-<td>Sets the bytes-per-sample of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecSoundSampleSize(<br/>  AEIO_OutSpecH       outH,<br/>  AEIO_SndSampleSize  bpsP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecSoundSampleSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the bytes-per-sample of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecSoundSampleSize</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">       </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndSampleSize</span><span class="w">  </span><span class="n">bpsP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecSoundChannels</code></td>
-<td>Obtains the number of sounds channels in the  <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecSoundChannels(<br/>  AEIO_OutSpecH     outH,<br/>  AEIO_SndChannels  *channelsP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecSoundChannels</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the number of sounds channels in the  <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecSoundChannels</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">     </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndChannels</span><span class="w">  </span><span class="o">*</span><span class="n">channelsP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetOutSpecSoundChannels</code></td>
-<td>Sets the number of sounds channels in the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_SetOutSpecSoundChannels(<br/>  AEIO_OutSpecH     outH,<br/>  AEIO_SndChannels  channels);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetOutSpecSoundChannels</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the number of sounds channels in the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetOutSpecSoundChannels</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">     </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_SndChannels</span><span class="w">  </span><span class="n">channels</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecIsStill</code></td>
-<td>Determines whether the <code>AEIO_OutSpecH</code> is a still.<br/><pre>AEGP_GetOutSpecIsStill(<br/>  AEIO_OutSpecH  outH,<br/>  A_Boolean      *is_stillPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecIsStill</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Determines whether the <code>AEIO_OutSpecH</code> is a still.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecIsStill</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">      </span><span class="o">*</span><span class="n">is_stillPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecPosterTime</code></td>
-<td>Obtains the time of the <code>AEIO_OutSpecH's</code> poster frame.<br/><pre>AEGP_GetOutSpecPosterTime(<br/>  AEIO_OutSpecH  outH,<br/>  A_Time         *poster_timeP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecPosterTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the time of the <code>AEIO_OutSpecH's</code> poster frame.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecPosterTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Time</span><span class="w">         </span><span class="o">*</span><span class="n">poster_timeP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecStartFrame</code></td>
-<td>Obtains the time of the first frame in the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecStartFrame(<br/>  AEIO_OutSpecH  outH,<br/>  A_long         *start_frameP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecStartFrame</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the time of the first frame in the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecStartFrame</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="o">*</span><span class="n">start_frameP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecPullDown</code></td>
-<td>Obtains the pulldown phase of the <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecPullDown(<br/>  AEIO_OutSpecH  outH,<br/>  AEIO_Pulldown  *pulldownP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecPullDown</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains the pulldown phase of the <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecPullDown</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_Pulldown</span><span class="w">  </span><span class="o">*</span><span class="n">pulldownP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecIsMissing</code></td>
-<td>Passes back TRUE if there is no <code>AEIO_OutSpecH</code>.<br/><pre>AEGP_GetOutSpecIsMissing(<br/>  AEIO_OutSpecH  outH,<br/>  A_Boolean      *missingPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecIsMissing</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Passes back TRUE if there is no <code>AEIO_OutSpecH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecIsMissing</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">      </span><span class="o">*</span><span class="n">missingPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecShouldEmbedICCProfile</code></td>
-<td>Returns TRUE if the AEIO should embed a color profile in the output.<br/><pre>AEGP_GetOutSpecShouldEmbedICCProfile(<br/>  AEIO_OutSpecH  outH,<br/>  A_Boolean      *embedPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecShouldEmbedICCProfile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns TRUE if the AEIO should embed a color profile in the output.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecShouldEmbedICCProfile</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">  </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">      </span><span class="o">*</span><span class="n">embedPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetNewOutSpecColorProfile</code></td>
-<td>Returns an (opaque) ICC color profile for embedding in the AEIO's output.<br/>Must be disposed with <code>AEGP_DisposeColorProfile</code>.<br/><pre>AEGP_GetNewOutSpecColorProfile(<br/>  AEGP_PluginID       aegp_plugin_id,<br/>  AEIO_OutSpecH       outH,<br/>  AEGP_ColorProfileP  *color_profilePP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetNewOutSpecColorProfile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns an (opaque) ICC color profile for embedding in the AEIO's output.</p>
+<p>Must be disposed with <code>AEGP_DisposeColorProfile</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetNewOutSpecColorProfile</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEGP_PluginID</span><span class="w">       </span><span class="n">aegp_plugin_id</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">       </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_ColorProfileP</span><span class="w">  </span><span class="o">*</span><span class="n">color_profilePP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetOutSpecOutputModule</code></td>
-<td>Returns the <code>AEGP_RQItemRefH</code> and <code>AEGP_OutputModuleRefH</code> associated with the given <code>AEIO_OutSpecH</code>.<br/>Fails if the render queue item is not found, or if <code>AEIO_OutSpecH</code> is not a confirmed outH and is a copy,<br/>i.e. if the Output Module settings dialog is open and the user hasn't hit OK.<br/><pre>AEGP_GetOutSpecOutputModule(<br/>  AEIO_OutSpecH          outH,<br/>  AEGP_RQItemRefH        *rq_itemP,<br/>  AEGP_OutputModuleRefH  *om_refP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetOutSpecOutputModule</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the <code>AEGP_RQItemRefH</code> and <code>AEGP_OutputModuleRefH</code> associated with the given <code>AEIO_OutSpecH</code>.</p>
+<p>Fails if the render queue item is not found, or if <code>AEIO_OutSpecH</code> is not a confirmed outH and is a copy, i.e. if the Output Module settings dialog is open and the user hasn't hit OK.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetOutSpecOutputModule</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEIO_OutSpecH</span><span class="w">          </span><span class="n">outH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RQItemRefH</span><span class="w">        </span><span class="o">*</span><span class="n">rq_itemP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_OutputModuleRefH</span><span class="w">  </span><span class="o">*</span><span class="n">om_refP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3448,7 +4740,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3511,7 +4803,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

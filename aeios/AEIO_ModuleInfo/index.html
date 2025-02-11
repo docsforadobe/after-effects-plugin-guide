@@ -2794,62 +2794,122 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>sig</code></td>
-<td>A long, uniquely identifying your plug-in.<br/>Many developers prefer to use a decidedly Mac-ish four character code here.<br/>Please <a href="mailto:zlam@adobe.com">let us know</a> what sig you're using.</td>
+<td colspan="1" rowspan="1">
+<p><code>sig</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A long, uniquely identifying your plug-in.</p>
+<p>Many developers prefer to use a decidedly Mac-ish four character code here.</p>
+<p>Please <a href="mailto:zlam@adobe.com">let us know</a> what sig you're using.</p>
+</td>
 </tr>
 <tr>
-<td><code>name</code></td>
-<td>Descriptive name for your AEIO plug-in.</td>
+<td colspan="1" rowspan="1">
+<p><code>name</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Descriptive name for your AEIO plug-in.</p>
+</td>
 </tr>
 <tr>
-<td><code>flags</code></td>
-<td>Set of <code>AEIO_ModuleFlags</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>flags</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set of <code>AEIO_ModuleFlags</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>flags2</code></td>
-<td>Set of <code>AEIO_ModuleFlags2</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>flags2</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set of <code>AEIO_ModuleFlags2</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>max_width</code>, <code>max_height</code></td>
-<td>The maximum dimensions supported by your format.</td>
+<td colspan="1" rowspan="1">
+<p><code>max_width</code>, <code>max_height</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The maximum dimensions supported by your format.</p>
+</td>
 </tr>
 <tr>
-<td><code>num_filetypes</code></td>
-<td>The number of filetypes supported by your AEIO.</td>
+<td colspan="1" rowspan="1">
+<p><code>num_filetypes</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The number of filetypes supported by your AEIO.</p>
+</td>
 </tr>
 <tr>
-<td><code>num_extensions</code></td>
-<td>The number of file extensions supported by your AEIO.</td>
+<td colspan="1" rowspan="1">
+<p><code>num_extensions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The number of file extensions supported by your AEIO.</p>
+</td>
 </tr>
 <tr>
-<td><code>num_clips</code></td>
-<td>The number of clipboard formats supported by your AEIO.</td>
+<td colspan="1" rowspan="1">
+<p><code>num_clips</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The number of clipboard formats supported by your AEIO.</p>
+</td>
 </tr>
 <tr>
-<td><code>create_kind</code></td>
-<td>The macOS four character code for files created by your AEIO.</td>
+<td colspan="1" rowspan="1">
+<p><code>create_kind</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The macOS four character code for files created by your AEIO.</p>
+</td>
 </tr>
 <tr>
-<td><code>create_ext</code></td>
-<td>The file extension for files created by your AEIO.</td>
+<td colspan="1" rowspan="1">
+<p><code>create_ext</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file extension for files created by your AEIO.</p>
+</td>
 </tr>
 <tr>
-<td><code>read_kinds</code></td>
-<td>This array of 16 <code>AEIO_FileKinds</code> need not be entirely filled out, but the first <code>[num_filetypes + num_extensions + num_clips]</code> ones must be populated, in that order.</td>
+<td colspan="1" rowspan="1">
+<p><code>read_kinds</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This array of 16 <code>AEIO_FileKinds</code> need not be entirely filled out, but the first <code>[num_filetypes + num_extensions + num_clips]</code> ones must be populated, in that order.</p>
+</td>
 </tr>
 <tr>
-<td><code>num_aux_extensions</code></td>
-<td>The number of auxiliary extensions supported by your AEIO.<br/><br/>Say, for example, that you're writing an AEIO to import information from a 3D program that saves scene information into a .123 file, and camera information into a .xyz file.<br/><br/>The .xyz would be an auxiliary extension; it's not necessary to get the rest of the scene information, but it's associated with the .123 files.</td>
+<td colspan="1" rowspan="1">
+<p><code>num_aux_extensions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The number of auxiliary extensions supported by your AEIO.</p>
+<p>Say, for example, that you're writing an AEIO to import information from a 3D program that saves scene information into a .123 file, and camera information into a .xyz file.</p>
+<p>The .xyz would be an auxiliary extension; it's not necessary to get the rest of the scene information, but it's associated with the .123 files.</p>
+</td>
 </tr>
 <tr>
-<td><code>aux_ext</code></td>
-<td>The file extension of the auxiliary filetype(s) supported by your AEIO.</td>
+<td colspan="1" rowspan="1">
+<p><code>aux_ext</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file extension of the auxiliary filetype(s) supported by your AEIO.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2860,156 +2920,349 @@
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Purpose</th>
-<th>I or O?</th>
+<th colspan="1" rowspan="1">
+<p>Flag</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>I or O?</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEIO_MFlag_INPUT</code></td>
-<td>AEIO is an input module.</td>
-<td>Input!</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_INPUT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>AEIO is an input module.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input!</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_OUTPUT</code></td>
-<td>AEIO is an output module (one plug-in can be both).</td>
-<td>Output!</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_OUTPUT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>AEIO is an output module (one plug-in can be both).</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output!</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_FILE</code></td>
-<td>Each clip imported directly corresponds to a file, somewhere.</td>
-<td>Both</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_FILE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Each clip imported directly corresponds to a file, somewhere.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Both</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_STILL</code></td>
-<td>Supports still images, not video.</td>
-<td>Output</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_STILL</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Supports still images, not video.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_VIDEO</code></td>
-<td>Supports video images, not stills.</td>
-<td>Output</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_VIDEO</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Supports video images, not stills.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_AUDIO</code></td>
-<td>Supports audio.</td>
-<td>Output</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_AUDIO</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Supports audio.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_NO_TIME</code></td>
-<td>Time information isn't part of the file format.<br/><br/>This would be the case with numbered stills, with individual frames imported based on the composition's time settings.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_NO_TIME</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Time information isn't part of the file format.</p>
+<p>This would be the case with numbered stills, with individual frames imported based on the composition's time settings.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_INTERACTIVE_GET</code></td>
-<td>A new input sequence necessitates user interaction.<br/><br/>This would be the case for a non-file-based input module.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_INTERACTIVE_GET</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A new input sequence necessitates user interaction.</p>
+<p>This would be the case for a non-file-based input module.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_INTERACTIVE_PUT</code></td>
-<td>A new output sequence necessitates user interaction.<br/><br/>This would be the case for a non-file-based output module.</td>
-<td>Output</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_INTERACTIVE_PUT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A new output sequence necessitates user interaction.</p>
+<p>This would be the case for a non-file-based output module.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_CANT_CLIP</code></td>
-<td>The AEIO's drawing functions cannot accept dimensions smaller than the requested dimensions.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_CANT_CLIP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO's drawing functions cannot accept dimensions smaller than the requested dimensions.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_MUST_INTERACT_PUT</code></td>
-<td>The AEIO must display a dialog box, even if a valid options data handle is available.</td>
-<td>Output</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_MUST_INTERACT_PUT</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO must display a dialog box, even if a valid options data handle is available.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_CANT_SOUND_INTERLEAVE</code></td>
-<td>The AEIO requires that all video data be processed, then sound data (instead of interleaving the processing the video and audio).</td>
-<td>Output</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_CANT_SOUND_INTERLEAVE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO requires that all video data be processed, then sound data (instead of interleaving the processing the video and audio).</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_CAN_ADD_FRAMES_NON_LINEAR</code></td>
-<td>The AEIO supports adding non-sequential frames.</td>
-<td>Output</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_CAN_ADD_FRAMES_NON_LINEAR</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO supports adding non-sequential frames.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_HOST_DEPTH_DIALOG</code></td>
-<td>The AEIO wants After Effects to display a bit-depth selection dialog.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_HOST_DEPTH_DIALOG</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO wants After Effects to display a bit-depth selection dialog.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_HOST_FRAME_START_DIALOG</code></td>
-<td>The AEIO wants After Effects to display a dialog requesting that the user specify a starting frame.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_HOST_FRAME_START_DIALOG</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO wants After Effects to display a dialog requesting that the user specify a starting frame.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_NO_OPTIONS</code></td>
-<td>The AEIO does not accept output options.</td>
-<td>Output</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_NO_OPTIONS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO does not accept output options.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_NO_PIXELS</code></td>
-<td>The AEIO's file format doesn't actually store pixels. Currently unused as of CS6.</td>
-<td>(unused)</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_NO_PIXELS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO's file format doesn't actually store pixels. Currently unused as of CS6.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>(unused)</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_SEQUENCE_OPTIONS_OK</code></td>
-<td>The AEIO will adopt the sequence options of its parent if a folder is selected.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_SEQUENCE_OPTIONS_OK</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO will adopt the sequence options of its parent if a folder is selected.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_INPUT_OPTIONS</code></td>
-<td>The AEIO has user options associated with each input sequence.<br/><br/>NOTE: the options information must be flat (not referring to any data contained in external pointers or handles).</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_INPUT_OPTIONS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO has user options associated with each input sequence.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The options information must be flat (not referring to any data contained in external pointers or handles).</p>
+</div>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_HSF_AWARE</code></td>
-<td>The AEIO will provide horizontal scaling factor (pixel aspect ratio) information for each new sequence.<br/><br/>This prevents After Effects from guessing.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_HSF_AWARE</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO will provide horizontal scaling factor (pixel aspect ratio) information for each new sequence.</p>
+<p>This prevents After Effects from guessing.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_HAS_LAYERS</code></td>
-<td>The AEIO supports multiple layers in a single document.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_HAS_LAYERS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO supports multiple layers in a single document.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_SCRAP</code></td>
-<td>The AEIO has a clipboard parsing component.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_SCRAP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO has a clipboard parsing component.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_NO_UI</code></td>
-<td>After Effects should display no UI for this module (do not combine this flag with <code>AEIO_MFlag_HOST_DEPTH_DIALOG</code> or <code>AEIO_MFlag_HOST_FRAME_START_DIALOG</code>)</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_NO_UI</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After Effects should display no UI for this module</p>
+<p>(do not combine this flag with <code>AEIO_MFlag_HOST_DEPTH_DIALOG</code> or <code>AEIO_MFlag_HOST_FRAME_START_DIALOG</code>)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_SEQ_OPTIONS_DLG</code></td>
-<td>The AEIO has sequence options accessible from the More Options button in the Interpret Footage dialog.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_SEQ_OPTIONS_DLG</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO has sequence options accessible from the More Options button in the Interpret Footage dialog.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_HAS_AUX_DATA</code></td>
-<td>The file format supported by the AEIO has depth information, normals, or some other non-color information related to each pixel.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_HAS_AUX_DATA</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file format supported by the AEIO has depth information, normals, or some other non-color information related to each pixel.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_HAS_META_DATA</code></td>
-<td>The file format supported by the AEIO supports user-definable metadata.<br/><br/>If this flag is set, the embed pop-up in the output module dialog will be enabled.</td>
-<td>Output</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_HAS_META_DATA</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file format supported by the AEIO supports user-definable metadata.</p>
+<p>If this flag is set, the embed pop-up in the output module dialog will be enabled.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_CAN_DO_MARKERS</code></td>
-<td>The file format support by the AEIO supports markers, url flips, and/or chapters.</td>
-<td>Output</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_CAN_DO_MARKERS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file format support by the AEIO supports markers, url flips, and/or chapters.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Output</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_CAN_DRAW_DEEP</code></td>
-<td>The AEIO can draw into 16bpc ("deep") <code>PF_EffectWorlds</code>.</td>
-<td>Input</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_CAN_DRAW_DEEP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The AEIO can draw into 16bpc ("deep") <code>PF_EffectWorlds</code>.</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Input</p>
+</td>
 </tr>
 <tr>
-<td><code>AEIO_MFlag_RESERVED4</code></td>
-<td>Special super-secret flag. Doesn't do anything...or does it?<br/><br/>(<em>No, it doesn't.</em>)</td>
-<td>???</td>
+<td colspan="1" rowspan="1">
+<p><code>AEIO_MFlag_RESERVED4</code>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Special super-secret flag. Doesn't do anything...or does it?
+(<em>No, it doesn't.</em>)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>???
+</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3066,7 +3319,7 @@
 </tr>
 <tr>
 <td><code>AEIO_MFlag2_USES_QUICKTIME</code></td>
-<td>On MacOS, prior to the host calling <code>AEIO_AddFrame</code> or <code>AEIO_OutputFrame</code><br/>from <a href="../new-kids-on-the-function-block/#aeio_functionblock4">AEIO_FunctionBlock4</a>, it will lock the global QuickTime mutex.</td>
+<td>On MacOS, prior to the host calling <code>AEIO_AddFrame</code> or <code>AEIO_OutputFrame</code> from <a href="../new-kids-on-the-function-block/#aeio_functionblock4">AEIO_FunctionBlock4</a>, it will lock the global QuickTime mutex.</td>
 <td>Output</td>
 </tr>
 </tbody>
@@ -3091,7 +3344,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3154,7 +3407,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

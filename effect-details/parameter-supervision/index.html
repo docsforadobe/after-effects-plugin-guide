@@ -2765,54 +2765,195 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_UpdateParamUI</code></td>
-<td><pre>PF_UpdateParamUI(<br/>  PF_ProgPtr         effect_ref,<br/>  PF_ParamIndex      param_index,<br/>  const PF_ParamDef  *defP);</pre><br/><br/>Force After Effects to refresh the parameter's UI, in the effect controls palette.<br/><br/>Starting in CC 2014, After Effects will now honor a change to a custom UI height. Simply change the ui_height of your custom UI PF_ParamDef and then call PF_UpdateParamUI.<br/>The effect's custom UI height will be updated in the Effect Control Window.<br/><br/>Starting in CS6, when a plug-in disables a parameter, we now save that state in the UI flags so that the plug-in can check that flag in the future to see if it is disabled.<br/><br/>NOTE: Never pass param[0] to this function.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_UpdateParamUI</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_UpdateParamUI</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">         </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">      </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_ParamDef</span><span class="w">  </span><span class="o">*</span><span class="n">defP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>Force After Effects to refresh the parameter's UI, in the effect controls palette.</p>
+<p>Starting in CC 2014, After Effects will now honor a change to a custom UI height. Simply change the ui_height of your custom UI PF_ParamDef and then call PF_UpdateParamUI.</p>
+<p>The effect's custom UI height will be updated in the Effect Control Window.</p>
+<p>Starting in CS6, when a plug-in disables a parameter, we now save that state in the UI flags so that the plug-in can check that flag in the future to see if it is disabled.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Never pass param[0] to this function.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetCurrentState</code></td>
-<td><pre>PF_GetCurrentState(<br/>  PF_ProgPtr     effect_ref,<br/>  PF_ParamIndex  param_index,<br/>  const A_Time   *startPT0,<br/>  const A_Time   *durationPT0,<br/>  PF_State       *stateP);</pre><br/><br/>This API, combined with PF_AreStatesIdentical below, lets you determine if a set of inputs (either layers, other properties, or both) are different between when you first called PF_GetCurrentState and a current call,<br/>so it can be used for caching. You can specify a range of time to consider or all of time.<br/><br/>Updated in CS6 to add param_index, startPT0, and durationPT0. Pre-defined constants for param_index are as follows:<ul><li><code>PF_ParamIndex_CHECK_ALL</code> - check every parameter, including every layer referred to by a layer parameter.</li><li><code>PF_ParamIndex_CHECK_ALL_EXCEPT_LAYER_PARAMS</code> - omit all layers. Pass a specific layer parameter index to include that as the only layer parameter tested.</li><li><code>PF_ParamIndex_CHECK_ALL_HONOR_EXCLUDE</code> - Similar to CHECK_ALL, but honor PF_ParamFlag_EXCLUDE_FROM_HAVE_INPUTS_CHANGED.</li></ul>Passing in NULL for both start and duration indicates all time.<br/>For effects that do simulation across time and therefore set PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT, when you ask about a time range, it will be expanded to include any times needed to produce that range.<br/><br/>Populates a PF_State, an opaque data type used as a receipt for the current state of the effect's parameters (the PF_State is used in our internal frame caching database).</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetCurrentState</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_GetCurrentState</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">     </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">  </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">   </span><span class="o">*</span><span class="n">startPT0</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">   </span><span class="o">*</span><span class="n">durationPT0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_State</span><span class="w">       </span><span class="o">*</span><span class="n">stateP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>This API, combined with <code>PF_AreStatesIdentical</code> below, lets you determine if a set of inputs (either layers, other properties, or both) are different between when you first called <code>PF_GetCurrentState</code> and a current call, so it can be used for caching. You can specify a range of time to consider or all of time.</p>
+<p>Updated in CS6 to add <code>param_index</code>, <code>startPT0</code>, and <code>durationPT0</code>. Pre-defined constants for <code>param_index</code> are as follows:</p>
+<ul>
+<li><code>PF_ParamIndex_CHECK_ALL</code> - check every parameter, including every layer referred to by a layer parameter.</li>
+<li><code>PF_ParamIndex_CHECK_ALL_EXCEPT_LAYER_PARAMS</code> - omit all layers. Pass a specific layer parameter index to include that as the only layer parameter tested.</li>
+<li><code>PF_ParamIndex_CHECK_ALL_HONOR_EXCLUDE</code> - Similar to <code>CHECK_ALL</code>, but honor <code>PF_ParamFlag_EXCLUDE_FROM_HAVE_INPUTS_CHANGED</code>.</li>
+</ul>
+<p>Passing in NULL for both start and duration indicates all time.</p>
+<p>For effects that do simulation across time and therefore set <code>PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT</code>, when you ask about a time range, it will be expanded to include any times needed to produce that range.</p>
+<p>Populates a <code>PF_State</code>, an opaque data type used as a receipt for the current state of the effect's parameters (the PF_State is used in our internal frame caching database).</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_AreStatesIdentical</code></td>
-<td><pre>PF_AreStatesIdentical(<br/>  PF_ProgPtr      effect_ref,<br/>  const PF_State  *state1P,<br/>  const PF_State  *state2P,<br/>  A_Boolean       *samePB);</pre><br/><br/>New in CS6. Compare two different states, retrieved using <code>PF_GetCurrentState</code>, above.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_AreStatesIdentical</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_AreStatesIdentical</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_State</span><span class="w">  </span><span class="o">*</span><span class="n">state1P</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_State</span><span class="w">  </span><span class="o">*</span><span class="n">state2P</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="o">*</span><span class="n">samePB</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>New in CS6. Compare two different states, retrieved using <code>PF_GetCurrentState</code>, above.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_HasParamChanged</code></td>
-<td>No longer supported in <code>PFParamUtilsSuite3</code>.<br/><pre>PF_HasParamChanged(<br/>  PF_ProgPtr     effect_ref,<br/>  const          PF_State *stateP,<br/>  PF_ParamIndex  param_index,<br/>  PF_Boolean     *changedPB);</pre><br/><br/>Given a PF_State, passes back true if any of the tested parameters differ from the saved state. Contrary to the name, the call does not provide a way to test a single parameter.<br/>At a minimum, all non-layer parameters will be tested. For finer granularity to test a specific set of parameters, use PF_HaveInputsChangedOverTimeSpan below instead.<br/><br/>Pre-defined constants for param_index are as follows:<ul><li><code>PF_ParamIndex_CHECK_ALL</code> - check every parameter, including every layer referred to by a layer parameter.</li><li><code>PF_ParamIndex_CHECK_ALL_EXCEPT_LAYER_PARAMS</code> - omit all layers. Pass a specific layer parameter index to include that as the only layer parameter tested.</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>PF_HasParamChanged</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No longer supported in <code>PFParamUtilsSuite3</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_HasParamChanged</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">     </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w">          </span><span class="n">PF_State</span><span class="w"> </span><span class="o">*</span><span class="n">stateP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">  </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">     </span><span class="o">*</span><span class="n">changedPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>Given a PF_State, passes back true if any of the tested parameters differ from the saved state. Contrary to the name, the call does not provide a way to test a single parameter.</p>
+<p>At a minimum, all non-layer parameters will be tested. For finer granularity to test a specific set of parameters, use <code>PF_HaveInputsChangedOverTimeSpan</code> below instead.</p>
+<p>Pre-defined constants for <code>param_index</code> are as follows:</p>
+<ul>
+<li><code>PF_ParamIndex_CHECK_ALL</code> - check every parameter, including every layer referred to by a layer parameter.</li>
+<li><code>PF_ParamIndex_CHECK_ALL_EXCEPT_LAYER_PARAMS</code> - omit all layers. Pass a specific layer parameter index to include that as the only layer parameter tested.</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>PF_HaveInputsChangedOverTimeSpan</code></td>
-<td>No longer supported in <code>PFParamUtilsSuite3</code>. Use <code>PF_AreStatesIdentical()</code> instead.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_HaveInputsChangedOverTimeSpan</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No longer supported in <code>PFParamUtilsSuite3</code>. Use <code>PF_AreStatesIdentical()</code> instead.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_IsIdenticalCheckout</code></td>
-<td><pre>PF_IsIdenticalCheckout(<br/>  PF_ProgPtr     effect_ref,<br/>  PF_ParamIndex  param_index,<br/>  A_long         what_time1,<br/>  A_long         time_step1,<br/>  A_u_long       time_scale1,<br/>  A_long         what_time2,<br/>  A_long         time_step2,<br/>  A_u_long       time_scale2,<br/>  PF_Boolean     *identicalPB);</pre><br/><br/>Returns <code>TRUE</code> if a parameter's value is the same at the two passed times. Note: the times need not be contiguous; there could be different intervening values.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_IsIdenticalCheckout</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_IsIdenticalCheckout</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">     </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">  </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">what_time1</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">time_step1</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_u_long</span><span class="w">       </span><span class="n">time_scale1</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">what_time2</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">time_step2</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">A_u_long</span><span class="w">       </span><span class="n">time_scale2</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">     </span><span class="o">*</span><span class="n">identicalPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>Returns <code>TRUE</code> if a parameter's value is the same at the two passed times. Note: the times need not be contiguous; there could be different intervening values.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_FindKeyframeTime</code></td>
-<td><pre>PF_FindKeyframeTime(<br/>  PF_ProgPtr     effect_ref,<br/>  PF_ParamIndex  param_index,<br/>  A_long         what_time,<br/>  A_u_long       time_scale,<br/>  PF_TimeDir     time_dir,<br/>  PF_Boolean     *foundPB,<br/>  PF_KeyIndex    *key_indexP0,<br/>  A_long         *key_timeP0,<br/>  A_u_long       *key_timescaleP0);</pre><br/><br/>Searches (in the specified direction) for the next keyframe in the parameter's stream. The last three parameters are optional.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_FindKeyframeTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_FindKeyframeTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">     </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">  </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="n">what_time</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_u_long</span><span class="w">       </span><span class="n">time_scale</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_TimeDir</span><span class="w">     </span><span class="n">time_dir</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">     </span><span class="o">*</span><span class="n">foundPB</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PF_KeyIndex</span><span class="w">    </span><span class="o">*</span><span class="n">key_indexP0</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="o">*</span><span class="n">key_timeP0</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">A_u_long</span><span class="w">       </span><span class="o">*</span><span class="n">key_timescaleP0</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>Searches (in the specified direction) for the next keyframe in the parameter's stream. The last three parameters are optional.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_GetKeyframeCount</code></td>
-<td><pre>PF_GetKeyframeCount(<br/>  PF_ProgPtr     effect_ref,<br/>  PF_ParamIndex  param_index,<br/>  PF_KeyIndex    *key_countP);</pre><br/><br/>Returns the number of keyframes in the parameter's stream.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_GetKeyframeCount</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_GetKeyframeCount</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">     </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">  </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_KeyIndex</span><span class="w">    </span><span class="o">*</span><span class="n">key_countP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>Returns the number of keyframes in the parameter's stream.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_CheckoutKeyframe</code></td>
-<td><pre>PF_CheckoutKeyframe(<br/>  PF_ProgPtr     effect_ref,<br/>  PF_ParamIndex  param_index,<br/>  PF_KeyIndex    key_index,<br/>  A_long         *key_timeP0,<br/>  A_u_long       *key_timescaleP0,<br/>  PF_ParamDef    *paramP0);</pre><br/><br/>Checks a keyframe for the specified parameter out of our keyframe database. param_index is zero-based. You can request time, timescale, or neither; useful if you're performing your own motion blur.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_CheckoutKeyframe</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_CheckoutKeyframe</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">     </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">  </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_KeyIndex</span><span class="w">    </span><span class="n">key_index</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="o">*</span><span class="n">key_timeP0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_u_long</span><span class="w">       </span><span class="o">*</span><span class="n">key_timescaleP0</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PF_ParamDef</span><span class="w">    </span><span class="o">*</span><span class="n">paramP0</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>Checks a keyframe for the specified parameter out of our keyframe database. param_index is zero-based. You can request time, timescale, or neither; useful if you're performing your own motion blur.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_CheckinKeyframe</code></td>
-<td><pre>PF_CheckinKeyframe(<br/>  PF_ProgPtr   effect_ref,<br/>  PF_ParamDef  *paramP);</pre><br/><br/>All calls to PF_CheckoutKeyframe must be balanced with this check-in, or pain will ensue.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_CheckinKeyframe</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_CheckinKeyframe</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">   </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamDef</span><span class="w">  </span><span class="o">*</span><span class="n">paramP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>All calls to PF_CheckoutKeyframe must be balanced with this check-in, or pain will ensue.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_KeyIndexToTime</code></td>
-<td><pre>PF_KeyIndexToTime(<br/>  PF_ProgPtr     effect_ref,<br/>  PF_ParamIndex  param_index,<br/>  PF_KeyIndex    key_indexP,<br/>  A_long         *key_timeP,<br/>  A_u_long       *key_timescaleP);</pre><br/><br/>Returns the time (and timescale) of the specified keyframe.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_KeyIndexToTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_KeyIndexToTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">     </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">  </span><span class="n">param_index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_KeyIndex</span><span class="w">    </span><span class="n">key_indexP</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">         </span><span class="o">*</span><span class="n">key_timeP</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_u_long</span><span class="w">       </span><span class="o">*</span><span class="n">key_timescaleP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>Returns the time (and timescale) of the specified keyframe.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2836,7 +2977,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -2899,7 +3040,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

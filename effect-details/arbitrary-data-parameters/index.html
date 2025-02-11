@@ -2797,54 +2797,109 @@
 <table>
 <thead>
 <tr>
-<th>Selector</th>
-<th>Response</th>
+<th colspan="1" rowspan="1">
+<p>Selector</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Response</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_Arbitrary_NEW_FUNC</code></td>
-<td>Allocate, populate, and return a handle to a new instance of your arb data.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_NEW_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocate, populate, and return a handle to a new instance of your arb data.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Arbitrary_DISPOSE_FUNC</code></td>
-<td>Free and destroy an instance of your arbitrary data type.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_DISPOSE_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Free and destroy an instance of your arbitrary data type.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Arbitrary_COPY_FUNC</code></td>
-<td>Make a copy of an existing instance. You will be passed two handles, but only the source handle contains a valid instance. You must create a new instance, copy the values from the source, and put it in the destination handle. If you are passed a NULL handle, create a default instance of your arb data.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_COPY_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Make a copy of an existing instance. You will be passed two handles, but only the source handle contains a valid instance. You must create a new instance, copy the values from the source, and put it in the destination handle. If you are passed a NULL handle, create a default instance of your arb data.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Arbitrary_FLAT_SIZE_FUNC</code></td>
-<td>You'll be passed a handle to an instance of your data type, and a variable in which you return the size of a flattened version of that instance.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_FLAT_SIZE_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>You'll be passed a handle to an instance of your data type, and a variable in which you return the size of a flattened version of that instance.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Arbitrary_FLATTEN_FUNC</code></td>
-<td>Flatten the instance you're passed, and place it in the supplied buffer. The buffer will be the size you reported in response to PF_Arbitrary_FLAT_SIZE_FUNC.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_FLATTEN_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Flatten the instance you're passed, and place it in the supplied buffer. The buffer will be the size you reported in response to <code>PF_Arbitrary_FLAT_SIZE_FUNC</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Arbitrary_UNFLATTEN_FUNC</code></td>
-<td>Unpack the buffer into an instance of your arbitrary data type, and put in the handle which you've been passed.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_UNFLATTEN_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unpack the buffer into an instance of your arbitrary data type, and put in the handle which you've been passed.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Arbitrary_INTERP_FUNC</code></td>
-<td>Your interpolation function is passed three handles to instances of your arbitrary data type; one containing initial values (0), one final values (1), and a third to hold your interpolated data (somewhere between 0 and 1). You are also passed a float indicating where, between 0 and 1, your interpreted value should be.<br/><br/>Allocate an instance and fill it with interpolated data. Then put the interpolated instance into the handle you've been passed. The velocity curves have already been accounted for when the normalized time value was calculated.<br/><br/>NOTE: Never check out parameters if the <a href="../../effect-basics/PF_InData/#pf_indata-members">in_data&gt;effect_ref</a> is NULL.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_INTERP_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Your interpolation function is passed three handles to instances of your arbitrary data type; one containing initial values (0), one final values (1), and a third to hold your interpolated data (somewhere between 0 and 1). You are also passed a float indicating where, between 0 and 1, your interpreted value should be.</p>
+<p>Allocate an instance and fill it with interpolated data. Then put the interpolated instance into the handle you've been passed. The velocity curves have already been accounted for when the normalized time value was calculated.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Never check out parameters if the <a href="../../effect-basics/PF_InData/#pf_indata-members">in_data&gt;effect_ref</a> is NULL.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>PF_Arbitrary_COMPARE_FUNC</code></td>
-<td>You are passed two instances of your arbitrary data, and a pointer to a comparison result. Populate the result with one of the values for PF_ArbCompareResult (see AE_Effect.h) to indicate whether the first was equal to, less than, more than, or simply not equal to the second.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_COMPARE_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>You are passed two instances of your arbitrary data, and a pointer to a comparison result. Populate the result with one of the values for <code>PF_ArbCompareResult</code> (see <code>AE_Effect.h</code>) to indicate whether the first was equal to, less than, more than, or simply not equal to the second.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Arbitrary_PRINT_SIZE_FUNC</code></td>
-<td>Indicate the buffer size you require for printing your parameter's current values by setting print_sizePLu (member of print_size_func_params, part of the PF_ArbParamsExtra structure).</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_PRINT_SIZE_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Indicate the buffer size you require for printing your parameter's current values by setting <code>print_sizePLu</code> (member of <code>print_size_func_params</code>, part of the <code>PF_ArbParamsExtra</code> structure).</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Arbitrary_PRINT_FUNC</code></td>
-<td>Format your arbitrary data for text-based export, and copy the result to the buffer. This can be as elaborate as you would like.<br/>Your plug-in should emulate the cut-and-paste behavior for pasting text representations of parameter settings (into a Microsoft Excel spreadsheet, for example) displayed by the plug-ins shipped with After Effects.<br/>You have a great deal of flexibility in how you format your output.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_PRINT_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Format your arbitrary data for text-based export, and copy the result to the buffer. This can be as elaborate as you would like.</p>
+<p>Your plug-in should emulate the cut-and-paste behavior for pasting text representations of parameter settings (into a Microsoft Excel spreadsheet, for example) displayed by the plug-ins shipped with After Effects.</p>
+<p>You have a great deal of flexibility in how you format your output.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_Arbitrary_SCAN_FUNC</code></td>
-<td>Given a buffer of text data (often from the system clipboard), parse it into your arbitrary data format.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_Arbitrary_SCAN_FUNC</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a buffer of text data (often from the system clipboard), parse it into your arbitrary data format.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2888,7 +2943,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -2951,7 +3006,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

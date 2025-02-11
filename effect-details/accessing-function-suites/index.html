@@ -2725,12 +2725,12 @@
 <h1 id="accessing-the-after-effects-function-suites">Accessing the After Effects Function Suites<a class="headerlink" href="#accessing-the-after-effects-function-suites" title="Permanent link">&para;</a></h1>
 <p>If you are writing C++ code, accessing the suites should be done using the AEFX_SuiteScoper which automatically acquires the suite when needed and disposes of it when done.</p>
 <p>Here is an example using AEFX_SuiteScope to access the PF_GPUDeviceSuite1 suite:</p>
-<div class="highlight"><pre><span></span><code><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_GPUDeviceSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gpu_suite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_GPUDeviceSuite1</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">    </span><span class="n">in_dataP</span><span class="p">,</span>
-<span class="w">    </span><span class="n">kPFGPUDeviceSuite</span><span class="p">,</span>
-<span class="w">    </span><span class="n">kPFGPUDeviceSuiteVersion1</span><span class="p">,</span>
-<span class="w">    </span><span class="n">out_dataP</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_GPUDeviceSuite1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gpu_suite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AEFX_SuiteScoper</span><span class="o">&lt;</span><span class="n">PF_GPUDeviceSuite1</span><span class="o">&gt;</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">    </span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">    </span><span class="n">kPFGPUDeviceSuite</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">    </span><span class="n">kPFGPUDeviceSuiteVersion1</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">    </span><span class="n">out_dataP</span><span class="p">);</span>
+</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>AEFX_SuiteScoper will throw an Exception, <code>A_Err_MISSING_SUITE</code>, if the requested suite cannot be acquired and the optional second template argument, <code>ALLOW_NO_SUITE</code>, is set to false.</p>
@@ -2738,8 +2738,8 @@
 <p>If <code>ALLOW_NO_SUITE</code> is set to <code>true</code>, then you should check the returned pointer is not NULL before using it.</p>
 </div>
 <p>Once you have the suite you may make calls to any function in the suite list so:</p>
-<div class="highlight"><pre><span></span><code><span class="n">gpu_suite</span><span class="o">-&gt;</span><span class="n">GetDeviceInfo</span><span class="p">(</span><span class="n">in_dataP</span><span class="o">-&gt;</span><span class="n">effect_ref</span><span class="p">,</span><span class="w"> </span><span class="n">extraP</span><span class="o">-&gt;</span><span class="n">input</span><span class="o">-&gt;</span><span class="n">device_index</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">device_info</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">gpu_suite</span><span class="o">-&gt;</span><span class="n">GetDeviceInfo</span><span class="p">(</span><span class="n">in_dataP</span><span class="o">-&gt;</span><span class="n">effect_ref</span><span class="p">,</span><span class="w"> </span><span class="n">extraP</span><span class="o">-&gt;</span><span class="n">input</span><span class="o">-&gt;</span><span class="n">device_index</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">device_info</span><span class="p">);</span>
+</span></code></pre></div>
 <p>If you must use C code, then acquire and release the suites manually using the <code>PF_Suite_Helper</code> utility files, as demonstrated in the Checkout sample project.</p>
 <p>Behind the scenes, both of these methods acquire PICA function suites using <code>AcquireSuite</code>, a member function of the <code>SPBasicSuite</code> pointed to in <code>PF_InData</code>.</p>
 <hr />
@@ -2832,7 +2832,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

@@ -2975,38 +2975,144 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>composite_rect</code></td>
-<td>Composite a rectangle from one <code>PF_EffectWorld</code> into another, using one of After Effects' transfer modes.<br/><pre>PF_Err composite_rect (<br/>  PF_ProgPtr      effect_ref,<br/>  PF_Rect         *src_rect,<br/>  A_long          src_opacity,<br/>  PF_EffectWorld  *src_world,<br/>  A_long          dst_x,<br/>  A_long          dst_y,<br/>  PF_Field        field_rdr,<br/>  PF_XferMode     xfer_mode,<br/>  PF_EffectWorld  *dst);</pre><br/><br/><code>field_rdr</code> can be upper, lower or both.<br/><br/><code>xfer_mode</code> is one of the following:<ul><li><code>PF_Xfer_COPY</code></li><li><code>PF_Xfer_BEHIND</code></li><li><code>PF_Xfer_IN_FRONT</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>composite_rect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Composite a rectangle from one <code>PF_EffectWorld</code> into another, using one of After Effects' transfer modes.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">composite_rect</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Rect</span><span class="w">         </span><span class="o">*</span><span class="n">src_rect</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">src_opacity</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">src_world</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">dst_x</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">dst_y</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PF_Field</span><span class="w">        </span><span class="n">field_rdr</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">PF_XferMode</span><span class="w">     </span><span class="n">xfer_mode</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>field_rdr</code> can be upper, lower or both.</p>
+<p><code>xfer_mode</code> is one of the following:</p>
+<ul>
+<li><code>PF_Xfer_COPY</code></li>
+<li><code>PF_Xfer_BEHIND</code></li>
+<li><code>PF_Xfer_IN_FRONT</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>blend</code></td>
-<td>Blends two images, alpha-weighted. Does not deal with different-sized sources, though the destination may be either PF_EffectWorld.<br/><pre>PF_Err blend (<br/>  PF_ProgPtr            effect_ref,<br/>  const PF_EffectWorld  *src1,<br/>  const PF_EffectWorld  *src2,<br/>  PF_Fixed              ratio,<br/>  PF_EffectWorld        *dst);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>blend</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Blends two images, alpha-weighted. Does not deal with different-sized sources, though the destination may be either <code>PF_EffectWorld</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">blend</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">            </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">src1</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">src2</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_Fixed</span><span class="w">              </span><span class="n">ratio</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">        </span><span class="o">*</span><span class="n">dst</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>convolve</code></td>
-<td>Convolve an image with an arbitrary size kernel on each of the a, r, g, and b channels separately.<br/><br/>You can specify a rectangle to convolve (for instance, the <code>extent_hint</code> from <a href="../../effect-basics/PF_EffectWorld/#pf_effectworld-structure">PF_EffectWorld Structure</a>), or pass 0 to convolve the entire image.<br/><br/>Do not use if the source *is* the destination.<br/><br/>Describe the convolution using <a href="#kernel-flags">Kernel Flags</a>.<br/><pre>PF_Err convolve(<br/>  PF_EffectWorld  *src,<br/>  const PF_Rect   *area,<br/>  PF_KernelFlags  flags,<br/>  A_long          kernel_size,<br/>  void            *a_kernel,<br/>  void            *r_kernel,<br/>  void            *g_kernel,<br/>  void            *b_kernel,<br/>  PF_EffectWorld  *dst);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>convolve</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Convolve an image with an arbitrary size kernel on each of the a, r, g, and b channels separately.</p>
+<p>You can specify a rectangle to convolve (for instance, the <code>extent_hint</code> from <a href="../../effect-basics/PF_EffectWorld/#pf_effectworld-structure">PF_EffectWorld Structure</a>), or pass 0 to convolve the entire image.</p>
+<p>Do not use if the source <em>is</em> the destination.</p>
+<p>Describe the convolution using <a href="#kernel-flags">Kernel Flags</a>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">convolve</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Rect</span><span class="w">   </span><span class="o">*</span><span class="n">area</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_KernelFlags</span><span class="w">  </span><span class="n">flags</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">kernel_size</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">a_kernel</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">r_kernel</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">g_kernel</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">b_kernel</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>copy</code></td>
-<td>Copies a region from one PF_EffectWorld to another, preserving alpha (unlike the macOS CopyBits).<br/><pre>PF_Err copy (<br/>  PF_EffectWorld  *src,<br/>  PF_EffectWorld  *dst,<br/>  PF_Rect         *src_r,<br/>  PF_Rect         *dst_r);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>copy</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Copies a region from one <code>PF_EffectWorld</code> to another, preserving alpha (unlike the macOS CopyBits).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">copy</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Rect</span><span class="w">         </span><span class="o">*</span><span class="n">src_r</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_Rect</span><span class="w">         </span><span class="o">*</span><span class="n">dst_r</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>copy_hq</code></td>
-<td>A higher fidelity version of the above (using the same parameters).</td>
+<td colspan="1" rowspan="1">
+<p><code>copy_hq</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A higher fidelity version of the above (using the same parameters).</p>
+</td>
 </tr>
 <tr>
-<td><code>transfer_rect</code></td>
-<td>Blends using a transfer mode, with an optional mask.<br/><pre>PF_Err transfer_rect (<br/>  PF_ProgPtr              effect_ref,<br/>  PF_Quality              quality,<br/>  PF_ModeFlags            m_flags,<br/>  PF_Field                field,<br/>  const PF_Rect           *src_rec,<br/>  const PF_EffectWorld    *src_world,<br/>  const PF_CompositeMode  *comp_mode,<br/>  const PF_MaskWorld      *mask_world0,<br/>  A_long                  dest_x,<br/>  A_long                  dest_y,<br/>  PF_EffectWorld          *dst_world);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>transfer_rect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Blends using a transfer mode, with an optional mask.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">transfer_rect</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">              </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Quality</span><span class="w">              </span><span class="n">quality</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ModeFlags</span><span class="w">            </span><span class="n">m_flags</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_Field</span><span class="w">                </span><span class="n">field</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Rect</span><span class="w">           </span><span class="o">*</span><span class="n">src_rec</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_EffectWorld</span><span class="w">    </span><span class="o">*</span><span class="n">src_world</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_CompositeMode</span><span class="w">  </span><span class="o">*</span><span class="n">comp_mode</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_MaskWorld</span><span class="w">      </span><span class="o">*</span><span class="n">mask_world0</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">A_long</span><span class="w">                  </span><span class="n">dest_x</span><span class="p">,</span>
+</span><span id="__span-0-11"><span class="w">  </span><span class="n">A_long</span><span class="w">                  </span><span class="n">dest_y</span><span class="p">,</span>
+</span><span id="__span-0-12"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">          </span><span class="o">*</span><span class="n">dst_world</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>transform_world</code></td>
-<td>Given a PF_EffectWorld and a matrix (or array of matrices), transforms and blends using an After Effects transfer mode, with an optional mask.<br/><br/>The matrices pointer points to a matrix array used for motion-blur.<br/><br/>When is a transform not a transform? A Z-scale transform is not a transform, unless the transformed layer is a parent of other layers that do not all lie in the z=0 plane.<br/><pre>PF_Err transform_world (<br/>  PF_InData               *in_data,<br/>  PF_Quality              quality,<br/>  PF_ModeFlags            m_flags,<br/>  PF_Field                field,<br/>  const PF_EffectWorld    *src_world,<br/>  const PF_CompositeMode  *comp_mode,<br/>  const PF_MaskWorld      *mask_world0,<br/>  const PF_FloatMatrix    *matrices,<br/>  A_long                  num_matrices,<br/>  Boolean                 src2dst_matrix,<br/>  const PF_Rect           *dest_rect,<br/>  PF_EffectWorld          *dst_world);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>transform_world</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a <code>PF_EffectWorld</code> and a matrix (or array of matrices), transforms and blends using an After Effects transfer mode, with an optional mask.</p>
+<p>The matrices pointer points to a matrix array used for motion-blur.</p>
+<p>When is a transform not a transform? A Z-scale transform is not a transform, unless the transformed layer is a parent of other layers that do not all lie in the z=0 plane.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">transform_world</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_InData</span><span class="w">               </span><span class="o">*</span><span class="n">in_data</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Quality</span><span class="w">              </span><span class="n">quality</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ModeFlags</span><span class="w">            </span><span class="n">m_flags</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_Field</span><span class="w">                </span><span class="n">field</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_EffectWorld</span><span class="w">    </span><span class="o">*</span><span class="n">src_world</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_CompositeMode</span><span class="w">  </span><span class="o">*</span><span class="n">comp_mode</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_MaskWorld</span><span class="w">      </span><span class="o">*</span><span class="n">mask_world0</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_FloatMatrix</span><span class="w">    </span><span class="o">*</span><span class="n">matrices</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="n">A_long</span><span class="w">                  </span><span class="n">num_matrices</span><span class="p">,</span>
+</span><span id="__span-0-11"><span class="w">  </span><span class="n">Boolean</span><span class="w">                 </span><span class="n">src2dst_matrix</span><span class="p">,</span>
+</span><span id="__span-0-12"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Rect</span><span class="w">           </span><span class="o">*</span><span class="n">dest_rect</span><span class="p">,</span>
+</span><span id="__span-0-13"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">          </span><span class="o">*</span><span class="n">dst_world</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3017,38 +3123,86 @@
 <table>
 <thead>
 <tr>
-<th>Kernel Flags</th>
-<th>Indicates</th>
+<th colspan="1" rowspan="1">
+<p>Kernel Flags</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Indicates</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_KernelFlag_2D</code><br/><br/><code>PF_KernelFlag_1D</code></td>
-<td>Specifies a one or two dimensional kernel.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_KernelFlag_2D</code></p>
+<p><code>PF_KernelFlag_1D</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Specifies a one or two dimensional kernel.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_KernelFlag_UNNORMALIZED</code><br/><br/><code>PF_KernelFlag_NORMALIZED</code></td>
-<td><code>NORMALIZED</code> equalizes the kernel; the volume under the kernel surface is the same as the volume under the covered area of pixels.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_KernelFlag_UNNORMALIZED</code></p>
+<p><code>PF_KernelFlag_NORMALIZED</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>NORMALIZED</code> equalizes the kernel; the volume under the kernel surface is the same as the volume under the covered area of pixels.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_KernelFlag_CLAMP</code><br/><br/><code>PF_KernelFlag_NO_CLAMP</code></td>
-<td><code>CLAMP</code> restricts values to the valid range for their data type.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_KernelFlag_CLAMP</code></p>
+<p><code>PF_KernelFlag_NO_CLAMP</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>CLAMP</code> restricts values to the valid range for their data type.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_KernelFlag_USE_LONG</code><br/><br/><code>PF_KernelFlag_USE_CHAR</code><br/><br/><code>PF_KernelFlag_USE_FIXED</code><br/><br/><code>PF_KernelFlag_USE_UNDEFINED</code></td>
-<td><code>USE_LONG</code> defines the kernel as an array of longs valued from 0 to 255.<br/><br/><code>USE_CHAR</code> defines the kernel as an array of unsigned chars from 0 to 255.<br/><br/><code>USE_FIXED</code> defines the kernel as an array of fixeds from 0 to 1.<br/><br/><code>USE_LONG</code> is the only implemented flag.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_KernelFlag_USE_LONG</code></p>
+<p><code>PF_KernelFlag_USE_CHAR</code></p>
+<p><code>PF_KernelFlag_USE_FIXED</code></p>
+<p><code>PF_KernelFlag_USE_UNDEFINED</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>USE_LONG</code> defines the kernel as an array of longs valued from 0 to 255. <code>USE_LONG</code> is the only implemented flag.</p>
+<p><code>USE_CHAR</code> defines the kernel as an array of unsigned chars from 0 to 255.</p>
+<p><code>USE_FIXED</code> defines the kernel as an array of fixeds from 0 to 1.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_KernelFlag_HORIZONTAL</code><br/><br/><code>PF_KernelFlag_VERTICAL</code></td>
-<td>Specifies the direction of the convolution.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_KernelFlag_HORIZONTAL</code></p>
+<p><code>PF_KernelFlag_VERTICAL</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Specifies the direction of the convolution.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_KernelFlag_TRANSPARENT_BORDERS</code><br/><br/><code>PF_KernelFlag_REPLICATE_BORDERS</code></td>
-<td>Use <code>REPLICATE_BORDERS</code> to replicate border pixels when sampling off the edge, use <code>TRANSPARENT_BORDERS</code> to treat pixels off the edge as alpha zero (black).<br/><br/><code>REPLICATE_BORDERS</code> is not implemented and will be ignored.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_KernelFlag_TRANSPARENT_BORDERS</code></p>
+<p><code>PF_KernelFlag_REPLICATE_BORDERS</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Use <code>TRANSPARENT_BORDERS</code> to treat pixels off the edge as alpha zero (black).</p>
+<p>Use <code>REPLICATE_BORDERS</code> to replicate border pixels when sampling off the edge.</p>
+<p><code>REPLICATE_BORDERS</code> is not implemented and will be ignored.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_KernelFlag_STRAIGHT_CONVOLVE</code><br/><br/><code>PF_KernelFlag_ALPHA_WEIGHT_CONVOLVE</code></td>
-<td>Use <code>STRAIGHT_CONVOLVE</code> to indicate straight convolution, use <code>ALPHA_WEIGHT_CONVOLVE</code> to tell the convolution code to alpha-weight the contributions of pixels to the resulting convolved output.<br/><br/><code>ALPHA_WEIGHT_CONVOLVE</code> is not implemented and will be ignored.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_KernelFlag_STRAIGHT_CONVOLVE</code></p>
+<p><code>PF_KernelFlag_ALPHA_WEIGHT_CONVOLVE</code>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Use <code>STRAIGHT_CONVOLVE</code> to indicate straight convolution.</p>
+<p>Use <code>ALPHA_WEIGHT_CONVOLVE</code> to tell the convolution code to alpha-weight the contributions of pixels to the resulting convolved output.
+<code>ALPHA_WEIGHT_CONVOLVE</code> is not implemented and will be ignored.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3059,84 +3213,212 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>fill</code></td>
-<td>Fills a rect with a color (or, if the color pointer is null, fills with black and alpha zero).<br/><br/>If the rect is null, it fills the entire image.<br/><pre>PF_Err fill (<br/>  PF_ProgPtr      effect_ref,<br/>  const PF_Pixel  *color,<br/>  const PF_Rect   *dst_rect,<br/>  PF_EffectWorld  *world);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>fill</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Fills a rect with a color (or, if the color pointer is null, fills with black and alpha zero).</p>
+<p>If the rect is null, it fills the entire image.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">fill</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Pixel</span><span class="w">  </span><span class="o">*</span><span class="n">color</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_Rect</span><span class="w">   </span><span class="o">*</span><span class="n">dst_rect</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">world</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>fill16</code></td>
-<td>Same as fill, but takes a pointer to a PF_Pixel16 color.</td>
+<td colspan="1" rowspan="1">
+<p><code>fill16</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Same as fill, but takes a pointer to a <code>PF_Pixel16</code> color.</p>
+</td>
 </tr>
 <tr>
-<td><code>fill_float</code></td>
-<td>Takes a pointer to a PF_PixelFloat color.</td>
+<td colspan="1" rowspan="1">
+<p><code>fill_float</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Takes a pointer to a <code>PF_PixelFloat</code> color.</p>
+</td>
 </tr>
 <tr>
-<td><code>premultiply</code></td>
-<td>Converts to (and from) r, g, and b color values pre-multiplied with black to represent the alpha channel.<br/><br/>Quality independent.<ul><li><code>forward</code> is used as a boolean</li><li><code>true</code> means convert non-premultiplied to pre-multiplied</li><li><code>false</code> mean un-pre-multiply.</li></ul><pre>PF_Err premultiply (<br/>  A_long          forward,<br/>  PF_EffectWorld  *dst);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>premultiply</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Converts to (and from) r, g, and b color values pre-multiplied with black to represent the alpha channel.</p>
+<p>Quality independent.</p>
+<ul>
+<li><code>forward</code> is used as a boolean</li>
+<li><code>true</code> means convert non-premultiplied to pre-multiplied</li>
+<li><code>false</code> mean un-pre-multiply.</li>
+</ul>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">premultiply</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">forward</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>premultiply_color</code></td>
-<td>Converts to (and from) having r, g, and b color values premultiplied with any color to represent the alpha channel.<br/><pre>PF_Err premultiply_color (<br/>  PF_ProgPtr      effect_ref,<br/>  PF_EffectWorld  *src,<br/>  PF_Pixel        *color,<br/>  A_long          forward,<br/>  PF_EffectWorld  *dst);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>premultiply_color</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Converts to (and from) having r, g, and b color values premultiplied with any color to represent the alpha channel.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">premultiply_color</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Pixel</span><span class="w">        </span><span class="o">*</span><span class="n">color</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">forward</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>premultiply_color16</code></td>
-<td>Same as above, but takes a pointer to a PF_Pixel16 color.</td>
+<td colspan="1" rowspan="1">
+<p><code>premultiply_color16</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Same as above, but takes a pointer to a <code>PF_Pixel16</code> color.</p>
+</td>
 </tr>
 <tr>
-<td><code>premultiply_color_float</code></td>
-<td>Takes a pointer to a PF_PixelFloat color.</td>
+<td colspan="1" rowspan="1">
+<p><code>premultiply_color_float</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Takes a pointer to a <code>PF_PixelFloat</code> color.</p>
+</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="sampling-images">Sampling Images<a class="headerlink" href="#sampling-images" title="Permanent link">&para;</a></h2>
-<p>Note: areas outside the bounds of the image being sampled are treated as zero alpha. For convenience, the functions from PF_Sampling8Suite1, PF_Sampling16Suite1, and PF_SamplingFloatSuite1 are all listed in this table.</p>
+<p>Note: areas outside the bounds of the image being sampled are treated as zero alpha. For convenience, the functions from <code>PF_Sampling8Suite1</code>, <code>PF_Sampling16Suite1</code>, and <code>PF_SamplingFloatSuite1</code> are all listed in this table.</p>
 <h3 id="pf_samplingsuite-functions-multiple-suites">PF_SamplingSuite Functions (Multiple Suites)<a class="headerlink" href="#pf_samplingsuite-functions-multiple-suites" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>nn_sample</code></td>
-<td>Performs nearest neighbor sampling.<br/><pre>PF_Err nn_sample (<br/>  PF_ProgPtr       effect_ref,<br/>  PF_Fixed         x,<br/>  PF_Fixed         y,<br/>  const PF_SampPB  *params,<br/>  PF_Pixel         *dst_pixel );</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>nn_sample</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Performs nearest neighbor sampling.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">nn_sample</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">       </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Fixed</span><span class="w">         </span><span class="n">x</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Fixed</span><span class="w">         </span><span class="n">y</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_SampPB</span><span class="w">  </span><span class="o">*</span><span class="n">params</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_Pixel</span><span class="w">         </span><span class="o">*</span><span class="n">dst_pixel</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>nn_sample16</code></td>
-<td>Same as above, but takes a pointer to a <code>PF_Pixel16</code> <code>dst_pixel</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>nn_sample16</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Same as above, but takes a pointer to a <code>PF_Pixel16</code> <code>dst_pixel</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>nn_sample_float</code></td>
-<td>Takes a pointer to a <code>PF_PixelFloat</code> <code>dst_pixel</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>nn_sample_float</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Takes a pointer to a <code>PF_PixelFloat</code> <code>dst_pixel</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>subpixel_sample</code></td>
-<td>Queries the appropriate alpha-weighted interpolation of colors at a non-integral point in a source image, in high quality. Nearest neighbor sampling is used in low quality.<br/><br/>Because the sampling routine, if used, will typically be called many times, it is convenient to copy the function pointer out to the callbacks structure and into a register or onto the stack to speed up your inner loop.<br/><br/>See the sample code for an example.<br/><br/>NOTE: The sampling assumes that 0,0 is the center of the top left pixel.<br/><pre>PF_Err subpixel_sample (<br/>  PF_ProgPtr       effect_ref,<br/>  PF_Fixed         x,<br/>  PF_Fixed         y,<br/>  const PF_SampPB  *params,<br/>  PF_Pixel         *dst_pixel);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>subpixel_sample</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Queries the appropriate alpha-weighted interpolation of colors at a non-integral point in a source image, in high quality. Nearest neighbor sampling is used in low quality.</p>
+<p>Because the sampling routine, if used, will typically be called many times, it is convenient to copy the function pointer out to the callbacks structure and into a register or onto the stack to speed up your inner loop.</p>
+<p>See the sample code for an example.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sampling assumes that 0,0 is the center of the top left pixel.</p>
+</div>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">subpixel_sample</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">       </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Fixed</span><span class="w">         </span><span class="n">x</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Fixed</span><span class="w">         </span><span class="n">y</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_SampPB</span><span class="w">  </span><span class="o">*</span><span class="n">params</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_Pixel</span><span class="w">         </span><span class="o">*</span><span class="n">dst_pixel</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>subpixel_sample16</code></td>
-<td>Same as above, but takes a pointer to a <code>PF_Pixel16*</code> <code>dst_pixel</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>subpixel_sample16</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Same as above, but takes a pointer to a <code>PF_Pixel16*</code> <code>dst_pixel</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>subpixel_sample_float</code></td>
-<td>Takes a pointer to a <code>PF_PixelFloat*</code> <code>dst_pixel</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>subpixel_sample_float</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Takes a pointer to a <code>PF_PixelFloat*</code> <code>dst_pixel</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>area_sample</code></td>
-<td>Use this to calculate the appropriate alpha weighted average of an axis-aligned non-integral rectangle of color in a source image, in high quality.<br/><br/>Nearest neighbor sampling is used in low quality. Because of overflow issues, this can only average a maximum of a 256 x 256 pixel area (i.e. x and y radius &lt; 128 pixels).<br/><br/>NOTE: the sampling radius must be at least one in both x and y.<br/><pre>PF_Err area_sample (<br/>  PF_ProgPtr       effect_ref,<br/>  PF_Fixed         x,<br/>  PF_Fixed         y,<br/>  const PF_SampPB  *params,<br/>  PF_Pixel         *dst_pixel);</pre><br/><br/>NOTE: Areas outside the boundaries of the layer are considered the same as zero alpha, for sampling purposes.</td>
+<td colspan="1" rowspan="1">
+<p><code>area_sample</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Use this to calculate the appropriate alpha weighted average of an axis-aligned non-integral rectangle of color in a source image, in high quality.</p>
+<p>Nearest neighbor sampling is used in low quality. Because of overflow issues, this can only average a maximum of a 256 x 256 pixel area (i.e. x and y radius &lt; 128 pixels).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sampling radius must be at least one in both x and y.</p>
+</div>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">area_sample</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">       </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Fixed</span><span class="w">         </span><span class="n">x</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Fixed</span><span class="w">         </span><span class="n">y</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_SampPB</span><span class="w">  </span><span class="o">*</span><span class="n">params</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_Pixel</span><span class="w">         </span><span class="o">*</span><span class="n">dst_pixel</span><span class="p">);</span>
+</span></code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Areas outside the boundaries of the layer are considered the same as zero alpha, for sampling purposes.</p>
+</div>
+</td>
 </tr>
 <tr>
-<td><code>area_sample16</code></td>
-<td>Same as above, but takes a <code>PF_Pixel16*</code> <code>dst_pixel</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>area_sample16</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Same as above, but takes a <code>PF_Pixel16*</code> <code>dst_pixel</code>.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3144,26 +3426,72 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>begin_sampling</code></td>
-<td>Your effect is going to perform some batch sampling;<br/><br/>After Effects will perform setup tasks to optimize your sampling.<br/><pre>PF_Err (*begin_sampling)(<br/>  PF_ProgPtr    effect_ref,<br/>  PF_Quality    qual,<br/>  PF_ModeFlags  mf,<br/>  PF_SampPB     *params);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>begin_sampling</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Your effect is going to perform some batch sampling; After Effects will perform setup tasks to optimize your sampling.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">begin_sampling</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Quality</span><span class="w">    </span><span class="n">qual</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ModeFlags</span><span class="w">  </span><span class="n">mf</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_SampPB</span><span class="w">     </span><span class="o">*</span><span class="n">params</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>end_sampling</code></td>
-<td>Tells After Effects you're done sampling.<br/><pre>PF_Err (*end_sampling)(<br/>  PF_ProgPtr    effect_ref,<br/>  PF_Quality    qual,<br/>  PF_ModeFlags  mf,<br/>  PF_SampPB     *params);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>end_sampling</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Tells After Effects you're done sampling.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">end_sampling</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Quality</span><span class="w">    </span><span class="n">qual</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ModeFlags</span><span class="w">  </span><span class="n">mf</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_SampPB</span><span class="w">     </span><span class="o">*</span><span class="n">params</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>get_batch_func</code></td>
-<td>Obtains a pointer to After Effects' batch sampling function (highly optimized).<br/><pre>PF_Err (*get_batch_func)(<br/>  PF_ProgPtr          effect_ref,<br/>  PF_Quality          quality,<br/>  PF_ModeFlags        mode_flags,<br/>  const PF_SampPB     *params,<br/>  PF_BatchSampleFunc  *batch);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>get_batch_func</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains a pointer to After Effects' batch sampling function (highly optimized).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">get_batch_func</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">          </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Quality</span><span class="w">          </span><span class="n">quality</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ModeFlags</span><span class="w">        </span><span class="n">mode_flags</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_SampPB</span><span class="w">     </span><span class="o">*</span><span class="n">params</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_BatchSampleFunc</span><span class="w">  </span><span class="o">*</span><span class="n">batch</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>get_batch_func16</code></td>
-<td>Obtains a pointer to After Effects' 16-bpc batch sampling function (also highly optimized).<br/><pre>PF_Err (*get_batch_func16)(<br/>  PF_ProgPtr            effect_ref,<br/>  PF_Quality            quality,<br/>  PF_ModeFlags          mode_flags,<br/>  const PF_SampPB       *params,<br/>  PF_BatchSample16Func  *batch);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>get_batch_func16</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Obtains a pointer to After Effects' 16-bpc batch sampling function (also highly optimized).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">get_batch_func16</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">            </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Quality</span><span class="w">            </span><span class="n">quality</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ModeFlags</span><span class="w">          </span><span class="n">mode_flags</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_SampPB</span><span class="w">       </span><span class="o">*</span><span class="n">params</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_BatchSample16Func</span><span class="w">  </span><span class="o">*</span><span class="n">batch</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3305,7 +3633,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3368,7 +3696,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

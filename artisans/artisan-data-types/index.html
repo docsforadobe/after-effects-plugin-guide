@@ -3351,34 +3351,64 @@
 <table>
 <thead>
 <tr>
-<th>Type</th>
-<th>Describes</th>
+<th colspan="1" rowspan="1">
+<p>Type</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Describes</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_RenderLayerContextH</code></td>
-<td>State information at the time of a render request, sent to an Artisan by After Effects.</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderLayerContextH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>State information at the time of a render request, sent to an Artisan by After Effects.</p>
+</td>
 </tr>
 <tr>
-<td><code>PR_RenderContextH</code></td>
-<td>A collection of settings defining what is to be rendered, and how.</td>
+<td colspan="1" rowspan="1">
+<p><code>PR_RenderContextH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A collection of settings defining what is to be rendered, and how.</p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SoundDataH</code></td>
-<td>The audio settings used for a given layer.</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SoundDataH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The audio settings used for a given layer.</p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderReceiptH</code><br/><code>AEGP_FrameReceiptH</code></td>
-<td>Used by Artisans when rendering.</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderReceiptH</code>
+<code>AEGP_FrameReceiptH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Used by Artisans when rendering.
+</p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_WorldH</code></td>
-<td>A frame of pixels.</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_WorldH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A frame of pixels.</p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderOptionsH</code></td>
-<td>The settings associated with a render queue item.</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderOptionsH</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The settings associated with a render queue item.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3400,54 +3430,200 @@
 <table>
 <thead>
 <tr>
-<th>PR_ArtisanEntryPoints</th>
-<th></th>
+<th colspan="1" rowspan="1">
+<p>PR_ArtisanEntryPoints</p>
+</th>
+<th colspan="1" rowspan="1"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>global_setup_func0</code></td>
-<td>Called only once, right after <code>GP_Main</code>. The global data is common across all instances of the plug-in.<br/>If you allocate memory during Global Setup, you must free it during your <code>global_setdown_func</code>.<br/><pre>PR_GlobalSetupFunc(<br/>  const PR_InData    *in_dataP,<br/>  PR_GlobalContextH  global_contextH,<br/>  PR_GlobalDataH     *global_dataPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>global_setup_func0</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Called only once, right after <code>GP_Main</code>. The global data is common across all instances of the plug-in.</p>
+<p>If you allocate memory during Global Setup, you must free it during your <code>global_setdown_func</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_GlobalSetupFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">    </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">  </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">     </span><span class="o">*</span><span class="n">global_dataPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>global_setdown_func0</code></td>
-<td>Dispose of any global data you allocated.<br/><pre>PR_GlobalSetdownFunc(<br/>  const PR_InData    *in_dataP,<br/>  PR_GlobalContextH  global_contextH,<br/>  PR_GlobalDataH     global_dataH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>global_setdown_func0</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Dispose of any global data you allocated.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_GlobalSetdownFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">    </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">  </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">     </span><span class="n">global_dataH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>global_do_about_func0</code></td>
-<td>Tell the world about yourself! Use <code>in_dataP&gt;msg_func</code> to display your dialog.<br/><pre>PR_GlobalDoAboutFunc(<br/>  const PR_InData    *in_dataP,<br/>  PR_GlobalContextH  global_contextH,<br/>  PR_GlobalDataH     global_dataH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>global_do_about_func0</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Tell the world about yourself! Use <code>in_dataP&gt;msg_func</code> to display your dialog.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_GlobalDoAboutFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">    </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">  </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">     </span><span class="n">global_dataH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>setup_instance_func0</code></td>
-<td>Allocate and instantiate any data specific to this instance of your Artisan.<br/><pre>PR_InstanceSetupFunc(<br/>  const PR_InData      *in_dataP,<br/>  PR_GlobalContextH    global_contextH,<br/>  PR_InstanceContextH  instance_contextH,<br/>  PR_GlobalDataH       global_dataH,<br/>  PR_InstanceFlags     flags,<br/>  PR_FlatHandle        flat_dataH0,<br/>  PR_InstanceDataH     *instance_dataPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>setup_instance_func0</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocate and instantiate any data specific to this instance of your Artisan.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_InstanceSetupFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">    </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_InstanceContextH</span><span class="w">  </span><span class="n">instance_contextH</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">       </span><span class="n">global_dataH</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PR_InstanceFlags</span><span class="w">     </span><span class="n">flags</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PR_FlatHandle</span><span class="w">        </span><span class="n">flat_dataH0</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PR_InstanceDataH</span><span class="w">     </span><span class="o">*</span><span class="n">instance_dataPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>setdown_instance_func0</code></td>
-<td>Deallocate and free any data specific to this instance of your Artisan.<br/><pre>PR_InstanceSetdownFunc(<br/>  const PR_InData      *in_dataP,<br/>  PR_GlobalContextH    global_contextH,<br/>  PR_InstanceContextH  instance_contextH,<br/>  PR_GlobalDataH       global_dataH,<br/>  PR_InstanceDataH     instance_dataH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>setdown_instance_func0</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Deallocate and free any data specific to this instance of your Artisan.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_InstanceSetdownFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">    </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_InstanceContextH</span><span class="w">  </span><span class="n">instance_contextH</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">       </span><span class="n">global_dataH</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PR_InstanceDataH</span><span class="w">     </span><span class="n">instance_dataH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>flatten_instance_func0</code></td>
-<td>Flatten your data in preparation to being written to disk. (making sure it's OS independent, if your Artisan is).<br/><pre>PR_FlattenInstanceFunc(<br/>  const PR_InData      *in_dataP,<br/>  PR_GlobalContextH    global_contextH,<br/>  PR_InstanceContextH  instance_contextH,<br/>  PR_GlobalDataH       global_dataH,<br/>  PR_InstanceDataH     instance_dataH,<br/>  PR_FlatHandle        *flatH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>flatten_instance_func0</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Flatten your data in preparation to being written to disk. (making sure it's OS independent, if your Artisan is).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_FlattenInstanceFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">    </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_InstanceContextH</span><span class="w">  </span><span class="n">instance_contextH</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">       </span><span class="n">global_dataH</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PR_InstanceDataH</span><span class="w">     </span><span class="n">instance_dataH</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PR_FlatHandle</span><span class="w">        </span><span class="o">*</span><span class="n">flatH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>do_instance_dialog_func0</code></td>
-<td>If your Artisan has a additional parameters (accessed through its Options dialog), this function will be called to get and set them.<br/><pre>PR_DoInstanceDialogFunc(<br/>  const PR_InData      *in_dataP,<br/>  PR_GlobalContextH    global_contextH,<br/>  PR_InstanceContextH  instance_contextH,<br/>  PR_GlobalDataH       global_dataH,<br/>  PR_InstanceDataH     instance_dataH,<br/>  PR_DialogResult      *resultP);</pre><br/><br/><code>PR_DialogResultis</code> is either <code>PR_DialogResult_NO_CHANGE</code> or <code>PR_DialogResult_CHANGE_MADE</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>do_instance_dialog_func0</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If your Artisan has a additional parameters (accessed through its Options dialog), this function will be called to get and set them.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_DoInstanceDialogFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">    </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_InstanceContextH</span><span class="w">  </span><span class="n">instance_contextH</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">       </span><span class="n">global_dataH</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PR_InstanceDataH</span><span class="w">     </span><span class="n">instance_dataH</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PR_DialogResult</span><span class="w">      </span><span class="o">*</span><span class="n">resultP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>PR_DialogResultis</code> is either <code>PR_DialogResult_NO_CHANGE</code> or <code>PR_DialogResult_CHANGE_MADE</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>frame_setup_func0</code></td>
-<td>Perform any setup necessary to render a frame (called immediately before rendering).<br/><pre>PR_FrameSetupFunc(<br/>  const PR_InData      *in_dataP,<br/>  PR_GlobalContextH    global_contextH,<br/>  PR_InstanceContextH  instance_contextH<br/>  PR_RenderContextH    render_contextH,<br/>  PR_GlobalDataH       global_dataH,<br/>  PR_InstanceDataH     instance_dataH,<br/>  PR_RenderDataH       *render_dataPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>frame_setup_func0</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Perform any setup necessary to render a frame (called immediately before rendering).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_FrameSetupFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">    </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_InstanceContextH</span><span class="w">  </span><span class="n">instance_contextH</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">    </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">       </span><span class="n">global_dataH</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PR_InstanceDataH</span><span class="w">     </span><span class="n">instance_dataH</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PR_RenderDataH</span><span class="w">       </span><span class="o">*</span><span class="n">render_dataPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>frame_setdown_func0</code></td>
-<td>Dispose of any setup data allocated during <code>frame_setup</code> (sent immediately after rendering).<br/><pre>PR_FrameSetdownFunc(<br/>  const PR_InData      *in_dataP,<br/>  PR_GlobalContextH    global_contextH,<br/>  PR_InstanceContextH  instance_contextH<br/>  PR_RenderContextH    render_contextH,<br/>  PR_GlobalDataH       global_dataH,<br/>  PR_InstanceDataH     instance_dataH,<br/>  PR_RenderDataH       render_dataH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>frame_setdown_func0</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Dispose of any setup data allocated during <code>frame_setup</code> (sent immediately after rendering).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_FrameSetdownFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">    </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_InstanceContextH</span><span class="w">  </span><span class="n">instance_contextH</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">    </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">       </span><span class="n">global_dataH</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PR_InstanceDataH</span><span class="w">     </span><span class="n">instance_dataH</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PR_RenderDataH</span><span class="w">       </span><span class="n">render_dataH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>render_func</code></td>
-<td>Render the scene.<br/><pre>PR_FrameRenderFunc(<br/>  const PR_InData      *in_dataP,<br/>  PR_GlobalContextH    global_contextH,<br/>  PR_InstanceContextH  instance_contextH<br/>  PR_RenderContextH    render_contextH,<br/>  PR_GlobalDataH       global_dataH,<br/>  PR_InstanceDataH     instance_dataH,<br/>  PR_RenderDataH       render_dataH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>render_func</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Render the scene.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_FrameRenderFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">    </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_InstanceContextH</span><span class="w">  </span><span class="n">instance_contextH</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">    </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">       </span><span class="n">global_dataH</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PR_InstanceDataH</span><span class="w">     </span><span class="n">instance_dataH</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PR_RenderDataH</span><span class="w">       </span><span class="n">render_dataH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>query_func0</code></td>
-<td>Artisans can draw their own projection axes, should the need arise.<br/>After Effects will call this function to obtain the transform between the composition world and those axes,<br/>as well as for a number of other functions related to on- and off-screen<br/>preview drawing (the former is relevant only to interactive artisans).<br/><pre>PR_QueryFunc(<br/>  const PR_InData      *in_dataP,<br/>  PR_GlobalContextH    global_contextH,<br/>  PR_InstanceContextH  instance_contextH<br/>  PR_QueryContextH     query_contextH,<br/>  PR_QueryType         query_type,<br/>  PR_GlobalDataH       global_dataH,<br/>  PR_InstanceDataH     instance_dataH);</pre><br/><br/><code>PR_QueryType</code> can be one of the following:<ul><li><code>PR_QueryType_NONE = 0</code></li><li><code>PR_QueryType_TRANSFORM</code></li><li><code>PR_QueryType_INTERACTIVE_WINDOW_DISPOSE</code></li><li><code>PR_QueryType_INTERACTIVE_WINDOW_CLEAR</code></li><li><code>PR_QueryType_INTERACTIVE_WINDOW_FROZEN_PROXY</code></li><li><code>PR_QueryType_INTERACTIVE_SWAP_BUFFER</code></li><li><code>PR_QueryType_INTERACTIVE_DRAW_PROCS</code></li><li><code>PR_QueryType_PREPARE_FOR_LINE_DRAWING</code></li><li><code>PR_QueryType_UNPREPARE_FOR_LINE_DRAWING</code></li><li><code>PR_QueryType_GET_CURRENT_CONTEXT_SAFE_FOR_LINE_DRAWING</code></li><li><code>PR_QueryType_GET_ARTISAN_QUALITY</code></li></ul>New in CS6.</td>
+<td colspan="1" rowspan="1">
+<p><code>query_func0</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Artisans can draw their own projection axes, should the need arise.</p>
+<p>After Effects will call this function to obtain the transform between the composition world and those axes, as well as for a number of other functions related to on- and off-screen preview drawing (the former is relevant only to interactive artisans).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_QueryFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InData</span><span class="w">      </span><span class="o">*</span><span class="n">in_dataP</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">    </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PR_InstanceContextH</span><span class="w">  </span><span class="n">instance_contextH</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">     </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PR_QueryType</span><span class="w">         </span><span class="n">query_type</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">       </span><span class="n">global_dataH</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PR_InstanceDataH</span><span class="w">     </span><span class="n">instance_dataH</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>PR_QueryType</code> can be one of the following:</p>
+<ul>
+<li><code>PR_QueryType_NONE = 0</code></li>
+<li><code>PR_QueryType_TRANSFORM</code></li>
+<li><code>PR_QueryType_INTERACTIVE_WINDOW_DISPOSE</code></li>
+<li><code>PR_QueryType_INTERACTIVE_WINDOW_CLEAR</code></li>
+<li><code>PR_QueryType_INTERACTIVE_WINDOW_FROZEN_PROXY</code></li>
+<li><code>PR_QueryType_INTERACTIVE_SWAP_BUFFER</code></li>
+<li><code>PR_QueryType_INTERACTIVE_DRAW_PROCS</code></li>
+<li><code>PR_QueryType_PREPARE_FOR_LINE_DRAWING</code></li>
+<li><code>PR_QueryType_UNPREPARE_FOR_LINE_DRAWING</code></li>
+<li><code>PR_QueryType_GET_CURRENT_CONTEXT_SAFE_FOR_LINE_DRAWING</code></li>
+<li><code>PR_QueryType_GET_ARTISAN_QUALITY</code> (New in CS6.)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3464,138 +3640,469 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_GetCompToRender</code></td>
-<td>Given the render context provided to the Artisan at render time, returns a handle to the composition.<br/><pre>AEGP_GetCompToRender(<br/>  PR_RenderContextH  render_contextH,<br/>  AEGP_CompH         *compPH)</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetCompToRender</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given the render context provided to the Artisan at render time, returns a handle to the composition.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetCompToRender</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_CompH</span><span class="w">         </span><span class="o">*</span><span class="n">compPH</span><span class="p">)</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetNumLayersToRender</code></td>
-<td>Given the render context, returns the number of layers the Artisan needs to render.<br/><pre>AEGP_GetNumLayersToRender(<br/>  PR_RenderContextH  render_contextH,<br/>  A_long             *num_to_renderPL)</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetNumLayersToRender</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given the render context, returns the number of layers the Artisan needs to render.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetNumLayersToRender</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">             </span><span class="o">*</span><span class="n">num_to_renderPL</span><span class="p">)</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetNthLayerContextToRender</code></td>
-<td>Used to build a list of layers to render after determining the total number of layers that need rendering by the Artisan.<br/><pre>AEGP_GetNthLayerContextToRender(<br/>  PR_RenderContextH         render_contextH,<br/>  A_long                    n,<br/>  AEGP_RenderLayerContextH  *layer_indexPH)</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetNthLayerContextToRender</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Used to build a list of layers to render after determining the total number of layers that need rendering by the Artisan.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetNthLayerContextToRender</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">         </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">                    </span><span class="n">n</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="o">*</span><span class="n">layer_indexPH</span><span class="p">)</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetLayerFromLayerContext</code></td>
-<td>Given a <code>AEGP_RenderLayerContextH</code>,retrieves the associated <code>AEGP_LayerH</code> (required by many suite functions).<br/><pre>AEGP_GetLayerFromLayerContext(<br/>  const PR_RenderContextH   render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  AEGP_LayerH               *layerPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetLayerFromLayerContext</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a <code>AEGP_RenderLayerContextH</code>,retrieves the associated <code>AEGP_LayerH</code> (required by many suite functions).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetLayerFromLayerContext</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">   </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">               </span><span class="o">*</span><span class="n">layerPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetLayerAndSubLayerFromLayerContext</code></td>
-<td>Allows for rendering of sub-layers (as within a Photoshop file).<br/><pre>AEGP_GetLayerAndSubLayerFromLayerContext(<br/>  const PR_RenderContextH   render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  AEGP_LayerH               *layerPH,<br/>  AEGP_SubLayerIndex        *sublayerP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetLayerAndSubLayerFromLayerContext</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allows for rendering of sub-layers (as within a Photoshop file).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetLayerAndSubLayerFromLayerContext</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">   </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">               </span><span class="o">*</span><span class="n">layerPH</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">AEGP_SubLayerIndex</span><span class="w">        </span><span class="o">*</span><span class="n">sublayerP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetTopLayerFromLayerContext</code></td>
-<td>With collapsed geometrics "on" this gives the layer in the root composition containing the layer context.<br/><br/>With collapsed geometrics off this is the same as <code>AEGP_GetLayerFromLayerContext</code>.<br/><pre>AEGP_GetTopLayerFromLayerContext(<br/>  const PR_RenderContextH   r_contextH,<br/>  AEGP_RenderLayerContextH  l_contextH,<br/>  AEGP_LayerH               *layerPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetTopLayerFromLayerContext</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>With collapsed geometrics "on" this gives the layer in the root composition containing the layer context.</p>
+<p>With collapsed geometrics off this is the same as <code>AEGP_GetLayerFromLayerContext</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetTopLayerFromLayerContext</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">   </span><span class="n">r_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">l_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">               </span><span class="o">*</span><span class="n">layerPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetCompRenderTime</code></td>
-<td>Given the render context, returns the current point in (composition) time to render.<br/><pre>AEGP_GetNthLayerIndexToRender(<br/>  PR_RenderContextH  render_contextH,<br/>  A_long             *time,<br/>  A_long             *time_step)</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetCompRenderTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given the render context, returns the current point in (composition) time to render.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetNthLayerIndexToRender</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">             </span><span class="o">*</span><span class="n">time</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">             </span><span class="o">*</span><span class="n">time_step</span><span class="p">)</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetCompDestinationBuffer</code></td>
-<td>Given the render context, returns a buffer in which to place the final rendered output.<br/><pre>AEGP_GetCompToRender(<br/>  PR_RenderContextH  render_contextH,<br/>  AEGP_CompH         compH,<br/>  PF_EffectWorld     *dst);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetCompDestinationBuffer</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given the render context, returns a buffer in which to place the final rendered output.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetCompToRender</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_CompH</span><span class="w">         </span><span class="n">compH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">     </span><span class="o">*</span><span class="n">dst</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetROI</code></td>
-<td>Given the render context provided to the Artisan at render time, returns a handle to the composition.<br/><pre>AEGP_GetROI(<br/>  PR_RenderContextH  render_contextH,<br/>  A_LegacyRect       *roiPR);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetROI</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given the render context provided to the Artisan at render time, returns a handle to the composition.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetROI</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_LegacyRect</span><span class="w">       </span><span class="o">*</span><span class="n">roiPR</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderTexture</code></td>
-<td>Given the render context and layer, returns the layer texture.<br/><br/>All parameters with a trailing '0' are optional; the returned <code>PF_EffectWorld</code> can be NULL.<br/><pre>AEGP_RenderTexture(<br/>  PR_RenderContextH  render_contextH,<br/>  AEGP_LayerH        layerH,<br/>  AEGP_RenderHints   render_hints,<br/>  A_FloatPoint       *suggested_scaleP0,<br/>  A_FloatRect        *suggsted_src_rectP0,<br/>  A_Matrix3          *src_matrixP0,<br/>  PF_EffectWorld     *render_bufferP);</pre><br/><br/><code>AEGP_RenderHints</code> contains one or more of the following:<ul><li><code>AEGP_RenderHints_NONE</code></li><li><code>AEGP_RenderHints_IGNORE_EXTENTS</code></li><li><code>AEGP_RenderHints_NO_TRANSFER_MODE</code></li></ul><code>AEGP_RenderHints_NO_TRANSFER_MODE</code> prevents application of opacity &amp; transfer mode; for use with <code>RenderLayer</code> calls.</td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderTexture</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given the render context and layer, returns the layer texture.</p>
+<p>All parameters with a trailing '0' are optional; the returned <code>PF_EffectWorld</code> can be NULL.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_RenderTexture</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">        </span><span class="n">layerH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_RenderHints</span><span class="w">   </span><span class="n">render_hints</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_FloatPoint</span><span class="w">       </span><span class="o">*</span><span class="n">suggested_scaleP0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_FloatRect</span><span class="w">        </span><span class="o">*</span><span class="n">suggsted_src_rectP0</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_Matrix3</span><span class="w">          </span><span class="o">*</span><span class="n">src_matrixP0</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">     </span><span class="o">*</span><span class="n">render_bufferP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>AEGP_RenderHints</code> contains one or more of the following:</p>
+<ul>
+<li><code>AEGP_RenderHints_NONE</code></li>
+<li><code>AEGP_RenderHints_IGNORE_EXTENTS</code></li>
+<li><code>AEGP_RenderHints_NO_TRANSFER_MODE</code> (prevents application of opacity &amp; transfer mode; for use with <code>RenderLayer</code> calls.)</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_DisposeTexture</code></td>
-<td>Disposes of an acquired layer texture.<br/><pre>AEGP_DisposeTexture(<br/>  PR_RenderContextH  render_contextH,<br/>  AEGP_LayerH        layerH,<br/>  AEGP_WorldH        *dst0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_DisposeTexture</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Disposes of an acquired layer texture.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_DisposeTexture</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">        </span><span class="n">layerH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_WorldH</span><span class="w">        </span><span class="o">*</span><span class="n">dst0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetFieldRender</code></td>
-<td>Returns the field settings of the given <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetFieldRender(<br/>  PR_RenderContextH  render_contextH,<br/>  PF_Field           *field);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetFieldRender</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the field settings of the given <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetFieldRender</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Field</span><span class="w">           </span><span class="o">*</span><span class="n">field</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_ReportArtisanProgress</code></td>
-<td>Given the render context provided to the Artisan at render time, returns a handle to the composition.<br/><br/>Note: this is NOT thread-safe on macOS; only use this function when the current thread ID is 0.<br/><pre>AEGP_ReportArtisanProgress(<br/>  PR_RenderContextH  render_contextH,<br/>  A_long             countL,<br/>  A_long             totalL);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_ReportArtisanProgress</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given the render context provided to the Artisan at render time, returns a handle to the composition.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is NOT thread-safe on macOS; only use this function when the current thread ID is 0.</p>
+</div>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_ReportArtisanProgress</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">             </span><span class="n">countL</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">             </span><span class="n">totalL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetRenderDownsampleFactor</code></td>
-<td>Returns the downsample factor of the <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetRenderDownsampleFactor(<br/>  PR_RenderContextH      render_contextH,<br/>  AEGP_DownsampleFactor  *dsfP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetRenderDownsampleFactor</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the downsample factor of the <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetRenderDownsampleFactor</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">      </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_DownsampleFactor</span><span class="w">  </span><span class="o">*</span><span class="n">dsfP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_IsBlankCanvas</code></td>
-<td>Determines whether the <code>PR_RenderContextH</code> is blank (empty).<br/><pre>AEGP_IsBlankCanvas(<br/>  PR_RenderContextH  render_contextH,<br/>  A_Boolean          *is_blankPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_IsBlankCanvas</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Determines whether the <code>PR_RenderContextH</code> is blank (empty).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_IsBlankCanvas</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">          </span><span class="o">*</span><span class="n">is_blankPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetRenderLayerToWorldXform</code></td>
-<td>Given a render context and a layer (at a given time), retrieves the 4 by 4 transform to move between their coordinate spaces.<br/><pre>AEGP_GetRenderLayerToWorldXform(<br/>  PR_RenderContextH         render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  const A_Time              *comp_timeP,<br/>  A_Matrix4                 *transform);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetRenderLayerToWorldXform</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a render context and a layer (at a given time), retrieves the 4 by 4 transform to move between their coordinate spaces.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetRenderLayerToWorldXform</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">         </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">              </span><span class="o">*</span><span class="n">comp_timeP</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_Matrix4</span><span class="w">                 </span><span class="o">*</span><span class="n">transform</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetRenderLayerBounds</code></td>
-<td>Retrieves the bounding rectangle of the layer_contextH (at a given time) within the render_contextH.<br/><pre>AEGP_GetRenderLayerBounds(<br/>  PR_RenderContextH         render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  const A_Time              *comp_timeP,<br/>  A_LegacyRect              *boundsP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetRenderLayerBounds</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the bounding rectangle of the layer_contextH (at a given time) within the <code>render_contextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetRenderLayerBounds</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">         </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">              </span><span class="o">*</span><span class="n">comp_timeP</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_LegacyRect</span><span class="w">              </span><span class="o">*</span><span class="n">boundsP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetRenderOpacity</code></td>
-<td>Returns the opacity of the given layer context at the given time, within the render context.<br/><pre>AEGP_GetRenderOpacity(<br/>  PR_RenderContextH         render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  const A_Time              *comp_timePT,<br/>  A_FpLong                  *opacityPF);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetRenderOpacity</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the opacity of the given layer context at the given time, within the render context.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetRenderOpacity</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">         </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">              </span><span class="o">*</span><span class="n">comp_timePT</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">                  </span><span class="o">*</span><span class="n">opacityPF</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_IsRenderLayerActive</code></td>
-<td>Returns whether or not a given layer context is active within the render context, at the given time.<br/><pre>AEGP_IsRenderLayerActive(<br/>  PR_RenderContextH         render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  const A_Time              *comp_timePT,<br/>  A_Boolean                 *activePB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_IsRenderLayerActive</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns whether or not a given layer context is active within the render context, at the given time.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_IsRenderLayerActive</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">         </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">              </span><span class="o">*</span><span class="n">comp_timePT</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">                 </span><span class="o">*</span><span class="n">activePB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetArtisanLayerProgress</code></td>
-<td>Sets the progress information for a rendering Artisan. countL is the number of layers completed,<br/><br/><code>num_layersL</code> is the total number of layers the Artisan is rendering.<br/><pre>AEGP_SetArtisanLayerProgress(<br/>  PR_RenderContextH  render_contextH,<br/>  A_long             countL,<br/>  A_long             num_layersL);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetArtisanLayerProgress</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the progress information for a rendering Artisan.</p>
+<ul>
+<li><code>countL</code> is the number of layers completed,</li>
+<li><code>num_layersL</code> is the total number of layers the Artisan is rendering.</li>
+</ul>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetArtisanLayerProgress</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">             </span><span class="n">countL</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">             </span><span class="n">num_layersL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderLayerPlus</code></td>
-<td>Similar to <code>AEGP_RenderLayer</code>, but takes into account the <code>AEGP_RenderLayerContextH</code>.<br/><pre>AEGP_RenderLayerPlus(<br/>  PR_RenderContextH          r_contextH,<br/>  AEGP_LayerH                layerH,<br/>  AEGP_RenderLayerContextH   l_contextH,<br/>  AEGP_RenderHints           render_hints,<br/>  AEGP_WorldH                *bufferP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderLayerPlus</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Similar to <code>AEGP_RenderLayer</code>, but takes into account the <code>AEGP_RenderLayerContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_RenderLayerPlus</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">          </span><span class="n">r_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">                </span><span class="n">layerH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">   </span><span class="n">l_contextH</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">AEGP_RenderHints</span><span class="w">           </span><span class="n">render_hints</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">AEGP_WorldH</span><span class="w">                </span><span class="o">*</span><span class="n">bufferP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetTrackMatteContext</code></td>
-<td>Retrieves the <code>AEGP_RenderLayerContextH</code> for the specified render and fill contexts.<br/><pre>AEGP_GetTrackMatteContext(<br/>  PR_RenderContextH         rnder_contextH,<br/>  AEGP_RenderLayerContextH  fill_contextH,<br/>  AEGP_RenderLayerContextH  *mattePH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetTrackMatteContext</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the <code>AEGP_RenderLayerContextH</code> for the specified render and fill contexts.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetTrackMatteContext</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">         </span><span class="n">rnder_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">fill_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="o">*</span><span class="n">mattePH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderTextureWithReceipt</code></td>
-<td>Renders a texture into an <code>AEGP_WorldH</code>, and provides an <code>AEGP_RenderReceiptH</code> for the operation.<br/><br/>The returned <code>receiptPH</code> must be disposed of with <code>AEGP_DisposeRenderReceipt</code>.<br/><pre>AEGP_RenderTextureWithReceipt(<br/>  PR_RenderContextH         render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  AEGP_RenderHints          render_hints,<br/>  A_FloatPoint              *suggested_scaleP0,<br/>  A_FloatRect               *suggest_src_rectP0,<br/>  A_Matrix3                 *src_matrixP0,<br/>  AEGP_RenderReceiptH       *receiptPH,<br/>  AEGP_WorldH               *dstPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderTextureWithReceipt</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Renders a texture into an <code>AEGP_WorldH</code>, and provides an <code>AEGP_RenderReceiptH</code> for the operation.</p>
+<p>The returned <code>receiptPH</code> must be disposed of with <code>AEGP_DisposeRenderReceipt</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_RenderTextureWithReceipt</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">         </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_RenderHints</span><span class="w">          </span><span class="n">render_hints</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_FloatPoint</span><span class="w">              </span><span class="o">*</span><span class="n">suggested_scaleP0</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_FloatRect</span><span class="w">               </span><span class="o">*</span><span class="n">suggest_src_rectP0</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_Matrix3</span><span class="w">                 </span><span class="o">*</span><span class="n">src_matrixP0</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">AEGP_RenderReceiptH</span><span class="w">       </span><span class="o">*</span><span class="n">receiptPH</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">AEGP_WorldH</span><span class="w">               </span><span class="o">*</span><span class="n">dstPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetNumberOfSoftwareEffects</code></td>
-<td>Returns the number of software effects applied in the given <code>AEGP_RenderLayerContextH</code>.<br/><pre>AEGP_GetNumberOfSoftwareEffects(<br/>  PR_RenderContextH         ren_contextH,<br/>  AEGP_RenderLayerContextH  lyr_contextH,<br/>  A_short                   *num_sft_FXPS);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetNumberOfSoftwareEffects</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the number of software effects applied in the given <code>AEGP_RenderLayerContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetNumberOfSoftwareEffects</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">         </span><span class="n">ren_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">lyr_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_short</span><span class="w">                   </span><span class="o">*</span><span class="n">num_sft_FXPS</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_RenderLayerPlusWithReceipt</code></td>
-<td>An improvement over <code>AEGP_RenderLayerPlus</code>, this function also provides an <code>AEGP_RenderReceiptH</code> for caching purposes.<br/><pre>AEGP_RenderLayerPlusWithReceipt(<br/>  PR_RenderContextH            render_contextH,<br/>  AEGP_LayerH                  layerH,<br/>  AEGP_RenderLayerContextH     layer_contextH,<br/>  AEGP_RenderHints             render_hints,<br/>  AEGP_NumEffectsToRenderType  num_effectsS,<br/>  AEGP_RenderReceiptH          *receiptPH,<br/>  AEGP_WorldH                  *bufferPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_RenderLayerPlusWithReceipt</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An improvement over <code>AEGP_RenderLayerPlus</code>, this function also provides an <code>AEGP_RenderReceiptH</code> for caching purposes.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_RenderLayerPlusWithReceipt</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">            </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">                  </span><span class="n">layerH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">     </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">AEGP_RenderHints</span><span class="w">             </span><span class="n">render_hints</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">AEGP_NumEffectsToRenderType</span><span class="w">  </span><span class="n">num_effectsS</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">AEGP_RenderReceiptH</span><span class="w">          </span><span class="o">*</span><span class="n">receiptPH</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">AEGP_WorldH</span><span class="w">                  </span><span class="o">*</span><span class="n">bufferPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_DisposeRenderReceipt</code></td>
-<td>Frees an <code>AEGP_RenderReceiptH</code>.<br/><pre>AEGP_DisposeRenderReceipt(<br/>  AEGP_RenderReceiptH  receiptH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_DisposeRenderReceipt</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Frees an <code>AEGP_RenderReceiptH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_DisposeRenderReceipt</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEGP_RenderReceiptH</span><span class="w">  </span><span class="n">receiptH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_CheckRenderReceipt</code></td>
-<td>Checks with After Effects' internal caching to determine whether a given <code>AEGP_RenderReceiptH</code> is still valid.<br/><pre>AEGP_CheckRenderReceipt(<br/>  PR_RenderContextH            current_contextH,<br/>  AEGP_RenderLayerContextH     current_lyr_ctxtH,<br/>  AEGP_RenderReceiptH          old_receiptH,<br/>  A_Boolean                    check_aceB,<br/>  AEGP_NumEffectsToRenderType  num_effectsS,<br/>  AEGP_RenderReceiptStatus     *receipt_statusP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_CheckRenderReceipt</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Checks with After Effects' internal caching to determine whether a given <code>AEGP_RenderReceiptH</code> is still valid.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_CheckRenderReceipt</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">            </span><span class="n">current_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">     </span><span class="n">current_lyr_ctxtH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_RenderReceiptH</span><span class="w">          </span><span class="n">old_receiptH</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">                    </span><span class="n">check_aceB</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">AEGP_NumEffectsToRenderType</span><span class="w">  </span><span class="n">num_effectsS</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">AEGP_RenderReceiptStatus</span><span class="w">     </span><span class="o">*</span><span class="n">receipt_statusP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GenerateRenderReceipt</code></td>
-<td>Generates a <code>AEGP_RenderReceiptH</code> for a layer as if the first <code>num_effectsS</code> have been rendered.<br/><pre>AEGP_GenerateRenderReceipt(<br/>  PR_RenderContextH            current_contextH,<br/>  AEGP_RenderLayerContextH     current_lyr_contextH,<br/>  AEGP_NumEffectsToRenderType  num_effectsS,<br/>  AEGP_RenderReceiptH          *render_receiptPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GenerateRenderReceipt</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Generates a <code>AEGP_RenderReceiptH</code> for a layer as if the first <code>num_effectsS</code> have been rendered.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GenerateRenderReceipt</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">            </span><span class="n">current_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">     </span><span class="n">current_lyr_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_NumEffectsToRenderType</span><span class="w">  </span><span class="n">num_effectsS</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">AEGP_RenderReceiptH</span><span class="w">          </span><span class="o">*</span><span class="n">render_receiptPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetNumBinsToRender</code></td>
-<td>Returns the number of bins After Effects wants the artisan to render.<br/><pre>AEGP_GetNumBinsToRender(<br/>  const PR_RenderContextH  contextH,<br/>  A_long                   *num_binsPL);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetNumBinsToRender</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the number of bins After Effects wants the artisan to render.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetNumBinsToRender</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">                   </span><span class="o">*</span><span class="n">num_binsPL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetNthBin</code></td>
-<td>Sets the given render context to be the n-th bin to be rendered by After Effects.<br/><pre>AEGP_SetNthBin(<br/>  const PR_RenderContextH  contextH,<br/>  A_long                   n);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetNthBin</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the given render context to be the n-th bin to be rendered by After Effects.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetNthBin</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">                   </span><span class="n">n</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetBinType</code></td>
-<td>Retrieves the type of the given bin.<br/><pre>AEGP_GetBinType(<br/>  const PR_RenderContextH  contextH,<br/>  AEGP_BinType             *bin_typeP);</pre><br/><br/><code>AEGP_BinType</code> will be one of the following:<ul><li><code>AEGP_BinType_NONE</code></li><li><code>AEGP_BinType_2D</code></li><li><code>AEGP_BinType_3D</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetBinType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the type of the given bin.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetBinType</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_BinType</span><span class="w">             </span><span class="o">*</span><span class="n">bin_typeP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>AEGP_BinType</code> will be one of the following:</p>
+<ul>
+<li><code>AEGP_BinType_NONE</code></li>
+<li><code>AEGP_BinType_2D</code></li>
+<li><code>AEGP_BinType_3D</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetRenderLayerToWorldXform2D3D</code></td>
-<td>Retrieves the transform to correctly orient the layer being rendered with the output world.<br/><br/>Pass <code>TRUE</code> for <code>only_2dB</code> to constrain the transform to two dimensions.<br/><pre>AEGP_GetRenderLayerToWorldXform2D3D(<br/>  PR_RenderContextH         render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  const A_Time              *comp_timeP,<br/>  A_Boolean                 only_2dB,<br/>  A_Matrix4                 *transformP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetRenderLayerToWorldXform2D3D</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the transform to correctly orient the layer being rendered with the output world.</p>
+<p>Pass <code>TRUE</code> for <code>only_2dB</code> to constrain the transform to two dimensions.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetRenderLayerToWorldXform2D3D</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">         </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">              </span><span class="o">*</span><span class="n">comp_timeP</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">                 </span><span class="n">only_2dB</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_Matrix4</span><span class="w">                 </span><span class="o">*</span><span class="n">transformP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3606,70 +4113,216 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_GetPlatformWindowRef</code></td>
-<td>Retrieves the platform-specific window context into which to draw the given <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetPlatformWindowRef(<br/>  const PR_RenderContextH  contextH,<br/>  AEGP_PlatformWindowRef   *window_refP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetPlatformWindowRef</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the platform-specific window context into which to draw the given <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetPlatformWindowRef</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_PlatformWindowRef</span><span class="w">   </span><span class="o">*</span><span class="n">window_refP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetViewportScale</code></td>
-<td>Retrieves the source-to-frame downsample factor for the given <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetViewportScale(<br/>  const PR_RenderContextH  contextH,<br/>  A_FpLong                 *scale_xPF,<br/>  A_FpLong                 *scale_yPF);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetViewportScale</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the source-to-frame downsample factor for the given <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetViewportScale</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">                 </span><span class="o">*</span><span class="n">scale_xPF</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">                 </span><span class="o">*</span><span class="n">scale_yPF</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetViewportOrigin</code></td>
-<td>Retrieves to origin of the source, within the frame (necessary to translate between the two), for the given <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetViewportOrigin(<br/>  const PR_RenderContextH  contextH,<br/>  A_long                   *origin_xPL,<br/>  A_long                   *origin_yPL);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetViewportOrigin</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves to origin of the source, within the frame (necessary to translate between the two), for the given <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetViewportOrigin</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">                   </span><span class="o">*</span><span class="n">origin_xPL</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">                   </span><span class="o">*</span><span class="n">origin_yPL</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetViewportRect</code></td>
-<td>Retrieves the bounding rectangle for the area to be drawn, for the given <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetViewportRect(<br/>  const PR_RenderContextH  contextH,<br/>  A_LegacyRect             *v_rectPR);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetViewportRect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the bounding rectangle for the area to be drawn, for the given <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetViewportRect</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_LegacyRect</span><span class="w">             </span><span class="o">*</span><span class="n">v_rectPR</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetFallowColor</code></td>
-<td>Retrieves the color used for the fallow regions in the given <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetFallowColor(<br/>  const PR_RenderContextH  contextH,<br/>  PF_Pixel8                *fallow_colorP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetFallowColor</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the color used for the fallow regions in the given <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetFallowColor</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Pixel8</span><span class="w">                </span><span class="o">*</span><span class="n">fallow_colorP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInteractiveCheckerboard</code></td>
-<td>Retrieves whether or not the checkerboard is currently active for the given <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetInteractiveCheckerboard(<br/>  const PR_RenderContextH  contextH,<br/>  A_Boolean                *cboard_onPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInteractiveCheckerboard</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves whether or not the checkerboard is currently active for the given <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInteractiveCheckerboard</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">                </span><span class="o">*</span><span class="n">cboard_onPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInteractiveCheckerboardColors</code></td>
-<td>Retrieves the colors used in the checkerboard.<br/><pre>AEGP_GetInteractiveCheckerboardColors(<br/>  const PR_RenderContextH  contextH,<br/>  PF_Pixel                 *color1P,<br/>  PF_Pixel                 *color2P);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInteractiveCheckerboardColors</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the colors used in the checkerboard.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInteractiveCheckerboardColors</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Pixel</span><span class="w">                 </span><span class="o">*</span><span class="n">color1P</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Pixel</span><span class="w">                 </span><span class="o">*</span><span class="n">color2P</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInteractiveCheckerboardSize</code></td>
-<td>Retrieves the width and height of one checkerboard square.<br/><pre>AEGP_GetInteractiveCheckerboardSize(<br/>  const PR_RenderContextH  contextH,<br/>  A_u_long                 *cbd_widthPLu,<br/>  A_u_long                 *cbd_heightPLu);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInteractiveCheckerboardSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the width and height of one checkerboard square.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInteractiveCheckerboardSize</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_u_long</span><span class="w">                 </span><span class="o">*</span><span class="n">cbd_widthPLu</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_u_long</span><span class="w">                 </span><span class="o">*</span><span class="n">cbd_heightPLu</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInteractiveCachedBuffer</code></td>
-<td>Retrieves the cached AEGP_WorldH last used for the <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetInteractiveCachedBuffer(<br/>  const PR_RenderContextH  contextH,<br/>  AEGP_WorldH              *buffer);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInteractiveCachedBuffer</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the cached AEGP_WorldH last used for the <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInteractiveCachedBuffer</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_WorldH</span><span class="w">              </span><span class="o">*</span><span class="n">buffer</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_ArtisanMustRenderAsLayer</code></td>
-<td>Determines whether or not the artisan must render the current <code>AEGP_RenderLayerContextH</code> as a layer.<br/><pre>AEGP_ArtisanMustRenderAsLayer(<br/>  const PR_RenderContextH   contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  A_Boolean                 *use_txturePB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_ArtisanMustRenderAsLayer</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Determines whether or not the artisan must render the current <code>AEGP_RenderLayerContextH</code> as a layer.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_ArtisanMustRenderAsLayer</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">   </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">                 </span><span class="o">*</span><span class="n">use_txturePB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInteractiveDisplayChannel</code></td>
-<td>Returns which channels should be displayed by the interactive artisan.<br/><pre>AEGP_GetInteractiveDisplayChannel(<br/>  const PR_RenderContextH  contextH,<br/>  AEGP_DisplayChannelType  *channelP);</pre><br/><br/><code>AEGP_DisplayChannelType</code> will be one of the following:<ul><li><code>AEGP_DisplayChannel_NONE</code></li><li><code>AEGP_DisplayChannel_RED</code></li><li><code>AEGP_DisplayChannel_GREEN</code></li><li><code>AEGP_DisplayChannel_BLUE</code></li><li><code>AEGP_DisplayChannel_ALPHA</code></li><li><code>AEGP_DisplayChannel_RED_ALT</code></li><li><code>AEGP_DisplayChannel_GREEN_ALT</code></li><li><code>AEGP_DisplayChannel_BLUE_ALT</code></li><li><code>AEGP_DisplayChannel_ALPHA_ALT</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInteractiveDisplayChannel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns which channels should be displayed by the interactive artisan.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInteractiveDisplayChannel</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_DisplayChannelType</span><span class="w">  </span><span class="o">*</span><span class="n">channelP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>AEGP_DisplayChannelType</code> will be one of the following:</p>
+<ul>
+<li><code>AEGP_DisplayChannel_NONE</code></li>
+<li><code>AEGP_DisplayChannel_RED</code></li>
+<li><code>AEGP_DisplayChannel_GREEN</code></li>
+<li><code>AEGP_DisplayChannel_BLUE</code></li>
+<li><code>AEGP_DisplayChannel_ALPHA</code></li>
+<li><code>AEGP_DisplayChannel_RED_ALT</code></li>
+<li><code>AEGP_DisplayChannel_GREEN_ALT</code></li>
+<li><code>AEGP_DisplayChannel_BLUE_ALT</code></li>
+<li><code>AEGP_DisplayChannel_ALPHA_ALT</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInteractiveExposure</code></td>
-<td>Returns the exposure for the given <code>PR_RenderContextH</code>, expressed as a floating point number.<br/><pre>AEGP_GetInteractiveExposure(<br/>  const PR_RenderContextH  rcH,<br/>  A_FpLong                 *exposurePF);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInteractiveExposure</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the exposure for the given <code>PR_RenderContextH</code>, expressed as a floating point number.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInteractiveExposure</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">rcH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">                 </span><span class="o">*</span><span class="n">exposurePF</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetColorTransform</code></td>
-<td>Returns the color transform for the given <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetColorTransform)(<br/>  const PR_RenderContextH  render_contextH,<br/>  A_Boolean                *cms_onB,<br/>  A_u_long                 *xform_keyLu,<br/>  void                      *xformP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetColorTransform</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the color transform for the given <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetColorTransform</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">                </span><span class="o">*</span><span class="n">cms_onB</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_u_long</span><span class="w">                 </span><span class="o">*</span><span class="n">xform_keyLu</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="kt">void</span><span class="w">                      </span><span class="o">*</span><span class="n">xformP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetCompShutterTime</code></td>
-<td>Returns the shutter angle for the given <code>PR_RenderContextH</code>.<br/><pre>AEGP_GetCompShutterTime)(<br/>  PR_RenderContextH  render_contextH,<br/>  A_Time             *shutter_time,<br/>  A_Time             *shutter_dur);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetCompShutterTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the shutter angle for the given <code>PR_RenderContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetCompShutterTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Time</span><span class="w">             </span><span class="o">*</span><span class="n">shutter_time</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_Time</span><span class="w">             </span><span class="o">*</span><span class="n">shutter_dur</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_MapCompToLayerTime</code></td>
-<td>New in CC. Unlike <a href="../../aegps/aegp-suites/#aegp_layersuite9">AEGP_ConvertCompToLayerTime</a>,<br/>this handles time remapping with collapsed or nested comps.<br/><pre>AEGP_MapCompToLayerTime(<br/>  PR_RenderContextH         render_contextH,<br/>  AEGP_RenderLayerContextH  layer_contextH,<br/>  const A_Time              *comp_timePT,<br/>  A_Time                    *layer_timePT);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_MapCompToLayerTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. Unlike <a href="../../aegps/aegp-suites/#aegp_layersuite9">AEGP_ConvertCompToLayerTime</a>, this handles time remapping with collapsed or nested comps.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_MapCompToLayerTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">         </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_RenderLayerContextH</span><span class="w">  </span><span class="n">layer_contextH</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">              </span><span class="o">*</span><span class="n">comp_timePT</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_Time</span><span class="w">                    </span><span class="o">*</span><span class="n">layer_timePT</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3680,34 +4333,86 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_GetGlobalContextFromInstanceContext</code></td>
-<td>Given an instance context, returns a handle to the global context.<br/><pre>AEGP_GetGlobalContextFromInstanceContext(<br/>  const PR_InstanceContextH  instance_contextH,<br/>  PR_GlobalContextH          *global_contextPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetGlobalContextFromInstanceContext</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given an instance context, returns a handle to the global context.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetGlobalContextFromInstanceContext</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InstanceContextH</span><span class="w">  </span><span class="n">instance_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalContextH</span><span class="w">          </span><span class="o">*</span><span class="n">global_contextPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInstanceContextFromRenderContext</code></td>
-<td>Given the render context, returns a handle to the instance context.<br/><pre>AEGP_GetInstanceContextFromRenderContext(<br/>  const PR_RenderContextH  render_contextH,<br/>  PR_InstanceContextH      *instnc_ctextPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInstanceContextFromRenderContext</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given the render context, returns a handle to the instance context.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInstanceContextFromRenderContext</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_InstanceContextH</span><span class="w">      </span><span class="o">*</span><span class="n">instnc_ctextPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInstanceContextFromQueryContext</code></td>
-<td>Given a query context, returns a handle to the instance context.<br/><pre>AEGP_GetInstanceContextFromQueryContext(<br/>  const PR_QueryContextH  query_contextH,<br/>  PR_InstanceContextH     *instnce_contextPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInstanceContextFromQueryContext</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a query context, returns a handle to the instance context.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInstanceContextFromQueryContext</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_QueryContextH</span><span class="w">  </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_InstanceContextH</span><span class="w">     </span><span class="o">*</span><span class="n">instnce_contextPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetGlobalData</code></td>
-<td>Given the global context, returns a handle to global data.<br/><pre>AEGP_GetGlobalData(<br/>  const PR_GlobalContextH  global_contextH,<br/>  PR_GlobalDataH           *global_dataPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetGlobalData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given the global context, returns a handle to global data.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetGlobalData</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_GlobalContextH</span><span class="w">  </span><span class="n">global_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_GlobalDataH</span><span class="w">           </span><span class="o">*</span><span class="n">global_dataPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetInstanceData</code></td>
-<td>Given an instance context, return the associated instance data.<br/><pre>AEGP_GetInstanceData(<br/>  const PR_InstanceContextH  instance_contextH,<br/>  PR_InstanceDataH           *instance_dataPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetInstanceData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given an instance context, return the associated instance data.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetInstanceData</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_InstanceContextH</span><span class="w">  </span><span class="n">instance_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_InstanceDataH</span><span class="w">           </span><span class="o">*</span><span class="n">instance_dataPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetRenderData</code></td>
-<td>Given a render context, returns the associated render data.<br/><pre>AEGP_GetRenderData(<br/>  const PR_RenderContextH  render_contextH,<br/>  PR_RenderDataH           *render_dataPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetRenderData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a render context, returns the associated render data.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetRenderData</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_RenderDataH</span><span class="w">           </span><span class="o">*</span><span class="n">render_dataPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3718,30 +4423,83 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_GetCamera</code></td>
-<td>Given a layer handle and time, returns the current camera layer handle.<br/><pre>AEGP_GetCamera(<br/>  PR_RenderContextH  render_contextH,<br/>  const A_Time       *comp_timeP,<br/>  AEGP_LayerH        *camera_layerPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetCamera</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a layer handle and time, returns the current camera layer handle.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetCamera</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_RenderContextH</span><span class="w">  </span><span class="n">render_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Time</span><span class="w">       </span><span class="o">*</span><span class="n">comp_timeP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">        </span><span class="o">*</span><span class="n">camera_layerPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetCameraType</code></td>
-<td>Given a layer, returns the camera type of the layer.<br/><pre>AEGP_GetCameraType(<br/>  AEGP_LayerH      aegp_layerH,<br/>  AEGP_CameraType  *camera_typeP;</pre><br/><br/>The camera type can be the following:<ul><li><code>AEGP_CameraType_NONE = -1</code></li><li><code>AEGP_CameraType_PERSPECTIVE</code></li><li><code>AEGP_CameraType_ORTHOGRAPHIC</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetCameraType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a layer, returns the camera type of the layer.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetCameraType</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">      </span><span class="n">aegp_layerH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_CameraType</span><span class="w">  </span><span class="o">*</span><span class="n">camera_typeP</span><span class="p">;</span>
+</span></code></pre></div></p>
+<p>The camera type can be the following:</p>
+<ul>
+<li><code>AEGP_CameraType_NONE = -1</code></li>
+<li><code>AEGP_CameraType_PERSPECTIVE</code></li>
+<li><code>AEGP_CameraType_ORTHOGRAPHIC</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetDefaultCameraDistanceToImagePlane</code></td>
-<td>Given a composition handle, returns the camera distance to the image plane.<br/><pre>AEGP_GetDefaultCamera DistanceToImagePlane(<br/>  AEGP_CompH  compH,<br/>  A_FpLong    *dist_to_planePF)</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetDefaultCameraDistanceToImagePlane</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a composition handle, returns the camera distance to the image plane.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetDefaultCamera</span><span class="w"> </span><span class="n">DistanceToImagePlane</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEGP_CompH</span><span class="w">  </span><span class="n">compH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">    </span><span class="o">*</span><span class="n">dist_to_planePF</span><span class="p">)</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_GetCameraFilmSize</code></td>
-<td>Retrieves the size (and units used to measure that size) of the film used by the designated camera.<br/><pre>AEGP_GetCameraFilmSize(<br/>  AEGP_LayerH         camera_layerH,<br/>  AEGP_FilmSizeUnits  *film_size_unitsP,<br/>  A_FpLong            *film_sizePF0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetCameraFilmSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the size (and units used to measure that size) of the film used by the designated camera.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetCameraFilmSize</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">         </span><span class="n">camera_layerH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_FilmSizeUnits</span><span class="w">  </span><span class="o">*</span><span class="n">film_size_unitsP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">            </span><span class="o">*</span><span class="n">film_sizePF0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetCameraFilmSize</code></td>
-<td>Sets the size (and unites used to measure that size) of the film used by the designated camera.<br/><pre>AEGP_SetCameraFilmSize)(<br/>  AEGP_LayerH         camera_layerH,<br/>  AEGP_FilmSizeUnits  film_size_units,<br/>  A_FpLong            *film_sizePF0);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetCameraFilmSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the size (and unites used to measure that size) of the film used by the designated camera.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetCameraFilmSize</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">         </span><span class="n">camera_layerH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_FilmSizeUnits</span><span class="w">  </span><span class="n">film_size_units</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_FpLong</span><span class="w">            </span><span class="o">*</span><span class="n">film_sizePF0</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3752,8 +4510,8 @@
 <hr />
 <h2 id="orthographic-camera-matrix">Orthographic Camera Matrix<a class="headerlink" href="#orthographic-camera-matrix" title="Permanent link">&para;</a></h2>
 <p>Internally, we use composition width and height to set the matrix described by the OpenGL specification as</p>
-<div class="highlight"><pre><span></span><code><span class="n">glOrtho</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">glOrtho</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+</span></code></pre></div>
 <p>The orthographic matrix describes the projection. The position of the camera is described by another, scaled matrix. The inverse of the camera position matrix provides the "eye" coordinates.</p>
 <hr />
 <h2 id="focus-on-focal">Focus On Focal<a class="headerlink" href="#focus-on-focal" title="Permanent link">&para;</a></h2>
@@ -3772,18 +4530,45 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_GetLightType</code></td>
-<td>Retrieves the <code>AEGP_LightType</code> of the specified camera layer.<br/><pre>AEGP_GetLightType(<br/>  AEGP_LayerH     light_layerH,<br/>  AEGP_LightType  *light_typeP);</pre><br/><br/><code>AEGP_LightType</code> will be one of the following:<ul><li><code>AEGP_LightType_PARALLEL</code></li><li><code>AEGP_LightType_SPOT</code></li><li><code>AEGP_LightType_POINT</code></li><li><code>AEGP_LightType_AMBIENT</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_GetLightType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Retrieves the <code>AEGP_LightType</code> of the specified camera layer.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_GetLightType</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">     </span><span class="n">light_layerH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_LightType</span><span class="w">  </span><span class="o">*</span><span class="n">light_typeP</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><code>AEGP_LightType</code> will be one of the following:</p>
+<ul>
+<li><code>AEGP_LightType_PARALLEL</code></li>
+<li><code>AEGP_LightType_SPOT</code></li>
+<li><code>AEGP_LightType_POINT</code></li>
+<li><code>AEGP_LightType_AMBIENT</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_SetLightType</code></td>
-<td>Sets the <code>AEGP_LightType</code> for the specified camera layer.<br/><pre>AEGP_SetLightType(<br/>  AEGP_LayerH     light_layerH,<br/>  AEGP_LightType  light_type);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_SetLightType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the <code>AEGP_LightType</code> for the specified camera layer.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_SetLightType</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">     </span><span class="n">light_layerH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_LightType</span><span class="w">  </span><span class="n">light_type</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3807,74 +4592,218 @@ Let N be the unit normal vector to the layer.</p>
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>AEGP_QueryXformGetSrcType</code></td>
-<td>Given a query context, returns trasnsform source currently being modified.<br/><pre>AEGP_QueryXformGetSrcType(<br/>  PR_QueryContextH     query_contextH,<br/>  AEGP_QueryXformType  *src_type);</pre><br/><br/>The query context will be one of the following:<ul><li><code>AEGP_Query_Xform_LAYER</code></li><li><code>AEGP_Query_Xform_WORLD</code></li><li><code>AEGP_Query_Xform_VIEW</code></li><li><code>AEGP_Query_Xform_SCREEN</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryXformGetSrcType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a query context, returns trasnsform source currently being modified.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryXformGetSrcType</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">     </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_QueryXformType</span><span class="w">  </span><span class="o">*</span><span class="n">src_type</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>The query context will be one of the following:</p>
+<ul>
+<li><code>AEGP_Query_Xform_LAYER</code></li>
+<li><code>AEGP_Query_Xform_WORLD</code></li>
+<li><code>AEGP_Query_Xform_VIEW</code></li>
+<li><code>AEGP_Query_Xform_SCREEN</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryXformGetDstType</code></td>
-<td>Given a query context, returns the currently requested transform destination.<br/><pre>AEGP_QueryXformGetDstType(<br/>  PR_QueryContextH     query_contextH,<br/>  AEGP_QueryXformType  *dst_type);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryXformGetDstType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a query context, returns the currently requested transform destination.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryXformGetDstType</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">     </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_QueryXformType</span><span class="w">  </span><span class="o">*</span><span class="n">dst_type</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryXformGetLayer</code></td>
-<td>Used if the source or destination type is a layer. Given a query context, returns the layer handle.<br/><pre>AEGP_QueryXformGetLayer(<br/>  PR_QueryContextH  query_contextH,<br/>  AEGP_LayerH       *layerPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryXformGetLayer</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Used if the source or destination type is a layer. Given a query context, returns the layer handle.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryXformGetLayer</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">  </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">       </span><span class="o">*</span><span class="n">layerPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryXformGetComp</code></td>
-<td>Given a query context, returns the current composition handle.<br/><pre>AEGP_QueryXformGetComp(<br/>  PR_QueryContextH  query_contextH,<br/>  AEGP_CompH        *compPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryXformGetComp</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a query context, returns the current composition handle.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryXformGetComp</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">  </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_CompH</span><span class="w">        </span><span class="o">*</span><span class="n">compPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryXformGetTransformTime</code></td>
-<td>Given a query context, returns the time of the transformation.<br/><pre>AEGP_QueryXformGetTransformTime(<br/>  PR_QueryContextH  query_contextH,<br/>  A_Time            *time);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryXformGetTransformTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a query context, returns the time of the transformation.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryXformGetTransformTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">  </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Time</span><span class="w">            </span><span class="o">*</span><span class="n">time</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryXformGetViewTime</code></td>
-<td>Given a query context, returns the time of the associated view.<br/><pre>AEGP_QueryXformGetViewTime(<br/>  PR_QueryContextH  query_contextH,<br/>  A_Time            *time);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryXformGetViewTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a query context, returns the time of the associated view.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryXformGetViewTime</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">  </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Time</span><span class="w">            </span><span class="o">*</span><span class="n">time</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryXformGetCamera</code></td>
-<td>Given a query context, returns the current camera layer handle.<br/><pre>AEGP_QueryXformGetCamera(<br/>  PR_QueryContextH  query_contextH,<br/>  AEGP_LayerH       *camera_layerPH);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryXformGetCamera</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a query context, returns the current camera layer handle.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryXformGetCamera</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">  </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_LayerH</span><span class="w">       </span><span class="o">*</span><span class="n">camera_layerPH</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryXformGetXform</code></td>
-<td>Given a query context, returns the current matrix transform.<br/><pre>AEGP_QueryXformGetXform(<br/>  PR_QueryContextH  query_contextH,<br/>  A_Matrix4         *xform);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryXformGetXform</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a query context, returns the current matrix transform.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryXformGetXform</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">  </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Matrix4</span><span class="w">         </span><span class="o">*</span><span class="n">xform</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryXformSetXform</code></td>
-<td>Given a query context, return the matrix transform you compute in <code>xform</code>.<br/><pre>AEGP_QueryXformSetXform(<br/>  PR_QueryContextH  query_contextH,<br/>  A_Matrix4         *xform);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryXformSetXform</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Given a query context, return the matrix transform you compute in <code>xform</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryXformSetXform</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">  </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Matrix4</span><span class="w">         </span><span class="o">*</span><span class="n">xform</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryWindowRef</code></td>
-<td>Sets the window reference to be used (by After Effects) for the given <code>PR_QueryContextH</code>.<br/><pre>AEGP_QueryWindowRef(<br/>  PR_QueryContextH        q_contextH,<br/>  AEGP_PlatformWindowRef  *window_refP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryWindowRef</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the window reference to be used (by After Effects) for the given <code>PR_QueryContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryWindowRef</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">        </span><span class="n">q_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_PlatformWindowRef</span><span class="w">  </span><span class="o">*</span><span class="n">window_refP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryWindowClear</code></td>
-<td>Returns which <code>AEGP_PlatformWindowRef</code> (and <code>A_Rect</code>) to clear, for the given <code>PR_QueryContextH</code>.<br/><pre>AEGP_QueryWindowClear(<br/>  PR_QueryContextH        q_contextH,<br/>  AEGP_PlatformWindowRef  *window_refP,<br/>  A_LegacyRect            *boundsPR);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryWindowClear</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns which <code>AEGP_PlatformWindowRef</code> (and <code>A_Rect</code>) to clear, for the given <code>PR_QueryContextH</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryWindowClear</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">        </span><span class="n">q_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_PlatformWindowRef</span><span class="w">  </span><span class="o">*</span><span class="n">window_refP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_LegacyRect</span><span class="w">            </span><span class="o">*</span><span class="n">boundsPR</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryFrozenProxy</code></td>
-<td>Returns whether or not the textures used in the given <code>PR_QueryContextH</code> should be frozen.<br/><pre>AEGP_QueryFrozenProxy(<br/>  PR_QueryContextH  q_contextH,<br/>  A_Boolean         *onPB);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryFrozenProxy</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns whether or not the textures used in the given <code>PR_QueryContextH</code> should be frozen.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryFrozenProxy</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">  </span><span class="n">q_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">         </span><span class="o">*</span><span class="n">onPB</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QuerySwapBuffer</code></td>
-<td>Sent after rendering and camera/light handle drawing is complete; After Effects returns the buffer into which the artisan should draw its output.<br/><pre>AEGP_QuerySwapBuffer(<br/>  PR_QueryContextH        q_contextH,<br/>  AEGP_PlatformWindowRef  *window_refP,<br/>  AEGP_WorldH             *dest_bufferp);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QuerySwapBuffer</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sent after rendering and camera/light handle drawing is complete; After Effects returns the buffer into which the artisan should draw its output.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QuerySwapBuffer</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">        </span><span class="n">q_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_PlatformWindowRef</span><span class="w">  </span><span class="o">*</span><span class="n">window_refP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">AEGP_WorldH</span><span class="w">             </span><span class="o">*</span><span class="n">dest_bufferp</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryDrawProcs</code></td>
-<td>Sets the interactive drawing functions After Effects will call while drawing camera and lighting handles into the artisan's provided context.<br/><pre>AEGP_QueryDrawProcs(<br/>  PR_QueryContextH         query_contextH,<br/>  PR_InteractiveDrawProcs  *window_refP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryDrawProcs</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Sets the interactive drawing functions After Effects will call while drawing camera and lighting handles into the artisan's provided context.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryDrawProcs</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">         </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PR_InteractiveDrawProcs</span><span class="w">  </span><span class="o">*</span><span class="n">window_refP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryPrepareForLineDrawing</code></td>
-<td>Informs After Effects about the context into which it will be drawing.<br/><pre>AEGP_QueryPrepareForLineDrawing(<br/>  PR_QueryContextH        query_contextH,<br/>  AEGP_PlatformWindowRef  *window_refP,<br/>  A_LegacyRect            *viewportP,<br/>  A_LPoint                *originP,<br/>  A_FloatPoint            *scaleP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryPrepareForLineDrawing</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Informs After Effects about the context into which it will be drawing.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryPrepareForLineDrawing</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">        </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_PlatformWindowRef</span><span class="w">  </span><span class="o">*</span><span class="n">window_refP</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_LegacyRect</span><span class="w">            </span><span class="o">*</span><span class="n">viewportP</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">A_LPoint</span><span class="w">                </span><span class="o">*</span><span class="n">originP</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_FloatPoint</span><span class="w">            </span><span class="o">*</span><span class="n">scaleP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 <tr>
-<td><code>AEGP_QueryUnprepareForLineDrawing</code></td>
-<td>As far as After Effects is concerned, the artisan is done drawing lines.<br/><pre>AEGP_QueryUnprepareForLineDrawing(<br/>  PR_QueryContextH        query_contextH,<br/>  AEGP_PlatformWindowRef  *window_refP);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>AEGP_QueryUnprepareForLineDrawing</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>As far as After Effects is concerned, the artisan is done drawing lines.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">AEGP_QueryUnprepareForLineDrawing</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PR_QueryContextH</span><span class="w">        </span><span class="n">query_contextH</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">AEGP_PlatformWindowRef</span><span class="w">  </span><span class="o">*</span><span class="n">window_refP</span><span class="p">);</span>
+</span></code></pre></div></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3892,23 +4821,35 @@ Let N be the unit normal vector to the layer.</p>
 <tbody>
 <tr>
 <td><code>PR_Draw_MoveToFunc</code></td>
-<td><pre>PR_Draw_MoveToFunc(<br/>  short  x,<br/>  short  y);</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_Draw_MoveToFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">short</span><span class="w">  </span><span class="n">x</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">short</span><span class="w">  </span><span class="n">y</span><span class="p">);</span>
+</span></code></pre></div></td>
 </tr>
 <tr>
 <td><code>PR_Draw_LineToFunc</code></td>
-<td><pre>PR_Draw_LineToFunc(<br/>  short  x,<br/>  short  y);</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_Draw_LineToFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">short</span><span class="w">  </span><span class="n">x</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">short</span><span class="w">  </span><span class="n">y</span><span class="p">);</span>
+</span></code></pre></div></td>
 </tr>
 <tr>
 <td><code>PR_Draw_ForeColorFunc</code></td>
-<td><pre>PR_Draw_ForeColorFunc(<br/>  const A_Color  *fore_colo</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_Draw_ForeColorFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Color</span><span class="w">  </span><span class="o">*</span><span class="n">fore_colo</span>
+</span></code></pre></div></td>
 </tr>
 <tr>
 <td><code>PR_Draw_FrameRectFunc</code></td>
-<td><pre>PR_Draw_FrameRectFunc(<br/>  const A_Rect  *rectPR );</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_Draw_FrameRectFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Rect</span><span class="w">  </span><span class="o">*</span><span class="n">rectPR</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div></td>
 </tr>
 <tr>
 <td><code>PR_Draw_PaintRectFunc</code></td>
-<td><pre>PR_Draw_PaintRectFunc(<br/>  const A_Rect  *rectPR );</pre></td>
+<td><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PR_Draw_PaintRectFunc</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">A_Rect</span><span class="w">  </span><span class="o">*</span><span class="n">rectPR</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div></td>
 </tr>
 </tbody>
 </table>
@@ -3937,7 +4878,7 @@ Let N be the unit normal vector to the layer.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -4000,7 +4941,7 @@ Let N be the unit normal vector to the layer.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

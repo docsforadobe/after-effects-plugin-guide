@@ -3014,50 +3014,160 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_PreRenderInput</code></td>
-<td>Describes what After Effects needs rendered (in the <code>PF_RenderRequest</code>), and the bit depth requested (in the aptly-named bitdepth member).<br/><pre>typedef struct {<br/>  PF_LRect        rect;<br/>  PF_Field        field;<br/>  PF_ChannelMask  channel_mask;<br/>  PF_Boolean      preserve_rgb_of_zero_alpha;<br/>  char            unused[3];<br/>  long            reserved[4];<br/>} PF_RenderRequest;</pre><br/><br/><code>rect</code> is in layer coordinates. field is also relative to the layer origin;<br/>whether the active field falls on even or odd scanlines of the output buffer depends on the origin of the output buffer.<br/><br/><code>channel_mask</code> specifies for which channels the effect should provide output.<br/><br/>Data written to other channels will not be honored.<br/><br/>It will be one or more of the following, or'd together:<ul><li><code>PF_ChannelMask_ALPHA</code></li><li><code>PF_ChannelMask_RED</code></li><li><code>PF_ChannelMask_GREEN</code></li><li><code>PF_ChannelMask_BLUE</code></li><li><code>PF_ChannelMask_ARGB</code></li></ul>If <code>preserve_rgb_of_zero_alpha</code> pixels is <code>TRUE</code>, the effect must propagate the color content of transparent pixels through to the output.<br/><br/>This is related to, but distinct from, <a href="../../effect-basics/PF_OutData/#pf_outflags">PF_OutFlag2_REVEALS_ZERO_ALPHA</a>,<br/>which tells After Effects that the effect may set alpha to non-zero values for such pixels, restoring them to visibility.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PreRenderInput</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Describes what After Effects needs rendered (in the <code>PF_RenderRequest</code>), and the bit depth requested (in the aptly-named bitdepth member).</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_LRect</span><span class="w">        </span><span class="n">rect</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_Field</span><span class="w">        </span><span class="n">field</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_ChannelMask</span><span class="w">  </span><span class="n">channel_mask</span><span class="p">;</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">      </span><span class="n">preserve_rgb_of_zero_alpha</span><span class="p">;</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="kt">char</span><span class="w">            </span><span class="n">unused</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="kt">long</span><span class="w">            </span><span class="n">reserved</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span><span id="__span-0-8"><span class="p">}</span><span class="w"> </span><span class="n">PF_RenderRequest</span><span class="p">;</span>
+</span></code></pre></div></p>
+<p><code>rect</code> is in layer coordinates. field is also relative to the layer origin; whether the active field falls on even or odd scanlines of the output buffer depends on the origin of the output buffer.</p>
+<p><code>channel_mask</code> specifies for which channels the effect should provide output.</p>
+<p>Data written to other channels will not be honored.</p>
+<p>It will be one or more of the following, or'd together:</p>
+<ul>
+<li><code>PF_ChannelMask_ALPHA</code></li>
+<li><code>PF_ChannelMask_RED</code></li>
+<li><code>PF_ChannelMask_GREEN</code></li>
+<li><code>PF_ChannelMask_BLUE</code></li>
+<li><code>PF_ChannelMask_ARGB</code></li>
+</ul>
+<p>If <code>preserve_rgb_of_zero_alpha</code> pixels is <code>TRUE</code>, the effect must propagate the color content of transparent pixels through to the output.</p>
+<p>This is related to, but distinct from, <a href="../../effect-basics/PF_OutData/#pf_outflags">PF_OutFlag2_REVEALS_ZERO_ALPHA</a>, which tells After Effects that the effect may set alpha to non-zero values for such pixels, restoring them to visibility.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PreRenderOutput</code></td>
-<td>Filled in by the effect to tell After Effects what output it plans to generate, based on the input.<br/><pre>typedef struct {<br/>  PF_LRect                    result_rect;<br/>  PF_LRect                    max_result_rect;<br/>  PF_Boolean                  solid;<br/>  PF_Boolean                  reserved;<br/>  PF_RenderOutputFlags        flags;<br/>  void*                       pre_render_data;<br/>  PF_DeletePreRenderDataFunc  func;<br/>} PF_PreRenderOutput;</pre><br/><br/><code>pre_render_data</code> will be passed back to the effect during <a href="../../effect-basics/command-selectors/#frame-selectors">PF_Cmd_SMART_RENDER</a>.<br/><br/>Currently, the only <code>PF_RenderOutputFlags</code> is <code>PF_RenderOutputFlag_RETURNS_EXTRA_PIXELS</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PreRenderOutput</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Filled in by the effect to tell After Effects what output it plans to generate, based on the input.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_LRect</span><span class="w">                    </span><span class="n">result_rect</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_LRect</span><span class="w">                    </span><span class="n">max_result_rect</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">                  </span><span class="n">solid</span><span class="p">;</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">                  </span><span class="n">reserved</span><span class="p">;</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PF_RenderOutputFlags</span><span class="w">        </span><span class="n">flags</span><span class="p">;</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                       </span><span class="n">pre_render_data</span><span class="p">;</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">PF_DeletePreRenderDataFunc</span><span class="w">  </span><span class="n">func</span><span class="p">;</span>
+</span><span id="__span-0-9"><span class="p">}</span><span class="w"> </span><span class="n">PF_PreRenderOutput</span><span class="p">;</span>
+</span></code></pre></div></p>
+<p><code>pre_render_data</code> will be passed back to the effect during <a href="../../effect-basics/command-selectors/#frame-selectors">PF_Cmd_SMART_RENDER</a>.</p>
+<p>Currently, the only <code>PF_RenderOutputFlags</code> is <code>PF_RenderOutputFlag_RETURNS_EXTRA_PIXELS</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_PreRenderCallbacks</code></td>
-<td>Currently, there is only one callback - <code>checkout_layer</code>. checkout_idL is chosen by the effect.<br/><br/>It must be positive and unique. After Effects populates the <code>PF_CheckoutResult</code>.<br/><pre>PF_Err checkout_layer(<br/>  PF_ProgPtr              effect_ref,<br/>  PF_ParamIndex           index,<br/>  A_long                  checkout_idL,<br/>  const PF_RenderRequest  *req,<br/>  A_long                  what_time,<br/>  A_long                  time_step,<br/>  A_u_long                time_scale,<br/>PF_CheckoutResult       *result);<br/><br/>typedef struct {<br/>  PF_LRect          result_rect;<br/>  PF_LRect          max_result_rect;<br/>  PF_RationalScale  par;<br/>  long              solid;<br/>  PF_Boolean        reservedB[3];<br/>  A_long            ref_width;<br/>  A_long            ref_height;<br/>} PF_CheckoutResult;</pre><br/><br/><code>result_rect</code> can be empty. <code>max_result_rect</code> is the largest the output could possibly be, if the host asked for all of it.<br/>If solid is <code>TRUE</code>, the entire result_rect has opaque alpha.<br/><br/><code>ref_width</code> and <code>ref_height</code> are the original dimensions of the layer, before any effects are applied, disregarding any downsample factors.<br/>This will be the size of the composition for collapsed layers.<br/><br/>There is a bug in 11.0 with the Global Performance Cache, when a SmartFX effect uses<br/>both <a href="../../effect-basics/PF_OutData/#pf_outflags">PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT</a> &amp; <a href="../../effect-basics/PF_OutData/#pf_outflags">PF_OutFlag_NON_PARAM_VARY</a>.<br/><br/>Calling checkout_layer during <code>PF_Cmd_SMART_PRE_RENDER</code> returns empty rects in <code>PF_CheckoutResult</code>.<br/><br/>The workaround is to simply make the call again. This workaround is no longer needed in 11.0.1.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_PreRenderCallbacks</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Currently, there is only one callback - <code>checkout_layer</code>. checkout_idL is chosen by the effect.</p>
+<p>It must be positive and unique. After Effects populates the <code>PF_CheckoutResult</code>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">checkout_layer</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">              </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_ParamIndex</span><span class="w">           </span><span class="n">index</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">A_long</span><span class="w">                  </span><span class="n">checkout_idL</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PF_RenderRequest</span><span class="w">  </span><span class="o">*</span><span class="n">req</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">A_long</span><span class="w">                  </span><span class="n">what_time</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">A_long</span><span class="w">                  </span><span class="n">time_step</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">A_u_long</span><span class="w">                </span><span class="n">time_scale</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="n">PF_CheckoutResult</span><span class="w">       </span><span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</span><span id="__span-0-10">
+</span><span id="__span-0-11"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-12"><span class="w">  </span><span class="n">PF_LRect</span><span class="w">          </span><span class="n">result_rect</span><span class="p">;</span>
+</span><span id="__span-0-13"><span class="w">  </span><span class="n">PF_LRect</span><span class="w">          </span><span class="n">max_result_rect</span><span class="p">;</span>
+</span><span id="__span-0-14"><span class="w">  </span><span class="n">PF_RationalScale</span><span class="w">  </span><span class="n">par</span><span class="p">;</span>
+</span><span id="__span-0-15"><span class="w">  </span><span class="kt">long</span><span class="w">              </span><span class="n">solid</span><span class="p">;</span>
+</span><span id="__span-0-16"><span class="w">  </span><span class="n">PF_Boolean</span><span class="w">        </span><span class="n">reservedB</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+</span><span id="__span-0-17"><span class="w">  </span><span class="n">A_long</span><span class="w">            </span><span class="n">ref_width</span><span class="p">;</span>
+</span><span id="__span-0-18"><span class="w">  </span><span class="n">A_long</span><span class="w">            </span><span class="n">ref_height</span><span class="p">;</span>
+</span><span id="__span-0-19"><span class="p">}</span><span class="w"> </span><span class="n">PF_CheckoutResult</span><span class="p">;</span>
+</span></code></pre></div></p>
+<p><code>result_rect</code> can be empty. <code>max_result_rect</code> is the largest the output could possibly be, if the host asked for all of it.</p>
+<p>If solid is <code>TRUE</code>, the entire result_rect has opaque alpha.</p>
+<p><code>ref_width</code> and <code>ref_height</code> are the original dimensions of the layer, before any effects are applied, disregarding any downsample factors.</p>
+<p>This will be the size of the composition for collapsed layers.</p>
+<p>There is a bug in 11.0 with the Global Performance Cache, when a SmartFX effect uses both <a href="../../effect-basics/PF_OutData/#pf_outflags">PF_OutFlag2_AUTOMATIC_WIDE_TIME_INPUT</a> &amp; <a href="../../effect-basics/PF_OutData/#pf_outflags">PF_OutFlag_NON_PARAM_VARY</a>.</p>
+<p>Calling checkout_layer during <code>PF_Cmd_SMART_PRE_RENDER</code> returns empty rects in <code>PF_CheckoutResult</code>.</p>
+<p>The workaround is to simply make the call again. This workaround is no longer needed in 11.0.1.</p>
+</td>
 </tr>
 <tr>
-<td><code>result_rect</code></td>
-<td>The output (in layer coordinates) resulting from the render request (can be empty).<br/><br/>This cannot be bigger than the input request rectangle (unless <code>PF_RenderOutputFlag_RETURNS_EXTRA_PIXELS</code> is set), but can be smaller.</td>
+<td colspan="1" rowspan="1">
+<p><code>result_rect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The output (in layer coordinates) resulting from the render request (can be empty).</p>
+<p>This cannot be bigger than the input request rectangle (unless <code>PF_RenderOutputFlag_RETURNS_EXTRA_PIXELS</code> is set), but can be smaller.</p>
+</td>
 </tr>
 <tr>
-<td><code>max_result_rect</code></td>
-<td>The maximum size the output could possibly be, if After Effects requested all of it.<br/><br/>This must not vary depending on requested output size.</td>
+<td colspan="1" rowspan="1">
+<p><code>max_result_rect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The maximum size the output could possibly be, if After Effects requested all of it.</p>
+<p>This must not vary depending on requested output size.</p>
+</td>
 </tr>
 <tr>
-<td><code>solid</code></td>
-<td>Set this <code>TRUE</code> if every pixel in the output will be fully opaque. Set if possible; it enables certain optimizations.</td>
+<td colspan="1" rowspan="1">
+<p><code>solid</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this <code>TRUE</code> if every pixel in the output will be fully opaque. Set if possible; it enables certain optimizations.</p>
+</td>
 </tr>
 <tr>
-<td><code>reserved</code></td>
-<td>Ignore.</td>
+<td colspan="1" rowspan="1">
+<p><code>reserved</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Ignore.</p>
+</td>
 </tr>
 <tr>
-<td><code>flags</code></td>
-<td>Currently, the only flag is <code>PF_RenderOutputFlag_RETURNS_EXTRA_PIXELS</code>,<br/>which tells After Effects that the smart effect will return more pixels than After Effects requested.</td>
+<td colspan="1" rowspan="1">
+<p><code>flags</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Currently, the only flag is <code>PF_RenderOutputFlag_RETURNS_EXTRA_PIXELS</code>, which tells After Effects that the smart effect will return more pixels than After Effects requested.</p>
+</td>
 </tr>
 <tr>
-<td><code>pre_render_data</code></td>
-<td>Point this at any data that the effect would like to access during rendering.<br/><br/>Effects can also allocate handles and store them in <code>out_data&gt;frame_data</code>, as with regular (non-smart) effects.<br/><br/>Since <a href="../../effect-basics/command-selectors/#frame-selectors">PF_Cmd_SMART_PRE_RENDER</a> can be called with no corresponding<br/><a href="../../effect-basics/command-selectors/#frame-selectors">PF_Cmd_SMART_RENDER</a>, effects must never delete this data themselves;<br/><br/>once the effect returns from <a href="../../effect-basics/command-selectors/#frame-selectors">PF_Cmd_SMART_PRE_RENDER</a>,<br/>After Effects owns this data and will dispose of it (using either the following function or a standard free call).</td>
+<td colspan="1" rowspan="1">
+<p><code>pre_render_data</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Point this at any data that the effect would like to access during rendering.</p>
+<p>Effects can also allocate handles and store them in <code>out_data&gt;frame_data</code>, as with regular (non-smart) effects.</p>
+<p>Since <a href="../../effect-basics/command-selectors/#frame-selectors">PF_Cmd_SMART_PRE_RENDER</a> can be called with no corresponding <a href="../../effect-basics/command-selectors/#frame-selectors">PF_Cmd_SMART_RENDER</a>, effects must never delete this data themselves; once the effect returns from <a href="../../effect-basics/command-selectors/#frame-selectors">PF_Cmd_SMART_PRE_RENDER</a>, After Effects owns this data and will dispose of it (using either the following function or a standard free call).</p>
+</td>
 </tr>
 <tr>
-<td><code>delete_pre_render_data_func</code></td>
-<td>Point this to a function that will eventually be called to delete the pre_render_data.</td>
+<td colspan="1" rowspan="1">
+<p><code>delete_pre_render_data_func</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Point this to a function that will eventually be called to delete the pre_render_data.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3102,18 +3212,54 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Purpose</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Purpose</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PF_SmartRenderInput</code></td>
-<td>Consists of a <a href="#pf_prerenderextra">PF_RenderRequest</a>, the bitdepth,<br/>and a pointer to <code>pre_render_data</code> (allocated during <a href="../../effect-basics/command-selectors/#frame-selectors">PF_Cmd_SMART_PRE_RENDER</a>).<br/><br/>This <code>PF_SmartRenderInput</code> is identical to that passed in the corresponding <em>PF_Cmd_SMART_PRE_RENDER</em>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_SmartRenderInput</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Consists of a <a href="#pf_prerenderextra">PF_RenderRequest</a>, the bitdepth, and a pointer to <code>pre_render_data</code> (allocated during <a href="../../effect-basics/command-selectors/#frame-selectors">PF_Cmd_SMART_PRE_RENDER</a>).</p>
+<p>This <code>PF_SmartRenderInput</code> is identical to that passed in the corresponding <em>PF_Cmd_SMART_PRE_RENDER</em>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PF_SmartRenderCallbacks</code></td>
-<td><pre>PF_Err checkout_layer_pixels(<br/>  PF_ProgPtr      effect_ref,<br/>  A_long          checkout_idL,<br/>  PF_EffectWorld  *pixels);</pre><br/><br/>This is used to actually access the pixels in layers checked out during <em>PF_Cmd_SMART_PRE_RENDER</em>.<br/><br/>The returned <code>PF_EffectWorld</code> is valid for duration of current command or until checked in.<br/><br/>You are only allowed to call <code>checkout_layer_pixels</code> only once with the checkout_idL used earlier in <em>PF_Cmd_SMART_PRERENDER</em>.<br/>There must be a one-to-one mapping between the number of checkouts made in <em>PF_Cmd_SMART_PRERENDER</em> and <em>PF_Cmd_SMART_RENDER</em>.<br/><br/>To call <code>checkout_layer_pixels</code> more than once on a layer,<br/>you should call <a href="#pf_prerenderextra">checkout_layer</a> on the same layer again with a different unique <code>checkout_idL</code><br/>in <em>PF_Cmd_SMART_PRERENDER</em> and then use that <code>checkout_idL</code> to do another <code>checkout_layer_pixels</code> in <em>PF_Cmd_SMART_RENDER</em>.<br/><pre>PF_Err checkin_layer_pixels(<br/>  PF_ProgPtr  effect_ref,<br/>  A_long      checkout_idL);</pre><br/><br/>It isn't necessary to call (After Effects cleans up all such checkouts when the effect returns from <em>PF_Cmd_SMART_RENDER</em>), but useful to free up memory.<br/><pre>PF_Err checkout_output(<br/>  PF_ProgPtr      effect_ref,<br/>  PF_EffectWorld  *output);</pre><br/><br/>Retrieves the output buffer. Note that effects are not allowed to check out output until at least one input has been checked out (unless the effect has no inputs at all).<br/><br/>NOTE: For optimal memory usage, request the output as late as possible, and request inputs as few at a time as possible.</td>
+<td colspan="1" rowspan="1">
+<p><code>PF_SmartRenderCallbacks</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">checkout_layer_pixels</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">          </span><span class="n">checkout_idL</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">pixels</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>This is used to actually access the pixels in layers checked out during <em>PF_Cmd_SMART_PRE_RENDER</em>.</p>
+<p>The returned <code>PF_EffectWorld</code> is valid for duration of current command or until checked in.</p>
+<p>You are only allowed to call <code>checkout_layer_pixels</code> only once with the checkout_idL used earlier in <em>PF_Cmd_SMART_PRERENDER</em>.</p>
+<p>There must be a one-to-one mapping between the number of checkouts made in <em>PF_Cmd_SMART_PRERENDER</em> and <em>PF_Cmd_SMART_RENDER</em>.</p>
+<p>To call <code>checkout_layer_pixels</code> more than once on a layer, you should call <a href="#pf_prerenderextra">checkout_layer</a> on the same layer again with a different unique <code>checkout_idL</code> in <em>PF_Cmd_SMART_PRERENDER</em> and then use that <code>checkout_idL</code> to do another <code>checkout_layer_pixels</code> in <em>PF_Cmd_SMART_RENDER</em>.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">checkin_layer_pixels</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">  </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">A_long</span><span class="w">      </span><span class="n">checkout_idL</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>It isn't necessary to call (After Effects cleans up all such checkouts when the effect returns from <em>PF_Cmd_SMART_RENDER</em>), but useful to free up memory.</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PF_Err</span><span class="w"> </span><span class="nf">checkout_output</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PF_EffectWorld</span><span class="w">  </span><span class="o">*</span><span class="n">output</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>Retrieves the output buffer. Note that effects are not allowed to check out output until at least one input has been checked out (unless the effect has no inputs at all).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For optimal memory usage, request the output as late as possible, and request inputs as few at a time as possible.</p>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3145,7 +3291,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -3208,7 +3354,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
