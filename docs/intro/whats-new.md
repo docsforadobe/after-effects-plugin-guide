@@ -4,6 +4,12 @@ If this is your first time developing an After Effects plug-in, you can skip the
 
 ---
 
+## What's New In the 25.2 SDK
+
+As part of AEGP_LayerSuite9, AEGP_GetLayerObjectType can now return AEGP_ObjectType_3D_MODEL if the object type is a 3D model.
+
+---
+
 ## What's New In After Effects 2022
 
 After Effects 2022 contains the first full public release with Multi-Frame Rendering support. The associated AE Effects SDK released in October 2021 includes one change for increasing the maximum number of PF_Iterate threads.
