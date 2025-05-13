@@ -5,9 +5,11 @@ Adobe now supports Apple Silicon effect plugins in some products running nativel
 Not all Adobe products have native Apple Silicon versions yet, but in those that do, only effect plugins with Apple Silicon implementations will be available. We recommend adding the Apple Silicon target soon in anticipation of rapid adoption of these new M1 machines.
 
 !!! note
-    In order to build a Mac Universal binary, you will need Xcode 12.2 or greater. Adobe is currently using Xcode 12.4.
+    In order to build a Mac Universal binary, you will need Xcode 12.2 or greater.
 
 To learn more about Universal binaries, please visit [https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary](https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary)
+
+Loading plugins on macOS 15+ for debugging also requires an additional signing step. See [here](debugging-plug-ins.md#signing-requirments-and-loading-unsigned-plug-ins) for details.
 
 ---
 
