@@ -19,13 +19,15 @@ Once you've got the plug-in building directly into the plug-ins folder as explai
 3. Under Run, in the Info tab, for Executable, choose the host application the plug-ins will be running in (this may be After Effects or Premiere Pro)
 4. From there you can either hit the Play button to build and run the current scheme, or you can launch the application and later at any point choose Debug > Attach to Process.
 
-#### Loading unsigned plugins
+#### Signing requirments and loading unsigned plug-ins
 
-macOS versions 15+ prevent the loading of unsigned plugins. You can avoid this difficulty by adding ad-hoc signing as a custom build step.
+macOS versions 15+ prevent the loading of unsigned plugins. During development, you can avoid this difficulty by adding ad-hoc signing as a custom build step.
 
 `codesign --force --deep --sign - /path/to/plugin.dylib`
 
 Note: Yes, that trailing '-' after '--sign' is important.
+
+When you are ready to release, ensure that you do _not_ make changes to the plug-in package after signing, as this will invalidate said signing and prevent the plug-in from loading.
 
 ---
 
