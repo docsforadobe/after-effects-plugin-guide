@@ -9,7 +9,7 @@ Not all Adobe products have native Apple Silicon versions yet, but in those that
 
 To learn more about Universal binaries, please visit [https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary](https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary)
 
-Loading plugins on macOS 15+ for debugging also requires an additional signing step. See [here](debugging-plug-ins.md#loading-unsigned-plugins) for details.
+Loading plugins on macOS 15+ for debugging also requires an additional signing step. See [here](debugging-plug-ins.md#signing-requirments-and-loading-unsigned-plug-ins) for details.
 
 ---
 
