@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://ae-plugins.docsforadobe.dev/intro/next-steps/">
+        <link rel="canonical" href="https://ae-plugins.docsforadobe.dev/intro/gpu-build-instructions/">
       
       
-        <link rel="prev" href="../gpu-build-instructions/">
+        <link rel="prev" href="../symbol-export/">
       
       
-        <link rel="next" href="../../effect-basics/effect-basics/">
+        <link rel="next" href="../next-steps/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Next Steps - After Effects C++ SDK Guide</title>
+        <title>Building GPU Effects - After Effects C++ SDK Guide</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#next-steps" class="md-skip">
+        <a href="#gpu-accelerated-effect-build-instructions" class="md-skip">
           Skip to content
         </a>
       
@@ -147,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Next Steps
+              Building GPU Effects
             
           </span>
         </div>
@@ -744,29 +744,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../gpu-build-instructions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Building GPU Effects
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -779,7 +756,119 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Building GPU Effects
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building GPU Effects
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#mac-setup-instructions" class="md-nav__link">
+		<span class="md-ellipsis">
+			Mac Setup Instructions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#windows-setup-instructions" class="md-nav__link">
+		<span class="md-ellipsis">
+			Windows Setup Instructions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Windows Setup Instructions">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#deployment-instructions-directx" class="md-nav__link">
+		<span class="md-ellipsis">
+			Deployment instructions (DirectX):
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#cuda-runtime-api-vs-driver-api" class="md-nav__link">
+		<span class="md-ellipsis">
+			CUDA Runtime API vs. Driver API:
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../next-steps/" class="md-nav__link">
         
   
   
@@ -790,7 +879,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -2748,6 +2836,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#mac-setup-instructions" class="md-nav__link">
+		<span class="md-ellipsis">
+			Mac Setup Instructions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#windows-setup-instructions" class="md-nav__link">
+		<span class="md-ellipsis">
+			Windows Setup Instructions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Windows Setup Instructions">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#deployment-instructions-directx" class="md-nav__link">
+		<span class="md-ellipsis">
+			Deployment instructions (DirectX):
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#cuda-runtime-api-vs-driver-api" class="md-nav__link">
+		<span class="md-ellipsis">
+			CUDA Runtime API vs. Driver API:
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2762,7 +2912,7 @@
 
 
   
-    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/edit/master/docs/intro/next-steps.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/edit/master/docs/intro/gpu-build-instructions.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2771,16 +2921,104 @@
     
       
     
-    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/raw/master/docs/intro/next-steps.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/raw/master/docs/intro/gpu-build-instructions.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h1>
-<p>You now have an understanding of what plug-ins are, what they can do, and how After Effects communicates with them.</p>
-<p>Next, we will cover the <a href="../../effect-basics/effect-basics/">basics of effects plug-ins</a>.</p>
+<h1 id="gpu-accelerated-effect-build-instructions">GPU-Accelerated Effect Build Instructions<a class="headerlink" href="#gpu-accelerated-effect-build-instructions" title="Permanent link">&para;</a></h1>
+<p>The AE GPU SDK was added in version 16.0, along with an SDK_Invert_ProcAmp sample effect to demonstrate the APIs.</p>
+<p>To build the SDK_Invert_ProcAmp sample, you'll need to install some dependencies first.</p>
+<h2 id="mac-setup-instructions">Mac Setup Instructions<a class="headerlink" href="#mac-setup-instructions" title="Permanent link">&para;</a></h2>
+<p>The SDK_Invert_ProcAmp plugin uses Boost to process GPU kernel files, so you need to install Boost on your machine. You can install Boost through homebrew, or direct download from boost.org.</p>
+<ol>
+<li>Install Boost through homebrew or download it directly from <a href="https://www.boost.org/releases/latest/">boost.org</a>.<ul>
+<li>Boost provides the most up-to-date installation walkthrough here: <a href="https://www.boost.org/doc/user-guide/getting-started.html">Getting Started with Boost</a></li>
+</ul>
+</li>
+<li>Once Boost is installed, obtain the installation path.<ul>
+<li>If installed via homebrew, it will be something like: <code>/usr/local/Cellar/boost/1.67.0_1/include/boost</code></li>
+<li>If installed from the direct download, something like: <code>/usr/local/include/boost</code></li>
+</ul>
+</li>
+<li>Open the SDK_Invert_ProcAmp project in Xcode and go to Settings -&gt; Locations -&gt; Custom Paths</li>
+<li>Add this entry:<ul>
+<li>Name: <code>BOOST_BASE_PATH</code></li>
+<li>Display Name: <code>BOOST</code></li>
+<li>Path: <code>[Your Boost installation path]</code></li>
+</ul>
+</li>
+<li>If you see python errors when building, make sure you have python installed for bash (not for zsh). If you have installed python3 for bash but still seeing "python command not found" error, go to Project Settings -&gt; Build Rules and try changing the "python" keyword to "python3"</li>
+</ol>
+<h2 id="windows-setup-instructions">Windows Setup Instructions<a class="headerlink" href="#windows-setup-instructions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Install Boost from boost.org (latest instructions are <a href="https://www.boost.org/doc/user-guide/getting-started.html">here</a>)<ul>
+<li>Unzip the boost package and run the included bootstrap.bat</li>
+<li>Then run <code>.\b2</code> to build Boost</li>
+<li>Then run <code>.\b2 install --prefix=C:\Boost</code></li>
+</ul>
+</li>
+<li>Install the CUDA SDK from <a href="https://developer.nvidia.com/cuda-downloads">https://developer.nvidia.com/cuda-downloads</a>.<ul>
+<li>Please use the same CUDA version that your AE build is using.</li>
+<li>AE 25.4 uses CUDA 12.8.</li>
+</ul>
+</li>
+<li>Install the latest DirectX Compiler from <a href="https://github.com/microsoft/DirectXShaderCompiler/releases">https://github.com/microsoft/DirectXShaderCompiler/releases</a></li>
+<li>Setup the following system environment variables:<ul>
+<li>CUDA_SDK_BASE_PATH: <code>[CUDA installation path]</code><ul>
+<li>(example: <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8</code>)</li>
+</ul>
+</li>
+<li>Boost_BASE_PATH: <code>[Boost installation path]</code><ul>
+<li>(example: <code>C:\Boost\include\boost-1_88</code>)</li>
+</ul>
+</li>
+<li>DXC_SDK_BASE_PATH: <code>[DXC installation path]</code><ul>
+<li>(example: <code>C:\dxc_2023_08_14</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="deployment-instructions-directx">Deployment instructions (DirectX):<a class="headerlink" href="#deployment-instructions-directx" title="Permanent link">&para;</a></h3>
+<p>The DirectXAssets folder generated alongside the binary also has to
+be copied for the effect to work. The assets are loaded by the
+application at runtime.</p>
+<p>PF_OutFlag2_SUPPORTS_DIRECTX_RENDERING has to be set as a
+part of Global Flags for DirectX rendering and the corresponding
+value has to be updated in the PiPL resource file. The effect will fall
+back to the CPU implementation if the flag is missing.</p>
+<h3 id="cuda-runtime-api-vs-driver-api">CUDA Runtime API vs. Driver API:<a class="headerlink" href="#cuda-runtime-api-vs-driver-api" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Utilize CUDA Driver API</strong></p>
+<p>For best compatibility, we highly recommend utilizing only the CUDA Driver
+API. Unlike the runtime API, the driver API will be compatible with future
+drivers. Please note that the CUDA Runtime API is built to handle/automate
+some of the housekeeping that is exposed and needs to be handled in the
+Driver APIs, so there might be some new steps and code you would need to
+implement to migrate from the Runtime API to the Driver API.</p>
+</li>
+<li>
+<p><strong>Alternative 1: Statically Link to CUDA Runtime</strong></p>
+<p>If the CUDA Runtime API is needed then we recommend statically linking the
+CUDA Runtime, cudart_static.lib. This will work with future driver versions.</p>
+</li>
+<li>
+<p><strong>Alternative 2: Dynamically Link to CUDA Runtime</strong></p>
+<p>This also works but may be prone to compatibility issues. A compatible CUDA
+Runtime DLL needs to be available on users' systems to work with future
+drivers. Currently After Effects ships a copy of the CUDA Runtime DLL
+corresponding to our recommended CUDA SDK version. This may change in
+future. If you must dynamically link to the CUDA Runtime then we
+recommend shipping a copy of the CUDA Runtime DLL with your plugin and
+use dlopen/LoadLibrary to explicitly load the desired runtimes. For more
+details, see the CUDA Compatibility section of NVIDIA's GPU Management
+and Deployment guide: <a href="https://docs.nvidia.com/deploy/cuda-compatibility/">https://docs.nvidia.com/deploy/cuda-compatibility/</a></p>
+</li>
+</ol>
 
 
 
@@ -2801,7 +3039,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 26, 2025 23:15:17 UTC">January 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 18, 2025 19:04:32 UTC">September 18, 2025</span>
   </span>
 
     
