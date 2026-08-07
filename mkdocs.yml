@@ -19,6 +19,7 @@ nav:
         - How To Start Creating Plug-ins: intro/how-to-start-creating-plug-ins.md
         - Sample Projects: intro/sample-projects.md
         - Debugging Plug-ins: intro/debugging-plug-ins.md
+        - Attaching a Debugger to After Effects on macOS: intro/debugging-ae-macos.md
         - Compatibility Across Multiple Versions?: intro/compatibility-across-multiple-versions.md
         - Third-party Plug-in Hosts?: intro/third-party-plug-in-hosts.md
         - PiPL Resources: intro/pipl-resources.md

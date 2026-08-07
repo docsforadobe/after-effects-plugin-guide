@@ -29,6 +29,10 @@ Note: Yes, that trailing '-' after '--sign' is important.
 
 When you are ready to release, ensure that you do _not_ make changes to the plug-in package after signing, as this will invalidate said signing and prevent the plug-in from loading.
 
+#### Attaching a debugger on macOS
+
+Depending on your macOS version and whether you are running a Beta or non-Beta build, you may need extra setup (developer mode, or re-signing a development copy) before a debugger can attach to After Effects. See [Attaching a Debugger to After Effects on macOS](debugging-ae-macos.md) for details.
+
 ---
 
 ## Deleting Preferences
