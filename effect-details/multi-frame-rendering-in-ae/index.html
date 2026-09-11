@@ -1674,6 +1674,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../effect-preview-media/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Effect Preview Media (Effects Panel)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../accessing-function-suites/" class="md-nav__link">
         
   
@@ -4173,7 +4201,7 @@ You can find the tool in this Git Repo: <a href="https://github.com/adobe/ae-plu
 <h3 id="could-the-data-be-initialized-before-you-execute-your-code-eg-a-lookup-table-a-const-variable">Could the data be initialized before you execute your code (e.g. a lookup table, a const variable)?<a class="headerlink" href="#could-the-data-be-initialized-before-you-execute-your-code-eg-a-lookup-table-a-const-variable" title="Permanent link">&para;</a></h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><span class="c1">// Example of a non Thread-Safe code</span>
 </span><span id="__span-13-2">
-</span><span id="__span-13-3"><span class="c1">// Many places in the code need to read this table but won&#39;t be writing to it</span>
+</span><span id="__span-13-3"><span class="c1">// Many places in the code need to read this table but won't be writing to it</span>
 </span><span id="__span-13-4"><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">state_with_initializer</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
 </span><span id="__span-13-5"><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">state_was_initialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 </span><span id="__span-13-6">

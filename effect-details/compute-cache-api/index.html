@@ -1348,6 +1348,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../effect-preview-media/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Effect Preview Media (Effects Panel)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../accessing-function-suites/" class="md-nav__link">
         
   
@@ -3996,7 +4024,7 @@ The <code>AEGP_CCComputeValueRefconP</code> is the computed cache value that can
 </span><span id="__span-1-12"><span class="w">            </span><span class="n">out_dataP</span><span class="p">);</span>
 </span><span id="__span-1-13">
 </span><span id="__span-1-14"><span class="w">        </span><span class="c1">// define a simple buffer that is easy to recognize as a starting hash</span>
-</span><span id="__span-1-15"><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hash_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Level2Histo&quot;</span><span class="p">;</span>
+</span><span id="__span-1-15"><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hash_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Level2Histo"</span><span class="p">;</span>
 </span><span id="__span-1-16"><span class="w">        </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_suite</span><span class="o">-&gt;</span><span class="n">AEGP_CreateHashFromPtr</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">hash_buffer</span><span class="p">),</span><span class="w"> </span><span class="n">hash_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">out_keyP</span><span class="p">);</span>
 </span><span id="__span-1-17">
 </span><span id="__span-1-18"><span class="w">        </span><span class="c1">// Mix in effect parameters that would create a different compute result and should generate a different cache entry and key.</span>

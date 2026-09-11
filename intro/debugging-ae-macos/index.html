@@ -1470,6 +1470,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../effect-details/effect-preview-media/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Effect Preview Media (Effects Panel)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../effect-details/accessing-function-suites/" class="md-nav__link">
         
   
@@ -3528,13 +3556,13 @@
 <p>Official non-Beta/LTS builds do not support developer mode. See <a href="#debugging-against-a-non-beta-build-on-macos-starting-in-ae-265">Debugging against a non-Beta build on macOS</a> below for the re-signing workflow required there instead.</p>
 <h3 id="enabling-developer-mode">Enabling developer mode<a class="headerlink" href="#enabling-developer-mode" title="Permanent link">&para;</a></h3>
 <p>Developer mode is granted per-machine and requires administrator access to set up. Open Terminal and run:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1">sudo mkdir -p &quot;/Library/Application Support/Adobe/After Effects (Beta)&quot;
-</span><span id="__span-0-2">sudo touch &quot;/Library/Application Support/Adobe/After Effects (Beta)/developer-mode&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1">sudo mkdir -p "/Library/Application Support/Adobe/After Effects (Beta)"
+</span><span id="__span-0-2">sudo touch "/Library/Application Support/Adobe/After Effects (Beta)/developer-mode"
 </span></code></pre></div>
 <p>You'll be prompted for your administrator password. The contents of this file don't matter — only its presence.</p>
 <p>Once created, developer mode applies to any installed Beta build on that machine — you do not need to repeat this for every new Beta release, and you do not need to remove or recreate it when After Effects updates.</p>
 <p>To disable developer mode again:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1">sudo rm &quot;/Library/Application Support/Adobe/After Effects (Beta)/developer-mode&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1">sudo rm "/Library/Application Support/Adobe/After Effects (Beta)/developer-mode"
 </span></code></pre></div>
 <h3 id="attaching-your-debugger">Attaching your debugger<a class="headerlink" href="#attaching-your-debugger" title="Permanent link">&para;</a></h3>
 <p>With developer mode enabled, attach to a running Beta build exactly as before:</p>
@@ -3552,7 +3580,7 @@
 </li>
 <li>
 <p>Open Terminal and ensure your current directory is writable (such as your home folder), then dump the app's entitlements to a file:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1">codesign -d --xml --entitlements entitlements.xml &quot;/Applications/Adobe After Effects-developer/Adobe After Effects 2026.app&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1">codesign -d --xml --entitlements entitlements.xml "/Applications/Adobe After Effects-developer/Adobe After Effects 2026.app"
 </span></code></pre></div>
 </li>
 <li>
@@ -3566,7 +3594,7 @@
 </li>
 <li>
 <p>Re-sign the development copy with the edited entitlements:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1">codesign -f -s - --entitlements entitlements.xml &quot;/Applications/Adobe After Effects-developer/Adobe After Effects 2026.app&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1">codesign -f -s - --entitlements entitlements.xml "/Applications/Adobe After Effects-developer/Adobe After Effects 2026.app"
 </span></code></pre></div>
 </li>
 <li>

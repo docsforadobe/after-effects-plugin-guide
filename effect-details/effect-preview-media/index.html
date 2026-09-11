@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://ae-plugins.docsforadobe.dev/audio/accessing-audio-data/">
+        <link rel="canonical" href="https://ae-plugins.docsforadobe.dev/effect-details/effect-preview-media/">
       
       
-        <link rel="prev" href="../audio-specific-float-slider-variables/">
+        <link rel="prev" href="../effect-details/">
       
       
-        <link rel="next" href="../audio-considerations/">
+        <link rel="next" href="../accessing-function-suites/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Accessing Audio Data - After Effects C++ SDK Guide</title>
+        <title>Effect Preview Media (Effects Panel) - After Effects C++ SDK Guide</title>
       
     
     
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#accessing-audio-data" class="md-skip">
+        <a href="#effect-preview-media-effects-panel" class="md-skip">
           Skip to content
         </a>
       
@@ -149,7 +149,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Accessing Audio Data
+              Effect Preview Media (Effects Panel)
             
           </span>
         </div>
@@ -1240,18 +1240,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1272,7 +1274,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1290,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/multi-frame-rendering-in-ae/" class="md-nav__link">
+      <a href="../multi-frame-rendering-in-ae/" class="md-nav__link">
         
   
   
@@ -1318,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/effect-details/" class="md-nav__link">
+      <a href="../effect-details/" class="md-nav__link">
         
   
   
@@ -1343,10 +1345,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../effect-details/effect-preview-media/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Effect Preview Media (Effects Panel)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1362,6 +1391,82 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#where-to-put-the-media" class="md-nav__link">
+		<span class="md-ellipsis">
+			Where to put the media
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Where to put the media">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#macos" class="md-nav__link">
+		<span class="md-ellipsis">
+			macOS
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#windows" class="md-nav__link">
+		<span class="md-ellipsis">
+			Windows
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#format-and-size" class="md-nav__link">
+		<span class="md-ellipsis">
+			Format and size
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1374,7 +1479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/accessing-function-suites/" class="md-nav__link">
+      <a href="../accessing-function-suites/" class="md-nav__link">
         
   
   
@@ -1402,7 +1507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/memory-allocation/" class="md-nav__link">
+      <a href="../memory-allocation/" class="md-nav__link">
         
   
   
@@ -1430,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/image-buffer-management-functions/" class="md-nav__link">
+      <a href="../image-buffer-management-functions/" class="md-nav__link">
         
   
   
@@ -1458,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/iteration-suites/" class="md-nav__link">
+      <a href="../iteration-suites/" class="md-nav__link">
         
   
   
@@ -1486,7 +1591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/graphics-utility-suites/" class="md-nav__link">
+      <a href="../graphics-utility-suites/" class="md-nav__link">
         
   
   
@@ -1514,7 +1619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/interaction-callback-functions/" class="md-nav__link">
+      <a href="../interaction-callback-functions/" class="md-nav__link">
         
   
   
@@ -1542,7 +1647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/pixel-aspect-ratio/" class="md-nav__link">
+      <a href="../pixel-aspect-ratio/" class="md-nav__link">
         
   
   
@@ -1570,7 +1675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/parameters-floating-point-values/" class="md-nav__link">
+      <a href="../parameters-floating-point-values/" class="md-nav__link">
         
   
   
@@ -1598,7 +1703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/parameter-supervision/" class="md-nav__link">
+      <a href="../parameter-supervision/" class="md-nav__link">
         
   
   
@@ -1626,7 +1731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/global-sequence-frame-data/" class="md-nav__link">
+      <a href="../global-sequence-frame-data/" class="md-nav__link">
         
   
   
@@ -1654,7 +1759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/arbitrary-data-parameters/" class="md-nav__link">
+      <a href="../arbitrary-data-parameters/" class="md-nav__link">
         
   
   
@@ -1682,7 +1787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/useful-utility-functions/" class="md-nav__link">
+      <a href="../useful-utility-functions/" class="md-nav__link">
         
   
   
@@ -1710,7 +1815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/motion-blur/" class="md-nav__link">
+      <a href="../motion-blur/" class="md-nav__link">
         
   
   
@@ -1738,7 +1843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/working-with-paths/" class="md-nav__link">
+      <a href="../working-with-paths/" class="md-nav__link">
         
   
   
@@ -1766,7 +1871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/accessing-camera-light-information/" class="md-nav__link">
+      <a href="../accessing-camera-light-information/" class="md-nav__link">
         
   
   
@@ -1794,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/color-space-conversion/" class="md-nav__link">
+      <a href="../color-space-conversion/" class="md-nav__link">
         
   
   
@@ -1822,7 +1927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/changing-parameter-orders/" class="md-nav__link">
+      <a href="../changing-parameter-orders/" class="md-nav__link">
         
   
   
@@ -1850,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/tips-tricks/" class="md-nav__link">
+      <a href="../tips-tricks/" class="md-nav__link">
         
   
   
@@ -1878,7 +1983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../effect-details/compute-cache-api/" class="md-nav__link">
+      <a href="../compute-cache-api/" class="md-nav__link">
         
   
   
@@ -2214,20 +2319,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -2248,7 +2351,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2266,7 +2369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../audio/" class="md-nav__link">
+      <a href="../../audio/audio/" class="md-nav__link">
         
   
   
@@ -2294,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../global-outflags/" class="md-nav__link">
+      <a href="../../audio/global-outflags/" class="md-nav__link">
         
   
   
@@ -2322,7 +2425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../audio-data-structures/" class="md-nav__link">
+      <a href="../../audio/audio-data-structures/" class="md-nav__link">
         
   
   
@@ -2350,7 +2453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../audio-specific-float-slider-variables/" class="md-nav__link">
+      <a href="../../audio/audio-specific-float-slider-variables/" class="md-nav__link">
         
   
   
@@ -2375,37 +2478,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Accessing Audio Data
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../audio/accessing-audio-data/" class="md-nav__link">
         
   
   
@@ -2421,39 +2497,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Page Contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-	<a href="#extending-audio-clips" class="md-nav__link">
-		<span class="md-ellipsis">
-			Extending Audio Clips
-		</span>
-	</a>
-
-	<!-- Table of contents list -->
-	
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2466,7 +2509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../audio-considerations/" class="md-nav__link">
+      <a href="../../audio/audio-considerations/" class="md-nav__link">
         
   
   
@@ -3383,9 +3426,52 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-	<a href="#extending-audio-clips" class="md-nav__link">
+	<a href="#where-to-put-the-media" class="md-nav__link">
 		<span class="md-ellipsis">
-			Extending Audio Clips
+			Where to put the media
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Where to put the media">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#macos" class="md-nav__link">
+		<span class="md-ellipsis">
+			macOS
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#windows" class="md-nav__link">
+		<span class="md-ellipsis">
+			Windows
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#format-and-size" class="md-nav__link">
+		<span class="md-ellipsis">
+			Format and size
 		</span>
 	</a>
 
@@ -3410,7 +3496,7 @@
 
 
   
-    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/edit/master/docs/audio/accessing-audio-data.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/edit/master/docs/effect-details/effect-preview-media.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3419,24 +3505,50 @@
     
       
     
-    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/raw/master/docs/audio/accessing-audio-data.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/docsforadobe/after-effects-plugin-guide/raw/master/docs/effect-details/effect-preview-media.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="accessing-audio-data">Accessing Audio Data<a class="headerlink" href="#accessing-audio-data" title="Permanent link">&para;</a></h1>
-<p>Use <code>PF_CHECKOUT_LAYER_AUDIO</code> from <a href="../../effect-details/interaction-callback-functions/">Interaction Callbacks</a> to retrieve an audio layer.</p>
-<p>This layer is opaque; use <code>PF_GET_AUDIO_DATA</code> to access specific details about that audio.</p>
-<p>As with pixel data, it's important that you check in the audio as soon as possible.</p>
-<p>If your effect requires as input a time span different from the output time span, update the <code>startsampL</code> and <code>endsampL</code> field in <code>PF_OutData</code> during <code>PF_Cmd_AUDIO_SETUP</code> from <a href="../../effect-basics/command-selectors/#frame-selectors">Frame Selectors</a>.</p>
-<hr />
-<h2 id="extending-audio-clips">Extending Audio Clips<a class="headerlink" href="#extending-audio-clips" title="Permanent link">&para;</a></h2>
-<p>You cannot extend the length of an audio clip through the API.</p>
-<p>However, it is a relatively simple matter for the user to extend the length of the clip before applying your effect. Apply time remapping to the layer and simply extend the out point.</p>
-<p>If you're adding a delay effect to a sounds clip, you'd want to allow it time to fade away instead of truncating the sound at the original end point.</p>
-<p>Document the steps users should take when applying your effect.</p>
+<h1 id="effect-preview-media-effects-panel">Effect Preview Media (Effects Panel)<a class="headerlink" href="#effect-preview-media-effects-panel" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These features apply to Premiere Pro Beta only, starting with version 27.0. It does not currently apply to After Effects, though After Effects may adopt it in the future.</p>
+</div>
+<p>Third-party effects can ship their own preview media to be shown in the host's Effects panel: a still thumbnail for the effect grid, and a short video that plays on hover. If you don't provide media, the host falls back to a generic category placeholder.</p>
+<h2 id="where-to-put-the-media">Where to put the media<a class="headerlink" href="#where-to-put-the-media" title="Permanent link">&para;</a></h2>
+<p>Preview media lives in a folder named <code>Preview</code>, and each file is named after your plug-in's binary file title (the plug-in filename without its extension). Because the media is keyed on the binary, all effects contained in a single plug-in share the same preview media.</p>
+<ul>
+<li><strong>Thumbnail (still):</strong> <code>&lt;pluginFileTitle&gt;.jpg</code></li>
+<li><strong>Hover preview (video):</strong> <code>&lt;pluginFileTitle&gt;.mp4</code></li>
+</ul>
+<p>For example, a plug-in whose binary is <code>AcmeGlow</code> would provide <code>AcmeGlow.jpg</code> and <code>AcmeGlow.mp4</code>.</p>
+<h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
+<p>Place the <code>Preview</code> folder inside your plug-in's <code>.plugin</code> bundle, under <code>Contents/Resources</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1">&lt;PluginName&gt;.plugin/Contents/Resources/Preview/&lt;pluginFileTitle&gt;.jpg
+</span><span id="__span-0-2">&lt;PluginName&gt;.plugin/Contents/Resources/Preview/&lt;pluginFileTitle&gt;.mp4
+</span></code></pre></div>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<p>Place the <code>Preview</code> folder next to your plug-in's <code>.aex</code> binary:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1">&lt;folder containing the .aex&gt;/Preview/&lt;pluginFileTitle&gt;.jpg
+</span><span id="__span-1-2">&lt;folder containing the .aex&gt;/Preview/&lt;pluginFileTitle&gt;.mp4
+</span></code></pre></div>
+<h2 id="format-and-size">Format and size<a class="headerlink" href="#format-and-size" title="Permanent link">&para;</a></h2>
+<p><strong>Thumbnail (still image):</strong></p>
+<ul>
+<li>Format: <code>.jpg</code></li>
+<li>Resolution: 640 x 360</li>
+</ul>
+<p><strong>Hover preview (video):</strong></p>
+<ul>
+<li>Format: <code>.mp4</code>, H.264</li>
+<li>Resolution: 640 x 360</li>
+<li>File size: as small as reasonably possible; typical is 400 KB to 1 MB</li>
+<li>Duration: no upper limit, but typically 4 to 10 seconds</li>
+</ul>
+<p>The thumbnail is used for the effect's tile in the grid; the video plays when the user hovers over the tile. If you supply only a <code>.jpg</code>, the still is used for the tile and there is no hover video.</p>
 
 
 
@@ -3457,7 +3569,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 26, 2025 22:40:07 UTC">January 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 19, 2026 19:47:10 UTC">August 19, 2026</span>
   </span>
 
     

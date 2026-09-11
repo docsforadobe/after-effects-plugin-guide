@@ -1419,6 +1419,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../effect-details/effect-preview-media/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Effect Preview Media (Effects Panel)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../effect-details/accessing-function-suites/" class="md-nav__link">
         
   
@@ -3830,6 +3858,10 @@ In render, a higher-quality grid is calculated and used to modify the output ima
 <p>or: <code>C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\</code></p>
 <p>Note that this Windows path is only recommended for development purposes. Windows installers should follow the guidelines here: <a href="../where-installers-should-put-plug-ins/">Where Installers Should Put Plug-ins</a>.</p>
 <p>In Xcode, you can set this path once for the projects in the Xcode File &gt; Project Settings &gt; Advanced. Under <em>Build Location</em> choose <em>Custom: Absolute</em>, and fill in the path.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>On macOS, use the per-user <code>~/Library</code> path above, which needs no elevated privileges. Don't point the Build Location at the system <code>/Library/Application Support/Adobe/...</code> folder: it is owned by <code>root</code>, so an unprivileged build fails with a confusing Xcode "Could not compute dependency graph / mktemp failed" error rather than a clear permissions message. Building with <code>sudo</code> to work around this is not recommended either, as it leaves root-owned build artifacts that break later rebuilds and cleans. If you specifically need the plug-in in the system folder, build normally and then copy the finished <code>.plugin</code> there with an elevated copy (for example <code>sudo cp -R</code>).</p>
+</div>
 <p>In Visual Studio, for convenience, we have specified the output path for all sample projects using the environment variable AE_PLUGIN_BUILD_DIR. You'll need to set this as a user environment variable for your system. On Windows 7, right-click <em>My Computer</em> &gt; <em>Properties</em> &gt; and in the left sidebar choose <em>Advanced System Settings</em>. In the new dialog, hit the <em>Environment Variables</em> button. In the User variables area, create a New variable named AE_PLUGIN_BUILD_DIR, and with the path described above. Log out of Windows and log back in so that the variable will be set.</p>
 <p>Alternatively, you can set output path for each project individually in Visual Studio by right-clicking a project in the Solution Explorer, choosing Properties, and then in Configuration Properties &gt; Linker &gt; General, set the Output File.</p>
 <p>When compiling the plug-ins, if you see a link error such as:</p>
@@ -3854,7 +3886,7 @@ In render, a higher-quality grid is calculated and used to modify the output ima
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 18, 2025 19:04:58 UTC">September 18, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 19, 2026 05:39:52 UTC">August 19, 2026</span>
   </span>
 
     
