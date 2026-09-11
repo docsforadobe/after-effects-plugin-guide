@@ -4,6 +4,41 @@ If this is your first time developing an After Effects plug-in, you can skip the
 
 ---
 
+## What's New in the 26.5 SDK
+
+### AEGP Guide Suite
+
+* A new `AEGP_GuideSuite` lets plug-ins read and write the guides shown in Composition, Layer, and Footage views. `AEGP_GuideSuite1` covers orientation and pixel position; `AEGP_GuideSuite2` adds percentage positioning, per-guide color, and edge pinning. See [Guides](../aegps/aegp-suites.md#guides) for more information.
+
+### Item View Guide Properties
+
+* `AEGP_ItemViewSuite2` adds getters and setters for the per-view guide options (visible, snap, and locked). See [AEGP_ItemViewSuite2](../aegps/aegp-suites.md#aegp_itemviewsuite2) for more information.
+
+
+### Parametric Mesh Layers
+
+* [AEGP_CompSuite](../aegps/aegp-suites.md#aegp_compsuite13) is now at version 13, adding a new function, `AEGP_CreateParametricMeshLayerInComp`, to create a parametric mesh layer (cube, sphere, plane, torus, cone, or cylinder) directly in a composition.
+* `AEGP_GetLayerObjectType` (in [AEGP_LayerSuite9](../aegps/aegp-suites.md#aegp_layersuite9)) can now return `AEGP_ObjectType_3D_PARAMETRIC_MESH` if the object type is a parametric mesh.
+
+### Stream Suite
+
+* [AEGP_StreamSuite](../aegps/aegp-suites.md#aegp_streamsuite7) is now at version 7, adding independent get/set of the render stage of a `PF_Param_LAYER` stream — sampling the source layer before masks, after masks, or through a specific effect. See [AEGP_StreamSuite7](../aegps/aegp-suites.md#aegp_streamsuite7) for more information.
+
+<div style="margin-top: 3rem;"></div>
+
+!!! note
+    The following features apply to Premiere Pro Beta only, starting with version 27.0. It does not currently apply to After Effects, though After Effects may adopt it in the future.
+
+### Search Keywords And Description
+
+* Effects can now declare search keywords and a description through two new PiPL properties, `AE_Effect_Search_Keywords` and `AE_Effect_Description` (or via the `PF_REGISTER_EFFECT_EXT3` registration macro). Keywords make your effect discoverable in the Effects panel search, and the description is shown in the Effects Manager. See [PiPL Resources](pipl-resources.md#search-keywords-and-description) for details.
+
+### Effects Panel Preview Media
+
+* Third-party effects can now ship their own thumbnail and hover-preview video for display in the host's Effects panel. See [Effect Preview Media (Effects Panel)](../effect-details/effect-preview-media.md) for the expected file locations and formats.
+
+---
+
 ## What's New in the 25.6 SDK
 
 ### Windows on Arm Support
@@ -76,7 +111,7 @@ A new entry point has been defined, to allow effects to register basic informati
 
 The effect sample projects have been updated to use this approach, while maintaining the PiPL for backwards compatibility.
 
-`AEGP_StreamSuite` is now at version 5, where [AEGP_GetExpression()](../aegps/aegp-suites.md#aegp_streamsuite5) and [AEGP_SetExpression()](../aegps/aegp-suites.md#aegp_streamsuite5) have been upgraded to support Unicode.
+`AEGP_StreamSuite` is now at version 5, where [AEGP_GetExpression()](../aegps/aegp-suites.md#aegp_streamsuite7) and [AEGP_SetExpression()](../aegps/aegp-suites.md#aegp_streamsuite7) have been upgraded to support Unicode.
 
 `PF_AdvTimeSuite` is now at version 4, with a new call [PF_TimeCountFrames()](../effect-details/useful-utility-functions.md#pf_advtimesuite4), that returns the index of the frame in the current comp.
 
@@ -111,7 +146,7 @@ As this is a user-facing option, the design is intended to be transparent to the
 PF_AdvTimeSuite is now at version 3, providing a revised [PF_GetTimeDisplayPref()](../effect-details/useful-utility-functions.md#pf_advtimesuite4) call that uses a revised `PF_TimeDisplayPrefVersion` parameter, that supports higher frame rates.
 The previous version 2 of the call can now return an error if there is a problem with the values exceeding the range supported by the structure.
 
-Comp Suite is now at version 11, with a new call, [AEGP_ReorderCompSelection()](../aegps/aegp-suites.md#aegp_compsuite11), to move a selection to a certain layer index.
+Comp Suite is now at version 11, with a new call, [AEGP_ReorderCompSelection()](../aegps/aegp-suites.md#aegp_compsuite13), to move a selection to a certain layer index.
 It should be used along with `AEGP_SetSelection()`.
 
 ---
@@ -390,7 +425,7 @@ Effects that provide custom UI can now receive `PF_Event_MOUSE_EXITED`, to gain 
 
 `PF_GET_PLATFORM_DATA` now has new selectors for getting the wide character path of the executable and resource file: `PF_PlatData_EXE_FILE_PATH_W` and `PF_PlatData_RES_FILE_PATH_W`. The previous non-wide selectors are now deprecated.
 
-3D is a major theme of AE CS6. A new `AEGP_LayerFlag_ENVIRONMENT_LAYER` has been added. Many new [layer streams](../aegps/aegp-suites.md#aegp_streamsuite5) were added.
+3D is a major theme of AE CS6. A new `AEGP_LayerFlag_ENVIRONMENT_LAYER` has been added. Many new [layer streams](../aegps/aegp-suites.md#aegp_streamsuite7) were added.
 
 Additionally, `AEGP_LayerStream_SPECULAR_COEFF` was renamed to `AEGP_LayerStream_SPECULAR_INTENSITY`, `AEGP_LayerStream_SHININESS_COEFF` was renamed to `AEGP_LayerStream_SPECULAR_SHININESS`, and `AEGP_LayerStream_METAL_COEFF` was renamed to just `AEGP_LayerStream_METAL`.
 

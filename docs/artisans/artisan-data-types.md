@@ -648,6 +648,6 @@ We've added the ability for artisans to provide functions After Effects can use 
 
 `AEGP_QueryXformGetTransformTime()` and `AEGP_QueryXformGetViewTime()` are both necessary for an artisan to build a representation of the scene to render.
 
-`AEGP_QueryXformGetTransformTime()` gets the time of the transform, which is then passed to `AEGP_GetCompShutterFrameRange()` from [AEGP_CompSuite11](../aegps/aegp-suites.md#aegp_compsuite11).
+`AEGP_QueryXformGetTransformTime()` gets the time of the transform, which is then passed to `AEGP_GetCompShutterFrameRange()` from [AEGP_CompSuite13](../aegps/aegp-suites.md#aegp_compsuite13).
 
 `AEGP_QueryXformGetViewTime()` gets the time of the view, which is used in calling `AEGP_GetLayerToWorldXformFromView()` from [AEGP_LayerSuite9](../aegps/aegp-suites.md#aegp_layersuite9).

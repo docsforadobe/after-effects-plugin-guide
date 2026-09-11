@@ -44,6 +44,7 @@ nav:
     - Effect Details:
         - Multi-Frame Rendering in AE: effect-details/multi-frame-rendering-in-ae.md
         - Effect Details: effect-details/effect-details.md
+        - Effect Preview Media (Effects Panel): effect-details/effect-preview-media.md
         - Accessing the After Effects Function Suites: effect-details/accessing-function-suites.md
         - Memory Allocation: effect-details/memory-allocation.md
         - Image Buffer Management Functions: effect-details/image-buffer-management-functions.md

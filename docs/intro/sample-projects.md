@@ -152,6 +152,9 @@ Note that this Windows path is only recommended for development purposes. Window
 
 In Xcode, you can set this path once for the projects in the Xcode File > Project Settings > Advanced. Under *Build Location* choose *Custom: Absolute*, and fill in the path.
 
+!!! warning
+    On macOS, use the per-user `~/Library` path above, which needs no elevated privileges. Don't point the Build Location at the system `/Library/Application Support/Adobe/...` folder: it is owned by `root`, so an unprivileged build fails with a confusing Xcode "Could not compute dependency graph / mktemp failed" error rather than a clear permissions message. Building with `sudo` to work around this is not recommended either, as it leaves root-owned build artifacts that break later rebuilds and cleans. If you specifically need the plug-in in the system folder, build normally and then copy the finished `.plugin` there with an elevated copy (for example `sudo cp -R`).
+
 In Visual Studio, for convenience, we have specified the output path for all sample projects using the environment variable AE_PLUGIN_BUILD_DIR. You'll need to set this as a user environment variable for your system. On Windows 7, right-click *My Computer* > *Properties* > and in the left sidebar choose *Advanced System Settings*. In the new dialog, hit the *Environment Variables* button. In the User variables area, create a New variable named AE_PLUGIN_BUILD_DIR, and with the path described above. Log out of Windows and log back in so that the variable will be set.
 
 Alternatively, you can set output path for each project individually in Visual Studio by right-clicking a project in the Solution Explorer, choosing Properties, and then in Configuration Properties > Linker > General, set the Output File.

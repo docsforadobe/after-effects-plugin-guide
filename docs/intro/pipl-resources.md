@@ -35,6 +35,46 @@ In the interest of cross-platform compatibility, use a single .r file for both m
 +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | AE_Effect_Support_URL               | **New in AE 23.5!** URL for the effect. Shown in the Effects Manager. A user might click the link for more information about the effect or to find a newer version.                                                                                                                                              |
 +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| AE_Effect_Search_Keywords           | **New in the 26.5 SDK (Premiere Pro Beta 27.0 only).** Locale-keyed JSON of search terms for the Effects panel search, e.g. `{"en_US": ["glow"], "es_ES": ["resplandor"]}`. Searchable via the English (`en_US`) and the user's current locale. Malformed JSON is ignored.                                       |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| AE_Effect_Description               | **New in the 26.5 SDK (Premiere Pro Beta 27.0 only).** Short description of the effect, shown in the Effects Manager. Authored as a plain string; use ASCII where possible, as non-ASCII in a PiPL resource uses the system code page.                                                                           |
++-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+---
+
+## Search Keywords And Description
+
+!!! note
+    These features apply to Premiere Pro Beta only, starting with version 27.0. It does not currently apply to After Effects, though After Effects may adopt it in the future.
+
+You can help users find your effect and understand what it does by declaring search keywords and a description.
+
+* `AE_Effect_Search_Keywords` are matched by the Effects panel search field, so users can find your effect by concepts and synonyms, not just its name.
+* `AE_Effect_Description` is a short summary shown alongside your effect in the Effects Manager.
+
+Search keywords are authored as a JSON string keyed by locale. Each key is a locale code and each value is an array of keyword strings. Your effect is searchable using both the English (`en_US`) keywords and the keywords for the user's current locale, so always include an `en_US` entry and add localized keywords for whichever additional locales you want to support. If the JSON is malformed, the keywords are ignored.
+
+Add both properties to your effect's PiPL, alongside the existing entries:
+
+```c
+AE_Effect_Search_Keywords {
+    "{\"en_US\": [\"glow\", \"bloom\", \"halation\"], \"es_ES\": [\"resplandor\"]}"
+},
+AE_Effect_Description {
+    "Adds a soft glow around bright areas of the image."
+},
+```
+
+On macOS the PiPL is compiled with Apple's `Rez`, which limits each source line to 1023 bytes. If your keyword JSON is long, split it across adjacent string literals — `Rez` joins them into one string, so the compiled result is identical:
+
+```c
+AE_Effect_Search_Keywords {
+    "{\"en_US\": [\"glow\", \"bloom\"], "
+    "\"es_ES\": [\"resplandor\"]}"
+},
+```
+
+Alternatively, if you register your effect from code rather than via a PiPL resource, supply the same two values through the `PF_REGISTER_EFFECT_EXT3` macro (defined in `entry.h`), which uses version 3 of the plug-in entry point and takes `SEARCH_KEYWORDS` and `EFFECT_DESCRIPTION` as its final two arguments.
 
 ---
 

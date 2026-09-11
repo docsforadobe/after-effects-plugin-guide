@@ -36,4 +36,4 @@ After Effects computes rotation based on auto-orientation (towards path, or poin
 
 ## Accessing Pixels From Effect Layer Parameters
 
-Use `AEGP_GetNewStreamValue` (in [AEGP_StreamSuite5](aegp-suites.md#aegp_streamsuite5)) to get the layer's `layer_id`, then the new `AEGP_GetLayerFromLayerID` (in [AEGP_LayerSuite9](aegp-suites.md#aegp_layersuite9)) to get the `AEGP_LayerH`.
+Use `AEGP_GetNewStreamValue` (in [AEGP_StreamSuite7](aegp-suites.md#aegp_streamsuite7)) to get the layer's `layer_id`, then the new `AEGP_GetLayerFromLayerID` (in [AEGP_LayerSuite9](aegp-suites.md#aegp_layersuite9)) to get the `AEGP_LayerH`.
