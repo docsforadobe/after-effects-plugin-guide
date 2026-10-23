@@ -4,6 +4,21 @@ If this is your first time developing an After Effects plug-in, you can skip the
 
 ---
 
+## What's New in the 27.0 SDK
+
+!!! note
+    The following updates apply to After Effects 27.0.0 and later. They are currently available in After Effects Beta only.
+
+### UTF-8 Effect Strings
+
+Effects can set `PF_OutFlag2_STRINGS_ARE_UTF8` during `PF_Cmd_GLOBAL_SETUP` to indicate that they emit and consume UTF-8 strings instead of locale-dependent multibyte strings. This flag applies to After Effects only. See [PF_OutFlags2](../effect-basics/PF_OutData.md#pf_outflags2) for more information. See [Localization](localization.md) for guidance on effects that opt into UTF-8 and effects that continue using locale-dependent strings.
+
+### CUDA Versions
+
+For Windows GPU effects targeting AE 27.0.0, use CUDA 12.8 for x64 and CUDA 13.4 for ARM64. `PF_CUDAVersion` in `AE_EffectGPUSuites.h` selects the version according to the target architecture. See [GPU-Accelerated Effect Build Instructions](gpu-build-instructions.md#windows-setup-instructions) for more information.
+
+---
+
 ## What's New in the 26.5 SDK
 
 ### AEGP Guide Suite
@@ -27,7 +42,7 @@ If this is your first time developing an After Effects plug-in, you can skip the
 <div style="margin-top: 3rem;"></div>
 
 !!! note
-    The following features apply to Premiere Pro Beta only, starting with version 27.0. It does not currently apply to After Effects, though After Effects may adopt it in the future.
+    The following features apply to Premiere Pro 27.0.0 and later. They are currently available in Premiere Pro Beta only and are not available in After Effects.
 
 ### Search Keywords And Description
 

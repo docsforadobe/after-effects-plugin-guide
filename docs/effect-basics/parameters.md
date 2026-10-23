@@ -10,6 +10,8 @@ How much does the shutter angle change during one-fourth of a 29.97 fps frame? N
 
 Describe your plug-in's parameters during [PF_Cmd_PARAM_SETUP](command-selectors.md#global-selectors), using [PF_ADD_PARAM](../effect-details/interaction-callback-functions.md#interaction-callbacks).
 
+For encoding guidance when supplying parameter names and other effect UI strings, see [Localization](../intro/localization.md).
+
 You may have up to (approximately) 38 kajillion parameters, or as many as your users are willing to sift through before demanding a refund. Choose wisely.
 
 Avoid countless problems by clearing PF_ParamDefs with AEFX_CLR_STRUCT (defined in AE_Macros.h) before registering them.
