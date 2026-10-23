@@ -27,12 +27,12 @@ The SDK_Invert_ProcAmp plugin uses Boost to process GPU kernel files, so you nee
     - Then run `.\b2` to build Boost
     - Then run `.\b2 install --prefix=C:\Boost`
 2. Install the CUDA SDK from [https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads).
-    - Please use the same CUDA version that your AE build is using.
-    - AE 25.4 uses CUDA 12.8.
+    - Use the CUDA version that matches your target architecture and AE build. AE 27.0.0 uses CUDA 12.8 for x64 and CUDA 13.4 for ARM64.
+    - For historical reference, AE 25.4 used CUDA 12.8.
 3. Install the latest DirectX Compiler from [https://github.com/microsoft/DirectXShaderCompiler/releases](https://github.com/microsoft/DirectXShaderCompiler/releases)
 4. Setup the following system environment variables:
     - CUDA_SDK_BASE_PATH: `[CUDA installation path]`
-        - (example: `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8`)
+        - (example: `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8` for x64, or `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4` for ARM64)
     - Boost_BASE_PATH: `[Boost installation path]`
         - (example: `C:\Boost\include\boost-1_88`)
     - DXC_SDK_BASE_PATH: `[DXC installation path]`
