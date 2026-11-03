@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -826,6 +826,41 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+	<a href="#locale-dependent-strings" class="md-nav__link">
+		<span class="md-ellipsis">
+			Locale-Dependent Strings
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#utf-8-strings-in-after-effects-2700-and-later" class="md-nav__link">
+		<span class="md-ellipsis">
+			UTF-8 Strings in After Effects 27.0.0 and Later
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#testing-with-different-languages" class="md-nav__link">
+		<span class="md-ellipsis">
+			Testing with Different Languages
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Testing with Different Languages">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
 	<a href="#windows" class="md-nav__link">
 		<span class="md-ellipsis">
 			Windows
@@ -835,8 +870,10 @@
 	<!-- Table of contents list -->
 	
 </li>
-      
-        <li class="md-nav__item">
+				
+				
+				
+					<li class="md-nav__item">
 	<a href="#macos" class="md-nav__link">
 		<span class="md-ellipsis">
 			MacOS
@@ -844,6 +881,12 @@
 	</a>
 
 	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
 	
 </li>
       
@@ -3394,6 +3437,41 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+	<a href="#locale-dependent-strings" class="md-nav__link">
+		<span class="md-ellipsis">
+			Locale-Dependent Strings
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#utf-8-strings-in-after-effects-2700-and-later" class="md-nav__link">
+		<span class="md-ellipsis">
+			UTF-8 Strings in After Effects 27.0.0 and Later
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#testing-with-different-languages" class="md-nav__link">
+		<span class="md-ellipsis">
+			Testing with Different Languages
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Testing with Different Languages">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
 	<a href="#windows" class="md-nav__link">
 		<span class="md-ellipsis">
 			Windows
@@ -3403,8 +3481,10 @@
 	<!-- Table of contents list -->
 	
 </li>
-      
-        <li class="md-nav__item">
+				
+				
+				
+					<li class="md-nav__item">
 	<a href="#macos" class="md-nav__link">
 		<span class="md-ellipsis">
 			MacOS
@@ -3412,6 +3492,12 @@
 	</a>
 
 	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
 	
 </li>
       
@@ -3450,7 +3536,16 @@
 
 <h1 id="localization">Localization<a class="headerlink" href="#localization" title="Permanent link">&para;</a></h1>
 <p>Starting in CC, PF App Suite (<a href="../../effect-details/useful-utility-functions/">Useful Utility Functions</a>) adds <code>PF_AppGetLanguage()</code> to query the current language so that a plug-in can use the correct language string.</p>
+<h2 id="locale-dependent-strings">Locale-Dependent Strings<a class="headerlink" href="#locale-dependent-strings" title="Permanent link">&para;</a></h2>
+<p>The following guidance applies to older versions of After Effects and to effects that do not opt into UTF-8.</p>
 <p>When passing strings to AE, some parts of the API accept Unicode. In other areas, for example when specifying effect parameter names during <code>PF_Cmd_PARAM_SETUP</code>, you'll need to pass the names in a char string. For these non-Unicode strings, AE interprets strings as being multi-byte encoded using the application's current locale. To build these strings, on Windows you can use the <code>WideCharToMultiByte()</code> function, specifying <code>CP_OEMCP</code> as the first argument. On macOS, use the encoding returned by <code>GetApplicationTextEncoding()</code>.</p>
+<h2 id="utf-8-strings-in-after-effects-2700-and-later">UTF-8 Strings in After Effects 27.0.0 and Later<a class="headerlink" href="#utf-8-strings-in-after-effects-2700-and-later" title="Permanent link">&para;</a></h2>
+<p>For effects targeting After Effects 27.0.0 and later, set <code>PF_OutFlag2_STRINGS_ARE_UTF8</code> in <code>out_flags2</code> during <code>PF_Cmd_GLOBAL_SETUP</code> to indicate that the effect emits and consumes UTF-8 strings instead of locale-dependent multibyte strings. Keep the corresponding PiPL flags consistent with your source code. This flag applies to After Effects only. See <a href="../../effect-basics/PF_OutData/#pf_outflags2">PF_OutFlags2</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>UTF-8 support does not increase parameter-name buffer sizes. <code>PF_DEF_NAME</code> remains a 32-byte buffer, including the null terminator; multibyte characters can therefore reduce the number of characters that fit.</p>
+</div>
+<h2 id="testing-with-different-languages">Testing with Different Languages<a class="headerlink" href="#testing-with-different-languages" title="Permanent link">&para;</a></h2>
 <p>Testing with different languages in AE doesn't require an OS reinstallation, but it does require a reinstallation of AE:</p>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
 <ul>
@@ -3483,7 +3578,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 27, 2025 00:40:31 UTC">January 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 23, 2026 14:37:50 UTC">October 23, 2026</span>
   </span>
 
     
@@ -3549,10 +3644,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../js/print-site.js"></script>
       

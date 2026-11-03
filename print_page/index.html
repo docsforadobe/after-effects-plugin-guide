@@ -17,7 +17,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -25,10 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -4864,9 +4864,14 @@
 </thead>
 <tbody>
 <tr>
+<td>9 October 2026</td>
+<td>Jessica McMillan</td>
+<td>27.0 SDK update. Added <code>PF_OutFlag2_STRINGS_ARE_UTF8</code> for effects that emit and consume UTF-8 strings in After Effects. Updated CUDA build guidance for Windows targets: CUDA 12.8 for x64 and CUDA 13.4 for ARM64. See <a href="#intro-whats-new-whats-new-in-the-270-sdk">What's New</a> for more details.</td>
+</tr>
+<tr>
 <td>2 September 2026</td>
 <td>Jessica McMillan</td>
-<td>26.5 SDK Release <br><br>Added the AEGP Guide Suite (<code>AEGP_GuideSuite1</code>/<code>AEGP_GuideSuite2</code>) for reading and writing guides - orientation, pixel/percentage positioning, per-guide color, and edge pinning - and the <code>AEGP_ItemViewSuite2</code> guide display functions (visible, snap, locked). See <a href="#aegps-aegp-suites-guides">Guides</a> for more details. <br><br>Added parametric mesh layers. <code>AEGP_CompSuite13</code> adds <code>AEGP_CreateParametricMeshLayerInComp</code>, and <code>AEGP_GetLayerObjectType</code> can now return <code>AEGP_ObjectType_3D_PARAMETRIC_MESH</code>. See <a href="#intro-whats-new-whats-new-in-the-265-sdk">What's New</a> for more details. <br><br><code>AEGP_StreamSuite</code> is now at version 7, adding independent get/set of the render stage of a <code>PF_Param_LAYER</code> stream. See <a href="#aegps-aegp-suites-aegp_streamsuite7">AEGP_StreamSuite7</a> for more details. <br><br> Added <code>AE_Effect_Search_Keywords</code> and <code>AE_Effect_Description</code> PiPL properties (see <a href="#intro-pipl-resources">PiPL Resources</a>), and Effects panel preview media support for third-party effects (see <a href="#effect-details-effect-preview-media">Effect Preview Media (Effects Panel)</a>). These features apply to Premiere Pro Beta only (from version 27.0).</td>
+<td>26.5 SDK Release <br><br>Added the AEGP Guide Suite (<code>AEGP_GuideSuite1</code>/<code>AEGP_GuideSuite2</code>) for reading and writing guides - orientation, pixel/percentage positioning, per-guide color, and edge pinning - and the <code>AEGP_ItemViewSuite2</code> guide display functions (visible, snap, locked). See <a href="#aegps-aegp-suites-guides">Guides</a> for more details. <br><br>Added parametric mesh layers. <code>AEGP_CompSuite13</code> adds <code>AEGP_CreateParametricMeshLayerInComp</code>, and <code>AEGP_GetLayerObjectType</code> can now return <code>AEGP_ObjectType_3D_PARAMETRIC_MESH</code>. See <a href="#intro-whats-new-whats-new-in-the-265-sdk">What's New</a> for more details. <br><br><code>AEGP_StreamSuite</code> is now at version 7, adding independent get/set of the render stage of a <code>PF_Param_LAYER</code> stream. See <a href="#aegps-aegp-suites-aegp_streamsuite7">AEGP_StreamSuite7</a> for more details. <br><br> Added <code>AE_Effect_Search_Keywords</code> and <code>AE_Effect_Description</code> PiPL properties (see <a href="#intro-pipl-resources">PiPL Resources</a>), and Effects panel preview media support for third-party effects (see <a href="#effect-details-effect-preview-media">Effect Preview Media (Effects Panel)</a>). These features apply to Premiere Pro 27.0.0 and later. They are currently available in Premiere Pro Beta only and are not available in After Effects.</td>
 </tr>
 <tr>
 <td>8 Sep 2025</td>
@@ -5118,6 +5123,16 @@
 <p>The SDK samples have been tested on Xcode 11.3.1 and Xcode 12.4 (for universal binary support with Apple Silicon) on macOS 10.15/11.0, and Microsoft Visual Studio 2019 on Windows 10.</p></section><section class="print-page" id="intro-whats-new" heading-number="3.4"><h1 id="intro-whats-new-whats-new">What's New<a class="headerlink" href="#intro-whats-new-whats-new" title="Permanent link">&para;</a></h1>
 <p>If this is your first time developing an After Effects plug-in, you can skip the What's New section and go directly to <a href="#intro-how-to-start-creating-plug-ins">How To Start Creating Plug-ins</a>.</p>
 <hr />
+<h2 id="intro-whats-new-whats-new-in-the-270-sdk">What's New in the 27.0 SDK<a class="headerlink" href="#intro-whats-new-whats-new-in-the-270-sdk" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following updates apply to After Effects 27.0.0 and later. They are currently available in After Effects Beta only.</p>
+</div>
+<h3 id="intro-whats-new-utf-8-effect-strings">UTF-8 Effect Strings<a class="headerlink" href="#intro-whats-new-utf-8-effect-strings" title="Permanent link">&para;</a></h3>
+<p>Effects can set <code>PF_OutFlag2_STRINGS_ARE_UTF8</code> during <code>PF_Cmd_GLOBAL_SETUP</code> to indicate that they emit and consume UTF-8 strings instead of locale-dependent multibyte strings. This flag applies to After Effects only. See <a href="#effect-basics-pf_outdata-pf_outflags2">PF_OutFlags2</a> for more information. See <a href="#intro-localization">Localization</a> for guidance on effects that opt into UTF-8 and effects that continue using locale-dependent strings.</p>
+<h3 id="intro-whats-new-cuda-versions">CUDA Versions<a class="headerlink" href="#intro-whats-new-cuda-versions" title="Permanent link">&para;</a></h3>
+<p>For Windows GPU effects targeting AE 27.0.0, use CUDA 12.8 for x64 and CUDA 13.4 for ARM64. <code>PF_CUDAVersion</code> in <code>AE_EffectGPUSuites.h</code> selects the version according to the target architecture. See <a href="#intro-gpu-build-instructions-windows-setup-instructions">GPU-Accelerated Effect Build Instructions</a> for more information.</p>
+<hr />
 <h2 id="intro-whats-new-whats-new-in-the-265-sdk">What's New in the 26.5 SDK<a class="headerlink" href="#intro-whats-new-whats-new-in-the-265-sdk" title="Permanent link">&para;</a></h2>
 <h3 id="intro-whats-new-aegp-guide-suite">AEGP Guide Suite<a class="headerlink" href="#intro-whats-new-aegp-guide-suite" title="Permanent link">&para;</a></h3>
 <ul>
@@ -5140,7 +5155,7 @@
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The following features apply to Premiere Pro Beta only, starting with version 27.0. It does not currently apply to After Effects, though After Effects may adopt it in the future.</p>
+<p>The following features apply to Premiere Pro 27.0.0 and later. They are currently available in Premiere Pro Beta only and are not available in After Effects.</p>
 </div>
 <h3 id="intro-whats-new-search-keywords-and-description">Search Keywords And Description<a class="headerlink" href="#intro-whats-new-search-keywords-and-description" title="Permanent link">&para;</a></h3>
 <ul>
@@ -6326,7 +6341,16 @@ The macros defined in entry.h (in the \SDKExamplesHeaders directory) take care o
 <p>When launched, After Effects recursively descends 10 levels deep into subdirectories of its path. macOS aliases are traversed, but Windows shortcuts are not. Directories terminated by parentheses or preceded by the symbols ¬ (macOS) or ~ (Windows) are not scanned.</p>
 <p>Try as you might to build a fence between AE and Premiere Pro, users will still find ways to get across using our lovely integration goodness - Your effects will still be available to Premiere Pro users who create a dynamically linked AE composition with your effect, and put it in a Premiere Pro sequence.</p></section><section class="print-page" id="intro-localization" heading-number="3.14"><h1 id="intro-localization-localization">Localization<a class="headerlink" href="#intro-localization-localization" title="Permanent link">&para;</a></h1>
 <p>Starting in CC, PF App Suite (<a href="#effect-details-useful-utility-functions">Useful Utility Functions</a>) adds <code>PF_AppGetLanguage()</code> to query the current language so that a plug-in can use the correct language string.</p>
+<h2 id="intro-localization-locale-dependent-strings">Locale-Dependent Strings<a class="headerlink" href="#intro-localization-locale-dependent-strings" title="Permanent link">&para;</a></h2>
+<p>The following guidance applies to older versions of After Effects and to effects that do not opt into UTF-8.</p>
 <p>When passing strings to AE, some parts of the API accept Unicode. In other areas, for example when specifying effect parameter names during <code>PF_Cmd_PARAM_SETUP</code>, you'll need to pass the names in a char string. For these non-Unicode strings, AE interprets strings as being multi-byte encoded using the application's current locale. To build these strings, on Windows you can use the <code>WideCharToMultiByte()</code> function, specifying <code>CP_OEMCP</code> as the first argument. On macOS, use the encoding returned by <code>GetApplicationTextEncoding()</code>.</p>
+<h2 id="intro-localization-utf-8-strings-in-after-effects-2700-and-later">UTF-8 Strings in After Effects 27.0.0 and Later<a class="headerlink" href="#intro-localization-utf-8-strings-in-after-effects-2700-and-later" title="Permanent link">&para;</a></h2>
+<p>For effects targeting After Effects 27.0.0 and later, set <code>PF_OutFlag2_STRINGS_ARE_UTF8</code> in <code>out_flags2</code> during <code>PF_Cmd_GLOBAL_SETUP</code> to indicate that the effect emits and consumes UTF-8 strings instead of locale-dependent multibyte strings. Keep the corresponding PiPL flags consistent with your source code. This flag applies to After Effects only. See <a href="#effect-basics-pf_outdata-pf_outflags2">PF_OutFlags2</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>UTF-8 support does not increase parameter-name buffer sizes. <code>PF_DEF_NAME</code> remains a 32-byte buffer, including the null terminator; multibyte characters can therefore reduce the number of characters that fit.</p>
+</div>
+<h2 id="intro-localization-testing-with-different-languages">Testing with Different Languages<a class="headerlink" href="#intro-localization-testing-with-different-languages" title="Permanent link">&para;</a></h2>
 <p>Testing with different languages in AE doesn't require an OS reinstallation, but it does require a reinstallation of AE:</p>
 <h3 id="intro-localization-windows">Windows<a class="headerlink" href="#intro-localization-windows" title="Permanent link">&para;</a></h3>
 <ul>
@@ -6523,14 +6547,14 @@ The macros defined in entry.h (in the \SDKExamplesHeaders directory) take care o
 </ul>
 </li>
 <li>Install the CUDA SDK from <a href="https://developer.nvidia.com/cuda-downloads">https://developer.nvidia.com/cuda-downloads</a>.<ul>
-<li>Please use the same CUDA version that your AE build is using.</li>
-<li>AE 25.4 uses CUDA 12.8.</li>
+<li>Use the CUDA version that matches your target architecture and AE build. AE 27.0.0 uses CUDA 12.8 for x64 and CUDA 13.4 for ARM64.</li>
+<li>For historical reference, AE 25.4 used CUDA 12.8.</li>
 </ul>
 </li>
 <li>Install the latest DirectX Compiler from <a href="https://github.com/microsoft/DirectXShaderCompiler/releases">https://github.com/microsoft/DirectXShaderCompiler/releases</a></li>
 <li>Setup the following system environment variables:<ul>
 <li>CUDA_SDK_BASE_PATH: <code>[CUDA installation path]</code><ul>
-<li>(example: <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8</code>)</li>
+<li>(example: <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8</code> for x64, or <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4</code> for ARM64)</li>
 </ul>
 </li>
 <li>Boost_BASE_PATH: <code>[Boost installation path]</code><ul>
@@ -8886,12 +8910,27 @@ Indicates the effect needs sequence_data replicated for each render thread, thus
 </td>
 </tr>
 </tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Indicates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PF_OutFlag2_STRINGS_ARE_UTF8</code></td>
+<td>New in After Effects 27.0.0. After Effects only. Set during <a href="#effect-basics-command-selectors-global-selectors">PF_Cmd_GLOBAL_SETUP</a> to indicate that the effect emits and consumes UTF-8 strings instead of locale-dependent multibyte strings. See <a href="#intro-localization">Localization</a> for UTF-8 opt-in and locale-dependent string guidance.</td>
+</tr>
+</tbody>
 </table></section><section class="print-page" id="effect-basics-parameters" heading-number="4.6"><h1 id="effect-basics-parameters-parameters">Parameters<a class="headerlink" href="#effect-basics-parameters-parameters" title="Permanent link">&para;</a></h1>
 <p>Parameters are streams of values that vary with time; the source image, sliders, angles, points, colors, paths, and any arbitrary data types the user can manipulate.</p>
 <p>They are passed to the plug-in as an array of PF_ParamDefs, though the values in the array are only valid during certain selectors.</p>
 <p>One of the best aspects of the After Effects effect API is the parameter interpolation and management.</p>
 <p>How much does the shutter angle change during one-fourth of a 29.97 fps frame? Not your problem; leave it to After Effects.</p>
 <p>Describe your plug-in's parameters during <a href="#effect-basics-command-selectors-global-selectors">PF_Cmd_PARAM_SETUP</a>, using <a href="#effect-details-interaction-callback-functions-interaction-callbacks">PF_ADD_PARAM</a>.</p>
+<p>For encoding guidance when supplying parameter names and other effect UI strings, see <a href="#intro-localization">Localization</a>.</p>
 <p>You may have up to (approximately) 38 kajillion parameters, or as many as your users are willing to sift through before demanding a refund. Choose wisely.</p>
 <p>Avoid countless problems by clearing PF_ParamDefs with AEFX_CLR_STRUCT (defined in AE_Macros.h) before registering them.</p>
 <hr />
@@ -9548,10 +9587,20 @@ New in CS5.5. Unsupported in Premiere Pro.</p>
 <br />
 <br />
 <br />
+<br />
+<br />
+<br />
+<br />
+<br />
 </p>
 </td>
 <td colspan="1" rowspan="1">
 <p><code>PF_DEF_NAME</code><br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -9562,7 +9611,12 @@ New in CS5.5. Unsupported in Premiere Pro.</p>
 <br />
 Yes, longer parameter names have been requested since After Effects 1.0.<br />
 <br />
-Think of adequately describing your world-altering effect in 31 mere characters as a language challenge, like haiku.</p>
+Think of adequately describing your world-altering effect in 31 mere characters as a language challenge, like haiku.<br />
+<br />
+Parameter names are limited to 31 bytes plus a null terminator, not 31 characters.<br />
+Because AE uses multibyte or UTF-8 encoding, non-ASCII characters may consume multiple bytes, reducing the number of characters that fit within the limit.<br />
+<br />
+See <a href="#intro-localization">Localization</a> for encoding guidance.</p>
 </td>
 </tr>
 <tr>
@@ -13317,15 +13371,15 @@ Returned information is valid only if <code>foundPB</code> returns <code>TRUE</c
 <br />
 PF_DataType will be one of the following:<br />
 <br />
-- <code>PF_DataType_FLOAT</code> - 34 bytes<br />
-- <code>PF_DataType_DOUBLE</code> - 38 bytes<br />
-- <code>PF_DataType_LONG</code> - 34 bytes<br />
-- <code>PF_DataType_SHORT</code> - 32 bytes<br />
-- <code>PF_DataType_FIXED_16_16</code> - 34 bytes<br />
-- <code>PF_DataType_CHAR</code> - 31 byte<br />
-- <code>PF_DataType_U_BYTE</code> - 31 byte<br />
-- <code>PF_DataType_U_SHORT</code> - 32 bytes<br />
-- <code>PF_DataType_U_FIXED_16_16</code> - 34 bytes<br />
+- <code>PF_DataType_FLOAT</code> - 4 bytes<br />
+- <code>PF_DataType_DOUBLE</code> - 8 bytes<br />
+- <code>PF_DataType_LONG</code> - 4 bytes<br />
+- <code>PF_DataType_SHORT</code> - 2 bytes<br />
+- <code>PF_DataType_FIXED_16_16</code> - 4 bytes<br />
+- <code>PF_DataType_CHAR</code> - 1 byte<br />
+- <code>PF_DataType_U_BYTE</code> - 1 byte<br />
+- <code>PF_DataType_U_SHORT</code> - 2 bytes<br />
+- <code>PF_DataType_U_FIXED_16_16</code> - 4 bytes<br />
 - <code>PF_DataType_RGB</code> - 3 bytes<br />
 <br />
 PF_ChannelType will be one of the following:<br />
@@ -29744,7 +29798,7 @@ This is important; if your AEIO handles still images, this function <em>will</em
 <br />
 The <code>PF_EffectWorld*</code> contains the width and height to use, but make sure you take the required_region0 into account, if it's not <code>NULL</code>.<br />
 <br />
-<pre lang="cpp">AEIO_DrawSparseFrame(<br/>  AEIO_BasicData            *basic_dataP,<br/>  AEIO_InSpecH              inH,<br/>  AEIO_Quality              qual,<br/>  const AEIO_RationalScale  *rs0,<br/>  const A_Time              *tr,<br/>  const A_Time              *duration0,<br/>  const A_Rect               *required_region0,<br/>  PF_EffectWorld            *wP,<br/>  A_long<em>                   originx,<br/>  A_long</em>                   originy,<br/>  AEIO_DrawingFlags         *draw_flagsP);</pre><br />
+<pre lang="cpp">AEIO_DrawSparseFrame(<br/>  AEIO_BasicData            *basic_dataP,<br/>  AEIO_InSpecH              inH,<br/>  AEIO_Quality              qual,<br/>  const AEIO_RationalScale  *rs0,<br/>  const A_Time              *tr,<br/>  const A_Time              *duration0,<br/>  const A_Rect               *required_region0,<br/>  PF_EffectWorld            *wP,<br/>  A_long*                   originx,<br/>  A_long*                   originy,<br/>  AEIO_DrawingFlags         *draw_flagsP);</pre><br />
 <br />
 NOTE: return data as linear light (1.0), and After Effects will perform any necessary transformations to bring the footage into the working colorspace.</p>
 </td>
@@ -32460,10 +32514,10 @@ Fails if the render queue item is not found, or if <code>AEIO_OutSpecH</code> is
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../js/print-site.js"></script>
       

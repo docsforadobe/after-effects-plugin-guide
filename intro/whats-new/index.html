@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -544,6 +544,49 @@
       Page Contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-the-270-sdk" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in the 27.0 SDK
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in the 27.0 SDK">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#utf-8-effect-strings" class="md-nav__link">
+		<span class="md-ellipsis">
+			UTF-8 Effect Strings
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#cuda-versions" class="md-nav__link">
+		<span class="md-ellipsis">
+			CUDA Versions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
       
         <li class="md-nav__item">
 	<a href="#whats-new-in-the-265-sdk" class="md-nav__link">
@@ -3777,6 +3820,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+	<a href="#whats-new-in-the-270-sdk" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in the 27.0 SDK
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in the 27.0 SDK">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#utf-8-effect-strings" class="md-nav__link">
+		<span class="md-ellipsis">
+			UTF-8 Effect Strings
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#cuda-versions" class="md-nav__link">
+		<span class="md-ellipsis">
+			CUDA Versions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
 	<a href="#whats-new-in-the-265-sdk" class="md-nav__link">
 		<span class="md-ellipsis">
 			What's New in the 26.5 SDK
@@ -4217,6 +4303,16 @@
 <h1 id="whats-new">What's New<a class="headerlink" href="#whats-new" title="Permanent link">&para;</a></h1>
 <p>If this is your first time developing an After Effects plug-in, you can skip the What's New section and go directly to <a href="../how-to-start-creating-plug-ins/">How To Start Creating Plug-ins</a>.</p>
 <hr />
+<h2 id="whats-new-in-the-270-sdk">What's New in the 27.0 SDK<a class="headerlink" href="#whats-new-in-the-270-sdk" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following updates apply to After Effects 27.0.0 and later. They are currently available in After Effects Beta only.</p>
+</div>
+<h3 id="utf-8-effect-strings">UTF-8 Effect Strings<a class="headerlink" href="#utf-8-effect-strings" title="Permanent link">&para;</a></h3>
+<p>Effects can set <code>PF_OutFlag2_STRINGS_ARE_UTF8</code> during <code>PF_Cmd_GLOBAL_SETUP</code> to indicate that they emit and consume UTF-8 strings instead of locale-dependent multibyte strings. This flag applies to After Effects only. See <a href="../../effect-basics/PF_OutData/#pf_outflags2">PF_OutFlags2</a> for more information. See <a href="../localization/">Localization</a> for guidance on effects that opt into UTF-8 and effects that continue using locale-dependent strings.</p>
+<h3 id="cuda-versions">CUDA Versions<a class="headerlink" href="#cuda-versions" title="Permanent link">&para;</a></h3>
+<p>For Windows GPU effects targeting AE 27.0.0, use CUDA 12.8 for x64 and CUDA 13.4 for ARM64. <code>PF_CUDAVersion</code> in <code>AE_EffectGPUSuites.h</code> selects the version according to the target architecture. See <a href="../gpu-build-instructions/#windows-setup-instructions">GPU-Accelerated Effect Build Instructions</a> for more information.</p>
+<hr />
 <h2 id="whats-new-in-the-265-sdk">What's New in the 26.5 SDK<a class="headerlink" href="#whats-new-in-the-265-sdk" title="Permanent link">&para;</a></h2>
 <h3 id="aegp-guide-suite">AEGP Guide Suite<a class="headerlink" href="#aegp-guide-suite" title="Permanent link">&para;</a></h3>
 <ul>
@@ -4239,7 +4335,7 @@
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The following features apply to Premiere Pro Beta only, starting with version 27.0. It does not currently apply to After Effects, though After Effects may adopt it in the future.</p>
+<p>The following features apply to Premiere Pro 27.0.0 and later. They are currently available in Premiere Pro Beta only and are not available in After Effects.</p>
 </div>
 <h3 id="search-keywords-and-description">Search Keywords And Description<a class="headerlink" href="#search-keywords-and-description" title="Permanent link">&para;</a></h3>
 <ul>
@@ -4534,7 +4630,7 @@ It should be used along with <code>AEGP_SetSelection()</code>.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 20, 2026 01:07:31 UTC">August 20, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 23, 2026 14:37:50 UTC">October 23, 2026</span>
   </span>
 
     
@@ -4600,10 +4696,10 @@ It should be used along with <code>AEGP_SetSelection()</code>.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../js/print-site.js"></script>
       
